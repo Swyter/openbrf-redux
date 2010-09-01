@@ -375,6 +375,7 @@ void Selector::contextMenuEvent(QContextMenuEvent *event)
    menu.setTitle(title);
 
    menu.addAction(removeAct);
+   if (onesel) renameAct->setText(tr("Rename")); else renameAct->setText(tr("Group rename"));
    menu.addAction(renameAct);
    if (onesel) {
      menu.addAction(duplicateAct);

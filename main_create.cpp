@@ -94,6 +94,12 @@ void MainWindow::createMenus()
     connect(tldMakeDwarfBoot,SIGNAL(triggered()),this,SLOT(tldMakeDwarfBoots()));
     tldSpecial->addAction(tldMakeDwarfBoot);
 
+    tldSpecial->addSeparator();
+
+    tldShrinkAroundBonesAct = new QAction("Shrink around bones",this);
+    connect(tldShrinkAroundBonesAct,SIGNAL(triggered()),this,SLOT(tldShrinkAroundBones()));
+    tldSpecial->addAction(tldShrinkAroundBonesAct);
+
     tldMenuAction = menuBar()->addMenu(tldSpecial);
     menuBar()->removeAction(tldMenuAction);
     //tldSpecial->hide();

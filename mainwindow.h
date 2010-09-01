@@ -114,7 +114,9 @@ private:
     void editPasteRigging();
     void editPasteMod();
     void sortEntries();
-    void meshRecomputeNormalsAndUnify(int crease);
+    void meshRecomputeNormalsAndUnifyDoIt();
+    void meshRecomputeNormalsAndUnify_onSlider(int i);
+    void meshRecomputeNormalsAndUnify_onCheckbox(bool i);
     void meshRecomputeNormalsAndUnify();
     void meshUnify();
     void meshMerge();
@@ -145,6 +147,7 @@ private:
     void tldHead(float verse);
     void tldMakeDwarfSlim();
     void tldMakeDwarfBoots();
+    void tldShrinkAroundBones();
 
 
 
@@ -260,6 +263,7 @@ private:
     QAction *mab2tldArmorAct;
     QAction *tld2mabArmorAct;
     QAction *tldMakeDwarfSlimAct;
+    QAction *tldShrinkAroundBonesAct;
 
     QAction *checkIniAct;
     QAction *searchIniAct;

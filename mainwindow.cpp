@@ -433,6 +433,36 @@ void MainWindow::tldMakeDwarfSlim(){
 
 }
 
+void MainWindow::tldShrinkAroundBones(){
+  int sdi = currentDisplaySkeleton();
+  if (sdi<0 || sdi>=reference.skeleton.size()) {
+    statusBar()->showMessage("No current skeleton found!");
+    return;
+  }
+  BrfSkeleton &skel (reference.skeleton[sdi]);
+
+
+  int done =0;
+  for (int ii=0; ii<selector->selectedList().size(); ii++) {
+    int i = selector->selectedList()[ii].row();
+    if (i<0) continue;
+    if (i>(int)brfdata.mesh.size()) continue;
+    BrfMesh &m(brfdata.mesh[i]);
+    int frame = guiPanel->getCurrentSubpieceIndex(MESH);
+    if (frame<0 || frame>=(int)m.frame.size()) {
+      statusBar()->showMessage(tr("Invalid frame %1").arg(frame));
+      continue;
+    }
+
+    m.ShrinkAroundBones(skel,frame);
+    setModified(true);
+    updateGl();
+    done++;
+  }
+  statusBar()->showMessage(tr("%1 meshes shrunk around bones").arg(done));
+
+}
+
 void MainWindow::mab2tldArmor(){
 
   //int shi=reference.Find("skel_orc_tall",SKELETON);
@@ -848,7 +878,21 @@ void MainWindow::updateSel(){
   selector->updateData(brfdata);
 }
 
-void MainWindow::meshRecomputeNormalsAndUnify(int crease){
+// these should go as private members but I'm lazy right now
+static double _crease = 0.5;
+static bool _keepSeams = true;
+
+void MainWindow::meshRecomputeNormalsAndUnify_onSlider(int i){
+  _crease = 1-i/100.0f*2;
+  meshRecomputeNormalsAndUnifyDoIt();
+}
+
+void MainWindow::meshRecomputeNormalsAndUnify_onCheckbox(bool i){
+  _keepSeams = i;
+  meshRecomputeNormalsAndUnifyDoIt();
+}
+
+void MainWindow::meshRecomputeNormalsAndUnifyDoIt(){
   //int i = selector->firstSelected();
 
   for (int k=0; k<selector->selectedList().size(); k++) {
@@ -862,12 +906,14 @@ void MainWindow::meshRecomputeNormalsAndUnify(int crease){
 
     m.DivideVert();
     m.ComputeNormals();
-    m.UnifyVert(true,1-crease/100.0f*2);
+    m.UnifyVert(true,_crease);
     m.ComputeNormals();
+    if (!_keepSeams)
+    m.RemoveSeamsFromNormals(_crease);
   }
   updateGui();
   updateGl();
-  statusBar()->showMessage(tr("Normals recomputed with %1% hard edges.").arg(crease), 2000);
+  statusBar()->showMessage(tr("Normals recomputed with %1% hard edges.").arg(int(100-_crease*50)), 2000);
 }
 
 void MainWindow::meshRecomputeNormalsAndUnify(){
@@ -876,12 +922,22 @@ void MainWindow::meshRecomputeNormalsAndUnify(){
   if (i>(int)brfdata.mesh.size()) return;
 
   AskCreaseDialog d(this);
-  connect(d.slider(),SIGNAL(valueChanged(int)),this,SLOT(meshRecomputeNormalsAndUnify(int)));
+
+  d.slider()->setValue(100-int(_crease*100));
+  d.checkbox()->setChecked(_keepSeams);
+
+  connect(d.slider(),SIGNAL(valueChanged(int)),
+          this,SLOT(meshRecomputeNormalsAndUnify_onSlider(int)));
+  connect(d.checkbox(),SIGNAL(clicked(bool)),
+          this,SLOT(meshRecomputeNormalsAndUnify_onCheckbox(bool)));
   //d.exec();
-  meshRecomputeNormalsAndUnify(d.slider()->value());
+  meshRecomputeNormalsAndUnifyDoIt();
   d.exec();
   //d.setModal();
-  disconnect(d.slider(),SIGNAL(valueChanged(int)),this,SLOT(meshRecomputeNormalsAndUnify(int)));
+  disconnect(d.checkbox(),SIGNAL(clicked(bool)),
+             this,SLOT(meshRecomputeNormalsAndUnify_onCheckbox(bool)));
+  disconnect(d.slider(),SIGNAL(valueChanged(int)),
+             this,SLOT(meshRecomputeNormalsAndUnify_onSlider(int)));
 
   setModified(true);
 }
@@ -2018,8 +2074,12 @@ MainWindow::~MainWindow()
 
 bool MainWindow::navigateLeft(){
 
+
   if (navigationStackPos<=0) return false;
   navigationStackPos--;
+
+  int nowPos = navigationStackPos;
+  static int num=0; num++;
   QPair<Pair,QString> p = navigationStack[navigationStackPos];
   //qDebug()<<"p,first: "<<p.first<<" (on"<<inidata.filename.size() << ")\n";
   if (p.second.isEmpty()) return false;
@@ -2030,13 +2090,15 @@ bool MainWindow::navigateLeft(){
         p.second )
         ) return false;
 
+
   curFileIndex = p.first.first;
 
   int obj=MESH;
-  if (navigationStackPos==1) obj=MATERIAL;
+  if (nowPos==1) obj=MATERIAL;
+
   selectOne(obj,p.first.second);
-  //selector->currentWidget()->setFocus();
-  guiPanel->setNavigationStackDepth( navigationStackPos );
+  ////selector->currentWidget()->setFocus();
+  guiPanel->setNavigationStackDepth( navigationStackPos = nowPos );
   return true;
 }
 
@@ -2117,6 +2179,8 @@ bool MainWindow::navigateRight(){
     curFileIndex = p.first;
     if (navigationStackPos<10) navigationStackPos ++;
     guiPanel->setNavigationStackDepth( navigationStackPos );
+    statusBar()->showMessage( tr("Navigate right: pos = %1")
+                              .arg(navigationStackPos),6000);
 
     // switch to file containing the material
     selectOne(ne,p.second);
