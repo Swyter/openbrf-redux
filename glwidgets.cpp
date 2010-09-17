@@ -684,14 +684,14 @@ void GLWidget::setViewmode(int i){
       lastCenter +
       vcg::Point3f(sin(ph)*dist/lastScale*K,0.6,cos(ph)*dist/lastScale*K);
     //qDebug("Scale = %f",lastScale);
-    emit(displayInfo("Scene mode: navigate with mouse and WASD (levitate with wheel, zoom in with shift)", 10000));
+    emit(displayInfo(tr("Scene mode: navigate with mouse and WASD (levitate with wheel, zoom in with shift)"), 10000));//revised foxyman
   } else {
     //setFocusPolicy(Qt::NoFocus);
     setFocusPolicy(Qt::WheelFocus);
     if (i==1)
-    emit(displayInfo("Helmet mode: for objects with vertical Z axis, like M&B helmets or weapons.", 8000));
+    emit(displayInfo(tr("Helmet mode: for objects with vertical Z axis, like M&B helmets or weapons."), 8000));//revised foxyman
     else
-    emit(displayInfo("Default mode: rotate objects with mouse, zoom in/out with wheel.", 8000));
+    emit(displayInfo(tr("Default mode: rotate objects with mouse, zoom in/out with wheel."), 8000));//revised foxyman
   }
   update();
 }

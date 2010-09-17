@@ -1,8 +1,6 @@
-
 #include "brfData.h"
 
 #include "saveLoad.h"
-
 
  char * tokenBrfName[N_TOKEN] = {
   "mesh",
@@ -14,36 +12,6 @@
   "body",
 };
 
-char * tokenTabName[N_TOKEN] = {
-  "&Mesh",
-  "Te&xture",
-  "&Shader",
-  "Mat&erial",
-  "S&keleton",
-  "&Animation",
-  "&Collision",
-};
-
-
-char * tokenFullName[N_TOKEN] = {
-  "Mesh",
-  "Texture",
-  "Shader",
-  "Material",
-  "Skeleton",
-  "Animation",
-  "Collision Object",
-};
-
-char * tokenPlurName[N_TOKEN] = {
-  "Meshes",
-  "Textures",
-  "Shaders",
-  "Materials",
-  "Skeletons",
-  "Animations",
-  "Collision Objects",
-};
 
 
 BrfData::BrfData(){

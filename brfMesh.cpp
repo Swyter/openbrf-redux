@@ -2,6 +2,7 @@
 #include <vector>
 #include <set>
 #include <stdio.h>
+#include <stdlib.h>
 
 #include <vcg/space/box3.h>
 #include <vcg/math/matrix44.h>

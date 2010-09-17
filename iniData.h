@@ -2,6 +2,9 @@
 #define INIDATA_H
 
 #include <map>
+#include <vector>
+#include "brfData.h"
+#include "QPair.h"
 typedef QPair<int,int> Pair;
 
 class QDir;
@@ -45,6 +48,10 @@ public:
   QString searchAllNames(const QString &s,bool commonResToo, int token) const;
 
   bool findWhichAreUsed(const QString& path);
+
+  static QString tokenFullName(int k);
+  static QString tokenPlurName(int k);
+
 private:
   QString link(int i, int j, int kind) const; // given an object j of kind kind in file i, returns a strig link
   QString linkShort(int i, int j, int kind) const;

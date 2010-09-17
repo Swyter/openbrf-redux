@@ -25,6 +25,9 @@ public:
 
     int GetFirstUnusedRefLetter() const;
     bool loadFile(const QString &fileName);
+
+    static int getLanguageOption();
+
 private:
     BrfData brfdata;
     BrfData reference;
@@ -140,6 +143,10 @@ private:
     void optionAutoFixTextureUpdated();
     void optionAutoFixTextureShowInfo();
 
+    void optionLanguageSet0();
+    void optionLanguageSet1();
+    void optionLanguageSet2();
+
     void mab2tldHead();
     void tld2mabHead();
     void mab2tldArmor();
@@ -168,6 +175,9 @@ private:
     QString modName;
     QString modPath() const;
     QString lastSearchString;
+
+    int curLanguage; // 0 = use default
+    void setLanguage(int k);
 
     bool scanBrfForMaterials(const QString fname);
     bool scanIniForMaterials(const QString fname);
@@ -283,6 +293,7 @@ private:
     QAction *optionAutoFixTextureInfo;
     QAction *optionAutoZoomUseGlobal;
     QAction *optionAutoZoomUseSelected;
+    QAction *optionLanguage[3];
 
     QAction *tldMenuAction;
 

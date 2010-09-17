@@ -11,7 +11,6 @@
 #include "ioMB.h"
 #include "ioOBJ.h"
 
-
 bool MainWindow::exportMeshGroup(){
   int i = selector->firstSelected();
   if (i<0) return false;
