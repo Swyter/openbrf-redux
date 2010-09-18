@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>openBrf.ico</file>
+        <file>translations/openbrf_zh.qm</file>
+        <file>translations/openbrf_es.qm</file>
+    </qresource>
+</RCC>
