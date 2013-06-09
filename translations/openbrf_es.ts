@@ -721,6 +721,11 @@ Comm Res:</translation>
         <source>humanoids</source>
         <translation>Humanoides</translation>
     </message>
+    <message>
+        <location filename="../askSkelDialog.cpp" line="+19"/>
+        <source>any other skeleton</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AskTexturenameDialog</name>
@@ -954,7 +959,7 @@ Ni siquiera serán cargadas por el juego...</translation>
 <context>
     <name>GLWidget</name>
     <message>
-        <location filename="../glwidgets.cpp" line="+585"/>
+        <location filename="../glwidgets.cpp" line="+589"/>
         <source>&lt;br /&gt;Vertex compilation: &lt;br /&gt;</source>
         <translation>&lt;br /&gt;Compilación de vértice: &lt;br /&gt;</translation>
     </message>
@@ -974,7 +979,7 @@ Ni siquiera serán cargadas por el juego...</translation>
         <translation>&lt;br /&gt;Vinculando: &lt;br /&gt;</translation>
     </message>
     <message>
-        <location line="+645"/>
+        <location line="+660"/>
         <source>&quot;green&quot; NM</source>
         <translation>Mapa de normales Verde (&quot;green&quot; NM)</translation>
     </message>
@@ -1098,12 +1103,12 @@ tal vez el problema sea que el sombreador usa los signos (&lt;) o (&gt;) o (&amp
         <translation>DXT 5 (alfa suavizada)</translation>
     </message>
     <message>
-        <location line="+187"/>
+        <location line="+189"/>
         <source> (keep [shift] pressed to nudge)</source>
         <translation>(mantén pulsado [mayús] para empujar)</translation>
     </message>
     <message>
-        <location line="+102"/>
+        <location line="+115"/>
         <source>Mesh-set %1</source>
         <translation>Conjunto %1</translation>
     </message>
@@ -1114,7 +1119,7 @@ tal vez el problema sea que el sombreador usa los signos (&lt;) o (&gt;) o (&amp
     </message>
     <message>
         <location line="+18"/>
-        <location line="+1201"/>
+        <location line="+1227"/>
         <location line="+313"/>
         <location line="+239"/>
         <location line="+353"/>
@@ -1124,7 +1129,7 @@ tal vez el problema sea que el sombreador usa los signos (&lt;) o (&gt;) o (&amp
         <translation>Propiedades</translation>
     </message>
     <message>
-        <location line="-2524"/>
+        <location line="-2550"/>
         <source>Set material used by this mesh.</source>
         <translation>Asigna el material usado por este modelo.</translation>
     </message>
@@ -1150,21 +1155,21 @@ tal vez el problema sea que el sombreador usa los signos (&lt;) o (&gt;) o (&amp
     </message>
     <message>
         <location line="+25"/>
-        <location line="+1157"/>
+        <location line="+1183"/>
         <location line="+1074"/>
         <source>000000000000; </source>
         <translation>000000000000; </translation>
     </message>
     <message>
-        <location line="-2215"/>
-        <location line="+1119"/>
+        <location line="-2241"/>
+        <location line="+1145"/>
         <location line="+727"/>
         <location line="+347"/>
         <source>Flags:</source>
         <translation>Indicad:</translation>
     </message>
     <message>
-        <location line="-2171"/>
+        <location line="-2197"/>
         <source>Diffuse texture name (depends on material)</source>
         <translation>Nombre de la textura difusa (depende del material)</translation>
     </message>
@@ -1175,12 +1180,12 @@ tal vez el problema sea que el sombreador usa los signos (&lt;) o (&gt;) o (&amp
     </message>
     <message>
         <location line="+19"/>
-        <location line="+2701"/>
+        <location line="+2727"/>
         <source>faces:</source>
         <translation>Cara:</translation>
     </message>
     <message>
-        <location line="-2682"/>
+        <location line="-2708"/>
         <source>Number of triangles of this mesh.</source>
         <translation>Número de triángulos de esta malla.</translation>
     </message>
@@ -1221,12 +1226,12 @@ tal vez el problema sea que el sombreador usa los signos (&lt;) o (&gt;) o (&amp
     </message>
     <message>
         <location line="+19"/>
-        <location line="+1382"/>
+        <location line="+1408"/>
         <source>:</source>
         <translation></translation>
     </message>
     <message>
-        <location line="-1272"/>
+        <location line="-1298"/>
         <source>View</source>
         <translation>Vista Previa</translation>
     </message>
@@ -1408,12 +1413,21 @@ tal vez el problema sea que el sombreador usa los signos (&lt;) o (&gt;) o (&amp
         <translation>Selecciona un esqueleto de referencia (por ejemplo humano o caballo)</translation>
     </message>
     <message>
-        <location line="+23"/>
         <source>Hitboxes</source>
-        <translation>Cuerpos de colisión</translation>
+        <translation type="obsolete">Cuerpos de colisión</translation>
     </message>
     <message>
-        <location line="+28"/>
+        <location line="+23"/>
+        <source>Hit-Boxes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>Floor &amp;&amp; Shadow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+31"/>
         <source>Pause the animation.</source>
         <translation>Pausa la animación.</translation>
     </message>
@@ -1869,8 +1883,8 @@ zar</translation>
         <translation></translation>
     </message>
     <message>
-        <location line="-3200"/>
-        <location line="+1120"/>
+        <location line="-3226"/>
+        <location line="+1146"/>
         <location line="+466"/>
         <location line="+556"/>
         <location line="+13"/>
@@ -1879,7 +1893,7 @@ zar</translation>
         <translation></translation>
     </message>
     <message>
-        <location line="-2835"/>
+        <location line="-2861"/>
         <source>Mesh flags</source>
         <translation>Indicadores de Modelo</translation>
     </message>
@@ -1912,7 +1926,7 @@ zar</translation>
         <translation type="obsolete">Orden de Renderizado (negativo significa más cercano)</translation>
     </message>
     <message>
-        <location line="+1526"/>
+        <location line="+1552"/>
         <source>Click to open file containing shader.</source>
         <translation>Presiona para abrir el archivo que contiene el sombreador</translation>
     </message>
@@ -2201,8 +2215,8 @@ p, li { white-space: pre-wrap; }
         <location line="+7"/>
         <location line="+33"/>
         <location line="+21"/>
-        <location line="+18"/>
-        <location line="+178"/>
+        <location line="+22"/>
+        <location line="+179"/>
         <location line="+24"/>
         <location line="+63"/>
         <location line="+8"/>
@@ -2217,7 +2231,7 @@ p, li { white-space: pre-wrap; }
         <translation>OpenBRF | Traducido al Castellano por Swyter</translation>
     </message>
     <message>
-        <location line="-925"/>
+        <location line="-930"/>
         <source>Cannot open file for writing;</source>
         <translation>No se puede abrir con permisos de escritura;</translation>
     </message>
@@ -2312,19 +2326,18 @@ p, li { white-space: pre-wrap; }
         <translation>¿No se puede escribir en el archivo?</translation>
     </message>
     <message>
-        <location line="+13"/>
         <source>Quake 3 vertex animation (*.MD3)</source>
-        <translation>Animación por Vértices de Quake 3  (*.MD3)</translation>
+        <translation type="obsolete">Animación por Vértices de Quake 3  (*.MD3)</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+22"/>
         <source>Error exporting MD3 file
 : %1</source>
         <translation>Error en la exportación del archivo MD3:
 %1</translation>
     </message>
     <message>
-        <location line="+82"/>
+        <location line="+83"/>
         <location line="+22"/>
         <source>Import file</source>
         <translation>Importar Archivo</translation>
@@ -2418,7 +2431,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../mainwindow.ui" line="+14"/>
         <location filename="../main_ImpExp.cpp" line="+65"/>
-        <location filename="../mainwindow.cpp" line="+1665"/>
+        <location filename="../mainwindow.cpp" line="+1668"/>
         <location line="+23"/>
         <location line="+3"/>
         <source>OpenBRF</source>
@@ -2437,7 +2450,12 @@ Import a separate mesh per material\object?</source>
         <translation>Modelo importado &quot;%1&quot;--- normales:%2 colores:%3 coordenadas de textura:%4</translation>
     </message>
     <message>
-        <location line="+125"/>
+        <location line="-303"/>
+        <source>Quake 3 vertex animation (*.MD3);;Sequence of Obj (*.000.obj)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+428"/>
         <source>No mesh found in %1
 </source>
         <translation>No se ha encontrado ningún modelo en %1
@@ -2462,7 +2480,7 @@ al que añadir un fotograma o cuadro.</translation>
     </message>
     <message>
         <location line="+10"/>
-        <location filename="../mainwindow.cpp" line="+1473"/>
+        <location filename="../mainwindow.cpp" line="+1507"/>
         <source>Vertex number mismatch... using texture-coord matching instead of vertex-ordering</source>
         <translation>El número de vértices no concuerda... se usarán las coordenadas de textura para ordenarlos.</translation>
     </message>
@@ -2543,12 +2561,12 @@ al que añadir un fotograma o cuadro.</translation>
         <translation type="obsolete">&amp;Módulo</translation>
     </message>
     <message>
-        <location line="+95"/>
+        <location line="+94"/>
         <source>Navigate</source>
         <translation>Navegar</translation>
     </message>
     <message>
-        <location line="-93"/>
+        <location line="-92"/>
         <source>&amp;Tools</source>
         <translation>&amp;Herramientas</translation>
     </message>
@@ -2561,7 +2579,7 @@ al que añadir un fotograma o cuadro.</translation>
         <translation type="obsolete">Usar OpenGL 2.0</translation>
     </message>
     <message>
-        <location line="+119"/>
+        <location line="+121"/>
         <source>Allows to preview bumpmapping etc. This can create compatibility problems on some (older?) graphic card</source>
         <translation>Permite la previsualización de mapas de relieve (Bump maps). Esto puede desencadenar problemas con tarjetas gráficas antiguas</translation>
     </message>
@@ -2581,7 +2599,7 @@ al que añadir un fotograma o cuadro.</translation>
         <translation>Unir vértices y posiciones</translation>
     </message>
     <message>
-        <location line="-194"/>
+        <location line="-196"/>
         <source>&amp;Selected</source>
         <translation>&amp;Selección</translation>
     </message>
@@ -2596,7 +2614,7 @@ al que añadir un fotograma o cuadro.</translation>
         <translation>Co&amp;nfiguración</translation>
     </message>
     <message>
-        <location line="+193"/>
+        <location line="+195"/>
         <source>recompute normals and merge</source>
         <translation>Recalcular normales</translation>
     </message>
@@ -3028,17 +3046,7 @@ al que añadir un fotograma o cuadro.</translation>
         <translation>Pegar cuerpos de colisión en el esqueleto actual.</translation>
     </message>
     <message>
-        <location line="+70"/>
-        <source>Edit vertex-data</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Stop editing vertex-data</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+20"/>
+        <location line="+95"/>
         <source>Measure with ruler</source>
         <translation>Medir con regla</translation>
     </message>
@@ -3128,7 +3136,12 @@ al que añadir un fotograma o cuadro.</translation>
         <translation>Buscar...</translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="+2"/>
+        <source>Refresh all</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
         <source>Change current Module...</source>
         <translation>Cambiar módulo actual...</translation>
     </message>
@@ -3157,7 +3170,7 @@ al que añadir un fotograma o cuadro.</translation>
         <translation type="obsolete">Copia las coordenadas de texturas desde el modelo en el portapapeles.</translation>
     </message>
     <message>
-        <location line="-266"/>
+        <location line="-270"/>
         <source>Paste vert colors</source>
         <translation>Pegar colores de Vértice</translation>
     </message>
@@ -3216,6 +3229,16 @@ al que añadir un fotograma o cuadro.</translation>
         <location line="+3"/>
         <source>Save module hitbox-sets for all skeletons</source>
         <translation>Guardar cuerpos de colisión para todos los esqueletos</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Create scene prop code for module</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Create scene prop text for current meshes and collision bodies</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+13"/>
@@ -3278,7 +3301,17 @@ al que añadir un fotograma o cuadro.</translation>
         <translation></translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+2"/>
+        <source>Enter vertex-data editor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Exit vertex-data editor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
         <source>Sort entries</source>
         <translation>Ordenar la lista</translation>
     </message>
@@ -3465,16 +3498,15 @@ al que añadir un fotograma o cuadro.</translation>
         <translation>ctrl+B</translation>
     </message>
     <message>
-        <location line="-29"/>
         <source>Refresh</source>
-        <translation>Recargar</translation>
+        <translation type="obsolete">Recargar</translation>
     </message>
     <message>
         <source>Export names</source>
         <translation type="obsolete">Exportar nombres</translation>
     </message>
     <message>
-        <location line="+22"/>
+        <location line="-7"/>
         <source>Export al the contnt in a txt file</source>
         <translation>Exporta todo el contenido en un archivo txt (de texto)</translation>
     </message>
@@ -3899,19 +3931,19 @@ al que añadir un fotograma o cuadro.</translation>
         <translation>&lt;i&gt;No puedo mostrar la textura real porque:&lt;/i&gt;&lt;br&gt;&lt;b&gt;%1&lt;/b&gt;&lt;br&gt;&lt;br&gt;%2&lt;br&gt;&lt;br&gt;&lt;b&gt;Solución: &lt;/b&gt;%3</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="-3077"/>
-        <location line="+1226"/>
+        <location filename="../mainwindow.cpp" line="-3114"/>
+        <location line="+1229"/>
         <location line="+294"/>
         <location line="+24"/>
-        <location line="+1052"/>
+        <location line="+1070"/>
         <location line="+12"/>
-        <location line="+628"/>
-        <location line="+1668"/>
+        <location line="+644"/>
+        <location line="+1764"/>
         <source>OpenBrf</source>
         <translation>OpenBRF</translation>
     </message>
     <message>
-        <location line="-4903"/>
+        <location line="-5036"/>
         <source>%1 been modified.
 Save changes?</source>
         <translation>%1 ha sido modificado.
@@ -3945,7 +3977,7 @@ Save changes?</source>
 </translation>
     </message>
     <message>
-        <location line="+51"/>
+        <location line="+48"/>
         <source>Invalid frame %1</source>
         <translation>Fotograma %1 inválido</translation>
     </message>
@@ -3967,7 +3999,7 @@ Save changes?</source>
         <translation>Asignar indicador(es) a &quot;%1&quot;</translation>
     </message>
     <message>
-        <location line="+168"/>
+        <location line="+169"/>
         <source>Stop editing reference data</source>
         <translation>Detener la edición de datos de referencia</translation>
     </message>
@@ -4022,7 +4054,7 @@ Save changes?</source>
         <translation>Selecciona un conjunto:</translation>
     </message>
     <message>
-        <location line="+59"/>
+        <location line="+64"/>
         <source>Vertex unified.</source>
         <translation>Vértices unificados.</translation>
     </message>
@@ -4093,7 +4125,7 @@ o discordancia en la vinculación esqueletal).
 </translation>
     </message>
     <message>
-        <location line="+938"/>
+        <location line="+936"/>
         <source>Computed AO%1</source>
         <translation>AO calculado %1</translation>
     </message>
@@ -4120,7 +4152,7 @@ Overwrite it?</source>
 ¿Quieres sobreescribirlo?</translation>
     </message>
     <message>
-        <location line="-487"/>
+        <location line="-485"/>
         <source>Normals recomputed with %1% hard edges.</source>
         <translation>Normales recalculadas con %1% bordes marcados retocados.</translation>
     </message>
@@ -4135,7 +4167,7 @@ Overwrite it?</source>
         <translation>¡Endurecidas %1 mallas rígidas!</translation>
     </message>
     <message>
-        <location line="+103"/>
+        <location line="+94"/>
         <source>Shift animation timings</source>
         <translation>Ajustar los tiempos de la animación</translation>
     </message>
@@ -4161,7 +4193,7 @@ Seleccionar k:</translation>
         <translation>Eliminar Intervalo</translation>
     </message>
     <message>
-        <location line="+21"/>
+        <location line="+23"/>
         <source>Cannot merge these animations
  (different number of bones).
 </source>
@@ -4179,7 +4211,7 @@ Seleccionar k:</translation>
 </translation>
     </message>
     <message>
-        <location line="+422"/>
+        <location line="+427"/>
         <source>Transfer Rigging</source>
         <translation>Transferir unión esqueletal</translation>
     </message>
@@ -4201,14 +4233,14 @@ reskeletonization canceled.
         <translation>Mismo esqueleto, no se puede ajustar el esqueleto porque es el mismo.</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+10"/>
         <source>Different number of bones:
 reskeletonization canceled.
 </source>
         <translation>Número diferente de huesos: no se puede ajustar el esqueleto.</translation>
     </message>
     <message>
-        <location line="+122"/>
+        <location line="+139"/>
         <source>Renaming %1...
 new name:</source>
         <translation>Renombrando %1... nuevo nombre:</translation>
@@ -4231,7 +4263,7 @@ Escribe el nuevo aquí:</translation>
         <translation>Añadiendo un</translation>
     </message>
     <message>
-        <location line="+377"/>
+        <location line="+393"/>
         <source>Copy Rigging into another mesh</source>
         <translation>Copiar vinculación esquetal a otro modelo</translation>
     </message>
@@ -4283,7 +4315,7 @@ Escribe el nuevo aquí:</translation>
         <translation>Para usar la función de pegar modificaciones de modelo primero copia un modelo con una animación de 2 fotogramas. Después, selecciona uno o varios objetos de destino y, finalmente &quot;pega la modificación&quot; en cualquier cuadro de cualquier animación de vértices.</translation>
     </message>
     <message>
-        <location line="+220"/>
+        <location line="+285"/>
         <source>Canceled.</source>
         <translation>Cancelado.</translation>
     </message>
@@ -4337,7 +4369,7 @@ Escribe el nuevo aquí:</translation>
         <translation>La animación %2 se ha dividido en %1 trozos -- ¡Nuevo actions.txt guardado en &quot;%3&quot;!</translation>
     </message>
     <message>
-        <location line="+1217"/>
+        <location line="+1248"/>
         <source>Navigate: cannot find &quot;%1&quot; in current module</source>
         <translation>Navegar: no se puede encontrar &quot;%1&quot; en el módulo actual</translation>
     </message>
@@ -4346,7 +4378,7 @@ Escribe el nuevo aquí:</translation>
         <translation type="obsolete">Open BRF</translation>
     </message>
     <message>
-        <location line="-806"/>
+        <location line="-835"/>
         <source>Cannot save reference file!</source>
         <translation>¡No se puede guardar el archivo de referencia!</translation>
     </message>
@@ -4466,7 +4498,7 @@ Las direcciones tangentes no se guardarán...</translation>
         <translation type="obsolete">Navegar derecha: pos = %1</translation>
     </message>
     <message>
-        <location line="+415"/>
+        <location line="+437"/>
         <source>&amp;%1 %2</source>
         <translation></translation>
     </message>
@@ -4689,7 +4721,7 @@ Las direcciones tangentes no se guardarán...</translation>
         <translation>Indicadores de textura</translation>
     </message>
     <message>
-        <location line="-5304"/>
+        <location line="-5430"/>
         <source>Skeleton hitboxes have been modified.&lt;br/&gt;Save changes in /Data/skeleton_bodies.xml?</source>
         <translation>Los cuerpos de colisión han sido modificados. &lt;br/&gt;¿Guardar cambios en /Data/skeleton_bodies.xml?</translation>
     </message>
@@ -4738,7 +4770,19 @@ archivo %2
 </translation>
     </message>
     <message>
-        <location line="+1396"/>
+        <location line="+1000"/>
+        <source>Select a skeleton
+in the view panel first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>Select an animation
+in the view panel first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+390"/>
         <source>Error loading line of file %2:
 
 %1</source>
@@ -4804,13 +4848,13 @@ Overwrite it?</source>
 ¿Quieres sobreescribirlo?</translation>
     </message>
     <message>
-        <location line="+433"/>
+        <location line="+426"/>
         <location line="+12"/>
         <source>Select one or more animation using same number of bones first</source>
         <translation>Primero selecciona uno o más animaciones que tengan el mismo número de huesos</translation>
     </message>
     <message>
-        <location line="+54"/>
+        <location line="+59"/>
         <source>Skeleton %1 has no associated hit-box set. Canceled</source>
         <translation>El esqueleto %1 no tiene ningún cuerpo de colisió asociado. Cancelado</translation>
     </message>
@@ -4825,7 +4869,7 @@ Overwrite it?</source>
         <translation>Color uniforme para modelo</translation>
     </message>
     <message>
-        <location line="+530"/>
+        <location line="+550"/>
         <location line="+21"/>
         <source>%1: Select one skeleton with a hitbox first</source>
         <translation>%1: Selecciona un esqueleto con cuerpo de colisión primero</translation>
@@ -4857,7 +4901,21 @@ Overwrite it?</source>
         <translation>Datos almacenados en el portapapeles no utilizables</translation>
     </message>
     <message>
-        <location line="+179"/>
+        <location line="+58"/>
+        <source>Copyed prop code for %1 objects
+(%2 with matching collison mesh)
+on the clipboard.
+
+Paste at will!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>No prop mesh found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+134"/>
         <source>Copy Rigging into another mesh:
 - select one or more sample rigged mesh
 - copy them (ctrl+C)
@@ -4885,7 +4943,25 @@ Overwrite it?</source>
         <translation>Transferir vinculación a %1 modelo(s) desde %2 esqueletos.</translation>
     </message>
     <message>
-        <location line="+408"/>
+        <location line="+343"/>
+        <source>This will produce a vertex ani
+with %1x%2 xyz positions+normals (%4 MB).
+
+Proceed?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+42"/>
+        <source>Incompatible animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+29"/>
+        <source>Incompatible skin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+59"/>
         <source>I need to know from which skeleton to Unmount. Select a skeleton in the panel.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4903,7 +4979,7 @@ Activate ruler tool?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+492"/>
+        <location line="+494"/>
         <source>&lt;p&gt;You are saving into the generic OpenBRF reference file &lt;br&gt;&quot;%1&quot;&lt;/p&gt;&lt;p&gt;Would you rather save in the reference file &lt;i&gt;specific&lt;/i&gt; for Module %3&lt;br&gt;&quot;%2&quot;&lt;br&gt;?&lt;/p&gt;</source>
         <translation>&lt;p&gt;Estás guardando en el archivo de referencia genérico de OpenBRF &lt;br&gt;&quot;%1&quot;&lt;/p&gt;&lt;p&gt;¿Querrías guardarlo en un archivo de referencia para utilizarlo &lt;i&gt;exclusivamente&lt;/i&gt; en el &lt;/i&gt; módulo %3&lt;br&gt;&quot;%2&quot;&lt;br&gt;?&lt;/p&gt;</translation>
     </message>
@@ -4955,7 +5031,7 @@ Tangent directions will not be saved...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+939"/>
+        <location line="+961"/>
         <location line="+1"/>
         <source>Unclear meaining, usually only set for facial textures</source>
         <translation>El significado no está claro, normalmente solo se utiliza para las texturas de caras</translation>
@@ -5375,7 +5451,7 @@ en la línea %3:
         <translation>&lt;h2&gt;Datos de TXT:&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location line="+501"/>
+        <location line="+502"/>
         <source>&lt;b&gt;Missing in txt:&lt;/b&gt; cannot find %1 &lt;u&gt;%2&lt;/u&gt;, referred in &apos;%3&apos;</source>
         <translation>&lt;b&gt;Ausente en txt:&lt;/b&gt; no se encuentra %1 &lt;u&gt;%2&lt;/u&gt;, definido en &apos;%3&apos;</translation>
     </message>
@@ -5401,7 +5477,7 @@ en la línea %3:
 <context>
     <name>QTextBrowser::QTextBrowser</name>
     <message>
-        <location line="-420"/>
+        <location line="-421"/>
         <source>&lt;i&gt;more errors to follow...&lt;/i&gt;</source>
         <translation>&lt;i&gt;Quedan más errores por mostrar...&lt;/i&gt;</translation>
     </message>
@@ -5721,7 +5797,7 @@ en la línea %3:
         <translation type="obsolete">Exportar Animación</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+9"/>
         <source>Export this animation.</source>
         <translation>Exporta esta animación.</translation>
     </message>
@@ -5895,7 +5971,7 @@ en la línea %3:
         <translation>Realizar una modificación del esqueleto a través de un modelo 3D...</translation>
     </message>
     <message>
-        <location line="+104"/>
+        <location line="+108"/>
         <source>[Right-Click]: tools for %1. Multiple selections with [Shift] or [Ctrl].</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5910,24 +5986,24 @@ en la línea %3:
         <translation>Usado por:</translation>
     </message>
     <message>
-        <location line="-573"/>
-        <location line="+158"/>
+        <location line="-583"/>
+        <location line="+164"/>
         <source>Mirror</source>
         <translation>Volteo Simétrico</translation>
     </message>
     <message>
-        <location line="-168"/>
+        <location line="-174"/>
         <source>Split via action.txt...</source>
         <translation>Dividir mediante action.txt...</translation>
     </message>
     <message>
         <location line="+19"/>
-        <location line="+552"/>
+        <location line="+562"/>
         <source>Rename...</source>
         <translation>Renombrar...</translation>
     </message>
     <message>
-        <location line="-530"/>
+        <location line="-540"/>
         <source>Move up in the list</source>
         <translation>Subir un puesto en la lista</translation>
     </message>
@@ -5978,6 +6054,22 @@ en la línea %3:
     </message>
     <message>
         <location line="+5"/>
+        <location line="+3"/>
+        <source>Convert into vertex animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-2"/>
+        <source>Convert skeletal animation into a vertex animation using current skin and skeleton</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Convert rigged mesh into a vertex animation using current animation and skeleton</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
         <source>Export animation...</source>
         <translation>Exportar animación...</translation>
     </message>
@@ -6329,7 +6421,7 @@ en la línea %3:
         <translation type="obsolete">[Click Derecho]: Herramientas para %1. Selecciones múltiples con [Máyus]-[Ctrl]</translation>
     </message>
     <message>
-        <location line="+115"/>
+        <location line="+119"/>
         <source>[Right-Click]: tools for %1.</source>
         <translation>[Click Derecho]: Herramientas para %1.</translation>
     </message>
@@ -6342,7 +6434,7 @@ en la línea %3:
         <translation type="obsolete">Usado por...</translation>
     </message>
     <message>
-        <location line="+324"/>
+        <location line="+325"/>
         <source>Backfacing faces</source>
         <translation>Caras Internas</translation>
     </message>
@@ -6352,7 +6444,7 @@ en la línea %3:
         <translation>Descartar</translation>
     </message>
     <message>
-        <location line="+54"/>
+        <location line="+55"/>
         <source>Add to reference skins</source>
         <translation>Añadir a los modelos de referencia:</translation>
     </message>

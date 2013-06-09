@@ -3,7 +3,7 @@
 #include "brfData.h"
 
 #include "ioSMD.h"
-#include "qdebug.h"
+//#include "qdebug.h"
 #include "vcg/math/quaternion.h"
 
 // everything is scaled up when expoerted, down when imported...
@@ -153,7 +153,7 @@ static bool ioSMD_ImportTriangles(FILE*f, BrfMesh &m ){
       p/=SCALE;
       if (nr>nMaxBones ) nMaxBones = nr;
       if (nr>4) { nr=4;}
-      if  (!( nread==9 || nread == 9+1+nr*2)) qDebug("[%s] (w:%d f:%d),",line,w,m.face.size());
+      //if  (!( nread==9 || nread == 9+1+nr*2)) qDebug("[%s] (w:%d f:%d),",line,w,m.face.size());
       assert( nread==9 || nread == 9+1+nr*2);
       for (int k = nr; k<4; k++) {
         r.boneIndex[k]=-1; r.boneWeight[k]=0;

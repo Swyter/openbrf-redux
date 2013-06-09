@@ -238,7 +238,7 @@
   <customwidget>
    <class>MyDoubleSpinBox</class>
    <extends>QDoubleSpinBox</extends>
-   <header>../tablemodel.h</header>
+   <header>tablemodel.h</header>
   </customwidget>
  </customwidgets>
  <tabstops>

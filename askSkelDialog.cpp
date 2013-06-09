@@ -16,6 +16,8 @@ AskSkelDialog::AskSkelDialog(QWidget *parent, const std::vector<BrfSkeleton> &sv
     m_ui->cbSkelFrom->addItem( sv[i].name );
     m_ui->cbSkelTo->addItem( sv[i].name );
   }
+	if (sv.size()>1) m_ui->cbSkelTo->addItem( tr("any other skeleton") );
+
   m_ui->radioButtonA0->setChecked(method==0);
   m_ui->radioButtonA1->setChecked(method==1);
   m_ui->radioButtonB0->setChecked(out==0);

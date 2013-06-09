@@ -18,7 +18,8 @@ using namespace std;
 #include "saveLoad.h"
 
 static wchar_t errorStr[512];
-static const unsigned int MAGIC = 0x33504449;
+static const unsigned int MAGIC_MD3 = 0x33504449;
+static const unsigned int MAGIC_MD2 = 0x32504449; // "IDP2"
 
 
 typedef unsigned int uint;
@@ -67,7 +68,7 @@ static void tryExtractNumber(char* st, int &res){
   sscanf(st,"%d",&res);
 }
 
-wchar_t* IoMD3::LastErrorString(){
+wchar_t* IoMD::LastErrorString(){
   return errorStr;
 }
 
@@ -98,8 +99,58 @@ static void norm2int(vcg::Point3f  res, Byte &zenb,Byte &azib){
 }
 
 
+bool IoMD::ExportMD2(const wchar_t *filename, const BrfMesh &m){
+	FILE *f = _wfopen(filename,L"wb");
+	if (!f){
+	  swprintf(errorStr,L"Cannot write on file:\n %ls",filename);
+	  return false;
+	}
+	SaveUint(f,MAGIC_MD2);
+  SaveInt(f,8); // version
+	SaveInt(f,1024); // text width
+	SaveInt(f,1024); // text width
+	SaveInt(f, m.frame.size() );
 
-bool IoMD3::Export(const wchar_t *filename, const BrfMesh &m){
+	int nframes = m.frame.size();
+
+	SaveInt(f, 1 );      // number of textures
+	SaveInt(f, m.frame[0].pos.size() * nframes ); // total n of xyz
+	SaveInt(f, m.vert.size() ); //
+	SaveInt(f, m.face.size() );
+	SaveInt(f, 0 ); // openGL commands?
+	SaveInt(f,  nframes );
+
+  int     ofs_skins;          // offset to skin names (64 bytes each)
+  int     ofs_st;             // offset to s-t texture coordinates
+  int     ofs_tris;           // offset to triangles
+  int     ofs_frames;         // offset to frame data
+  int     ofs_glcmds;         // offset to opengl commands
+  int     ofs_end;            // offset to end of file
+
+	unsigned int ofs_pos = ftell( f ); //
+
+	SaveUint( f, ofs_pos );
+	//swprintf(errorStr,"TEST1 %d == %d\n",ftell(f),64+11*4);
+
+  // frames
+  for (uint i=0; i<m.frame.size(); i++){
+    SavePoint(f,m.bbox.min*RATIO); // 4*3
+    SavePoint(f,m.bbox.max*RATIO); // 4*3
+    SavePoint(f,vcg::Point3f(0,0,0)); // 4*3
+    SaveFloat(f,m.bbox.Diag()*RATIO); // 4
+    char tmp[255];
+    sprintf(tmp, "T%d", m.frame[i].time);
+    SaveStringFix(f,tmp,16);  // 16
+  }
+
+
+  fclose(f);
+  return true;
+}
+
+
+
+bool IoMD::Export(const wchar_t *filename, const BrfMesh &m){
   if (m.frame.size()>1024){
     swprintf(errorStr,L"Too many frames %d. Max = 1024",m.frame.size());
     return false;
@@ -118,7 +169,7 @@ bool IoMD3::Export(const wchar_t *filename, const BrfMesh &m){
     swprintf(errorStr,L"Cannot write on file:\n %ls",filename);
     return false;
   }
-  SaveUint(f,MAGIC);
+  SaveUint(f,MAGIC_MD3);
   SaveInt(f,15); // version
   SaveStringFix(f,m.name,64);
   SaveInt(f,0); // flags
@@ -150,7 +201,7 @@ bool IoMD3::Export(const wchar_t *filename, const BrfMesh &m){
   // surface
   //sprintf(errorStr,"%sTEST %d == %d",errorStr,ftell(f),off-10000);
   //return false;
-  SaveUint(f,MAGIC); // 4
+  SaveUint(f,MAGIC_MD3); // 4
   SaveStringFix(f,m.name,64); //64
   SaveInt(f,0); // flags  // 4
   SaveUint(f,m.frame.size());  // 4
@@ -199,14 +250,14 @@ bool IoMD3::Export(const wchar_t *filename, const BrfMesh &m){
 }
 
 
-bool IoMD3::Import(FILE *f, BrfMesh &m){
+bool IoMD::Import(FILE *f, BrfMesh &m){
   long pos = ftell(f);
 
 
 
   unsigned int magic=0;
   LoadUint(f,magic);
-  if (magic != MAGIC) {
+  if (magic != MAGIC_MD3) {
     swprintf(errorStr,L"Invalid magic number in surface: %X",magic);
     return false;
   }
@@ -286,7 +337,7 @@ bool IoMD3::Import(FILE *f, BrfMesh &m){
   return true;
 }
 
-bool IoMD3::Import(const wchar_t *filename, std::vector<BrfMesh> &mv){
+bool IoMD::Import(const wchar_t *filename, std::vector<BrfMesh> &mv){
 
   FILE *f = _wfopen(filename,L"rb");
   if (!f) {
@@ -295,7 +346,7 @@ bool IoMD3::Import(const wchar_t *filename, std::vector<BrfMesh> &mv){
   }
   unsigned int magic=0,ver=0;
   LoadUint(f,magic);
-  if (magic != MAGIC) {
+  if (magic != MAGIC_MD3) {
     swprintf(errorStr,L"Invalid magic number: %X",magic);
     return false;
   }

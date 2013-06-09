@@ -1155,106 +1155,106 @@ QString IniData::name() const{
 
 bool IniData::loadAll(int howFast){
 
-  errorStringOnScan = QString("Unspecified error");
+	errorStringOnScan = QString("Unspecified error");
 
-  if (updated>=howFast) return true; // true = no error
+	if (updated>=howFast) return true; // true = no error
 
-  //int oldLvl = updated;
-  updated = howFast;
+	//int oldLvl = updated;
+	updated = howFast;
 
-  errorListOnLoad.clear();
-  QFile f(modPath+"/module.ini");
-  if (!f.open( QIODevice::ReadOnly| QIODevice::Text )) return false;
-  char st[255];
-  for (unsigned int i=0; i<file.size(); i++) file[i].Clear();
-  file.clear();
-  filename.clear();
-  origin.clear();
+	errorListOnLoad.clear();
+	QFile f(modPath+"/module.ini");
+	if (!f.open( QIODevice::ReadOnly| QIODevice::Text )) return false;
+	char st[255];
+	for (unsigned int i=0; i<file.size(); i++) file[i].Clear();
+	file.clear();
+	filename.clear();
+	origin.clear();
 
-  bool res=true;
+	bool res=true;
 
-  {
-  // load core resources...
-  addBrfFile("core_shaders",CORE_RES,0,howFast);
-  addBrfFile("core_textures",CORE_RES,0,howFast);
-  addBrfFile("core_materials",CORE_RES,0,howFast);
-  addBrfFile("core_pictures",CORE_RES,0,howFast);
-  addBrfFile("core_ui_meshes",CORE_RES,0,howFast);
+	{
+		// load core resources...
+		addBrfFile("core_shaders",CORE_RES,0,howFast);
+		addBrfFile("core_textures",CORE_RES,0,howFast);
+		addBrfFile("core_materials",CORE_RES,0,howFast);
+		addBrfFile("core_pictures",CORE_RES,0,howFast);
+		addBrfFile("core_ui_meshes",CORE_RES,0,howFast);
 
 
-  int lineN = 1;
-  while (f.readLine(st,254)>-1)  {
+		int lineN = 1;
+		while (f.readLine(st,254)>-1)  {
 
-    QString s = QString("%1").arg(st);
-    lineN ++;
+			QString s = QString("%1").arg(st);
+			lineN ++;
 
-		 // remove commented part
-		int posOfComm = s.indexOf('#');
-		if (posOfComm>-1) s.truncate(posOfComm);
+			// remove commented part
+			int posOfComm = s.indexOf('#');
+			if (posOfComm>-1) s.truncate(posOfComm);
 
-		s = s.trimmed(); // removal of spaces
-    if (s.isEmpty()) continue; // skip empty lines (including comments)
-    QString com1, com2;
-    //char com1[512], com2[512];
-    QStringList p = s.split('=');
-    //if (sscanf(s.toAscii().data(),"%s = %s",com1, com2)==2)
-    if (p.size()==2){
-      com1 = p[0].trimmed();
-      com2 = p[1].trimmed();
-      bool loadRes = QString(com1)=="load_resource";
-      bool loadMod = ((QString(com1)=="load_mod_resource") || (QString(com1)=="load_module_resource"));
-      if (loadRes || loadMod) {
-        if (!addBrfFile(com2.toAscii().data(),(loadMod)?MODULE_RES:COMMON_RES,lineN,howFast)) res=false;
-      }
+			s = s.trimmed(); // removal of spaces
+			if (s.isEmpty()) continue; // skip empty lines (including comments)
+			QString com1, com2;
+			//char com1[512], com2[512];
+			QStringList p = s.split('=');
+			//if (sscanf(s.toAscii().data(),"%s = %s",com1, com2)==2)
+			if (p.size()==2){
+				com1 = p[0].trimmed();
+				com2 = p[1].trimmed();
+				bool loadRes = QString(com1)=="load_resource";
+				bool loadMod = ((QString(com1)=="load_mod_resource") || (QString(com1)=="load_module_resource"));
+				if (loadRes || loadMod) {
+					if (!addBrfFile(com2.toAscii().data(),(loadMod)?MODULE_RES:COMMON_RES,lineN,howFast)) res=false;
+				}
 
-    }
-  }
+			}
+		}
 
-  /*
- // DISCOVER ALL USED FLAGS
-  for (uint fn=16; fn<17; fn++) {
-    int nk=0;
-    QString res;
-    for (uint fi=0; fi<file.size(); fi++) {
-      for (uint mi=0; mi<file[fi].material.size(); mi++) {
-        unsigned int b = file[fi].material[mi].flags; // & ~(3<<16);
+		/*
+		// DISCOVER ALL USED FLAGS
+		for (uint fn=16; fn<17; fn++) {
+			int nk=0;
+			QString res;
+			for (uint fi=0; fi<file.size(); fi++) {
+				for (uint mi=0; mi<file[fi].material.size(); mi++) {
+					unsigned int b = file[fi].material[mi].flags; // & ~(3<<16);
 
-        QString t;
-        t.sprintf("%s(0x%X) ",file[fi].material[mi].name,b);
-        if (b&(1<<fn)) {
-          if (nk<100 || (nk%10==0)) {
-            res+=t;
-            if (nk>=100) res+=" ... \n";
-          };
-          nk++;
-        }
-      }
-    }
-    if (nk>0)
-    qDebug("[spoiler=textures with flag: %d]\n%s\n[/spoiler]",fn,res.toAscii().data());
-  }
-  */
+					QString t;
+					t.sprintf("%s(0x%X) ",file[fi].material[mi].name,b);
+					if (b&(1<<fn)) {
+						if (nk<100 || (nk%10==0)) {
+							res+=t;
+							if (nk>=100) res+=" ... \n";
+						};
+						nk++;
+					}
+				}
+			}
+			if (nk>0)
+				qDebug("[spoiler=textures with flag: %d]\n%s\n[/spoiler]",fn,res.toAscii().data());
+		}
+		*/
 
-  updateNeededLists();
-  }
-  if (howFast>=3){
-    res = true;
-    updateUsedBy();
-    if (updated>=3){
+		updateNeededLists();
+	}
+	if (howFast>=3){
+		res = true;
+		updateUsedBy();
+		if (updated>=3){
 
-      isWarband = false; // we try MAB first...
-      if (!readModuleTxts(modPath,mabPath+"/Data")) res = false;
-      // remove duplicates
-      for (int i=0; i<int(txtNameList.size()); i++)
-        txtNameList[i].name=txtNameList[i].name.toSet().toList();
-      updateUsedIn();
-      propagateUsedIn();
+			isWarband = false; // we try MAB first...
+			if (!readModuleTxts(modPath,mabPath+"/Data")) res = false;
+			// remove duplicates
+			for (int i=0; i<int(txtNameList.size()); i++)
+				txtNameList[i].name=txtNameList[i].name.toSet().toList();
+			updateUsedIn();
+			propagateUsedIn();
 
-      //debugShowUsedFlags();
-    }
-  }
+			//debugShowUsedFlags();
+		}
+	}
 
-  return res;
+	return res;
 }
 
 
@@ -1272,6 +1272,7 @@ void IniData::debugShowUsedFlags(){
     case BrfBodyPart::CAPSULE: cap.insert(p.flags);break;
     case BrfBodyPart::SPHERE: sph.insert(p.flags);break;
     case BrfBodyPart::FACE: fac.insert(p.flags);break;
+	default: assert(0); break;
     }
   }
   qDebug("CAP");for (std::set<uint>::iterator i = cap.begin(); i!=cap.end(); i++) qDebug("%x",*i);

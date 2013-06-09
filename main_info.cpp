@@ -5,7 +5,7 @@
 
 #include <QtGui>
 
-const char* applVersion = "0.0.79";
+const char* applVersion = "0.0.80";
 QString IniData::tokenFullName(int k){
 
   switch (k){
@@ -66,7 +66,7 @@ void MainWindow::about()
                    "[Darwin], [dia151], [dreamterror], [dunde], [ealabor], [eierkopf], "
                    "[EvolutiveBrain], "
                    "[Fafhrd], [fedeita], [Fei Dao], [foxyman], [Freddex], [FrisianDude], "
-                   "[Geroj], [GetAssista], [giles], [Gothic Knight], [Hatonastick], "
+				   "[Geroj], [GetAssista], [giles], [Gothic Knight], [Harry_], [Hatonastick], "
                    "[havarez], [Highelf], [Highlander], [HokieBT], [Ikaguia], [iggorbb], [iLag], [Jai], [killkhergit], "
                    "[Konar], [Llew], [Lord_Cheap], [Lord Kinlar], [lord_olafson], "
                    "[LordRaglan], [Lumos], [MadocComadrin], [MadVader], [Mandible], [Mekelan], "
@@ -75,7 +75,7 @@ void MainWindow::about()
                    "[octoburn], [OrangeKnight], [pagan], [Percus], [qlithe], [Rath0s], [RATMdude92], [Red River], "
                    "[rgcotl], [Roemerboy], [Romainoir], [Septa Scarabae], [Sayd Ûthman], [Silesian], [Shik], "
                    "[Silver Wolf], [Shredzorz], [Slawomir of Aaarrghh], [Somebody], [SonKidd], [Spak], [Specialist], [Stefano], [Sunnetci_Dede], [Swyter], "
-                   "[Triglav], [Tul], [Ursca], [Vincenzo], [Vlejundo], [Vornne], [WilliamBerne], "
+				   "[thick1988], [Triglav], [Tul], [Ursca], [Vincenzo], [Vlejundo], [Vornne], [WilliamBerne], "
                    "[yellowmosquito], [Yoshiboy], [xenoargh], [Zimke Zlovoljni]")
               .arg("<br>[amade], [Swyter]!")
               .arg(QString("<br> [foxyman] <i>(%1)</i><br>"

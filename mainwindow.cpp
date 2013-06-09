@@ -579,10 +579,7 @@ void MainWindow::tldGrassAlphaPaint(){
 
 void MainWindow::tldShrinkAroundBones(){
 	BrfSkeleton *skel  = currentDisplaySkeleton();
-	if (!skel) {
-		statusBar()->showMessage("No current skeleton found!");
-		return;
-	}
+	if (!skel) return;
 
 	int done =0;
 	for (int ii=0; ii<selector->selectedList().size(); ii++) {
@@ -786,8 +783,9 @@ QString MainWindow::referenceFilename(bool modSpecific) const
 static void quickHackFixName( BrfData &ref ){
 	for (uint i=0; i<ref.mesh.size(); i++) {
 		BrfMesh &m(ref.mesh[i]);
-		if (m.name[5]=='_') {
+		if ((m.name[5]=='_') && (m.name[0]=='S')) {
 			m.name[5]='.';
+			m.name[0]='s';
 			m.AnalyzeName();
 		}
 	}
@@ -913,9 +911,9 @@ MainWindow::MainWindow(QWidget *parent):QMainWindow(parent),inidata(brfdata)
 
 bool MainWindow::setEditingVertexData(bool mode){
 	editingVertexData = mode;
-	enterVertexDataMode->setVisible( !mode );
+/*	enterVertexDataMode->setVisible( !mode );
 	exitVertexDataMode->setVisible( mode );
-	guiPanel->ui->attributeData->setVisible( mode );
+	guiPanel->setEditingVertexData( mode );*/
 	return mode;
 }
 
@@ -1139,7 +1137,7 @@ void MainWindow::applyAfterMeshImport(BrfMesh &m){
 	switch (this->afterMeshImport()) {
 	case 1:
 		m.UnifyPos();
-		m.UnifyVert(true,0.5);
+		m.UnifyVert(true,0.995); // cazz
 		break;
 	case 2:
 		m.UnifyPos();
@@ -1149,8 +1147,8 @@ void MainWindow::applyAfterMeshImport(BrfMesh &m){
 	}
 }
 
-int MainWindow::gimmeASkeleton(int bs){
-	return reference.getOneSkeleton(bs, glWidget->getRefSkeleton() );
+int MainWindow::gimmeASkeleton(int howManyBones){
+	return reference.getOneSkeleton(howManyBones, glWidget->getRefSkeleton() );
 }
 
 int MainWindow::askRefSkin(){
@@ -1180,18 +1178,23 @@ int MainWindow::askRefSkin(){
 int MainWindow::currentDisplaySkin(){
 	return glWidget->getRefSkin();
 }
+
 BrfSkeleton* MainWindow::currentDisplaySkeleton(){
 	int i = glWidget->getRefSkeleton();
-	if (i<0) return NULL;
-	if (i>=(int)reference.skeleton.size()) return NULL;
+	if ( (i<0) || (i>=(int)reference.skeleton.size()) ) {
+		QMessageBox::warning(this,"OpenBRF",tr("Select a skeleton\nin the view panel first"));
+		return NULL;
+	}
 	return &(reference.skeleton[i]);
 }
+
 BrfAnimation* MainWindow::currentDisplayAnimation(){
 	int i = glWidget->getRefSkelAni();
-	if (i<0) return NULL;
-	if (i>=(int)reference.animation.size()) return NULL;
+	if ( (i<0) || (i>=(int)reference.animation.size()) ) {
+		QMessageBox::warning(this,"OpenBRF",tr("Select an animation\nin the view panel first"));
+		return NULL;
+	}
 	return &(reference.animation[i]);
-	return NULL;
 }
 int MainWindow::currentDisplayFrame(){
 	if (selector->currentTabName()==MESH)
@@ -1220,7 +1223,7 @@ void MainWindow::meshUnify(){
 		BrfMesh &m (brfdata.mesh[i]);
 		if (m.RemoveUnreferenced()) mod=true;
 		if (m.UnifyPos()) mod=true;
-		if (m.UnifyVert(true,0.95)) mod=true;
+		if (m.UnifyVert(true,0.995)) mod=true;
 
 	}
 	updateGui();
@@ -1841,7 +1844,7 @@ void MainWindow::meshRecomputeNormalsAndUnify(){
 	d.checkbox()->setChecked(_keepSeams);
 
 	connect(d.slider(),SIGNAL(valueChanged(int)),
-	        this,SLOT(meshRecomputeNormalsAndUnify_onSlider(int)));
+			this,SLOT(meshRecomputeNormalsAndUnify_onSlider(int)));
 	connect(d.checkbox(),SIGNAL(clicked(bool)),
 	        this,SLOT(meshRecomputeNormalsAndUnify_onCheckbox(bool)));
 
@@ -1953,15 +1956,6 @@ void MainWindow::scale(){
 	updateGl();
 }
 
-
-char* cutAtDot(const char* c){
-	static QString s;
-	s.clear(); s+=c;
-	int k = s.lastIndexOf('.');
-	if (k>0) s.truncate(k);
-	return s.toAscii().data();
-}
-
 void MainWindow::meshToBody(){
 	QModelIndexList list= selector->selectedList();
 	if (selector->currentTabName()==MESH && list.size()>0) {
@@ -1970,7 +1964,7 @@ void MainWindow::meshToBody(){
 		for (int j=0; j<list.size(); j++){
 			BrfMesh &m (brfdata.mesh[list[j].row()]);
 			m.AddToBody(bp);
-			if (j==0) sprintf(b.name,"bo_%s",cutAtDot(m.name));
+			if (j==0) sprintf(b.name, m.GetLikelyCollisonBodyName() );
 		}
 		b.part.push_back(bp);
 		b.MakeQuadDominant();
@@ -2030,7 +2024,6 @@ void MainWindow::aniMirror(){
 		//setModified();
 		//continue;
 
-
 		int si = glWidget->getRefSkeleton();
 		if (si<0) continue;
 		BrfSkeleton s =reference.skeleton[si];
@@ -2040,6 +2033,7 @@ void MainWindow::aniMirror(){
 		if (a.Mirror(b,s))	setModified();
 	}
 	updateGl();
+
 }
 
 void MainWindow::aniExtractInterval(){
@@ -2082,7 +2076,9 @@ void MainWindow::aniMerge(){
 			BrfAnimation tmp = res;
 			if (!res.Merge(tmp,brfdata.animation[j])) {
 				QMessageBox::information(this,"OpenBrf",
-				                         tr("Cannot merge these animations\n (different number of bones).\n")
+
+
+										 tr("Cannot merge these animations\n (different number of bones).\n")
 				                         );
 				return;
 			}
@@ -2180,6 +2176,7 @@ void MainWindow::aniReskeletonize(){
 }
 
 void MainWindow::meshFreezeFrame(){
+	bool mod = false;
 	for (int j=0; j<getNumSelected(); j++){
 		BrfMesh &m( getSelected<BrfMesh>(j) );
 		if (!&m) continue;
@@ -2187,18 +2184,22 @@ void MainWindow::meshFreezeFrame(){
 		if (m.IsRigged()) {
 
 			BrfSkeleton *s = currentDisplaySkeleton();
+			if (!s) break;
 			BrfAnimation *a = currentDisplayAnimation();
+			if (!a) break;
 			int f = currentDisplaySkelAniFrame();
-			if (s && a && (f>=0))
-				m.FreezeFrame(*s,*a,f);
-			//else assert(0);
+			if (f<0) break;
+			m.FreezeFrame(*s,*a,f);
 			m.DiscardRigging();
-			setModified();
+			mod = true;
 		}
 
 	}
-	updateGui();
-	updateGl();
+	if (mod) {
+		setModified();
+		updateGui();
+		updateGl();
+	}
 
 }
 
@@ -2563,6 +2564,9 @@ void MainWindow::reskeletonize(){
 		                         );
 		return;
 	}
+	bool withAll = (b>=(int)reference.skeleton.size());
+
+	if (!withAll)
 	if (reference.skeleton[a].bone.size()!=reference.skeleton[b].bone.size()) {
 		QMessageBox::information(this,
 		                         "OpenBRF",
@@ -2571,35 +2575,52 @@ void MainWindow::reskeletonize(){
 		return;
 	}
 
+	std::vector<BrfMesh> toInsert;
+
 	for (int ii=0; ii<selector->selectedList().size(); ii++) {
 		int i = selector->selectedList()[ii].row()+k;
 		if (i<0) continue;
 		if (i>(int)brfdata.mesh.size()) continue;
 
-		BrfMesh m = brfdata.mesh[i];
-		m.KeepOnlyFrame( currentDisplayFrame() );
+		for (uint bb=0; bb<reference.skeleton.size(); bb++) {
+			if (withAll) {
+				b = bb;
+				if (a==b) continue;
+				if (reference.skeleton[a].bone.size()!=reference.skeleton[b].bone.size())
+					continue;
+			}
+			BrfMesh m = brfdata.mesh[i];
+			m.KeepOnlyFrame( currentDisplayFrame() );
 
-		if (method==1)
-			m.ReskeletonizeHuman( reference.skeleton[a], reference.skeleton[b]);
-		else
-			m.Reskeletonize( reference.skeleton[a], reference.skeleton[b]);
-		if (output==1) {
-			char newName[1024];
-			sprintf(newName,"%s_%s",m.name,reference.skeleton[b].name);
-			m.SetName(newName);
-			insert(m);
-			k++;
+			if (method==1)
+				m.ReskeletonizeHuman( reference.skeleton[a], reference.skeleton[b]);
+			else
+				m.Reskeletonize( reference.skeleton[a], reference.skeleton[b]);
+
+			if (output==1) {
+				char newName[1024];
+				sprintf(newName,"%s_%s",m.name,reference.skeleton[b].name);
+				m.SetName(newName);
+				toInsert.push_back(m);
+				k++;
+			}
+			else if (output==2 || withAll) {
+				brfdata.mesh[i] = m;
+			}
+			else { // output == 1
+				brfdata.mesh[i].EnsureTwoFrames();
+				//if (brfdata.mesh[i].frames.size()<=0) KeepOnlyFrame(0);
+				brfdata.mesh[i].AddFrameDirect(m);
+				//brfdata.mesh[i].AddFrameDirect(brfdata.mesh[i]);
+			}
+			if (!withAll) break;
 		}
-		if (output==0) {
-			brfdata.mesh[i].KeepOnlyFrame(0);
-			brfdata.mesh[i].AddFrameDirect(m);
-			brfdata.mesh[i].AddFrameDirect(brfdata.mesh[i]);
-		}
-		if (output==2)  {
-			brfdata.mesh[i] = m;
-		}
+
 		setModified();
 	}
+
+	for (uint i=0; i<toInsert.size(); i++) insert(toInsert[i]);
+
 	selector->updateData(brfdata);
 
 }
@@ -2948,12 +2969,28 @@ void MainWindow::onClipboardChange(){
 
 }
 
+bool MainWindow::createScenePropText(){
+	int n1, n2;
+	const char* txt = brfdata.GetAllObjectNamesAsSceneProps(&n1,&n2);
+	if (txt) {
+		QString filename = curFile;
+		int k = curFile.lastIndexOf('/');
+		filename.remove(0,k+1);
+		QString res = QString("# from '%1': begin (OpenBRF)\n%2# from '%1': end (OpenBRF)\n").arg(filename).arg(txt);
+		QApplication::clipboard()->setText(res);
+		QMessageBox::information(this,"OpenBrf",tr("Copyed prop code for %1 objects\n(%2 with matching collison mesh)\non the clipboard.\n\nPaste at will!").arg(n1).arg(n2) );
+		return true;
+	}
+	statusBar()->showMessage(tr("No prop mesh found"));
+	return false;
+}
+
 void MainWindow::saveSystemClipboard(){
 
 	QMimeData *mime = new QMimeData();
 
 	// save string as object name
-	const char* text = clipboard.GetFirstObjectName();
+	const char* text = clipboard.GetAllObjectNames(); //GetFirstObjectName();
 	if (text) mime->setText( text );
 
 	// save data
@@ -3440,6 +3477,20 @@ void MainWindow::meshAddBack(){
 	}
 }
 
+bool MainWindow::maybeWarnIfVertexAniTooBig(const BrfMesh &m, const BrfAnimation &a){
+	int posXframe = m.frame[0].pos.size();
+	int totPos = posXframe*a.frame.size();
+	float totMB = (totPos*24)/(1024.0f*1024.0f);
+	if (totMB>5.0) {
+		int answ = QMessageBox::warning(this, "OpenBrf",tr("This will produce a vertex ani\nwith %1x%2 xyz positions+normals (%4 MB).\n\nProceed?")
+			.arg(posXframe).arg(a.frame.size()).arg(totMB,4),
+		   QMessageBox::Yes|QMessageBox::Cancel,QMessageBox::Yes
+		);
+		return (answ==QMessageBox::Yes) ;
+	}
+	return true;
+}
+
 void MainWindow::addToRef(){
 	int i = selector->firstSelected();
 	assert(i>=0);
@@ -3459,6 +3510,57 @@ void MainWindow::addToRef(){
 
 }
 
+void MainWindow::meshToVertexAni(){
+	for (int j=0; j<selector->selectedList().size(); j++) {
+		BrfMesh &m0(getSelected<BrfMesh>(j));
+		if (!&m0) continue;
+		BrfMesh m = m0;
+		m.KeepOnlyFrame( currentDisplayFrame() );
+		BrfSkeleton *s = currentDisplaySkeleton();
+		if (!s) continue;
+		BrfAnimation *a = currentDisplayAnimation();
+		if (!a) continue;
+
+		if (!maybeWarnIfVertexAniTooBig(m,*a)) return;
+
+		if (!m.RiggedToVertexAni(*s,*a)) {
+			QMessageBox::warning(this,"OpenBRF",tr("Incompatible animation")); return;
+		}
+		char newName[2048];
+		sprintf( newName, "%s_%s", m.name, a->name );
+		m.SetName(newName);
+
+		m.DiscardRigging();
+		insert(m);
+
+	}
+}
+
+void MainWindow::aniToVertexAni(){
+
+	for (int j=0; j<selector->selectedList().size(); j++) {
+		BrfAnimation &a(getSelected<BrfAnimation>(j));
+		if (!&a) continue;
+
+		BrfSkeleton &s(*currentDisplaySkeleton());
+		if (!&s) continue;
+
+		int skinNumber = currentDisplaySkin();
+		if (skinNumber<0) skinNumber = askRefSkin();
+		if (skinNumber<0) return;
+		BrfMesh m = reference.GetCompleteSkin(skinNumber);
+
+		if (!maybeWarnIfVertexAniTooBig(m,a)) return;
+
+		if (!m.RiggedToVertexAni(s,a)) {
+			QMessageBox::warning(this,"OpenBRF",tr("Incompatible skin")); return;
+		}
+		m.SetName(a.name);
+		m.DiscardRigging();
+		insert(m);
+	}
+
+}
 
 void MainWindow::meshMountOnBone(){
 
@@ -3903,6 +4005,8 @@ void MainWindow::loadOptions(){
 		int k=0;
 		QVariant s =settings->value("groupMode");
 		if (s.isValid()) k = s.toInt();
+
+		k=2; /* <== override */
 		glWidget->setViewmodeMult(k);
 		comboViewmodeBG->button(0)->setChecked(k==0);
 		comboViewmodeBG->button(1)->setChecked(k==1);
@@ -4802,11 +4906,26 @@ bool MainWindow::goTo(ObjCoord o){
 
 bool MainWindow::navigateLeft(){
 
-	int stackPos=0;
 	int currTab = selector->currentTabName();
+	int stackPos=0;
 	if (currTab==MATERIAL) stackPos = 1;
 	if (currTab==SHADER) stackPos = 2;
 	if (currTab==TEXTURE) stackPos = 2;
+
+	if (currTab==MESH) {
+		int nextTab = BODY;
+		/* cheat: search only in current file */
+		BrfMesh &m = getSelected<BrfMesh>();
+		if (!&m) return false;
+		char nextName[1024];
+		sprintf(nextName,m.GetLikelyCollisonBodyName() );
+		int loc = brfdata.Find( nextName, nextTab );
+		if ( loc!=-1 ) {
+			selectOne(nextTab,loc);
+			return true;
+		} else return false;
+	}
+
 	if (!stackPos) return false;
 
 	QPair<ObjCoord,QString> p = navigationStack[stackPos-1];
@@ -4836,20 +4955,34 @@ bool MainWindow::navigateRight(){
 
 	int currTab = selector->currentTabName();
 
-	if ((currTab!=MESH) && (currTab!=MATERIAL) && (currTab!=SHADER)) {
+	if ((currTab!=BODY) && (currTab!=MESH) &&  (currTab!=MATERIAL) && (currTab!=SHADER)) {
 		return false;
 	}
 
 	inidata.loadAll(2); // ini must be loaded, at least mat and textures
 
 	QPair<ObjCoord,QString> old(
-	      ObjCoord(curFileIndex,selector->firstSelected(), TokenEnum(selector->currentTabName())),
+		  ObjCoord(curFileIndex,selector->firstSelected(), TokenEnum(selector->currentTabName())),
 	      curFile);
 
 	int nextTab = MATERIAL;
 	QString nextName;
 	int stackPos = -1;
 
+
+	if (currTab==BODY) {
+		nextTab = MESH;
+		BrfBody &b = getSelected<BrfBody>();
+		if (!&b) return false;
+		nextName = QString(b.name);
+		if (nextName.startsWith("bo_",Qt::CaseInsensitive)) nextName = nextName.remove(0,3);
+		/* cheat: search only in current file */
+		int loc = brfdata.Find( nextName.toLatin1().data(), nextTab );
+		if ( loc!=-1 ) {
+			selectOne(nextTab,loc);
+			return true;
+		} else return false;
+	}
 	if (currTab==MESH) {
 
 		if (!guiPanel->ui->boxMaterial->hasFrame()) return false;
@@ -5051,13 +5184,6 @@ void MainWindow::newFile(){
 	}
 }
 
-
-bool readFile(QIODevice &device, QSettings::SettingsMap &map){
-	return true;
-}
-bool writeFile(QIODevice &device, const QSettings::SettingsMap &map){
-	return true;
-}
 
 void MainWindow::registerExtension(){
 	QString exeFile = QCoreApplication::applicationFilePath();

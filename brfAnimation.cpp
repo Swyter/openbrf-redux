@@ -32,10 +32,16 @@ void BrfAnimationFrame::AddBoneHack(int copyfrom){
 void BrfAnimation::AddBoneHack(int copyfrom){
   for (int i=0; i<(int)frame.size(); i++) frame[i].AddBoneHack(copyfrom);
   //nbones++;
-
-
-
 }
+
+void BrfAnimation::ResampleOneEvery(int nFrames){
+	std::vector<BrfAnimationFrame> oldFrame = frame;
+	frame.clear();
+	for (int i=0; i<oldFrame.size(); i+=nFrames) {
+		frame.push_back( oldFrame[i] );
+	}
+}
+
 
 BrfAnimationFrame BrfAnimationFrame::Shuffle( std::vector<int> &map, std::vector<vcg::Point4<float> > &fallback){
   BrfAnimationFrame res;

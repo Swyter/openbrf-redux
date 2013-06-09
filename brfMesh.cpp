@@ -27,8 +27,7 @@ typedef unsigned int uint;
 
 extern int globVersion;
 
-
-#include "QDebug"
+//#include "QDebug"
 
 static char* nextToken(char c, const char* p, int& i){
 	static char res[256];
@@ -258,6 +257,14 @@ bool BrfMesh::CopyVertAni(const BrfMesh& m){
 
 }
 
+bool BrfMesh::SaveVertexAniAsOBJ(char *fn) const{
+	for (int i=0; i<(int)frame.size(); i++ ){
+		char fnComplete[2048];
+		sprintf( fnComplete, "%s.%03d.obj",fn,i );
+		if (!SaveOBJ(fnComplete,i)) return false;
+	}
+	return true;
+}
 int BrfMesh::DivideIntoSeparateChunks(std::vector<int> &map){
 	int framei = 0;
 	int npos = frame[framei].pos.size();
@@ -470,9 +477,21 @@ void BrfMesh::Unmount(const BrfSkeleton &s){
 
 }
 
-void BrfMesh::FreezeFrame(const BrfSkeleton& s, const BrfAnimation& a, float frameN){
+bool BrfMesh::RiggedToVertexAni(const BrfSkeleton &s, const BrfAnimation &a){
+	if (!IsRigged()) return false;
+	if (a.nbones != (int)s.bone.size()) return false; // mismatch
+	if (this->maxBone>=a.nbones) return false;
+	DuplicateFrames( a.frame.size() );
+	for (int i=0; i<(int)a.frame.size(); i++) {
+		FreezeFrame(s, a, i, i);
+		frame[i].time = a.frame[i].index;
+	}
+	return true;
+}
 
-  int fv = 0;
+void BrfMesh::FreezeFrame(const BrfSkeleton& s, const BrfAnimation& a, float frameN, int frameOutput){
+
+  int fv = frameOutput;
 
   if ((int)s.bone.size()!=a.nbones || maxBone>a.nbones) {
     return;
@@ -519,8 +538,8 @@ void BrfMesh::FreezeFrame(const BrfSkeleton& s, const BrfAnimation& a, float fra
     }
 
   }
-	AdjustNormDuplicates();
-	UpdateBBox();
+  AdjustNormDuplicates();
+  UpdateBBox();
 }
 
 bool MeshMorpher::Save(const char* filename) const{
@@ -1455,11 +1474,10 @@ bool BrfMesh::UnifyVert(bool careForNormals, float crease){
 int SameTri(Pos a0, Pos a1, Pos b0, Pos b1, Pos c0, Pos c1){  
    
   if  (a0==a1 && b0==b1 && c0==c1) return 1;
-    //  ||(a0==b1 && b0==c1 && c0==a1) 
+  //  ||(a0==b1 && b0==c1 && c0==a1)
   //  ||(a0==c1 && b0==a1 && c0==b1)
-  ;
   return 0;
-  
+
 }
 
 void BrfMesh::UpdateBBox(){
@@ -2167,6 +2185,12 @@ int BrfMesh::IsNamedAsLOD() const{
   return lastDigit-'0';
 }
 
+const char* BrfMesh::GetLikelyCollisonBodyName() const{
+	static char res[2048];
+	sprintf(res,"bo_%s",baseName);
+	return res;
+}
+
 bool BrfMesh::IsNamedAsBody(const char * bodyname) const{
   const char* b = bodyname;
   const char* n = name;
@@ -2300,10 +2324,10 @@ bool BrfMesh::SaveAsPly(int frameIndex, const wchar_t* path) const{
 void BrfMesh::TransformUv(float su, float sv, float tu, float tv){
   for (int i=0;i<(int)vert.size(); i++) {
     BrfVert& v(vert[i]);
-    v.ta[0] = v.ta[0]*sv + tv;
-    v.ta[1] = v.ta[1]*su + tu;
-    v.tb[1] = v.ta[1]*su + tu;
-    v.tb[1] = v.ta[1]*su + tu;
+    v.ta[0] = v.ta[0]*su + tu;
+    v.ta[1] = v.ta[1]*sv + tv;
+    v.tb[0] = v.tb[0]*su + tu;
+    v.tb[1] = v.tb[1]*sv + tv;
   }
 }
 
@@ -2818,6 +2842,14 @@ void BrfMesh::KeepOnlyFrame(int i){
   }
 }
 
+void BrfMesh::EnsureTwoFrames(){
+	if (frame.size()==1) {
+		frame.push_back( frame[0] );
+	}
+}
+
+
+
 void BrfMesh::AfterLoad(){
   UpdateBBox();
   hasVertexColor=false;
@@ -3082,10 +3114,6 @@ float BrfMesh::GetTopPos(int j, int axis) const{
   return min;
 }
 
-void AddRope(const BrfMesh &from, const BrfMesh &to, int nseg, double lenghtProp){
-}
-
-
 void BrfMesh::AlignToTop(BrfMesh& a, BrfMesh& b){
    
   for (unsigned int j=0; j<a.frame.size(); j++) {
@@ -3165,9 +3193,9 @@ void BrfMesh::DuplicateFrames(int nf)
   }
 }
 
-void BrfMesh::PaintAll(int r, int g, int b){
+/*void BrfMesh::PaintAll(int r, int g, int b){
   for (unsigned int i=0; i<vert.size(); i++) vert[i].col=0xFFFFFFFF;
-}
+}*/
 
 
 void BrfMesh::Translate(Point3f p){

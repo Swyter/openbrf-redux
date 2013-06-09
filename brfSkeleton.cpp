@@ -201,7 +201,7 @@ std::vector<Matrix44f>  BrfSkeleton::GetBoneMatrices(const BrfAnimationFrame &fr
   tmp = GetBoneMatrices();
 
   for (unsigned int i=0; i<tmp.size(); i++) {
-    tmp[i] = vcg::Invert( tmp[i] );
+	tmp[i] = vcg::Inverse( tmp[i] );
     res[i]= res[i] * tmp[i] ;
     //res[i]= tmp[i] * res[i]  ;
   }

@@ -89,6 +89,7 @@ public:
 	*aniRemoveIntervalAct,
 	*aniMergeAct,
 	*aniReskeletonizeAct,
+	*aniToVertexAniAct,
 
 	*breakAniAct,
 	*breakAniWithIniAct,
@@ -112,6 +113,7 @@ public:
 	*meshFreezeFrameAct,
 	*meshUnmountAct,
 	*meshUvTransformAct,
+	*meshToVertexAniAct,
 
 	*meshAniMergeAct,
 	*meshAniSplitAct,

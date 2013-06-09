@@ -7,9 +7,9 @@
 #include <QGLWidget>
 
 #include <vector>
-#include <vcg/simplex/vertex/base.h>
-#include <vcg/simplex/face/base.h>
-#include <vcg/simplex/edge/base.h>
+//#include <vcg/simplex/vertex/base.h>
+//#include <vcg/simplex/face/base.h>
+//#include <vcg/simplex/edge/base.h>
 #include <vcg/complex/complex.h>
 //#include <vcg/complex/trimesh/clean.h>
 
@@ -135,7 +135,7 @@ void BodyPart2Mesh(const BrfBodyPart &bp, CMesh &m ){
       nt++;
     }
   }
-  vcg::tri::UpdateNormals<CMesh>::PerFaceNormalized(m);
+  vcg::tri::UpdateNormal<CMesh>::PerFaceNormalized(m);
   vcg::tri::UpdateTopology<CMesh>::FaceFace(m);
 
 }

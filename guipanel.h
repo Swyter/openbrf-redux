@@ -36,6 +36,8 @@ public:
 	int getCurrentSubpieceIndex(int brfObjectType) const;
 	int getCurrentSkeletonIndex() const;
 
+	void setEditingVertexData(bool mode);
+
 	void setIniData(const IniData &inidata);
 
 	enum{DIFFUSEA, DIFFUSEB, BUMP, ENVIRO, SPECULAR, SHADERNAME } curMaterialFocus;

@@ -14,7 +14,6 @@
   "body",
 };
 
-
 const char* BrfData::GetFirstObjectName() const{
   if (mesh.size()!=0) return mesh[0].name;
   if (texture.size()!=0) return texture[0].name;
@@ -26,6 +25,57 @@ const char* BrfData::GetFirstObjectName() const{
   return NULL;
 }
 
+template <class BrfType> void __AppendAll( const std::vector<BrfType> v, std::string& c){
+	for (unsigned int i=0; i<v.size(); i++ ) {
+		if (!c.empty()) c.append(", ");
+		c.append(v[i].name);
+	}
+}
+
+const char* BrfData::GetAllObjectNames() const{
+  static std::string c;
+  c.clear();
+  __AppendAll(mesh,c);
+  __AppendAll(texture,c);
+  __AppendAll(shader,c);
+  __AppendAll(material,c);
+  __AppendAll(skeleton,c);
+  __AppendAll(animation,c);
+  __AppendAll(body,c);
+  return c.c_str();
+}
+
+const char* BrfData::GetAllObjectNamesAsSceneProps(int *nFound, int *nFoundWithB) const{
+
+	static std::string c;
+	c.clear();
+	char lastName[1024]; lastName[0]=0;
+	*nFound = 0;
+	*nFoundWithB = 0;
+	for (unsigned int i=0; i<mesh.size(); i++) {
+		char bodyName[1024];
+		char baseName[1024];
+		sprintf(baseName,"\"%s\"",mesh[i].baseName);
+		char fullstr[1024*4];
+
+		if (strcmp(lastName,mesh[i].baseName)==0) continue;
+
+		sprintf(bodyName, "bo_%s",mesh[i].baseName );
+		bool hasBody = (Find(bodyName,BODY)!=-1);
+		sprintf(fullstr,"\t( %-45s,0,%s,\"%s\",[]),\n",
+			baseName,baseName,( (hasBody)?bodyName:"0")
+		);
+		(*nFound)++;
+		if (hasBody) (*nFoundWithB)++;
+		c.append(fullstr);
+
+		sprintf(lastName,mesh[i].baseName);
+
+	}
+	if (!*nFound) return NULL;
+
+	return c.c_str();
+}
 
 bool BrfData::IsOneSkelOneHitbox() const{
   return 1

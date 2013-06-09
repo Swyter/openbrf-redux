@@ -85,6 +85,7 @@ private slots:
 	bool save();
 	bool saveAs();
 	bool saveHitboxes();
+	bool createScenePropText();
 	bool openRecentFile();
 	bool openRecentMod();
 	bool editRef();
@@ -97,6 +98,7 @@ private slots:
 	void aniRemoveInterval();
 	void aniMerge();
 	void aniReskeletonize();
+	void aniToVertexAni();
 
 
 	void about();
@@ -232,6 +234,7 @@ private slots:
 	void meshUvTransform();
 	void meshUvTransformDoIt();
 	void meshUnmount();
+	void meshToVertexAni();
 	void learnFemininzation(); // from current selection
 	void optionFemininzationUseDefault();
 	void optionFemininzationUseCustom();
@@ -291,7 +294,6 @@ private slots:
 	void moduleSelect();
 	void moduleOpenFolder();
 	void exportNames();
-
 
 	void onActionTriggered(QAction* q);
 	void undoHistoryAddAction(QAction *q);
@@ -363,8 +365,8 @@ private:
 	QPair<int, int>  askRefSkel(int nbones, int &method, int &res); // ask user to specify two skel
 	int askRefSkin(); //  ask user to specify a skin
 	int currentDisplaySkin(); // returns skin currently used as display
-	BrfSkeleton* currentDisplaySkeleton(); // returns skeleton currently used as display
-	int currentDisplayFrame(); // return v.a. frame currently used as dispalu
+	BrfSkeleton* currentDisplaySkeleton(); // returns skeleton currently used to display
+	int currentDisplayFrame(); // return v.a. frame currently used to dispaly
 	BrfAnimation* currentDisplayAnimation(); // return skel animation
 	int currentDisplaySkelAniFrame(); // return skel animation frame currently used as dispaly
 	int gimmeASkeleton(int nbones); // returns index of a skeleton with n bones. Maybe asks for one if more than one.
@@ -448,6 +450,7 @@ private:
 	QAction *saveAct;
 	QAction *saveAsAct;
 	QAction *saveHitboxAct;
+	QAction *createScenePropTextAct;
 	QAction *exitAct;
 	QAction *sortEntriesAct;
 	QAction *enterVertexDataMode;
@@ -610,6 +613,7 @@ private:
 	bool _importAnimation(bool reimportExisting);
 	bool _importMesh(bool reimportExisting);
 
+	bool maybeWarnIfVertexAniTooBig(const BrfMesh &m, const BrfAnimation &a);
 
 	std::vector<UndoLevel> undoHistoryRing;
 	int undoHistoryRingIndex(int lvl) const;

@@ -3,7 +3,7 @@
 #include <GL/glew.h>
 #include <QtGui>
 #include <QDomDocument>
-#include <QtOpenGL>
+//#include <QtOpenGL>
 #include <QGLShaderProgram>
 
 #include <math.h>
@@ -64,11 +64,13 @@ GLWidget::GLWidget(QWidget *parent, IniData &_inidata)
 	useSpecularmap = true;
 
 	useTexture=true; useWireframe=false; useLighting=useFloor=true; useRuler=false; useHitboxes=false;
+	useFloorInAni = true;
 	useFloatingProbe = false;
 	useComparisonMesh = false;
 	openGL2ready=false;
 
 	bumpmapActivated = false;
+	shadowMode = false;
 	rulerLenght = 100;
 	ghostMode = false;
 	curMaterialTexture = DIFFUSEA;
@@ -304,7 +306,7 @@ void GLWidget::renderFloor(){
 
 	//glDisable(GL_FOG);
 
-	const int K = 50; // floor size
+	const int K = 20; // floor size
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
 	glDisable(GL_LIGHTING);
@@ -315,6 +317,7 @@ void GLWidget::renderFloor(){
 	float ccc = (bg_r>0.3)?-0.3:+0.5;
 	float c[4]={ccc+bg_r,ccc+bg_g,ccc+bg_b,0.5f};
 	glColor4fv(c);
+	glHint(GL_FOG_HINT, GL_NICEST);
 	glEnable(GL_FOG);
 	glFogfv(GL_FOG_COLOR,bg);
 	glFogf(GL_FOG_DENSITY,0.125f);
@@ -335,6 +338,7 @@ void GLWidget::renderFloor(){
 		glVertex3f(i, 0, -K);
 	}
 	glEnd();
+	glHint(GL_FOG_HINT, GL_DONT_CARE);
 
 	glPointSize(5);
 	glBegin(GL_POINTS);
@@ -771,19 +775,26 @@ void GLWidget::renderBrfItem (const BrfAnimation& a){
 		if (bi>=0) b = &(hitBoxes->body[bi]);
 	}
 
-	if (selRefSkin>=0) {
-		for (unsigned int i=0; i<reference->mesh.size(); i++){
-			if (reference->mesh[i].name[4]==char('A'+selRefSkin))
-				renderRiggedMesh(reference->mesh[i],s,a,fi);
+	for (int pass=0; pass<2; pass++) {
+		if (pass==0) {
+			// shadow pass
+			if (!useFloorInAni) continue; // no shoadows in no floor
+			setShadowMode(true);
 		}
 
-		//BrfMesh tmp = reference->GetCompleteSkin(selRefSkin);
-		//renderRiggedMesh(tmp,s,a,fi);
-	} else {
-		if (!b) renderAnimation(a,s,fi); // naked bones
+		if (selRefSkin>=0) {
+			for (unsigned int i=0; i<reference->mesh.size(); i++){
+				if (reference->mesh[i].name[4]==char('A'+selRefSkin))
+					renderRiggedMesh(reference->mesh[i],s,a,fi);
+			}
+		} else {
+			if (!b) renderAnimation(a,s,fi); // naked bones
+		}
+		if (pass==0) setShadowMode(false);
 	}
 
 	if (b)  renderBody( *b, s, a, fi , selRefSkin>=0);
+
 
 
 }
@@ -831,30 +842,34 @@ void GLWidget::renderBrfItem(const BrfSkeleton& p){
 }
 
 
-void GLWidget::setShadowMode(bool on) const{
+void GLWidget::setShadowMode(bool on){
+	shadowMode = on;
 	if (on) {
 		glPushMatrix();
 
 		float bg_r = currBgColor.redF();
 		float bg_g = currBgColor.greenF();
 		float bg_b = currBgColor.blueF();
-		float ccc = (bg_r>0.3)?-0.25:+0.25;
+		float ccc = (bg_r>0.3)?-0.27:+0.27;
 
 		float c[4]={ccc+bg_r,ccc+bg_g,ccc+bg_b,1};
+		glEnable(GL_LIGHTING);
 		glLightfv(GL_LIGHT1,GL_AMBIENT,c);
 		glDisable(GL_LIGHT0);
 		glEnable(GL_LIGHT1);
 		glTranslatef(0,0,0);
 		glScalef(1,0,1);
+		glEnable(GL_COLOR_MATERIAL);
 		glColor3f(1,1,1);
 		glDisable(GL_COLOR_MATERIAL);
+		glDisable(GL_DEPTH_TEST);
 	}
 	else {
 		glPopMatrix();
 		glEnable(GL_LIGHT0);
 		glDisable(GL_LIGHT1);
 		glEnable(GL_COLOR_MATERIAL);
-
+		glEnable(GL_DEPTH_TEST);
 	}
 }
 
@@ -1113,6 +1128,9 @@ void GLWidget::setComparisonMesh(int i){
 void GLWidget::setFloor(int i){
 	useFloor = i; update();
 }
+void GLWidget::setFloorForAni(int i){
+	useFloorInAni = i; update();
+}
 void GLWidget::setPlay(){
 	defaultRunningState = runningState = PLAY;
 	update();
@@ -1181,16 +1199,17 @@ void GLWidget::setSelection(const QModelIndexList &newsel, int k){
 	update();
 }
 
-void _subdivideScreen(int nsel,int w,int h, int *ncol, int *nrow){
+void _subdivideScreen(int nsel,int w,int h, int *ncol, int *nrow, float verticalBias){
 	if (nsel<=1) {*ncol = 1; *nrow = 1; return; }
 
-	if (w<h) { _subdivideScreen( nsel,h,w, nrow, ncol); }
+
+	if (w<h) { _subdivideScreen( nsel,h,w, nrow, ncol, 1.0/verticalBias ); }
 	else {
 		int best = 0;
 		for (int n=(int)(ceil(sqrt(double(nsel)))); n>=1; n--) {
 			int m = (nsel+n-1)/n;
 			int score;
-			score = (w/m<h/n)? w/m : h/n;
+			score = std::min( float(w)/m*verticalBias , float(h)/n );
 			if (score>best) {
 				*ncol = m;
 				*nrow = n;
@@ -1572,32 +1591,35 @@ void GLWidget::renderRiggedMesh(const BrfMesh& m,  const BrfSkeleton& s, const B
 	if (fv<0) fv= 0;
 
 	if ((int)s.bone.size()!=a.nbones || m.maxBone>a.nbones) {
-
-		renderMesh(m,fv); // give up rigging mesh
+		if (!shadowMode) renderMesh(m,fv); // give up rigging mesh
 		return;
 	}
 
-	glEnable(GL_COLOR_MATERIAL);
-	glColor3f(1,1,1);
-	if ((!m.IsRigged() && colorMode==2)|| colorMode==0) glDisable(GL_COLOR_MATERIAL);
+	if (!shadowMode) {
+		glEnable(GL_COLOR_MATERIAL);
+		glColor3f(1,1,1);
+		if ((!m.IsRigged() && colorMode==2)|| colorMode==0) glDisable(GL_COLOR_MATERIAL);
+	}
 
 
 	int fi= (int)frame;
 	vector<Matrix44f> bonepos = s.GetBoneMatrices( a.frame[fi] );
 
-	for (int pass=(useWireframe)?0:1; pass<2; pass++) {
-		setWireframeLightingMode(pass==0, useLighting, useTexture);
-		if (pass==1) setMaterialName(m.material);
+	for (int pass=(useWireframe&&!shadowMode)?0:1; pass<2; pass++) {
+		if (!shadowMode) setWireframeLightingMode(pass==0, useLighting, useTexture);
+		if (pass==1 && !shadowMode) setMaterialName(m.material);
 
 		glBegin(GL_TRIANGLES);
 		for (unsigned int i=0; i<m.face.size(); i++) {
 			for (int j=0; j<3; j++) {
 
 				const BrfRigging &rig (m.rigging[ m.vert[ m.face[i].index[j] ].index ]);
-				if (colorMode==2) rig.SetColorGl();
-				else {
-					GLubyte* c = (GLubyte*)&m.vert[ m.face[i].index[j] ].col;
-					glColor3ub( c[2],c[1],c[0] );
+				if (!shadowMode) {
+					if (colorMode==2) rig.SetColorGl();
+					else {
+						GLubyte* c = (GLubyte*)&m.vert[ m.face[i].index[j] ].col;
+						glColor3ub( c[2],c[1],c[0] );
+					}
 				}
 
 				//glNormal(vert[face[i].index[j]].__norm);
@@ -1633,8 +1655,10 @@ void GLWidget::renderRiggedMesh(const BrfMesh& m,  const BrfSkeleton& s, const B
 		}
 		glEnd();
 	}
-	glDisable(GL_TEXTURE_2D);
-	enableDefMaterial();
+	if (!shadowMode) {
+		glDisable(GL_TEXTURE_2D);
+		enableDefMaterial();
+	}
 }
 
 void GLWidget::renderMeshSimple(const BrfMesh &m){
@@ -1873,7 +1897,7 @@ void GLWidget::renderBone(const BrfAnimation &a,const BrfSkeleton &s, float fram
 
 	glPushMatrix();
 	glTranslate(s.bone[i].t);
-	if (lvl!=0); glMultMatrixf((const GLfloat *) mat.V());
+	/*if (lvl!=0);*/ glMultMatrixf((const GLfloat *) mat.V());
 
 	glPushMatrix();
 	glScalef(BrfSkeleton::BoneSizeX(),BrfSkeleton::BoneSizeY(),BrfSkeleton::BoneSizeZ());
@@ -1887,14 +1911,12 @@ void GLWidget::renderBone(const BrfAnimation &a,const BrfSkeleton &s, float fram
 
 
 void GLWidget::renderSkeleton(const BrfSkeleton &s){
-	glEnable(GL_COLOR_MATERIAL);
-	setWireframeLightingMode(false,true,false);
+	if (!shadowMode) {
+		glEnable(GL_COLOR_MATERIAL);
+		setWireframeLightingMode(false,true,false);
+	}
 
 	renderBone(s,s.root,0);
-
-	setShadowMode(true);
-	renderBone(s,s.root,0);
-	setShadowMode(false);
 
 }
 
@@ -1955,7 +1977,10 @@ void GLWidget::renderBody(const BrfBody& b){
 
 
 void GLWidget::renderAnimation(const BrfAnimation &a, const BrfSkeleton &s, float frame){
-	setWireframeLightingMode(false,true,false);
+	if (!shadowMode) {
+		setWireframeLightingMode(false,true,false);
+		glEnable(GL_COLOR_MATERIAL);
+	}
 
 	//if (!skel) return;
 	if (s.bone.size()!=(unsigned int)a.nbones) return;
@@ -1965,7 +1990,7 @@ void GLWidget::renderAnimation(const BrfAnimation &a, const BrfSkeleton &s, floa
 
 
 	//if (curFrame>=(int)frame.size()) return;
-	glEnable(GL_COLOR_MATERIAL);
+
 
 	int fi= (int)frame;
 	//if (capped) fi=0;
@@ -1973,16 +1998,6 @@ void GLWidget::renderAnimation(const BrfAnimation &a, const BrfSkeleton &s, floa
 	glTranslate(a.frame[fi].tra);
 	renderBone(a,s,frame,s.root,0);
 	glPopMatrix();
-
-	//if (once) {
-	//  fclose(tmpHack);
-	//  once=false;
-	//}
-	setShadowMode(true);
-	glTranslate(a.frame[fi].tra);
-	renderBone(a,s,frame,s.root,0);
-	setShadowMode(false);
-
 }
 
 void GLWidget::renderBodyPart(const BrfBodyPart &b) const{
@@ -2402,7 +2417,16 @@ void GLWidget::renderSelected(const std::vector<BrfType>& v){
 	distributeSelectedInViewports(max);
 	if (displaying == MESH) maybeHideLods();
 
-	_subdivideScreen(nViewports,w,h, &nViewportCols, &nViewportRows);
+	float verticalBias;
+	switch (displaying) {
+	case ANIMATION:
+	case SKELETON: verticalBias = sqrt(1.80); break;
+	case MESH:
+	case BODY: verticalBias = sqrt(1.20); break;
+	default: verticalBias = 1.0;
+	}
+
+	_subdivideScreen(nViewports,w,h, &nViewportCols, &nViewportRows,verticalBias);
 
 	if (captureViews) camera.resize(0);
 
@@ -2417,15 +2441,17 @@ void GLWidget::renderSelected(const std::vector<BrfType>& v){
 
 			if (firstDraw) {
 				if (captureViews) camera.push_back( GlCamera::currentCamera(vi) );
+				if ((useFloatingProbe) && (viewIs2D()) ) renderFloatingProbe();
+				glPopMatrix();
 				renderFloorMaybe();
-				if (useFloatingProbe) renderFloatingProbe();
+				if ((useFloatingProbe) && (!viewIs2D()) ) renderFloatingProbe();
 				if (useRuler && displaying == MESH) renderRuler();
+			} else {
+				glPopMatrix();
 			}
-			firstDraw = false;
-
-			glPopMatrix();
 			if (v[i].IsAnimable()) animating=true;
 			if ( displaying==SKELETON && selRefAnimation>=0 ) animating=true;
+			firstDraw = false;
 		}
 
 
@@ -2474,7 +2500,7 @@ void GLWidget::mySetViewport(int x,int y,int w,int h){
 			gluOrtho2D(-wh,+wh,-1,+1);
 	} else {
 		gluPerspective(60-closingUp*40,wh,0.02,20+currViewmodeInterior*500);
-		if (wh<1) glScalef(wh,wh,1);
+		//if (wh<1) glScalef(wh,wh,1);
 		glScalef(0.2,0.2,0.2);
 	}
 
@@ -2549,7 +2575,7 @@ void GLWidget::paintGL()
 void GLWidget::renderFloorMaybe(){
 	if ( displaying != SKELETON)
 		if (((useFloor &&  (displaying == MESH || displaying == BODY) )
-		     || displaying == ANIMATION  ))
+			 || (useFloorInAni &&displaying == ANIMATION)  ))
 			renderFloor();
 }
 

@@ -103,6 +103,7 @@ public:
   char* GetOriginalSkeletonName() const;
   void SetOriginalSkeletonName(const char*);
 
+  const char* GetLikelyMeshName() const;
 
 private:
 };

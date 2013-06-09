@@ -5,6 +5,9 @@
 QT += opengl
 QT += xml
 
+CONFIG += exceptions
+
+
 # RC_FILE = openBrf.rc
 TARGET = openBrf
 TEMPLATE = app
@@ -112,8 +115,9 @@ FORMS += guipanel.ui \
     askLodOptionsDialog.ui \
     askUvTransformDialog.ui \
     askSkelPairDialog.ui
-INCLUDEPATH += "C:\projects\vcglib"
-INCLUDEPATH += "C:\libs\lib3ds-1.3.0"
+INCLUDEPATH += "C:/projects/vcglib"
+INCLUDEPATH += "C:/libs/lib3ds-1.3.0"
+INCLUDEPATH += "./"
 RESOURCES += resource.qrc
 TRANSLATIONS += translations/openbrf_zh.ts
 TRANSLATIONS += translations/openbrf_en.ts
@@ -126,6 +130,7 @@ win32 {
 }
 INCLUDEPATH += "C:\projects\libraries\include"
 DEFINES += GLEW_STATIC
+
 SOURCES += "C:\projects\libraries\sources\glew-1.5.3\src\glew.c"
 #LIBS += -L"C:\projects\libraries\lib" \
 #   % -lglew32

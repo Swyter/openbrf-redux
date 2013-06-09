@@ -197,6 +197,12 @@ Selector::Selector(QWidget *parent)
 	exportSkinForAnimationAct     = new QAction(tr("Export a skin for this ani"), this);
 	exportSkinForAnimationAct->setStatusTip(tr("Export a rigged skin which can be used for this animation."));
 
+	aniToVertexAniAct = new QAction(tr("Convert into vertex animation"),this);
+	aniToVertexAniAct->setStatusTip(tr("Convert skeletal animation into a vertex animation using current skin and skeleton"));
+
+	meshToVertexAniAct = new QAction(tr("Convert into vertex animation"),this);
+	meshToVertexAniAct->setStatusTip(tr("Convert rigged mesh into a vertex animation using current animation and skeleton"));
+
 	exportAnimationAct = new QAction(tr("Export animation..."), this);
 	exportAnimationAct->setStatusTip(tr("Export this animation."));
 
@@ -390,6 +396,9 @@ Selector::Selector(QWidget *parent)
 	connect(scaleAct, SIGNAL(triggered()),parent,SLOT(scale()));
 	connect(exportBodyAct, SIGNAL(triggered()), parent, SLOT(exportCollisionBody()));
 	connect(shiftAniAct, SIGNAL(triggered()),parent,SLOT(shiftAni()));
+
+	connect(aniToVertexAniAct, SIGNAL(triggered()), parent, SLOT(aniToVertexAni()));
+	connect(meshToVertexAniAct, SIGNAL(triggered()),parent, SLOT(meshToVertexAni()));
 	connect(bodyMakeQuadDominantAct, SIGNAL(triggered()),parent,SLOT(bodyMakeQuadDominant()));
 
 	connect(meshAniSplitAct,SIGNAL(triggered()),parent,SLOT(meshAniSplit()));
@@ -402,6 +411,7 @@ Selector::Selector(QWidget *parent)
 	connect(discardTanAct,SIGNAL(triggered()),parent,SLOT(meshDiscardTan()));
 	connect(meshFreezeFrameAct,SIGNAL(triggered()),parent,SLOT(meshFreezeFrame()));
 	connect(meshUnmountAct,SIGNAL(triggered()),parent,SLOT(meshUnmount()));
+
 
 	connect(discardHitboxAct, SIGNAL(triggered()), parent, SLOT(skeletonDiscardHitbox()));
 
@@ -653,7 +663,7 @@ void Selector::updateContextMenu(){
 					const std::vector< ObjCoord > &s ( iniData->usedBy(c) );
 					IniData::UsedInType ui = iniData->usedIn(c);
 
-					qDebug("TEST: C=(%d %d %d), size=%d",iniFileIndex,seli,t,s.size());
+					//qDebug("TEST: C=(%d %d %d), size=%d",iniFileIndex,seli,t,s.size());
 
 					for (int i=0; i<(int)N_TXTFILES; i++){
 						if (ui.direct & bitMask(i)) m->addAction(usedInAct[i]); else
@@ -734,6 +744,7 @@ void Selector::updateContextMenu(){
 				contextMenu->addAction(meshFixRiggingRigidParts);
 				contextMenu->addAction(smoothenRiggingAct);
 				contextMenu->addAction(stiffenRiggingAct);
+				if (onesel) contextMenu->addAction(meshToVertexAniAct);
 			}
 			contextMenu->addAction(meshMountOnBone);
 			//contextMenu->addAction(transferRiggingAct);
@@ -810,6 +821,7 @@ void Selector::updateContextMenu(){
 				contextMenu->addAction(shiftAniAct);
 				contextMenu->addAction(aniExtractIntervalAct);
 				contextMenu->addAction(aniRemoveIntervalAct);
+				contextMenu->addAction(aniToVertexAniAct);
 			}
 			contextMenu->addAction(aniReskeletonizeAct);
 			if (mulsel) contextMenu->addAction(aniMergeAct);
@@ -1010,7 +1022,7 @@ void Selector::selectOneSilent(int kind, int i){
 }
 
 void Selector::onClicked(const QModelIndex & mi){
-	qDebug("click");
+	//qDebug("click");
 
 	bool alt = QApplication::keyboardModifiers()&Qt::AltModifier;
 

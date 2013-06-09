@@ -21,6 +21,8 @@ public:
     int getOutputType() const;
     int getMethodType() const;
 
+private slots:
+		//void onChangeSkelTo() const;
 protected:
     void changeEvent(QEvent *e);
 

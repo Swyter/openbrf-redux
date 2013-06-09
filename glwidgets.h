@@ -93,6 +93,7 @@ public slots:
 	void setSpecularmap(int i);
 	void setComparisonMesh(int i);
 	void setFloor(int i);
+	void setFloorForAni(int i);
 	void setRuler(int i);
 	void setFloatingProbe(int i);
 	void setHitboxes(int i);
@@ -129,7 +130,7 @@ public slots:
 	void setUseOpenGL2(bool mode);
 public:
 
-	bool useWireframe, useLighting, useTexture , useNormalmap, useFloor;
+	bool useWireframe, useLighting, useTexture , useNormalmap, useFloor, useFloorInAni;
 	bool useRuler, useFloatingProbe, useSpecularmap, useHitboxes, useComparisonMesh;
 	bool ghostMode;
 	bool fixTexturesOnSight;
@@ -217,7 +218,7 @@ protected:
 
 	void glClearCheckBoard();
 	// rendering mode (just changes of openGL status):
-	void setShadowMode(bool on) const;
+	void setShadowMode(bool on);
 	void setWireframeLightingMode(bool on, bool light, bool text) const;
 	void setTextureName(QString st, int origin, int texUnit);
 	static bool fixTextureFormat(QString st);
@@ -262,7 +263,6 @@ private:
 	vcg::Point3f floatingProbe; // tmp
 	void renderFloatingProbe();
 
-private:
 	int w, h; // screen size
 	QColor currBgColor, defaultBgColor; // bgcolors
 	QPoint lastPos; // mouse pos
@@ -279,6 +279,7 @@ private:
 
 	bool animating;
 	bool bumpmapActivated, bumpmapUsingGreen;
+	bool shadowMode;
 
 	int viewmode;
 	int viewmodeMult;

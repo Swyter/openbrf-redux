@@ -70,8 +70,8 @@ public:
     emit(layoutChanged());
     emit(this->dataChanged(createIndex(0,0),createIndex(1,100)));
   }
-  int rowCount(const QModelIndex &parent) const {return getSize();}
-  int columnCount(const QModelIndex &parent) const {return 1;}
+  int rowCount(const QModelIndex &/*parent*/) const {return getSize();}
+  int columnCount(const QModelIndex &/*parent*/) const {return 1;}
   QVariant data(const QModelIndex &index, int role) const
   {
     if (role==Qt::DisplayRole) {
@@ -81,7 +81,7 @@ public:
     }
     return QVariant();
   }
-  QVariant headerData(int section, Qt::Orientation orientation, int role) const
+  QVariant headerData(int /*section*/, Qt::Orientation /*orientation*/, int /*role*/) const
   {return QString("header");}
   QModelIndex pleaseCreateIndex(int a, int b){return createIndex(a,b);}
 };
@@ -100,8 +100,8 @@ public:
         //emit(this->dataChanged(createIndex(0,0),createIndex(1,100)));
     }
   }
-  int rowCount(const QModelIndex &parent) const {return size;}
-  int columnCount(const QModelIndex &parent) const {return 1;}
+  int rowCount(const QModelIndex &/*parent*/) const {return size;}
+  int columnCount(const QModelIndex &/*parent*/) const {return 1;}
   QVariant data(const QModelIndex &index, int role) const
   {
     if (role==Qt::DisplayRole) {
@@ -114,7 +114,7 @@ public:
     }
     else return QVariant();
   }
-  QVariant headerData(int section, Qt::Orientation orientation, int role) const
+  QVariant headerData(int /*section*/, Qt::Orientation /*orientation*/, int /*role*/) const
   {return QString("header");}
   QModelIndex pleaseCreateIndex(int a, int b){return createIndex(a,b);}
 };
@@ -287,14 +287,14 @@ GuiPanel::GuiPanel(QWidget *parent, IniData &id) :
 
   ui->viewRuler->setVisible(false);
   ui->viewFloatingProbe->setVisible(false);
-
+  ui->generalView->setVisible(false);
   ui->vertexData->setVisible(false);
+
 
   ui->lvTextAcc->setModel( new TextureAccessModel(this) );
   ui->lvBodyPart->setModel( new BodyPartModel(this) );
   ui->lvBones->setModel( new BodyPartModel(this) );
 
-  ui->generalView->setVisible(false);
 
   //ui->frameNumber->setBackgroundRole(QPalette::Foreground);
   //ui->frameNumberAni->setBackgroundRole(QPalette::Foreground);
@@ -305,8 +305,10 @@ GuiPanel::GuiPanel(QWidget *parent, IniData &id) :
   alignY(ui->skeletonData,ui->meshData);
   alignY(ui->shaderData,  ui->meshData);
   alignY(ui->bodyData,  ui->meshData);
-  alignY(ui->bodyData,  ui->meshData);
+
   alignYAfter(ui->hitboxEdit, ui->skeletonData);
+  alignY(ui->vertexData,  ui->meshData);
+  //alignYAfter(ui->vertexData , ui->meshData );
 
   QString flagMask(">Hhhhhhhh");
   ui->boxFlags->setInputMask(flagMask);
@@ -387,6 +389,19 @@ GuiPanel::GuiPanel(QWidget *parent, IniData &id) :
 
 }
 
+void GuiPanel::setEditingVertexData(bool mode){
+	/*if (mode) {
+		ui->meshDataAni->setParent(ui->vertexData );
+	} else {
+		ui->meshDataAni->setParent(ui->meshData );
+	}*/
+
+	ui->vertexData->setVisible( mode );
+	ui->meshData->setVisible( !mode );
+
+}
+
+
 void GuiPanel::onEditHitbox(int k){
   int dir = 0;
   if (k==QAbstractSlider::SliderSingleStepSub) dir = +1;
@@ -408,7 +423,7 @@ void GuiPanel::setHbEditVisible(int vis){
   for (int i=0; i<ol.size(); i++) {
       //QObject &o (ol[i]);
       if (ol[i]->isWidgetType()) {
-        QWidget* w = dynamic_cast<QWidget*>(ol[i]);
+		QWidget* w = qobject_cast<QWidget*>(ol[i]);
         if (w!=ui->editHbActive) w->setVisible(vis);
       }
   }
@@ -424,7 +439,7 @@ static QString StringH(unsigned int i){
   return QString("%1").arg(i,0,16).toUpper();
 }
 
-void GuiPanel::setAnimation(const BrfAnimation* a){
+void GuiPanel::setAnimation(const BrfAnimation* ){
   if (!reference) return;
   if (!ui) return;
   if (!ui->cbRefSkel) return;
@@ -1115,6 +1130,7 @@ void GuiPanel::updateVisibility(){
 
   //ui->viewRuler->setVisible(k==MESH);
   ui->viewComparisonMesh->setVisible(k==BODY) ;
+  ui->viewFloorInAni->setVisible(k==ANIMATION);
 
   // set visibility
   if (k==MESH) {
@@ -1130,7 +1146,7 @@ void GuiPanel::updateVisibility(){
     ui->viewHitboxes->setVisible(ui->viewRefSkel->isVisible() );
 
   } else if (k==ANIMATION) {
-    ui->viewFloor->setVisible(false);
+	ui->viewFloor->setVisible(false);
     ui->viewRefSkin->setVisible(true);
     ui->viewRefAni->setVisible(false);
     ui->viewMeshRendering->setVisible( ui->cbSkin->currentIndex() );
@@ -1195,7 +1211,7 @@ void GuiPanel::changeEvent(QEvent *e)
 }
 
 
-void GuiPanel::on_lvTextAcc_customContextMenuRequested(QPoint pos)
+void GuiPanel::on_lvTextAcc_customContextMenuRequested(QPoint /*pos*/)
 {
   QMenu menu(this);
   int k=getCurrentSubpieceIndex(SHADER);

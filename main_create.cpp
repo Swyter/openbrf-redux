@@ -88,7 +88,6 @@ void MainWindow::createMenus()
 	moduleMenu->addAction(moduleOpenFolderAct);
 
 	moduleMenu->addSeparator();
-	moduleMenu->addAction(refreshIniAct);
 	moduleMenu->addAction(computeUsedByAct);
 
 	moduleMenu->addAction(selectBrfDataAct);
@@ -112,10 +111,13 @@ void MainWindow::createMenus()
 	//navMenu->addAction(navigateUpAct);
 	moduleMenu->addSeparator();
 	moduleMenu->addAction(saveHitboxAct);
+	moduleMenu->addAction(createScenePropTextAct);
 
-	toolMenu->addAction(enterVertexDataMode);
-	toolMenu->addAction(exitVertexDataMode);
+	toolMenu->addAction(refreshIniAct);
 	toolMenu->addSeparator();
+	//toolMenu->addAction(enterVertexDataMode);
+	//toolMenu->addAction(exitVertexDataMode);
+	//toolMenu->addSeparator();
 	toolMenu->addAction(sortEntriesAct);
 	toolMenu->addSeparator();
 	toolMenu->addAction(invertSelectionAct);
@@ -543,6 +545,10 @@ void MainWindow::createActions()
 	saveHitboxAct = new QAction(tr("Save module hitbox-sets for all skeletons")+"...", this);
 	connect(saveHitboxAct, SIGNAL(triggered()), this, SLOT(saveHitboxes()));
 
+	createScenePropTextAct = new QAction(tr("Create scene prop code for module")+"...",this);
+	createScenePropTextAct->setStatusTip( tr("Create scene prop text for current meshes and collision bodies") );
+	connect(createScenePropTextAct, SIGNAL(triggered()), this, SLOT(createScenePropText()) );
+
 	for (int i = 0; i < MaxRecentFiles; ++i) {
 		recentFileActs[i] = new QAction(this);
 		recentFileActs[i]->setVisible(false);
@@ -578,8 +584,8 @@ void MainWindow::createActions()
 
 	editRefAct = new QAction(tr("_"), this);
 
-	enterVertexDataMode = new QAction(tr("Edit vertex-data"), this);
-	exitVertexDataMode = new QAction(tr("Stop editing vertex-data"), this);
+	enterVertexDataMode = new QAction(tr("Enter vertex-data editor"), this);
+	exitVertexDataMode = new QAction(tr("Exit vertex-data editor"), this);
 	connect(enterVertexDataMode, SIGNAL(triggered()), this, SLOT(enterOrExitVertexDataMode()));
 	connect(exitVertexDataMode, SIGNAL(triggered()), this, SLOT(enterOrExitVertexDataMode()));
 
@@ -648,7 +654,7 @@ void MainWindow::createActions()
 	navigateUpAct = new QAction(tr("prev back-link"),this);
 	searchBrfAct = new QAction(tr("Find..."),this);
 	searchBrfAct->setShortcut(tr("ctrl+F"));
-	refreshIniAct = new QAction(tr("Refresh"),this);
+	refreshIniAct = new QAction(tr("Refresh all"),this);
 	refreshIniAct->setStatusTip(tr("Reload ini files, brf files inside it, and dds textures"));
 	refreshIniAct->setShortcut(tr("F5"));
 	computeUsedByAct = new QAction(tr("Scan module for usages"),this);
@@ -762,7 +768,7 @@ void MainWindow::createMiniViewOptions(){
 
 	for (int i=0; i<3; i++) {
 		viewmodemult[i]->setCheckable(true);
-		viewmodemult[i]->setChecked(i==0);
+		viewmodemult[i]->setChecked(i==2);
 		viewmodemult[i]->setFlat(true);
 		viewmodemult[i]->setContentsMargins(0,0,0,0);
 		QFont f = viewmode[i]->font();
@@ -855,6 +861,7 @@ void MainWindow::createConnections(){
 	connect(guiPanel->ui->cbNormalmap       ,SIGNAL(stateChanged(int)),this,SLOT(setNormalmap(int)));
 	connect(guiPanel->ui->cbSpecularmap     ,SIGNAL(stateChanged(int)),this,SLOT(setSpecularmap(int)));
 	connect(guiPanel->ui->cbFloor           ,SIGNAL(stateChanged(int)),glWidget,SLOT(setFloor(int)));
+	connect(guiPanel->ui->cbFloorForAni     ,SIGNAL(stateChanged(int)),glWidget,SLOT(setFloorForAni(int)) );
 	connect(guiPanel->ui->cbComparisonMesh  ,SIGNAL(stateChanged(int)),glWidget,SLOT(setComparisonMesh(int)));
 	connect(guiPanel->ui->cbComparisonMesh  ,SIGNAL(stateChanged(int)),guiPanel,SLOT(updateVisibility()));
 	connect(guiPanel->ui->cbWireframe       ,SIGNAL(stateChanged(int)),glWidget,SLOT(setWireframe(int)));

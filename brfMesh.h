@@ -166,9 +166,12 @@ public:
 
 	unsigned int GetAverageColor() const;
 
-	void FreezeFrame(const BrfSkeleton& s, const BrfAnimation& a, float frame);
+	void FreezeFrame(const BrfSkeleton& s, const BrfAnimation& a, float frameInput, int frameOutput=0);
+	bool RiggedToVertexAni(const BrfSkeleton& s, const BrfAnimation& a);
 	void Unmount(const BrfSkeleton& s);
 	void MountOnBone(const BrfSkeleton& s, int boneIndex);
+
+	const char* GetLikelyCollisonBodyName() const;
 
 	void ResizeTextCoords(Point2f min, Point2f max );
 	void paintAlphaAsZ(float min, float max);
@@ -204,6 +207,7 @@ public:
 
 	bool SaveOBJ(char* f, int frame) const;
 	bool LoadOBJ(char* f);
+	bool SaveVertexAniAsOBJ(char* f) const;
 
 	/* data extracted from name... */
 	char baseName[255];
@@ -230,8 +234,6 @@ public:
 	bool SaveAsPly(int nframe=0, const wchar_t* path=L"") const;
 
 	void Flip();
-	void PaintAll(int r, int g, int b);
-
 	void Bend(int frame, float range); // bends as if on a cylinder
 
 	bool IsAnimable() const;
@@ -242,7 +244,6 @@ public:
 
 	bool UnifyPos();
 	bool UnifyVert(bool careForNormals, float crease=0);
-	void UnifyVertNormPerPos(bool careForNormals, float crease=0);
 	void DivideVert();
 	void RemoveSeamsFromNormals(double crease);
 	void AfterLoad();
@@ -257,6 +258,7 @@ public:
 	bool AddFrameMatchVert(const BrfMesh &brf, int k);
 	bool AddFrameMatchTc(const BrfMesh &brf, int k);
 	bool AddFrameMatchPosOrDie(const BrfMesh &brf, int k);
+	void EnsureTwoFrames();
 
 	void Scale(float f);
 	void Scale(float xNeg, float xPos, float yPos, float yNeg, float zPos, float zNeg);

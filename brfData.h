@@ -61,6 +61,8 @@ public:
 	int GetFirstUnusedLetter() const; // return first unused alphabet letter in meshes
 	BrfMesh GetCompleteSkin(int i) const; // returns a mesh composed of all skin pieces
 	const char* GetFirstObjectName() const; // returns name of first object
+	const char* GetAllObjectNames() const;
+	const char* GetAllObjectNamesAsSceneProps(int *nFound, int *nFoundWithB) const;
 
 	int getOneSkeleton(int nbones, int after);
 	int Find(const char* name, int token) const;

@@ -459,14 +459,19 @@ bool MainWindow::exportMovingMesh(){
   if (i<0) return false;
   if (i>(int)brfdata.mesh.size()) return false;
   if (selector->currentTabName()!=MESH) return false;
-  QString fn = askExportFilename(brfdata.mesh[ i ].name,tr("Quake 3 vertex animation (*.MD3)"));
+  QString fn = askExportFilename(brfdata.mesh[ i ].name,tr("Quake 3 vertex animation (*.MD3);;Sequence of Obj (*.000.obj)"));
   if (fn.isEmpty()) return false;
-  if (!IoMD3::Export(fn.toStdWString().c_str(),brfdata.mesh[i])){
-    QMessageBox::information(this,
-      tr("Open Brf"),
-      tr("Error exporting MD3 file\n: %1").arg(QString::fromStdWString(IoMD3::LastErrorString()))
-    );
-    return false;
+  if (fn.endsWith(".000.obj",Qt::CaseInsensitive)) {
+	  fn.truncate( fn.length()-8 );
+	  brfdata.mesh[i].SaveVertexAniAsOBJ( fn.toAscii().data() );
+  } else {
+	if (!IoMD::Export(fn.toStdWString().c_str(),brfdata.mesh[i])){
+		QMessageBox::information(this,
+		tr("Open Brf"),
+		tr("Error exporting MD3 file\n: %1").arg(QString::fromStdWString(IoMD::LastErrorString()))
+		);
+		return false;
+  }
   }
   return true;
 }
@@ -786,11 +791,11 @@ bool MainWindow::importMovingMesh(){
   std::vector<BrfMesh> tmp;
 
   bool ok=false;
-  ok = IoMD3::Import(fn.toStdWString().c_str(),tmp);
+  ok = IoMD::Import(fn.toStdWString().c_str(),tmp);
   if (!ok) {
     QMessageBox::information(this, tr("Open Brf"),
      tr("Cannot import file %1:\n%3\n").arg(fn)
-     .arg(QString::fromStdWString(std::wstring(IoMD3::LastErrorString())))
+     .arg(QString::fromStdWString(std::wstring(IoMD::LastErrorString())))
     );
     return false;
   }
