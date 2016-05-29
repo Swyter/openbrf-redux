@@ -25,7 +25,7 @@ public:
     int getBone() const;
 		int getCarryPos() const;
     bool pieceAtOrigin() const;
-    void sayNotSkinned(bool say);
+    void sayNotRigged(bool say);
 
 protected:
     void changeEvent(QEvent *e);

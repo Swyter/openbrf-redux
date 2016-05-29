@@ -78,9 +78,9 @@ vcg::Matrix44f BrfSkeleton::adjustCoordSystHalf(vcg::Matrix44f m){
   return matr*m;
 }
 
-float BrfSkeleton::BoneSizeX(){return 0.12f;}
-float BrfSkeleton::BoneSizeY(){return 0.06f;}
-float BrfSkeleton::BoneSizeZ(){return 0.04f;}
+float BrfSkeleton::BoneSizeX(){return 0.12;}
+float BrfSkeleton::BoneSizeY(){return 0.06;}
+float BrfSkeleton::BoneSizeZ(){return 0.04;}
 
 std::vector<int> BrfSkeleton::Bone2BoneMap(const BrfSkeleton & s) const{
   std::vector<int> res(bone.size(),-1);
@@ -128,7 +128,7 @@ void BrfSkeleton::BuildDefaultMesh(BrfMesh & m) const{ // builds a mesh with jus
   m.frame[0].pos.resize(nb*6);
   m.frame[0].norm.resize(nb*6);
   m.face.resize(nb*8);
-  m.skinning.resize(nb*6);
+  m.rigging.resize(nb*6);
 
   float
     X=BrfSkeleton::BoneSizeX(),
@@ -150,13 +150,13 @@ void BrfSkeleton::BuildDefaultMesh(BrfMesh & m) const{ // builds a mesh with jus
   std::vector<vcg::Matrix44f> mat = GetBoneMatrices();
 
   for (int i=0, pi=0, fi=0; i<nb; i++) {
-    // set up skinning...
+    // set up rigging...
     for (int j=0; j<6; j++,pi++){
-      m.skinning[pi].boneIndex[0]=i;
-      m.skinning[pi].boneWeight[0]=1;
+      m.rigging[pi].boneIndex[0]=i;
+      m.rigging[pi].boneWeight[0]=1;
       for (int h=1; h<4; h++) {
-        m.skinning[pi].boneIndex[h]=-1;
-        m.skinning[pi].boneWeight[h]=0;
+        m.rigging[pi].boneIndex[h]=-1;
+        m.rigging[pi].boneWeight[h]=0;
       }
 
       // set up pos and norm
@@ -297,7 +297,7 @@ bool BrfBone::Skip(FILE *f){
   return true;
 }
 
-bool BrfBone::Load(FILE*f, int /*verbose*/){
+bool BrfBone::Load(FILE*f, int verbose){
   LoadInt(f, attach);
 
   if (LoadStringMaybe(f, name, "bone")) // for back compatibility!!!

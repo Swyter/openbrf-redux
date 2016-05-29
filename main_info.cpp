@@ -67,8 +67,8 @@ void MainWindow::about()
               .arg("[mtarini] --- Marco Tarini")
               .arg(QString::fromLatin1(
                    " <br>[Abhuva], [amade], [Andrde Cuyne], [Barabas], "
-                   "[Barf], [Bilwit], [Block], [Bluehawk], [Bolkonsky], [Brutus], [Caba`drin], "
-                   "[captain lust], [cdvader], [Chel], [captain lust], [Computica], [cmpxchg8b], [Crazy-Q], [DaBlade], "
+                   "[Barf], [Bilwit], [Bluehawk], [Bolkonsky], [Brutus], [Caba`drin], "
+                   "[captain&nbsp;lust], [cdvader], [Chel], [captain lust], [Computica], [cmpxchg8b], [Crazy-Q], [DaBlade], "
                    "[Dain Ironfoot], "
                    "[Darwin], [dia151], [dreamterror], [dunde], [ealabor], [eierkopf], "
                    "[EvolutiveBrain], "

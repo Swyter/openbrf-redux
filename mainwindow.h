@@ -81,7 +81,6 @@ private slots:
 	void notifyCheckboardChanged();
 	bool setEditingRef(bool mode);
 	bool setEditingVertexData(bool mode);
-    void setViewmodeMult(int i);
 
 	void closeEvent(QCloseEvent *event);
 	void newFile();
@@ -135,9 +134,11 @@ private slots:
 
 	void setSelection(const QModelIndexList &l,int);
 
+
 	void updateDataMaterial();
 	void updateDataShader();
 	void updateDataBody();
+
 
 	void updateTextureAccessDup();
 	void updateTextureAccessDel();
@@ -150,8 +151,8 @@ private slots:
 	bool exportBodyGroupManyFiles();
 	bool exportStaticMesh();
 	bool importStaticMesh();
-	bool exportSkinnedMesh();
-	bool importSkinnedMesh();
+	bool exportRiggedMesh();
+	bool importRiggedMesh();
 	bool importMovingMeshFrame();
 	bool exportMovingMesh();
 	bool importMovingMesh();
@@ -173,17 +174,9 @@ private slots:
 	bool reimportCollisionBody();
 
 	bool importBrf();
-
-    void moveSel(int dir);
-
 	void moveUpSel();
 	void moveDownSel();
-    void moveUpPageSel();
-    void moveDownPageSel();
-    void moveUpAllSel();
-    void moveDownAllSel();
-
-    void renameSel();
+	void renameSel();
 	void deleteSel();
 	void duplicateSel();
 	void addToRef(); // add current selected item to ref
@@ -248,7 +241,6 @@ private slots:
 	void learnFemininzation(); // from current selection
 	void optionFemininzationUseDefault();
 	void optionFemininzationUseCustom();
-    void optionSetAutocomputeTangents( bool );
 
 	void setFlagsShader();
 	void setFlagsShaderRequires();
@@ -370,7 +362,7 @@ private:
 	template<class BrfType> void getAllFlags(const vector<BrfType> &v, unsigned int &orr, unsigned int &andd);
 	template<class BrfType> bool setAllFlags(vector<BrfType> &v, unsigned int toZero, unsigned int toOne);
 
-	bool makeMeshSkinned( BrfMesh &m, bool becauseAddToRef , bool askUserAgain );
+	bool makeMeshRigged( BrfMesh &m, bool becauseAddToRef , bool askUserAgain );
 
 	bool mustOverwriteColors(); // if false, must multiply colors instead
 
@@ -534,7 +526,6 @@ private:
 
 	QPair<ObjCoord , QString > navigationStack[2];
 
-    QAction *optionAutoComputeTangents;
 	QAction *optionAfterMeshLoadMerge;
 	QAction *optionAfterMeshLoadRecompute;
 	QAction *optionAfterMeshLoadNothing;
@@ -571,7 +562,7 @@ private:
 
 	QAction
 	*importStaticMeshAct,
-	*importSkinnedMeshAct,
+	*importRiggedMeshAct,
 	*importMovingMeshFrameAct,
 	*importMovingMeshAct,
 	*importSkeletonAct,

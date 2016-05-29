@@ -67,7 +67,7 @@ void MainWindow::createMenus()
 	editMenu->addAction(editPasteHitboxAct);
 
 	importMenu->addAction(importStaticMeshAct);
-    importMenu->addAction(importSkinnedMeshAct);
+	importMenu->addAction(importRiggedMeshAct);
 	importMenu->addAction(importMovingMeshAct);
 	importMenu->addAction(importMovingMeshFrameAct);
 	importMenu->addSeparator();
@@ -154,7 +154,7 @@ void MainWindow::createMenus()
 
 	optionMenu->addAction(aboutCheckboardAct);
 
-
+	optionMenu->addSeparator();
 	QMenu* autoZoom = optionMenu->addMenu(tr("Auto zoom-and-recenter"));
 	optionAutoZoomUseSelected = new QAction(tr("according to selected object(s) only"),this);
 	optionAutoZoomUseSelected->setCheckable(true);
@@ -165,15 +165,6 @@ void MainWindow::createMenus()
 	group3->addAction(optionAutoZoomUseGlobal);
 	group3->setExclusive(true);
 	autoZoom->addActions(group3->actions());
-
-
-    optionAutoComputeTangents = new QAction(tr("Auto compute tangents"),this);
-    optionAutoComputeTangents->setStatusTip(tr("Silently auto-compute tangent-dirs to preview normal-maps, if the model lacks them"));
-    optionAutoComputeTangents->setCheckable(true);
-    optionMenu->addAction(optionAutoComputeTangents);
-    connect(optionAutoComputeTangents, SIGNAL(toggled(bool)), this, SLOT(optionSetAutocomputeTangents(bool)) );
-
-    optionMenu->addSeparator();
 
 
 	/* TOOLS OPTIONS */
@@ -324,6 +315,8 @@ void MainWindow::createMenus()
 	}
 	group7->setExclusive(true);
 
+
+
 	QMenu* aoBrightMenu = optionMenu->addMenu(tr("On compute Ambient Occlusion"));
 	aoBrightMenu->addActions(group5->actions());
 	aoBrightMenu->addSeparator();
@@ -336,21 +329,24 @@ void MainWindow::createMenus()
 	optionAoInAlpha->setCheckable(true);
 	aoBrightMenu->addAction(optionAoInAlpha);
 
+
 	// OPTION TO LEARN NEW FEMININIZTION
 	autoFemMenu = optionMenu->addMenu(tr("On armour auto-feminization"));
 	QActionGroup* group8=new QActionGroup(this);
 	optionFeminizerUseDefault = new QAction(tr("use default settings"),this);
-    optionFeminizerUseDefault->setStatusTip(tr("Use built-in settings to auto-feminize armours."));
+	optionFeminizerUseDefault->setToolTip("Use built-in options to auto-feminize armours.");
 	optionFeminizerUseDefault->setCheckable(true);
 	optionFeminizerUseCustom = new QAction(tr("use custom settings"),this);
-    optionFeminizerUseCustom->setStatusTip(tr("Use custom settings to auto-feminize armours."));
+	optionFeminizerUseCustom->setToolTip("Use built-in options to auto-feminize armours.");
 	optionFeminizerUseCustom->setCheckable(true);
 	group8->addAction(optionFeminizerUseDefault);
 	group8->addAction(optionFeminizerUseCustom);
 	group8->setExclusive(true);
 
+
+
 	optionLearnFeminization= new QAction(tr("Learn custom setting from selected meshes..."),this);
-    optionLearnFeminization->setStatusTip(tr("Use currently selected armours as examples to learn how to auto-feminize armours"));
+	optionLearnFeminization->setToolTip(tr("Use currently selected armours as examples to learn how to auto-feminize armours"));
 	connect(optionLearnFeminization,  SIGNAL(triggered()), this, SLOT(learnFemininzation()));
 	connect(optionFeminizerUseDefault,SIGNAL(triggered()), this, SLOT(optionFemininzationUseDefault()));
 	connect(optionFeminizerUseCustom, SIGNAL(triggered()), this, SLOT(optionFemininzationUseCustom()));
@@ -488,8 +484,8 @@ void MainWindow::createActions()
 	editPasteFrameAct->setEnabled(false);
 	editPasteFrameAct->setStatusTip(tr("Paste frame from clipboard as next frame in the current vertex animated mesh"));
 
-    editPasteRiggingAct = new QAction(tr("Paste skinning"), this);
-    editPasteRiggingAct->setStatusTip(tr("Make a skinning for current mesh(-es) similar to one of the meshes in the clipboard."));
+	editPasteRiggingAct = new QAction(tr("Paste rigging"), this);
+	editPasteRiggingAct->setStatusTip(tr("Make a rigging for current mesh(-es) similar to one of the meshes in the clipboard."));
 	editPasteRiggingAct->setEnabled(false);
 
 	editPasteMergeMeshAct = new QAction(tr("Paste into mesh (matches LODs)"),this);
@@ -628,8 +624,8 @@ void MainWindow::createActions()
 
 	importStaticMeshAct = new QAction(tr("Static mesh..."), this);
 	importStaticMeshAct->setStatusTip(tr("Import a static Mesh"));
-    importSkinnedMeshAct = new QAction(tr("Skinned mesh..."), this);
-    importSkinnedMeshAct->setStatusTip(tr("Import skinned (skeletal animable) Mesh"));
+	importRiggedMeshAct = new QAction(tr("Rigged mesh..."), this);
+	importRiggedMeshAct->setStatusTip(tr("Import rigged (skeletal animable) Mesh"));
 	importMovingMeshFrameAct = new QAction(tr("Frame of vertex-animated mesh..."), this);
 	importMovingMeshFrameAct->setStatusTip(tr("Import a static mesh and add it as a vertex-animation frame of current Mesh"));
 	importMovingMeshAct = new QAction(tr("Vertex-animated mesh..."), this);
@@ -855,7 +851,7 @@ void MainWindow::createConnections(){
 	//connect(optionInferMaterialOn , SIGNAL(triggered()), glWidget, SLOT(setInferMaterialOn()) );
 
 	connect(importStaticMeshAct,SIGNAL(triggered()),this,SLOT(importStaticMesh()));
-    connect(importSkinnedMeshAct,SIGNAL(triggered()),this,SLOT(importSkinnedMesh()));
+	connect(importRiggedMeshAct,SIGNAL(triggered()),this,SLOT(importRiggedMesh()));
 	connect(importMovingMeshAct,SIGNAL(triggered()),this,SLOT(importMovingMesh()));
 	connect(importMovingMeshFrameAct,SIGNAL(triggered()),this,SLOT(importMovingMeshFrame()));
 

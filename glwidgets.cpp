@@ -72,7 +72,6 @@ GLWidget::GLWidget(QWidget *parent, IniData &_inidata)
 	useFloorInAni = true;
 	useFloatingProbe = false;
 	useComparisonMesh = false;
-    autoComputeTangents = false;
 	openGL2ready=false;
 
 	bumpmapActivated = false;
@@ -400,7 +399,6 @@ void GLWidget::scaleAsLastBindedTexture(){
 
 void GLWidget::renderTexture(const char* name, bool addExtension){
 	glDisable(GL_LIGHTING);
-    glDisable(GL_DEPTH_TEST);
 
 	glPolygonMode(GL_FRONT,GL_FILL);
 
@@ -439,14 +437,12 @@ void GLWidget::renderTexture(const char* name, bool addExtension){
 	if (showAlpha==TRANSALPHA ){
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    }
-    else if (showAlpha==PURPLEALPHA){
+	}
+	if (showAlpha==PURPLEALPHA){
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_ZERO, GL_SRC_ALPHA);
-    } else {
-        glDisable(GL_BLEND);
-    }
-    //glDisable(GL_DEPTH_TEST);
+	}
+	glDisable(GL_DEPTH_TEST);
 	glBegin(GL_QUADS);
 	glTexCoord2f(0,1);glVertex2f(-w,-h);
 	glTexCoord2f(1,1);glVertex2f( w,-h);
@@ -455,7 +451,7 @@ void GLWidget::renderTexture(const char* name, bool addExtension){
 	glEnd();
 
 	glDisable(GL_BLEND);
-    //glEnable(GL_DEPTH_TEST);
+	glEnable(GL_DEPTH_TEST);
 
 }
 
@@ -468,37 +464,24 @@ void GLWidget::renderBrfItem(const BrfMaterial& t){
         if (present[i]) n++;
 	}
     if (n==0) return;
-    float gap = 0.1*(n-1);
-    float sc = 1.0/(1.0+gap/2);
-    glScalef(sc,sc,1);
-    float tr = gap/2;
-    glTranslatef(-tr,-tr,0);
-
-    int postPoned = -1;
-    int postPonedP = -1;
-
-    for (int i=SPECULAR,p=0; i>=DIFFUSEA; i--) {
+    float k = 1.0/(1.0+0.1*(n-1));
+    glScalef(k,k,1);
+    //glTranslatef(-k,-k,0);
+    for (int i=SPECULAR; i>=DIFFUSEA; i--) {
+		if (i!=curMaterialTexture)
 		if (present[i]) {
-            if (i==curMaterialTexture) {
-                postPoned = i;
-                postPonedP = p;
-            } else {
-                glPushMatrix();
-                int d = (p - DIFFUSEA);
-                glTranslatef(d*0.1f,d*0.1f,0);
-                renderTexture(t.getTextureName(i));
-                glPopMatrix();
-            }
-            p++;
-        }
+            glPushMatrix();
+            int d = n-1-(i - DIFFUSEA);
+            glTranslatef(d*0.1f,d*0.1f,0);
+            renderTexture(t.getTextureName(i));
+            glPopMatrix();
+		}
 	}
 
-    if (postPoned>=0) {
-        glPushMatrix();
-        int d = (postPonedP - DIFFUSEA);
+    if (present[curMaterialTexture]) {
+        int d = n-1-(curMaterialTexture - DIFFUSEA);
         glTranslatef(d*0.1f,d*0.1f,0);
-        renderTexture(t.getTextureName(postPoned));
-        glPopMatrix();
+        renderTexture(t.getTextureName(curMaterialTexture));
     }
 }
 
@@ -528,7 +511,7 @@ void GLWidget::renderBrfItem (const BrfMesh& p){
 	BrfAnimation* a=NULL;
 	BrfSkeleton* s=NULL;
 	BrfBody* b=NULL;
-	if (p.IsSkinned()) {
+	if (p.IsRigged()) {
 		if (selRefAnimation>=0) {
 			a = &(reference->animation[selRefAnimation]);
 			int si = getRefSkeleton();
@@ -545,7 +528,7 @@ void GLWidget::renderBrfItem (const BrfMesh& p){
 
 	if (a && s) {
         lastSkelAniFrameUsed = fi = floatMod( relTime*runningSpeed , (int)a->frame.size() );
-		renderSkinnedMesh(p,*s,*a,fi);
+		renderRiggedMesh(p,*s,*a,fi);
 	} else {
 		renderMesh(p,fi);
 	}
@@ -575,7 +558,7 @@ void setSpec( float s ){
 }
 
 void GLWidget::enableDefMaterial(){
-    setAmbientDiffuse( 0.35f, 0.60f );
+    setAmbientDiffuse( 0.35f, 0.70f );
     setSpec( 0.0 );
     glDepthMask( true );
 	glDisable(GL_ALPHA_TEST);
@@ -684,7 +667,6 @@ void GLWidget::enableMaterial(const BrfMaterial &m){
     if (useTransparency &&  m.FlagBlend()) {
         glEnable(GL_BLEND);
         glBlendFunc( m.FlagBlendFuncSrc(), m.FlagBlendFuncDst() );
-        qDebug("%d %d",m.FlagBlendFuncSrc(), m.FlagBlendFuncDst());
     } else glDisable(GL_BLEND);
 
 
@@ -770,7 +752,7 @@ void GLWidget::enableMaterial(const BrfMaterial &m){
 
 }
 
-void GLWidget::renderBrfItem(const BrfBody& b){
+void GLWidget::renderBrfItem (const BrfBody& b){
 	if (useComparisonMesh) {
 		std::vector<BrfMesh> &v(data->mesh);
 		for (unsigned int i=0; i<v.size(); i++) {
@@ -795,7 +777,7 @@ void GLWidget::renderBrfItem(const BrfBody& b){
 	renderBody(b);
 }
 
-void GLWidget::renderBrfItem(const BrfAnimation& a){
+void GLWidget::renderBrfItem (const BrfAnimation& a){
     float fi = floatMod( relTime*runningSpeed , (int)a.frame.size() );
 	int fii = int(fi);
 	if (selFrameN!=fii) emit(signalFrameNumber(fii+1));
@@ -827,7 +809,7 @@ void GLWidget::renderBrfItem(const BrfAnimation& a){
 		if (selRefSkin>=0) {
 			for (unsigned int i=0; i<reference->mesh.size(); i++){
 				if (reference->mesh[i].name[4]==char('A'+selRefSkin))
-					renderSkinnedMesh(reference->mesh[i],s,a,fi);
+					renderRiggedMesh(reference->mesh[i],s,a,fi);
 			}
 		} else {
 			if (!b) renderAnimation(a,s,fi); // naked bones
@@ -863,7 +845,7 @@ void GLWidget::renderBrfItem(const BrfSkeleton& p){
 		//skinIdeChar = char('A'+tmpHack++);
 		for (unsigned int i=0; i<reference->mesh.size(); i++){
 			if (reference->mesh[i].name[4]==skinIdeChar) {
-				if (a) renderSkinnedMesh(reference->mesh[i],p,*a,frameNum);
+				if (a) renderRiggedMesh(reference->mesh[i],p,*a,frameNum);
 				else renderMesh(reference->mesh[i],0);
 				skinRendered = true;
 			}
@@ -1232,8 +1214,6 @@ void GLWidget::setSubSelected(int k){
 void GLWidget::setSelection(const QModelIndexList &newsel, int k){
 	if (k>=0) displaying=TokenEnum(k);
 
-    bboxReady = false;
-
 	selectNone();
 
     int _viewmodeMult = viewmodeMult;
@@ -1242,12 +1222,10 @@ void GLWidget::setSelection(const QModelIndexList &newsel, int k){
         if (_viewmodeMult==2) _viewmodeMult=1;
     }
 
-    //const char* pippo = "_none_";
+    const char* pippo = "_none_";
 
-    std::map< QString, int > basenameToVP;
-
-    for (const auto &s : newsel ) {
-        int i = s.row();
+    for (QModelIndexList::ConstIterator ite=newsel.constBegin(); ite!=newsel.constEnd(); ite++){
+        int i = ite->row();
         lastSelected = i;
 
         int thisLod = (k==MESH) ? data->mesh[ i ].lodLevel : 0;
@@ -1264,21 +1242,15 @@ void GLWidget::setSelection(const QModelIndexList &newsel, int k){
             break;
         case 2: {
             // it depends...
-            int whichVp = -1;
+            bool isSameVp = false;
             if (k==MESH) {
-                const char* base = data->mesh[ i ].baseName;
-
-                auto ma = basenameToVP.find( QString(base) );
-
-                if (ma!=basenameToVP.end()) {
-                    whichVp = ma->second; // found!
-                } else {
-                    basenameToVP[ QString(base) ] = (int)inViewport.size();
-                }
+                char* base = data->mesh[ i ].baseName;
+                if (strcmp( pippo, base )==0) isSameVp = true;
+                else pippo = base;
             }
-            if (whichVp>-1) {
-                inViewport[whichVp].items.push_back( i ); // add
-                inViewport[whichVp].bestLod = std::min(inViewport[whichVp].bestLod,thisLod);
+            if (isSameVp) {
+                inViewport.back().items.push_back( i ); // add
+                inViewport.back().bestLod = std::min(inViewport.back().bestLod,thisLod);
                 break;
             }
             // else continue...
@@ -1299,31 +1271,9 @@ void GLWidget::setSelection(const QModelIndexList &newsel, int k){
 		selFrameN = -1; // so to resend frame changed next frame
 	}
 
-    if (k==MESH) {
-        maybeApplyRenderOrder();
-
-        /* autoupdate tangent dirs */
-        //QTime t;int count = 0;t.start();
-
-        for (const auto &s : newsel ) {
-            BrfMesh&m (data->mesh[s.row()]);
-            if (!m.StoresTangentField()) {
-                if (!m.HasTangentField() &&autoComputeTangents)
-                    m.ComputeTangents();
-                else if (m.HasTangentField() && !autoComputeTangents)
-                    m.ZeroTangents(); // it didn't have them stored, so lets clean them.
-                //count++;
-            }
-        }
-        /*if (count>0) {
-            QString msg = QString("Auto-computed tangent dirs for %1 meshes in %2 msecs").arg(count).arg(t.elapsed());
-            emit( displayInfo(msg,2000) );
-            qDebug(msg.toLatin1().data());
-        }*/
-    }
+    maybeApplyRenderOrder();
 	update();
 }
-
 
 void GLWidget::maybeApplyRenderOrder(){
     if (!data) return;
@@ -1741,7 +1691,7 @@ Point3f boneColor[N_BONES_COLORS]={
 };
 #undef f
 
-void BrfSkinning::SetColorGl()const{
+void BrfRigging::SetColorGl()const{
 	Point3f c(0,0,0);
 	for (int j=0; j<4; j++) {
 		if (boneIndex[j]>-1) c+= boneColor[ boneIndex[j]%N_BONES_COLORS ]*boneWeight[j];
@@ -1753,12 +1703,12 @@ void BrfSkinning::SetColorGl()const{
 bool GLWidget::skeletalAnimation(){
 	if (displaying==MESH) {
 
-        for (int i=0; i<(int)inViewport.size(); i++) {
-            for (int j=0; j<(int)inViewport[i].items.size(); j++)
+        for (int i=0; i<inViewport.size(); i++) {
+            for (int j=0; j<inViewport[i].items.size(); j++)
             {
                 int k = inViewport[i].items[j];
-                if ((int)data->mesh.size() < k)
-                    if (data->mesh[k].IsSkinned()) return true;
+                if (data->mesh.size() < k)
+                    if (data->mesh[k].IsRigged()) return true;
             }
 		}
 	}
@@ -1766,7 +1716,7 @@ bool GLWidget::skeletalAnimation(){
 
 }
 
-void GLWidget::renderSkinnedMesh(const BrfMesh& m,  const BrfSkeleton& s, const BrfAnimation& a, float frame){
+void GLWidget::renderRiggedMesh(const BrfMesh& m,  const BrfSkeleton& s, const BrfAnimation& a, float frame){
 	if (useOpenGL2) initOpenGL2();
 	int fv =selFrameN;
 
@@ -1774,15 +1724,16 @@ void GLWidget::renderSkinnedMesh(const BrfMesh& m,  const BrfSkeleton& s, const 
 	if (fv<0) fv= 0;
 
 	if ((int)s.bone.size()!=a.nbones || m.maxBone>a.nbones) {
-        if (!shadowMode) renderMesh(m,fv); // give up skinning mesh
+		if (!shadowMode) renderMesh(m,fv); // give up rigging mesh
 		return;
 	}
 
 	if (!shadowMode) {
 		glEnable(GL_COLOR_MATERIAL);
 		glColor3f(1,1,1);
-		if ((!m.IsSkinned() && colorMode==2)|| colorMode==0) glDisable(GL_COLOR_MATERIAL);
+		if ((!m.IsRigged() && colorMode==2)|| colorMode==0) glDisable(GL_COLOR_MATERIAL);
 	}
+
 
 	int fi= (int)frame;
 	vector<Matrix44f> bonepos = s.GetBoneMatrices( a.frame[fi] );
@@ -1795,9 +1746,9 @@ void GLWidget::renderSkinnedMesh(const BrfMesh& m,  const BrfSkeleton& s, const 
 		for (unsigned int i=0; i<m.face.size(); i++) {
 			for (int j=0; j<3; j++) {
 
-                const BrfSkinning &skn (m.skinning[ m.vert[ m.face[i].index[j] ].index ]);
+				const BrfRigging &rig (m.rigging[ m.vert[ m.face[i].index[j] ].index ]);
 				if (!shadowMode) {
-					if (colorMode==2) skn.SetColorGl();
+					if (colorMode==2) rig.SetColorGl();
 					else {
 						GLubyte* c = (GLubyte*)&m.vert[ m.face[i].index[j] ].col;
 						glColor3ub( c[2],c[1],c[0] );
@@ -1814,8 +1765,8 @@ void GLWidget::renderSkinnedMesh(const BrfMesh& m,  const BrfSkeleton& s, const 
 				Point3f t(0,0,0);
 				int ti = 0;
 				for (int k=0; k<4; k++){
-					float wieght = skn.boneWeight[k];
-					int       bi = skn.boneIndex [k];
+					float wieght = rig.boneWeight[k];
+					int       bi = rig.boneIndex [k];
 					if (bi>=0 && bi<(int)bonepos.size()) {
 						v += (bonepos[bi]* pos  )*wieght;
 						n += (bonepos[bi]* norm - bonepos[bi]*Point3f(0,0,0) )*wieght;
@@ -1870,7 +1821,7 @@ void GLWidget::renderMesh(const BrfMesh &m, float frame){
 	glColor3f(1,1,1);
 
 	int cm = colorMode;
-	if (!m.IsSkinned() && cm==2) cm = 0;
+	if (!m.IsRigged() && cm==2) cm = 0;
 
 	if (cm==0) glDisable(GL_COLOR_MATERIAL);
 
@@ -1882,7 +1833,7 @@ void GLWidget::renderMesh(const BrfMesh &m, float frame){
 		for (unsigned int i=0; i<m.face.size(); i++) {
 			for (int j=0; j<3; j++) {
 				if (cm==2)
-                    m.skinning[ m.vert[ m.face[i].index[j] ].index ].SetColorGl();
+					m.rigging[ m.vert[ m.face[i].index[j] ].index ].SetColorGl();
 				else {
 					GLubyte* c = (GLubyte*)&m.vert[ m.face[i].index[j] ].col;
 					glColor3ub( c[2],c[1],c[0] );
@@ -2271,12 +2222,10 @@ void GLWidget::renderBodyPart(const BrfBodyPart &b) {
 
 void GLWidget::setCommonBBoxOn(){
 	commonBBox = true;
-    bboxReady = false;
 	update();
 }
 void GLWidget::setCommonBBoxOff(){
 	commonBBox = false;
-    bboxReady = false;
 	update();
 }
 void GLWidget::setInferMaterialOn(){
@@ -2550,15 +2499,16 @@ template<> int lodOf<BrfMesh>(const BrfMesh& m){ return m.lodLevel; }
 
 template<class BrfType>
 void GLWidget::renderSelected(const std::vector<BrfType>& v){
-    static Box3f bbox;
+	Box3f bbox;
 
-    if (!bboxReady) {
-        bbox.SetNull();
+    // TODO: compute bbox only once instead
+    bbox.SetNull();
+    if (commonBBox)
+        for (auto& i: v) bbox.Add(i.bbox );
+    else
+        for (auto& inv:inViewport) for (int i:inv.items) bbox.Add( v[i].bbox );
 
-        if (commonBBox) for (auto& i: v) bbox.Add(i.bbox );
-        else for (auto& inv:inViewport) for (int i:inv.items) bbox.Add( v[i].bbox );
-        bboxReady = true;
-    }
+
 	animating=false;
 
 	if (displaying == MESH || displaying == BODY) {

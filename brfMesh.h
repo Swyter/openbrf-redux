@@ -22,7 +22,7 @@ public:
 	unsigned int col;
 	Point3f __norm; // use normal inside frame instead
 	Point3f tang; // tangent dir...
-    unsigned char ti; // 0: frame TBN right-handed  1: left-handed
+	unsigned char ti; // texture index
 	Point2f ta,tb; // texture
 
 
@@ -53,22 +53,22 @@ public:
 
 };
 
-class BrfSkinning{
+class BrfRigging{
 public:
-	BrfSkinning();
-    // skinning
+	BrfRigging();
+	// rigging
 	int boneIndex[4];
 	float boneWeight[4];
 	void SetColorGl() const;
-	bool operator < (const BrfSkinning &b) const;
-	bool operator == (const BrfSkinning &b) const;
+	bool operator < (const BrfRigging &b) const;
+	bool operator == (const BrfRigging &b) const;
 	int FirstEmpty() const;
 	int LeastIndex() const; // index with the smallest weight
 	float WeightOf(int i) const;
 	void Normalize();
 	void Add(int index, float w);
 	bool MaybeAdd(int index, float w);
-	bool MaybeAdd(BrfSkinning &b);
+	bool MaybeAdd(BrfRigging &b);
 	void Stiffen(float howmuch);
 };
 
@@ -83,8 +83,8 @@ public:
 	void Save(FILE*f) const;
 	static bool Skip(FILE*f);
 
-    BrfFrame Blend(const BrfFrame& b, float t) const ;
-    BrfFrame Blend(const BrfFrame& b, float t, const vector<bool> &sel) const;
+	BrfFrame Average(BrfFrame& b, float t);
+	BrfFrame Average(BrfFrame& b, float t, const vector<bool> &sel);
 
 	Point3f MinPos();
 	Point3f MaxPos();
@@ -98,7 +98,7 @@ public:
 
 class BrfMesh;
 
-// used to morph a skinned mesh frame, e.g. feminine armour from masculine
+// used to morph a rigged mesh frame, e.g. feminine armour from masculine
 class MeshMorpher{
 public:
     enum{MAX_BONES = 40, POSZ_BONES = 20};
@@ -131,7 +131,7 @@ public:
 	// adds a rope from avg selected pos to To.AvgSelPos
 	void AddRope(const BrfMesh &to, int nseg, float width);
 
-    vector<BrfSkinning> skinning; // one per pos
+	vector<BrfRigging> rigging; // one per pos
 
 	void DiminishAni(float t);
 	void DiminishAniSelected(float t);
@@ -166,8 +166,8 @@ public:
 
 	unsigned int GetAverageColor() const;
 
-    void FreezeFrame(const BrfSkeleton& s, const BrfAnimation& a, int frameInput, int frameOutput=0);
-	bool SkinnedToVertexAni(const BrfSkeleton& s, const BrfAnimation& a);
+	void FreezeFrame(const BrfSkeleton& s, const BrfAnimation& a, float frameInput, int frameOutput=0);
+	bool RiggedToVertexAni(const BrfSkeleton& s, const BrfAnimation& a);
 	void Unmount(const BrfSkeleton& s);
 	void MountOnBone(const BrfSkeleton& s, int boneIndex);
 
@@ -200,7 +200,7 @@ public:
 	vector<BrfFace> face;
 
 	Box3f bbox;
-	int maxBone; // if skinned, what is the max bone index
+	int maxBone; // if rigged, what is the max bone index
 
 	bool SaveSMD(FILE *f) const;
 	bool LoadSMD(FILE *f) const;
@@ -215,7 +215,7 @@ public:
 	int pieceIndex;
 	void AnalyzeName();
 
-	bool IsSkinned() const; // for convenience
+	bool IsRigged() const; // for convenience
 	void UpdateBBox();
 	void SetUniformRig(int nbone);
 	void SplitFaces(const std::vector<int> &matIndex);
@@ -238,11 +238,9 @@ public:
 
 	bool IsAnimable() const;
 	void ComputeNormals();
-    void ComputeTangents();
-    void ZeroTangents();
-    void ComputeNormals(int framei);
+	void ComputeNormals(int framei);
 
-    void ComputeAndStoreTangents();
+	void ComputeTangents();
 
 	bool UnifyPos();
 	bool UnifyVert(bool careForNormals, float crease=0);
@@ -250,8 +248,7 @@ public:
 	void RemoveSeamsFromNormals(double crease);
 	void AfterLoad();
 	bool hasVertexColor;
-    bool StoresTangentField() const; // on disk
-    bool HasTangentField() const; // for previewing
+	bool HasTangentField() const;
 	bool HasVertexAni() const;
 
 
@@ -283,7 +280,7 @@ public:
 	void SetName(const char* st);
 private:
 	void CopyTimesFrom(const BrfMesh &brf);
-    void Blend(const BrfMesh &brf);
+	void Average(const BrfMesh &brf);
 	void MergeMirror(const BrfMesh &brf);
 	void UpdateMaxBone();
 
@@ -294,7 +291,7 @@ private:
 	void FollowSelected(const BrfMesh &brf, int baseframe=0);
 	void FollowSelectedSmart(const BrfMesh &brf, int baseframe=0);
 
-    void KeepSelctedFixed(int asInFrame, float howmuch);
+	void KeepSelctedFixed(int asInFrame, double howmuch);
 	void CopyTextcoord(const BrfMesh &origbrf, const BrfMesh &newbrf, int nframe=0);
 	void CopyPos(int x, const BrfMesh &origbrf, const BrfMesh &newbrf);
 

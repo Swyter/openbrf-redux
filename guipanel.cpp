@@ -777,7 +777,7 @@ void GuiPanel::setSelection(const QModelIndexList &newsel, int k){
   if (newsel.size()!=0) sel = newsel[0].row();
 
   //bool vertexani=false;
-  //bool skinned=false;
+  //bool rigged=false;
   //bool vertexcolor=false;
   /*bool manyMaterials=false;
   int flags=-1;
@@ -791,7 +791,7 @@ void GuiPanel::setSelection(const QModelIndexList &newsel, int k){
     sel = i->row();
     if (k==MESH && sel<(int)data->mesh.size() ) {
       BrfMesh *m = &(data->mesh[sel]);
-      skinned |= m->IsSkinned();
+      rigged |= m->IsRigged();
       vertexani |= m->frame.size()>1;
       vertexcolor |= m->hasVertexColor;
       np += m->frame[0].pos.size();
@@ -903,14 +903,15 @@ switch (TokenEnum(k)){
 
       mySetCompositeVal(hasAni, m->HasVertexAni());
       mySetCompositeVal(hasCol, m->hasVertexColor);
-      mySetCompositeVal(hasTan, m->StoresTangentField());
-      mySetCompositeVal(hasRig, m->IsSkinned());
+      mySetCompositeVal(hasTan, m->HasTangentField());
+      mySetCompositeVal(hasRig, m->IsRigged());
 
       bool ta,tb,tc;
       QString s = inidata.mat2tex(m->material,&ta,&tb,&tc);
       if (s.isEmpty()) s = tr("<not found>");
       hasBump |= ta;
       hasSpec |= tb;
+      qDebug("hasTR %d",(int)tc);
       hasTran |= tc;
 
       mySetText( ui->boxTexture, s );
@@ -980,10 +981,6 @@ switch (TokenEnum(k)){
 
     }
 
-    ui->cbTransp->setEnabled( true );
-    ui->cbNormalmap->setEnabled( true );
-    ui->cbSpecularmap->setEnabled( true );
-
     BodyPartModel* bmp = ((BodyPartModel*)(ui->lvBones->model()));
     if (sel>=0 && nsel==1 && sel<(int)data->skeleton.size()) {
       BrfSkeleton &s(data->skeleton[sel]);
@@ -1024,10 +1021,6 @@ switch (TokenEnum(k)){
       ui->frameNumberAni->setMinimum(1);
       updateFrameNumber( ui->frameNumberAni->value() );
     }
-
-    ui->cbTransp->setEnabled( true );
-    ui->cbNormalmap->setEnabled( true );
-    ui->cbSpecularmap->setEnabled( true );
 
     ui->rbRiggingcolor->setEnabled( true ); // quick: use "true": just let user edit them
     ui->rbVertexcolor->setEnabled( true );

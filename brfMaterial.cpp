@@ -92,7 +92,7 @@ bool BrfMaterial::FlagAutoNormalize() const{
 }
 
 bool BrfMaterial::FlagBlend() const{
-    return ( ((flags & (7<<8))!=0) && ((flags & (7<<8))!=6) ) ; // 6 = "auto mode" -- unclear, consider it NOT blend
+    return (flags & (7<<8))!=0;
 }
 
 bool BrfMaterial::FlagAlphaTest() const{
@@ -157,7 +157,7 @@ void BrfMaterial::SetRenderOrder(int ro){
   flags+= ro<<24;
 }
 
-bool BrfMaterial::Load(FILE*f, int /*verbose*/){
+bool BrfMaterial::Load(FILE*f, int verbose){
   if (!LoadString(f, name)) return false;
   //if (verbose>0) printf("loading \"%s\"...\n",name);
   LoadUint(f , flags);

@@ -172,7 +172,7 @@ int BrfData::FindTextureWithExt(const char* name){
 
 bool BrfData::HasAnyTangentDirs() const{
   for (unsigned int i=0; i<mesh.size(); i++) {
-    if (mesh[i].StoresTangentField()) return true;
+    if (mesh[i].HasTangentField()) return true;
   }
   return false;
 }

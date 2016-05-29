@@ -100,7 +100,7 @@ static void readStrQuotesChar(char*c){
 
 
 static void skipLine(){
-  /*int guard=0;*/
+  int guard=0;
   while (!lineEnd) {
     assert(guard++<20000);
     if (token().isEmpty()) return;
@@ -108,7 +108,7 @@ static void skipLine(){
 }
 
 static bool nextSetAttr(){
-  /*int guard =0;*/
+  int guard =0;
   while (1) {
     QString t = token();
     if (t.isEmpty()) return false;
@@ -123,7 +123,7 @@ static bool nextSetAttr(){
 }
 
 static void skipCreate(){
-  /*int guard =0;*/
+  int guard =0;
   while (1) {
     QString t = token();
     if (t.isEmpty()) break;
@@ -136,7 +136,7 @@ static void skipCreate(){
 }
 
 static bool nextCreateNode(){
-  /*int guard =0;*/
+  int guard =0;
   while (1) {
     QString t = token();
     if (t.isEmpty()) return false;
@@ -189,7 +189,7 @@ static float readFloat(){
 static int readInt(){
   int res;
   int i=fscanf(f,"%d",&res);
-  //assert(i);
+  assert(i);
   return res;
 }
 
@@ -232,7 +232,7 @@ static vcg::Point3f readPointRot(){
   res.Y() = readFloat();
   res.Z() = readFloat();
 
-  return res*float(M_PI/180.0);
+  return res*(M_PI/180.0);
 }
 
 static char lastIntervalName[255];
@@ -313,15 +313,15 @@ static void ioMB_exportRigging(const BrfMesh &m){
   fprintf(f,
     "createNode skinCluster -n \"%s_skin\";\n"
     "\tsetAttr -s %d \".wl\";\n"
-    ,m.name, m.skinning.size()
+    ,m.name, m.rigging.size()
   );
-  for (unsigned int i=0; i<m.skinning.size(); i++) {
-    int minj = m.skinning[i].boneIndex[0];
+  for (unsigned int i=0; i<m.rigging.size(); i++) {
+    int minj = m.rigging[i].boneIndex[0];
     int maxj = minj;
     int nj=0;
     for (int j=0; j<4; j++) {
-      if (m.skinning[i].boneWeight[j]>0) {
-        int k = m.skinning[i].boneIndex[j];
+      if (m.rigging[i].boneWeight[j]>0) {
+        int k = m.rigging[i].boneIndex[j];
         if (maxj<k) maxj=k;
         if (minj>k) minj=k;
         nj++;
@@ -338,7 +338,7 @@ static void ioMB_exportRigging(const BrfMesh &m){
         "\tsetAttr -s %d \".wl[%d].w[%d:%d]\"",
         maxj-minj+1,i,minj,maxj
       );
-      for (int j=minj; j<=maxj; j++) fprintf(f," %f",m.skinning[i].WeightOf(j));
+      for (int j=minj; j<=maxj; j++) fprintf(f," %f",m.rigging[i].WeightOf(j));
       fprintf(f,";\n");
     } else {
       fprintf(f,
@@ -347,7 +347,7 @@ static void ioMB_exportRigging(const BrfMesh &m){
       );
       int test=0;
       for (int j=minj; j<=maxj; j++) {
-        float w = m.skinning[i].WeightOf(j);
+        float w = m.rigging[i].WeightOf(j);
         if (w!=0) {
           fprintf(f,"\tsetAttr \".wl[%d].w[%d]\" %f;\n",i,j,w);
           test++;
@@ -520,7 +520,7 @@ static int ioMB_importRiggingSize(){
 static int ioMB_importRigging(BrfMesh &m){
   int a,b,n;
   int max = m.frame[0].pos.size();
-  m.skinning.resize(max);
+  m.rigging.resize(max);
   //qDebug("Start...");
 
   int last = 0;
@@ -547,8 +547,8 @@ static int ioMB_importRigging(BrfMesh &m){
        //testNext();
        float w = readFloat();
        //qDebug("adding (%d,%f) to pos %d",i,w,n);
-       m.skinning[n].Add(i,w);
-       //m.skinning[n].Add(0,1);
+       m.rigging[n].Add(i,w);
+       //m.rigging[n].Add(0,1);
 
 
 
@@ -577,7 +577,7 @@ static bool ioMB_importMesh(BrfMesh &m ){
   m.face.clear();
   m.material[0]=0;
   m.maxBone=0;
-  m.skinning.clear();
+  m.rigging.clear();
 
   int vcount =0;
   int fsize = 0;
@@ -717,7 +717,7 @@ static void ioMB_exportHeader(){
   fprintf(f,
      "// created by OpenBrf, Marco Tarini\n"
      "// exporting from a BRF resource file\n"
-    // "// skinned mesh: %s"
+    // "// rigged mesh: %s"
     // "// skeleton mesh: %s"
 "requires maya \"2008\";\n"
 "currentUnit -l centimeter -a degree -t film;\n"
@@ -884,7 +884,7 @@ bool IoMB::Import(const wchar_t*filename, std::vector<BrfMesh> &m , BrfSkeleton 
       }
     }
     if (t=="skinCluster"){
-      //qDebug("skinning");
+      //qDebug("rigging");
 
       if (want==0) {
         int n = ioMB_importRiggingSize();
