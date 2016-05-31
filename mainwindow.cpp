@@ -526,8 +526,8 @@ void MainWindow::tldMakeDwarfBoots(){
 
 		BrfMesh &m (brfdata.mesh[i]);
 
-		m.ReskeletonizeHuman( sh, sd , 0.05);
-		m.Scale(1.00,1.00,1,1,0.9,0.95);
+        m.ReskeletonizeHuman( sh, sd , 0.05f);
+        m.Scale(1,1,1,1,0.9f,0.95f);
 		//m.TowardZero(0.008,0,0);
 
 		QString tmp= QString("%1").arg(m.name);
@@ -562,7 +562,7 @@ void MainWindow::tldMakeDwarfSlim(){
 		BrfMesh &m(brfdata.mesh[i]);
 		if (m.frame.size()<4) return;
 
-		m.frame[1].MakeSlim(0.95,0.95,&sd);
+        m.frame[1].MakeSlim(0.95f,0.95f,&sd);
 		setModified();
 		updateGl();
 	}
@@ -655,7 +655,7 @@ void MainWindow::mab2tldArmor(){
 		m.KeepOnlyFrame( 0 );
 
 		BrfMesh md = m; // dwarf mesh
-		md.ReskeletonizeHuman( sh, sd , 0.05); // 0.05 = big arms!
+        md.ReskeletonizeHuman( sh, sd , 0.05f); // 0.05 = big arms!
 		float t[16]={1,0,0,0, 0,1,0,0, 0,0,1.25,0, 0,0,0,1};
 		md.Transform(t); // fat dwarf!
 		m.AddFrameDirect(md);
@@ -687,7 +687,7 @@ void  MainWindow::tldHead(float verse){
 	bool changed = false;
 	//vcg::Point3f tldHead(0,0,0);//0.0370, -0.01);
 	//vcg::Point3f tldOrcHead(0,0.054033, -0.064549); // from horiz neck to straing neck
-	vcg::Point3f tldOrcHead(0,-0.0390, 0.01); // from human to orc... almost halfway OLD
+    vcg::Point3f tldOrcHead(0,-0.0390f, 0.01f); // from human to orc... almost halfway OLD
 
 
 	//vcg::Point3f tldOrcHead(0,-0.0490, 0.01); // from human to orc... almost halfway
@@ -1146,7 +1146,7 @@ void MainWindow::applyAfterMeshImport(BrfMesh &m){
 	switch (this->afterMeshImport()) {
 	case 1:
 		m.UnifyPos();
-		m.UnifyVert(true,0.995); // cazz
+        m.UnifyVert(true,0.995f); // cazz
 		break;
 	case 2:
 		m.UnifyPos();
@@ -1232,7 +1232,7 @@ void MainWindow::meshUnify(){
 		BrfMesh &m (brfdata.mesh[i]);
 		if (m.RemoveUnreferenced()) mod=true;
 		if (m.UnifyPos()) mod=true;
-		if (m.UnifyVert(true,0.995)) mod=true;
+        if (m.UnifyVert(true,0.995f)) mod=true;
 
 	}
 	updateGui();
@@ -1387,7 +1387,7 @@ void MainWindow::objectMergeSelected(vector<BrfType> &v){
 			if (!res.Merge( v[j] )) {
 				QMessageBox::information(this,
 				                         "OpenBrf",
-				                         tr("Cannot merge these meshes\n (different number of frames,\n or rigged VS not rigged).\n")
+				                         tr("Cannot merge these meshes\n (different number of frames,\n or skinned VS not skinned).\n")
 				                         );
 				return;
 			}
@@ -1498,8 +1498,8 @@ void MainWindow::hitboxEdit(int whichAttrib, int dir){
 
 	//qDebug("Skel = %s, piece = %d, attr = %d, dir = %d!",s.name,b,whichAttrib,dir);
 
-	float delta = 0.01;
-	if (QApplication::keyboardModifiers()!=Qt::NoModifier) delta*=0.1;
+    float delta = 0.01f;
+    if (QApplication::keyboardModifiers()!=Qt::NoModifier) delta*=0.1f;
 	hit->part[b].ChangeAttribute(whichAttrib,delta*dir);
 
 	setModifiedHitboxes(true);
@@ -1672,7 +1672,7 @@ void MainWindow::learnFemininzation(){
 			BrfMesh& m (brfdata.mesh[i]);
 			if (m.frame.size()!=3) continue;
 			if (!ndone) femininizer.ResetLearning();
-			femininizer.LearnFrom(m,feminineFrame,masculineFrame);
+            femininizer.LearnFrom(m,masculineFrame,feminineFrame);
 			ndone++;
 		}
 	}
@@ -1722,9 +1722,11 @@ void MainWindow::meshFemininize(){
 		BrfMesh& m (brfdata.mesh[i]);
 
 
-		if (!yesToAll) {
+        int feminineFrame = (usingWarband)?2:1;
+        int masculineFrame = (usingWarband)?1:2;
+        if (!yesToAll) {
 			if (m.frame.size()>1) {
-				int res = QMessageBox::warning(this,"OpenBRF",tr("Warning: mesh %1 has already a feminine frame %2.\n\nOverwrite it?").arg(m.name).arg(usingWarband),
+                int res = QMessageBox::warning(this,"OpenBRF",tr("Warning: mesh %1 has already a feminine frame %2.\n\nOverwrite it?").arg(m.name).arg(feminineFrame),
 				                               QMessageBox::Yes|QMessageBox::YesToAll|QMessageBox::No
 				                               );
 				if (res==QMessageBox::No) continue;
@@ -1732,8 +1734,6 @@ void MainWindow::meshFemininize(){
 			}
 		}
 		while (m.frame.size()<3) m.frame.push_back(m.frame[0]);
-		int feminineFrame = (usingWarband)?2:1;
-		int masculineFrame = (usingWarband)?1:2;
 		m.MorphFrame(masculineFrame,feminineFrame,femininizer);
 
 		m.ComputeNormals(feminineFrame);
@@ -1772,7 +1772,12 @@ void MainWindow::updateGui(){
 }
 void MainWindow::updateSel(){
 	selector->updateData(brfdata);
+}
 
+void MainWindow::setViewmodeMult(int i){
+    glWidget->setViewmodeMult(i);
+    glWidget->setSelection( selector->selectedList(),selector->currentTabName());
+    update();
 }
 
 // these should go as private members but I'm lazy right now
@@ -1888,7 +1893,7 @@ void MainWindow::smoothenRigging(){
 	int k=0;
 	for (int j=0; j<list.size(); j++){
 		BrfMesh &m(brfdata.mesh[list[j].row()]);
-		if (m.IsRigged()) {
+		if (m.IsSkinned()) {
 			m.SmoothRigging();
 			k++;
 		}
@@ -1897,7 +1902,7 @@ void MainWindow::smoothenRigging(){
 		updateGl();
 		setModified();
 	}
-	statusBar()->showMessage(tr("Softened %1 rigged meshes!").arg(k), 2000);
+	statusBar()->showMessage(tr("Softened %1 skinned meshes!").arg(k), 2000);
 }
 
 
@@ -1908,8 +1913,8 @@ void MainWindow::stiffenRigging(){
 	int k=0;
 	for (int j=0; j<list.size(); j++){
 		BrfMesh &m(brfdata.mesh[list[j].row()]);
-		if (m.IsRigged()) {
-			m.StiffenRigging(1.2);
+		if (m.IsSkinned()) {
+            m.StiffenRigging(1.2f);
 			k++;
 		}
 	}
@@ -1917,7 +1922,7 @@ void MainWindow::stiffenRigging(){
 		updateGl();
 		setModified();
 	}
-	statusBar()->showMessage(tr("Stiffened %1 rigged meshes!").arg(k), 2000);
+	statusBar()->showMessage(tr("Stiffened %1 skinned meshes!").arg(k), 2000);
 }
 
 void MainWindow::flip(){
@@ -1929,7 +1934,7 @@ void MainWindow::flip(){
 		}
 		// test
 		/*{
-		std::vector<BrfRigging> &r( brfdata.mesh[list[0].row()].rigging);
+        std::vector<BrfSkinning> &r( brfdata.mesh[list[0].row()].skinning);
 		for (int i=0; i<r.size(); i++) if (r[i].boneIndex[1]==-1) {
 				r[i].boneIndex[1] = r[i].boneIndex[2] = r[i].boneIndex[3] = r[i].boneIndex[0];
 				r[i].boneWeight[0] = r[i].boneWeight[1] = r[i].boneWeight[2] = r[i].boneWeight[3]= 0.25;
@@ -2194,7 +2199,7 @@ void MainWindow::meshFreezeFrame(){
 		BrfMesh &m( getSelected<BrfMesh>(j) );
 		if (!&m) continue;
 		//m.Unskeletonize(reference.skeleton[9]);//gimmeASkeleton(20)]);
-		if (m.IsRigged()) {
+		if (m.IsSkinned()) {
 
 			BrfSkeleton *s = currentDisplaySkeleton();
 			if (!s) break;
@@ -2248,7 +2253,7 @@ void MainWindow::skeletonScale(){
     double r = QInputDialog::getDouble(this,
                          "OpenBRF",
                           tr("Rescale skeleton<br/>(and hitboxes, if present)<br />by which percent?<br /><br />(>100 for bigger)<br /><br />"
-                             "<b>WARNING!</b><br />All rigged meshes using<br />this skeleton will need<br />be rescaled too!"),100,1,1000,1,&ok);
+                             "<b>WARNING!</b><br />All skinned meshes using<br />this skeleton will need<br />be rescaled too!"),100,1,1000,1,&ok);
 
     if (!ok) return;
     if (r==100.0) return;
@@ -2574,10 +2579,10 @@ void MainWindow::transform(){
 void MainWindow::transferRigging(){
 	int i = selector->firstSelected();
 	QModelIndexList list= selector->selectedList();
-	if (list.size()<2 || !brfdata.mesh[i].IsRigged()) {
+	if (list.size()<2 || !brfdata.mesh[i].IsSkinned()) {
 		QMessageBox::information(this,
-		                         tr("Transfer Rigging"),
-		                         tr("Transfer rigging:\nselect a rigged mesh first,\nthen all target meshes.\n")
+                                 tr("Transfer Skinning"),
+                                 tr("Transfer skinning:\nselect a skinned mesh first,\nthen all target meshes.\n")
 		                         );
 
 	} else {
@@ -2972,15 +2977,15 @@ void MainWindow::onClipboardChange(){
 	editPasteHitboxAct->setEnabled( clipboard.IsOneSkelOneHitbox() ||
 	                                (clipboard.totSize()==1 && clipboard.body.size()==1) );
 
-	bool allRigged=true;
+	bool allSkinned=true;
 	for (unsigned int i=0; i<clipboard.mesh.size(); i++)
-		if (!clipboard.mesh[i].IsRigged()) allRigged = false;
+		if (!clipboard.mesh[i].IsSkinned()) allSkinned = false;
 
-	editPasteRiggingAct->setEnabled( (allRigged && clipboard.mesh.size()>0) || (clipboard.skeleton.size()==1));
+	editPasteRiggingAct->setEnabled( (allSkinned && clipboard.mesh.size()>0) || (clipboard.skeleton.size()==1));
 
 
 	if (clipboard.mesh.size()!=0){
-		// maybe it was just rigged meshes?
+		// maybe it was just skinned meshes?
 
 
 
@@ -3148,21 +3153,21 @@ void MainWindow::editPasteVertAni(){
 void MainWindow::editPasteRigging(){
 
 	QModelIndexList list= selector->selectedList();
-	bool allRigged=true;
+	bool allSkinned=true;
 	for (unsigned int i=0; i<clipboard.mesh.size(); i++)
-		if (!clipboard.mesh[i].IsRigged()) allRigged = false;
+		if (!clipboard.mesh[i].IsSkinned()) allSkinned = false;
 
 	bool canPasteFromSkel = clipboard.skeleton.size() == 1;
-	bool canPasteFromMesh = (clipboard.mesh.size()>0) && allRigged;
+	bool canPasteFromMesh = (clipboard.mesh.size()>0) && allSkinned;
 
 	if (!list.size() || (selector->currentTabName()!=MESH) || (!canPasteFromSkel && !canPasteFromMesh)) {
 		QMessageBox::information(this,
-		                         tr("Copy Rigging into another mesh"),
-		                         tr("Copy Rigging into another mesh:\n"
-		                            "- select one or more sample rigged mesh\n"
+                                 tr("Copy Skinning into another mesh"),
+                                 tr("Copy Skinning into another mesh:\n"
+		                            "- select one or more sample skinned mesh\n"
 		                            "- copy them (ctrl+C)\n"
-		                            "- then select one or more target meshes (rigged or otherwise),\n"
-		                            "- then paste rigging.\n"
+		                            "- then select one or more target meshes (skinned or otherwise),\n"
+                                    "- then paste skinning.\n"
 		                            "\n"
 		                            "(works best if sample mesh is similar to target meshes)\n"
 		                            )
@@ -3173,7 +3178,7 @@ void MainWindow::editPasteRigging(){
 			for (int j=0; j<list.size(); j++){
 				brfdata.mesh[list[j].row()].TransferRigging(clipboard.mesh,0,0);
 			}
-			statusBar()->showMessage(tr("Transferred rigging into %1 mesh(es) from %2 exemplar mesh(es).").arg(list.size()).arg(clipboard.mesh.size()));
+            statusBar()->showMessage(tr("Transferred skinning into %1 mesh(es) from %2 exemplar mesh(es).").arg(list.size()).arg(clipboard.mesh.size()));
 		} else {
 			std::vector<BrfMesh> tmp(1);
 			//BrfMesh m;
@@ -3182,7 +3187,7 @@ void MainWindow::editPasteRigging(){
 			for (int j=0; j<list.size(); j++){
 				brfdata.mesh[list[j].row()].TransferRigging(tmp,0,0);
 			}
-			statusBar()->showMessage(tr("Transferred rigging into %1 mesh(es) from skeleton '%2'.").arg(list.size()).arg(clipboard.skeleton[0].name));
+            statusBar()->showMessage(tr("Transferred skinning into %1 mesh(es) from skeleton '%2'.").arg(list.size()).arg(clipboard.skeleton[0].name));
 		}
 	}
 
@@ -3468,7 +3473,7 @@ void MainWindow::duplicateSel(){
 
 
 
-Pair MainWindow:: askRefSkel(int nbones,  int &method, int &output){
+Pair MainWindow:: askRefSkel(int /*nbones*/,  int &method, int &output){
 	if (reference.skeleton.size()<2) return Pair(-1,-1);
 
 	static int lastA=0, lastB=0;
@@ -3484,7 +3489,7 @@ Pair MainWindow:: askRefSkel(int nbones,  int &method, int &output){
 		return Pair(-1,-1);
 }
 
-void MainWindow::setSelection(const QModelIndexList &l, int k){
+void MainWindow::setSelection(const QModelIndexList &l, int /*k*/){
 	comboViewmodeSelector->setVisible(l.size()>1);
 }
 
@@ -3566,7 +3571,7 @@ void MainWindow::meshToVertexAni(){
 
 		if (!maybeWarnIfVertexAniTooBig(m,*a)) return;
 
-		if (!m.RiggedToVertexAni(*s,*a)) {
+		if (!m.SkinnedToVertexAni(*s,*a)) {
 			QMessageBox::warning(this,"OpenBRF",tr("Incompatible animation")); return;
 		}
 		char newName[2048];
@@ -3595,7 +3600,7 @@ void MainWindow::aniToVertexAni(){
 
 		if (!maybeWarnIfVertexAniTooBig(m,a)) return;
 
-		if (!m.RiggedToVertexAni(s,a)) {
+		if (!m.SkinnedToVertexAni(s,a)) {
 			QMessageBox::warning(this,"OpenBRF",tr("Incompatible skin")); return;
 		}
 		m.SetName(a.name);
@@ -3638,7 +3643,7 @@ void MainWindow::meshMountOnBone(){
 	for (int j=0; j<selector->selectedList().size(); j++) {
 		BrfMesh &m(getSelected<BrfMesh>(j));
 		if (!&m) continue;
-		if (!makeMeshRigged(m,false, j==0)) break;
+		if (!makeMeshSkinned(m,false, j==0)) break;
 		k++;
 	}
 	if (k>0) {
@@ -3675,7 +3680,7 @@ void MainWindow::meshUnmount(){
 
 }
 
-bool MainWindow::makeMeshRigged(BrfMesh &m, bool sayNotRigged,  bool askUserAgain){
+bool MainWindow::makeMeshSkinned(BrfMesh &m, bool sayNotSkinned,  bool askUserAgain){
 
 	if (!reference.skeleton.size()) {
 		QMessageBox::warning(this, "OpenBRF", tr("Not a single skeleton found in reference data! Cancelling operation."));
@@ -3688,7 +3693,7 @@ bool MainWindow::makeMeshRigged(BrfMesh &m, bool sayNotRigged,  bool askUserAgai
 
 	if (askUserAgain) {
 		AskBoneDialog d(this,reference.skeleton, carryPositionSet );
-		d.sayNotRigged(sayNotRigged);
+		d.sayNotSkinned(sayNotSkinned);
 
 		int res=d.exec();
 		if (res!=QDialog::Accepted) {
@@ -3747,8 +3752,8 @@ void MainWindow::addToRefMesh(int k){
 	BrfMesh m = brfdata.mesh[i];
 	m.KeepOnlyFrame(guiPanel->getCurrentSubpieceIndex(MESH));
 
-	if (!m.IsRigged()) {
-		if (!makeMeshRigged( m,true, true)) return;
+	if (!m.IsSkinned()) {
+		if (!makeMeshSkinned( m,true, true)) return;
 
 	}
 	char ch =char('A'+k);

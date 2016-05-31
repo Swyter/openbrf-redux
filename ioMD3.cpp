@@ -328,7 +328,7 @@ bool IoMD::Import(FILE *f, BrfMesh &m){
   //m.ComputeNormals();
   m.AdjustNormDuplicates();
   m.UpdateBBox();
-  m.rigging.clear();
+  m.skinning.clear();
   m.flags = 0;
 
 

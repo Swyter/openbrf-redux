@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
   QString nextTranslator;
 
 
-  const char* argv_2[]={"OpenBrf"}; int argc_2=1;
+  //const char* argv_2[]={"OpenBrf"}; int argc_2=1;
 
   //QApplication app(argc_2,argv_2); //argc, argv);
   QApplication app(argc, argv);

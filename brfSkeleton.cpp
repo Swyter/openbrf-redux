@@ -128,7 +128,7 @@ void BrfSkeleton::BuildDefaultMesh(BrfMesh & m) const{ // builds a mesh with jus
   m.frame[0].pos.resize(nb*6);
   m.frame[0].norm.resize(nb*6);
   m.face.resize(nb*8);
-  m.rigging.resize(nb*6);
+  m.skinning.resize(nb*6);
 
   float
     X=BrfSkeleton::BoneSizeX(),
@@ -150,13 +150,13 @@ void BrfSkeleton::BuildDefaultMesh(BrfMesh & m) const{ // builds a mesh with jus
   std::vector<vcg::Matrix44f> mat = GetBoneMatrices();
 
   for (int i=0, pi=0, fi=0; i<nb; i++) {
-    // set up rigging...
+    // set up skinning...
     for (int j=0; j<6; j++,pi++){
-      m.rigging[pi].boneIndex[0]=i;
-      m.rigging[pi].boneWeight[0]=1;
+      m.skinning[pi].boneIndex[0]=i;
+      m.skinning[pi].boneWeight[0]=1;
       for (int h=1; h<4; h++) {
-        m.rigging[pi].boneIndex[h]=-1;
-        m.rigging[pi].boneWeight[h]=0;
+        m.skinning[pi].boneIndex[h]=-1;
+        m.skinning[pi].boneWeight[h]=0;
       }
 
       // set up pos and norm

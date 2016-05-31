@@ -399,6 +399,7 @@ void GLWidget::scaleAsLastBindedTexture(){
 
 void GLWidget::renderTexture(const char* name, bool addExtension){
 	glDisable(GL_LIGHTING);
+    glDisable(GL_DEPTH_TEST);
 
 	glPolygonMode(GL_FRONT,GL_FILL);
 
@@ -442,7 +443,7 @@ void GLWidget::renderTexture(const char* name, bool addExtension){
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_ZERO, GL_SRC_ALPHA);
 	}
-	glDisable(GL_DEPTH_TEST);
+    //glDisable(GL_DEPTH_TEST);
 	glBegin(GL_QUADS);
 	glTexCoord2f(0,1);glVertex2f(-w,-h);
 	glTexCoord2f(1,1);glVertex2f( w,-h);
@@ -451,7 +452,7 @@ void GLWidget::renderTexture(const char* name, bool addExtension){
 	glEnd();
 
 	glDisable(GL_BLEND);
-	glEnable(GL_DEPTH_TEST);
+    //glEnable(GL_DEPTH_TEST);
 
 }
 
@@ -464,24 +465,37 @@ void GLWidget::renderBrfItem(const BrfMaterial& t){
         if (present[i]) n++;
 	}
     if (n==0) return;
-    float k = 1.0/(1.0+0.1*(n-1));
-    glScalef(k,k,1);
-    //glTranslatef(-k,-k,0);
-    for (int i=SPECULAR; i>=DIFFUSEA; i--) {
-		if (i!=curMaterialTexture)
+    float gap = 0.1*(n-1);
+    float sc = 1.0/(1.0+gap/2);
+    glScalef(sc,sc,1);
+    float tr = gap/2;
+    glTranslatef(-tr,-tr,0);
+
+    int postPoned = -1;
+    int postPonedP = -1;
+
+    for (int i=SPECULAR,p=0; i>=DIFFUSEA; i--) {
 		if (present[i]) {
-            glPushMatrix();
-            int d = n-1-(i - DIFFUSEA);
-            glTranslatef(d*0.1f,d*0.1f,0);
-            renderTexture(t.getTextureName(i));
-            glPopMatrix();
-		}
+            if (i==curMaterialTexture) {
+                postPoned = i;
+                postPonedP = p;
+            } else {
+                glPushMatrix();
+                int d = (p - DIFFUSEA);
+                glTranslatef(d*0.1f,d*0.1f,0);
+                renderTexture(t.getTextureName(i));
+                glPopMatrix();
+            }
+            p++;
+        }
 	}
 
-    if (present[curMaterialTexture]) {
-        int d = n-1-(curMaterialTexture - DIFFUSEA);
+    if (postPoned>=0) {
+        glPushMatrix();
+        int d = (postPonedP - DIFFUSEA);
         glTranslatef(d*0.1f,d*0.1f,0);
-        renderTexture(t.getTextureName(curMaterialTexture));
+        renderTexture(t.getTextureName(postPoned));
+        glPopMatrix();
     }
 }
 
@@ -511,7 +525,7 @@ void GLWidget::renderBrfItem (const BrfMesh& p){
 	BrfAnimation* a=NULL;
 	BrfSkeleton* s=NULL;
 	BrfBody* b=NULL;
-	if (p.IsRigged()) {
+	if (p.IsSkinned()) {
 		if (selRefAnimation>=0) {
 			a = &(reference->animation[selRefAnimation]);
 			int si = getRefSkeleton();
@@ -528,7 +542,7 @@ void GLWidget::renderBrfItem (const BrfMesh& p){
 
 	if (a && s) {
         lastSkelAniFrameUsed = fi = floatMod( relTime*runningSpeed , (int)a->frame.size() );
-		renderRiggedMesh(p,*s,*a,fi);
+		renderSkinnedMesh(p,*s,*a,fi);
 	} else {
 		renderMesh(p,fi);
 	}
@@ -809,7 +823,7 @@ void GLWidget::renderBrfItem (const BrfAnimation& a){
 		if (selRefSkin>=0) {
 			for (unsigned int i=0; i<reference->mesh.size(); i++){
 				if (reference->mesh[i].name[4]==char('A'+selRefSkin))
-					renderRiggedMesh(reference->mesh[i],s,a,fi);
+					renderSkinnedMesh(reference->mesh[i],s,a,fi);
 			}
 		} else {
 			if (!b) renderAnimation(a,s,fi); // naked bones
@@ -845,7 +859,7 @@ void GLWidget::renderBrfItem(const BrfSkeleton& p){
 		//skinIdeChar = char('A'+tmpHack++);
 		for (unsigned int i=0; i<reference->mesh.size(); i++){
 			if (reference->mesh[i].name[4]==skinIdeChar) {
-				if (a) renderRiggedMesh(reference->mesh[i],p,*a,frameNum);
+				if (a) renderSkinnedMesh(reference->mesh[i],p,*a,frameNum);
 				else renderMesh(reference->mesh[i],0);
 				skinRendered = true;
 			}
@@ -1214,6 +1228,8 @@ void GLWidget::setSubSelected(int k){
 void GLWidget::setSelection(const QModelIndexList &newsel, int k){
 	if (k>=0) displaying=TokenEnum(k);
 
+    bboxReady = false;
+
 	selectNone();
 
     int _viewmodeMult = viewmodeMult;
@@ -1222,7 +1238,9 @@ void GLWidget::setSelection(const QModelIndexList &newsel, int k){
         if (_viewmodeMult==2) _viewmodeMult=1;
     }
 
-    const char* pippo = "_none_";
+    //const char* pippo = "_none_";
+
+    std::map< QString, int > basenameToVP;
 
     for (QModelIndexList::ConstIterator ite=newsel.constBegin(); ite!=newsel.constEnd(); ite++){
         int i = ite->row();
@@ -1242,15 +1260,21 @@ void GLWidget::setSelection(const QModelIndexList &newsel, int k){
             break;
         case 2: {
             // it depends...
-            bool isSameVp = false;
+            int whichVp = -1;
             if (k==MESH) {
-                char* base = data->mesh[ i ].baseName;
-                if (strcmp( pippo, base )==0) isSameVp = true;
-                else pippo = base;
+                const char* base = data->mesh[ i ].baseName;
+
+                auto ma = basenameToVP.find( QString(base) );
+
+                if (ma!=basenameToVP.end()) {
+                    whichVp = ma->second; // found!
+                } else {
+                    basenameToVP[ QString(base) ] = (int)inViewport.size();
+                }
             }
-            if (isSameVp) {
-                inViewport.back().items.push_back( i ); // add
-                inViewport.back().bestLod = std::min(inViewport.back().bestLod,thisLod);
+            if (whichVp>-1) {
+                inViewport[whichVp].items.push_back( i ); // add
+                inViewport[whichVp].bestLod = std::min(inViewport[whichVp].bestLod,thisLod);
                 break;
             }
             // else continue...
@@ -1274,6 +1298,7 @@ void GLWidget::setSelection(const QModelIndexList &newsel, int k){
     maybeApplyRenderOrder();
 	update();
 }
+
 
 void GLWidget::maybeApplyRenderOrder(){
     if (!data) return;
@@ -1691,7 +1716,7 @@ Point3f boneColor[N_BONES_COLORS]={
 };
 #undef f
 
-void BrfRigging::SetColorGl()const{
+void BrfSkinning::SetColorGl()const{
 	Point3f c(0,0,0);
 	for (int j=0; j<4; j++) {
 		if (boneIndex[j]>-1) c+= boneColor[ boneIndex[j]%N_BONES_COLORS ]*boneWeight[j];
@@ -1708,7 +1733,7 @@ bool GLWidget::skeletalAnimation(){
             {
                 int k = inViewport[i].items[j];
                 if (data->mesh.size() < k)
-                    if (data->mesh[k].IsRigged()) return true;
+                    if (data->mesh[k].IsSkinned()) return true;
             }
 		}
 	}
@@ -1716,7 +1741,7 @@ bool GLWidget::skeletalAnimation(){
 
 }
 
-void GLWidget::renderRiggedMesh(const BrfMesh& m,  const BrfSkeleton& s, const BrfAnimation& a, float frame){
+void GLWidget::renderSkinnedMesh(const BrfMesh& m,  const BrfSkeleton& s, const BrfAnimation& a, float frame){
 	if (useOpenGL2) initOpenGL2();
 	int fv =selFrameN;
 
@@ -1724,14 +1749,14 @@ void GLWidget::renderRiggedMesh(const BrfMesh& m,  const BrfSkeleton& s, const B
 	if (fv<0) fv= 0;
 
 	if ((int)s.bone.size()!=a.nbones || m.maxBone>a.nbones) {
-		if (!shadowMode) renderMesh(m,fv); // give up rigging mesh
+        if (!shadowMode) renderMesh(m,fv); // give up skinning mesh
 		return;
 	}
 
 	if (!shadowMode) {
 		glEnable(GL_COLOR_MATERIAL);
 		glColor3f(1,1,1);
-		if ((!m.IsRigged() && colorMode==2)|| colorMode==0) glDisable(GL_COLOR_MATERIAL);
+		if ((!m.IsSkinned() && colorMode==2)|| colorMode==0) glDisable(GL_COLOR_MATERIAL);
 	}
 
 
@@ -1746,9 +1771,9 @@ void GLWidget::renderRiggedMesh(const BrfMesh& m,  const BrfSkeleton& s, const B
 		for (unsigned int i=0; i<m.face.size(); i++) {
 			for (int j=0; j<3; j++) {
 
-				const BrfRigging &rig (m.rigging[ m.vert[ m.face[i].index[j] ].index ]);
+                const BrfSkinning &skn (m.skinning[ m.vert[ m.face[i].index[j] ].index ]);
 				if (!shadowMode) {
-					if (colorMode==2) rig.SetColorGl();
+					if (colorMode==2) skn.SetColorGl();
 					else {
 						GLubyte* c = (GLubyte*)&m.vert[ m.face[i].index[j] ].col;
 						glColor3ub( c[2],c[1],c[0] );
@@ -1765,8 +1790,8 @@ void GLWidget::renderRiggedMesh(const BrfMesh& m,  const BrfSkeleton& s, const B
 				Point3f t(0,0,0);
 				int ti = 0;
 				for (int k=0; k<4; k++){
-					float wieght = rig.boneWeight[k];
-					int       bi = rig.boneIndex [k];
+					float wieght = skn.boneWeight[k];
+					int       bi = skn.boneIndex [k];
 					if (bi>=0 && bi<(int)bonepos.size()) {
 						v += (bonepos[bi]* pos  )*wieght;
 						n += (bonepos[bi]* norm - bonepos[bi]*Point3f(0,0,0) )*wieght;
@@ -1821,7 +1846,7 @@ void GLWidget::renderMesh(const BrfMesh &m, float frame){
 	glColor3f(1,1,1);
 
 	int cm = colorMode;
-	if (!m.IsRigged() && cm==2) cm = 0;
+	if (!m.IsSkinned() && cm==2) cm = 0;
 
 	if (cm==0) glDisable(GL_COLOR_MATERIAL);
 
@@ -1833,7 +1858,7 @@ void GLWidget::renderMesh(const BrfMesh &m, float frame){
 		for (unsigned int i=0; i<m.face.size(); i++) {
 			for (int j=0; j<3; j++) {
 				if (cm==2)
-					m.rigging[ m.vert[ m.face[i].index[j] ].index ].SetColorGl();
+                    m.skinning[ m.vert[ m.face[i].index[j] ].index ].SetColorGl();
 				else {
 					GLubyte* c = (GLubyte*)&m.vert[ m.face[i].index[j] ].col;
 					glColor3ub( c[2],c[1],c[0] );
@@ -2222,10 +2247,12 @@ void GLWidget::renderBodyPart(const BrfBodyPart &b) {
 
 void GLWidget::setCommonBBoxOn(){
 	commonBBox = true;
+    bboxReady = false;
 	update();
 }
 void GLWidget::setCommonBBoxOff(){
 	commonBBox = false;
+    bboxReady = false;
 	update();
 }
 void GLWidget::setInferMaterialOn(){
@@ -2499,14 +2526,16 @@ template<> int lodOf<BrfMesh>(const BrfMesh& m){ return m.lodLevel; }
 
 template<class BrfType>
 void GLWidget::renderSelected(const std::vector<BrfType>& v){
-	Box3f bbox;
+    static Box3f bbox;
 
     // TODO: compute bbox only once instead
-    bbox.SetNull();
-    if (commonBBox)
-        for (auto& i: v) bbox.Add(i.bbox );
-    else
-        for (auto& inv:inViewport) for (int i:inv.items) bbox.Add( v[i].bbox );
+    if (!bboxReady) {
+        bbox.SetNull();
+
+        if (commonBBox) for (auto& i: v) bbox.Add(i.bbox );
+        else for (auto& inv:inViewport) for (int i:inv.items) bbox.Add( v[i].bbox );
+        bboxReady = true;
+    }
 
 
 	animating=false;

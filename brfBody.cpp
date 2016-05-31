@@ -103,7 +103,7 @@ void BrfBody::Transform(float *f){
 }
 
 float* BrfBodyPart::GetRotMatrix() const{
-  vcg::Point3f dx, dy, dz(1,1.1,1.3);
+  vcg::Point3f dx, dy, dz(1,1.1f,1.3f);
   dx = (dir-center)/2.0;
   dy = dz ^ dx;
   dz = dx ^ dy;

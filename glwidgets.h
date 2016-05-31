@@ -52,8 +52,8 @@ public:
 
 	int selected;
 	int subsel; // subpiece selected
-	int selRefAnimation; // animation selected to view rigged mesh
-	int selRefSkin; // rigged mesh
+	int selRefAnimation; // animation selected to view skinned mesh
+	int selRefSkin; // skinned mesh
 	int selRefSkel; // current skeleton
 	int selFrameN; // current selected frame of vertex ani
 
@@ -191,7 +191,7 @@ protected:
 	// basic rendering of Brf Items & c:
 	void renderMesh(const BrfMesh& p, float frame);
 	void renderMeshSimple(const BrfMesh& p);
-	void renderRiggedMesh(const BrfMesh& p,  const BrfSkeleton& s, const BrfAnimation& a, float frame);
+	void renderSkinnedMesh(const BrfMesh& p,  const BrfSkeleton& s, const BrfAnimation& a, float frame);
 	void renderSkeleton(const BrfSkeleton& p);
 	void renderAnimation(const BrfAnimation& p, const BrfSkeleton& s, float frame);
 	void renderBody(const BrfBody& p);
@@ -219,6 +219,7 @@ protected:
     int getViewportOf( int x, int y ) const;
 	void mySetViewport(int x,int y,int w,int h);
 	int nViewportCols, nViewportRows;
+    bool bboxReady;
     //int nViewports;
     //int maxSel; // index of the max selected
 
@@ -241,6 +242,7 @@ protected:
 	void setDummyRgbTexture();
 	void setDummySpecTexture();
 	void setDummyNormTexture();
+
 	void initOpenGL2();
 	bool openGL2ready;
 	void initDefaultTextures();

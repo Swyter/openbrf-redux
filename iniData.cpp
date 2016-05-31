@@ -875,7 +875,7 @@ void IniData::addUsedBy(int i, int j, int kind,char* usedName,  int usedKind){
   ObjCoord o (i,j,kind);
 
   if (d.fi>=0){
-    usedBy(d).push_back( o );
+
 
 
 
@@ -887,7 +887,7 @@ void IniData::addUsedBy(int i, int j, int kind,char* usedName,  int usedKind){
         if (noDot(getName(d2))==nameDot)
         usedBy(d2).push_back( o );
       }
-    }
+    } else usedBy(d).push_back( o );
   }
 
 
@@ -1014,6 +1014,7 @@ IniData::IniData(BrfData &_currentBrf): currentBrf(_currentBrf)
 
 QString IniData::mat2tex(const QString &n, bool* hasBump, bool* hasSpec, bool *hasTransp){
   // find in ini file
+    /*
   int j = _findByName( currentBrf.material, n);
   if (j>=0) {
     BrfMaterial &m(currentBrf.material[j]);
@@ -1030,14 +1031,23 @@ QString IniData::mat2tex(const QString &n, bool* hasBump, bool* hasSpec, bool *h
       *hasBump = m.HasBump();
       *hasSpec = m.HasSpec();
       *hasTransp = m.FlagAlphaTest() || m.FlagBlend();
-      qDebug("Flags2: %x",m.flags);
       return m.diffuseA;
     }
   }
-  *hasBump = false;
-  *hasSpec = false;
-  *hasTransp = false;
-  return QString();
+  */
+    BrfMaterial *m = findMaterial(n);
+    if (m) {
+        *hasBump = m->HasBump();
+        *hasSpec = m->HasSpec();
+        *hasTransp = m->FlagAlphaTest() || m->FlagBlend();
+        return m->diffuseA;
+
+    } else {
+        *hasBump = false;
+        *hasSpec = false;
+        *hasTransp = false;
+        return QString();
+    }
 }
 
 BrfMaterial* IniData::findMaterial(const QString &name,ObjCoord ) {

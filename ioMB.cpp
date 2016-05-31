@@ -313,15 +313,15 @@ static void ioMB_exportRigging(const BrfMesh &m){
   fprintf(f,
     "createNode skinCluster -n \"%s_skin\";\n"
     "\tsetAttr -s %d \".wl\";\n"
-    ,m.name, m.rigging.size()
+    ,m.name, m.skinning.size()
   );
-  for (unsigned int i=0; i<m.rigging.size(); i++) {
-    int minj = m.rigging[i].boneIndex[0];
+  for (unsigned int i=0; i<m.skinning.size(); i++) {
+    int minj = m.skinning[i].boneIndex[0];
     int maxj = minj;
     int nj=0;
     for (int j=0; j<4; j++) {
-      if (m.rigging[i].boneWeight[j]>0) {
-        int k = m.rigging[i].boneIndex[j];
+      if (m.skinning[i].boneWeight[j]>0) {
+        int k = m.skinning[i].boneIndex[j];
         if (maxj<k) maxj=k;
         if (minj>k) minj=k;
         nj++;
@@ -338,7 +338,7 @@ static void ioMB_exportRigging(const BrfMesh &m){
         "\tsetAttr -s %d \".wl[%d].w[%d:%d]\"",
         maxj-minj+1,i,minj,maxj
       );
-      for (int j=minj; j<=maxj; j++) fprintf(f," %f",m.rigging[i].WeightOf(j));
+      for (int j=minj; j<=maxj; j++) fprintf(f," %f",m.skinning[i].WeightOf(j));
       fprintf(f,";\n");
     } else {
       fprintf(f,
@@ -347,7 +347,7 @@ static void ioMB_exportRigging(const BrfMesh &m){
       );
       int test=0;
       for (int j=minj; j<=maxj; j++) {
-        float w = m.rigging[i].WeightOf(j);
+        float w = m.skinning[i].WeightOf(j);
         if (w!=0) {
           fprintf(f,"\tsetAttr \".wl[%d].w[%d]\" %f;\n",i,j,w);
           test++;
@@ -520,7 +520,7 @@ static int ioMB_importRiggingSize(){
 static int ioMB_importRigging(BrfMesh &m){
   int a,b,n;
   int max = m.frame[0].pos.size();
-  m.rigging.resize(max);
+  m.skinning.resize(max);
   //qDebug("Start...");
 
   int last = 0;
@@ -547,8 +547,8 @@ static int ioMB_importRigging(BrfMesh &m){
        //testNext();
        float w = readFloat();
        //qDebug("adding (%d,%f) to pos %d",i,w,n);
-       m.rigging[n].Add(i,w);
-       //m.rigging[n].Add(0,1);
+       m.skinning[n].Add(i,w);
+       //m.skinning[n].Add(0,1);
 
 
 
@@ -577,7 +577,7 @@ static bool ioMB_importMesh(BrfMesh &m ){
   m.face.clear();
   m.material[0]=0;
   m.maxBone=0;
-  m.rigging.clear();
+  m.skinning.clear();
 
   int vcount =0;
   int fsize = 0;
@@ -717,7 +717,7 @@ static void ioMB_exportHeader(){
   fprintf(f,
      "// created by OpenBrf, Marco Tarini\n"
      "// exporting from a BRF resource file\n"
-    // "// rigged mesh: %s"
+    // "// skinned mesh: %s"
     // "// skeleton mesh: %s"
 "requires maya \"2008\";\n"
 "currentUnit -l centimeter -a degree -t film;\n"
@@ -884,7 +884,7 @@ bool IoMB::Import(const wchar_t*filename, std::vector<BrfMesh> &m , BrfSkeleton 
       }
     }
     if (t=="skinCluster"){
-      //qDebug("rigging");
+      //qDebug("skinning");
 
       if (want==0) {
         int n = ioMB_importRiggingSize();

@@ -446,7 +446,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Rigged</string>
+     <string>Skinned</string>
     </property>
     <property name="tristate">
      <bool>true</bool>
@@ -680,7 +680,7 @@
         <string>Show rigging by coloring mesh according to attached bones</string>
        </property>
        <property name="text">
-        <string>Rigging Color</string>
+        <string>Skinning Color</string>
        </property>
       </widget>
       <widget class="QCheckBox" name="cbWireframe">
@@ -976,7 +976,7 @@
         </rect>
        </property>
        <property name="statusTip">
-        <string>Select a reference animation to view rigged meshes.</string>
+        <string>Select a reference animation to view skinned meshes.</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_21">
@@ -3534,7 +3534,7 @@ Symmetry</string>
     </widget>
     <widget class="QWidget" name="tab_3">
      <attribute name="title">
-      <string>rig</string>
+      <string>skn</string>
      </attribute>
      <widget class="MyDoubleSpinBox" name="attrBoneWeigth0">
       <property name="geometry">

@@ -84,10 +84,10 @@ void MainWindow::meshComputeLod(){
       VcgMesh::simplify((int)amount);
 
       BrfMesh res = VcgMesh::toBrfMesh();
-      if (m.IsRigged()) {
+      if (m.IsSkinned()) {
         std::vector<BrfMesh> mvec; mvec.push_back(m);
         res.TransferRigging(mvec,0,0);
-      } else res.rigging.clear();
+      } else res.skinning.clear();
 
       res.flags = m.flags;
       sprintf(res.material,"%s", m.material);
@@ -181,7 +181,7 @@ bool MainWindow::exportMeshGroupManyFiles(){
   return true;
 }
 
-bool MainWindow::exportRiggedMesh(){
+bool MainWindow::exportSkinnedMesh(){
   int i = selector->firstSelected();
   if (i<0) return false;
   if (i>(int)brfdata.mesh.size()) return false;
@@ -196,7 +196,7 @@ bool MainWindow::exportRiggedMesh(){
   const BrfMesh &m(brfdata.mesh[i]);
 
   QString fn = askExportFilename(brfdata.mesh[ i ].name,
-    "Studiomdl Data rigged mesh (*.SMD);;"
+    "Studiomdl Data skinned mesh (*.SMD);;"
     "Maya Ascii File [experimental] (*.ma)");
   if (fn.isEmpty()) return false;
 
@@ -214,7 +214,7 @@ bool MainWindow::exportRiggedMesh(){
   if (res) {
     QMessageBox::information(this,
       tr("Open Brf"),
-      tr("Cannot export rigged mesh:\n %1\n").arg( errorSt  )
+      tr("Cannot export skinned mesh:\n %1\n").arg( errorSt  )
     );
     return false;
   }
@@ -488,13 +488,13 @@ bool MainWindow::exportStaticMesh(){
   if (fn.isEmpty()) return false;
   switch (selector->currentTabName()) {
     case MESH:
-      // save mesh as Ply
       if (fn.isEmpty()) return false;
       if (QFileInfo(fn).suffix().toLower()== "obj") {
         return brfdata.mesh[i].SaveOBJ(
           fn.toLatin1().data(),this->currentDisplayFrame()
         );
       } else {
+        // save mesh as Ply
         VcgMesh::add(brfdata.mesh[ i ], this->currentDisplayFrame() );
         return VcgMesh::save(fn.toLatin1().data());
       }
@@ -852,7 +852,7 @@ bool MainWindow::reimportMesh(){
 
 	if (!VcgMesh::gotColor()) newMesh.CopyVertColors(oldMesh);
 
-	if (!newMesh.IsRigged() && oldMesh.IsRigged()) {
+	if (!newMesh.IsSkinned() && oldMesh.IsSkinned()) {
 		std::vector<BrfMesh> tmp; tmp.push_back( oldMesh );
 		newMesh.TransferRigging(tmp,0,0);
 	}
@@ -863,7 +863,7 @@ bool MainWindow::reimportMesh(){
 
 }
 
-bool MainWindow::importRiggedMesh(){
+bool MainWindow::importSkinnedMesh(){
   QStringList fnList = askImportFilenames(
       "all known formats  (*.SMD; *.MA);;"
       "Studiomdl Data  (*.SMD);;"
@@ -931,7 +931,7 @@ bool MainWindow::importRiggedMesh(){
   }
 
   statusBar()->showMessage(
-    tr("Imported %1 rigged mesh%2")
+    tr("Imported %1 skinned mesh%2")
     .arg( total ).arg((total==1)?"":"es"),6000
   );
 

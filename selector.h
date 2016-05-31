@@ -136,7 +136,7 @@ public:
 	// exporter acts
 	*exportImportMeshInfoAct,
 	*exportStaticMeshAct,
-	*exportRiggedMeshAct,
+	*exportSkinnedMeshAct,
 	*exportMovingMeshFrameAct,
 	*exportMovingMeshAct,
 	*exportMeshGroupAct,

@@ -142,6 +142,14 @@ OTHER_FILES += shaders/bump_vertex.cpp
 OTHER_FILES += shaders/iron_fragment.cpp
 OTHER_FILES += femininizer.morpher
 
+LIBS += -lopengl32 -lglu32
+
+DISTFILES += \
+    translations/openbrf_de.ts \
+    translations/openbrf_en.ts \
+    translations/openbrf_es.ts \
+    translations/openbrf_zh.ts
+
 
 
 

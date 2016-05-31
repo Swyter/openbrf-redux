@@ -168,10 +168,10 @@ void MeshMorpher::LearnFrom(BrfMesh& a, int framei, int framej){
     Pos p0 = a.frame[framei].pos[pi];
     Pos p1 = a.frame[framej].pos[pi];
     for (int k=0; k<4; k++) {
-      int bi = a.rigging[pi].boneIndex[k];
+      int bi = a.skinning[pi].boneIndex[k];
       if (bi==-1) continue;
       if (p0.Z()>0) bi+=POSZ_BONES;
-      float w = a.rigging[pi].boneWeight[k];
+      float w = a.skinning[pi].boneWeight[k];
       if (!w) continue;
       for (int i=0; i<3; i++)
       {
@@ -218,7 +218,7 @@ bool BrfMesh::FindVertVertMapping(std::vector<int> &map, const BrfMesh& a, const
 		Point3f ap = a.frame[fa].pos[ a.vert[i].index ];
 		Point2f auv = a.vert[i].ta;
 		int bestj = 0;
-		float bestScore = 1e20;
+        float bestScore = 1e20f;
 		for (uint j=0; j<b.vert.size(); j++) {
 			Point3f bp = b.frame[fb].pos[ b.vert[j].index ];
 			Point2f buv = b.vert[j].ta;
@@ -236,7 +236,7 @@ bool BrfMesh::FindVertVertMapping(std::vector<int> &map, const BrfMesh& a, const
 bool BrfMesh::CopyVertAni(const BrfMesh& m){
 	std::vector<int> map;
 
-	if (!FindVertVertMapping(map,*this,m,0,0, 0.8,0.2)) return false;
+    if (!FindVertVertMapping(map,*this,m,0,0, 0.8f,0.2f)) return false;
 	frame.resize(m.frame.size());
 
 	for (uint fi=1; fi<frame.size(); fi++){
@@ -334,7 +334,7 @@ void BrfMesh::SubdivideIntoConnectedComponents(std::vector<BrfMesh> &res){
 		res[i].bbox = bbox;
 		res[i].maxBone = maxBone;
 
-		res[i].rigging.clear();
+        res[i].skinning.clear();
 		res[i].flags = flags;
 		res[i].vert.clear();
 		res[i].face.clear();
@@ -352,9 +352,9 @@ void BrfMesh::SubdivideIntoConnectedComponents(std::vector<BrfMesh> &res){
 		for (int fi=0; fi<nframe; fi++) {
 			res[mi].frame[fi].pos.push_back( frame[fi].pos[i]);
 		}
-		if (rigging.size()>0) {
-			assert(i<(int)rigging.size());
-			res[mi].rigging.push_back(rigging[i]);
+        if (skinning.size()>0) {
+            assert(i<(int)skinning.size());
+            res[mi].skinning.push_back(skinning[i]);
 		}
 
 	}
@@ -404,21 +404,21 @@ void BrfMesh::FixRigidObjectsInRigging(){
 
 	int npos = frame[0].pos.size();
 
-	std::vector< BrfRigging > rig(k);
+    std::vector< BrfSkinning > skn(k);
 	std::vector< bool > isOk(k,true);
-	for (int i=0; i<k; i++) rig[i]=BrfRigging();
+    for (int i=0; i<k; i++) skn[i]=BrfSkinning();
 
 	for (int i=0; i<npos; i++) {
 		int j = uf[ i ];
-		if (isOk[j]) { isOk[j] = rig[ j ].MaybeAdd(rigging[i]) ; }
+        if (isOk[j]) { isOk[j] = skn[ j ].MaybeAdd(skinning[i]) ; }
 	}
 
-	for (int i=0; i<k; i++) if (isOk[i]) rig[i].Normalize();
+    for (int i=0; i<k; i++) if (isOk[i]) skn[i].Normalize();
 
 	for (int i=0; i<npos; i++) {
 		int j = uf[i];
 		//if (frame[0].pos[i].Y()>bbox.Center().Y()+bbox.Dim().Y()*0.1) {
-			if (isOk[j]) rigging[i] = rig[j];
+            if (isOk[j]) skinning[i] = skn[j];
 		//}
 	}
 }
@@ -444,7 +444,7 @@ void BrfMesh::Unmount(const BrfSkeleton &s){
 
 		for (unsigned int vi=0; vi<vert.size(); vi++) {
 
-			const BrfRigging &rig (rigging[ vert[ vi ].index ]);
+            const BrfSkinning &skn (skinning[ vert[ vi ].index ]);
 
 			//glNormal(vert[face[i].index[j]].__norm);
 			Point3f &norm(frame[fv].norm[      vi        ]);
@@ -456,8 +456,8 @@ void BrfMesh::Unmount(const BrfSkeleton &s){
 			Point3f n(0,0,0);
 			Point3f t(0,0,0);
 			for (int k=0; k<4; k++){
-				float wieght = rig.boneWeight[k];
-				int       bi = rig.boneIndex [k];
+                float wieght = skn.boneWeight[k];
+                int       bi = skn.boneIndex [k];
 				if (bi>=0 && bi<(int)bonepos.size()) {
 					p += (bonepos[bi]* pos  )*wieght;
 					n += (bonepos[bi]* norm - bonepos[bi]*Point3f(0,0,0) )*wieght;
@@ -478,8 +478,8 @@ void BrfMesh::Unmount(const BrfSkeleton &s){
 
 }
 
-bool BrfMesh::RiggedToVertexAni(const BrfSkeleton &s, const BrfAnimation &a){
-	if (!IsRigged()) return false;
+bool BrfMesh::SkinnedToVertexAni(const BrfSkeleton &s, const BrfAnimation &a){
+    if (!IsSkinned()) return false;
 	if (a.nbones != (int)s.bone.size()) return false; // mismatch
 	if (this->maxBone>=a.nbones) return false;
 	DuplicateFrames( a.frame.size() );
@@ -490,7 +490,7 @@ bool BrfMesh::RiggedToVertexAni(const BrfSkeleton &s, const BrfAnimation &a){
 	return true;
 }
 
-void BrfMesh::FreezeFrame(const BrfSkeleton& s, const BrfAnimation& a, float frameN, int frameOutput){
+void BrfMesh::FreezeFrame(const BrfSkeleton& s, const BrfAnimation& a, int frameN, int frameOutput){
 
   int fv = frameOutput;
 
@@ -498,19 +498,17 @@ void BrfMesh::FreezeFrame(const BrfSkeleton& s, const BrfAnimation& a, float fra
     return;
   }
 
-  int fi= (int)frameN;
+  if (frameN<0) assert(0);
+  if (frameN>=(int)a.frame.size()) assert(0);
 
-  if (fi<0) assert(0);
-  if (fi>=(int)a.frame.size()) assert(0);
-
-  std::vector<Matrix44f> bonepos = s.GetBoneMatrices( a.frame[fi] );
+  std::vector<Matrix44f> bonepos = s.GetBoneMatrices( a.frame[frameN] );
 
   std::vector<bool> done(frame[fv].pos.size(),false);
 
 
   for (unsigned int vi=0; vi<vert.size(); vi++) {
 
-    const BrfRigging &rig (rigging[ vert[ vi ].index ]);
+    const BrfSkinning &skn (skinning[ vert[ vi ].index ]);
 
     //glNormal(vert[face[i].index[j]].__norm);
     Point3f &norm(frame[fv].norm[      vi        ]);
@@ -522,8 +520,8 @@ void BrfMesh::FreezeFrame(const BrfSkeleton& s, const BrfAnimation& a, float fra
     Point3f n(0,0,0);
     Point3f t(0,0,0);
     for (int k=0; k<4; k++){
-      float wieght = rig.boneWeight[k];
-      int       bi = rig.boneIndex [k];
+      float wieght = skn.boneWeight[k];
+      int       bi = skn.boneIndex [k];
       if (bi>=0 && bi<(int)bonepos.size()) {
         p += (bonepos[bi]* pos  )*wieght;
         n += (bonepos[bi]* norm - bonepos[bi]*Point3f(0,0,0) )*wieght;
@@ -595,13 +593,13 @@ void BrfMesh::MorphFrame(int framei, int framej, const MeshMorpher& m){
     Pos scale(0,0,0);
     Pos trans(0,0,0);
     for (int k=0; k<4; k++) {
-      int bi = rigging[pi].boneIndex[k];
+      int bi = skinning[pi].boneIndex[k];
       if (bi==-1) continue;
 
       if (p0.Z()>0) bi+=MeshMorpher::POSZ_BONES;
 
       if (bi>=MeshMorpher::MAX_BONES) continue;
-      float w = rigging[pi].boneWeight[k];
+      float w = skinning[pi].boneWeight[k];
       if (!w) continue;
       scale += m.s[bi]*w;
       trans += m.t[bi]*w;
@@ -621,17 +619,17 @@ void BrfMesh::MorphFrame(int framei, int framej, const MeshMorpher& m){
 
 
 void BrfMesh::AddALittleOfBreast(int framei, float howMuch){
-  Pos p0(+0.0793, 1.3443, 0.1210);
-  Pos p1(-0.0793, 1.3443, 0.1210);
-  float r = 0.066;
+  Pos p0(+0.0793f, 1.3443f, 0.1210f);
+  Pos p1(-0.0793f, 1.3443f, 0.1210f);
+  float r = 0.066f;
   BrfFrame& f(frame[framei]);
   for (uint i=0; i<f.pos.size(); i++){
     Pos &q(f.pos[i]);
-    float s0 = 1.0-(q-p0).Norm()/r;
-    float s1 = 1.0-(q-p1).Norm()/r;
+    float s0 = 1-(q-p0).Norm()/r;
+    float s1 = 1-(q-p1).Norm()/r;
     float s = max(s0,s1);
     if (s>0) {
-      s = pow( s ,0.3);
+      s = (float)pow( s ,0.3);
 			q.Z()+=s*howMuch;
     }
   }
@@ -670,11 +668,11 @@ void BrfMesh::SetDefault(){
   frame[0].norm.resize(0);
   vert.resize(0);
   face.resize(0);
-  rigging.resize(0);
+  skinning.resize(0);
 }
 
-bool BrfMesh::IsRigged() const{
-  return rigging.size()>0;
+bool BrfMesh::IsSkinned() const{
+  return skinning.size()>0;
 }
 
 void BrfMesh::MakeSingleQuad(float x, float y, float dx, float dy){
@@ -692,7 +690,7 @@ void BrfMesh::MakeSingleQuad(float x, float y, float dx, float dy){
     v.tang = t;
     v.__norm = n;
     v.ti=0;
-    v.ta=v.tb=vcg::Point2f( i/2, 1-i%2 );
+    v.ta=v.tb=vcg::Point2f( i/2.0f, 1.0f-i%2 );
     frame[0].norm[i] = n;
     frame[0].tang[i] = t;
   }
@@ -757,8 +755,8 @@ bool BrfMesh::AddFrameMatchTc(const BrfMesh &b, int k){
   for (unsigned int i=0; i<vert.size(); i++) {
     // find vertex closet
     int jMin=0;
-    float scoreMinA = 10e20;
-    float scoreMinB = 10e20;
+    float scoreMinA = 10e20f;
+    float scoreMinB = 10e20f;
     for (unsigned int j=0; j<b.vert.size(); j++) {
       float scoreA = (b.vert[j].ta - vert[i].ta).SquaredNorm();
       float scoreB = (b.frame[0].pos[b.vert[j].index] - frame[0].pos[vert[i].index ]).SquaredNorm() ;
@@ -813,7 +811,7 @@ bool BrfMesh::AddAllFrames(const BrfMesh &b){
 	if (b.frame[0].norm.size()!=frame[0].norm.size()) return false;
 	if (b.vert.size()!=vert.size()) return false;
 	if (b.face.size()!=face.size()) return false;
-	if (b.rigging.size() != rigging.size()) return false;
+    if (b.skinning.size() != skinning.size()) return false;
 	for (uint i=0; i<b.frame.size(); i++)
 		frame.push_back(b.frame[i]);
 	return true;
@@ -917,7 +915,7 @@ void BrfMesh::ComputeTangents(){
   for (unsigned int vi=0; vi<vert.size(); vi++){
     // right hand or left hand TBN system?
     float verse = (((vert[vi].tang ^ bitangents[vi] )
-                    * frame[fi].norm[vi])<0)?1:-1;
+                    * frame[fi].norm[vi])<0)?1.0f:-1.0f;
     vert[vi].ti = (verse<0)?0:1;
 
     // average the bitangent computed from UV-mapping and
@@ -1008,13 +1006,13 @@ void BrfMesh::Apply(Matrix44<float> m){
 void BrfMesh::ShrinkAroundBones(const BrfSkeleton& s, int nframe){
   std::vector<vcg::Matrix44f> m = s.GetBoneMatrices();
   vcg::Point3f z(0,0,0);
-  for (int pi=0; pi<(int)rigging.size(); pi++){
-    BrfRigging &rig(rigging[pi]);
+  for (int pi=0; pi<(int)skinning.size(); pi++){
+    BrfSkinning &skn(skinning[pi]);
     int j = pi;
     frame[nframe].pos[j]=z;
     for (int i=0; i<4; i++) {
-      if (rig.boneWeight[i]>0)
-        frame[nframe].pos[j] +=( m[ rig.boneIndex[i] ]*z)*rig.boneWeight[i];
+      if (skn.boneWeight[i]>0)
+        frame[nframe].pos[j] +=( m[ skn.boneIndex[i] ]*z)*skn.boneWeight[i];
     };
   }
 }
@@ -1031,7 +1029,7 @@ bool BrfMesh::UniformizeWith(const BrfMesh& target){
     doneSomething = true;
   }
 
-  if (target.IsRigged() && !IsRigged()){
+  if (target.IsSkinned() && !IsSkinned()){
     SetUniformRig(0);
     doneSomething = true;
   }
@@ -1047,22 +1045,22 @@ void BrfMesh::Unskeletonize(const BrfSkeleton& from){
     Matrix44f inv = vcg::Inverse(mat[bi]);
     mat[bi]=inv;
   }*/
-  int k = rigging[0].boneIndex[0];
+  int k = skinning[0].boneIndex[0];
   Matrix44f m = vcg::Inverse(mat[k]);
   vcg::Transpose(m);
   Transform(&(m[0][0]));
   return;
 
-  if (!rigging.size()) return;
-  assert (rigging.size()==frame[0].pos.size());
+  if (!skinning.size()) return;
+  assert (skinning.size()==frame[0].pos.size());
 
-  for (int pi=0; pi<(int)rigging.size(); pi++){
+  for (int pi=0; pi<(int)skinning.size(); pi++){
     Matrix44f matTot;
     matTot.SetZero();
-    const BrfRigging &rig(rigging[pi]);
+    const BrfSkinning &skn(skinning[pi]);
     for (int k=0; k<4; k++) {
-      int i = rig.boneIndex[k];
-      if (i>=0) matTot+=mat[i]* rig.boneWeight[k];
+      int i = skn.boneIndex[k];
+      if (i>=0) matTot+=mat[i]* skn.boneWeight[k];
     }
     for (int fi=0; fi<(int)frame.size(); fi++) {
       BrfFrame &f(frame[fi]);
@@ -1084,16 +1082,16 @@ void BrfMesh::Reskeletonize(const BrfSkeleton& from, const BrfSkeleton& to){
     Matrix44f inv = vcg::Inverse(mat0[bi]);
     mat[bi]=mat[bi]*inv;
   }
-  if (!rigging.size()) return;
-  assert (rigging.size()==frame[0].pos.size());
+  if (!skinning.size()) return;
+  assert (skinning.size()==frame[0].pos.size());
 
-  for (int pi=0; pi<(int)rigging.size(); pi++){
+  for (int pi=0; pi<(int)skinning.size(); pi++){
     Matrix44f matTot;
     matTot.SetZero();
-    const BrfRigging &rig(rigging[pi]);
+    const BrfSkinning &skn(skinning[pi]);
     for (int k=0; k<4; k++) {
-      int i = rig.boneIndex[k];
-      if (i>=0) matTot+=mat[i]* rig.boneWeight[k];
+      int i = skn.boneIndex[k];
+      if (i>=0) matTot+=mat[i]* skn.boneWeight[k];
     }
     for (int fi=0; fi<(int)frame.size(); fi++) {
       BrfFrame &f(frame[fi]);
@@ -1107,7 +1105,7 @@ void BrfMesh::Reskeletonize(const BrfSkeleton& from, const BrfSkeleton& to){
 
 void BrfFrame::MakeSlim(float ratioX, float ratioZ, const BrfSkeleton* s){
   vector<Matrix44f> m = s->GetBoneMatrices();
-  float y3 = m[ s->FindBoneByName("shoulder.L") ].GetColumn3(3)[1]-0.075;
+  float y3 = m[ s->FindBoneByName("shoulder.L") ].GetColumn3(3)[1]-0.075f;
   float y1 = m[ s->FindBoneByName("abdomen") ].GetColumn3(3)[1];
   float y0 = m[ s->FindBoneByName("calf.L") ].GetColumn3(3)[1];
   //float y1 = (y0*5 + y3)/6;
@@ -1141,7 +1139,7 @@ public:
 void Grid::FromSkeleton(const BrfSkeleton &s){
   vector<Matrix44f> m = s.GetBoneMatrices();
 
-  x[0] = m[ s.FindBoneByName("hand.L") ].GetColumn3(3)[0]-0.05;
+  x[0] = m[ s.FindBoneByName("hand.L") ].GetColumn3(3)[0]-0.05f;
   x[1] = m[ s.FindBoneByName("forearm.L") ].GetColumn3(3)[0];
   x[2] = m[ s.FindBoneByName("upperarm.L") ].GetColumn3(3)[0];
   x[3] = m[ s.FindBoneByName("shoulder.L") ].GetColumn3(3)[0];
@@ -1149,19 +1147,19 @@ void Grid::FromSkeleton(const BrfSkeleton &s){
   x[5] = m[ s.FindBoneByName("shoulder.R") ].GetColumn3(3)[0];
   x[6] = m[ s.FindBoneByName("upperarm.R") ].GetColumn3(3)[0];
   x[7] = m[ s.FindBoneByName("forearm.R") ].GetColumn3(3)[0];
-  x[8] = m[ s.FindBoneByName("hand.R") ].GetColumn3(3)[0]+0.05;
+  x[8] = m[ s.FindBoneByName("hand.R") ].GetColumn3(3)[0]+0.05f;
 
-  y[0] = -0.05;
+  y[0] = -0.05f;
   y[1] = m[ s.FindBoneByName("foot.L") ].GetColumn3(3)[1];
   y[2] = m[ s.FindBoneByName("calf.L") ].GetColumn3(3)[1];
   y[3] = m[ s.FindBoneByName("thigh.L") ].GetColumn3(3)[1];
   //y[3] = m[ s.FindBoneByName("abdomen") ].GetColumn3(3)[1];
   y[4] = m[ s.FindBoneByName("spine") ].GetColumn3(3)[1];
   y[5] = m[ s.FindBoneByName("torax") ].GetColumn3(3)[1];
-  y[6] = m[ s.FindBoneByName("shoulder.L") ].GetColumn3(3)[1]-0.075;
+  y[6] = m[ s.FindBoneByName("shoulder.L") ].GetColumn3(3)[1]-0.075f;
   y[7] = m[ s.FindBoneByName("shoulder.L") ].GetColumn3(3)[1];
-  y[8] = m[ s.FindBoneByName("shoulder.L") ].GetColumn3(3)[1]+0.15;
-  y[9] = m[ s.FindBoneByName("head") ].GetColumn3(3)[1]+0.15;
+  y[8] = m[ s.FindBoneByName("shoulder.L") ].GetColumn3(3)[1]+0.15f;
+  y[9] = m[ s.FindBoneByName("head") ].GetColumn3(3)[1]+0.15f;
   //for (int i=0; i<Y; i++) //qDegug();//if (y[i]>=y[i++]) {assert(false);}
 }
 
@@ -1214,12 +1212,12 @@ void BrfMesh::ReskeletonizeHuman(const BrfSkeleton& from, const BrfSkeleton& to,
 void BrfMesh::SetUniformRig(int nbone){
 
   int psize = (int)frame[0].pos.size();
-  rigging.resize(psize);
+  skinning.resize(psize);
   maxBone = nbone;
   for (int i=0; i<psize; i++)
     for (int j=0; j<4; j++){
-      rigging[i].boneIndex[j]=(j)?-1:nbone;
-      rigging[i].boneWeight[j]=(j)?0 :1;
+      skinning[i].boneIndex[j]=(j)?-1:nbone;
+      skinning[i].boneWeight[j]=(j)? 0.0f : 1.0f;
     }
 }
 
@@ -1232,12 +1230,12 @@ void BrfMesh::SetUniformRig(int nbone){
 
         inline bool operator == (MyIndexClass const &b)const
         { return (mesh->frame[0].pos[ind] == mesh->frame[0].pos[b.ind])
-          && ( (mesh->rigging.size()) || (mesh->rigging[ind] == mesh->rigging[b.ind])); }
+          && ( (mesh->skinning.size()) || (mesh->skinning[ind] == mesh->skinning[b.ind])); }
         inline bool operator < (MyIndexClass const &b)const
         {
           if (mesh->frame[0].pos[ind] < mesh->frame[0].pos[b.ind]) return true;
           if (mesh->frame[0].pos[ind] != mesh->frame[0].pos[b.ind]) return false;
-          if (mesh->rigging.size()) return mesh->rigging[ind] < mesh->rigging[b.ind];
+          if (mesh->skinning.size()) return mesh->skinning[ind] < mesh->skinning[b.ind];
           return false;
         }
 
@@ -1273,12 +1271,12 @@ bool BrfMesh::UnifyPos(){
     for (int h=0; h<(int)rank.size(); h++) {
       if (rank[h]>=0) {
         frame[i].pos[ rank[h] ]=frame[i].pos[h];
-        if (rigging.size()>0 && i==0)
-         rigging[ rank[h] ]=rigging[h];
+        if (skinning.size()>0 && i==0)
+         skinning[ rank[h] ]=skinning[h];
       }
     }
     frame[i].pos.resize( ns );
-    if (rigging.size()>0) rigging.resize( ns );
+    if (skinning.size()>0) skinning.resize( ns );
   }
 
   return (oldsize != frame[0].pos.size());
@@ -1391,11 +1389,11 @@ bool BrfMesh::RemoveUnreferenced(){
     vert[i].index = rank[ vert[i].index ];
   }
 
-  if (rigging.size()==frame[0].pos.size()) {
+  if (skinning.size()==frame[0].pos.size()) {
     for (int i=0; i<r; i++) {
-        rigging[i] = rigging[ select[i] ];
+        skinning[i] = skinning[ select[i] ];
     }
-    rigging.resize(r);
+    skinning.resize(r);
   }
 
   for (int i=0; i<r; i++) {
@@ -1628,8 +1626,8 @@ void BrfMesh::FixTextcoord(const BrfMesh &brf,BrfMesh &ref, int fi){
         avgb+=ref.vert[k].tb;
       }
     }
-    avga/=ndec;
-    avgb/=ndec;
+    avga/=(float)ndec;
+    avgb/=(float)ndec;
     if (nundec>0 && nundec<3) for (int j=0; j<3; j++) {
       int k=ref.face[i].index[j];
       if (undec[k]) {
@@ -1882,7 +1880,7 @@ int BrfFrame::FindClosestPoint(Point3f to, float *min) const{
 }
 
 void BrfMesh::TransferRigging(const std::vector<BrfMesh>& from, int nf, int nfb){
-  rigging.resize( frame[0].pos.size() );
+  skinning.resize( frame[0].pos.size() );
   for (unsigned int i=0; i<frame[nf].pos.size(); i++) {
     float maxdist=9e10f;
     for (unsigned int h=0; h<from.size(); h++)
@@ -1890,7 +1888,7 @@ void BrfMesh::TransferRigging(const std::vector<BrfMesh>& from, int nf, int nfb)
       int j=from[h].frame[nfb].FindClosestPoint( frame[nf].pos[i], &maxdist );
       if (maxdist==9e10f) j=-1;
       if (j>=0)
-        rigging[i]=from[h].rigging[j];
+        skinning[i]=from[h].skinning[j];
     }
   }
   UpdateMaxBone();
@@ -1898,15 +1896,15 @@ void BrfMesh::TransferRigging(const std::vector<BrfMesh>& from, int nf, int nfb)
 
 void BrfMesh::UpdateMaxBone(){
   maxBone = 0;
-  for (int i=0; i<(int)rigging.size(); i++) {
+  for (int i=0; i<(int)skinning.size(); i++) {
     for (int j=0; j<4; j++) {
-      if (rigging[i].boneWeight[j]>0)
-        if (rigging[i].boneIndex[j]>maxBone) maxBone = rigging[i].boneIndex[j];
+      if (skinning[i].boneWeight[j]>0)
+        if (skinning[i].boneIndex[j]>maxBone) maxBone = skinning[i].boneIndex[j];
     }
   }
 }
 
-// tmp class to load and save rigging
+// tmp class to load and save skinning
 class TmpRiggingPair{
 public:
   int vindex;  // vert index
@@ -1923,8 +1921,8 @@ public:
   static unsigned int SizeOnDisk(){return 8;}
 };
 
-// tmp class to load and save rigging
-class TmpRigging{
+// tmp class to load and save skinning
+class TmpSkinning{
 public:
   int bindex; // bone index
   vector< TmpRiggingPair > pair;
@@ -1954,7 +1952,7 @@ public:
 
 
 
-bool BrfRigging::operator == (const BrfRigging &b) const{
+bool BrfSkinning::operator == (const BrfSkinning &b) const{
   for (int i=0; i<4; i++) {
     if  (boneIndex[i]==-1) break;
     if  (boneIndex[i]!=b.boneIndex[i]) return false;
@@ -1965,7 +1963,7 @@ bool BrfRigging::operator == (const BrfRigging &b) const{
   return true;
 }
 
-bool BrfRigging::operator < (const BrfRigging &b) const{
+bool BrfSkinning::operator < (const BrfSkinning &b) const{
   for (int i=0; i<4; i++) {
     if  (boneIndex[i]<b.boneIndex[i]) return true;
     if  (boneIndex[i]>b.boneIndex[i]) return false;
@@ -1975,7 +1973,7 @@ bool BrfRigging::operator < (const BrfRigging &b) const{
   return false;
 }
 
-void Rigging2TmpRigging(const vector<BrfRigging>& vert , vector<TmpRigging>& v) {
+void Rigging2TmpRigging(const vector<BrfSkinning>& vert , vector<TmpSkinning>& v) {
   v.clear();
   const int MAX = 200;
   static bool usedBone[MAX];
@@ -2016,17 +2014,17 @@ void Rigging2TmpRigging(const vector<BrfRigging>& vert , vector<TmpRigging>& v) 
 
 }
 
-float BrfRigging::WeightOf(int i) const{
+float BrfSkinning::WeightOf(int i) const{
   for ( int k=0;  k<4; k++) if (boneIndex[k]==i) return boneWeight[k];
   return 0;
 }
 
-int BrfRigging::FirstEmpty() const{
+int BrfSkinning::FirstEmpty() const{
   for ( int k=0;  k<4; k++) if (boneIndex[k]==-1) return k;
   return 4;
 }
 
-int BrfRigging::LeastIndex() const{
+int BrfSkinning::LeastIndex() const{
   int min=0;
 
   for ( int k=1;  k<4; k++) if (boneIndex[k]!=-1)
@@ -2035,7 +2033,7 @@ int BrfRigging::LeastIndex() const{
 }
 
 
-void BrfRigging::Normalize(){
+void BrfSkinning::Normalize(){
   float sum=0;
 
   for ( int k=0;  k<4; k++) if (boneIndex[k]!=-1) sum+=boneWeight[k];
@@ -2044,7 +2042,7 @@ void BrfRigging::Normalize(){
 
 }
 
-void BrfRigging::Add(int bi, float w){
+void BrfSkinning::Add(int bi, float w){
   bool overflow = false;
   int k = FirstEmpty();
   if (k>=4) {
@@ -2060,7 +2058,7 @@ static float sign(float x){
 	if (x<0) return -1; else return +1;
 }
 
-void BrfRigging::Stiffen(float howmuch){
+void BrfSkinning::Stiffen(float howmuch){
 
 	int k=0;
 	for (k=0; k<4; k++) {
@@ -2073,7 +2071,7 @@ void BrfRigging::Stiffen(float howmuch){
 }
 
 
-bool BrfRigging::MaybeAdd(int bi, float w){
+bool BrfSkinning::MaybeAdd(int bi, float w){
 	if (bi<0) return true;
 	if (w<=0.01) return true;
 
@@ -2088,12 +2086,12 @@ bool BrfRigging::MaybeAdd(int bi, float w){
 	return false;
 }
 
-bool BrfRigging::MaybeAdd(BrfRigging& w){
+bool BrfSkinning::MaybeAdd(BrfSkinning& w){
 	for (int k=0; k<4; k++) if (!MaybeAdd(w.boneIndex[k],w.boneWeight[k])) return false;
 	return true;
 }
 
-int TmpRigging2Rigging(const vector<TmpRigging>& v, vector<BrfRigging>&vert){
+int TmpRigging2Rigging(const vector<TmpSkinning>& v, vector<BrfSkinning>&vert){
   int max=0;
 
   for (unsigned int i=0; i<v.size(); i++)
@@ -2120,13 +2118,13 @@ int TmpRigging2Rigging(const vector<TmpRigging>& v, vector<BrfRigging>&vert){
 }
 
 void BrfMesh::NormalizeRigging(){
-  for (unsigned int i=0; i<rigging.size(); i++) {
-    rigging[i].Normalize();
+  for (unsigned int i=0; i<skinning.size(); i++) {
+    skinning[i].Normalize();
   }
 }
 
 bool BrfMesh::HasTangentField() const{
-  return flags & (1<<16);
+  return (flags & (1<<16))!=0;
 }
 
 void BrfMesh::AnalyzeName() {
@@ -2234,8 +2232,8 @@ void BrfMesh::Save(FILE*f) const{
 
   SaveVector(f, frame[0].pos);
 
-  std::vector<TmpRigging> tmpRig;
-  Rigging2TmpRigging(rigging, tmpRig);
+  std::vector<TmpSkinning> tmpRig;
+  Rigging2TmpRigging(skinning, tmpRig);
 
   SaveVector(f, tmpRig);
 
@@ -2287,8 +2285,9 @@ void BrfMesh::SetTimings(const std::vector<int> &v){
 
 bool BrfMesh::SaveAsPly(int frameIndex, const wchar_t* path) const{
   wchar_t filename[255];
-  if (frame.size()==0) swprintf(filename,L"%ls%s.ply",path, name);
-  else swprintf(filename,L"%ls\%s%02d.ply",path, name,frameIndex);
+  if (frame.size()==0) swprintf(filename,L"%s%s.ply",path, name);
+  else swprintf(filename,L"%ls\\%ls%02d.ply",path, name,frameIndex);
+
   FILE* f = _wfopen(filename,L"wt");
   if (!f) { printf("Cannot save \"%ls\"!\n",filename); return false;}
   printf("Saving \"%ls\"...\n",filename);
@@ -2370,16 +2369,26 @@ void BrfMesh::AdaptToRes(const BrfMesh& ref){
 }
 
 
-BrfFrame BrfFrame::Average(BrfFrame& b, float t){
+BrfFrame BrfFrame::Blend(const BrfFrame& b, float t) const{
   BrfFrame res=*this;
   for (unsigned int i=0; i<pos.size(); i++) {
     res.pos[i]=pos[i]*(t) + b.pos[i]*(1.0f-t);
   }
+  for (unsigned int i=0; i<norm.size(); i++) {
+    res.norm[i] = norm[i]*(t) + b.norm[i]*(1.0f-t);
+    res.norm[i].Normalize();
+  }
+  for (unsigned int i=0; i<tang.size(); i++) {
+    res.tang[i] = res.tang[i]*(t) + b.tang[i]*(1.0f-t);
+    res.tang[i].Normalize();
+  }
+  res.time = (int) (time*(t) + b.time*(1-t));
   return res;
 }
 
-BrfFrame BrfFrame::Average(BrfFrame& b, float t, const vector<bool> &sel){
-  BrfFrame res=*this;
+
+BrfFrame BrfFrame::Blend(const BrfFrame& b, float t, const vector<bool> &sel) const{
+  BrfFrame res;
   for (unsigned int i=0; i<pos.size(); i++) {
      if (sel[i]) res.pos[i]=pos[i]*(t) + b.pos[i]*(1.0f-t);
   }
@@ -2394,7 +2403,7 @@ void BrfMesh::DiminishAni(float t){
   BrfFrame orig=frame[3];
   for (unsigned int i=2; i<frame.size(); i++) {
     unsigned int j=i+1;
-    frame[i]=frame[i].Average((j==frame.size())?orig:frame[j],t);
+    frame[i]=frame[i].Blend((j==frame.size())?orig:frame[j],t);
   }
 }
 
@@ -2404,18 +2413,18 @@ void BrfMesh::DiminishAniSelected(float t){
     unsigned int j1=i+1; if (j1>=frame.size()) j1=2;
     unsigned int j2=i-1; if (j1<2) j1+=frame.size()-2;
     BrfFrame b = orig[j1];
-    b=b.Average(orig[j2],0.5,selected);
+    b=b.Blend(orig[j2],0.5,selected);
     for (unsigned int k=0; k<frame[i].pos.size(); k++) {
      if (selected[k]) frame[i].pos[k]=b.pos[k];
     }
-    frame[i].Average(orig[i],t,selected);
+    frame[i] = frame[i].Blend(orig[i],t,selected);
   }
 }
 
 
-void BrfMesh::KeepSelctedFixed(int asInFrame, double howmuch){
+void BrfMesh::KeepSelctedFixed(int asInFrame, float howmuch){
   for (unsigned int i=2; i<frame.size(); i++) if ((int)i!=asInFrame) {
-    frame[i]=frame[i].Average(frame[asInFrame],howmuch,selected);
+    frame[i]=frame[i].Blend(frame[asInFrame],howmuch,selected);
   }
 }
 
@@ -2439,7 +2448,7 @@ Point3f BrfMesh::GetAvgSelectedPos(int framei) const{
     }
   }
 //  printf("(sel=%d on %d, vert=%d)\n",n,selected.size(), frame[framei].pos.size());
-  return res/n;
+  return res/(float)n;
 }
 
 
@@ -2781,7 +2790,7 @@ unsigned int BrfMesh::GetAverageColor() const {
 
 void BrfMesh::FixPosOrder(const BrfMesh &b){
   vector<int> best(frame[0].pos.size(),0);
-  vector<float> bestscore(frame[0].pos.size(),99999999.0);
+  vector<float> bestscore(frame[0].pos.size(),99999999.0f);
   for (unsigned int i=0; i<vert.size(); i++)
     for (unsigned int j=0; j<b.vert.size(); j++) {
     if ((vert[i].ta == b.vert[j].ta)  && (vert[i].tb == b.vert[j].tb) ) {
@@ -2804,7 +2813,7 @@ BrfVert::BrfVert(){
   ti = 255;
 }
 
-BrfRigging::BrfRigging(){
+BrfSkinning::BrfSkinning(){
   boneIndex[0]=boneIndex[1]=boneIndex[2]=boneIndex[3]=-1;
   boneWeight[0]=boneWeight[1]=boneWeight[2]=boneWeight[3]=0;
 }
@@ -2823,7 +2832,7 @@ bool BrfMesh::Skip(FILE* f){
 
   if (!LoadString(f, material)) return false;
   SkipVectorB< Point3f >(f); // pos
-  SkipVectorR< TmpRigging >(f);
+  SkipVectorR< TmpSkinning >(f);
   SkipVectorR< BrfFrame >(f);
   SkipVectorF< BrfVert >(f);
   SkipVectorF< BrfFace >(f);
@@ -2831,7 +2840,7 @@ bool BrfMesh::Skip(FILE* f){
 }
 
 void BrfMesh::DiscardRigging(){
-  rigging.clear();
+  skinning.clear();
 }
 
 
@@ -2876,7 +2885,7 @@ bool BrfMesh::Load(FILE*f){
 
   if (!LoadVector(f, frame[0].pos)) return false;
 
-  vector<TmpRigging> tmpRig;
+  vector<TmpSkinning> tmpRig;
 
   if (!LoadVector(f,tmpRig)) return false;
 
@@ -2898,10 +2907,10 @@ bool BrfMesh::Load(FILE*f){
 
 
   if (tmpRig.size()>0) {
-    rigging.resize(frame[0].pos.size());
-    maxBone = TmpRigging2Rigging(tmpRig, rigging);
+    skinning.resize(frame[0].pos.size());
+    maxBone = TmpRigging2Rigging(tmpRig, skinning);
     //NormalizeRigging();
-  } else rigging.clear();
+  } else skinning.clear();
 
 
   AfterLoad();
@@ -2909,7 +2918,7 @@ bool BrfMesh::Load(FILE*f){
 }
 
 bool BrfMesh::IsAnimable() const{
-  return (frame.size()>1) || IsRigged();
+  return (frame.size()>1) || IsSkinned();
 }
 
 void BrfMesh::CopyTimesFrom(const BrfMesh &b){
@@ -2921,17 +2930,11 @@ void BrfMesh::CopyTimesFrom(const BrfMesh &b){
   }
 }
 
-void BrfMesh::Average(const BrfMesh &brf){
-
-  //int nvert = vert.size();
+void BrfMesh::Blend(const BrfMesh &brf){
   for (unsigned int j=0; j<frame.size(); j++) {
-    for (unsigned int i=0; i<brf.frame[j].pos.size(); i++){
-      frame[j].pos[i] = (frame[j].pos[i] + brf.frame[j].pos[i])/2.0;
-    }
-    for (unsigned int i=0; i<brf.frame[j].norm.size(); i++){
-      frame[j].norm[i] = (frame[j].norm[i] + brf.frame[j].norm[i])/2.0;
-    }
+     frame[j] = frame[j].Blend( brf.frame[j], 0.5f);
   }
+  AdjustNormDuplicates();
 }
 
 
@@ -2943,7 +2946,7 @@ public:
   
   void Fall(){
     for (unsigned int i=1; i<pos.size()-1; i++) {
-      pos[i][1]-=0.01;
+      pos[i][1]-=0.01f;
     }
   }
   
@@ -2958,7 +2961,7 @@ public:
     for (unsigned int i=0; i<pos.size()-1; i++) {
       Point3f v=pos[i]-pos[i+1];
       float l=v.Norm();
-      v=-v.Normalize()*((k-l)*(0.5));
+      v=-v.Normalize()*((k-l)*(0.5f));
       post[i]-=v;
       post[i+1]+=v;
     }
@@ -3008,9 +3011,9 @@ public:
         v.__norm = Point3f(0,1,0);
         v.col = 0xffffffff;
         v.ta = v.tb = Point2f(
-          479+4*k,
+          479+4.0f*k,
           512-(343+i/float(pos.size()-1) * 32)
-        )/512.0;
+        )/512.0f;
         b.vert.push_back( v );
       }
     }
@@ -3057,7 +3060,7 @@ bool BrfMesh::Merge(const BrfMesh &b)
 {
 
   if (frame.size()!=b.frame.size()) return false;
-  if ( (rigging.size()!=0) != (b.rigging.size()!=0) ) return false;
+  if ( (skinning.size()!=0) != (b.skinning.size()!=0) ) return false;
 
   bbox.Add(b.bbox);
   if (maxBone<b.maxBone) maxBone = b.maxBone;
@@ -3078,8 +3081,8 @@ bool BrfMesh::Merge(const BrfMesh &b)
     vert.push_back(b.vert[i] + npos);
   }
 
-  for (unsigned int i=0; i<b.rigging.size(); i++) {
-    rigging.push_back(b.rigging[i]);
+  for (unsigned int i=0; i<b.skinning.size(); i++) {
+    skinning.push_back(b.skinning[i]);
   }
 
   for (unsigned int i=0; i<b.face.size(); i++) {
@@ -3155,8 +3158,8 @@ void BrfMesh::MergeMirror(const BrfMesh &bb)
         // hack to fix tail
         if (selected[i]) {
           float y,z;
-          y = (p[1] + frame[j].pos[i][1])/2.0;
-          z = (p[2] + frame[j].pos[i][2])/2.0;
+          y = (p[1] + frame[j].pos[i][1])/2;
+          z = (p[2] + frame[j].pos[i][2])/2;
           frame[j].pos[i][1] = p[1] = y;
           frame[j].pos[i][2] = p[2] = z;
         }
@@ -3257,23 +3260,23 @@ void BrfMesh::SmoothRigging(){
 		}
     }*/
 
-	std::vector<BrfRigging> rb = rigging;
+    std::vector<BrfSkinning> rb = skinning;
 	for (int i=0; i<(int)face.size(); i++) {
 		for (int j=0; j<3; j++) {
 			int k0 = vert[ face[i].index[   j   ] ].index;
 			int k1 = vert[ face[i].index[(j+1)%3] ].index;
-                        if (!glued[k0]) rigging[k0].MaybeAdd( rb[k1] );
-                        if (!glued[k1])rigging[k1].MaybeAdd( rb[k0] );
+                        if (!glued[k0]) skinning[k0].MaybeAdd( rb[k1] );
+                        if (!glued[k1])skinning[k1].MaybeAdd( rb[k0] );
 		}
 	}
-	for (int i=0; i<(int)rigging.size(); i++)
-		if (!glued[i]) rigging[i].Normalize();
+    for (int i=0; i<(int)skinning.size(); i++)
+        if (!glued[i]) skinning[i].Normalize();
         //for (int i=0; i<(int)vert.size(); i++) if (glued[vert[i].index]) vert[i].col=0;
 }
 
 void BrfMesh::StiffenRigging(float howMuch){
-	for (int i=0; i<(int)rigging.size(); i++)
-		rigging[i].Stiffen(howMuch);
+    for (int i=0; i<(int)skinning.size(); i++)
+        skinning[i].Stiffen(howMuch);
 }
 
 void BrfMesh::TuneColors(int c, int h, int s, int b){
@@ -3350,9 +3353,9 @@ static void col2rgba(uint col, int* rgba){
 uint BrfMesh::multCol(unsigned int col, float a){
 	int rgba[4];
 	col2rgba(col,rgba);
-	rgba[0]*=a;
-	rgba[1]*=a;
-	rgba[2]*=a;
+    rgba[0]=(int)round(a*rgba[0]);
+    rgba[1]=(int)round(a*rgba[1]);
+    rgba[2]=(int)round(a*rgba[2]);
 	return rgba2col(rgba);
 }
 
