@@ -1,6 +1,6 @@
 /* OpenBRF -- by marco tarini. Provided under GNU General Public License */
 
-#include <QtGui/QApplication>
+#include <QApplication>
 #include "mainwindow.h"
 
 static void showUsage(){
@@ -24,7 +24,7 @@ static void showUsage(){
 
 }
 
-extern char* applVersion;
+extern const char* applVersion;
 
 int main(int argc, char* argv[])
 {
@@ -34,9 +34,10 @@ int main(int argc, char* argv[])
   QString nextTranslator;
 
 
-  char* argv_2[]={"OpenBrf"}; int argc_2=1;
+  //const char* argv_2[]={"OpenBrf"}; int argc_2=1;
 
-  QApplication app(argc_2,argv_2); //argc, argv);
+  //QApplication app(argc_2,argv_2); //argc, argv);
+  QApplication app(argc, argv);
   QStringList arguments = QCoreApplication::arguments();
   app.setApplicationVersion(applVersion);
   app.setApplicationName("OpenBrf");

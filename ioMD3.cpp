@@ -40,7 +40,7 @@ void SaveStringFix(FILE* f,const char *res, int max){
   SaveByte(f,0);
 }
 
-static const double RATIO = 100.0;
+static const float RATIO = 100.0;
 
 void SavePoint16(FILE *f, vcg::Point3f p) {
   SaveShort(f,  int(p.X()*RATIO*64) );
@@ -76,9 +76,9 @@ static vcg::Point3f int2norm(Byte zen,Byte azi){
   double zend = zen * (2 * M_PI ) / 255.0;
   double azid = azi * (2 * M_PI ) / 255.0;
   vcg::Point3f res;
-  res.X() =  cos ( zend ) * sin ( azid );
-  res.Z() =  sin ( zend ) * sin ( azid );
-  res.Y() =  cos ( azid );
+  res.X() =  (float)(cos ( zend ) * sin ( azid ));
+  res.Z() =  (float)(sin ( zend ) * sin ( azid ));
+  res.Y() =  (float)(cos ( azid ));
   return res;
 }
 
@@ -100,52 +100,54 @@ static void norm2int(vcg::Point3f  res, Byte &zenb,Byte &azib){
 
 
 bool IoMD::ExportMD2(const wchar_t *filename, const BrfMesh &m){
-	FILE *f = _wfopen(filename,L"wb");
-	if (!f){
-	  swprintf(errorStr,L"Cannot write on file:\n %ls",filename);
-	  return false;
-	}
-	SaveUint(f,MAGIC_MD2);
-  SaveInt(f,8); // version
-	SaveInt(f,1024); // text width
-	SaveInt(f,1024); // text width
-	SaveInt(f, m.frame.size() );
+    FILE *f = _wfopen(filename,L"wb");
+    if (!f){
+        swprintf(errorStr,L"Cannot write on file:\n %ls",filename);
+        return false;
+    }
+    SaveUint(f,MAGIC_MD2);
+    SaveInt(f,8); // version
+    SaveInt(f,1024); // text width
+    SaveInt(f,1024); // text width
+    SaveInt(f, m.frame.size() );
 
-	int nframes = m.frame.size();
+    int nframes = m.frame.size();
 
-	SaveInt(f, 1 );      // number of textures
-	SaveInt(f, m.frame[0].pos.size() * nframes ); // total n of xyz
-	SaveInt(f, m.vert.size() ); //
-	SaveInt(f, m.face.size() );
-	SaveInt(f, 0 ); // openGL commands?
-	SaveInt(f,  nframes );
+    SaveInt(f, 1 );      // number of textures
+    SaveInt(f, m.frame[0].pos.size() * nframes ); // total n of xyz
+    SaveInt(f, m.vert.size() ); //
+    SaveInt(f, m.face.size() );
+    SaveInt(f, 0 ); // openGL commands?
+    SaveInt(f,  nframes );
 
-  int     ofs_skins;          // offset to skin names (64 bytes each)
-  int     ofs_st;             // offset to s-t texture coordinates
-  int     ofs_tris;           // offset to triangles
-  int     ofs_frames;         // offset to frame data
-  int     ofs_glcmds;         // offset to opengl commands
-  int     ofs_end;            // offset to end of file
+    /*
+    int     ofs_skins;          // offset to skin names (64 bytes each)
+    int     ofs_st;             // offset to s-t texture coordinates
+    int     ofs_tris;           // offset to triangles
+    int     ofs_frames;         // offset to frame data
+    int     ofs_glcmds;         // offset to opengl commands
+    int     ofs_end;            // offset to end of file
+    */
 
-	unsigned int ofs_pos = ftell( f ); //
+    unsigned int ofs_pos = ftell( f ); //
 
-	SaveUint( f, ofs_pos );
-	//swprintf(errorStr,"TEST1 %d == %d\n",ftell(f),64+11*4);
+    SaveUint( f, ofs_pos );
+    //swprintf(errorStr,"TEST1 %d == %d\n",ftell(f),64+11*4);
 
-  // frames
-  for (uint i=0; i<m.frame.size(); i++){
-    SavePoint(f,m.bbox.min*RATIO); // 4*3
-    SavePoint(f,m.bbox.max*RATIO); // 4*3
-    SavePoint(f,vcg::Point3f(0,0,0)); // 4*3
-    SaveFloat(f,m.bbox.Diag()*RATIO); // 4
-    char tmp[255];
-    sprintf(tmp, "T%d", m.frame[i].time);
-    SaveStringFix(f,tmp,16);  // 16
-  }
+    // frames
+    for (uint i=0; i<m.frame.size(); i++){
+        SavePoint(f,m.bbox.min*RATIO); // 4*3
+        SavePoint(f,m.bbox.max*RATIO); // 4*3
+        SavePoint(f,vcg::Point3f(0,0,0)); // 4*3
+        SaveFloat(f,m.bbox.Diag()*RATIO); // 4
+        char tmp[255];
+        sprintf(tmp, "T%d", m.frame[i].time);
+        SaveStringFix(f,tmp,16);  // 16
+    }
 
 
-  fclose(f);
-  return true;
+    fclose(f);
+    return true;
 }
 
 
@@ -328,7 +330,7 @@ bool IoMD::Import(FILE *f, BrfMesh &m){
   //m.ComputeNormals();
   m.AdjustNormDuplicates();
   m.UpdateBBox();
-  m.rigging.clear();
+  m.skinning.clear();
   m.flags = 0;
 
 
