@@ -135,11 +135,9 @@ private slots:
 
 	void setSelection(const QModelIndexList &l,int);
 
-
 	void updateDataMaterial();
 	void updateDataShader();
 	void updateDataBody();
-
 
 	void updateTextureAccessDup();
 	void updateTextureAccessDel();
@@ -175,13 +173,15 @@ private slots:
 	bool reimportCollisionBody();
 
 	bool importBrf();
+
+    void moveSel(int dir);
+
 	void moveUpSel();
 	void moveDownSel();
-
-    /*void moveUpPageSel();
+    void moveUpPageSel();
     void moveDownPageSel();
     void moveUpAllSel();
-    void moveDownAllSel();*/
+    void moveDownAllSel();
 
     void renameSel();
 	void deleteSel();
@@ -248,6 +248,7 @@ private slots:
 	void learnFemininzation(); // from current selection
 	void optionFemininzationUseDefault();
 	void optionFemininzationUseCustom();
+    void optionSetAutocomputeTangents( bool );
 
 	void setFlagsShader();
 	void setFlagsShaderRequires();
@@ -533,6 +534,7 @@ private:
 
 	QPair<ObjCoord , QString > navigationStack[2];
 
+    QAction *optionAutoComputeTangents;
 	QAction *optionAfterMeshLoadMerge;
 	QAction *optionAfterMeshLoadRecompute;
 	QAction *optionAfterMeshLoadNothing;

@@ -26,6 +26,7 @@ void main(){
         normt.z = sqrt( 1.0-dot(normt.xy,normt.xy));
 #else
         vec3 normt = (texture2D( samplBump,tc).xyz * 2.0 )- vec3(1.0);
+        normalize(normt);
         //  normt.y*=-1.0;
 #endif
 

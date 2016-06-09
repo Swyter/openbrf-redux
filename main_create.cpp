@@ -154,7 +154,7 @@ void MainWindow::createMenus()
 
 	optionMenu->addAction(aboutCheckboardAct);
 
-	optionMenu->addSeparator();
+
 	QMenu* autoZoom = optionMenu->addMenu(tr("Auto zoom-and-recenter"));
 	optionAutoZoomUseSelected = new QAction(tr("according to selected object(s) only"),this);
 	optionAutoZoomUseSelected->setCheckable(true);
@@ -165,6 +165,15 @@ void MainWindow::createMenus()
 	group3->addAction(optionAutoZoomUseGlobal);
 	group3->setExclusive(true);
 	autoZoom->addActions(group3->actions());
+
+
+    optionAutoComputeTangents = new QAction(tr("Auto compute tangents"),this);
+    optionAutoComputeTangents->setStatusTip(tr("Silently auto-compute tangent-dirs to preview normal-maps, if the model lacks them"));
+    optionAutoComputeTangents->setCheckable(true);
+    optionMenu->addAction(optionAutoComputeTangents);
+    connect(optionAutoComputeTangents, SIGNAL(toggled(bool)), this, SLOT(optionSetAutocomputeTangents(bool)) );
+
+    optionMenu->addSeparator();
 
 
 	/* TOOLS OPTIONS */
@@ -315,8 +324,6 @@ void MainWindow::createMenus()
 	}
 	group7->setExclusive(true);
 
-
-
 	QMenu* aoBrightMenu = optionMenu->addMenu(tr("On compute Ambient Occlusion"));
 	aoBrightMenu->addActions(group5->actions());
 	aoBrightMenu->addSeparator();
@@ -329,24 +336,21 @@ void MainWindow::createMenus()
 	optionAoInAlpha->setCheckable(true);
 	aoBrightMenu->addAction(optionAoInAlpha);
 
-
 	// OPTION TO LEARN NEW FEMININIZTION
 	autoFemMenu = optionMenu->addMenu(tr("On armour auto-feminization"));
 	QActionGroup* group8=new QActionGroup(this);
 	optionFeminizerUseDefault = new QAction(tr("use default settings"),this);
-	optionFeminizerUseDefault->setToolTip("Use built-in options to auto-feminize armours.");
+    optionFeminizerUseDefault->setStatusTip(tr("Use built-in settings to auto-feminize armours."));
 	optionFeminizerUseDefault->setCheckable(true);
 	optionFeminizerUseCustom = new QAction(tr("use custom settings"),this);
-	optionFeminizerUseCustom->setToolTip("Use built-in options to auto-feminize armours.");
+    optionFeminizerUseCustom->setStatusTip(tr("Use custom settings to auto-feminize armours."));
 	optionFeminizerUseCustom->setCheckable(true);
 	group8->addAction(optionFeminizerUseDefault);
 	group8->addAction(optionFeminizerUseCustom);
 	group8->setExclusive(true);
 
-
-
 	optionLearnFeminization= new QAction(tr("Learn custom setting from selected meshes..."),this);
-	optionLearnFeminization->setToolTip(tr("Use currently selected armours as examples to learn how to auto-feminize armours"));
+    optionLearnFeminization->setStatusTip(tr("Use currently selected armours as examples to learn how to auto-feminize armours"));
 	connect(optionLearnFeminization,  SIGNAL(triggered()), this, SLOT(learnFemininzation()));
 	connect(optionFeminizerUseDefault,SIGNAL(triggered()), this, SLOT(optionFemininzationUseDefault()));
 	connect(optionFeminizerUseCustom, SIGNAL(triggered()), this, SLOT(optionFemininzationUseCustom()));

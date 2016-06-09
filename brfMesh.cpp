@@ -929,7 +929,15 @@ void BrfMesh::ComputeTangents(){
     //vert[vi].tang = (vert[vi].tang).Normalize();
   }
 
-  flags |= (1<<16);
+  // small trick to make sure tangent field are detected as computed
+  if (!HasTangentField()) vert[0].tang.X() = 0.001f;
+}
+
+
+
+void BrfMesh::ComputeAndStoreTangents(){
+    ComputeTangents();
+    flags |= (1<<16);
 }
 
 void BrfMesh::ComputeNormals(int fi){
@@ -1025,7 +1033,7 @@ bool BrfMesh::UniformizeWith(const BrfMesh& target){
   }
 
   if (target.HasTangentField() && !HasTangentField()) {
-    ComputeTangents();
+    ComputeAndStoreTangents();
     doneSomething = true;
   }
 
@@ -1287,6 +1295,7 @@ bool BrfMesh::UnifyPos(){
       public:
         static BrfMesh* mesh;
         static bool careForNormals;
+        static bool careForTangents;
         static float crease;
         int ind;
 
@@ -1296,30 +1305,38 @@ bool BrfMesh::UnifyPos(){
         //{ return (mesh->vert[ind] == mesh->vert[b.ind]);}
         inline bool operator < (MyIndexVertClass const &b)const
         {
-          if (mesh->vert[ind].index <  mesh->vert[b.ind].index) return true;
-          if (mesh->vert[ind].index != mesh->vert[b.ind].index) return false;
+            const BrfVert &va(mesh->vert[ind]);
+            const BrfVert &vb(mesh->vert[b.ind]);
+            if (va.index <  vb.index) return true;
+            if (va.index != vb.index) return false;
 
-          if (mesh->vert[ind].col <  mesh->vert[b.ind].col) return true;
-          if (mesh->vert[ind].col != mesh->vert[b.ind].col) return false;
+            if (va.col <  vb.col) return true;
+            if (va.col != vb.col) return false;
 
-          if (mesh->vert[ind].ta <  mesh->vert[b.ind].ta) return true;
-          if (mesh->vert[ind].ta != mesh->vert[b.ind].ta) return false;
-          if (mesh->vert[ind].tb <  mesh->vert[b.ind].tb) return true;
-          if (mesh->vert[ind].tb != mesh->vert[b.ind].tb) return false;
+            if (va.ta <  vb.ta) return true;
+            if (va.ta != vb.ta) return false;
+            if (va.tb <  vb.tb) return true;
+            if (va.tb != vb.tb) return false;
 
-          if (careForNormals)
-          for (unsigned int i=0; i<mesh->frame.size(); i++) {
-            if ((mesh->frame[i].norm[ind] * mesh->frame[i].norm[b.ind])>crease) return false;
-            if (mesh->frame[i].norm[ind] < mesh->frame[i].norm[b.ind]) return true;
-            //if (mesh->frame[i].norm[ind] != mesh->frame[i].norm[b.ind]) return false;
-          }
+            if (careForTangents) {
+                if (va.tang < vb.tang) return true;
+                if (va.tang != vb.tang) return true;
+            }
 
-          return false;
+            if (careForNormals)
+                for (unsigned int i=0; i<mesh->frame.size(); i++) {
+                    if ((mesh->frame[i].norm[ind] * mesh->frame[i].norm[b.ind])>crease) return false;
+                    if (mesh->frame[i].norm[ind] < mesh->frame[i].norm[b.ind]) return true;
+                    //if (mesh->frame[i].norm[ind] != mesh->frame[i].norm[b.ind]) return false;
+                }
+
+            return false;
         }
 
       };
       BrfMesh* MyIndexVertClass::mesh;
       bool MyIndexVertClass::careForNormals;
+      bool MyIndexVertClass::careForTangents = true;
       float MyIndexVertClass::crease;
 
 void BrfMesh::DivideVert(){
@@ -1430,7 +1447,8 @@ bool BrfMesh::UnifyVert(bool careForNormals, float crease){
   typedef std::set< MyIndexVertClass > Set;
   Set st;
   MyIndexVertClass::mesh=this;
-  MyIndexVertClass::careForNormals=careForNormals;
+  MyIndexVertClass::careForNormals = careForNormals;
+  MyIndexVertClass::careForTangents = StoresTangentField();
   MyIndexVertClass::crease=crease;
   vector<int> map(vert.size());
   unsigned int oldSize = vert.size();
@@ -2124,6 +2142,10 @@ void BrfMesh::NormalizeRigging(){
 }
 
 bool BrfMesh::HasTangentField() const{
+    if (vert.size()==0) return true;
+    return vert[0].tang != Point3f(0,0,0);
+}
+bool BrfMesh::StoresTangentField() const{
   return (flags & (1<<16))!=0;
 }
 
@@ -2210,8 +2232,12 @@ bool BrfMesh::IsNamedAsBody(const char * bodyname) const{
 }
 
 void BrfMesh::DiscardTangentField(){
-  flags &= ~(1<<16);
-  for (uint i=0; i<vert.size(); i++) vert[i].tang.SetZero();
+    ZeroTangents();
+    flags &= ~(1<<16);
+}
+
+void BrfMesh::ZeroTangents(){
+    for (uint i=0; i<vert.size(); i++) { vert[i].tang.SetZero(); vert[i].ti = 0; }
 }
 
 void BrfMesh::Save(FILE*f) const{
@@ -2876,11 +2902,7 @@ bool BrfMesh::Load(FILE*f){
   frame[0].time =0;
 
   if (globVersion != 0) {
-    if (flags & (1<<16)) {
-      globVersion = 1;
-    } else {
-      globVersion = 2;
-    }
+    if (flags & (1<<16)) globVersion = 1; else globVersion = 2;
   }
 
   if (!LoadVector(f, frame[0].pos)) return false;

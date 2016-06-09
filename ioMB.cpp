@@ -100,7 +100,7 @@ static void readStrQuotesChar(char*c){
 
 
 static void skipLine(){
-  int guard=0;
+  /*int guard=0;*/
   while (!lineEnd) {
     assert(guard++<20000);
     if (token().isEmpty()) return;
@@ -108,7 +108,7 @@ static void skipLine(){
 }
 
 static bool nextSetAttr(){
-  int guard =0;
+  /*int guard =0;*/
   while (1) {
     QString t = token();
     if (t.isEmpty()) return false;
@@ -123,7 +123,7 @@ static bool nextSetAttr(){
 }
 
 static void skipCreate(){
-  int guard =0;
+  /*int guard =0;*/
   while (1) {
     QString t = token();
     if (t.isEmpty()) break;
@@ -136,7 +136,7 @@ static void skipCreate(){
 }
 
 static bool nextCreateNode(){
-  int guard =0;
+  /*int guard =0;*/
   while (1) {
     QString t = token();
     if (t.isEmpty()) return false;
@@ -189,7 +189,7 @@ static float readFloat(){
 static int readInt(){
   int res;
   int i=fscanf(f,"%d",&res);
-  assert(i);
+  //assert(i);
   return res;
 }
 
@@ -232,7 +232,7 @@ static vcg::Point3f readPointRot(){
   res.Y() = readFloat();
   res.Z() = readFloat();
 
-  return res*(M_PI/180.0);
+  return res*float(M_PI/180.0);
 }
 
 static char lastIntervalName[255];

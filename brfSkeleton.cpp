@@ -78,9 +78,9 @@ vcg::Matrix44f BrfSkeleton::adjustCoordSystHalf(vcg::Matrix44f m){
   return matr*m;
 }
 
-float BrfSkeleton::BoneSizeX(){return 0.12;}
-float BrfSkeleton::BoneSizeY(){return 0.06;}
-float BrfSkeleton::BoneSizeZ(){return 0.04;}
+float BrfSkeleton::BoneSizeX(){return 0.12f;}
+float BrfSkeleton::BoneSizeY(){return 0.06f;}
+float BrfSkeleton::BoneSizeZ(){return 0.04f;}
 
 std::vector<int> BrfSkeleton::Bone2BoneMap(const BrfSkeleton & s) const{
   std::vector<int> res(bone.size(),-1);
@@ -297,7 +297,7 @@ bool BrfBone::Skip(FILE *f){
   return true;
 }
 
-bool BrfBone::Load(FILE*f, int verbose){
+bool BrfBone::Load(FILE*f, int /*verbose*/){
   LoadInt(f, attach);
 
   if (LoadStringMaybe(f, name, "bone")) // for back compatibility!!!

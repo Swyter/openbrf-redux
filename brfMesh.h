@@ -22,7 +22,7 @@ public:
 	unsigned int col;
 	Point3f __norm; // use normal inside frame instead
 	Point3f tang; // tangent dir...
-	unsigned char ti; // texture index
+    unsigned char ti; // 0: frame TBN right-handed  1: left-handed
 	Point2f ta,tb; // texture
 
 
@@ -238,9 +238,11 @@ public:
 
 	bool IsAnimable() const;
 	void ComputeNormals();
-	void ComputeNormals(int framei);
+    void ComputeTangents();
+    void ZeroTangents();
+    void ComputeNormals(int framei);
 
-	void ComputeTangents();
+    void ComputeAndStoreTangents();
 
 	bool UnifyPos();
 	bool UnifyVert(bool careForNormals, float crease=0);
@@ -248,7 +250,8 @@ public:
 	void RemoveSeamsFromNormals(double crease);
 	void AfterLoad();
 	bool hasVertexColor;
-	bool HasTangentField() const;
+    bool StoresTangentField() const; // on disk
+    bool HasTangentField() const; // for previewing
 	bool HasVertexAni() const;
 
 

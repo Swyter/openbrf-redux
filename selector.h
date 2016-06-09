@@ -28,6 +28,7 @@ public:
 	int numSelected() const;
 	int onlySelected(int kind) const; // return index of only selected object of given kind or -1
 	QModelIndexList selectedList() const;
+    std::vector<int> allSelected() const;
 	void moveSel(int d);
 	BrfData* reference;
 	const BrfData* data;

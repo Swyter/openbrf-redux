@@ -903,7 +903,7 @@ switch (TokenEnum(k)){
 
       mySetCompositeVal(hasAni, m->HasVertexAni());
       mySetCompositeVal(hasCol, m->hasVertexColor);
-      mySetCompositeVal(hasTan, m->HasTangentField());
+      mySetCompositeVal(hasTan, m->StoresTangentField());
       mySetCompositeVal(hasRig, m->IsSkinned());
 
       bool ta,tb,tc;

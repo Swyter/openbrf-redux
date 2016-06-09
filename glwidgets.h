@@ -138,8 +138,10 @@ public slots:
 	void setUseOpenGL2(bool mode);
 public:
 
-    bool useWireframe, useLighting, useTexture , useTransparency, useNormalmap, useFloor, useFloorInAni;
+    /* settings */
+    bool useWireframe, useLighting, useTexture , useTransparency, useNormalmap, useFloor, useFloorInAni, usePreviewTangents;
 	bool useRuler, useFloatingProbe, useSpecularmap, useHitboxes, useComparisonMesh;
+    bool autoComputeTangents;
 	bool ghostMode;
 	bool fixTexturesOnSight;
 	int colorMode, rulerLenght;

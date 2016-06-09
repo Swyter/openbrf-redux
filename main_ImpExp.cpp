@@ -98,7 +98,7 @@ void MainWindow::meshComputeLod(){
       res.UnifyPos();
       res.UnifyVert(false,0);
       res.ComputeNormals();
-      if (m.HasTangentField()) res.ComputeTangents();
+      if (m.StoresTangentField()) res.ComputeAndStoreTangents();
       resvec.push_back(res);
     }
     for (uint ii=0,jj=0; ii<resvec.size(); ii++){

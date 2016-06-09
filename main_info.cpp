@@ -9,7 +9,7 @@
 #include <QSpacerItem>
 #include <QGridLayout>
 
-const char* applVersion = "0.0.82";
+const char* applVersion = "0.0.82d";
 QString IniData::tokenFullName(int k){
 
   switch (k){
@@ -74,16 +74,19 @@ void MainWindow::about()
                    "[EvolutiveBrain], "
                    "[Fafhrd], [fedeita], [Fei Dao], [foxyman], [Freddex], [FrisianDude], "
 				   "[Geroj], [GetAssista], [giles], [Gothic Knight], [Harry_], [Hatonastick], "
-                   "[havarez], [Hemiola], [Highelf], [Highlander], [HokieBT], [Ikaguia], [iggorbb], [iLag], [Jai], [killkhergit], "
-                   "[Konar], [Llew], [Lord_Cheap], [Lord Kinlar], [lord_olafson], "
+                   "[havarez], [Hemiola], [Highelf], [Highlander], [HokieBT], [Ikaguia], "
+                   "[iggorbb], [iLag], [Jai], [Khamukkamu], [killkhergit], "
+                   "[Konar], [k0nr@d], [Llew], [Lord_Cheap], [Lord Kinlar], [lord_olafson], "
                    "[LordRaglan], [Lumos], [MadocComadrin], [MadVader], [Mandible], [Mekelan], "
                    "[Merlkir], [mr.master], "
                    "[mysstick], [N0body], [newaxekub], "
                    "[octoburn], [OrangeKnight], [pagan], [Percus], [phlpp], [qlithe], [Rath0s], [RATMdude92], [Red River], "
-                   "[rgcotl], [Roemerboy], [Romainoir], [SenpaiHinds], [Septa Scarabae], [Sayd Ûthman], [Silesian], [Shik], "
+                   "[rgcotl], [Roemerboy], [Romainoir], [Ruthven], [SenpaiHinds], "
+                   "[Septa Scarabae], [Sayd Ûthman], [Silesian], [Shik], "
                    "[Silver Wolf], [Shredzorz], [Slawomir of Aaarrghh], [Slytacular], [Somebody], [SonKidd], [Spak], "
                    "[Specialist], [Stefano], [stephan_dinavoa], [Sunnetci_Dede], [Swyter], "
-                   "[themanwhocrys2],  [thick1988], [Triglav], [Tul], [Ursca], [Vincenzo], [Vlejundo], [Vornne], [WilliamBerne], "
+                   "[themanwhocrys2],  [thick1988], [Triglav], [Tul], [Ursca], "
+                   "[Vincenzo], [Vlejundo], [Vornne], [WilliamBerne], "
                    "[yellowmosquito], [Yoshiboy], [xenoargh], [Zimke Zlovoljni]" ))
               .arg("<br>[amade], [Swyter]")
               .arg(QString::fromLatin1(

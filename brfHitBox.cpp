@@ -147,6 +147,7 @@ static bool BrfBody_to_qDomElement(const BrfBody & b, QDomElement &skelNode, QDo
 }
 
 char* BrfData::LastHitBoxesLoadSaveError(const char *st, const wchar_t *subst1, const char *subst2, const char *subst3){
+    return NULL; /* avoid funny bugs!  */
   static char str[512];
   if (st && subst1 && subst2 && subst3) {
     sprintf(str, st, subst1, subst2, subst3);
@@ -243,8 +244,11 @@ int BrfData::SaveHitBoxesToXml(const wchar_t *fin, const wchar_t *fout) {
 
 int BrfData::LoadHitBoxesFromXml(const wchar_t *filename) {
 
+
   Clear();
+
   QString fn = QString::fromWCharArray(filename);
+
   QFile file( fn );
   if( !file.open( QIODevice::ReadOnly ) ) {
       LastHitBoxesLoadSaveError("Could not open '%ls' for reading.",filename);
@@ -258,6 +262,8 @@ int BrfData::LoadHitBoxesFromXml(const wchar_t *filename) {
       return 0; // file not found
   }
   file.close();
+
+
   QDomElement root = doc.documentElement();
   QDomNode n = root;
 

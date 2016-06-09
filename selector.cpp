@@ -5,6 +5,7 @@
 #include <QtGui>
 #include <QMenu>
 #include <QListView>
+#include <QShortcut>
 #include "brfData.h"
 #include "selector.h"
 #include "iniData.h"
@@ -105,10 +106,22 @@ Selector::Selector(QWidget *parent)
 	addShortCuttedAction(moveUpAct);
 
 	moveDownAct = new QAction(tr("Move down in the list"), this);
-	moveDownAct->setShortcut(QString("Alt+down"));
+    moveDownAct->setShortcut(QString("Alt+down"));
 	moveDownAct->setStatusTip(tr("Move this object one step down in the list"));
 	connect(moveDownAct, SIGNAL(triggered()), parent, SLOT(moveDownSel()));
 	addShortCuttedAction(moveDownAct);
+
+    QShortcut *movePgDownSc = new QShortcut(QString("Alt+PgDown"), this);
+    QShortcut *movePgUpSc = new QShortcut(QString("Alt+PgUp"), this);
+    QShortcut *moveAllDownSc = new QShortcut(QString("Alt+End"), this);
+    QShortcut *moveAllUpSc = new QShortcut(QString("Alt+Home"), this);
+
+
+    connect(movePgDownSc, SIGNAL(activated()), parent, SLOT(moveDownPageSel()));
+    connect(movePgUpSc, SIGNAL(activated()), parent, SLOT(moveUpPageSel()));
+    connect(moveAllDownSc, SIGNAL(activated()), parent, SLOT(moveDownAllSel()));
+    connect(moveAllUpSc, SIGNAL(activated()), parent, SLOT(moveUpAllSel()));
+
 
 
 	addToRefAnimAct = new QAction(tr("Add to reference animations"), this);
@@ -478,20 +491,33 @@ Selector::Selector(QWidget *parent)
 
 void Selector::moveSel(int dx){
 	QListView* c=(QListView*)this->currentWidget();
+    if (!c) return;
 
-	if (c) {
-		QModelIndex li=c->selectionModel()->selectedIndexes()[0];
+    QModelIndexList list = c->selectionModel()->selectedIndexes();
+
+    std::sort(list.begin(), list.end() );
+    if (dx>0) std::reverse(list.begin(), list.end() );
+
+    blockSignals(true);
+    c->selectionModel()->blockSignals(true);
+    //c->clearSelection();
+
+    QItemSelection sel;
+    for (QModelIndex &li: list){
+
 		QModelIndex lj=li.sibling(li.row()+dx,li.column());
-		if (lj.isValid()) {
-			c->selectionModel()->blockSignals(true);
-			c->clearSelection();
-			c->selectionModel()->select(lj,QItemSelectionModel::Select);
-			c->selectionModel()->setCurrentIndex(lj,QItemSelectionModel::NoUpdate);
-			c->setCurrentIndex( lj );
-			c->setFocus();
-			c->selectionModel()->blockSignals(false);
-		}
-	}
+        if (!lj.isValid())  lj = li;
+        if (sel.contains(lj)) lj = li;
+        //qDebug("move %d to %d...",li.row(), lj.row());
+        sel.push_back( QItemSelectionRange( lj ));
+        c->selectionModel()->setCurrentIndex(lj,QItemSelectionModel::NoUpdate);
+        c->setCurrentIndex( lj );
+        c->setFocus();
+        c->scrollTo(lj,QAbstractItemView::EnsureVisible);
+    }
+    c->selectionModel()->select(sel,QItemSelectionModel::Select);
+    c->selectionModel()->blockSignals(false);
+    blockSignals(false);
 }
 
 
@@ -530,6 +556,16 @@ int Selector::lastSelected() const{
 	     ->selectionModel()->selectedIndexes())[s-1].row();
 }
 
+std::vector<int> Selector::allSelected() const{
+    if (!this->currentWidget()) return std::vector<int>();
+    std::vector<int> res;
+    for (QModelIndex &mi : ((QListView*)(this->currentWidget()))
+         ->selectionModel()->selectedIndexes() ) {
+        res.push_back( mi.row() );
+    }
+    return res;
+
+}
 QModelIndexList Selector::selectedList() const{
 	if (!this->currentWidget()) return QModelIndexList();
 	return
@@ -643,12 +679,13 @@ void Selector::updateContextMenu(){
 	contextMenu->addAction(removeAct);
 	if (onesel) renameAct->setText(tr("Rename...")); else renameAct->setText(tr("Group rename..."));
 	contextMenu->addAction(renameAct);
-	if (onesel) {
+    /*if (onesel) {*/
 		contextMenu->addAction(duplicateAct);
-		//contextMenu->addSeparator();
-		contextMenu->addAction(moveUpAct);
-		contextMenu->addAction(moveDownAct);
-	}
+    /*}*/
+    contextMenu->addAction(moveUpAct);
+    contextMenu->addAction(moveDownAct);
+    contextMenu->addSeparator();
+
 
 	if (onesel){
 
@@ -800,7 +837,7 @@ void Selector::updateContextMenu(){
 			meshUnmountAct->setEnabled(mulsel || mesh.IsSkinned());
 			discardColAct->setEnabled(mulsel || mesh.hasVertexColor);
 			discardNorAct->setEnabled( true );
-			discardTanAct->setEnabled(mulsel || mesh.HasTangentField());
+            discardTanAct->setEnabled(mulsel || mesh.StoresTangentField());
 
 
 			contextMenu->addSeparator();
