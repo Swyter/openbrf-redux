@@ -3501,7 +3501,7 @@ void MainWindow::duplicateSel(){
     auto i = selector->allSelected(); //firstSelected();
     std::vector<int> res;
 	switch (selector->currentTabName()) {
-    case MESH: res =_dup(brfdata.mesh, i); for (auto m: brfdata.mesh) m.AnalyzeName(); break;
+	case MESH: res =_dup(brfdata.mesh, i); for (auto &m: brfdata.mesh) m.AnalyzeName(); break;
     case TEXTURE: res =_dup(brfdata.texture, i); break;
     case SHADER: res = _dup(brfdata.shader, i); break;
     case MATERIAL: res = _dup(brfdata.material, i); break;

@@ -311,7 +311,7 @@ bool IoMD::Import(FILE *f, BrfMesh &m){
   for (unsigned int j=0; j<nverts; j++) {
     LoadPoint(f,m.vert[j].ta);
     m.vert[j].tb = m.vert[j].ta;
-    m.vert[j].ti = 0;
+	m.vert[j].tangi = 0;
     m.vert[j].index = j;
   }
 

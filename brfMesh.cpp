@@ -242,7 +242,7 @@ bool BrfMesh::CopyVertAni(const BrfMesh& m){
 	for (uint fi=1; fi<frame.size(); fi++){
 		frame[fi].pos.resize( frame[0].pos.size() );
 		frame[fi].norm.resize( frame[0].norm.size() );
-		frame[fi].tang.resize( frame[0].tang.size() );
+		//frame[fi].tang.resize( frame[0].tang.size() );
 		for (uint vi=0; vi<vert.size(); vi++) {
 			int vj = map[vi];
 			int pi = vert[vi].index;
@@ -679,7 +679,7 @@ void BrfMesh::MakeSingleQuad(float x, float y, float dx, float dy){
   frame.resize(1);
   frame[0].pos.resize(4);
   frame[0].norm.resize(4);
-  frame[0].tang.resize(4);
+  //frame[0].tang.resize(4);
   vcg::Point3f n(0,1,0);
   vcg::Point3f t(0,0,0);
   vert.resize(4);
@@ -689,10 +689,10 @@ void BrfMesh::MakeSingleQuad(float x, float y, float dx, float dy){
     v.index = i;
     v.tang = t;
     v.__norm = n;
-    v.ti=0;
+	v.tangi=0;
     v.ta=v.tb=vcg::Point2f( i/2.0f, 1.0f-i%2 );
     frame[0].norm[i] = n;
-    frame[0].tang[i] = t;
+	//frame[0].tang[i] = t;
   }
   frame[0].pos[0]=vcg::Point3f(x,   0, y   );
   frame[0].pos[1]=vcg::Point3f(x,   0, y+dy);
@@ -875,69 +875,145 @@ void BrfMesh::ComputeNormals(){
 void BrfMesh::ComputeTangents(){
 
   for (unsigned int vi=0; vi<vert.size(); vi++){
-    vert[vi].tang=Point3f(0,0,0);
-    vert[vi].ti = 0;
+	vert[vi].tang=Point3f(0,0,0);
+	vert[vi].tangi = 0;
   }
 
   std::vector<vcg::Point3f> bitangents(vert.size(),Point3f(0,0,0));
 
   int fi =0;
   for (unsigned int ff=0; ff<face.size(); ff++){
-    vcg::Point2f s0=vert[face[ff].index[0]].ta;
-    vcg::Point2f s1=vert[face[ff].index[1]].ta;
-    vcg::Point2f s2=vert[face[ff].index[2]].ta;
-    s1-=s0;
-    s2-=s0;
-    float det = s1^s2;
-    if (!det) continue;
-    float aT,bT,aB,bB;
-    aT = -s2.X()/det;  bT =  s1.X()/det;
-    aB =  s2.Y()/det;  bB = -s1.Y()/det;
+	vcg::Point2f s0=vert[face[ff].index[0]].ta;
+	vcg::Point2f s1=vert[face[ff].index[1]].ta;
+	vcg::Point2f s2=vert[face[ff].index[2]].ta;
+	s1-=s0;
+	s2-=s0;
+	float det = s1^s2;
+	if (!det) continue;
+	float aT,bT,aB,bB;
+	aT = -s2.X()/det;  bT =  s1.X()/det;
+	aB =  s2.Y()/det;  bB = -s1.Y()/det;
 
-    Point3f p0=frame[fi].pos[ vert[face[ff].index[0]].index ];
-    Point3f p1=frame[fi].pos[ vert[face[ff].index[1]].index ];
-    Point3f p2=frame[fi].pos[ vert[face[ff].index[2]].index ];
-    p1-=p0;
-    p2-=p0;
+	Point3f p0=frame[fi].pos[ vert[face[ff].index[0]].index ];
+	Point3f p1=frame[fi].pos[ vert[face[ff].index[1]].index ];
+	Point3f p2=frame[fi].pos[ vert[face[ff].index[2]].index ];
+	p1-=p0;
+	p2-=p0;
 
-    Point3f faceTangent    = p1*aT + p2*bT;
-    Point3f faceBitangent = p1*aB + p2*bB;
+	Point3f faceTangent    = p1*aT + p2*bT;
+	Point3f faceBitangent = p1*aB + p2*bB;
 
-    vert[face[ff].index[0]].tang+=faceTangent;
-    vert[face[ff].index[1]].tang+=faceTangent;
-    vert[face[ff].index[2]].tang+=faceTangent;
+	vert[face[ff].index[0]].tang+=faceTangent;
+	vert[face[ff].index[1]].tang+=faceTangent;
+	vert[face[ff].index[2]].tang+=faceTangent;
 
-    bitangents[face[ff].index[0]] +=faceBitangent;
-    bitangents[face[ff].index[1]] +=faceBitangent;
-    bitangents[face[ff].index[2]] +=faceBitangent;
+	bitangents[face[ff].index[0]] +=faceBitangent;
+	bitangents[face[ff].index[1]] +=faceBitangent;
+	bitangents[face[ff].index[2]] +=faceBitangent;
 
   }
   for (unsigned int vi=0; vi<vert.size(); vi++){
-    // right hand or left hand TBN system?
-    float verse = (((vert[vi].tang ^ bitangents[vi] )
-                    * frame[fi].norm[vi])<0)?1.0f:-1.0f;
-    vert[vi].ti = (verse<0)?0:1;
+	// right hand or left hand TBN system?
+	float verse = (((vert[vi].tang ^ bitangents[vi] )
+					* frame[fi].norm[vi])<0)?1.0f:-1.0f;
+	vert[vi].tangi = (verse<0)?0:1;
 
-    // average the bitangent computed from UV-mapping and
-    //  bitangent computed by ortogonalizing the tangent
-    vert[vi].tang =
-     (
-      ((vert[vi].tang^frame[fi].norm[vi]).Normalize()*verse)
-      +
-      bitangents[vi].Normalize()
-     ).Normalize();
-    //vert[vi].tang = (vert[vi].tang).Normalize();
+	// average the bitangent computed from UV-mapping and
+	//  bitangent computed by ortogonalizing the tangent
+	vert[vi].tang =
+	 (
+	  ((vert[vi].tang^frame[fi].norm[vi]).Normalize()*verse)
+	  +
+	  bitangents[vi].Normalize()
+	 ).Normalize();
+	//vert[vi].tang = (vert[vi].tang).Normalize();
   }
 
-  // small trick to make sure tangent field are detected as computed
+  // small trick to make sure it will be known that tangent field are computed
   if (!HasTangentField()) vert[0].tang.X() = 0.001f;
+}
+
+void BrfMesh::ComputeTangentsMaybeSplit(){
+
+	for (unsigned int vi=0; vi<vert.size(); vi++){
+		vert[vi].tang=Point3f(0,0,0);
+		vert[vi].tangi = 255;
+	}
+
+	std::vector< int > otherCopy( vert.size() , -1 );
+
+	int fi =0;
+	for (unsigned int ff=0; ff<face.size(); ff++){
+		vcg::Point2f s0=vert[face[ff].index[0]].ta;
+		vcg::Point2f s1=vert[face[ff].index[1]].ta;
+		vcg::Point2f s2=vert[face[ff].index[2]].ta;
+		s1-=s0;
+		s2-=s0;
+		float det = s1^s2;
+		if (!det) continue;
+		float aT,bT,aB,bB;
+		aT = -s2.X()/det;  bT =  s1.X()/det;
+		aB =  s2.Y()/det;  bB = -s1.Y()/det;
+
+		Point3f p0=frame[fi].pos[ vert[face[ff].index[0]].index ];
+		Point3f p1=frame[fi].pos[ vert[face[ff].index[1]].index ];
+		Point3f p2=frame[fi].pos[ vert[face[ff].index[2]].index ];
+		p1-=p0;
+		p2-=p0;
+
+		Point3f faceNorm = (p1^p2).Normalize();
+		Point3f faceTangent = p1*aT + p2*bT;
+		Point3f faceBitangent = p1*aB + p2*bB;
+
+		Point3f faceTangent2 = faceNorm^faceBitangent;
+
+		int faceVerse = 0;
+
+		if (faceTangent*faceTangent2<0) {
+			faceTangent = -faceTangent;
+			faceVerse = 1;
+		}
+
+		for (int w=0; w<3; w++) {
+			int vi = face[ff].index[w];
+
+			if (vert[vi].tangi==255) vert[vi].tangi = faceVerse;
+
+			if (vert[vi].tangi == faceVerse) {
+				vert[vi].tang += (faceTangent + faceTangent2);
+			} else {
+				if (otherCopy[vi]==-1) {
+					// add another vert
+					int vj = (int)vert.size();
+					vert.push_back( vert[vi]);
+					for (unsigned int fi=0; fi<frame.size(); fi++) {
+						frame[fi].norm.push_back( frame[fi].norm[vi] );
+					}
+					otherCopy[vi] = vj;
+					vert[vj].tang = faceTangent + faceTangent2;
+					vert[vj].tangi = faceVerse;
+				}
+				face[ff].index[w] = otherCopy[vi];
+			}
+
+		}
+
+
+	}
+	for (unsigned int vi=0; vi<vert.size(); vi++){
+
+		vert[vi].tang = (frame[fi].norm[vi] ^ vert[vi].tang ).Normalize();
+	}
+
+	// small trick to make sure it will be known that tangent field are computed
+	if (!HasTangentField()) vert[0].tang.X() = 0.001f;
 }
 
 
 
 void BrfMesh::ComputeAndStoreTangents(){
-    ComputeTangents();
-    flags |= (1<<16);
+	ComputeTangentsMaybeSplit();
+	flags |= (1<<16);
 }
 
 void BrfMesh::ComputeNormals(int fi){
@@ -1319,8 +1395,8 @@ bool BrfMesh::UnifyPos(){
             if (va.tb != vb.tb) return false;
 
             if (careForTangents) {
-                if (va.tang < vb.tang) return true;
-                if (va.tang != vb.tang) return true;
+				if (va.tangi < vb.tangi) return true;
+				if (va.tangi != vb.tangi) return true;
             }
 
             if (careForNormals)
@@ -2237,7 +2313,7 @@ void BrfMesh::DiscardTangentField(){
 }
 
 void BrfMesh::ZeroTangents(){
-    for (uint i=0; i<vert.size(); i++) { vert[i].tang.SetZero(); vert[i].ti = 0; }
+	for (uint i=0; i<vert.size(); i++) { vert[i].tang.SetZero(); vert[i].tangi = 0; }
 }
 
 void BrfMesh::Save(FILE*f) const{
@@ -2404,10 +2480,10 @@ BrfFrame BrfFrame::Blend(const BrfFrame& b, float t) const{
     res.norm[i] = norm[i]*(t) + b.norm[i]*(1.0f-t);
     res.norm[i].Normalize();
   }
-  for (unsigned int i=0; i<tang.size(); i++) {
+  /*for (unsigned int i=0; i<tang.size(); i++) {
     res.tang[i] = res.tang[i]*(t) + b.tang[i]*(1.0f-t);
     res.tang[i].Normalize();
-  }
+  }*/
   res.time = (int) (time*(t) + b.time*(1-t));
   return res;
 }
@@ -2512,9 +2588,6 @@ void BrfMesh::Hasten(float timemult){
 
 void BrfMesh::Flip(){
 
-	/* TMP!!! */
-	//SmoothRigging(); return;
-
   for (unsigned int j=0; j<frame.size(); j++) {
     for (unsigned int i=0; i<frame[j].pos.size(); i++){
       frame[j].pos[i].X()*=-1;
@@ -2526,7 +2599,7 @@ void BrfMesh::Flip(){
   if (HasTangentField())
   for (unsigned int i=0; i<vert.size(); i++){
     vert[i].tang.X()*=-1;
-    vert[i].ti = 1 - vert[i].ti;
+	vert[i].tangi = 1 - vert[i].tangi;
   }
   for (unsigned int i=0; i<face.size(); i++) face[i].Flip();
   AdjustNormDuplicates();
@@ -2722,7 +2795,7 @@ bool BrfVert::Load(FILE*f){
 
     // only old warband files has the following 2:
     LoadPoint(f,tang);
-    LoadByte(f,ti);
+	LoadByte(f,tangi);
 
     //static FILE*_f =wfopen("testLoadV.txt","wt"); fprintf(_f,"%d ",int(p2));//TEST
 
@@ -2749,9 +2822,9 @@ void BrfVert::Save(FILE*f) const{
     SavePoint(f,__norm);
     Point3f t = tang; if (t == Point3f(0,0,0)) t = __norm^Point3f(0,0,1);
     SavePoint(f,t);
-    unsigned char tj = ti;
-    if (tj==255) tj=0;
-    SaveByte(f,tj);  //fprintf(_f,"%d ",int(p2));
+	unsigned char tangj = tangi;
+	if (tangj==255) tangj=0; // why?
+	SaveByte(f,tangj);
     SavePoint(f, vcg::Point2f(ta[0],1-ta[1]) );
   } else {
     SaveInt(f , index);
@@ -2836,7 +2909,7 @@ void BrfMesh::FixPosOrder(const BrfMesh &b){
 
 BrfVert::BrfVert(){
   tang = Point3f(0,0,0);
-  ti = 255;
+  tangi = 255;
 }
 
 BrfSkinning::BrfSkinning(){

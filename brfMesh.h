@@ -22,10 +22,8 @@ public:
 	unsigned int col;
 	Point3f __norm; // use normal inside frame instead
 	Point3f tang; // tangent dir...
-    unsigned char ti; // 0: frame TBN right-handed  1: left-handed
+	unsigned char tangi; // 0: frame TBN right-handed  1: left-handed
 	Point2f ta,tb; // texture
-
-
 
 	BrfVert operator + (const int i) const {BrfVert res = *this; res.index += i; return res;}
 	bool Load(FILE*f);
@@ -43,7 +41,7 @@ public:
 	BrfFace(){}
 	BrfFace(int i, int j, int k) {index[0]=i; index[1]=j; index[2]=k; }
 	BrfFace operator + (const int i) const {BrfFace res = *this;
-		                                      res.index[0] += i; res.index[1] += i; res.index[2] += i; return res;}
+											res.index[0] += i; res.index[1] += i; res.index[2] += i; return res;}
 
 	void Flip() { int tmp=index[1]; index[1]=index[2]; index[2]=tmp;}
 	bool Load(FILE*f);
@@ -56,7 +54,7 @@ public:
 class BrfSkinning{
 public:
 	BrfSkinning();
-    // skinning
+	// skinning
 	int boneIndex[4];
 	float boneWeight[4];
 	void SetColorGl() const;
@@ -75,23 +73,21 @@ public:
 class BrfFrame{
 public:
 	int time;
-	vector<Point3f> pos;
-	vector<Point3f> norm;
-	vector<Point3f> tang;
-	// must be as many as the number of vertices!!!
+	vector<Point3f> pos;  // size = pos.size()  !!!
+	vector<Point3f> norm; // size = vert.size()  !!!
+
 	bool Load(FILE*f);
 	void Save(FILE*f) const;
 	static bool Skip(FILE*f);
 
-    BrfFrame Blend(const BrfFrame& b, float t) const ;
-    BrfFrame Blend(const BrfFrame& b, float t, const vector<bool> &sel) const;
+	BrfFrame Blend(const BrfFrame& b, float t) const ;
+	BrfFrame Blend(const BrfFrame& b, float t, const vector<bool> &sel) const;
 
 	Point3f MinPos();
 	Point3f MaxPos();
 	void Apply(Matrix44<float> m);
 
 	int FindClosestPoint(Point3f to, float* maxdist)const;
-
 
 	void MakeSlim(float ratioX, float ratioZ, const BrfSkeleton* s);
 };
@@ -101,13 +97,13 @@ class BrfMesh;
 // used to morph a skinned mesh frame, e.g. feminine armour from masculine
 class MeshMorpher{
 public:
-    enum{MAX_BONES = 40, POSZ_BONES = 20};
+	enum{MAX_BONES = 40, POSZ_BONES = 20};
 	void LearnFrom(BrfMesh& a, int framei, int framej); // learn from an example
 	void ResetLearning();
 	void FinishLearning();
-    bool Save(const wchar_t* filename) const;
-    bool Load(const char *text);
-    void Emphatize(float k);
+	bool Save(const wchar_t* filename) const;
+	bool Load(const char *text);
+	void Emphatize(float k);
 	Point3f s[MAX_BONES], t[MAX_BONES];
 	float extraBreast;
 private:
@@ -131,7 +127,7 @@ public:
 	// adds a rope from avg selected pos to To.AvgSelPos
 	void AddRope(const BrfMesh &to, int nseg, float width);
 
-    vector<BrfSkinning> skinning; // one per pos
+	vector<BrfSkinning> skinning; // one per pos
 
 	void DiminishAni(float t);
 	void DiminishAniSelected(float t);
@@ -166,7 +162,7 @@ public:
 
 	unsigned int GetAverageColor() const;
 
-    void FreezeFrame(const BrfSkeleton& s, const BrfAnimation& a, int frameInput, int frameOutput=0);
+	void FreezeFrame(const BrfSkeleton& s, const BrfAnimation& a, int frameInput, int frameOutput=0);
 	bool SkinnedToVertexAni(const BrfSkeleton& s, const BrfAnimation& a);
 	void Unmount(const BrfSkeleton& s);
 	void MountOnBone(const BrfSkeleton& s, int boneIndex);
@@ -238,11 +234,12 @@ public:
 
 	bool IsAnimable() const;
 	void ComputeNormals();
-    void ComputeTangents();
-    void ZeroTangents();
-    void ComputeNormals(int framei);
+	void ComputeTangents();
+	void ComputeTangentsMaybeSplit();
+	void ZeroTangents();
+	void ComputeNormals(int framei);
 
-    void ComputeAndStoreTangents();
+	void ComputeAndStoreTangents();
 
 	bool UnifyPos();
 	bool UnifyVert(bool careForNormals, float crease=0);
@@ -250,8 +247,8 @@ public:
 	void RemoveSeamsFromNormals(double crease);
 	void AfterLoad();
 	bool hasVertexColor;
-    bool StoresTangentField() const; // on disk
-    bool HasTangentField() const; // for previewing
+	bool StoresTangentField() const; // on disk
+	bool HasTangentField() const; // for previewing
 	bool HasVertexAni() const;
 
 
@@ -268,7 +265,7 @@ public:
 	void TowardZero(float x,float y, float z);
 	void TransformUv(float su, float sv, float tu, float tv);
 
-    void Transform(float * m, int frameN = -1);
+	void Transform(float * m, int frameN = -1);
 	void Translate(Point3f p);
 
 	void RemoveBackfacingFaces();
@@ -283,7 +280,7 @@ public:
 	void SetName(const char* st);
 private:
 	void CopyTimesFrom(const BrfMesh &brf);
-    void Blend(const BrfMesh &brf);
+	void Blend(const BrfMesh &brf);
 	void MergeMirror(const BrfMesh &brf);
 	void UpdateMaxBone();
 
@@ -294,7 +291,7 @@ private:
 	void FollowSelected(const BrfMesh &brf, int baseframe=0);
 	void FollowSelectedSmart(const BrfMesh &brf, int baseframe=0);
 
-    void KeepSelctedFixed(int asInFrame, float howmuch);
+	void KeepSelctedFixed(int asInFrame, float howmuch);
 	void CopyTextcoord(const BrfMesh &origbrf, const BrfMesh &newbrf, int nframe=0);
 	void CopyPos(int x, const BrfMesh &origbrf, const BrfMesh &newbrf);
 

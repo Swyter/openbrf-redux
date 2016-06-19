@@ -942,10 +942,11 @@ void GLWidget::setWireframeLightingMode(bool wf, bool light, bool tex) {
 
 	if (wf) {
 
-        setAmbientDiffuse(
-                    (light || tex)?0.2 :0.75f,
-                    (light && !tex)?0.4f:0.0f );
-        setSpecularmap( 0 );
+		setAmbientDiffuse(
+			(light ||  tex)?0.2 :0.75f,
+			(light && !tex)?0.4f:0.0f
+		);
+		//setSpecularmap( 0 );
 
 
 		//if (tex) glMaterialfv(GL_FRONT_AND_BACK,GL_EMISSION,vecf(1.0));
@@ -1108,7 +1109,7 @@ void GLWidget::setMaterialName(QString st){
 		}
 
 		lastUsedShader = SHADER_FIXEDFUNC;
-        if (useOpenGL2 && inferMaterial) {
+		if (useOpenGL2 && inferMaterial) {
 			bool useN = useNormalmap && m->HasBump();
 			bool useS = useSpecularmap && m->HasSpec();
 			if (useN || useS) {
@@ -1787,7 +1788,7 @@ void GLWidget::renderSkinnedMesh(const BrfMesh& m,  const BrfSkeleton& s, const 
 	vector<Matrix44f> bonepos = s.GetBoneMatrices( a.frame[fi] );
 
 	for (int pass=(useWireframe&&!shadowMode)?0:1; pass<2; pass++) {
-        if (!shadowMode) setWireframeLightingMode(pass==0, useLighting, useTexture);
+		if (!shadowMode) setWireframeLightingMode(pass==0, useLighting, useTexture);
 		if (pass==1 && !shadowMode) setMaterialName(m.material);
 
 		glBegin(GL_TRIANGLES);
@@ -1806,7 +1807,7 @@ void GLWidget::renderSkinnedMesh(const BrfMesh& m,  const BrfSkeleton& s, const 
 				//glNormal(vert[face[i].index[j]].__norm);
 				const Point3f &norm(m.frame[fv].norm[        m.face[i].index[j]        ]);
 				const Point3f &tang(m.vert[                  m.face[i].index[j]        ].tang);
-				const int     &tiv (m.vert[                  m.face[i].index[j]        ].ti);
+				const int     &tiv (m.vert[                  m.face[i].index[j]        ].tangi);
 				const Point3f &pos (m.frame[fv].pos [ m.vert[m.face[i].index[j]].index ]);
 				Point3f v(0,0,0);
 				Point3f n(0,0,0);
@@ -1893,7 +1894,7 @@ void GLWidget::renderMesh(const BrfMesh &m, float frame){
 
 				if (bumpmapActivated) {
 					glMultiTexCoord3fv(GL_TEXTURE1,  m.vert[m.face[i].index[j]].tang.V());
-					glMultiTexCoord1i (GL_TEXTURE2,  m.vert[m.face[i].index[j]].ti );
+					glMultiTexCoord1i (GL_TEXTURE2,  m.vert[m.face[i].index[j]].tangi );
 				}
 				glVertex(m.frame[framei].pos [ m.vert[m.face[i].index[j]].index ]);
 

@@ -9,7 +9,7 @@
 #include <QSpacerItem>
 #include <QGridLayout>
 
-const char* applVersion = "0.0.82d";
+const char* applVersion = "0.0.82e";
 QString IniData::tokenFullName(int k){
 
   switch (k){
