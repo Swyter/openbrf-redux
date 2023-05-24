@@ -1,68 +1,74 @@
 shopt -s extglob
 
+rm -rf ./repo
+mkdir -p repo
+pushd repo
+git init
+popd
+
 process_version() {
-    local filename="$1"
+    local filename="$1"; local version="$2"
     local newest_modification_date="`7z -slt l "$filename" | grep Modified | sort -r | head -n1 | cut -d = -f 2`"
 
     rm -rf repo/*
     7z x "$filename" -orepo -y > nul
 
-    local version="`grep -R "ver 0.0." repo | head -n 1 | cut -d\> -f 2 | cut -d\< -f 1`"
+    #local version="`grep -R "ver 0.0." repo | head -n 1 | cut -d\> -f 2 | cut -d\< -f 1`"
     #local version="`grep -R "applVersion =" repo | head -n 1 `" #| cut -d\" -f 2`"
 
     echo " -- $filename ($version)"
 
     pushd repo
     git add *
-    git commit -a -m "Version $version (from $filename)." --author "Marco Tarini <tarini@isti.cnr.it>" --date "$newest_modification_date"
-    git tag "$filename"
+    git commit -a -m "Version $version (from $filename)." --author "Marco Tarini <mtarini@users.noreply.github.com>" --date "$newest_modification_date"
+    git tag "$version"
     popd
 }
 
-process_version     openBrf_source_0.0.1.zip
-process_version     openBrf_source_0.0.4.zip
-process_version     openBrf_source_0.0.5.zip
-process_version     openBrf_source_0.0.6.zip
-process_version     openBrf_source_0.0.7.zip
-process_version     openBrf_source_0.0.11.zip
-process_version     openBrf_source_0.0.15.zip
-process_version     openBrf_source_0.0.20.zip
-process_version     openBrf_source_0.0.33.zip
-process_version     openBrf_source_0.0.37.zip
-process_version     openBrf_source_0.0.38.zip
-process_version     openBrf_source.zip # swy: 0.0.39b
-process_version     openBrf_source_0.0.40.zip
-process_version     openBrf_source_0.0.41.zip
-process_version     openBrf_source_0.0.42.zip
-process_version     openBrf_source_0.0.44.zip
-process_version     openBrf_source_0.0.45.zip
-process_version     openBrf_source_0.0.48.zip
-process_version     openBrf_source_0.0.49d.zip
-process_version     openBrf_source_0.0.52d.zip
-process_version     openBrf_source_0.0.53.zip
-process_version     openBrf_source_0.0.54b.zip
-process_version     openBrf_source_0.0.55.zip
-process_version     openBrf_source_0.0.56.zip
-process_version     openBrf_source_0.0.57.zip
-process_version     openBrf_source_0.0.58.zip
-process_version     openBrf_source_0.0.59.zip
-process_version     openBrf_source_0.0.62.zip
-process_version     openBrf_source_0.0.63.zip
-process_version     openBrf_source_0.0.64.zip
-process_version     openBrf_source_0.0.65.zip
-process_version     openBrf_source_0.0.66.zip
-process_version     openBrf_source_0.0.67.zip
-process_version     openBrf_source_0.0.68.zip
-process_version     openBrf_source_0.0.69b.zip
-process_version     openBrf_source_0.0.72.zip
-process_version     openBrf_source_0.0.74.zip
-process_version     openBrf_source_0.0.75.zip
-process_version     openBrf_source_0.0.77.zip
-process_version     openBrf_source_0.0.78.zip
-process_version     openBrf_source_0.0.79.zip
-process_version     openBrf_source_0.0.80.zip
-process_version     openBrf_source_0.0.82.zip
-process_version     openBrf_source_0.0.82b.zip
-process_version     openBrf_source_0.0.82c.zip
-process_version     openBrf_source_0.0.82d.zip
-process_version     openBrf_source_0.0.82e.zip
+process_version     openBrf_source_0.0.1.zip      0.0.1
+process_version     openBrf_source_0.0.4.zip      0.0.4
+process_version     openBrf_source_0.0.5.zip      0.0.5
+process_version     openBrf_source_0.0.6.zip      0.0.6
+process_version     openBrf_source_0.0.7.zip      0.0.7
+process_version     openBrf_source_0.0.11.zip     0.0.11
+process_version     openBrf_source_0.0.15.zip     0.0.15
+process_version     openBrf_source_0.0.20.zip     0.0.20
+process_version     openBrf_source_0.0.33.zip     0.0.33
+process_version     openBrf_source_0.0.37.zip     0.0.37
+process_version     openBrf_source_0.0.38.zip     0.0.38
+process_version     openBrf_source.zip            0.0.39b  # swy: 0.0.39b
+process_version     openBrf_source_0.0.40.zip     0.0.40
+process_version     openBrf_source_0.0.41.zip     0.0.41
+process_version     openBrf_source_0.0.42.zip     0.0.42
+process_version     openBrf_source_0.0.44.zip     0.0.44
+process_version     openBrf_source_0.0.45.zip     0.0.45
+process_version     openBrf_source_0.0.48.zip     0.0.48
+process_version     openBrf_source_0.0.49d.zip    0.0.49d
+process_version     openBrf_source_0.0.52d.zip    0.0.52d
+process_version     openBrf_source_0.0.53.zip     0.0.53
+process_version     openBrf_source_0.0.54b.zip    0.0.54b
+process_version     openBrf_source_0.0.55.zip     0.0.55
+process_version     openBrf_source_0.0.56.zip     0.0.56
+process_version     openBrf_source_0.0.57.zip     0.0.57
+process_version     openBrf_source_0.0.58.zip     0.0.58
+process_version     openBrf_source_0.0.59.zip     0.0.59
+process_version     openBrf_source_0.0.62.zip     0.0.62
+process_version     openBrf_source_0.0.63.zip     0.0.63
+process_version     openBrf_source_0.0.64.zip     0.0.64
+process_version     openBrf_source_0.0.65.zip     0.0.65
+process_version     openBrf_source_0.0.66.zip     0.0.66
+process_version     openBrf_source_0.0.67.zip     0.0.67
+process_version     openBrf_source_0.0.68.zip     0.0.68
+process_version     openBrf_source_0.0.69b.zip    0.0.69b
+process_version     openBrf_source_0.0.72.zip     0.0.72
+process_version     openBrf_source_0.0.74.zip     0.0.74
+process_version     openBrf_source_0.0.75.zip     0.0.75
+process_version     openBrf_source_0.0.77.zip     0.0.77
+process_version     openBrf_source_0.0.78.zip     0.0.78
+process_version     openBrf_source_0.0.79.zip     0.0.79
+process_version     openBrf_source_0.0.80.zip     0.0.80
+process_version     openBrf_source_0.0.82.zip     0.0.82
+process_version     openBrf_source_0.0.82b.zip    0.0.82b
+process_version     openBrf_source_0.0.82c.zip    0.0.82c
+process_version     openBrf_source_0.0.82d.zip    0.0.82d
+process_version     openBrf_source_0.0.82e.zip    0.0.82e
