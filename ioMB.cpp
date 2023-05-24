@@ -100,7 +100,7 @@ static void readStrQuotesChar(char*c){
 
 
 static void skipLine(){
-  /*int guard=0;*/
+  int guard=0;
   while (!lineEnd) {
     assert(guard++<20000);
     if (token().isEmpty()) return;
@@ -108,7 +108,7 @@ static void skipLine(){
 }
 
 static bool nextSetAttr(){
-  /*int guard =0;*/
+  int guard =0;
   while (1) {
     QString t = token();
     if (t.isEmpty()) return false;
@@ -123,7 +123,7 @@ static bool nextSetAttr(){
 }
 
 static void skipCreate(){
-  /*int guard =0;*/
+  int guard =0;
   while (1) {
     QString t = token();
     if (t.isEmpty()) break;
@@ -136,7 +136,7 @@ static void skipCreate(){
 }
 
 static bool nextCreateNode(){
-  /*int guard =0;*/
+  int guard =0;
   while (1) {
     QString t = token();
     if (t.isEmpty()) return false;

@@ -8,6 +8,19 @@ QT += xml
 CONFIG += exceptions
 
 
+VCGLIB = dependencies/vcglib # v1.0.1
+
+*g++* {
+    message("Generating makefile for the MinGW version.")
+    QMAKE_CXXFLAGS += -std=c++0x
+    QMAKE_CXXFLAGS += "-isystem $$VCGLIB"
+
+    # swy: shut up the eigen library causing thousands of warnings slowing down gcc/MinGW:
+    #      https://github.com/openscad/openscad/issues/2771
+    QMAKE_CXXFLAGS += -Wno-attributes -Wno-misleading-indentation -Wno-int-in-bool-context
+    QMAKE_CXXFLAGS += -Wno-deprecated-declarations
+}
+
 # RC_FILE = openBrf.rc
 TARGET = openBrf
 TEMPLATE = app
@@ -28,8 +41,8 @@ SOURCES += main.cpp \
     guipanel.cpp \
     vcgmesh.cpp \
     askBoneDialog.cpp \
-    C:/projects/vcglib/wrap/ply/plylib.cpp \
-    C:/projects/vcglib/wrap/dae/xmldocumentmanaging.cpp \
+    $$VCGLIB/wrap/ply/plylib.cpp \
+    $$VCGLIB/wrap/dae/xmldocumentmanaging.cpp \
     ioSMD.cpp \
     askSkelDialog.cpp \
     askTexturenameDialog.cpp \
@@ -115,7 +128,7 @@ FORMS += guipanel.ui \
     askLodOptionsDialog.ui \
     askUvTransformDialog.ui \
     askSkelPairDialog.ui
-INCLUDEPATH += "C:/projects/vcglib"
+INCLUDEPATH += "$$VCGLIB"
 INCLUDEPATH += "C:/libs/lib3ds-1.3.0"
 INCLUDEPATH += "./"
 RESOURCES += resource.qrc
@@ -134,6 +147,29 @@ INCLUDEPATH += "C:\projects\libraries\include"
 # SOURCES += "C:\projects\libraries\sources\glew-1.5.3\src\glew.c"
 #LIBS += -L"C:\projects\libraries\lib" \
 #   % -lglew32
+
+# swy: try to compile the MinGW libraries statically as part of the main .exe
+#      instead of shipping them as a bunch of small, separated .dll files.
+win32-g++ {
+    message("Linking libgcc and libstd statically.")
+    QMAKE_LFLAGS += -static-libgcc -static-libstdc++ -static
+}
+
+# swy: copy the final .exe and all the necessary Qt .dll files into the _build folder
+#      automatically after finishing the compilation and linking.
+#      https://forum.qt.io/topic/127083/using-config-windeployqt/2
+#      https://stackoverflow.com/a/37462468/674685
+win32 {
+    # swy: don't ship the vcruntime installer in the visual studio builds, but do ship libgcc, libstd++ and libwinpthread-1 in mingw builds
+    win32-msvc {
+        MSVC_WINDEPLOY_EXTRA_ARGS = --no-compiler-runtime
+    }
+
+    message("Adding step to deploy the DLL files on Windows.")
+    DESTDIR = $$PWD/_build
+    QMAKE_POST_LINK = $$[QT_INSTALL_BINS]/windeployqt --no-system-d3d-compiler --no-angle --no-opengl-sw $$MSVC_WINDEPLOY_EXTRA_ARGS $$shell_path($$DESTDIR/$${TARGET}.exe)
+}
+
 MOC_DIR = tmp
 UI_DIR = tmp
 
@@ -149,11 +185,3 @@ DISTFILES += \
     translations/openbrf_en.ts \
     translations/openbrf_es.ts \
     translations/openbrf_zh.ts
-
-
-
-
-
-
-
-
