@@ -11,8 +11,8 @@ process_version() {
     local newest_modification_date="`7z -slt l "$filename" | grep Modified | sort -r | head -n1 | cut -d = -f 2`"
 
     rm -rf repo/*
-    7z x "$filename" -orepo -y > nul
-
+    7z x "$filename" -orepo -y > /dev/null
+    echo "---"
     pushd repo
         if [ -d "openBrf" ]; then
             echo '[i] this release has the files as an extra openBrf folder level; correcting.'
@@ -20,14 +20,16 @@ process_version() {
             rm -rf openBrf
         fi
 
-        #local version="`grep -R "ver 0.0." repo | head -n 1 | cut -d\> -f 2 | cut -d\< -f 1`"
-        #local version="`grep -R "applVersion =" repo | head -n 1 `" #| cut -d\" -f 2`"
+        local internal_version="`grep -ohR -E "0\.0\.[0-9]+[ ]*[A-Za-z-]*"  --include \*.cpp`"
+        echo "[-] New revision for $filename ($version), internal $internal_version."
 
-        echo "[-] New revision for $filename ($version)"
-
-        git add *
-        git commit -a -m "Version $version (from $filename)." --author "Marco Tarini <mtarini@users.noreply.github.com>" --date "$newest_modification_date"
-        git tag "$version"
+        if [ "$version" != "$internal_version" ]; then
+            echo "[!] versions don't match ($version vs the internal $internal_version)."
+            local extra_text=", internally showing as $internal_version"
+        fi
+        git add * > /dev/null
+        git commit -a -m "Version $version$extra_text (from $filename)." --author "Marco Tarini <mtarini@users.noreply.github.com>" --date "$newest_modification_date" > /dev/null
+        git tag "$version" > /dev/null
     popd
 }
 
