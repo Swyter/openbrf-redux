@@ -13,6 +13,7 @@ process_version() {
     echo " -- $filename ($version)"
 
     pushd repo
+    git add *
     git commit -a -m "Version $version (from $filename)." --author "Marco Tarini <tarini@isti.cnr.it>" --date "$newest_modification_date"
     git tag "$filename"
     popd
