@@ -28,6 +28,7 @@ process_version() {
             local extra_text=", internally showing as $internal_version"
         fi
         git add * > /dev/null
+        export GIT_COMMITTER_DATE="$newest_modification_date" # https://stackoverflow.com/a/3896112/674685
         git commit -a -m "Version $version$extra_text (from $filename)." --author "Marco Tarini <mtarini@users.noreply.github.com>" --date "$newest_modification_date" > /dev/null
         git tag "$version" > /dev/null
     popd
@@ -80,3 +81,5 @@ process_version     openBrf_source_0.0.82b.zip    0.0.82b
 process_version     openBrf_source_0.0.82c.zip    0.0.82c
 process_version     openBrf_source_0.0.82d.zip    0.0.82d
 process_version     openBrf_source_0.0.82e.zip    0.0.82e
+
+git branch -m reconstructed
