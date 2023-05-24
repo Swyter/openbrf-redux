@@ -13,15 +13,21 @@ process_version() {
     rm -rf repo/*
     7z x "$filename" -orepo -y > nul
 
-    #local version="`grep -R "ver 0.0." repo | head -n 1 | cut -d\> -f 2 | cut -d\< -f 1`"
-    #local version="`grep -R "applVersion =" repo | head -n 1 `" #| cut -d\" -f 2`"
-
-    echo " -- $filename ($version)"
-
     pushd repo
-    git add *
-    git commit -a -m "Version $version (from $filename)." --author "Marco Tarini <mtarini@users.noreply.github.com>" --date "$newest_modification_date"
-    git tag "$version"
+        if [ -d "openBrf" ]; then
+            echo '[i] this release has the files as an extra openBrf folder level; correcting.'
+            mv openBrf/* .
+            rm -rf openBrf
+        fi
+
+        #local version="`grep -R "ver 0.0." repo | head -n 1 | cut -d\> -f 2 | cut -d\< -f 1`"
+        #local version="`grep -R "applVersion =" repo | head -n 1 `" #| cut -d\" -f 2`"
+
+        echo "[-] New revision for $filename ($version)"
+
+        git add *
+        git commit -a -m "Version $version (from $filename)." --author "Marco Tarini <mtarini@users.noreply.github.com>" --date "$newest_modification_date"
+        git tag "$version"
     popd
 }
 
@@ -36,7 +42,7 @@ process_version     openBrf_source_0.0.20.zip     0.0.20
 process_version     openBrf_source_0.0.33.zip     0.0.33
 process_version     openBrf_source_0.0.37.zip     0.0.37
 process_version     openBrf_source_0.0.38.zip     0.0.38
-process_version     openBrf_source.zip            0.0.39b  # swy: 0.0.39b
+process_version     openBrf_source.zip            0.0.39b  # swy: 0.0.39b, see the main_info.cpp file for the about screen
 process_version     openBrf_source_0.0.40.zip     0.0.40
 process_version     openBrf_source_0.0.41.zip     0.0.41
 process_version     openBrf_source_0.0.42.zip     0.0.42
