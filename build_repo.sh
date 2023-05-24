@@ -1,7 +1,21 @@
+shopt -s extglob
+
 process_version() {
     local filename="$1"
+    local newest_modification_date="`7z -slt l "$filename" | grep Modified | sort -r | head -n1 | cut -d = -f 2`"
 
-    echo "`7z -slt l "$filename" | grep Modified | sort -r | head -n1 | cut -d = -f 2` -- $filename"
+    rm -rf repo/*
+    7z x "$filename" -orepo -y > nul
+
+    local version="`grep -R "ver 0.0." repo | head -n 1 | cut -d\> -f 2 | cut -d\< -f 1`"
+    #local version="`grep -R "applVersion =" repo | head -n 1 `" #| cut -d\" -f 2`"
+
+    echo " -- $filename ($version)"
+
+    pushd repo
+    git commit -a -m "Version $version (from $filename)." --author "Marco Tarini <tarini@isti.cnr.it>" --date "$newest_modification_date"
+    git tag "$filename"
+    popd
 }
 
 process_version     openBrf_source_0.0.1.zip
