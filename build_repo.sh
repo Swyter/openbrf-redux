@@ -39,7 +39,7 @@ process_version     openBrf_source_0.0.5.zip      0.0.5
 process_version     openBrf_source_0.0.6.zip      0.0.6
 process_version     openBrf_source_0.0.7.zip      0.0.7
 process_version     openBrf_source_0.0.11.zip     0.0.11
-process_version     openBrf_source_0.0.15.zip     0.0.15
+#process_version    openBrf_source_0.0.15.zip     0.0.15   # swy: only 4kb, seems corrupted; skip it
 process_version     openBrf_source_0.0.20.zip     0.0.20
 process_version     openBrf_source_0.0.33.zip     0.0.33
 process_version     openBrf_source_0.0.37.zip     0.0.37
