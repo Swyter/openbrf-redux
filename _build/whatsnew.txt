@@ -1,0 +1,485 @@
+Update log:    
+
+ver 0.0.82 -- "revive and polish" release (5 Jun 2016)  [additional notes]
+1- fixed many bugs & polished various things & hi-res (4K screen) compatibility
+2- option to use auto-computed tangent dirs to preview bumpmap, when they are missing (mimicking what the game does)
+3- skeleton re-size tool (also affects hitboxes)
+    and
+0- re-coded 0.0.81 upgrade anew (source was lost)
+(0.0.82b: fix 4K screen. 0.0.82c: complete Spanish translation)
+
+ver 0.0.81 -- "materials and usability" (21 Jun 2013) [additional notes]
+1- more faithful renderings, i.e. more material settings will cause OpenBRF to do what the game does!
+    This is the list of material features which should be correctly previewed on meshes
+    (*) "render order" and "render 1st" flag
+    (*) transparency mode
+    (*) "uniform lighting" flag
+    (*) "no depth test", "no z-write" flag
+2- more flags documented, (plus errors corrected)
+3- usability improvements
+   (*) after starting OpenBRF, hitting ctrl+R [R]eloads last loaded file
+   (*) when visualizing stuff in several sub-windows, double clicking on any of them
+     selects the corresponding objects
+   (*) double click on an object in the list selects all its components
+4- the usual fixes and minor improvements
+(0.0.81b: small hotfix)
+
+ver 0.0.80(+e) -- "long time no see" release (10 Jun 2013) [additional notes]
+Small things. Probably incomplete list:
+1- new tool to construct vertex animation from rigged meshes
+2- added an (optional) shadow when visualizing skinned animations
+3- new tool to export string for module's scene-prop python code (for all objects in a brf file)
+4- ability to save vertex animations as sequences of obj files
+5- module "navigation" (shift+left / shift+right) also goes from mesh to its collision object, if present
+6- a few fixes and ameliorations (maybe)
+(note: hotfix 0.0.80d fixes bad bugs present in versions 0.0.80, 0.0.80b, and 0.0.80c)
+
+ver 0.0.79 --   "revamp-skin" release (01 Aug 2012)     [additional notes]
+1- added an option to place items at game-predefined "carry-positions" (e.g. swords carried on belts). 
+    It's inside the [mount on one bone] mesh tool.
+2- new group-view mode, [auto], to see all subparts of the same object combined (but separated from the rest)
+      (e.g. "castle.1" and "castle.2").
+3- now [alt]+clicks selects all subparts of a given objects
+4- direct visualization of materials a bit improved
+5- new tool [discard]=>[rigging (unmount from bone)], which positions objects back into origin.
+6- bug-fixes and several polishes
+7- translation update (German, by [Roemerboy] this time!)
+
+ver 0.0.78 --   "un-re-do" release (06 Jul 2012)     [additional notes]
+1- undo/redo added
+2- ambient occlusion computation now considers "up" direction correctly for... "helmets"
+3- fixed tab orderings
+4- bug-fixes
+5- translation update (Spanish, by [swyter])
+
+ver 0.0.77b --   small-update (28 Jun 2012)     [additional notes]
+1- new "reimport" tool, to quickly re-import updated models
+2- now alpha is editable in "recolor mesh with uniform color", and hex code editable there
+3- option to multiply existing colors with new colors, instead of replacing them
+    (keep Shift pressed to activate this mode -- works with all tools which compute new vertex colors -- see notes)
+4- bugfixes and minor improvements -- "b" version (hotfix): recovered Spanish language translation.
+
+ver 0.0.76 --   mini-update (2 Mar 2012)     [additional notes]
+1- added a tool to [Copy colors from texture], which gets texture colors and assigns them to texture.
+2- maybe a bit more robust to sporadic crashes?
+
+ver 0.0.75 --   mini-update (1 Mar 2012)     [additional notes]
+1- Added [tool] => [Measure with floating probe], to know the XYZ position of any point on/near the mesh
+2- a few fixes...
+
+ver 0.0.74 --   (2 Feb 2012)    [additional notes] 
+1- A [reskeletonize] tool, to adapt animations to skeletons with a different number (or scrambled) bones
+2- A [Transform UV] tool, to scale/translate all UV coordrinates. Useful for when you unify textures in one sheet
+3- New mechanism: now OpenBRF will optionally use Module-specific reference file. See info (in a sec).
+
+ver 0.0.73c --   (27 Jan 2012)    [additional notes] 
+1- New [Paste in mesh] command (matching LODs) under [edit] (see notes)
+2- Now displays/edits "for_ragdolls_only" flag in hit-boxes
+3- Can now "Copy rigging" into a mesh from a skeleton too (not only from a rigged mesh).
+4- Minor upgrades and fixes. +b and +c versions: hot-fixes.
+
+ver 0.0.72 --   "hitbox galore" release (25 Jan 2012)    [additional notes] 
+1- Lotsa new tools to ease manipulation of hitboxes -- see [tutorial]
+  1.a Copy/Paste of hit-boxes (from/to Skeletons -- but also from/to Collision-Bodies)
+  1.b Built-in direct editor of hit-boxes
+  1.c Saving of hitboxes in .xml file
+  1.d Stripping of hitboxes from a skeleton, and more
+2- "Roto-translate-scale" tool can now be used to also auto-center/align meshes
+3- When visualizing collision-mesh for an object X, can now overlay object X
+5- Now lists bone names in skeleton Data box
+6- Option to [Open Module folder]  (in file explorer), under [Module]
+7- Fixes
+
+ver 0.0.71b --  (19 Jan 2012)    [additional notes]
+1- hitboxes (linked to skeletons) extracted from data/skeletion_bodies.xml and visualized on request. 
+    (doens't show them? see notes!)
+2- visualization of texture animations (when looking at textures objects, NOT materials objects)
+3- interface polishing (mainly, added dots "..." where they belonged).
+
+ver 0.0.70 --  (10 Jan 2012)    [additional notes] 
+1- now armor-feminizer freely customizable by users. See under [Settings]=>[On armour autofeminization] (and see notes)
+2- now remembers recently opened modules (see under [Module])
+3- ctrl+left and ctrl+right opens next/prev brf file in module
+4- module un-referenced textures can now be moved in "_unused" folder, see [Module]=>[Show unreferenced texture files]
+5- GUI: added [selected] menu, it replcates the context-menu accessible by right clicking on selected objects
+6- fixes
+
+ver 0.0.69b -- "many suggestions" release (3 Jan 2012)    [additional notes] 
+(b is a hot-fix)
+1- You can now ask for the bounding box of currently selected mesh(es)
+2- Minor: mesh resizing can now take non integer percentages
+3- Fix in LODding: occasional unused vertices produced are now automatically removed
+4- "Unify vertices" now become "Clean redundant vert/pos", which also removes unused vertices
+5- "Discard->Normals" tool, to merge more vertex disregarding differences in normals (for when you don't need them)
+6- Custom User-defined shader can now be used (see thread)
+7- [invert selection] command, under [tools] (or Ctrl+I) 
+
+ver 0.0.68 -- the "TLD-release" release (22 Nov 2011)    [additional notes] 
+1- Added a "paste vertex colors" tool  (under "edit") to transfer vertex colors from a mesh to another.
+2-  Added a "paste vertex animations" tool  (under "edit") to transfer vertex animations from a mesh to another. 
+    Don't expect miracles, it is very crude.
+    It is based on similarity of UV coords between the mesh you copy from and the mesh you paste to. 
+    It works decently with some face morphs, if UV coords are coherent. Might work for other things too.
+3- Added a pair of tools to make rigging "smoother", or "stiffer". Can be used to tune rigging a bit, especially 
+    after transferring rigging from another mesh. Again, use at own risk (save first, and keep results only if you like it).
+4- Now the roto-translate-rotate tool can be optionally set to affect only the last selected object in a sequence of objects. 
+    Other objects are visible but stay fixed. Useful to align objects to each other 
+    (make sure to select the one which should be moving as last).
+5- flags meanings added for the shaders and their requirements (thanks to [cmpxchg8b] for all the info again). 
+6- group export of collision body (multiple-select, right click).
+7- various fixes
+
+ver. 0.0.67 (5 Aug 2011)    [additional notes]  
+- "mirror" tool for animations: flips an animation Left-Right
+- fixes
+
+ver. 0.0.66 (15 July 2011)    [additional notes]  
+- "paste texture coordinates" tool
+- "paste lower part of animation" tool
+- fixes
+
+ver. 0.0.65 (9 July 2011)  -- lots of small stuff    [additional notes]
+- new tool to split a mesh into connected components
+- new tool to autofix small rigid parts of rigged objects
+- small upgrades in interface: shift+mouse controls zoom. In scene mode, R-F controls height. 
+- rendering tunings: reflections brightness + clip plane . 
+- a few fixes, including important ones
+- upgraded library to QT v.4.7: possible interface-look improvements. Possible shader fixes.
+- (b version): added a bit of diagnostic for broken preview-shaders: under [Settings]=>[Shader Diagnostics]
+- (c+d versions): attempting to fix that shader bug
+If upgrading, this time you need to overwrite DLLs of old version with the new ones. 
+
+ver. 0.0.64 (9 Jun 2011)  -- bit-flags revamp    [additional notes]
+- flags for meshes, textures, materials partly explained and revamped
+- option to freeze a rigged mesh in a given (skeletal) pose
+- minor updates and fixes
+
+ver. 0.0.63 (30 May 2011) -- tangent dirs revamp    [additional notes]
+- significantly better tangent field comptuation, handling, and normal-map previews (see notes)
+- preliminary meaning associated to mesh flags
+- minor fixes and updates
+
+ver. 0.0.62 (29 May 2011) (somewhat important clean-ups) [additional notes]
+-  now clearly shows whether a mesh has: rigging / vertex ani / colors / tangent dirs. (in data panel)
+-  auto settings of mesh flags for "warband version" or "tangent dirs present"
+     IMPORTANT CONSEQUENCE: now automatically stores tangent fields whenever they are present
+    (before, flags had to be manually set mesh flags to 0x30000 to do that!).
+- now warns you if you attempt to save meshes with tangent dirs on them in M&B 1.011 format
+   (which cannot do that)
+- new [discard]=>[tangent directions] command.
+- minor: new command line option to enable a new specific requested option, which has 
+  been otherwise hidden because it is useless and probably confusing for most users. 
+  See notes for detail.
+
+ver. 0.0.61 (25 May 2011) (minor polishings) [additional notes]
+- support for "green" bumpmaps 
+- "copy complete" and "cut complete" commands, which take selected objects and all stuff they use
+   (e.g. when you "copy complete" a mesh, they also copy the materials/textures/shaders it use)
+- slightly imporved normal re-computations (angle weighting)
+- now newly computed lods overwrite existing lods (or, not. Choose under "settings")
+- default reference horse animation cleared of bad segments
+- bugfixes (e.g. color-shift in lods, and others)
+
+ver. 0.0.60 (27 Apr 2011) (mini update)
+- added a slower but sometimes better way to compute AO (choose it under "settings")
+
+ver. 0.0.59 (27 Apr 2011) [notes on pag 93]    
+- improved error detection (now scans and checks "scenes.txt" too)
+- flags explained for collision objects of type: capsule (i.e. cylinder) or sphere
+- fixes (lods computation on multiple objects)
+
+ver. 0.0.58 (19 Apr 2011) [notes on pag 90]
+- added an option to use or not use OpenGL 2.0, so that it does not crash if your card doesn't support it (hopefully)
+- added rendering of specular maps if present
+- added a command to recompute tangent directions for meshes
+- - - (needed by game for for correct bumpmapping) (they can be saved only in WB)
+- added a option to change background color (under settings)
+- added an option to change which LODs are produced (under settings)
+- fixed LOD names for submeshes (e.g. "castle.lod1.2", not "caste.2.lod1")
+
+ver. 0.0.57 (16 Apr 2011) [notes on pag 86]
+- added rendering of normal-maps
+- added a tool to automatically produce a LOD pyramid.
+
+ver. 0.0.56b (14 Apr 2011)   [notes on pag 85]
+- new command to auto-produce the feminine version(s) of a given armor(s)!!! (in 0.0.56"b": proper frame-timings added)
+- Ambient Occlusion can now be computed (on multiple-selected meshes) separately, as well as combined
+- added "repeat last command" command (under "tools", or ctrl+r)
+- several bugfixes
+
+ver. 0.0.55 (8 Apr 2011) (minor update) [notes on pag 83]
+- you can now select (in settings) whether when computing Ambient Occlusion 
+  light should be supposed to come mostly from above, or from all directions
+
+ver. 0.0.54b (8 Apr 2011)    [notes on pag 82]
+- command prompt option: you can make openBRF load all the brf in the module 
+  and dump all found names into a text file,  without opening the GUI (intended for devs of Mod tools) 
+  See under "module support" features above for more info!
+- buxfixes  (ver 0.0.54b)
+
+ver. 0.0.53 (7 Apr 2011)   [notes on pag 82]
+- command to compute Ambient Occlusion!!! (and store it in vertex colors)
+-- under "settings" there is now an option to tune how light/dark it is.
+- command to tune colors of selected mesh(es) (contrast, hue, saturation, brightness)
+
+ver. 0.0.52 (5 Apr 2011):   [notes on pag 81]
+- can now Cut-and-Paste stuff from one instance to another of OpenBrf
+   -- (btw did you know that you can also Copy any object from OpenBRF
+        and then Paste its name in any text editor? useful for e.g. editing py files)
+- can now drag and drop .dds files to add textures
+- minor fixes 
+
+ver 0.0.51, (1 Nov 2010):    [notes on pag 73]
+- improved "open module BRF" dialog (F7)
+  -- now reporting line number of each brf file (inside module.ini)
+  -- added "edit module.ini" option
+- improved texture "data" box
+  -- added "origin" box (i.e. module texture folder, or common texture folder)
+  -- added a button to show the DDS file in file explorer
+- new skeletal animation command
+  -- merge two animations
+  -- remove a time interval from an animation
+  -- extract an animation from another, given a time interval
+- improved stability with opengl/glew
+  -- in attempt to solve the reported (rare?) compatibility issues
+- bugfixes
+
+ver 0.0.50, (up to 21 Oct 2010):    
+- more robust with older openGL versions (hopefully)
+Just disable shaders by: [Settings] -> [On mesh rendering] -> [Always use default material]
+- now autosets mesh flags as needed by warband if you save in wb format.
+- added an option to color a mesh with uniform color (per vertex)
+- added German translation [by Vlejundo!]
+
+ver 0.0.49b, c, and d (up to 10 Oct 2010):    
+- fixes... details in repository page
+
+ver 0.0.49 (28 Sept 2010):    [notes on pag 68]   
+- added command to turn mesh (or mesh groups) into collision objects
+- fixes
+
+ver 0.0.48 (27 Sept 2010): (micro update)    [notes on pag 67]  
+- added reflections in mesh preview, for some materials
+
+ver 0.0.47 (26 Sept 2010): (micro update)
+- added a command to change current module (under "Module" menu)
+
+ver 0.0.46 (26 Sept 2010): [notes on pag 66]  
+- fixed item_kinds1.txt scanning for latest WarBand
+- using alpha transparency during mesh rendering (according to used material flags)
+-- (this can be disabled in Settings)
+
+ver 0.0.45 (24 Sept 2010): [notes on pag 66]     (substantial Module-management update)  
+- scan the entire module .TXTs (some ten of them) to find out what is actually used in the module (both WB and M&B)
+- added "used By" submenu , to navigate from an object (meshes, materials...) to any objects using it
+   (e.g. from a material to any mesh using it, etc). Find it by right clicking on any object.
+- in the same submenu, you can see what TXT file, if any, is using that object (directly or indirectly)
+- highlight objects (meshes, materials, ...) which are actually used by the module (F3, or look in Module menu)
+  (also if an object can be safety removed -- not used by other ob, is lightened)
+- warning given when saving common-res files
+- Module Menu revamp: 
+--  command to choose a Brf inside current module (including ones non included in module.ini)
+    (also shows how many used/unused objects they contain)
+--  command to list unreferenced texture-files (.DDS, .TIFF, etc) uselessly sitting on disk  
+--  command to show module statistics
+--  added .txt related errors to Error reported by "scan module for errors"
+
+ver 0.0.44 (21 Sept 2010): [notes on pag 64] (mini update)
+- added a command to merge several Body Collision meshes into one
+- fixes
+
+ver 0.0.43 (20 Sept 2010):  [notes on pag 64]
+- added a command to quickly add backdrops for menus (under "import")
+
+ver 0.0.42 (19 Sept 2010):  [notes on pag 63]
+- added Spanish translation [by Swyter!]
+- added a tool to auto-optimize Collision Objects from triangle-meshes to quad-dominant-meshes
+
+ver 0.0.41 (18 Sept 2010):  [notes on pag 63]
+- added support for non ascii paths (e.g. with Chinese characters in them)
+- "Find in Module" and "Scan for Errors" searches  are much, much faster (after first time)
+- new "Add to Clipboard" command (under "Edit") to cumulate objects in clipboard
+  e.g. you can copy (ctrl+C) an object, then "add to clipboard" a 2nd object, and then paste them both (ctrl+v)
+- new "Paste Timings" command (under "Edit") to transfer timings from an animation to another (vertex or skeletal alike)
+- new option to test your new translation files (*.qm - from QT-Linguist) (under Settings->Language)
+- fixes
+
+ver 0.0.40 (17 Sept 2010):  [notes on pag 63]
+- fixed translations support [by Foxyman!]
+- added Chinese translations [by Foxyman!]
+
+ver 0.0.39 + b (7 Aug 2010):  [notes on pag 60]
+- added possibility to keep or ignore texture seams when recomputing mesh normals 
+- added possibility to import the latest WarBand BRF format too (few native files use it)
+- ameliorated quality loss of MD3 vertex animation export (due to position quantization, by rescaling them)
+- better import of SMD rigged meshes (if too many bones x vert gives warning, no crash)
+
+ver 0.0.38 (6 Aug 2010):  [notes on pag 59]
+- added import/export of vertex animations as MD3 files ("Quake" files)
+
+ver 0.0.37 + 0.0.37b (10 March 2010):  (micro update)
+- fixes (>500 objects in a file)
+- added command to export all selected mesh at once, in separate files
+
+ver 0.0.36 (2 Jan 2010):  [notes on pag 46]
+- more robust frame combination when stacking frames in vertex animations
+- new frame stacking mode for making "quiver" animations
+- tool to sort objects in alphabetical order
+- fixes
+
+ver 0.0.35 (23 Nov 2009):  [notes on pag 42]
+- added an option to "paste modifications"
+- fixes
+
+ver 0.0.34 (20 Nov 2009):  (minor update)
+- added options to discard rigging, color or vertex animations from a mesh
+- minor fixes
+
+ver 0.0.33: (11 Nov 2009):  [notes on pag 40]
+- Added a view-mode to view many objects at once side to side (select multiple objects to make view mode available).
+  This is defaulted when selecting multiple materials/textures.
+- Added an option (under "options") to autocenter-and-zoom objects according to all content of BRF file,
+  instead of current selection only (useful to compare absolute sizes)
+- Can now change name of multiple objects starting with a common prefix (e.g. all xyz.LOD0, xyz.LOD1 ...).
+  Just make a multiple selection and "rename" (F2)
+- Nice icon by Amade (thanks, to swyter too!)
+- Fixed: blender ply imports, false "not in module.ini" warnings...
+- Minor gui improvments (more readable numbers, search windows now remembers settings...)
+
+ver 0.0.32: (06 Nov 2009):  [notes on pag 39]
+- Correctly imports ply meshes from blender (useful for meshes with vertex-per-color)
+- Backfacing faces removal/addition (useful for beard meshes, fur, etc)
+- Preliminary export/import of rigged-meshes/skeletons from Maya .ma files
+- Minor interface upgrades (tab order, removal of redundant options)
+- Minor bug fixes (rigging with >4 bones, stability...)
+
+ver 0.0.31: (25 Oct 2009):  [notes on pag 37]
+- Doesn't crash anymore on finding an invalid or corrupt brf when scanning module.ini
+  (it just reports this in module error report when requested)
+- Added "combine mesh" tool (combines multiple meshes into one. Also works with rigged or animated meshes)
+- Added a mesh tool to attach and rig a mesh to a single skeleton bone (useful e.g. for boots)
+- Minors: "del" deletes selection, multiple textures selectable, left-right arrows change tab, 
+  [F3] [F2] rename object (like in windows file system).
+
+ver 0.0.30: (19 Oct):
+- Multiple file import for almost everything (meshes, rigged meshes, mesh animation frames, materials, textures...) 
+  [suggested by Dian IronFoot and killkhergit]
+- Import from another BRF (everything inside it) (but consider copy and pasting stuff from a BRF into another, instead)
+- Patch of another bug on paste-rigging/transfer-rigging method.
+
+ver 0.0.29: (18 Oct):
+- Fixed ply format import/export for static meshes (should now import/export colors -- tested with MeshLab)
+- Minor big fixes (paste rigging method).
+
+ver 0.0.28: (16 Oct):
+- Search in module now has options [suggested by amade]
+- Custom viewing modes for helmets (puts them in vertical) 
+     and scenes (like interiors, uses wasd navigation)
+- Ini-file navigation (e.g. mesh-to-material or material-to-texture) is now also accessible with easily found links
+- OpenBRF will now actually work if set as predefined appl for brf files (you must set it manually)
+- Tips in status bar for practically all options and tools
+- New "paste rigging" option (under "edit") to transfer 
+    rigging from (optionally multiple) exemplar meshes (already rigged)
+    to (optionally multiple) target meshes (non rigged or with wrong rigging)
+- Color per vertex bug fixed (used RGB instead of BRG)
+
+ver 0.0.27: (7 Oct):
+- Export/import support for multiple material/mesh OBJ
+- Optional crease angles computation when recomputing normals
+- Minor: collision-manifold import orientation bug fixed. Minor2: now cut and paste works with group of objects too.
+
+ver 0.0.26: (22 Sept):
+- Added "Shift animation" tool, to shift an animation timing forward/backward
+- A little bit of polishing...
+ -- it now updates textures too on refresh command ("F5")
+ -- it displays size, format etc in texture "data" box
+ -- texture aspect ratio is now preserved in rectangular texture/material viewing
+ -- time for loading of first brf of a large module strongly decreased  
+
+ver 0.0.25: (18 Sept):
+- added rotation/translation tool (for meshes and collision objects)
+- skeletal animation frame times now can be viewed and edited
+- now searches "<currentDir>/../textures" dir too for out-of-module textures
+
+ver 0.0.24: (16 Sept):  (minor release)
+- now finds texture even if material fields wrongly include .dds extensions
+- plus, added an option to autofix dds file headers.
+
+Ver 0.0.23 (14 Sept): 
+- added a tool to find objects with a given name in module (in the module menu).
+- added a rescale mesh option (right click on mesh name)
+- minor bug fixes
+
+Ver 0.0.22 (12 Sept): 
+- added a tool to scan the entire module for errors and inconsistencies (in the module menu).
+
+Ver 0.0.21 (3 Sept): 
+- added transfer rigging tool
+
+Ver 0.0.20 (3 Sept): 
+- mini update: if it does not find a texture (white/blue pattern shown instead), you can look for a bit of diagnostics in "settings" menu
+
+Ver 0.0.19 (3 Sept):
+- added "forward compatibility" with warband files! (both saving loading them; to change brf version, "save as" and select format).
+- added a mirror (flip) tool for meshes and collision.
+- improvements on stability
+
+Ver 0.0.18 (1 Sept): 
+- minor update: "missing textures in game" bug fixed; "obj import text coord misalign" bug fixed; now v. animation frames are appended after current one; not it uses current brf to locate materials too; ruler made longer...
+
+Ver 0.0.17 (30 Aug):
+- added support for vertex animations (see above)
+
+Ver 0.0.16 (29 Aug):
+- added ruler tool (to determine reach of weapons, like in BrfEdit)
+
+Ver 0.0.15 (29 Aug):
+- special fast load of all resources in the module.ini file
+- auto-completions of stuff (texture, material, shader names).
+- navigation of a dataset (see above)
+- correct and complete texture-material in a mod. Now it should always locate the texture to be used for a given material (in mesh previews). (but, possible DXT1 texture problems?)
+- now possible to edit data for multiple materials at once, including flags (and to edit "used material" for multiple meshes).
+- minor: when you copy (ctrl-c) a texture/material/shader, you can paste (ctrl-v) its name in any appropriate box (e.g. in the "used material" box of a mesh).
+- fixed bug with recompute-normals/vertex-unification of SMD files (used to cure "flat shading" effect).
+
+ver 0.0.13 (18 Aug):
+  - materials flag with meaning and checkable separately (and "render order" as a separate field)
+  - import of collision object as obj (notes on usage: see this info)
+
+ver 0.0.12 (17 Aug):
+  - display and direct editing of material/texture/shader/collision attributes 
+  - creation of material/texture/shaders object
+  - rendering of textures (and materials, as textures)
+  - export of collision meshes as multi/object obj. (import still missing).
+  - mesh tools added: recompute normal, unify position/vertices (see "other features" above).
+  - flags are still numbers, but at least they are shown/edited in hexadecimal
+
+ver 0.0.11 (14 Aug):
+  - this time blender and 3DS should like exported skeletons/rigged meshes better...
+     (important: openBRF won't understand SMD exported by prev version... again. Last time, hopefully)
+  - bug fixes (as ever), including mirroring of everything (big deal) and addition of non-rigged meshes to skins
+  - skeleton-modification trough meshes (see "other features" above)
+  - reskeletonization of rigged meshes (see "other features" above)
+  - better handling of multiple skeletons (but it is up to the user to use the correct skeleton)
+  - minor interface improvements
+
+ver 0.0.10 (13 Aug):
+   - considerable internal changes. Hopefully now SMD exports are blender-compatible too.
+   - bug fixes
+   - a few cosmetic changes
+
+ver 0.0.8 (12 Aug):
+   Added back compatibility with M&B 0.808 materials and skeletons.
+   Export/import of rigged meshes (SMD): 
+         - added a x10/x0.1 scale factor for coherency with what old BrfEdit exported.
+         - (also, now if a vertex is connected to >4 bones it tries to fix it, instead of complain and die.)
+   Export of animations (SMD): 
+         - changed stuff a bit, to see if now 3DSMax likes them better.
+         - added a file format option to correctly import SMD files that were originally produced by old BrfEdit (or their derivatives)
+   Fixes, GUI improvements...
+
+ver 0.0.7 (11 Aug 2009): 
+   Export/import of rigged meshes, animation and skeletons as SMD.
+   Better handling (visualization) of {vertex animated}-meshes,  and of {vertex-animated}+{rigged} meshes
+   Collision objects BRF reverse-eng minor fix (does it undersrtand all of them now?). 
+   Fixes.
