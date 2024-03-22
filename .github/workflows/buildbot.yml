@@ -1,0 +1,68 @@
+name: Buildbot
+on:
+  push:
+jobs:
+  build-lnx:
+    name: Linux
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write 
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+      
+    - name: Install dependencies
+      run: | 
+        # swy: absolutely braindead breakage: https://github.com/actions/runner-images/issues/4589#issuecomment-1260157764
+        sudo rm -f /etc/apt/sources.list.d/microsoft-prod.list
+        sudo apt-get update -qq
+        sudo apt-get remove -qq libmono* moby* mono* nginx* php* libgdiplus libpcre2-posix3 libzip4
+
+        # Unlock 32bit architecture (for Wine further down)
+        sudo dpkg --add-architecture i386  # for wine32
+        sudo apt-get update  # due to new architecture
+        
+        sudo apt-get install --yes --no-install-recommends -V ppa-purge
+        sudo ppa-purge -y ppa:ubuntu-toolchain-r/test # to unblock
+        
+        sudo apt install wine-stable wine32:i386  -yy --force-yes
+
+        sudo apt install --install-recommends xvfb tree flip curl unzip lsof jq -yy --force-yes
+        sudo apt install p7zip
+
+    - name: Pack things up
+      id: pack
+      run: |
+        # swy: add a dummy screen for Wine to proceed headless, dial down the Wine log spam
+        #      we need Wine to run the Windows version of PyInstaller to turn the .py into a self-contained .exe
+        Xvfb :1 -screen 0 800x600x16 &
+        export DISPLAY=:1
+        export WINEDLLOVERRIDES="mscoree,mshtml="
+        export WINEDEBUG=fixme-all
+
+        # swy: try to add a small fudge factor for things to settle down; otherwise Wine complains about the X server not existing
+        sleep 5
+
+        WINEARCH=win32 wineboot -u
+
+        cur_date_ver_tiny="$(date +%Y.%m.%d -u)"
+        cur_date_ver_long="$(date +%Y.%m.%d-%H.%M -u)"
+        
+        # swy: PyInstaller drops the final .exe in a ./dist subfolder, go inside, zip them and go back
+        7z -mm=Deflate -mfb=258 -mpass=15 a "../swy-sco-tools-${cur_date_ver_long}.zip" mab_sco_*.exe *.dll ../mab_sco_drag_and_drop_here.cmd ../mab_sco_mo_remap*
+    - name: Upload Release Asset
+      id: upload-release-asset
+      run: |
+        # swy: find the release ID just by going here: https://api.github.com/repos/Swyter/openbrf-redux/releases
+        owner="swyter"; repo="openbrf-redux"; release_id="147972245"
+        
+        FILENAME="$(basename "$(find . -name '*openbrf-redux-*.zip' | sort -r -u | head -n 1)")"
+        GH_ASSET="https://uploads.github.com/repos/$owner/$repo/releases/$release_id/assets?name=$FILENAME"
+        echo "$GH_ASSET"; echo "$FILENAME"
+        
+        if [[ -f "$FILENAME" ]]; then
+          curl --fail --location --data-binary @"$FILENAME" -H 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' -H "Content-Type: application/octet-stream" "$GH_ASSET"
+        else
+          echo "[no changes in the folder this time around; skipped]"
+        fi
