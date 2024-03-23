@@ -55,7 +55,7 @@ void MainWindow::about()
   //QMessageBox::about(this, ("Open-Brf"),
               QString(tr(
                "<p>"
-               "&nbsp; &nbsp; <b>OpenBrf</b><br>"
+               "&nbsp; &nbsp; <b>OpenBrf</b> | <i>Redux</i><br>"
                "&nbsp; &nbsp; by <b>%2</b></p><p>"
                "&nbsp; &nbsp; <b>ver %6</b><br>"
                "&nbsp; &nbsp; (%1)<br></p>"
