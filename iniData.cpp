@@ -172,6 +172,7 @@ public:
       to[0xE0],to[0xE1],to[0xE2],to[0xE3],to[0xE4],to[0xE5],to[0xE6],to[0xE7],to[0xE8],to[0xE9],to[0xEA],to[0xEB],to[0xEC],to[0xED],to[0xEE],to[0xEF],
       to[0xF0],to[0xF1],to[0xF2],to[0xF3],to[0xF4],to[0xF5],to[0xF6],to[0xF7],to[0xF8],to[0xF9],to[0xFA],to[0xFB],to[0xFC],to[0xFD],to[0xFE],to[0xFF]
     );
+
     if (k!=n) error(QTextBrowser::tr("cannot read token n. %1 from:\n '%2'").arg(n).arg(data));
     return to[n-1];
   }
@@ -192,6 +193,18 @@ public:
   }
   void close(){
     qf.close();
+  }
+
+  uint tokenCount()
+  {
+    uint tokenCount = 0; bool inToken = false;
+
+    for (int i = 0; data[i] != NULL || i >= sizeof(data); i++)
+    {
+           if (!inToken && !isspace(data[i])) {   inToken =  true; tokenCount++; }
+      else if ( inToken &&  isspace(data[i])) {   inToken = false;               }
+    }
+    return tokenCount;
   }
 
 private:
@@ -328,7 +341,16 @@ bool IniData::readModuleTxts(const QString &pathMod, const QString& pathData){
     int n = tf.intT(1);
     for  (int i=0; i<n; i++) {
       tf.nextLine();
-      int tmp = tf.intT((isWarband)?4:3,0,30);
+
+      /* swy: mods like TLD use a mixed Warband-formatted actions.txt with other M&B 1.011-format .txt files;
+              dynamically try to guess the format independently by looking at how many
+              elements each animation start line actually has. e.g:
+              
+               m&b 1.011 format, 3 elements: walk_backward_staff 256           1
+               warband format,   4 elements: walk_backward_staff 256 17825792  1 */
+      bool isWarbandActionsTxt = (tf.tokenCount() == 4) ? true : false;
+
+      int tmp = tf.intT((isWarbandActionsTxt)?4:3);
       for (int j=0; j<tmp; j++) {
         tf.nextLine();
         list.append( QString(tf.stringT(2)) );
