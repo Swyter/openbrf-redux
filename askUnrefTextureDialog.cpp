@@ -88,7 +88,7 @@ void AskUnrefTextureDialog::openTexture(QListWidgetItem *i){
     args << QString("/select,") << QDir::toNativeSeparators(texturePath+'/'+i->text());
     QProcess::startDetached("explorer", args);
 #else
-		MainWindow::selectFileInExplorer(QDir::toNativeSeparators(texturePath+'/'+i->text()));
+    MainWindow::selectFileInExplorer(QDir::toNativeSeparators(texturePath+'/'+i->text()));
 #endif
 }
 

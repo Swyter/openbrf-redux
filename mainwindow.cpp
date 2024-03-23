@@ -4535,14 +4535,14 @@ void MainWindow::selectFileInExplorer(const QString& pathArg)
 
 #elif defined(Q_OS_UNIX) /* swy: Q_OS_LINUX, https://unix.stackexchange.com/a/581215/295814 */
     QStringList scriptArgs;
-		scriptArgs << QLatin1String("--session")
-		           << QLatin1String("--print-reply")
-		           << QLatin1String("--dest=org.freedesktop.FileManager1")
-		           << QLatin1String("--type=method_call")
-		           << QLatin1String("/org/freedesktop/FileManager1")
-		           << QLatin1String("org.freedesktop.FileManager1.ShowItems")
-		           << QString::fromLatin1("array:string:\"file://%s\"").arg(path)
-		           << QLatin1String("string:\"\"");
+        scriptArgs << QLatin1String("--session")
+                   << QLatin1String("--print-reply")
+                   << QLatin1String("--dest=org.freedesktop.FileManager1")
+                   << QLatin1String("--type=method_call")
+                   << QLatin1String("/org/freedesktop/FileManager1")
+                   << QLatin1String("org.freedesktop.FileManager1.ShowItems")
+                   << QString::fromLatin1("array:string:\"file://%s\"").arg(path)
+                   << QLatin1String("string:\"\"");
 
         QProcess::execute("dbus-send", scriptArgs);
 #endif
