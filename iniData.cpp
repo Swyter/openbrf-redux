@@ -300,7 +300,7 @@ bool IniData::readModuleTxts(const QString &pathMod, const QString& pathData){
 
     for  (int i=0; i<n; i++) {
       tf.nextLine();
-      int tmp = tf.intT(4,0,10);
+      int tmp = tf.intT(4,0,255);
       for (int j=0; j<tmp; j++)
         list.appendLRx( QString(tf.stringT(5+j*2)) );
       if (ver == 3) {
@@ -308,7 +308,7 @@ bool IniData::readModuleTxts(const QString &pathMod, const QString& pathData){
         if (tf.intT(1)!=0) tf.nextLine();
       }
       tf.nextLine();
-      tf.skipLines( tf.intT(1,0,10) );
+      tf.skipLines( tf.intT(1,0,255) );
       tf.nextLine();
     }
     txtNameList.push_back(list);
@@ -361,12 +361,12 @@ bool IniData::readModuleTxts(const QString &pathMod, const QString& pathData){
         tf.nextLine();
         listMe.append( tf.stringT(1) ); // head
         tf.nextLine();
-        int tmp = tf.intT(1,0,40);
+        int tmp = tf.intT(1,0,255);
         tf.nextLine();
         for (int j=0; j<tmp; j++) listMe.append( tf.stringT(j+1) ); // hair mesh
 
         tf.nextLine();
-        tmp = tf.intT(1,0,40);
+        tmp = tf.intT(1,0,255);
         for (int j=0; j<tmp; j++) {
           tf.nextLine();
           listMe.append( tf.stringT(1) ); // beard mesh
@@ -376,15 +376,15 @@ bool IniData::readModuleTxts(const QString &pathMod, const QString& pathData){
 
         // materials for hair, beard: seems game uses only 1st one?
         tf.nextLine();
-        tmp = tf.intT(1,0,30);
+        tmp = tf.intT(1,0,255);
         for (int j=0; j<tmp; j++) if (j==0) listMa.append( tf.stringT(j+2) ); // hair mat
 
         tf.nextLine();
-        tmp = tf.intT(1,0,30);
+        tmp = tf.intT(1,0,255);
         for (int j=0; j<tmp; j++) if (j==0) listMa.append( tf.stringT(j+2) ); // beard mat
 
         tf.nextLine();
-        tmp = tf.intT(1,0,40);
+        tmp = tf.intT(1,0,255);
         int h=2;
         for (int j=0; j<tmp; j++) {
           listMa.append( tf.stringT(h++) ); // skin mat
