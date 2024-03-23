@@ -1,7 +1,93 @@
 name: Buildbot
 on:
   push:
+    branches: [ "redux" ]
+
 jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: recursive
+
+    - name: Install the MSVC build tools
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        # swy: install chocolatey, to make it easy to install other software unattended
+        Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+        
+        choco install 7zip curl                  -y --wait --no-progress
+        choco install visualstudio2017buildtools -y --wait --no-progress --package-parameters "--add Microsoft.VisualStudio.Workload.VCTools --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --add Microsoft.Component.VC.Runtime.UCRTSDK --add Microsoft.VisualStudio.Component.Windows10SDK --add Microsoft.VisualStudio.Component.Windows10SDK.17763" --force
+        
+        # swy: downloading precompiled versions of qtbase, qttools (for windeployqt) and jom (for a more parallel nmake)
+        mkdir _qt
+        mkdir _qt_download
+        Push-Location _qt_download
+        curl.exe -LJ -o qt-base.7z  'https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt5_51212/qt.qt5.51212.win32_msvc2017/5.12.12-0-202111241434qtbase-Windows-Windows_10-MSVC2017-Windows-Windows_10-X86.7z'
+        curl.exe -LJ -o qt-tools.7z 'https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt5_51212/qt.qt5.51212.win32_msvc2017/5.12.12-0-202111241434qttools-Windows-Windows_10-MSVC2017-Windows-Windows_10-X86.7z'
+        curl.exe -LJ -o qt-jom.zip  'https://download.qt.io/official_releases/jom/jom.zip'
+        
+        # swy: extracting the downloaded qt binaries
+        7z x qt-base.7z  '-o../_qt' -y
+        7z x qt-tools.7z '-o../_qt' -y
+        7z x qt-jom.zip  '-o../_qt' -y
+        
+        # swy: turn the qt install from enterprise to foss; remove the licensing checks
+        ${qconfig-pri-folder} = '..\_qt\5.12.12\msvc2017\mkspecs\qconfig.pri'
+        (Get-Content ${qconfig-pri-folder}).replace('QT_EDITION = Enterprise', 'QT_EDITION = OpenSource') | Set-Content ${qconfig-pri-folder}
+        (Get-Content ${qconfig-pri-folder}).replace('QT_LICHECK = licheck.exe', '')                       | Set-Content ${qconfig-pri-folder}
+        
+        # swy: make it find the qt sdk install folder instead of using the default: c:/Users/qt/work/install
+        #      keep in mind that Qt won't read UTF-16-encoded text files (the default for Out-File in PowerShell)
+        #      plus, even if you choose utf8 it writes a binary BOM/byte-order-mark which makes it not read it
+        #      -encoding UTF8NoBOM is only supported on 6+, so use plain ascii, absolutely braindead:
+        #      https://stackoverflow.com/a/55077592/674685
+        "[Paths]"+ "`r`n" +"Prefix = .." | Out-File -encoding ASCII '..\_qt\5.12.12\msvc2017\bin\qt.conf'
+        Pop-Location
+
+    - name: Build
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        mkdir _make
+        Push-Location _make
+        
+        # swy: configuring the msvc environment variables
+        Push-Location "C:/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Auxiliary/Build"
+        
+        # swy: https://stackoverflow.com/a/41399983/674685
+        # Invokes a Cmd.exe shell script and updates the environment.
+        function Invoke-CmdScript {
+          param(
+            [String] $scriptName
+          )
+          $cmdLine = """$scriptName"" $args & set"
+          & $Env:SystemRoot\system32\cmd.exe /c $cmdLine |
+          select-string '^([^=]*)=(.*)$' | foreach-object {
+            $varName = $_.Matches[0].Groups[1].Value
+            $varValue = $_.Matches[0].Groups[2].Value
+            set-item Env:$varName $varValue
+          }
+        }
+        Invoke-CmdScript vcvarsall.bat x86
+        Pop-Location
+        
+        # swy: configuring the Qt environment variables
+        $env:Path += ";..\_qt\; ..\_qt\5.12.12\msvc2017\bin\"
+        
+        # swy: run qmake and generate the msvc nmake makefile
+        & ..\_qt\5.12.12\msvc2017\bin\qmake ..\openBrf.pro
+        
+        # swy: start the actual build with jom instead of nmake; for speed
+        & ..\_qt\jom
+        Pop-Location
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: compiled
+        path: ./_build
+        retention-days: 90
   build-lnx:
     name: Linux
     runs-on: ubuntu-22.04
