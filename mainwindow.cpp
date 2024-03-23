@@ -4509,6 +4509,45 @@ void MainWindow::moduleOpenFolder(){
 	);
 }
 
+/* swy: https://stackoverflow.com/a/9138437/674685 */
+void MainWindow::selectFileInExplorer(const QString& pathArg)
+{
+	QString path = QDir::toNativeSeparators(pathArg);
+
+#if defined(Q_OS_WIN)
+    const QString explorer = "explorer";
+        QStringList param;
+        if (!QFileInfo(path).isDir())
+            param << QLatin1String("/select,");
+        param << QDir::toNativeSeparators(path);
+        QProcess::startDetached(explorer, param);
+
+#elif defined(Q_OS_MAC)
+    QStringList scriptArgs;
+        scriptArgs << QLatin1String("-e")
+                   << QString::fromLatin1("tell application \"Finder\" to reveal POSIX file \"%1\"")
+                                         .arg(path);
+        QProcess::execute(QLatin1String("/usr/bin/osascript"), scriptArgs);
+        scriptArgs.clear();
+        scriptArgs << QLatin1String("-e")
+                   << QLatin1String("tell application \"Finder\" to activate");
+        QProcess::execute("/usr/bin/osascript", scriptArgs);
+
+#elif defined(Q_OS_UNIX) /* swy: Q_OS_LINUX, https://unix.stackexchange.com/a/581215/295814 */
+    QStringList scriptArgs;
+		scriptArgs << QLatin1String("--session")
+		           << QLatin1String("--print-reply")
+		           << QLatin1String("--dest=org.freedesktop.FileManager1")
+		           << QLatin1String("--type=method_call")
+		           << QLatin1String("/org/freedesktop/FileManager1")
+		           << QLatin1String("org.freedesktop.FileManager1.ShowItems")
+		           << QString::fromLatin1("array:string:\"file://%s\"").arg(path)
+		           << QLatin1String("string:\"\"");
+
+        QProcess::execute("dbus-send", scriptArgs);
+#endif
+}
+
 
 void MainWindow::showModuleStats(){
 	loadIni(4);

@@ -51,6 +51,8 @@ public:
 	bool loadFile(const QString &fileName);
 
 	static int getLanguageOption();
+	static void selectFileInExplorer(const QString& path); /* swy: add a generic, cross-platform way of doing this */
+	
 	QString getNextTranslatorFilename(){return nextTranlationFilename;};
 
 	void setUseAlphaCommands(bool mode);

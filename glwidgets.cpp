@@ -21,6 +21,7 @@
 #include <vcg/math/matrix44.h>
 #include <wrap/gl/space.h>
 
+#include "mainwindow.h"
 
 
 GLWidget::GLWidget(QWidget *parent, IniData &_inidata)
@@ -383,10 +384,13 @@ void GLWidget::browseTexture(){
 		//QMessageBox::warning(this,"test", f);
 		//QDesktopServices::setUrlHandler("*.*",this,"Explorer");
 		//QDesktopServices::openUrl(f);
-
+#if 0
 		QStringList args;
 		args << QString("/select,") << QDir::toNativeSeparators(renderedTexture);
 		QProcess::startDetached("explorer", args);
+#else
+		MainWindow::selectFileInExplorer(QDir::toNativeSeparators(renderedTexture));
+#endif
 
 	}
 }

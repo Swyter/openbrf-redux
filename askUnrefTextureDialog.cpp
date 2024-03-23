@@ -6,7 +6,7 @@
 
 #include "askUnrefTextureDialog.h"
 #include "ui_askUnrefTextureDialog.h"
-
+#include "mainwindow.h"
 
 AskUnrefTextureDialog::AskUnrefTextureDialog(QWidget *parent) :
     QDialog(parent),
@@ -65,9 +65,13 @@ void AskUnrefTextureDialog::moveAllToUnused(){
           this,tr("OpenBRF"),tr("Moved %1 textures in new folder\n%2").arg(done).arg(e.canonicalPath()),
           tr("open folder"), tr("ok"),QString(),1);
         if (res==0) {
+#if 0
           QStringList args;
           args << QString("/select,") << QDir::toNativeSeparators(e.canonicalPath());
           QProcess::startDetached("explorer", args);
+#else
+          MainWindow::selectFileInExplorer(QDir::toNativeSeparators(e.canonicalPath()));
+#endif
         }
         accept();
       }
@@ -79,9 +83,13 @@ void AskUnrefTextureDialog::moveAllToUnused(){
 }
 
 void AskUnrefTextureDialog::openTexture(QListWidgetItem *i){
+#if 0
     QStringList args;
     args << QString("/select,") << QDir::toNativeSeparators(texturePath+'/'+i->text());
     QProcess::startDetached("explorer", args);
+#else
+		MainWindow::selectFileInExplorer(QDir::toNativeSeparators(texturePath+'/'+i->text()));
+#endif
 }
 
 void AskUnrefTextureDialog::addFile(QString f){
