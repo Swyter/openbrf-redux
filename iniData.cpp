@@ -197,12 +197,12 @@ public:
 
   uint tokenCount()
   {
-    uint tokenCount = 0; bool inToken = false;
+    uint tokenCount = 0; bool inToken = false; /* swy: count how many space-separated elements/tokens are in a line */
 
-    for (int i = 0; data[i] != NULL || i >= sizeof(data); i++)
+    for (int i = 0; data[i] != NULL || i >= sizeof(data); i++) /* swy: for each character in the current line... */
     {
-           if (!inToken && !isspace(data[i])) {   inToken =  true; tokenCount++; }
-      else if ( inToken &&  isspace(data[i])) {   inToken = false;               }
+           if (!inToken && !isspace(data[i])) {   inToken =  true; tokenCount++; } /* swy: find if we are the first character of a token; this can be either the first character of a line, or after the previous one was a space and we're back in business :) */
+      else if ( inToken &&  isspace(data[i])) {   inToken = false;               } /* swy: find if we are the first space character right after a token ends */
     }
     return tokenCount;
   }
