@@ -4504,7 +4504,9 @@ void MainWindow::showUnrefTextures(){
 
 
 void MainWindow::moduleOpenFolder(){
-	QDesktopServices::openUrl(modPath());
+	QDesktopServices::openUrl(
+		QUrl::fromLocalFile(QDir::toNativeSeparators(modPath())) /* swy: https://stackoverflow.com/a/31563981/674685 */
+	);
 }
 
 
