@@ -6,7 +6,7 @@
 #include <math.h>
 #include <vcg/space/point3.h>
 #include <vcg/math/matrix44.h>
-
+#include <vcg/space/box3.h>
 
 
 void AskTransformDialog::setApplyToAllLoc(bool *loc){
@@ -24,10 +24,14 @@ void AskTransformDialog::setBoundingBox(float *minv, float *maxv){
 
 /* swy: save the position/coords of the middle of the bounding box so that we
         can go from global to local coordinates and do local rotations */
-void AskTransformDialog::setRotCenterPoint(float x, float y, float z){
-  rot_center_point[0] = x;
-  rot_center_point[1] = y;
-  rot_center_point[2] = z;
+void AskTransformDialog::setRotCenterPoint(float lx, float ly, float lz, float ax, float ay, float az){
+  rot_center_point[1][0] = lx;
+  rot_center_point[1][1] = ly;
+  rot_center_point[1][2] = lz; /* swy: the center coordinates of the bounding box of just the last selected object */
+
+  rot_center_point[0][0] = ax; /* swy: the center coordinates of the bounding box of the sum of all the selected elements together */
+  rot_center_point[0][1] = ay;
+  rot_center_point[0][2] = az;
 }
 
 AskTransformDialog::AskTransformDialog(QWidget *parent) :
@@ -225,16 +229,16 @@ void AskTransformDialog::update(){
   rot_move_to_center.Identity();
   rot_move_to_center.SetTranslate(
     vcg::Point3f(
-      rot_center_point[0] + ui->trax->value(),
-      rot_center_point[1] + ui->tray->value(),
-      rot_center_point[2] + ui->traz->value())
+      rot_center_point[ui->applyToLastSel->isChecked()][0] + ui->trax->value(), /* swy: switch between the center of all the elements (index 0), or the center of just the last element (index 1) */
+      rot_center_point[ui->applyToLastSel->isChecked()][1] + ui->tray->value(),
+      rot_center_point[ui->applyToLastSel->isChecked()][2] + ui->traz->value())
   );
 
   rot.FromEulerAngles(toRad( ui->rotx->value() ),toRad( ui->roty->value() ),toRad( ui->rotz->value() ));
 
   /* swy: move it to the center of the universe before doing
           rotations and then move the rotated mesh back */
-  if (true)
+  if (1)//ui->localRot->isChecked())
     rot = rot_move_to_center * rot * vcg::Inverse(rot_move_to_center);
 
   t.SetTranslate(ui->trax->value(),ui->tray->value(),ui->traz->value());
@@ -242,7 +246,7 @@ void AskTransformDialog::update(){
 
   /* swy: move it to the center of the universe before doing
           re-scaling and then move the scaled mesh back */
-  if (true)
+  if (1)//ui->localScl->isChecked())
     sc = rot_move_to_center * sc * vcg::Inverse(rot_move_to_center);
 
   /* swy: changed the order of operations from sc*rot*t to rot*sc*t, to avoid

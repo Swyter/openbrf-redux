@@ -2601,7 +2601,11 @@ void MainWindow::transform(){
 		        that way we can subtract the coordinates to center the mesh in the scene,
 		        so that we can do local rotations and then move it back like nothing */
 		vcg::Point3f lastSelCenter = brfdata.mesh[glWidget->lastSelected].bbox.Center();
-		d->setRotCenterPoint(lastSelCenter.X(), lastSelCenter.Y(), lastSelCenter.Z());
+		vcg::Point3f  allSelCenter = bboxAll.Center();
+		d->setRotCenterPoint(
+            lastSelCenter.X(), lastSelCenter.Y(), lastSelCenter.Z(),
+             allSelCenter.X(),  allSelCenter.Y(),  allSelCenter.Z()
+        );
 
 		bool ok = d->exec() == QDialog::Accepted;
 
