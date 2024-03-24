@@ -110,8 +110,8 @@ class TextFile{
 public:
   QFile qf;
   int line;
-  char data[4024];
-  char format[1000];
+  char data[8024];
+  char format[4000];
   char res[1000];
   char to[512][255];
   QString path;
@@ -134,7 +134,7 @@ public:
     }
   }
   void expectLine(const char* st) throw (int){
-    qf.readLine(data,4023);
+    qf.readLine(data, (sizeof(data) - 1));
     line++;
     QString dataS = QString(data).remove(QChar('\n'), Qt::CaseSensitive);
     if (!dataS.startsWith(QString(st))) {
@@ -142,7 +142,7 @@ public:
     }
   }
   void nextLine() throw (int){
-    if (qf.readLine(data,4023)==-1) error(QTextBrowser::tr("unexpected end of file"));
+    if (qf.readLine(data, (sizeof(data) - 1))==-1) error(QTextBrowser::tr("unexpected end of file"));
     line++;
   }
   void skipLines(int n) throw (int){
@@ -171,7 +171,7 @@ public:
       to[ 0xD0],to[ 0xD1],to[ 0xD2],to[ 0xD3],to[ 0xD4],to[ 0xD5],to[ 0xD6],to[ 0xD7],to[ 0xD8],to[ 0xD9],to[ 0xDA],to[ 0xDB],to[ 0xDC],to[ 0xDD],to[ 0xDE],to[ 0xDF],
       to[ 0xE0],to[ 0xE1],to[ 0xE2],to[ 0xE3],to[ 0xE4],to[ 0xE5],to[ 0xE6],to[ 0xE7],to[ 0xE8],to[ 0xE9],to[ 0xEA],to[ 0xEB],to[ 0xEC],to[ 0xED],to[ 0xEE],to[ 0xEF],
       to[ 0xF0],to[ 0xF1],to[ 0xF2],to[ 0xF3],to[ 0xF4],to[ 0xF5],to[ 0xF6],to[ 0xF7],to[ 0xF8],to[ 0xF9],to[ 0xFA],to[ 0xFB],to[ 0xFC],to[ 0xFD],to[ 0xFE],to[ 0xFF],
-      to[0x100],to[0x101],to[0x102],to[0x103],to[0x104],to[0x105],to[0x106],to[0x107],to[0x108],to[0x109],to[0x10A],to[0x10B],to[0x10C],to[0x10D],to[0x10E],to[0x10F],
+      to[0x100],to[0x101],to[0x102],to[0x103],to[0x104],to[0x105],to[0x106],to[0x107],to[0x108],to[0x109],to[0x10A],to[0x10B],to[0x10C],to[0x10D],to[0x10E],to[0x10F], /* swy: the limit for tokens in a single line was 256, which may fall short; raise it to 512 */
       to[0x110],to[0x111],to[0x112],to[0x113],to[0x114],to[0x115],to[0x116],to[0x117],to[0x118],to[0x119],to[0x11A],to[0x11B],to[0x11C],to[0x11D],to[0x11E],to[0x11F],
       to[0x120],to[0x121],to[0x122],to[0x123],to[0x124],to[0x125],to[0x126],to[0x127],to[0x128],to[0x129],to[0x12A],to[0x12B],to[0x12C],to[0x12D],to[0x12E],to[0x12F],
       to[0x130],to[0x131],to[0x132],to[0x133],to[0x134],to[0x135],to[0x136],to[0x137],to[0x138],to[0x139],to[0x13A],to[0x13B],to[0x13C],to[0x13D],to[0x13E],to[0x13F],
@@ -435,12 +435,12 @@ bool IniData::readModuleTxts(const QString &pathMod, const QString& pathData){
         tf.nextLine();
         listMe.append( tf.stringT(1) ); // head
         tf.nextLine();
-        int tmp = tf.intT(1,0,255);
+        int tmp = tf.intT(1,0,1024);
         tf.nextLine();
         for (int j=0; j<tmp; j++) listMe.append( tf.stringT(j+1) ); // hair mesh
 
         tf.nextLine();
-        tmp = tf.intT(1,0,255);
+        tmp = tf.intT(1,0,1024);
         for (int j=0; j<tmp; j++) {
           tf.nextLine();
           listMe.append( tf.stringT(1) ); // beard mesh
@@ -450,15 +450,15 @@ bool IniData::readModuleTxts(const QString &pathMod, const QString& pathData){
 
         // materials for hair, beard: seems game uses only 1st one?
         tf.nextLine();
-        tmp = tf.intT(1,0,255);
+        tmp = tf.intT(1,0,1024);
         for (int j=0; j<tmp; j++) if (j==0) listMa.append( tf.stringT(j+2) ); // hair mat
 
         tf.nextLine();
-        tmp = tf.intT(1,0,255);
+        tmp = tf.intT(1,0,1024);
         for (int j=0; j<tmp; j++) if (j==0) listMa.append( tf.stringT(j+2) ); // beard mat
 
         tf.nextLine();
-        tmp = tf.intT(1,0,255);
+        tmp = tf.intT(1,0,1024);
         int h=2;
         for (int j=0; j<tmp; j++) {
           listMa.append( tf.stringT(h++) ); // skin mat
@@ -474,7 +474,7 @@ bool IniData::readModuleTxts(const QString &pathMod, const QString& pathData){
         listSk.append( tf.stringT(1));
         tf.nextLine(); // two numbers?
         tf.nextLine();
-        tmp = tf.intT(1,0,40);
+        tmp = tf.intT(1,0,1024);
         tf.skipLines(tmp+1);
 
       }
