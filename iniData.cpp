@@ -1405,7 +1405,28 @@ int IniData::nObjects() const{
 
 bool IniData::addBrfFile(const char* name, Origin ori, int line, int howFast){
   QString brfFn, brfPath;
-  if (ori == MODULE_RES) {
+
+  if (ori == CORE_RES) {
+    /* swy: folder used by M&B 1.011 Iron Launcher mods; when core_*.brf
+            resources weren't overridden by the game; TLD uses this */
+    brfPath = modPath + "/Data/";
+    brfFn   = modPath + "/Data/" + name + ".brf";
+    
+    /* swy: on modern-ish versions of Warband, the game will attempt to load
+            the core_*.brf resources from the mod folder first */
+    if (!QDir(brfPath).exists(QString("%1.brf").arg(name))) {
+      brfPath = modPath + "/Resource/";
+      brfFn   = modPath + "/Resource/" + name + ".brf";
+      
+      /* swy: falling back to the common ones from the vanilla game otherwise */
+      if (!QDir(brfPath).exists(QString("%1.brf").arg(name))) {
+        brfPath = mabPath + "/CommonRes/";
+        brfFn   = mabPath + "/CommonRes/" + name + ".brf";
+      }
+    }
+  }
+
+  else if (ori == MODULE_RES) {
     brfFn = modPath + "/Resource/" +name +".brf";
     brfPath = modPath + "/Resource";
   }
