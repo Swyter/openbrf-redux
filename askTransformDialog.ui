@@ -107,6 +107,22 @@
      <double>15.000000000000000</double>
     </property>
    </widget>
+   <widget class="QCheckBox"  name="localRot">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>20</y>
+      <width>72</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Local</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+  </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
@@ -715,6 +731,22 @@
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
+   <widget class="QCheckBox"  name="localScl">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>30</y>
+      <width>72</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Local</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+  </widget>
    <widget class="QCheckBox" name="checkBox">
     <property name="geometry">
      <rect>

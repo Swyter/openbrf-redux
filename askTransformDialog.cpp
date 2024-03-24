@@ -71,6 +71,8 @@ AskTransformDialog::AskTransformDialog(QWidget *parent) :
     connect(ui->rightY,SIGNAL(toggled(bool)),this,SLOT(onAlignmentRY(bool)));
     connect(ui->rightZ,SIGNAL(toggled(bool)),this,SLOT(onAlignmentRZ(bool)));
 
+    connect(ui->localRot,SIGNAL(stateChanged(int)),this,SLOT(update()));
+    connect(ui->localScl,SIGNAL(stateChanged(int)),this,SLOT(update()));
     connect(ui->applyToLastSel,SIGNAL(stateChanged(int)),this,SLOT(update()));
 		connect(ui->checkBox,SIGNAL(clicked()),this,SLOT(update()));
 
@@ -238,7 +240,7 @@ void AskTransformDialog::update(){
 
   /* swy: move it to the center of the universe before doing
           rotations and then move the rotated mesh back */
-  if (1)//ui->localRot->isChecked())
+  if (ui->localRot->isChecked())
     rot = rot_move_to_center * rot * vcg::Inverse(rot_move_to_center);
 
   t.SetTranslate(ui->trax->value(),ui->tray->value(),ui->traz->value());
@@ -246,7 +248,7 @@ void AskTransformDialog::update(){
 
   /* swy: move it to the center of the universe before doing
           re-scaling and then move the scaled mesh back */
-  if (1)//ui->localScl->isChecked())
+  if (ui->localScl->isChecked())
     sc = rot_move_to_center * sc * vcg::Inverse(rot_move_to_center);
 
   /* swy: changed the order of operations from sc*rot*t to rot*sc*t, to avoid
