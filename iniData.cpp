@@ -344,9 +344,14 @@ bool IniData::readModuleTxts(const QString &pathMod, const QString& pathData){
               dynamically try to guess the format independently by looking at how many
               elements each animation start line actually has. e.g:
               
-               m&b 1.011 format, 3 elements: walk_backward_staff 256           1
-               warband format,   4 elements: walk_backward_staff 256 17825792  1 */
+              * m&b 1.011 format, 3 elements: walk_backward_staff 256           1
+              * warband format,   4 elements: walk_backward_staff 256 17825792  1 */
       bool isWarbandActionsTxt = (tf.tokenCount() == 4) ? true : false;
+
+      /* swy: change the global to Warband in these mixed-mode mods like TLD to properly parse
+              flora_kinds.txt and skyboxes.txt later on; don't depend only on what item_kinds1.txt says */
+      if (isWarbandActionsTxt)
+        isWarband = true;
 
       int tmp = tf.intT((isWarbandActionsTxt)?4:3);
       for (int j=0; j<tmp; j++) {
