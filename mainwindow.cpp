@@ -2596,6 +2596,13 @@ void MainWindow::transform(){
 		executingRepeatedCommand = false;
 
 		d->setBoundingBox(bboxAll.min.V(), bboxAll.max.V());
+
+		/* swy: get the center coordinates of the bounding box surrounding the last selected mesh;
+		        that way we can subtract the coordinates to center the mesh in the scene,
+		        so that we can do local rotations and then move it back like nothing */
+		vcg::Point3f lastSelCenter = brfdata.mesh[glWidget->lastSelected].bbox.Center();
+		d->setRotCenterPoint(lastSelCenter.X(), lastSelCenter.Y(), lastSelCenter.Z());
+
 		bool ok = d->exec() == QDialog::Accepted;
 
 		int start = (glWidget->applyExtraMatrixToAll)?0:list.size()-1;

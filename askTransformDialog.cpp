@@ -22,6 +22,14 @@ void AskTransformDialog::setBoundingBox(float *minv, float *maxv){
   }
 }
 
+/* swy: save the position/coords of the middle of the bounding box so that we
+        can go from global to local coordinates and do local rotations */
+void AskTransformDialog::setRotCenterPoint(float x, float y, float z){
+  rot_center_point[0] = x;
+  rot_center_point[1] = y;
+  rot_center_point[2] = z;
+}
+
 AskTransformDialog::AskTransformDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AskTransformDialog)
@@ -207,10 +215,28 @@ void AskTransformDialog::update(){
   ui->scy->setEnabled( !ui->checkBox->isChecked() );
   ui->scz->setEnabled( !ui->checkBox->isChecked() );
 
+  vcg::Matrix44f rot_move_to_center;
   vcg::Matrix44f rot;
   vcg::Matrix44f t;
   vcg::Matrix44f sc;
+
+  /* swy: compensate for the original mesh offset respect to the {0,0,0}
+          world position and any extra movement we do here */
+  rot_move_to_center.Identity();
+  rot_move_to_center.SetTranslate(
+    vcg::Point3f(
+      rot_center_point[0] + ui->trax->value(),
+      rot_center_point[1] + ui->tray->value(),
+      rot_center_point[2] + ui->traz->value())
+  );
+
   rot.FromEulerAngles(toRad( ui->rotx->value() ),toRad( ui->roty->value() ),toRad( ui->rotz->value() ));
+
+  /* swy: move it to the center of the universe before doing
+          rotations and then move the rotated mesh back */
+  if (true)
+    rot = rot_move_to_center * rot * vcg::Inverse(rot_move_to_center);
+
   t.SetTranslate(ui->trax->value(),ui->tray->value(),ui->traz->value());
   sc.SetScale(vcg::Point3f(ui->scx->value(),ui->scy->value(),ui->scz->value())/100.0f);
 
