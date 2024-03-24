@@ -829,6 +829,15 @@ void IniData::checkUses(int i, int j, int kind, char* usedName, int usedKind){
 static QString noDot(QString s){
   int n = s.indexOf('.');
   if (n!=-1) s.truncate(n);
+
+  /* swy: in the same way hardcoded suffixes like «.lod1» need to be stripped out so that IniData::addUsedBy() and IniData::updateUsedBy()
+          can mark the BRF entries blue, there is also a «_fem» suffix for female entity variants which is used in With Fire and Sword,
+          but that also seems to work on Warband. Reported by @Erundil.
+          
+          This can be used as a quick alternative for having multiple vertex animation frames for a single mesh. */
+  if (s.endsWith("_fem", Qt::CaseInsensitive))
+    s.chop(QString("_fem").length());
+
   return s;
 }
 
