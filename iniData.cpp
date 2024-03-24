@@ -282,6 +282,39 @@ bool IniData::readModuleTxts(const QString &pathMod, const QString& pathData){
     list.append("battle_track");
     list.append("track");
     list.append("compass");
+
+    /* swy: add the hardcoded map trees to the list, suggested by @Erundil:
+            https://discord.com/channels/411286129317249035/411291053702774784/1221451619426767009 */
+    list.append("map_tree_a");
+    list.append("map_tree_b");
+    list.append("map_tree_c");
+    list.append("map_tree_d");
+    list.append("map_tree_e");
+    list.append("map_tree_f");
+    list.append("map_tree_g");
+    list.append("map_tree_h");
+    list.append("map_tree_i");
+    list.append("map_tree_j");
+    list.append("map_tree_k");
+    list.append("map_tree_l");
+    list.append("map_tree_m");
+    list.append("map_tree_o");
+    list.append("map_tree_p");
+    list.append("map_tree_q");
+    list.append("snow_tree_a");
+    list.append("snow_tree_b");
+    list.append("snow_tree_c");
+    list.append("steppe_tree_a");
+    list.append("steppe_tree_b");
+    list.append("steppe_tree_c");
+    list.append("steppe_tree_d");
+    list.append("steppe_tree_e");
+    list.append("desert_tree_a");
+    list.append("desert_tree_b");
+    list.append("desert_tree_c");
+    list.append("desert_tree_d");
+    list.append("map_tree_n");
+
     txtNameList.push_back(list);
   }
   {
