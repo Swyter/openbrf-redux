@@ -58,7 +58,7 @@ void MainWindow::about()
                "&nbsp; &nbsp; <b>OpenBrf</b> | <i>Redux</i><br>"
                "&nbsp; &nbsp; by <b>%2</b></p><p>"
                "&nbsp; &nbsp; <b>ver %6</b><br>"
-               "&nbsp; &nbsp; (%1)<br></p>"
+               "&nbsp; &nbsp; (%1 %7)<br></p>"
                "<p><i>Testing, bug reporting, suggestions by:</i> %3</p>"
                "<p><i>Additional art by:</i> %4</p>"
                "<p><i>Translations by:</i> %5</p>")
@@ -95,6 +95,7 @@ void MainWindow::about()
                    " [Vlejundo] and [Roemerboy] <i>(Deutsche)</i>")
               .arg(tr("additional code and Chinese")))
               .arg(applVersion)
+              .arg(__TIME__)
                  +QString("<p><i>%1</i><br>%2</p>").arg(tr("With detailed info about flag meanings provided by:")).arg("[cmpxchg8b]")
             ,QMessageBox::Ok, this);
  msg.setLocale(QLocale::system());
