@@ -240,8 +240,14 @@ void AskTransformDialog::update(){
   t.SetTranslate(ui->trax->value(),ui->tray->value(),ui->traz->value());
   sc.SetScale(vcg::Point3f(ui->scx->value(),ui->scy->value(),ui->scz->value())/100.0f);
 
-  vcg::Matrix44f res = sc*rot*t;
+  /* swy: move it to the center of the universe before doing
+          re-scaling and then move the scaled mesh back */
+  if (true)
+    sc = rot_move_to_center * sc * vcg::Inverse(rot_move_to_center);
 
+  /* swy: changed the order of operations from sc*rot*t to rot*sc*t, to avoid
+          shearing while combining rotation with non-uniform scaling */
+  vcg::Matrix44f res = rot*sc*t;
 
   for (int i=0,x=0; x<4; x++)
     for (int y=0; y<4; y++,i++)
