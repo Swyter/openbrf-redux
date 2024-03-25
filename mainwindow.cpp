@@ -2465,10 +2465,14 @@ void MainWindow::meshTuneColorCancel(bool reallyCancel){
 
 }
 
-void MainWindow::meshTuneColorDo(int c,int h,int s,int b){
+void MainWindow::meshTuneColorDo(int c,int h,int s,int b, bool applyToLastSel){
 	meshTuneColorCancel(false);
 	QModelIndexList list= selector->selectedList();
-	for (int j=0; j<list.size(); j++){
+
+    /* swy: fastforward the start index to be the last element, if the AskHueSatBriDialog::onAnySliderMove() checkbox says so */
+    int j = (!applyToLastSel) ? 0 : max(list.size() - 1, 0);
+
+	for (; j<list.size(); j++){
 		BrfMesh &m(brfdata.mesh[list[j].row()]);
 		m.TuneColors(c,h,s,b);
 	}
@@ -2478,7 +2482,8 @@ void MainWindow::meshTuneColorDo(int c,int h,int s,int b){
 void MainWindow::meshTuneColor(){
 	meshTuneColorCancel(true);
 	AskHueSatBriDialog *d = new AskHueSatBriDialog(this);
-	connect(d, SIGNAL(anySliderMoved(int,int,int,int)), this, SLOT(meshTuneColorDo(int,int,int,int)));
+	connect(d, SIGNAL(anySliderMoved(int,int,int,int,bool)), this, SLOT(meshTuneColorDo(int,int,int,int,bool)));
+
 	int res = d->exec();
 	if (res!=QDialog::Accepted) meshTuneColorCancel(false); else {
 		setModified();
@@ -2603,9 +2608,9 @@ void MainWindow::transform(){
 		vcg::Point3f lastSelCenter = brfdata.mesh[glWidget->lastSelected].bbox.Center();
 		vcg::Point3f  allSelCenter = bboxAll.Center();
 		d->setRotCenterPoint(
-            lastSelCenter.X(), lastSelCenter.Y(), lastSelCenter.Z(),
-             allSelCenter.X(),  allSelCenter.Y(),  allSelCenter.Z()
-        );
+		    lastSelCenter.X(), lastSelCenter.Y(), lastSelCenter.Z(),
+		     allSelCenter.X(),  allSelCenter.Y(),  allSelCenter.Z()
+		);
 
 		bool ok = d->exec() == QDialog::Accepted;
 

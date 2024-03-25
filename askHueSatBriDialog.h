@@ -16,7 +16,7 @@ public:
     ~AskHueSatBriDialog();
 
 signals:
-    void anySliderMoved(int, int, int, int);
+    void anySliderMoved(int, int, int, int, bool);
 
 private slots:
     void onAnySliderMove(int);

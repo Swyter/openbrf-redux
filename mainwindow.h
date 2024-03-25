@@ -235,7 +235,7 @@ private slots:
 	void meshTuneColor();
 	void meshComputeAo();
 	void meshColorWithTexture();
-	void meshTuneColorDo(int,int,int,int);
+	void meshTuneColorDo(int,int,int,int, bool applyToLastSel);
 	void meshFemininize();
 	void meshComputeLod();
 	void meshRecomputeTangents();

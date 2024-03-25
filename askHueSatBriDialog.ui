@@ -16,8 +16,8 @@
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
-     <x>110</x>
-     <y>140</y>
+     <x>140</x>
+     <y>150</y>
      <width>171</width>
      <height>32</height>
     </rect>
@@ -191,6 +191,20 @@
    </property>
    <property name="alignment">
     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+    <widget class="QCheckBox" name="applyToLastSel">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>140</y>
+     <width>151</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Apply to last selected
+object only</string>
    </property>
   </widget>
  </widget>
