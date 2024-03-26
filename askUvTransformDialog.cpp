@@ -8,6 +8,7 @@ AskUvTransformDialog::AskUvTransformDialog(QWidget *parent) :
     ui->setupUi(this);
 
     connect(ui->invertY,SIGNAL(clicked()),this,SLOT(setInvertY()));
+    connect(ui->invertX,SIGNAL(clicked()),this,SLOT(setInvertX()));
     connect(ui->Reset,SIGNAL(clicked()),this,SLOT(reset()));
     connect(ui->traU,SIGNAL(valueChanged(double)), this, SIGNAL(changed()));
     connect(ui->traV,SIGNAL(valueChanged(double)), this, SIGNAL(changed()));
@@ -31,8 +32,13 @@ void AskUvTransformDialog::reset(){
 }
 
 void AskUvTransformDialog::setInvertY(){
-  ui->scaleV->setValue(-100);
+  ui->scaleV->setValue(ui->scaleV->value() * -1); /* swy: flip the sign back and forth instead of hardcoding it to -100 */
   ui->traV->setValue(1);
+}
+
+void AskUvTransformDialog::setInvertX(){
+  ui->scaleU->setValue(ui->scaleU->value() * -1); /* swy: flip the sign back and forth instead of hardcoding it to -100 */
+  ui->traU->setValue(1);
 }
 
 AskUvTransformDialog::~AskUvTransformDialog()

@@ -17,6 +17,7 @@ public:
     void getData(float& su, float& sy, float& tu, float& tv);
 public slots:
     void setInvertY();
+    void setInvertX();
     void reset();
 signals:
     void changed();

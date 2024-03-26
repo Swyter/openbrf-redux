@@ -2469,8 +2469,8 @@ void MainWindow::meshTuneColorDo(int c,int h,int s,int b, bool applyToLastSel){
 	meshTuneColorCancel(false);
 	QModelIndexList list= selector->selectedList();
 
-    /* swy: fastforward the start index to be the last element, if the AskHueSatBriDialog::onAnySliderMove() checkbox says so */
-    int j = (!applyToLastSel) ? 0 : max(list.size() - 1, 0);
+	/* swy: fastforward the start index to be the last element, if the AskHueSatBriDialog::onAnySliderMove() checkbox says so */
+	int j = (!applyToLastSel) ? 0 : max(list.size() - 1, 0);
 
 	for (; j<list.size(); j++){
 		BrfMesh &m(brfdata.mesh[list[j].row()]);
