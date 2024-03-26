@@ -505,7 +505,7 @@ void MainWindow::createActions()
 	editPasteVertColorsAct->setEnabled(false);
 
 	editPasteVertAniAct = new QAction(tr("Paste vert animations"), this);
-	editPasteVertAniAct->setStatusTip(tr("Try to trasnfer vert animations (good for face morph, can work only for very similar meshes)."));
+	editPasteVertAniAct->setStatusTip(tr("Try to transfer vert animations (good for face morph, can work only for very similar meshes)."));
 	editPasteVertAniAct->setEnabled(false);
 
 	editPasteAniLowerPartsAct = new QAction(tr("Paste lower parts of animations"), this);

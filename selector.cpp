@@ -271,7 +271,7 @@ Selector::Selector(QWidget *parent)
 	meshUnify = new QAction(tr("Clean redundant vert/pos"), this);
 	meshUnify->setStatusTip(tr("Removes any unused vertices or positions and merge identical ones"));
 
-	meshUvTransformAct = new QAction(tr("Transfrom texture coords"),this);
+	meshUvTransformAct = new QAction(tr("Transform texture coords"),this);
 	meshUvTransformAct->setStatusTip(tr("Translates/Scales/Flips UV coords"));
 
     meshFixRiggingRigidParts = new QAction(tr("Quick fix skinning of rigid-parts"), this);

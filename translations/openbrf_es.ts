@@ -3110,7 +3110,7 @@ al que añadir un fotograma o cuadro.</translation>
     </message>
     <message>
         <location line="+4"/>
-        <source>Try to trasnfer vert animations (good for face morph, can work only for very similar meshes).</source>
+        <source>Try to transfer vert animations (good for face morph, can work only for very similar meshes).</source>
         <translation>Intent transferir animaciones por vértice (bueno para morfosis de caras, solo funciona con modelos muy parecidos).</translation>
     </message>
     <message>
@@ -5930,7 +5930,7 @@ en la línea %3:
     </message>
     <message>
         <location line="+2"/>
-        <source>Transfrom texture coords</source>
+        <source>Transform texture coords</source>
         <translation>Transformar coordenadas de textura</translation>
     </message>
     <message>

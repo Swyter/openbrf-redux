@@ -3102,7 +3102,7 @@ to add a frame to.</source>
     </message>
     <message>
         <location filename="../main_create.cpp" line="508"/>
-        <source>Try to trasnfer vert animations (good for face morph, can work only for very similar meshes).</source>
+        <source>Try to transfer vert animations (good for face morph, can work only for very similar meshes).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6201,7 +6201,7 @@ at line %3:
     </message>
     <message>
         <location filename="../selector.cpp" line="274"/>
-        <source>Transfrom texture coords</source>
+        <source>Transform texture coords</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
