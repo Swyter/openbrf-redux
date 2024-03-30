@@ -40,7 +40,7 @@ public:
 	QMenu *contextMenu;
 	/* swy: added these to keep track of any spurious onChange() events caused by a single left-click event that resets any double-clicking;
 	        this is a workaround because I haven't been able to fix the root cause after debugging and learning how Qt works for days */
-	bool           postDoubleClickedHappened;
+	bool           someDoubleClickHappened;
 	QItemSelection lastDoubleClickSel;
 	QModelIndex    lastDoubleClickIndex;
 

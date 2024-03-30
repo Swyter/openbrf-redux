@@ -49,7 +49,7 @@ Selector::Selector(QWidget *parent)
 		//tabIndex[i]=-1;
 	}
 	iniDataWaitsSaving = false;
-	postDoubleClickedHappened = false; /* swy: keep track of any previous double click events that cause a selection change */
+	someDoubleClickHappened = false; /* swy: keep track of any previous double click events that cause a selection change */
 
 
 	contextMenu = new QMenu(this);
@@ -1131,8 +1131,8 @@ void Selector::onDoubleClicked(const QModelIndex & mi){
 		}
 	}
 	if (!lastDoubleClickSel.isEmpty()) {
-		m->select(lastDoubleClickSel,QItemSelectionModel::ClearAndSelect); /* swy: this was QItemSelectionModel::ClearAndSelect, but using Ctrl/Shift while double-clicking ranges was bugged, even in original versions from Marco; leave only this range selected and clear anything else */
-		postDoubleClickedHappened = true;                                  /* swy: make it possible to detect previous Selector::onDoubleClicked() calls from Selector::onChanged() */
+		m->select(lastDoubleClickSel,QItemSelectionModel::ClearAndSelect); /* swy: this was QItemSelectionModel::Toggle, but using Ctrl/Shift while double-clicking ranges was bugged, even in original versions from Marco; leave only this range selected and clear anything else */
+		someDoubleClickHappened = true;                                    /* swy: make it possible to detect previous Selector::onDoubleClicked() calls from Selector::onChanged() */
 	}
 	//t->grabKeyboard();
 
@@ -1158,7 +1158,7 @@ void Selector::onChanged(){
 			/* swy: funky workaround to retain the multi-selection caused by a double right-click, that otherwise would get immediately resetted to a single element
 			        again by a spurious Qt event sent by that very last right-click in double-click; the funny thing is that if we right-click with the
 			        middle/mouse scroll button the bug doesn't happen, and in official OpenBRF builds with older Qt versions the behavior is different. */
-			if (postDoubleClickedHappened &&
+			if (someDoubleClickHappened &&
 			    tmp->selectedIndexes().size() == 1 &&
 			    tmp->currentIndex() == lastDoubleClickIndex &&
 			    tmp->selectedIndexes().size() != lastDoubleClickSel.size())
@@ -1167,7 +1167,7 @@ void Selector::onChanged(){
 				tmp->blockSignals(true); /* swy: we need to block signals while inside the onChanged() callback or we'll get infinite recursion, go figure */
 				tmp->select(lastDoubleClickSel, QItemSelectionModel::ClearAndSelect);
 				tmp->blockSignals(false);
-				postDoubleClickedHappened = false;
+				someDoubleClickHappened = false;
 				return;
 			}
 
