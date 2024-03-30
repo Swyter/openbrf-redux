@@ -33,12 +33,12 @@ void AskUvTransformDialog::reset(){
 
 void AskUvTransformDialog::setInvertY(){
   ui->scaleV->setValue(ui->scaleV->value() * -1); /* swy: flip the sign back and forth instead of hardcoding it to -100 */
-  ui->traV->setValue(1);
+//  ui->traV->setValue(1);
 }
 
 void AskUvTransformDialog::setInvertX(){
   ui->scaleU->setValue(ui->scaleU->value() * -1); /* swy: flip the sign back and forth instead of hardcoding it to -100 */
-  ui->traU->setValue(1);
+//  ui->traU->setValue(1);
 }
 
 AskUvTransformDialog::~AskUvTransformDialog()

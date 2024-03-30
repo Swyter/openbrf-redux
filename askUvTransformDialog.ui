@@ -220,7 +220,7 @@
     <string>Reset</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="invertY">
+  <widget class="QPushButton" name="invertX">
    <property name="geometry">
     <rect>
      <x>70</x>
@@ -233,7 +233,7 @@
     <string>Flip U</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="invertX">
+  <widget class="QPushButton" name="invertY">
    <property name="geometry">
     <rect>
      <x>110</x>
