@@ -1131,8 +1131,8 @@ void Selector::onDoubleClicked(const QModelIndex & mi){
 		}
 	}
 	if (!lastDoubleClickSel.isEmpty()) {
-		m->select(lastDoubleClickSel,QItemSelectionModel::ClearAndSelect); /* swy: this was QItemSelectionModel::Toggle, but using Ctrl/Shift while double-clicking ranges was bugged, even in original versions from Marco; leave only this range selected and clear anything else */
-		someDoubleClickHappened = true;                                    /* swy: make it possible to detect previous Selector::onDoubleClicked() calls from Selector::onChanged() */
+		m->select(lastDoubleClickSel,QItemSelectionModel::ToggleCurrent); /* swy: this was QItemSelectionModel::Toggle, but using Ctrl/Shift while double-clicking ranges was bugged, even in original versions from Marco; leave only this range selected and clear anything else */
+		someDoubleClickHappened = true;                                   /* swy: make it possible to detect previous Selector::onDoubleClicked() calls from Selector::onChanged() */
 	}
 	//t->grabKeyboard();
 
@@ -1158,18 +1158,21 @@ void Selector::onChanged(){
 			/* swy: funky workaround to retain the multi-selection caused by a double right-click, that otherwise would get immediately resetted to a single element
 			        again by a spurious Qt event sent by that very last right-click in double-click; the funny thing is that if we right-click with the
 			        middle/mouse scroll button the bug doesn't happen, and in official OpenBRF builds with older Qt versions the behavior is different. */
-			if (someDoubleClickHappened &&
-			    tmp->selectedIndexes().size() == 1 &&
-			    tmp->currentIndex() == lastDoubleClickIndex &&
-			    tmp->selectedIndexes().size() != lastDoubleClickSel.size())
-			{
-				qDebug("swy: resetted selection back, protecting from spurious left-click event! (%d) != (%d)",tmp->selectedIndexes().size(), lastDoubleClickSel.size());
-				tmp->blockSignals(true); /* swy: we need to block signals while inside the onChanged() callback or we'll get infinite recursion, go figure */
-				tmp->select(lastDoubleClickSel, QItemSelectionModel::ClearAndSelect);
-				tmp->blockSignals(false);
-				someDoubleClickHappened = false;
-				return;
-			}
+			if (someDoubleClickHappened)
+				if (tmp->selectedIndexes().size() == 1 && tmp->currentIndex() == lastDoubleClickIndex &&
+					tmp->selectedIndexes().size() != lastDoubleClickSel.size())
+				{
+					qDebug("swy: resetted selection back, protecting from spurious left-click event! (%d) != (%d)",tmp->selectedIndexes().size(), lastDoubleClickSel.size());
+					tmp->blockSignals(true); /* swy: we need to block signals while inside the onChanged() callback or we'll get infinite recursion, go figure */
+					tmp->select(lastDoubleClickSel, QItemSelectionModel::ToggleCurrent);
+					tmp->blockSignals(false);
+					someDoubleClickHappened = false;
+					return;
+				}
+				else
+				{
+					lastDoubleClickSel.clear();
+				}
 
 
 			emit setSelection(
