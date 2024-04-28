@@ -4643,7 +4643,7 @@ void MainWindow::updateTitle(){
 	else if (isModifiedHitboxes) maybestar=QString("(**)");
 
 	QString notInIni = (curFileIndex==-1)?tr(" [not in module.ini]"):tr("");
-	QString tit("OpenBrf");
+	QString tit("OpenBrf Redux");
 	if (!editingRef) {
 		if (curFile.isEmpty())
 			setWindowTitle(tr("%1%2").arg(tit).arg(maybestar));
