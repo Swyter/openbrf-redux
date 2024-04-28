@@ -549,7 +549,7 @@ void MainWindow::createActions()
 	connect(editPasteVertAniAct, SIGNAL(triggered()), this, SLOT(editPasteVertAni()));
 
 	saveAsAct = new QAction(tr("Save &As..."), this);
-	//saveAsAct->setShortcuts(QKeySequence::SaveAs);
+	saveAsAct->setShortcut(QKeySequence("Ctrl+Shift+S")); /* swy: suggested by @kraggrim */
 	saveAsAct->setStatusTip(tr("Save the document under a new name"));
 	connect(saveAsAct, SIGNAL(triggered()), this, SLOT(saveAs()));
 
