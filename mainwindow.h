@@ -56,6 +56,7 @@ public:
 	QString getNextTranslatorFilename(){return nextTranlationFilename;};
 
 	void setUseAlphaCommands(bool mode);
+	void disableWhileInToolMode(bool setAsDisabled);
 private:
 	BrfData brfdata;
 	BrfData reference;
@@ -120,6 +121,7 @@ private slots:
 	void flip();
 	void scale();
 	void transform();
+	void onTransformDone();
 	void smoothenRigging();
 	void stiffenRigging();
 	void onChangeMeshMaterial(QString newName);

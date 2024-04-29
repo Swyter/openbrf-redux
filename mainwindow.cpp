@@ -2554,6 +2554,12 @@ double myRound(double d){
 	return d*base;
 }
 
+void MainWindow::disableWhileInToolMode(bool setAsDisabled)
+{
+	selector->setDisabled(setAsDisabled);               /* swy: make sure we can't change meshes or going into a different asset-type tab. Stay in Mesh or Col */
+	guiPanel->ui->meshData->setDisabled(setAsDisabled); /* swy: make sure we can't switch BRF files by clicking through the Material hyperlinks; but still being able to change viewing modes, like wireframe and more */
+	menuBar()->setDisabled(setAsDisabled);              /* swy: make sure we can't launch any other action or menu */
+}
 
 void MainWindow::transform(){
 	QModelIndexList list= selector->selectedList();
@@ -2612,26 +2618,42 @@ void MainWindow::transform(){
 		     allSelCenter.X(),  allSelCenter.Y(),  allSelCenter.Z()
 		);
 
-		bool ok = d->exec() == QDialog::Accepted;
+		/* swy: changed the original d->exec() modal dialog so that we can still use the 3D view
+		        and move the camera while rescaling/translating via the AskTransformDialog GUI */
+		disableWhileInToolMode(true);
 
-		int start = (glWidget->applyExtraMatrixToAll)?0:list.size()-1;
+		QObject::connect(d, SIGNAL(accepted()), this, SLOT(onTransformDone()));
+		QObject::connect(d, SIGNAL(rejected()), this, SLOT(onTransformDone()));
+		
+		d->setWindowFlags(Qt::Tool);
+		d->show();
+	}
+}
 
-        int frameN = -1; // all!  // currentDisplayFrame();
-        //if (d->)
+void MainWindow::onTransformDone(){
+	/* swy: the AskTransformDialog has been closed */
+	QModelIndexList list= selector->selectedList();
+	AskTransformDialog *d = askTransformDialog; qDebug("swy: onTransformDone() result=%u\n", d->result());
 
-		if (ok) {
+	disableWhileInToolMode(false);
 
-			if (selector->currentTabName()==MESH)
-				for (int j=start; j<list.size(); j++)
-                    brfdata.mesh[list[j].row()].Transform(d->matrix , frameN);
+	bool ok = d->result() /* d->exec() */ == QDialog::Accepted; /* swy: if the user clicked the X button it will also appear as QDialog::Rejected */
 
-			if (selector->currentTabName()==BODY)
-				for (int j=start; j<list.size(); j++)
-					brfdata.body[list[j].row()].Transform(d->matrix);
+	int start = (glWidget->applyExtraMatrixToAll)?0:list.size()-1;
 
-			setModified();
-		}
+	int frameN = -1; // all!  // currentDisplayFrame();
 
+	if (ok) {
+
+		if (selector->currentTabName()==MESH)
+			for (int j=start; j<list.size(); j++)
+				brfdata.mesh[list[j].row()].Transform(d->matrix , frameN);
+
+		if (selector->currentTabName()==BODY)
+			for (int j=start; j<list.size(); j++)
+				brfdata.body[list[j].row()].Transform(d->matrix);
+
+		setModified();
 	}
 	glWidget->clearExtraMatrix();
 	updateGl();
