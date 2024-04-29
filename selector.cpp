@@ -594,7 +594,7 @@ int Selector::numSelected() const{
 
 
 void Selector::updateData(const BrfData &data){
-
+	lastDoubleClickSel.clear();
 	setup(data);
 
 }

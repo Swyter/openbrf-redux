@@ -640,20 +640,25 @@ bool MainWindow::importBrf(){
 
   //QString lastBrfFormat(tr("strange, latest, rare Warband format (*.brf)"));
 
-  QString fn = askImportFilename(tr("Warband or M&B resource (*.brf)"));//+lastBrfFormat);
+  QStringList fn = askImportFilenames(tr("Warband or M&B resource (*.brf)"));//+lastBrfFormat);
   if (fn.isEmpty()) return false;
-  BrfData tmp;
+  
   //bool useNext=(lastImpExpFormat==lastBrfFormat);
 
-  if (!tmp.Load(fn.toStdWString().c_str(),0)) {
-    QMessageBox::information(this,
-      tr("Open Brf"),
-      tr("Cannot import file %1\n\n")
-    );
-    return false;
+  for (int i=0; i<fn.size(); i++) {
+    BrfData tmp;
+
+    if (!tmp.Load(fn[i].toStdWString().c_str(),0)) {
+      QMessageBox::information(this,
+        tr("Open Brf"),
+        tr("Cannot import file %1\n\n")
+      );
+      return false;
+    }
+
+    brfdata.Merge(tmp);
+    selector->updateData(brfdata);
   }
-  brfdata.Merge(tmp);
-  selector->updateData(brfdata);
   setModified();
   return true;
 }
