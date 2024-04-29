@@ -250,6 +250,8 @@ Selector::Selector(QWidget *parent)
 
 	transformAct = new QAction(tr("Roto-translate-rescale..."),this);
 	transformAct->setStatusTip(tr("Apply a geometric transform."));
+	transformAct->setShortcut(QKeySequence("Alt+R")); /* swy: requested by @kraggrim, most of the other contextual options use Alt. so this works, I think */
+	addShortCuttedAction(transformAct);
 
 	scaleAct = new QAction(tr("Rescale..."), this);
 	scaleAct->setStatusTip(tr("Rescale this object."));
