@@ -774,26 +774,6 @@ void GLWidget::enableMaterial(const BrfMaterial &m){
 }
 
 void GLWidget::renderBrfItem(const BrfBody& b){
-	if (useComparisonMesh) {
-		std::vector<BrfMesh> &v(data->mesh);
-		for (unsigned int i=0; i<v.size(); i++) {
-			BrfMesh &m( v[i] );
-			if ( m.IsNamedAsBody(b.name) && (m.IsNamedAsLOD()==0)) renderMesh(m,0);
-		}
-
-		int si = data->Find(b.name,SKELETON);
-
-		if (si>=0) {
-			if (selRefSkin>=0) {
-				for (unsigned int i=0; i<reference->mesh.size(); i++)
-					if (reference->mesh[i].name[4]==char('A'+selRefSkin))
-						renderMesh(reference->mesh[i],0);  // skin!
-			} else {
-				renderSkeleton(data->skeleton[si]); // naked bones
-			}
-		}
-
-	}
 
 	renderBody(b);
 }
@@ -2621,6 +2601,36 @@ void GLWidget::renderSelected(const std::vector<BrfType>& v){
         for (int i:inViewport[vi].items)
         if ( !hideLods || (lodOf(v[i])<=inViewport[vi].bestLod) ) { // don't draw
             glPushMatrix();
+
+			/* swy: this code which draws the 'Compare with mesh' matching mesh before the collision was originally inside the BrfBody
+			        variant of GLWidget::renderBrfItem(), but had to be moved out because the glMultMatrixf(extraMatrix) after this
+			        meant that the comparison mesh would also get live transformed during the roto-translate tool operation,
+			        and we want to keep it unaffected; only moving the collision itself and having this for reference.
+
+			        PS: this mesh also needs to get drawn first/before for the see-through effect of the capsules to work */
+			if (useComparisonMesh && v[i].tokenIndex() == BODY) {
+				const BrfType &b = v[i];
+
+				std::vector<BrfMesh> &v(data->mesh);
+				for (unsigned int j=0; j<v.size(); j++) {
+					BrfMesh &m( v[j] );
+					if ( m.IsNamedAsBody(b.name) && (m.IsNamedAsLOD()==0)) renderMesh(m,0);
+				}
+
+				int si = data->Find(b.name,SKELETON);
+
+				if (si>=0) {
+					if (selRefSkin>=0) {
+						for (unsigned int i=0; i<reference->mesh.size(); i++)
+							if (reference->mesh[i].name[4]==char('A'+selRefSkin))
+								renderMesh(reference->mesh[i],0);  // skin!
+					} else {
+						renderSkeleton(data->skeleton[si]); // naked bones
+					}
+				}
+
+			}
+
 			if ( (i==lastSelected) || applyExtraMatrixToAll ) glMultMatrixf(extraMatrix);
 			renderBrfItem(v[i]);
 
