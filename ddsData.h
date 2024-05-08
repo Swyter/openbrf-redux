@@ -11,6 +11,7 @@ typedef struct {
   int filesize;
   int ddxversion;
   int location;
+  float r, g, b, a; /* swy: average color of the last mipmap; for content detection like distinguishing between green and blue normalmaps */
 } DdsData;
 
 #endif // DDSDATA_H
