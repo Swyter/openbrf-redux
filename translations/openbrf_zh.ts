@@ -1119,7 +1119,7 @@ They will not be even loaded by the game.</source>
     </message>
     <message>
         <location filename="../glwidgets.cpp" line="1450"/>
-        <source>Deafult (fixed functionality)</source>
+        <source>Default (fixed functionality)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

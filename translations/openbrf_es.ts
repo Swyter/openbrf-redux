@@ -1003,7 +1003,7 @@ Ni siquiera serán cargadas por el juego...</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Deafult (fixed functionality)</source>
+        <source>Default (fixed functionality)</source>
         <translation>Por defecto (funcionalidad preestablecida)
 (Default (fixed functionality))</translation>
     </message>

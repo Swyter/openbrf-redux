@@ -1431,7 +1431,7 @@ QString GLWidget::getCurrentShaderDescriptor() const{
 		return QString(tr("Custom User Shader"));
 	} else
 		switch (lastUsedShader) {
-		case SHADER_FIXEDFUNC: return tr("Deafult (fixed functionality)");
+		case SHADER_FIXEDFUNC: return tr("Default (fixed functionality)");
 		case SHADER_IRON: return tr("Alpha to Shininess");
 		case NM_PLAIN: return tr("Plain NormalMap (%1)").arg(st);
 		case NM_ALPHA: return tr("NormalMap + Alpha to Transparency (%1)").arg(st);

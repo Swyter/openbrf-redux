@@ -868,7 +868,7 @@ in %2</translation>
     </message>
     <message>
         <location filename="../glwidgets.cpp" line="1450"/>
-        <source>Deafult (fixed functionality)</source>
+        <source>Default (fixed functionality)</source>
         <translation>Serverstandard verwenden(feste Funktionalität)</translation>
     </message>
     <message>
