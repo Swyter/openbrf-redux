@@ -287,6 +287,7 @@ private:
 	float phi, theta, dist;
 	int tw, th; // texture size, when texture is shown
 	bool ta; // textures uses alpha, when texture is shown
+	bool nmgreen; // swy: tangent normalmap seems to be of the green type [RGBA/0X0Y] instead of blue [RGBA/XY__] (after analyzing the bitmap contents)
 	float cx, cy, zoom; // for texture display
 	vcg::Point3f avatP, avatV; // pos, vel of avatat
 	bool keys[5];

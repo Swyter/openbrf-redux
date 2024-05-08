@@ -220,15 +220,10 @@ bool GLWidget::myBindTexture(const QString &fileName, DdsData &data)
 
     free(pixels);
 
-    /* swy: green normal map RGBA/0X0Y: ~0      , ~0.50196, ~0,   ~0.50196 */
-    /* swy: blue  normal map RGBA/XY__: ~0.50196, ~0.50196, ~1.0, ~1.0     */
+    /* swy: grab the decoded pixel data of the last mipmap; which should contain a single pixel with the average color, useful to analyze the texture contents for the normalmap encoding and RGBA channel usage */
+    uint8_t decodedPixels[4096] = {0}; glGetTexImage(GL_TEXTURE_2D, max((int) ddsHeader.dwMipMapCount - 1, 0), GL_RGBA, GL_UNSIGNED_BYTE, &decodedPixels); /* swy: make sure we pick mip index zero when there's only a single mipmap, instead of -1; which will cause a crash */
 
-//[26420] "C:/Program Files (x86)/Steam/steamapps/common/MountBlade Warband/Textures/bride_dress.dds"
-//[26420] glGetTexImage: 7e, 80, fc, b0, 7e, 80, fc ([)bbb
-
-    uint8_t decodedPixels[80000] = {0}; glGetTexImage(GL_TEXTURE_2D, ddsHeader.dwMipMapCount - 1, GL_RGBA, GL_UNSIGNED_BYTE, &decodedPixels);
-
-    qDebug("glGetTexImage: %hhx, %hhx, %hhx, %hhx, %hhx, %hhx, %hhx, %hhx\n", decodedPixels[0], decodedPixels[1], decodedPixels[2], decodedPixels[3], decodedPixels[4], decodedPixels[5], decodedPixels[6], decodedPixels[7]);
+    qDebug("glGetTexImage: %hhx, %hhx, %hhx, %hhx, %hhx, %hhx, %hhx, %hhx", decodedPixels[0], decodedPixels[1], decodedPixels[2], decodedPixels[3], decodedPixels[4], decodedPixels[5], decodedPixels[6], decodedPixels[7]);
     qDebug() << fileName;
 
     data.r = decodedPixels[0] / 256.f,
@@ -237,12 +232,6 @@ bool GLWidget::myBindTexture(const QString &fileName, DdsData &data)
     data.a = decodedPixels[3] / 256.f;
 
     qDebug("glGetTexImage: float %f %f %f %f", data.r, data.g, data.b, data.a);
-    if (data.r <= 0.1f && data.b <= 0.1f &&
-       (data.g >= 0.4f && data.g <= 0.6f) && 
-       (data.a >= 0.4f && data.a <= 0.6f))
-      qDebug("green nm!\n");
-    else
-      qDebug("blue nm!\n");
 
 
     qgl_dds_cache()->insert(fileName, data);

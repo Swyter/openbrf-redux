@@ -1052,6 +1052,24 @@ void GLWidget::setTextureName(QString s, int origin, int texUnit){
         tw=data.sx;
 		th=data.sy;
 		ta=(data.ddxversion>=3);
+
+		/* swy: try to guess the normal map channel encoding from the average color */
+		/*      - green normal map RGBA/0X0Y: ~0      , ~0.50196, ~0,   ~0.50196    */
+		/*      - blue  normal map RGBA/XY__: ~0.50196, ~0.50196, ~1.0, ~1.0        */
+		if (ta &&                                /* swy: only formats with alpha channel like DXT3 and DXT5 make sense */
+		    data.r <= 0.1f && data.b <= 0.1f  && /* swy: R_B_ should be almost zero/black */
+		   (data.g >= 0.4f && data.g <= 0.6f) && /* swy: _G_A should contains the normals which should be around 0.5 */
+		   (data.a >= 0.4f && data.a <= 0.6f))
+		{
+			nmgreen=true;
+			qDebug("green nm!\n");
+		}
+		else
+		{
+			nmgreen=false;
+			qDebug("blue nm!\n");
+		}
+		
         //qDebug("Settexture: ta=%d, name=%s",data.ddxversion,s.toLatin1().data());
 	} else {
 		setMaterialError(3); // format is wrong
@@ -1102,7 +1120,7 @@ void GLWidget::setMaterialName(QString st){
 					if (!b.isEmpty()) {
 						setTextureName(b, m->bumpLocation ,1 );
 						bumpmapActivated = true;
-						bumpmapUsingGreen = ta;
+						bumpmapUsingGreen = nmgreen;
 					}
 				} else setDummyNormTexture();
 				if (useS) {
