@@ -229,27 +229,27 @@ bool GLWidget::myBindTexture(const QString &fileName, DdsData &data)
 
     free(pixels);
 
+    /* swy: allocate a tiny buffer in the stack; easy and fast */
     uint8_t decodedPixels[4u * 4u * sizeof(uint32_t)] = {0};
 
-    /* swy: if it does not fix in our small buffer (we're interested in tiny mip sizes like 1x1 or 4x4 pixels), then ignore it */
+    /* swy: if it does not fit in our small buffer (we're interested in tiny mip sizes like 1x1 or 4x4 pixels), then ignore it */
     if ((w * h * sizeof(uint32_t)) <= sizeof(decodedPixels)) {
         /* swy: grab the decoded pixel data of the last mipmap; which should contain a single pixel with the average color,
                 useful to analyze the texture contents for the normalmap encoding and RGBA channel usage */
         glGetTexImage(GL_TEXTURE_2D, max((int) ddsHeader.dwMipMapCount - 1, 0), GL_RGBA, GL_UNSIGNED_BYTE, &decodedPixels); /* swy: make sure we pick mip index zero when there's only a single mipmap, instead of -1; which will cause a crash */
 
-        qDebug("glGetTexImage: %hhx, %hhx, %hhx, %hhx, %hhx, %hhx, %hhx, %hhx", decodedPixels[0], decodedPixels[1], decodedPixels[2], decodedPixels[3], decodedPixels[4], decodedPixels[5], decodedPixels[6], decodedPixels[7]);
-        qDebug() << fileName;
+        qDebug("glGetTexImage: %hhx, %hhx, %hhx, %hhx, %hhx, %hhx, %hhx, %hhx", decodedPixels[0], decodedPixels[1], decodedPixels[2], decodedPixels[3], decodedPixels[4], decodedPixels[5], decodedPixels[6], decodedPixels[7]); qDebug() << fileName;
         data.pixel_data_present = true;
     } else {
         qDebug("glGetTexImage: couldn't retrieve the decoded pixel data. mipcount=%u, w=%u, h=%u", ddsHeader.dwMipMapCount, w, h);
         data.pixel_data_present = false;
     }
 
-      data.r = decodedPixels[0] / 256.f,
-      data.g = decodedPixels[1] / 256.f, 
-      data.b = decodedPixels[2] / 256.f, 
-      data.a = decodedPixels[3] / 256.f;
-      qDebug("glGetTexImage: float %f %f %f %f. mipcount=%u, w=%u, h=%u", data.r, data.g, data.b, data.a, ddsHeader.dwMipMapCount, w, h);
+    data.r = decodedPixels[0] / 256.f,
+    data.g = decodedPixels[1] / 256.f,
+    data.b = decodedPixels[2] / 256.f,
+    data.a = decodedPixels[3] / 256.f;
+    qDebug("glGetTexImage: float %f %f %f %f. mipcount=%u, w=%u, h=%u", data.r, data.g, data.b, data.a, ddsHeader.dwMipMapCount, w, h);
 
     qgl_dds_cache()->insert(fileName, data);
     return true;

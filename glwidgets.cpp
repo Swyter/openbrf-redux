@@ -1058,7 +1058,7 @@ void GLWidget::setTextureName(QString s, int origin, int texUnit){
 		/*      - blue  normal map RGBA/XY__: ~0.50196, ~0.50196, ~1.0, ~1.0        */
 		if (ta && data.pixel_data_present     && /* swy: only formats with alpha channel like DXT3 and DXT5 make sense */
 		    data.r <= 0.1f && data.b <= 0.1f  && /* swy: R_B_ should be almost zero/black */
-		   (data.g >= 0.4f && data.g <= 0.6f) && /* swy: _G_A should contains the normals which should be around 0.5 */
+		   (data.g >= 0.4f && data.g <= 0.6f) && /* swy: _G_A should contain the normals; which should be around 0.5 */
 		   (data.a >= 0.4f && data.a <= 0.6f))
 			nmgreen=true;
 		else
@@ -1687,9 +1687,8 @@ void GLWidget::initOpenGL2(){
 
 	/* swy: retrieve the list of supported OpenGL extensions; first as a long space-separated string,
 	        then split into a QtSet dictionary for fast lookups */
-	const char *thing = (const char *) glGetString(GL_EXTENSIONS);
-	supportedExtensionsList = QString(thing).split(" ").toSet();
-	qDebug() << supportedExtensionsList;
+	const char *longSausageString = (const char *) glGetString(GL_EXTENSIONS);
+	supportedExtensionsList = QString(longSausageString).split(" ").toSet(); qDebug() << supportedExtensionsList;
 
 	if (supportedExtensionsList.contains("GL_EXT_texture_filter_anisotropic"))
 	{
