@@ -74,6 +74,9 @@ public:
 	MaterialError lastMatErr;
 	void setMaterialError(int newErr);
 
+	QSet<QString> supportedExtensionsList;
+	uint8_t maxSupportedTexAnisoTaps = 0;
+
 	void keyPressEvent( QKeyEvent * event );
 	void keyReleaseEvent( QKeyEvent * event );
 private slots:

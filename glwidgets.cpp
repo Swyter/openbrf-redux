@@ -1684,6 +1684,19 @@ void GLWidget::initOpenGL2(){
     //glewInit();
 	//initFramPrograms();
     qDebug("Init glew2!");
+
+	/* swy: retrieve the list of supported OpenGL extensions; first as a long space-separated string,
+	        then split into a QtSet dictionary for fast lookups */
+	const char *thing = (const char *) glGetString(GL_EXTENSIONS);
+	supportedExtensionsList = QString(thing).split(" ").toSet();
+	qDebug() << supportedExtensionsList;
+
+	if (supportedExtensionsList.contains("GL_EXT_texture_filter_anisotropic"))
+	{
+		glGetIntegerv(GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT, (GLint *) &maxSupportedTexAnisoTaps);
+		qDebug("swy: GL_EXT_texture_filter_anisotropic is supported, with x%u taps...", maxSupportedTexAnisoTaps);
+	}
+
 	openGL2ready = true;
 
 	readCustomShaders();

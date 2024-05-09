@@ -194,6 +194,9 @@ bool GLWidget::myBindTexture(const QString &fileName, DdsData &data)
     } else
       glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
+    if (GLWidget::maxSupportedTexAnisoTaps > 1)
+      glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY_EXT, GLWidget::maxSupportedTexAnisoTaps);
+
     int offset = 0;
     int w = ddsHeader.dwWidth;
     int h = ddsHeader.dwHeight;
