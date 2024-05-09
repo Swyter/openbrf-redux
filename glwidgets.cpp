@@ -1692,7 +1692,7 @@ void GLWidget::initOpenGL2(){
 
 	if (supportedExtensionsList.contains("GL_EXT_texture_filter_anisotropic"))
 	{
-		glGetIntegerv(GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT, (GLint *) &maxSupportedTexAnisoTaps);
+		glGetIntegerv(GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT, &maxSupportedTexAnisoTaps);
 		qDebug("swy: GL_EXT_texture_filter_anisotropic is supported, with x%u taps...", maxSupportedTexAnisoTaps);
 	}
 
