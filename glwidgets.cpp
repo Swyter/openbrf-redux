@@ -515,8 +515,8 @@ void GLWidget::renderBrfItem(const BrfTexture& t){
 
 void GLWidget::renderBrfItem (const BrfMesh& p){
 	float fi = 0;
-	if (p.HasVertexAni() && !p.IsSkinned()) { /* swy: don't play back the vertex frame animation (used for armor feminization) when this is a skinned mesh simultaneously playing a skeletal animation; otherwise we'd always end up showing it with the (last vertex frame) female variant. Reported by @Earendil */
-		if (!skeletalAnimation() && runningState==PLAY) {
+	if (p.HasVertexAni()) {
+		if (/* swy: was !skeletalAnimation() */ !p.IsSkinned() && runningState==PLAY) {  /* swy: don't play back the vertex frame animation (used for armor feminization) when this is a skinned mesh simultaneously playing a skeletal animation; otherwise we'd always end up showing it with the (last vertex frame) female variant. Reported by @Earendil */
             fi = floatMod( relTime*runningSpeed, (int)p.frame.size()-3) +2;
 			if (fi<0) fi=0;
 			if (selFrameN != (int)fi) {
