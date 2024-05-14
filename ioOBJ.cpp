@@ -76,19 +76,19 @@ bool IoOBJ::writeMesh(QFile &f, const BrfMesh& m, int fr){
   for (unsigned int i=0; i<m.frame[fr].pos.size(); i++) {
     s = QString("v %1 %2 %3\n")
       .arg(-m.frame[fr].pos[i].X())
-      .arg(m.frame[fr].pos[i].Y())
-      .arg(m.frame[fr].pos[i].Z());
+      .arg( m.frame[fr].pos[i].Y())
+      .arg( m.frame[fr].pos[i].Z());
     f.write(s.toLatin1());
     np++;
   }
   for (unsigned int i=0; i<m.vert.size(); i++) {
     s = QString("vn %1 %2 %3\n")
       .arg(-m.frame[fr].norm[i].X())
-      .arg(m.frame[fr].norm[i].Y())
-      .arg(m.frame[fr].norm[i].Z());
+      .arg( m.frame[fr].norm[i].Y())
+      .arg( m.frame[fr].norm[i].Z());
     f.write(s.toLatin1().data());
     s = QString("vt %1 %2\n")
-      .arg(m.vert[i].ta.X())
+      .arg(     m.vert[i].ta.X())
       .arg(1.0f-m.vert[i].ta.Y());
     f.write(s.toLatin1());
     nv++;
