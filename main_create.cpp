@@ -394,11 +394,9 @@ void MainWindow::createMenus()
 	lang -> addAction( optionLanguage[0] = new QAction(tr("System default"),this) );
 	lang -> addSeparator();
 	lang -> addAction( optionLanguage[1] = new QAction("English",this) );
-	lang -> addAction( optionLanguage[2] = new QAction(QString("%1%2(%3%4)")
-	                                                   .arg(QChar(20013)).arg(QChar(25991)).arg(QChar(31616)).arg(QChar( 20307))
-	                                                   ,this ) );
+	lang -> addAction( optionLanguage[2] = new QAction(QString::fromUtf8("中文(简体)"),this ) );
 	lang -> addAction( optionLanguage[4] = new QAction("Deutsche",this) );
-    lang -> addAction( optionLanguage[3] = new QAction(QString::fromLatin1("Espa�ol"),this) );
+    lang -> addAction( optionLanguage[3] = new QAction(QString::fromUtf8("Español"),this) );
 	lang -> addSeparator();
 	lang -> addAction( optionLanguageCustom = new QAction(tr("Test a custom translation file..."),this) );
 

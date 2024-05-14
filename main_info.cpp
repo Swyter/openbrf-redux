@@ -65,7 +65,7 @@ void MainWindow::about()
 
              ).arg(__DATE__)
               .arg("[mtarini] --- Marco Tarini")
-              .arg(QString::fromLatin1(
+              .arg(QString::fromUtf8(
                    " <br>[Abhuva], [amade], [Andrde Cuyne], [Barabas], "
                    "[Barf], [Bilwit], [Block], [Bluehawk], [Bolkonsky], [Brutus], [Caba`drin], "
                    "[captain lust], [cdvader], [Chel], [captain lust], [Computica], [cmpxchg8b], [Crazy-Q], [DaBlade], "
@@ -82,16 +82,16 @@ void MainWindow::about()
                    "[mysstick], [N0body], [newaxekub], "
                    "[octoburn], [OrangeKnight], [pagan], [Percus], [phlpp], [qlithe], [Rath0s], [RATMdude92], [Red River], "
                    "[rgcotl], [Roemerboy], [Romainoir], [Ruthven], [SenpaiHinds], "
-                   "[Septa Scarabae], [Sayd Ûthman], [Silesian], [Shik], "
+                   "[Septa Scarabae], [Sayd Ã›thman], [Silesian], [Shik], "
                    "[Silver Wolf], [Shredzorz], [Slawomir of Aaarrghh], [Slytacular], [Somebody], [SonKidd], [Spak], "
                    "[Specialist], [Stefano], [stephan_dinavoa], [Sunnetci_Dede], [Swyter], "
                    "[themanwhocrys2],  [thick1988], [Triglav], [Tul], [Ursca], "
                    "[Vincenzo], [Vlejundo], [Vornne], [WilliamBerne], "
                    "[yellowmosquito], [Yoshiboy], [xenoargh], [Zimke Zlovoljni]" ))
               .arg("<br>[amade], [Swyter]")
-              .arg(QString::fromLatin1(
+              .arg(QString::fromUtf8(
                    "<br> [foxyman] <i>(%1)</i><br>"
-                   " [Swyter] <i>(Español)</i><br>"
+                   " [Swyter] <i>(EspaÃ±ol)</i><br>"
                    " [Vlejundo] and [Roemerboy] <i>(Deutsche)</i>")
               .arg(tr("additional code and Chinese")))
               .arg(applVersion)
