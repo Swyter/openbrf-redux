@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="es_ES">
+<TS version="2.1" language="es_ES">
 <context>
     <name>AskBoneDialog</name>
     <message>
@@ -30,7 +30,7 @@
         <source>This mesh is not rigged:</source>
         <translatorcomment>ligaduras?
 </translatorcomment>
-        <translation>Este modelo no está unido a un esqueleto:</translation>
+        <translation type="vanished">Este modelo no está unido a un esqueleto:</translation>
     </message>
     <message>
         <location line="+21"/>
@@ -681,7 +681,7 @@ Comm Res:</translation>
     </message>
     <message>
         <source>Change geometry of meshes currently rigged for a skeleton</source>
-        <translation>Cambia la geometría de los modelos vinculados a esqueletos</translation>
+        <translation type="vanished">Cambia la geometría de los modelos vinculados a esqueletos</translation>
     </message>
     <message>
         <location line="+21"/>
@@ -767,6 +767,12 @@ con los mismos nombres.</translation>
     </message>
     <message>
         <location line="+78"/>
+        <location line="+624"/>
+        <source>Local</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-608"/>
         <location line="+136"/>
         <location line="+424"/>
         <source>X:</source>
@@ -797,7 +803,7 @@ con los mismos nombres.</translation>
         <translation>Escala en %</translation>
     </message>
     <message>
-        <location line="+132"/>
+        <location line="+148"/>
         <source>Uniform</source>
         <translation>Uniforme</translation>
     </message>
@@ -827,7 +833,7 @@ seleccionado</translation>
         <location filename="../askUnrefTextureDialog.ui" line="+14"/>
         <location filename="../askUnrefTextureDialog.cpp" line="+45"/>
         <location line="+20"/>
-        <location line="+10"/>
+        <location line="+14"/>
         <source>OpenBRF</source>
         <translation>OpenBRF</translation>
     </message>
@@ -860,7 +866,7 @@ Ni siquiera serán cargadas por el juego...</translation>
         <translation type="obsolete">Borrar Selección</translation>
     </message>
     <message>
-        <location filename="../askUnrefTextureDialog.cpp" line="-29"/>
+        <location filename="../askUnrefTextureDialog.cpp" line="-33"/>
         <source>Move %1 textures to folder
 %2 ?</source>
         <translation>¿Mover %1 texturas a la carpeta
@@ -884,7 +890,7 @@ Ni siquiera serán cargadas por el juego...</translation>
         <translation>Aceptable :)</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+13"/>
         <source>Error creating folder %1 in
 %2</source>
         <translation>Error al crear la carpeta %1 en
@@ -930,6 +936,25 @@ Ni siquiera serán cargadas por el juego...</translation>
         <source>Flip U</source>
         <translation>Voltear U</translation>
     </message>
+    <message>
+        <location line="+13"/>
+        <source>V</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>BrfType</name>
+    <message>
+        <location filename="../mainwindow.cpp" line="+1434"/>
+        <source>Cannot merge these meshes
+ (different number of frames,
+ or skinned VS not skinned).
+</source>
+        <translation type="unfinished">No se pueden unir esos modelos
+(número distinto de fotogramas
+o discordancia en la vinculación esqueletal).
+</translation>
+    </message>
 </context>
 <context>
     <name>Dialog</name>
@@ -962,11 +987,18 @@ Ni siquiera serán cargadas por el juego...</translation>
         <source>Contrast:</source>
         <translation>Contraste:</translation>
     </message>
+    <message>
+        <location line="+16"/>
+        <source>Apply to last selected
+object only</source>
+        <translation type="unfinished">Sólo aplicar al último
+objeto seleccionado</translation>
+    </message>
 </context>
 <context>
     <name>GLWidget</name>
     <message>
-        <location filename="../glwidgets.cpp" line="+648"/>
+        <location filename="../glwidgets.cpp" line="+652"/>
         <source>&lt;br /&gt;Vertex compilation: &lt;br /&gt;</source>
         <translation>&lt;br /&gt;Compilación de vértice: &lt;br /&gt;</translation>
     </message>
@@ -986,7 +1018,7 @@ Ni siquiera serán cargadas por el juego...</translation>
         <translation>&lt;br /&gt;Vinculando: &lt;br /&gt;</translation>
     </message>
     <message>
-        <location line="+777"/>
+        <location line="+769"/>
         <source>&quot;green&quot; NM</source>
         <translation>Mapa de normales Verde (&quot;green&quot; NM)</translation>
     </message>
@@ -1168,7 +1200,7 @@ tal vez el problema sea que el sombreador usa los signos (&lt;) o (&gt;) o (&amp
     </message>
     <message>
         <source>000000000000; </source>
-        <translation>000000000000; </translation>
+        <translation type="vanished">000000000000; </translation>
     </message>
     <message>
         <location line="+41"/>
@@ -1306,7 +1338,7 @@ tal vez el problema sea que el sombreador usa los signos (&lt;) o (&gt;) o (&amp
     </message>
     <message>
         <source>Rigging Color</source>
-        <translation>Color esquel.</translation>
+        <translation type="vanished">Color esquel.</translation>
     </message>
     <message>
         <location line="+16"/>
@@ -1418,7 +1450,7 @@ tal vez el problema sea que el sombreador usa los signos (&lt;) o (&gt;) o (&amp
     </message>
     <message>
         <source>Select a reference animation to view rigged meshes.</source>
-        <translation>Selecciona una animación de referencia para ver animaciones de esqueleto.</translation>
+        <translation type="vanished">Selecciona una animación de referencia para ver animaciones de esqueleto.</translation>
     </message>
     <message>
         <location line="+48"/>
@@ -1891,7 +1923,7 @@ simetría</translation>
     </message>
     <message>
         <source>rig</source>
-        <translation>vinc.</translation>
+        <translation type="vanished">vinc.</translation>
     </message>
     <message>
         <location line="+116"/>
@@ -1943,7 +1975,7 @@ zar</translation>
     </message>
     <message>
         <source>Rigged</source>
-        <translation>Vinculado</translation>
+        <translation type="vanished">Vinculado</translation>
     </message>
     <message>
         <location line="+38"/>
@@ -2254,8 +2286,8 @@ p, li { white-space: pre-wrap; }
         <location line="+33"/>
         <location line="+21"/>
         <location line="+22"/>
-        <location line="+179"/>
-        <location line="+24"/>
+        <location line="+182"/>
+        <location line="+26"/>
         <location line="+63"/>
         <location line="+8"/>
         <location line="+10"/>
@@ -2269,7 +2301,7 @@ p, li { white-space: pre-wrap; }
         <translation>OpenBRF | Traducido al Castellano por Swyter</translation>
     </message>
     <message>
-        <location line="-930"/>
+        <location line="-935"/>
         <source>Cannot open file for writing;</source>
         <translation>No se puede abrir con permisos de escritura;</translation>
     </message>
@@ -2297,7 +2329,7 @@ p, li { white-space: pre-wrap; }
         <source>Cannot export rigged mesh:
  %1
 </source>
-        <translation>No se puede exportar el modelo esqueletal:
+        <translation type="vanished">No se puede exportar el modelo esqueletal:
  %1
 </translation>
     </message>
@@ -2406,7 +2438,7 @@ p, li { white-space: pre-wrap; }
         <translation>Exportación cancelada.</translation>
     </message>
     <message>
-        <location line="+83"/>
+        <location line="+88"/>
         <source>mesh file (*.obj *.ply *.off *.stl %1*.dae)</source>
         <translation>Modelo 3D (*.obj *.ply *.off *.stl %1*.dae)</translation>
     </message>
@@ -2429,12 +2461,12 @@ p, li { white-space: pre-wrap; }
 </translation>
     </message>
     <message>
-        <location line="-155"/>
+        <location line="-160"/>
         <source>Warband or M&amp;B resource (*.brf)</source>
         <translation>Recurso de Warband o M&amp;B (*.brf)</translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="+11"/>
         <source>Cannot import file %1
 
 </source>
@@ -2443,7 +2475,7 @@ p, li { white-space: pre-wrap; }
 </translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+15"/>
         <source>mesh file (*.obj)</source>
         <translation>Modelo Tridimensional (*.obj)</translation>
     </message>
@@ -2468,7 +2500,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../mainwindow.ui" line="+14"/>
         <location filename="../main_ImpExp.cpp" line="+65"/>
-        <location filename="../mainwindow.cpp" line="+1718"/>
+        <location filename="../mainwindow.cpp" line="+295"/>
         <location line="+23"/>
         <location line="+3"/>
         <source>OpenBRF</source>
@@ -2487,7 +2519,7 @@ Import a separate mesh per material\object?</source>
         <translation>Modelo importado &quot;%1&quot;--- normales:%2 colores:%3 coordenadas de textura:%4</translation>
     </message>
     <message>
-        <location line="-549"/>
+        <location line="-554"/>
         <source>Cannot export skinned mesh:
  %1
 </source>
@@ -2501,7 +2533,7 @@ Import a separate mesh per material\object?</source>
         <translation>Animación de vértices de Quake 3 (*.MD3);;Secuencia de Obj (*.000.obj)</translation>
     </message>
     <message>
-        <location line="+428"/>
+        <location line="+433"/>
         <source>No mesh found in %1
 </source>
         <translation>No se ha encontrado ningún modelo en %1
@@ -2531,7 +2563,7 @@ al que añadir un fotograma o cuadro.</translation>
     </message>
     <message>
         <location line="+10"/>
-        <location filename="../mainwindow.cpp" line="+1542"/>
+        <location filename="../mainwindow.cpp" line="+1587"/>
         <source>Vertex number mismatch... using texture-coord matching instead of vertex-ordering</source>
         <translation>El número de vértices no concuerda... se usarán las coordenadas de textura para ordenarlos.</translation>
     </message>
@@ -2589,7 +2621,7 @@ al que añadir un fotograma o cuadro.</translation>
     </message>
     <message>
         <source>Imported %1 rigged mesh%2</source>
-        <translation>Importado %1 modelo esqueletal%2</translation>
+        <translation type="vanished">Importado %1 modelo esqueletal%2</translation>
     </message>
     <message>
         <location filename="../main_create.cpp" line="+15"/>
@@ -2611,12 +2643,12 @@ al que añadir un fotograma o cuadro.</translation>
         <translation type="obsolete">&amp;Módulo</translation>
     </message>
     <message>
-        <location line="+97"/>
+        <location line="+99"/>
         <source>Navigate</source>
         <translation>Navegar</translation>
     </message>
     <message>
-        <location line="-95"/>
+        <location line="-97"/>
         <source>&amp;Tools</source>
         <translation>&amp;Herramientas</translation>
     </message>
@@ -2664,7 +2696,17 @@ al que añadir un fotograma o cuadro.</translation>
         <translation>Co&amp;nfiguración</translation>
     </message>
     <message>
-        <location line="+149"/>
+        <location line="+67"/>
+        <source>Import </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Recent Modules</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+78"/>
         <source>Auto compute tangents</source>
         <translation>Autocalcular direcciones tangentes</translation>
     </message>
@@ -2892,7 +2934,7 @@ al que añadir un fotograma o cuadro.</translation>
         <translation>Idioma del sistema</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+7"/>
         <source>Test a custom translation file...</source>
         <translation>Probar una traducción personalizada...</translation>
     </message>
@@ -2901,7 +2943,7 @@ al que añadir un fotograma o cuadro.</translation>
         <translation type="obsolete">Aprender como feminizar armaduras desde los modelos seleccionados.</translation>
     </message>
     <message>
-        <location line="-31"/>
+        <location line="-29"/>
         <source>always use shared reference files (&quot;&lt;OpenBRF-folder&gt;/reference.brf&quot;)</source>
         <translation>Compartir siempre archivos de referencia («&lt;carpeta-de-OpenBRF&gt;/reference.brf»)</translation>
     </message>
@@ -2911,7 +2953,7 @@ al que añadir un fotograma o cuadro.</translation>
         <translation>Modo de archivo de referencia</translation>
     </message>
     <message>
-        <location line="+45"/>
+        <location line="+43"/>
         <source>manual edits</source>
         <translation>edición manual</translation>
     </message>
@@ -3066,7 +3108,7 @@ al que añadir un fotograma o cuadro.</translation>
         <translation>Realiza una vinculación de esqueleto para los modelos seleccionados basada en modelo del Portapapeles.</translation>
     </message>
     <message>
-        <location line="+139"/>
+        <location line="+144"/>
         <source>Skinned mesh...</source>
         <translation>Modelo esqueletal...</translation>
     </message>
@@ -3077,14 +3119,14 @@ al que añadir un fotograma o cuadro.</translation>
     </message>
     <message>
         <source>Paste rigging</source>
-        <translation>Pegar unión esqueletal</translation>
+        <translation type="vanished">Pegar unión esqueletal</translation>
     </message>
     <message>
         <source>Make a rigging for current mesh(-es) similar to one of the meshes in the clipboard.</source>
-        <translation>Realiza una vinculación de esqueleto para los modelos seleccionados basado en la guardada en el portapapeles.</translation>
+        <translation type="vanished">Realiza una vinculación de esqueleto para los modelos seleccionados basado en la guardada en el portapapeles.</translation>
     </message>
     <message>
-        <location line="-137"/>
+        <location line="-142"/>
         <source>Paste into mesh (matches LODs)</source>
         <translation>Pegar en modelo (coincide con LODs)</translation>
     </message>
@@ -3134,7 +3176,7 @@ al que añadir un fotograma o cuadro.</translation>
         <translation>Pegar cuerpos de colisión en el esqueleto actual.</translation>
     </message>
     <message>
-        <location line="+95"/>
+        <location line="+100"/>
         <source>Measure with ruler</source>
         <translation>Medir con regla</translation>
     </message>
@@ -3160,7 +3202,7 @@ al que añadir un fotograma o cuadro.</translation>
     </message>
     <message>
         <source>Rigged mesh...</source>
-        <translation>Modelo esqueletal...</translation>
+        <translation type="vanished">Modelo esqueletal...</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -3257,7 +3299,7 @@ al que añadir un fotograma o cuadro.</translation>
         <translation type="obsolete">Copia las coordenadas de texturas desde el modelo en el portapapeles.</translation>
     </message>
     <message>
-        <location line="-270"/>
+        <location line="-275"/>
         <source>Paste vert colors</source>
         <translation>Pegar colores de vértice</translation>
     </message>
@@ -3303,7 +3345,7 @@ al que añadir un fotograma o cuadro.</translation>
         <translation type="obsolete">Pega los tiempos de unos cuadros de animación, sean de vértices o esqueletales en otra animación u animaciones.</translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+37"/>
         <source>Save &amp;As...</source>
         <translation>Gu&amp;ardar como...</translation>
     </message>
@@ -3442,7 +3484,7 @@ al que añadir un fotograma o cuadro.</translation>
     </message>
     <message>
         <source>Import rigged (skeletal animable) Mesh</source>
-        <translation>Importa un modelo unido a un esqueleto, utilizado en la animación de personajes</translation>
+        <translation type="vanished">Importa un modelo unido a un esqueleto, utilizado en la animación de personajes</translation>
     </message>
     <message>
         <source>Frame of vertex-animated mesh</source>
@@ -3883,11 +3925,15 @@ al que añadir un fotograma o cuadro.</translation>
     </message>
     <message>
         <location line="+21"/>
-        <source>&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;OpenBrf&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; by &lt;b&gt;%2&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;ver %6&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; (%1)&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;i&gt;Testing, bug reporting, suggestions by:&lt;/i&gt; %3&lt;/p&gt;&lt;p&gt;&lt;i&gt;Additional art by:&lt;/i&gt; %4&lt;/p&gt;&lt;p&gt;&lt;i&gt;Translations by:&lt;/i&gt; %5&lt;/p&gt;</source>
-        <translation>&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;OpenBRF&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; por &lt;b&gt;%2&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;versión %6&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; (%1)&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;i&gt;Pruebas, informe de errores y sugerencias por:&lt;/i&gt; %3&lt;/p&gt;&lt;p&gt;&lt;i&gt;Arte adicional:&lt;/i&gt; %4&lt;/p&gt;&lt;p&gt;&lt;i&gt;Traducciones:&lt;/i&gt; %5&lt;/p&gt;</translation>
+        <source>&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;OpenBrf&lt;/b&gt; | &lt;i&gt;Redux&lt;/i&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; by &lt;b&gt;%2&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;ver %6&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; (%1 %7)&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;i&gt;Testing, bug reporting, suggestions by:&lt;/i&gt; %3&lt;/p&gt;&lt;p&gt;&lt;i&gt;Additional art by:&lt;/i&gt; %4&lt;/p&gt;&lt;p&gt;&lt;i&gt;Translations by:&lt;/i&gt; %5&lt;/p&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+39"/>
+        <source>&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;OpenBrf&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; by &lt;b&gt;%2&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;ver %6&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; (%1)&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;i&gt;Testing, bug reporting, suggestions by:&lt;/i&gt; %3&lt;/p&gt;&lt;p&gt;&lt;i&gt;Additional art by:&lt;/i&gt; %4&lt;/p&gt;&lt;p&gt;&lt;i&gt;Translations by:&lt;/i&gt; %5&lt;/p&gt;</source>
+        <translation type="vanished">&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;OpenBRF&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; por &lt;b&gt;%2&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;versión %6&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; (%1)&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;i&gt;Pruebas, informe de errores y sugerencias por:&lt;/i&gt; %3&lt;/p&gt;&lt;p&gt;&lt;i&gt;Arte adicional:&lt;/i&gt; %4&lt;/p&gt;&lt;p&gt;&lt;i&gt;Traducciones:&lt;/i&gt; %5&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <location line="+43"/>
         <source>With detailed info about flag meanings provided by:</source>
         <translation>Con la información detallada sobre indicadores proporcionada por:</translation>
     </message>
@@ -3934,7 +3980,7 @@ al que añadir un fotograma o cuadro.</translation>
         <translation type="obsolete">&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;versión %6&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; (%1)&lt;br&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; por %2&lt;br&gt;&lt;/p&gt;&lt;p&gt;Pruebas,reporte de errores y sugerencias por: %3&lt;/p&gt;&lt;p&gt;Arte adicional: %4&lt;/p&gt;&lt;p&gt;Traduciones por: %5&lt;/p&gt;</translation>
     </message>
     <message>
-        <location line="-133"/>
+        <location line="-134"/>
         <source>additional code and Chinese</source>
         <translation>código adicional y traducción al Chino</translation>
     </message>
@@ -3943,7 +3989,7 @@ al que añadir un fotograma o cuadro.</translation>
         <translation type="obsolete">OpenBRF</translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+20"/>
         <source>&lt;b&gt;What is this autofix DXT texture option?&lt;/b&gt;&lt;br&gt;&lt;p&gt;Many DDS texture creation programs/plugins around will output DXT1 textures with a minor error in the header.&lt;/p&gt;&lt;p&gt;This error confuses me (OpenBRF) but not Mount and Blade (or many other programs).&lt;/p&gt;&lt;p&gt;(When I cannot read a texture for this or any other problem, I display a chekerboard pattern instead).&lt;/p&gt;&lt;p&gt;If you want, I can silently fix this error every time I encounter it (I&apos;ll shamelessly write on the texture dss files on disk).&lt;/p&gt;</source>
         <translation>&lt;b&gt;¿Que es la opción de auto-arreglo de textura DXT?&lt;/b&gt;&lt;br&gt;&lt;p&gt;Muchos programas de creación de texturas DDS y extensiones usados habitualmente guardan los archivos con un pequeño error en el encabezado.&lt;/p&gt;&lt;p&gt;Este error me confunde (OpenBRF) pero no a Mount&amp;Blade y muchos otros programas.&lt;/p&gt;&lt;p&gt;(Cuando no puedo leer una textura por culpa de este u otros problemas muestro la cuadricula de colores).&lt;/p&gt;&lt;p&gt;Si quieres puedo arreglar de forma invisible este error cada vez que lo encuentre (y por tantorepararla automáticamente al vuelo guardándola al disco).&lt;/p&gt;</translation>
     </message>
@@ -4022,19 +4068,19 @@ al que añadir un fotograma o cuadro.</translation>
         <translation>&lt;i&gt;No puedo mostrar la textura real porque:&lt;/i&gt;&lt;br&gt;&lt;b&gt;%1&lt;/b&gt;&lt;br&gt;&lt;br&gt;%2&lt;br&gt;&lt;br&gt;&lt;b&gt;Solución: &lt;/b&gt;%3</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="-3190"/>
-        <location line="+1262"/>
+        <location filename="../mainwindow.cpp" line="-3246"/>
+        <location line="+1273"/>
         <location line="+302"/>
         <location line="+24"/>
-        <location line="+1106"/>
+        <location line="+1146"/>
         <location line="+12"/>
-        <location line="+643"/>
-        <location line="+1771"/>
+        <location line="+648"/>
+        <location line="+1812"/>
         <source>OpenBrf</source>
         <translation>OpenBRF</translation>
     </message>
     <message>
-        <location line="-5119"/>
+        <location line="-5216"/>
         <source>%1 been modified.
 Save changes?</source>
         <translation>%1 ha sido modificado.
@@ -4090,7 +4136,7 @@ Save changes?</source>
         <translation>Asignar indicador(es) a &quot;%1&quot;</translation>
     </message>
     <message>
-        <location line="+169"/>
+        <location line="+171"/>
         <source>Stop editing reference data</source>
         <translation>Detener la edición de datos de referencia</translation>
     </message>
@@ -4114,17 +4160,11 @@ Save changes?</source>
         <translation type="obsolete">Nombre:</translation>
     </message>
     <message>
-        <location line="+148"/>
         <source>New %1</source>
-        <translation>Nuevo %1</translation>
+        <translation type="vanished">Nuevo %1</translation>
     </message>
     <message>
-        <location line="-4"/>
-        <source>new_%1</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location line="+84"/>
+        <location line="+228"/>
         <source>Oops... no skin is currently available...
 </source>
         <translation>Ups...vaya, no hay ningún modelo de referencia disponible, añade uno para utilizarlo en las vistas previas...</translation>
@@ -4145,12 +4185,11 @@ Save changes?</source>
         <translation>Selecciona un conjunto:</translation>
     </message>
     <message>
-        <location line="+64"/>
         <source>Vertex unified.</source>
-        <translation>Vértices unificados.</translation>
+        <translation type="vanished">Vértices unificados.</translation>
     </message>
     <message>
-        <location line="+18"/>
+        <location line="+91"/>
         <source>object &apos;%1&apos;</source>
         <translation>objeto «%1»</translation>
     </message>
@@ -4209,7 +4248,7 @@ separado en %2 sub-modelos!.
  (different number of frames,
  or rigged VS not rigged).
 </source>
-        <translation>No se pueden unir esos modelos
+        <translation type="vanished">No se pueden unir esos modelos
 (numero distinto de fotogramas
 o discordancia en la vinculación esqueletal).
 </translation>
@@ -4248,11 +4287,11 @@ Overwrite it?</source>
     </message>
     <message>
         <source>Softened %1 rigged meshes!</source>
-        <translation>¡Suavizadas %1 mallas rígidas!</translation>
+        <translation type="vanished">¡Suavizadas %1 mallas rígidas!</translation>
     </message>
     <message>
         <source>Stiffened %1 rigged meshes!</source>
-        <translation>¡Endurecidas %1 mallas rígidas!</translation>
+        <translation type="vanished">¡Endurecidas %1 mallas rígidas!</translation>
     </message>
     <message>
         <location line="+169"/>
@@ -4300,19 +4339,19 @@ Seleccionar k:</translation>
     </message>
     <message>
         <source>Transfer Rigging</source>
-        <translation>Transferir unión esqueletal</translation>
+        <translation type="vanished">Transferir unión esqueletal</translation>
     </message>
     <message>
         <source>Transfer rigging:
 select a rigged mesh first,
 then all target meshes.
 </source>
-        <translation>Transferir unión esqueletal:
+        <translation type="vanished">Transferir unión esqueletal:
 selecciona un modelo vinculado a un esqueleto,
 después selecciona los modelos a vincular.</translation>
     </message>
     <message>
-        <location line="+486"/>
+        <location line="+526"/>
         <source>Same skeleton:
 reskeletonization canceled.
 </source>
@@ -4350,7 +4389,7 @@ Escribe el nuevo aquí:</translation>
     </message>
     <message>
         <source>Copy Rigging into another mesh</source>
-        <translation>Copiar vinculación esquetal a otro modelo</translation>
+        <translation type="vanished">Copiar vinculación esquetal a otro modelo</translation>
     </message>
     <message>
         <source>Copy Rigging into another mesh:
@@ -4370,7 +4409,7 @@ Escribe el nuevo aquí:</translation>
 (funciona mejor si los modelos de origen y destino se parecen)</translation>
     </message>
     <message>
-        <location line="+480"/>
+        <location line="+485"/>
         <source>Vertex number mismatch... using texture-coord matching instead</source>
         <translation>El número de vértices no concuerda... se usarán las coordenadas de textura para ordenarlos.</translation>
     </message>
@@ -4454,7 +4493,7 @@ Escribe el nuevo aquí:</translation>
         <translation>La animación %2 se ha dividido en %1 trozos -- ¡Nuevo actions.txt guardado en &quot;%3&quot;!</translation>
     </message>
     <message>
-        <location line="+939"/>
+        <location line="+980"/>
         <source>&amp;Repeat %1</source>
         <translation>&amp;Repetir %1</translation>
     </message>
@@ -4468,7 +4507,7 @@ Escribe el nuevo aquí:</translation>
         <translation type="obsolete">Open BRF</translation>
     </message>
     <message>
-        <location line="-837"/>
+        <location line="-878"/>
         <source>Cannot save reference file!</source>
         <translation>¡No se puede guardar el archivo de referencia!</translation>
     </message>
@@ -4512,7 +4551,7 @@ Las direcciones tangentes no se guardarán...</translation>
         <translation>¡Archivo guardado!</translation>
     </message>
     <message>
-        <location line="+135"/>
+        <location line="+176"/>
         <source>Open File</source>
         <translation>Abrir archivo</translation>
     </message>
@@ -4604,27 +4643,27 @@ Las direcciones tangentes no se guardarán...</translation>
     </message>
     <message>
         <source>Two-sided</source>
-        <translation>Bilateral (Dos caras)</translation>
+        <translation type="vanished">Bilateral (Dos caras)</translation>
     </message>
     <message>
         <source>No Collision</source>
-        <translation>Sin Colisión</translation>
+        <translation type="vanished">Sin Colisión</translation>
     </message>
     <message>
         <source>No Shadow</source>
-        <translation>Sin Sombra</translation>
+        <translation type="vanished">Sin Sombra</translation>
     </message>
     <message>
         <source>Game won&apos;t use this collision object</source>
-        <translation>El juego no usará este objeto de colisión</translation>
+        <translation type="vanished">El juego no usará este objeto de colisión</translation>
     </message>
     <message>
         <source>Difficult</source>
-        <translation>Dificil</translation>
+        <translation type="vanished">Dificil</translation>
     </message>
     <message>
         <source>Unwalkable</source>
-        <translation>Intransitable</translation>
+        <translation type="vanished">Intransitable</translation>
     </message>
     <message>
         <location line="+130"/>
@@ -4633,51 +4672,51 @@ Las direcciones tangentes no se guardarán...</translation>
     </message>
     <message>
         <source>Unknown (for props?)</source>
-        <translation>Desconocido (¿para props?)</translation>
+        <translation type="vanished">Desconocido (¿para props?)</translation>
     </message>
     <message>
         <source>Exact meaning of this flag is unknown.</source>
-        <translation>No se conoce el significado exacto de este indicador.</translation>
+        <translation type="vanished">No se conoce el significado exacto de este indicador.</translation>
     </message>
     <message>
         <source>Unknown (for particles?)</source>
-        <translation>Desconocido (¿para partículas?)</translation>
+        <translation type="vanished">Desconocido (¿para partículas?)</translation>
     </message>
     <message>
         <source>Unknown (plants?)</source>
-        <translation>Desconocido (¿plantas?)</translation>
+        <translation type="vanished">Desconocido (¿plantas?)</translation>
     </message>
     <message>
         <source>Unknown (hairs and body parts?)</source>
-        <translation>Desconocido (¿pelo y partes corporales?)</translation>
+        <translation type="vanished">Desconocido (¿pelo y partes corporales?)</translation>
     </message>
     <message>
         <source>Unknown (screen space?)</source>
-        <translation>Desconocido (¿screen space?)</translation>
+        <translation type="vanished">Desconocido (¿screen space?)</translation>
     </message>
     <message>
         <source>R: (tangent space)</source>
-        <translation>R:(espacio tangente)</translation>
+        <translation type="vanished">R:(espacio tangente)</translation>
     </message>
     <message>
         <source>This flag is automatically set if mesh has tangent directions defined.</source>
-        <translation>Este indicador se activa automáticamente si el modelo tiene direcciones tangentes definidas.</translation>
+        <translation type="vanished">Este indicador se activa automáticamente si el modelo tiene direcciones tangentes definidas.</translation>
     </message>
     <message>
         <source>R: (Warband format)</source>
-        <translation>R:(Formato de Warband)</translation>
+        <translation type="vanished">R:(Formato de Warband)</translation>
     </message>
     <message>
         <source>This flag is automatically set for meshes in WB formats</source>
-        <translation>Esta malla es activa automáticamente para mallas con el formato de Warband</translation>
+        <translation type="vanished">Esta malla es activa automáticamente para mallas con el formato de Warband</translation>
     </message>
     <message>
         <source>Pre-exponentiate colors</source>
-        <translation>Pre-exponenciar colores</translation>
+        <translation type="vanished">Pre-exponenciar colores</translation>
     </message>
     <message>
         <source>Vertex colors will be pre-exponentiated (for gamma corrections) if this flag is set.</source>
-        <translation>Los colores de vértice serán pre-exponenciados (para las correcciones de gamma) si este indicador se activa.</translation>
+        <translation type="vanished">Los colores de vértice serán pre-exponenciados (para las correcciones de gamma) si este indicador se activa.</translation>
     </message>
     <message>
         <location line="+58"/>
@@ -4686,67 +4725,67 @@ Las direcciones tangentes no se guardarán...</translation>
     </message>
     <message>
         <source>Unknown</source>
-        <translation>Desconocido</translation>
+        <translation type="vanished">Desconocido</translation>
     </message>
     <message>
         <source>Force hi-res</source>
-        <translation>Forzar alta resolución</translation>
+        <translation type="vanished">Forzar alta resolución</translation>
     </message>
     <message>
         <source>By default, depending on the game settings, higher-res mipmap levels might by not loaded</source>
-        <translation>Por defecto, dependiendo de la configuración del juego, puede que los mipmaps más grandes no se carguen</translation>
+        <translation type="vanished">Por defecto, dependiendo de la configuración del juego, puede que los mipmaps más grandes no se carguen</translation>
     </message>
     <message>
         <source>Languange dependent</source>
-        <translation>Dependiente del idioma</translation>
+        <translation type="vanished">Dependiente del idioma</translation>
     </message>
     <message>
         <source>If set, depending on the game language settings, this texture is substituted by the one found in the language folder (WB only)</source>
-        <translation>Si se activa, dependiendo de la config. de idioma del juego, esta textura se sustituirá por otra que se encuentre en la subcarpeta de idioma (Sólo Warband)</translation>
+        <translation type="vanished">Si se activa, dependiendo de la config. de idioma del juego, esta textura se sustituirá por otra que se encuentre en la subcarpeta de idioma (Sólo Warband)</translation>
     </message>
     <message>
         <source>HDR only</source>
-        <translation>Sólo con HDR</translation>
+        <translation type="vanished">Sólo con HDR</translation>
     </message>
     <message>
         <source>If High-Dynamic-Ramge is off, this texture won&apos;t be loaded</source>
-        <translation>Si se desactiva el High-Dynamic Range, esta textura no será cargada</translation>
+        <translation type="vanished">Si se desactiva el High-Dynamic Range, esta textura no será cargada</translation>
     </message>
     <message>
         <source>No HDR</source>
-        <translation>Sin HDR</translation>
+        <translation type="vanished">Sin HDR</translation>
     </message>
     <message>
         <source>If High-Dynamic-Ramge is on, this texture won&apos;t be loaded</source>
-        <translation>Si se activa el High-Dynamic Range, esta textura no será cargada</translation>
+        <translation type="vanished">Si se activa el High-Dynamic Range, esta textura no será cargada</translation>
     </message>
     <message>
         <source>Clamp U</source>
-        <translation>Restringir U</translation>
+        <translation type="vanished">Restringir U</translation>
     </message>
     <message>
         <source>By default, texture U is set to wrap (horizontally tiled texture)</source>
-        <translation>Por defecto, la U de las texturas están en wrap (se repiten horizontalmente)</translation>
+        <translation type="vanished">Por defecto, la U de las texturas están en wrap (se repiten horizontalmente)</translation>
     </message>
     <message>
         <source>Clamp V</source>
-        <translation>Restringir V</translation>
+        <translation type="vanished">Restringir V</translation>
     </message>
     <message>
         <source>By default, texture V is set to wrap (vertically tiled texture)</source>
-        <translation>Por defecto, la V de las texturas están en wrap (se repiten verticalmente)</translation>
+        <translation type="vanished">Por defecto, la V de las texturas están en wrap (se repiten verticalmente)</translation>
     </message>
     <message>
         <source>Animation frames</source>
-        <translation>Fotogramas de animación</translation>
+        <translation type="vanished">Fotogramas de animación</translation>
     </message>
     <message>
         <source>N. of frames of texture anim (append &quot;_0&quot;, &quot;_1&quot; ... to dds file names).</source>
-        <translation>N. de fotogramas de anim. de textura (se le añade un sufijo del tipo &quot;_0&quot;, &quot;_1&quot; ... a los nombres de las DDS).</translation>
+        <translation type="vanished">N. de fotogramas de anim. de textura (se le añade un sufijo del tipo &quot;_0&quot;, &quot;_1&quot; ... a los nombres de las DDS).</translation>
     </message>
     <message>
         <source>Size U (?)</source>
-        <translation>Tamaño de U (?)</translation>
+        <translation type="vanished">Tamaño de U (?)</translation>
     </message>
     <message>
         <source>Unclear meaining, usually only set for face textures</source>
@@ -4754,7 +4793,7 @@ Las direcciones tangentes no se guardarán...</translation>
     </message>
     <message>
         <source>Size V (?)</source>
-        <translation>Tamaño de V (?)</translation>
+        <translation type="vanished">Tamaño de V (?)</translation>
     </message>
     <message>
         <location line="+52"/>
@@ -4762,7 +4801,7 @@ Las direcciones tangentes no se guardarán...</translation>
         <translation>Indicadores de textura</translation>
     </message>
     <message>
-        <location line="-5515"/>
+        <location line="-5612"/>
         <source>Skeleton hitboxes have been modified.&lt;br/&gt;Save changes in /Data/skeleton_bodies.xml?</source>
         <translation>Los cuerpos de colisión han sido modificados. &lt;br/&gt;¿Guardar cambios en /Data/skeleton_bodies.xml?</translation>
     </message>
@@ -4811,7 +4850,7 @@ archivo %2
 </translation>
     </message>
     <message>
-        <location line="+1033"/>
+        <location line="+1035"/>
         <source>Select a skeleton
 in the view panel first</source>
         <translation>Primero tienes que seleccionar
@@ -4825,18 +4864,22 @@ in the view panel first</source>
 una animación en el panel de Vista </translation>
     </message>
     <message>
-        <location line="+187"/>
         <source>Cannot merge these meshes
  (different number of frames,
  or skinned VS not skinned).
 </source>
-        <translation>No se pueden unir esos modelos
+        <translation type="vanished">No se pueden unir esos modelos
 (número distinto de fotogramas
 o discordancia en la vinculación esqueletal).
 </translation>
     </message>
     <message>
-        <location line="+204"/>
+        <location line="+49"/>
+        <source>Unified %1 verts and %2 pos in %3 meshes.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+351"/>
         <source>Error loading line of file %2:
 
 %1</source>
@@ -4940,7 +4983,7 @@ Overwrite it?</source>
         <translation>Color uniforme para modelo</translation>
     </message>
     <message>
-        <location line="+279"/>
+        <location line="+319"/>
         <source>Transfer Skinning</source>
         <translation>Transferir unión esqueletal</translation>
     </message>
@@ -4977,7 +5020,7 @@ después selecciona los modelos a vincular.</translation>
         <translation>No se pueden pegar los cuerpos de colisión: No tengo ningún esqueleto con colisiones en el portapapeles</translation>
     </message>
     <message>
-        <location line="+58"/>
+        <location line="+63"/>
         <source>%1 new BRF items found in clipboard...</source>
         <translation>Se han encontrado %1 objetos nuevos en el portapapeles...</translation>
     </message>
@@ -5046,7 +5089,7 @@ en el portapapeles.
 
 (works best if sample mesh is similar to target meshes)
 </source>
-        <translation>Copiar vinculación esqueletal en otro modelo:
+        <translation type="vanished">Copiar vinculación esqueletal en otro modelo:
 - selecciona uno o más modelos con vinculación que utilizar como muestras
 - cópialos (ctrl+C)
 - selecciona uno o más modelos destino(da igual si están vinculados o no),
@@ -5056,11 +5099,11 @@ en el portapapeles.
     </message>
     <message>
         <source>Transferred rigging into %1 mesh(es) from %2 exemplar mesh(es).</source>
-        <translation>Se ha transferido la vinculación en %1 modelo(s) desde %2 modelos de muestra.</translation>
+        <translation type="vanished">Se ha transferido la vinculación en %1 modelo(s) desde %2 modelos de muestra.</translation>
     </message>
     <message>
         <source>Transferred rigging into %1 mesh(es) from skeleton &apos;%2&apos;.</source>
-        <translation>Transferir vinculación a %1 modelo(s) desde %2 esqueletos.</translation>
+        <translation type="vanished">Transferir vinculación a %1 modelo(s) desde %2 esqueletos.</translation>
     </message>
     <message>
         <location line="+344"/>
@@ -5119,7 +5162,7 @@ Por desgracia, las direcciones tangentes sólo pueden ser guardadas en el format
 Las direcciones tangentes no se guardarán...</translation>
     </message>
     <message>
-        <location line="+215"/>
+        <location line="+256"/>
         <source>%1 - editing internal reference data %3 %2</source>
         <translation>%1 - editando referencias internas %3 %2</translation>
     </message>
@@ -5160,131 +5203,131 @@ Las direcciones tangentes no se guardarán...</translation>
     </message>
     <message>
         <source>Unclear meaining, usually only set for facial textures</source>
-        <translation>El significado no está claro, normalmente solo se utiliza para las texturas de caras</translation>
+        <translation type="vanished">El significado no está claro, normalmente solo se utiliza para las texturas de caras</translation>
     </message>
     <message>
         <source>No fog</source>
-        <translation>Sin niebla</translation>
+        <translation type="vanished">Sin niebla</translation>
     </message>
     <message>
         <source>This object must not be affected by fog</source>
-        <translation>Este objeto no será afectado por la niebla</translation>
+        <translation type="vanished">Este objeto no será afectado por la niebla</translation>
     </message>
     <message>
         <source>No Lighting</source>
-        <translation>Sin Luz</translation>
+        <translation type="vanished">Sin Luz</translation>
     </message>
     <message>
         <source>This object won&apos;t be dynamically relit</source>
-        <translation>Este objeto no será iluminado dinámicamente</translation>
+        <translation type="vanished">Este objeto no será iluminado dinámicamente</translation>
     </message>
     <message>
         <source>No Z-write</source>
-        <translation>Sin escritura en Z</translation>
+        <translation type="vanished">Sin escritura en Z</translation>
     </message>
     <message>
         <source>Rendering object leaves the depth buffer unaffected</source>
-        <translation>Este objeto no afecta al búfer de profundidad</translation>
+        <translation type="vanished">Este objeto no afecta al búfer de profundidad</translation>
     </message>
     <message>
         <source>No depth Test</source>
-        <translation>Sin profundidad</translation>
+        <translation type="vanished">Sin profundidad</translation>
     </message>
     <message>
         <source>Object ignores the depth test: i.e. it will be always drawn over others.</source>
-        <translation>El objeto ignora el testeo de profundidad (depth test), siempre se dibujará sobre los demás.</translation>
+        <translation type="vanished">El objeto ignora el testeo de profundidad (depth test), siempre se dibujará sobre los demás.</translation>
     </message>
     <message>
         <source>Specular enable</source>
-        <translation>Activar brillos 
+        <translation type="vanished">Activar brillos 
 especulares</translation>
     </message>
     <message>
         <source>Specular reflections are enabled.</source>
-        <translation>Las reflexiones especulares serán activadas.</translation>
+        <translation type="vanished">Las reflexiones especulares serán activadas.</translation>
     </message>
     <message>
         <source>Unknown (for alpha test?)</source>
-        <translation>Desconocido (¿alfa test?)</translation>
+        <translation type="vanished">Desconocido (¿alfa test?)</translation>
     </message>
     <message>
         <source>Uniform lighting</source>
-        <translation>Luz Uniforme</translation>
+        <translation type="vanished">Luz Uniforme</translation>
     </message>
     <message>
         <source>Blend</source>
-        <translation>Mezclar</translation>
+        <translation type="vanished">Mezclar</translation>
     </message>
     <message>
         <source>Enable alpha-blending (for semi-transparencty)</source>
-        <translation>Activa la mezcla alfa (alpha blending) Se usa para dar semi-transparencia</translation>
+        <translation type="vanished">Activa la mezcla alfa (alpha blending) Se usa para dar semi-transparencia</translation>
     </message>
     <message>
         <source>Blend add</source>
-        <translation>Subexponer/
+        <translation type="vanished">Subexponer/
 Añadir</translation>
     </message>
     <message>
         <source>Alpha-blend function: add</source>
-        <translation>Funcionalidad de mezcla aditiva, realza y abrillanta las partes claras del objeto, dejando las oscuras transparentes</translation>
+        <translation type="vanished">Funcionalidad de mezcla aditiva, realza y abrillanta las partes claras del objeto, dejando las oscuras transparentes</translation>
     </message>
     <message>
         <source>Blend multiply</source>
-        <translation>Sobreexponer/
+        <translation type="vanished">Sobreexponer/
 Multiplicar</translation>
     </message>
     <message>
         <source>Alpha-blend function: mulitply</source>
-        <translation>Funcionalidad de mezcla sustractiva,muestra únicamente las partes oscuras del objeto, dejando las claras transparentes</translation>
+        <translation type="vanished">Funcionalidad de mezcla sustractiva,muestra únicamente las partes oscuras del objeto, dejando las claras transparentes</translation>
     </message>
     <message>
         <source>Blend factor</source>
-        <translation>Factor de Mezcla</translation>
+        <translation type="vanished">Factor de Mezcla</translation>
     </message>
     <message>
         <source>Alpha-blend function: factor</source>
-        <translation>Funcionalidad de mezcla alfa: factorización/factor</translation>
+        <translation type="vanished">Funcionalidad de mezcla alfa: factorización/factor</translation>
     </message>
     <message>
         <source>Render 1st</source>
-        <translation>Renderizar el 1º</translation>
+        <translation type="vanished">Renderizar el 1º</translation>
     </message>
     <message>
         <source>Origin at camera</source>
-        <translation>Origen en Cámara</translation>
+        <translation type="vanished">Origen en Cámara</translation>
     </message>
     <message>
         <source>LoD</source>
-        <translation>Nivel de Detalle</translation>
+        <translation type="vanished">Nivel de Detalle</translation>
     </message>
     <message>
         <source>If set, this material is optimized for LODs&gt;1</source>
-        <translation>Si se activa, el material se optimiza para niveles de detalle menores que 1</translation>
+        <translation type="vanished">Si se activa, el material se optimiza para niveles de detalle menores que 1</translation>
     </message>
     <message>
         <source>Invert bumpmap</source>
-        <translation>Invertir M. de 
+        <translation type="vanished">Invertir M. de 
 Desplazamiento</translation>
     </message>
     <message>
         <source>If set, bumpmap should be considered inverted on Y axis</source>
-        <translation>Si se activa, se considerará que el mapa estará invertido en el eje Y</translation>
+        <translation type="vanished">Si se activa, se considerará que el mapa estará invertido en el eje Y</translation>
     </message>
     <message>
         <source>Render order</source>
-        <translation>Orden de Render</translation>
+        <translation type="vanished">Orden de Render</translation>
     </message>
     <message>
         <source>Determines what is rendered first (neg number), or later (pos numbers)</source>
-        <translation>Determina que se renderiza antes (número negativo), o después (número positivo)</translation>
+        <translation type="vanished">Determina que se renderiza antes (número negativo), o después (número positivo)</translation>
     </message>
     <message>
         <source>Alpha test:</source>
-        <translation>Test alfa:</translation>
+        <translation type="vanished">Test alfa:</translation>
     </message>
     <message>
         <source>Alpha testing (for cutouts). Pixels more transparent than a given number will be not drawn.</source>
-        <translation>Test alfa (para recortes). Los píxeles más transparentes que cierto punto no serán dibujados.</translation>
+        <translation type="vanished">Test alfa (para recortes). Los píxeles más transparentes que cierto punto no serán dibujados.</translation>
     </message>
     <message>
         <location line="+1025"/>
@@ -5293,27 +5336,27 @@ Desplazamiento</translation>
     </message>
     <message>
         <source>pixel shader</source>
-        <translation>sombreador por píxel</translation>
+        <translation type="vanished">sombreador por píxel</translation>
     </message>
     <message>
         <source>requires config setting use_pixel_shaders and video card PS 1.1 capability</source>
-        <translation>requiere la directiva de configuración use_pixel_shaders y una tarjeta de vídeo con funcionalidad PS 1.1</translation>
+        <translation type="vanished">requiere la directiva de configuración use_pixel_shaders y una tarjeta de vídeo con funcionalidad PS 1.1</translation>
     </message>
     <message>
         <source>mid quality</source>
-        <translation>calidad media</translation>
+        <translation type="vanished">calidad media</translation>
     </message>
     <message>
         <source>requires config setting shader_quality &gt; 0</source>
-        <translation>requiere la directiva de configuración shader_quality &gt; 0</translation>
+        <translation type="vanished">requiere la directiva de configuración shader_quality &gt; 0</translation>
     </message>
     <message>
         <source>hi quality</source>
-        <translation>calidad alta</translation>
+        <translation type="vanished">calidad alta</translation>
     </message>
     <message>
         <source>requires config setting shader_quality &gt; 1 and some additional video card PS 2.0a/b capabilities</source>
-        <translation>requiere la directiva de configuración shader_quality &gt; 1 y algunas capacidades PS 2.0a/b adicionales de la tarjeta de vídeo</translation>
+        <translation type="vanished">requiere la directiva de configuración shader_quality &gt; 1 y algunas capacidades PS 2.0a/b adicionales de la tarjeta de vídeo</translation>
     </message>
     <message>
         <location line="+73"/>
@@ -5322,75 +5365,75 @@ Desplazamiento</translation>
     </message>
     <message>
         <source>specular enable</source>
-        <translation>activar especularidad</translation>
+        <translation type="vanished">activar especularidad</translation>
     </message>
     <message>
         <source>enables specular light</source>
-        <translation>activa la luz especular</translation>
+        <translation type="vanished">activa la luz especular</translation>
     </message>
     <message>
         <source>static_lighting</source>
-        <translation>luz estática</translation>
+        <translation type="vanished">luz estática</translation>
     </message>
     <message>
         <source>meshes using this shader will simulate lighting by vertex painting (static, on scene creation)</source>
-        <translation>modelos utilizando este shader simularán luz a través de pintura de vértice. (estático, al crear la escena)</translation>
+        <translation type="vanished">modelos utilizando este shader simularán luz a través de pintura de vértice. (estático, al crear la escena)</translation>
     </message>
     <message>
         <source>preshaded</source>
-        <translation>presombreado</translation>
+        <translation type="vanished">presombreado</translation>
     </message>
     <message>
         <source>uses preshaded technique</source>
-        <translation>usa la técnica preshaded</translation>
+        <translation type="vanished">usa la técnica preshaded</translation>
     </message>
     <message>
         <source>uses instancing</source>
-        <translation>usa instancing</translation>
+        <translation type="vanished">usa instancing</translation>
     </message>
     <message>
         <source>shader receives instance data as input (TEXCOORD1..4)</source>
-        <translation>el shader recibe datos de instancia como entrada (TEXCOORD1..4)</translation>
+        <translation type="vanished">el shader recibe datos de instancia como entrada (TEXCOORD1..4)</translation>
     </message>
     <message>
         <source>biased</source>
-        <translation>biased</translation>
+        <translation type="vanished">biased</translation>
     </message>
     <message>
         <source>used for shadowmap bias</source>
-        <translation>se usa para shadowmap bias</translation>
+        <translation type="vanished">se usa para shadowmap bias</translation>
     </message>
     <message>
         <source>uses pixel shader</source>
-        <translation>usa sombreador de píxeles</translation>
+        <translation type="vanished">usa sombreador de píxeles</translation>
     </message>
     <message>
         <source>this shader uses pixel shader</source>
-        <translation>este sombreador usa pixel shader</translation>
+        <translation type="vanished">este sombreador usa pixel shader</translation>
     </message>
     <message>
         <source>uses HLSL</source>
-        <translation>usar HLSL</translation>
+        <translation type="vanished">usar HLSL</translation>
     </message>
     <message>
         <source>if not set the FFP will be used</source>
-        <translation>si no está activo se usará la FFP (fixed function pipeline)</translation>
+        <translation type="vanished">si no está activo se usará la FFP (fixed function pipeline)</translation>
     </message>
     <message>
         <source>uses normal map</source>
-        <translation>usa normal map</translation>
+        <translation type="vanished">usa normal map</translation>
     </message>
     <message>
         <source>shader receives binormal and tangent as input (TANGENT, BINORMAL)</source>
-        <translation>el shader recibe binormales y tangentes como entrada (TANGENT, BINORMAL)</translation>
+        <translation type="vanished">el shader recibe binormales y tangentes como entrada (TANGENT, BINORMAL)</translation>
     </message>
     <message>
         <source>uses skinning</source>
-        <translation>usa skinning</translation>
+        <translation type="vanished">usa skinning</translation>
     </message>
     <message>
         <source>shader receives skinning data as input (BLENDWEIGHTS, BLENDINDICES)</source>
-        <translation>el shader recibe datos de skinning como entrada (BLENDWEIGHTS, BLENDINDICES)</translation>
+        <translation type="vanished">el shader recibe datos de skinning como entrada (BLENDWEIGHTS, BLENDINDICES)</translation>
     </message>
     <message>
         <location line="+56"/>
@@ -5426,7 +5469,7 @@ se tiene «%2»</translation>
         <translation>final de archivo inesperado</translation>
     </message>
     <message>
-        <location line="+30"/>
+        <location line="+47"/>
         <source>cannot read token n. %1 from:
  &apos;%2&apos;</source>
         <translation>no se puede leer el token nº. %1 desde:
@@ -5444,7 +5487,7 @@ se tiene «%2»</translation>
         <translation>número erróneo: %1 (no en [%2, %3]) (token %4)</translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+27"/>
         <source>Error reading file &apos;%1&apos;,
 at line %3:
 %2
@@ -5463,7 +5506,7 @@ en la línea %3:
 </translation>
     </message>
     <message>
-        <location line="+449"/>
+        <location line="+496"/>
         <source>%6 &lt;a href=&quot;#%1.%2.%3&quot;&gt;%4&lt;/a&gt; (in %5)</source>
         <translation>%6 &lt;a href=&quot;#%1.%2.%3&quot;&gt;%4&lt;/a&gt; (en %5)</translation>
     </message>
@@ -5492,7 +5535,7 @@ en la línea %3:
         <translation>&lt;b&gt;Problema de ordenación:&lt;/b&gt; %1 usa %2, que aparece después de este en &lt;i&gt;module.ini&lt;/i&gt;</translation>
     </message>
     <message>
-        <location line="+23"/>
+        <location line="+32"/>
         <source>&lt;h1&gt;Module &lt;b&gt;%1&lt;/b&gt;&lt;/h1&gt;</source>
         <translation>&lt;h1&gt;Módulo &lt;b&gt;%1&lt;/b&gt;&lt;/h1&gt;</translation>
     </message>
@@ -5541,12 +5584,12 @@ en la línea %3:
         <translation type="obsolete">&lt;b&gt;Faltante en txt:&lt;/b&gt; no se encuentra %1 &lt;u&gt;%2&lt;/u&gt;, definido en &apos;%3&apos;</translation>
     </message>
     <message>
-        <location line="-597"/>
+        <location line="-606"/>
         <source>&lt;b&gt;Duplicate:&lt;/b&gt; %1 was already defined in file %2</source>
         <translation>&lt;b&gt;Duplicado:&lt;/b&gt; %1 ya se definió anteriormente en %2</translation>
     </message>
     <message>
-        <location line="+676"/>
+        <location line="+706"/>
         <source>&lt;b&gt;File-Not-Found:&lt;/b&gt; could not read brf file &lt;u&gt;%1&lt;/u&gt;, listed in module.ini file</source>
         <translation>&lt;b&gt;Archivo no encontrado:&lt;/b&gt; no se puede leer el archivo brf &lt;u&gt;%1&lt;/u&gt;, listado en module.ini</translation>
     </message>
@@ -5560,15 +5603,15 @@ en la línea %3:
     <name>QTextBrowser::QTextBrowser</name>
     <message>
         <source>&lt;i&gt;more errors to follow...&lt;/i&gt;</source>
-        <translation>&lt;i&gt;Quedan más errores por mostrar...&lt;/i&gt;</translation>
+        <translation type="vanished">&lt;i&gt;Quedan más errores por mostrar...&lt;/i&gt;</translation>
     </message>
     <message>
         <source>&lt;i&gt;[0 results]&lt;/i&gt;</source>
-        <translation>&lt;i&gt;[sin resultados]&lt;/i&gt;</translation>
+        <translation type="vanished">&lt;i&gt;[sin resultados]&lt;/i&gt;</translation>
     </message>
     <message>
         <source>&lt;b&gt;Duplicate:&lt;/b&gt; %1 was already defined in file %2</source>
-        <translation>&lt;b&gt;Duplicado:&lt;/b&gt; %1 ya ha sido definido en %2</translation>
+        <translation type="vanished">&lt;b&gt;Duplicado:&lt;/b&gt; %1 ya ha sido definido en %2</translation>
     </message>
 </context>
 <context>
@@ -5613,7 +5656,7 @@ en la línea %3:
         <translation type="obsolete">Dividir mediante &quot;Action.txt&quot;</translation>
     </message>
     <message>
-        <location line="+41"/>
+        <location line="+42"/>
         <source>Split sequence following the action.txt file. A new &quot;action [after split].txt&quot; file is also produced, which use the new animation.</source>
         <translation>Divide la sequencia siguiendo la referencia del archivo &quot;action.txt&quot;. Un nuevo &quot;action [tras división].txt&quot; se creará como resguardo.</translation>
     </message>
@@ -5711,7 +5754,7 @@ en la línea %3:
     </message>
     <message>
         <source>Add this animation to reference animations (to use it later to display rigged meshes).</source>
-        <translation>Añade esta animación a las de referencia (para usarla más tarde en la previsualización de modelos esqueletales)</translation>
+        <translation type="vanished">Añade esta animación a las de referencia (para usarla más tarde en la previsualización de modelos esqueletales)</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -5839,7 +5882,7 @@ en la línea %3:
     </message>
     <message>
         <source>Export this model (or this frame) as a rigged mesh.</source>
-        <translation>Exporta este modelo con su esqueleto, guardando la vinculación.</translation>
+        <translation type="vanished">Exporta este modelo con su esqueleto, guardando la vinculación.</translation>
     </message>
     <message>
         <source>Export (nude) skeleton</source>
@@ -5856,7 +5899,7 @@ en la línea %3:
     </message>
     <message>
         <source>Export this skeleton (as a rigged skin).</source>
-        <translation>Exporta este esqueleto (como un modelo vinculado)</translation>
+        <translation type="vanished">Exporta este esqueleto (como un modelo vinculado)</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -5865,7 +5908,7 @@ en la línea %3:
     </message>
     <message>
         <source>Export a rigged skin which can be used for this animation.</source>
-        <translation>Exporta un modelo vinculado que puede ser usado para esta animación. Debe ser un Conjunto de visualización previamente señalado.</translation>
+        <translation type="vanished">Exporta un modelo vinculado que puede ser usado para esta animación. Debe ser un Conjunto de visualización previamente señalado.</translation>
     </message>
     <message>
         <source>Export animation</source>
@@ -5882,15 +5925,15 @@ en la línea %3:
     </message>
     <message>
         <source>Adapt this rigged mesh to a new skeleton</source>
-        <translation>Adapta este modelo a un nuevo esqueleto</translation>
+        <translation type="vanished">Adapta este modelo a un nuevo esqueleto</translation>
     </message>
     <message>
         <source>Transfer rigging</source>
-        <translation>Transferir unión</translation>
+        <translation type="vanished">Transferir unión</translation>
     </message>
     <message>
         <source>Copy rigging from one mesh to another</source>
-        <translation>Copia la vinculación o unión esqueletal de un modelo y se aplica a otro</translation>
+        <translation type="vanished">Copia la vinculación o unión esqueletal de un modelo y se aplica a otro</translation>
     </message>
     <message>
         <location line="+28"/>
@@ -5898,7 +5941,7 @@ en la línea %3:
         <translation type="unfinished">Rotar/Mover/Escalar...</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+5"/>
         <location line="+101"/>
         <source>Rescale...</source>
         <translation>Re-escalar...</translation>
@@ -5940,11 +5983,11 @@ en la línea %3:
     </message>
     <message>
         <source>Quick fix rigging of rigid-parts</source>
-        <translation>Arreglo rápido de las partes rígidas</translation>
+        <translation type="vanished">Arreglo rápido de las partes rígidas</translation>
     </message>
     <message>
         <source>Attempts to fix rigging of small-parts, making them rigid</source>
-        <translation>Intenta arreglar pequeñas zonas de la unión esqueletal, haciéndolas rígidas</translation>
+        <translation type="vanished">Intenta arreglar pequeñas zonas de la unión esqueletal, haciéndolas rígidas</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -6059,7 +6102,7 @@ en la línea %3:
     </message>
     <message>
         <source>Discard rigging (per-verex bone attachments)</source>
-        <translation>Elimina la vinculación esqueletal (las ataduras por vértice de cada hueso)</translation>
+        <translation type="vanished">Elimina la vinculación esqueletal (las ataduras por vértice de cada hueso)</translation>
     </message>
     <message>
         <source>discard: </source>
@@ -6082,7 +6125,7 @@ en la línea %3:
     </message>
     <message>
         <source>[Right-Click]: tools for %1. Multiple selections with [Shift] or [Ctrl].</source>
-        <translation>[Clic derecho]: Herramientas para %1. Selecciones múltiples con [Mayús] ó [Ctrl]</translation>
+        <translation type="vanished">[Clic derecho]: Herramientas para %1. Selecciones múltiples con [Mayús] ó [Ctrl]</translation>
     </message>
     <message>
         <location line="+328"/>
@@ -6095,7 +6138,7 @@ en la línea %3:
         <translation>Usado por:</translation>
     </message>
     <message>
-        <location line="-622"/>
+        <location line="-624"/>
         <location line="+176"/>
         <source>Mirror</source>
         <translation>Volteo simétrico</translation>
@@ -6107,12 +6150,12 @@ en la línea %3:
     </message>
     <message>
         <location line="+19"/>
-        <location line="+600"/>
+        <location line="+602"/>
         <source>Rename...</source>
         <translation>Renombrar...</translation>
     </message>
     <message>
-        <location line="-578"/>
+        <location line="-580"/>
         <source>Move up in the list</source>
         <translation>Subir un puesto en la lista</translation>
     </message>
@@ -6153,7 +6196,7 @@ en la línea %3:
     </message>
     <message>
         <source>Export rigged mesh...</source>
-        <translation>Exportar modelo esqueletal...</translation>
+        <translation type="vanished">Exportar modelo esqueletal...</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -6188,7 +6231,7 @@ en la línea %3:
     </message>
     <message>
         <source>Convert rigged mesh into a vertex animation using current animation and skeleton</source>
-        <translation>Convierte el modelo esqueletal en una animación por vértices utilizando la animación y esqueleto actual</translation>
+        <translation type="vanished">Convierte el modelo esqueletal en una animación por vértices utilizando la animación y esqueleto actual</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -6239,19 +6282,19 @@ en la línea %3:
     </message>
     <message>
         <source>Make rigging stiffer</source>
-        <translation>Endurecer vinculación esqueletal</translation>
+        <translation type="vanished">Endurecer vinculación esqueletal</translation>
     </message>
     <message>
         <source>Make the rigging of selected mesh(es) somewhat rigidier</source>
-        <translation>Hace que la vinculación sea mucho más rigida en las partes de transición</translation>
+        <translation type="vanished">Hace que la vinculación sea mucho más rigida en las partes de transición</translation>
     </message>
     <message>
         <source>Make rigging softer</source>
-        <translation>Suavizar vinculación esqueletal</translation>
+        <translation type="vanished">Suavizar vinculación esqueletal</translation>
     </message>
     <message>
         <source>Make the rigging of selected mesh(es) somewhat softer.</source>
-        <translation>Hace que la vinculación sea mucho más suave en las partes de transición.</translation>
+        <translation type="vanished">Hace que la vinculación sea mucho más suave en las partes de transición.</translation>
     </message>
     <message>
         <location line="+12"/>
@@ -6276,7 +6319,7 @@ en la línea %3:
         <translation type="obsolete">Re-escalar</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+5"/>
         <source>Rescale this object.</source>
         <translation>Cambia el tamaño del objeto</translation>
     </message>
@@ -6419,7 +6462,7 @@ en la línea %3:
     </message>
     <message>
         <source>Discard rigging, but freeze mesh in its current pose</source>
-        <translation>Quita la vinculación pero mantiene la pose actual</translation>
+        <translation type="vanished">Quita la vinculación pero mantiene la pose actual</translation>
     </message>
     <message>
         <location line="+23"/>
@@ -6437,7 +6480,7 @@ en la línea %3:
         <translation>Separar todos los fotogramas</translation>
     </message>
     <message>
-        <location line="-109"/>
+        <location line="-111"/>
         <source>Export skinned mesh...</source>
         <translation>Exportar modelo esqueletal...</translation>
     </message>
@@ -6482,7 +6525,7 @@ en la línea %3:
         <translation>Hace que la vinculación sea mucho más suave en las partes de transición.</translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+34"/>
         <source>Quick fix skinning of rigid-parts</source>
         <translation>Arreglo rápido de las partes rígidas</translation>
     </message>
@@ -6524,15 +6567,15 @@ en la línea %3:
     </message>
     <message>
         <source>rigging (freeze current pose)</source>
-        <translation>Vinculación esqueletal (mantener la posición actual)</translation>
+        <translation type="vanished">Vinculación esqueletal (mantener la posición actual)</translation>
     </message>
     <message>
         <source>rigging (un-mount from bone)</source>
-        <translation>Vinculación esqueletal (desmontar del hueso)</translation>
+        <translation type="vanished">Vinculación esqueletal (desmontar del hueso)</translation>
     </message>
     <message>
         <source>Discard rigging, and move object back at origin.</source>
-        <translation>Elimina la vinculación esqueletal y devuelve el objeto a la posición original.</translation>
+        <translation type="vanished">Elimina la vinculación esqueletal y devuelve el objeto a la posición original.</translation>
     </message>
     <message>
         <location line="+14"/>
@@ -6546,7 +6589,7 @@ en la línea %3:
     </message>
     <message>
         <source>rigging</source>
-        <translation>Vinculación esqueletal</translation>
+        <translation type="vanished">Vinculación esqueletal</translation>
     </message>
     <message>
         <source>Remove rigging (per-verex bone attachments)</source>
@@ -6617,7 +6660,12 @@ en la línea %3:
         <translation>Descartar</translation>
     </message>
     <message>
-        <location line="+55"/>
+        <location line="+8"/>
+        <source>Discard </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+47"/>
         <source>Add to reference skins</source>
         <translation>Añadir a los modelos de referencia:</translation>
     </message>
@@ -6630,6 +6678,19 @@ en la línea %3:
         <location line="+4"/>
         <source>to Skin Set %1 [new set]</source>
         <translation>Conjunto %1  [Crear nuevo conjunto]</translation>
+    </message>
+</context>
+<context>
+    <name>TT</name>
+    <message>
+        <location filename="../mainwindow.cpp" line="-4806"/>
+        <source>new_%1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>New %1</source>
+        <translation type="unfinished">Nuevo %1</translation>
     </message>
 </context>
 <context>

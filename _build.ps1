@@ -26,6 +26,10 @@ $env:Path += ";..\_qt\; ..\_qt\5.12.12\msvc2017\bin\"
 # swy: run qmake and generate the msvc nmake makefile
 & ..\_qt\5.12.12\msvc2017\bin\qmake ..\openBrf.pro
 
+# swy: refresh the .ts files from the source code with lupdate; lrelease compiles .qm files from .ts
+& ..\_qt\5.12.12\msvc2017\bin\lupdate ..\openBrf.pro
+& ..\_qt\5.12.12\msvc2017\bin\lrelease ..\openBrf.pro
+
 while (1) {
   # swy: start the actual build with jom instead of nmake; for speed
   & ..\_qt\jom
