@@ -1022,24 +1022,22 @@ objeto seleccionado</translation>
     <message>
         <location line="+769"/>
         <source>&quot;green&quot; NM</source>
-        <translation>Mapa de normales verde (&quot;green&quot; NM)</translation>
+        <translation>Mapa de normales «verde»</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>&quot;blue&quot; NM</source>
-        <translation>Mapa de normales azul (&quot;blue&quot; NM)</translation>
+        <translation>Mapa de normales «azul»</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Custom User Shader</source>
-        <translation>Sombreador Personalizado por el Usuario
-(Custom User Shader)</translation>
+        <translation>Sombreador personalizado por el usuario</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Default (fixed functionality)</source>
-        <translation>Por defecto (funcionalidad preestablecida)
-(Default (fixed functionality))</translation>
+        <translation>De serie (modo de dibujado básico)</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1050,41 +1048,37 @@ objeto seleccionado</translation>
     <message>
         <location line="+1"/>
         <source>Plain NormalMap (%1)</source>
-        <translation>Mapa de Normales estándar (%1)
-(Plain NormalMap (%1))</translation>
+        <translation>Mapa de normales estándar (%1)</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>NormalMap + Alpha to Transparency (%1)</source>
-        <translation>Mapa de normales + Alfa a Transparencia (%1)
-(NormalMap + Alpha to Transparency (%1))</translation>
+        <translation>Mapa de normales + canal alfa como transparencia (%1)</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>NormalMap + Alpha to Shininess (%1)</source>
-        <translation>Mapa de normales + Alfa a Brillo (%1)
-(NormalMap + Alpha to Shininess (%1))</translation>
+        <translation>Mapa de normales + canal alfa como brillo (%1)</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>NormalMap + ShininessMap (%1)</source>
-        <translation>Mapa de normales + Mapa de Brillos (%1)
-(NormalMap + ShininessMap (%1))</translation>
+        <translation>Mapa de normales + mapa de brillo (%1)</translation>
     </message>
     <message>
         <location line="+41"/>
         <source>Scene mode: navigate with mouse and WASD (levitate with wheel, zoom in with shift)</source>
-        <translation>Modo Escena: navega con el ratón y WASD (levita mediante la rueda del ratón, zoom con mayús)</translation>
+        <translation>Modo escena: navega con el ratón y WASD (levita mediante la rueda del ratón, acerca con mayús)</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Helmet mode: for objects with vertical Z axis, like M&amp;B helmets or weapons.</source>
-        <translation>Modo casco: para objetos que usan Z como eje vertical, como los cascos o las armas en M&amp;B.</translation>
+        <translation>Modo casco: para objetos que usan Z como eje vertical, como los cascos o las armas de M&amp;B.</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Default mode: rotate objects with mouse, zoom in/out with wheel.</source>
-        <translation>Modo por Defecto: puedes rotar objetos con el ratón, utiliza la rueda del ratón para acercar/alejar.</translation>
+        <translation>Modo normal: puedes girar los objetos con el ratón, utiliza la rueda del ratón para acercar/alejar.</translation>
     </message>
     <message>
         <location line="+111"/>
@@ -1093,11 +1087,11 @@ objeto seleccionado</translation>
 maybe the problem is that a shader uses the sign (&lt;) or (&gt;) or (&amp;)?
 
 (it&apos;s xml: must use &amp;lt; or &amp;gt; or &amp;amp; instead!)</source>
-        <translation>Error interpretando %1:
+        <translation>Hubo un error al leer %1:
 
 tal vez el problema sea que el sombreador usa los signos (&lt;) o (&gt;) o (&amp;)?
 
-(¡Como estamos usando xml debes de utilizar&amp;lt; o &amp;gt; o &amp;amp;!)</translation>
+(¡Al estar usando xml toca utilizar&amp;lt; o &amp;gt; o &amp;amp;!)</translation>
     </message>
 </context>
 <context>
@@ -2129,7 +2123,7 @@ p, li { white-space: pre-wrap; }
         <location line="+16"/>
         <location line="+430"/>
         <source>flags:</source>
-        <translation>Indicador:</translation>
+        <translation>indicad:</translation>
     </message>
     <message>
         <location line="-410"/>
@@ -2177,17 +2171,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location line="+42"/>
         <source>verts:</source>
-        <translation>Vérts:</translation>
+        <translation>vérts:</translation>
     </message>
     <message>
         <location line="+120"/>
         <source>sign:</source>
-        <translation>Signo:</translation>
+        <translation>signo:</translation>
     </message>
     <message>
         <location line="+46"/>
         <source>piece list:</source>
-        <translation>Piezas:</translation>
+        <translation>piezas:</translation>
     </message>
 </context>
 <context>
@@ -3928,7 +3922,7 @@ al que añadir un fotograma o cuadro.</translation>
     <message>
         <location line="+21"/>
         <source>&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;OpenBrf&lt;/b&gt; | &lt;i&gt;Redux&lt;/i&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; by &lt;b&gt;%2&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;ver %6&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; (%1 %7)&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;i&gt;Testing, bug reporting, suggestions by:&lt;/i&gt; %3&lt;/p&gt;&lt;p&gt;&lt;i&gt;Additional art by:&lt;/i&gt; %4&lt;/p&gt;&lt;p&gt;&lt;i&gt;Translations by:&lt;/i&gt; %5&lt;/p&gt;</source>
-        <translation>&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;OpenBrf&lt;/b&gt; | &lt;i&gt;Redux&lt;/i&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; por  &lt;b&gt;%2&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;ver %6&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; (%1 %7)&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;i&gt;Pruebas, informes y sugerencias por:&lt;/i&gt; %3&lt;/p&gt;&lt;p&gt;&lt;i&gt;Iconos y logotipos por:&lt;/i&gt; %4&lt;/p&gt;&lt;p&gt;&lt;i&gt;Traductores:&lt;/i&gt; %5&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;OpenBrf&lt;/b&gt; | &lt;i&gt;Redux&lt;/i&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; por  &lt;b&gt;%2&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;versión %6&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; (%1 %7)&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;i&gt;Pruebas, informes y sugerencias por:&lt;/i&gt; %3&lt;/p&gt;&lt;p&gt;&lt;i&gt;Iconos y logotipos por:&lt;/i&gt; %4&lt;/p&gt;&lt;p&gt;&lt;i&gt;Traductores:&lt;/i&gt; %5&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;OpenBrf&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; by &lt;b&gt;%2&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;ver %6&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; (%1)&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;i&gt;Testing, bug reporting, suggestions by:&lt;/i&gt; %3&lt;/p&gt;&lt;p&gt;&lt;i&gt;Additional art by:&lt;/i&gt; %4&lt;/p&gt;&lt;p&gt;&lt;i&gt;Translations by:&lt;/i&gt; %5&lt;/p&gt;</source>
@@ -3984,7 +3978,7 @@ al que añadir un fotograma o cuadro.</translation>
     <message>
         <location line="-134"/>
         <source>additional code and Chinese</source>
-        <translation>código adicional y traducción al Chino</translation>
+        <translation>código adicional y traducción al chino</translation>
     </message>
     <message>
         <source>Open-Brf</source>
@@ -4004,7 +3998,7 @@ al que añadir un fotograma o cuadro.</translation>
     </message>
     <message>
         <location line="+35"/>
-        <source>&lt;br&gt;&lt;p&gt;&lt;i&gt;This info has been copyed to clipboard&lt;/i&gt;</source>
+        <source>&lt;br&gt;&lt;p&gt;&lt;i&gt;This info has been copied to clipboard&lt;/i&gt;</source>
         <translation>&lt;br&gt;&lt;p&gt;&lt;i&gt;Información copiada al portapapeles&lt;/i&gt;</translation>
     </message>
     <message>
@@ -4015,7 +4009,7 @@ al que añadir un fotograma o cuadro.</translation>
     <message>
         <location line="+4"/>
         <source>&lt;p&gt;&lt;i&gt;Currently used preview Shader:&lt;/i&gt;&lt;br /&gt;%1&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;i&gt;Shader status:&lt;/i&gt;&lt;br /&gt;%2&lt;/p&gt;</source>
-        <translation>&lt;p&gt;&lt;i&gt;Sombreador usado actualmente:&lt;/i&gt;&lt;br /&gt;%1&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;i&gt;Estado del Sombreador:&lt;/i&gt;&lt;br /&gt;%2&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;&lt;i&gt;Sombreador actual:&lt;/i&gt;&lt;br /&gt;%1&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;i&gt;Estado del sombreador:&lt;/i&gt;&lt;br /&gt;%2&lt;/p&gt;</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -5033,7 +5027,7 @@ después selecciona los modelos a vincular.</translation>
     </message>
     <message>
         <location line="+58"/>
-        <source>Copyed prop code for %1 objects
+        <source>Copied prop code for %1 objects
 (%2 with matching collison mesh)
 on the clipboard.
 

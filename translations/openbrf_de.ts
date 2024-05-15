@@ -3665,7 +3665,7 @@ to add a frame to.</source>
     </message>
     <message>
         <location filename="../main_info.cpp" line="164"/>
-        <source>&lt;br&gt;&lt;p&gt;&lt;i&gt;This info has been copyed to clipboard&lt;/i&gt;</source>
+        <source>&lt;br&gt;&lt;p&gt;&lt;i&gt;This info has been copied to clipboard&lt;/i&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4193,7 +4193,7 @@ Neuer prefix:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="3124"/>
-        <source>Copyed prop code for %1 objects
+        <source>Copied prop code for %1 objects
 (%2 with matching collison mesh)
 on the clipboard.
 

@@ -2622,7 +2622,7 @@ void MainWindow::transform(){
 		/* swy: changed the original d->exec() modal dialog so that we can still use the 3D view
 		        and move the camera while rescaling/translating via the AskTransformDialog GUI */
 		disableWhileInToolMode(true);
-		
+
 		d->setWindowFlags(Qt::Tool);
 		d->show();
 	}
@@ -3037,7 +3037,7 @@ void MainWindow::onSelectedPoint(float x, float y, float z){
 	QMimeData *mime = new QMimeData();
 	mime->setText( st );
 
-	statusBar()->showMessage(QString("Point %1 copyed to clipboard").arg(st));
+	statusBar()->showMessage(QString("Point %1 copied to clipboard").arg(st));
 	QApplication::clipboard()->clear();
 	QApplication::clipboard()->setMimeData(mime);
 }
@@ -3116,7 +3116,7 @@ bool MainWindow::createScenePropText(){
 		filename.remove(0,k+1);
 		QString res = QString("# from '%1': begin (OpenBRF)\n%2# from '%1': end (OpenBRF)\n").arg(filename).arg(txt);
 		QApplication::clipboard()->setText(res);
-		QMessageBox::information(this,"OpenBrf",tr("Copyed prop code for %1 objects\n(%2 with matching collison mesh)\non the clipboard.\n\nPaste at will!").arg(n1).arg(n2) );
+		QMessageBox::information(this,"OpenBrf",tr("Copied prop code for %1 objects\n(%2 with matching collison mesh)\non the clipboard.\n\nPaste at will!").arg(n1).arg(n2) );
 		return true;
 	}
 	statusBar()->showMessage(tr("No prop mesh found"));

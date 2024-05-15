@@ -161,7 +161,7 @@ void MainWindow::aboutColorAssignment(){
 
 void MainWindow::aboutCurrentShader(){
 	QString log  = glWidget->getCurrentShaderLog();
-	QString extraText  = tr("<br><p><i>This info has been copyed to clipboard</i>");
+	QString extraText  = tr("<br><p><i>This info has been copied to clipboard</i>");
 	bool errors = true;
 	if (log.isEmpty()) {
 		log = tr("ok");
