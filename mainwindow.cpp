@@ -944,6 +944,8 @@ MainWindow::MainWindow(QWidget *parent):QMainWindow(parent),inidata(brfdata)
 	askTransformDialog->matrix = glWidget->extraMatrix;
 	askTransformDialog->setApplyToAllLoc( &( glWidget->applyExtraMatrixToAll ) );
 	connect(askTransformDialog,SIGNAL(changed()),glWidget,SLOT(update()));
+	connect(askTransformDialog, SIGNAL(accepted()), this, SLOT(onTransformDone())); /* swy: split the transform() into two, so that the askTransformDialog is no longer a modal that doesn't let us move the camera, we apply the consequences on transformDone(), adding a ton of complexity to the undo/redo and repeat action functionality, oh boy */
+	connect(askTransformDialog, SIGNAL(rejected()), this, SLOT(onTransformDone()));
 
 	askUvTransformDialog = new AskUvTransformDialog(this);
 	connect(askUvTransformDialog,SIGNAL(changed()),this,SLOT(meshUvTransformDoIt()));
@@ -2603,8 +2605,7 @@ void MainWindow::transform(){
 		lastUsedI = list[0].row();
 		lastUsedTab = selector->currentTabName();
 		*/
-		if (!executingRepeatedCommand) d->reset();
-		executingRepeatedCommand = false;
+		if (!executingRepeatedCommand) d->reset(); else d->update(); /* swy: reset all the controls to zero when opening it normally; just refresh the 3D view from the pre-filled repeated input values if not */
 
 		d->setBoundingBox(bboxAll.min.V(), bboxAll.max.V());
 
@@ -2622,8 +2623,7 @@ void MainWindow::transform(){
 		        and move the camera while rescaling/translating via the AskTransformDialog GUI */
 		disableWhileInToolMode(true);
 
-		QObject::connect(d, SIGNAL(accepted()), this, SLOT(onTransformDone()));
-		QObject::connect(d, SIGNAL(rejected()), this, SLOT(onTransformDone()));
+
 		
 		d->setWindowFlags(Qt::Tool);
 		d->show();
@@ -2653,10 +2653,16 @@ void MainWindow::onTransformDone(){
 			for (int j=start; j<list.size(); j++)
 				brfdata.body[list[j].row()].Transform(d->matrix);
 
-		setModified();
+		setModified(); /* swy: this comes with the repeatable = true default parameter, that sets the setNextActionAsRepeatable = true */
+		if (!executingRepeatedCommand) /* swy: FIXME: look into this; because I'm getting a headache with the Ctrl+R repeat command and undo/redo step logic and splitting the action into two unrelated functions :) */
+			undoHistoryAddAction(selector->transformAct); /* swy: this is a way of manually triggering a fake QAction that will save the changes at that point with the right name */
+
+		onActionTriggered(selector->transformAct); /* swy: this works in conjunction with setNextActionAsRepeatable set to true to mark the current action as repeatable, enables the Ctrl + R and the menu entry under Tools > Repeat, go figure */
 	}
 	glWidget->clearExtraMatrix();
 	updateGl();
+
+	executingRepeatedCommand = false;
 }
 
 
