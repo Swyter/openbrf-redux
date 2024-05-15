@@ -65,6 +65,8 @@ void MainWindow::createMenus()
 	editMenu->addAction(editPasteVertAniAct);
 	editMenu->addAction(editPasteAniLowerPartsAct);
 	editMenu->addAction(editPasteHitboxAct);
+	editMenu->addSeparator();
+	editMenu->addAction(repeatLastCommandAct);
 
 	importMenu->addAction(importStaticMeshAct);
     importMenu->addAction(importSkinnedMeshAct);
@@ -132,8 +134,6 @@ void MainWindow::createMenus()
 	toolMenu->addSeparator();
 	toolMenu->addAction(activateRulerAct);
 	toolMenu->addAction(activateFloatingProbeAct);
-	toolMenu->addSeparator();
-	toolMenu->addAction(repeatLastCommandAct);
 
 
 	/* VIEW OPTIONS */
