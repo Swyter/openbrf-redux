@@ -1447,7 +1447,7 @@ QString GLWidget::getCurrentShaderDescriptor() const{
 		case SHADER_IRON: return tr("Alpha to Shininess");
 		case NM_PLAIN: return tr("Plain NormalMap (%1)").arg(st);
 		case NM_ALPHA: return tr("NormalMap + Alpha to Transparency (%1)").arg(st);
-		case NM_IRON: return tr("NormalMap + Alpha to Shininiess (%1)").arg(st);
+		case NM_IRON: return tr("NormalMap + Alpha to Shininess (%1)").arg(st);
 		case NM_SHINE: return tr("NormalMap + ShininessMap (%1)").arg(st);
 		default: return "ERROR";
 		}

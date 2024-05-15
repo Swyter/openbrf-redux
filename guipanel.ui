@@ -658,7 +658,7 @@
         </rect>
        </property>
        <property name="statusTip">
-        <string>Enable disable lighting,</string>
+        <string>Enable disable lighting.</string>
        </property>
        <property name="text">
         <string>Lighting</string>
@@ -2111,7 +2111,7 @@
      </rect>
     </property>
     <property name="statusTip">
-     <string>Click to open file containing this bumpmap,</string>
+     <string>Click to open file containing this bumpmap.</string>
     </property>
     <property name="text">
      <string>&lt;a href=&quot;link&quot;&gt;Bump&lt;/a&gt;:</string>
@@ -3102,7 +3102,7 @@
      </rect>
     </property>
     <property name="statusTip">
-     <string>Thinkness</string>
+     <string>Thickness</string>
     </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
@@ -3134,7 +3134,7 @@
      </rect>
     </property>
     <property name="statusTip">
-     <string>Elnongate from top</string>
+     <string>Elongate from top</string>
     </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
@@ -3327,7 +3327,7 @@ Symmetry</string>
      </rect>
     </property>
     <property name="statusTip">
-     <string>Capsule used only for ragdoll, or also as a hitobx? (warband only)</string>
+     <string>Capsule used only for ragdoll, or also as a hitbox? (warband only)</string>
     </property>
     <property name="text">
      <string>Ragdoll only</string>
@@ -3520,7 +3520,7 @@ Symmetry</string>
        </rect>
       </property>
       <property name="text">
-       <string>Brighness:</string>
+       <string>Brightness:</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

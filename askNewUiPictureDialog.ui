@@ -128,7 +128,7 @@ corner: </string>
       <widget class="QRadioButton" name="measurePixel">
        <property name="text">
         <string>in pixels, on a
-1024x768 sceen</string>
+1024x768 screen</string>
        </property>
       </widget>
      </item>

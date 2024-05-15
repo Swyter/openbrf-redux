@@ -529,7 +529,7 @@ corner: </source>
     <message>
         <location line="-200"/>
         <source>in pixels, on a
-1024x768 sceen</source>
+1024x768 screen</source>
         <translation>en píxeles,pantalla
 de 1024x768</translation>
     </message>
@@ -1027,9 +1027,9 @@ Ni siquiera serán cargadas por el juego...</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>NormalMap + Alpha to Shininiess (%1)</source>
+        <source>NormalMap + Alpha to Shininess (%1)</source>
         <translation>Mapa de normales + Alfa a Brillo (%1)
-(NormalMap + Alpha to Shininiess (%1))</translation>
+(NormalMap + Alpha to Shininess (%1))</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1291,7 +1291,7 @@ tal vez el problema sea que el sombreador usa los signos (&lt;) o (&gt;) o (&amp
     </message>
     <message>
         <location line="+16"/>
-        <source>Enable disable lighting,</source>
+        <source>Enable disable lighting.</source>
         <translation>Activar o desactivar la luminosidad.</translation>
     </message>
     <message>
@@ -1744,7 +1744,7 @@ tal vez el problema sea que el sombreador usa los signos (&lt;) o (&gt;) o (&amp
     </message>
     <message>
         <location line="+12"/>
-        <source>Thinkness</source>
+        <source>Thickness</source>
         <translation>Grosor</translation>
     </message>
     <message>
@@ -1754,7 +1754,7 @@ tal vez el problema sea que el sombreador usa los signos (&lt;) o (&gt;) o (&amp
     </message>
     <message>
         <location line="+16"/>
-        <source>Elnongate from top</source>
+        <source>Elongate from top</source>
         <translation>Alargar desde arriba</translation>
     </message>
     <message>
@@ -1831,7 +1831,7 @@ simetría</translation>
     </message>
     <message>
         <location line="+14"/>
-        <source>Capsule used only for ragdoll, or also as a hitobx? (warband only)</source>
+        <source>Capsule used only for ragdoll, or also as a hitbox? (warband only)</source>
         <translation>La cápsula sólo se usa para muñecos de trapo, ¿o también como colisión? (sólo en warband)</translation>
     </message>
     <message>
@@ -1876,7 +1876,7 @@ simetría</translation>
     </message>
     <message>
         <location line="+16"/>
-        <source>Brighness:</source>
+        <source>Brightness:</source>
         <translation>Brillo:</translation>
     </message>
     <message>
@@ -1991,7 +1991,7 @@ zar</translation>
     </message>
     <message>
         <location line="+16"/>
-        <source>Click to open file containing this bumpmap,</source>
+        <source>Click to open file containing this bumpmap.</source>
         <translation>Presiona para abrir el archivo que contiene este Mapa de Desplazamiento.</translation>
     </message>
     <message>

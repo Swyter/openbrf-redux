@@ -127,7 +127,7 @@
     <number>100</number>
    </property>
   </widget>
-  <widget class="QSlider" name="sliderBrighness">
+  <widget class="QSlider" name="sliderBrightness">
    <property name="geometry">
     <rect>
      <x>110</x>
@@ -213,7 +213,7 @@ object only</string>
   <tabstop>sliderContrast</tabstop>
   <tabstop>sliderHue</tabstop>
   <tabstop>sliderSat</tabstop>
-  <tabstop>sliderBrighness</tabstop>
+  <tabstop>sliderBrightness</tabstop>
  </tabstops>
  <resources/>
  <connections>

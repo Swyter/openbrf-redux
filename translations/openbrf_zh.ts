@@ -676,7 +676,7 @@ corner: </source>
     <message>
         <location filename="../askNewUiPictureDialog.ui" line="130"/>
         <source>in pixels, on a
-1024x768 sceen</source>
+1024x768 screen</source>
         <translation>以像素为单位,参照1024x768分辨率</translation>
     </message>
     <message>
@@ -1139,7 +1139,7 @@ They will not be even loaded by the game.</source>
     </message>
     <message>
         <location filename="../glwidgets.cpp" line="1454"/>
-        <source>NormalMap + Alpha to Shininiess (%1)</source>
+        <source>NormalMap + Alpha to Shininess (%1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1359,7 +1359,7 @@ maybe the problem is that a shader uses the sign (&lt;) or (&gt;) or (&amp;)?
     </message>
     <message>
         <location filename="../guipanel.ui" line="661"/>
-        <source>Enable disable lighting,</source>
+        <source>Enable disable lighting.</source>
         <translation>开启/关闭照明</translation>
     </message>
     <message>
@@ -1798,7 +1798,7 @@ maybe the problem is that a shader uses the sign (&lt;) or (&gt;) or (&amp;)?
     </message>
     <message>
         <location filename="../guipanel.ui" line="3105"/>
-        <source>Thinkness</source>
+        <source>Thickness</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1808,7 +1808,7 @@ maybe the problem is that a shader uses the sign (&lt;) or (&gt;) or (&amp;)?
     </message>
     <message>
         <location filename="../guipanel.ui" line="3137"/>
-        <source>Elnongate from top</source>
+        <source>Elongate from top</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1884,7 +1884,7 @@ Symmetry</source>
     </message>
     <message>
         <location filename="../guipanel.ui" line="3330"/>
-        <source>Capsule used only for ragdoll, or also as a hitobx? (warband only)</source>
+        <source>Capsule used only for ragdoll, or also as a hitbox? (warband only)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1929,7 +1929,7 @@ Symmetry</source>
     </message>
     <message>
         <location filename="../guipanel.ui" line="3523"/>
-        <source>Brighness:</source>
+        <source>Brightness:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2011,7 +2011,7 @@ ze</source>
     </message>
     <message>
         <location filename="../guipanel.ui" line="2114"/>
-        <source>Click to open file containing this bumpmap,</source>
+        <source>Click to open file containing this bumpmap.</source>
         <translation>单击打开凹凸贴图所在文件</translation>
     </message>
     <message>

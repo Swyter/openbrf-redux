@@ -12,7 +12,7 @@ AskHueSatBriDialog::AskHueSatBriDialog(QWidget *parent) :
     ui(new Ui::Dialog){
 
   ui->setupUi(this);
-  connect(ui->sliderBrighness,SIGNAL(valueChanged(int)), this, SLOT(onAnySliderMove(int)));
+  connect(ui->sliderBrightness,SIGNAL(valueChanged(int)), this, SLOT(onAnySliderMove(int)));
   connect(ui->sliderContrast,SIGNAL(valueChanged(int)), this, SLOT(onAnySliderMove(int)));
   connect(ui->sliderHue,SIGNAL(valueChanged(int)), this, SLOT(onAnySliderMove(int)));
   connect(ui->sliderSat,SIGNAL(valueChanged(int)), this, SLOT(onAnySliderMove(int)));
@@ -24,7 +24,7 @@ void AskHueSatBriDialog::onAnySliderMove(int){
     ui->sliderContrast->value(),
     ui->sliderHue->value(),
     ui->sliderSat->value(),
-    ui->sliderBrighness->value(),
+    ui->sliderBrightness->value(),
     ui->applyToLastSel->isChecked()
    );
 }

@@ -2622,8 +2622,6 @@ void MainWindow::transform(){
 		/* swy: changed the original d->exec() modal dialog so that we can still use the 3D view
 		        and move the camera while rescaling/translating via the AskTransformDialog GUI */
 		disableWhileInToolMode(true);
-
-
 		
 		d->setWindowFlags(Qt::Tool);
 		d->show();
