@@ -136,6 +136,7 @@ TRANSLATIONS += translations/openbrf_zh.ts
 TRANSLATIONS += translations/openbrf_en.ts
 TRANSLATIONS += translations/openbrf_es.ts
 TRANSLATIONS += translations/openbrf_de.ts
+TRANSLATIONS += translations/openbrf_ja.ts
 RC_FILE = openBrf.rc
 win32 { 
     DEFINES += NOMINMAX

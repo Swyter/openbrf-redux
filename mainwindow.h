@@ -288,6 +288,7 @@ private slots:
 	void optionLanguageSet2();
 	void optionLanguageSet3();
 	void optionLanguageSet4();
+	void optionLanguageSet5();
 	void optionLanguageSetCustom();
 	void optionSetBgColor();
 	void optionLodSettings();
@@ -550,7 +551,7 @@ private:
 	QAction *optionAutoFixTextureInfo; // unused
 	QAction *optionAutoZoomUseGlobal;
 	QAction *optionAutoZoomUseSelected;
-	QAction *optionLanguage[6];
+	QAction *optionLanguage[7];
 	QAction *optionLanguageCustom;
 	QAction *optionInferMaterialOn;
 	QAction *optionInferMaterialOff;

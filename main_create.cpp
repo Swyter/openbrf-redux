@@ -396,16 +396,18 @@ void MainWindow::createMenus()
 	lang -> addAction( optionLanguage[1] = new QAction("English",this) );
 	lang -> addAction( optionLanguage[2] = new QAction(QString::fromUtf8("中文(简体)"),this ) );
 	lang -> addAction( optionLanguage[4] = new QAction("Deutsche",this) );
-    lang -> addAction( optionLanguage[3] = new QAction(QString::fromUtf8("Español"),this) );
+    lang -> addAction( optionLanguage[3] = new QAction(QString::fromUtf8("Castellano"),this) );
+    lang -> addAction( optionLanguage[5] = new QAction(QString::fromUtf8("日本語"),this) );
 	lang -> addSeparator();
 	lang -> addAction( optionLanguageCustom = new QAction(tr("Test a custom translation file..."),this) );
 
-	for (int i=0; i<4; i++) optionLanguage[i]->setCheckable(true);
+	for (int i=0; i<6; i++) optionLanguage[i]->setCheckable(true);
 	connect(optionLanguage[0],SIGNAL(triggered()), this, SLOT(optionLanguageSet0()));
 	connect(optionLanguage[1],SIGNAL(triggered()), this, SLOT(optionLanguageSet1()));
 	connect(optionLanguage[2],SIGNAL(triggered()), this, SLOT(optionLanguageSet2()));
 	connect(optionLanguage[3],SIGNAL(triggered()), this, SLOT(optionLanguageSet3()));
 	connect(optionLanguage[4],SIGNAL(triggered()), this, SLOT(optionLanguageSet4()));
+	connect(optionLanguage[5],SIGNAL(triggered()), this, SLOT(optionLanguageSet5()));
 	connect(optionLanguageCustom,SIGNAL(triggered()), this, SLOT(optionLanguageSetCustom()));
 
 

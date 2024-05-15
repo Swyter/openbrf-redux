@@ -5,7 +5,7 @@
     <name>AskBoneDialog</name>
     <message>
         <source>Dialog</source>
-        <translation type="obsolete">Montar un modelo en un Hueso</translation>
+        <translation type="obsolete">Montar un modelo en un hueso</translation>
     </message>
     <message>
         <location filename="../askBoneDialog.ui" line="+14"/>
@@ -148,7 +148,7 @@ seams hard</source>
     <message>
         <location line="+88"/>
         <source>Show all bits</source>
-        <translation>Mostrar todos los Bits</translation>
+        <translation>Mostrar todos los bits</translation>
     </message>
     <message>
         <source>show all</source>
@@ -160,7 +160,7 @@ seams hard</source>
     </message>
     <message>
         <source>No Lighting</source>
-        <translation type="obsolete">Sin Luz</translation>
+        <translation type="obsolete">Sin luz</translation>
     </message>
     <message>
         <source>No Z-write</source>
@@ -2294,7 +2294,7 @@ p, li { white-space: pre-wrap; }
         <location line="+84"/>
         <location line="+60"/>
         <source>Open Brf</source>
-        <translation>OpenBRF | Traducido al Castellano por Swyter</translation>
+        <translation>OpenBRF | Traducido al castellano por Swyter</translation>
     </message>
     <message>
         <location line="-935"/>
@@ -2930,7 +2930,7 @@ al que añadir un fotograma o cuadro.</translation>
         <translation>Idioma del sistema</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+8"/>
         <source>Test a custom translation file...</source>
         <translation>Probar una traducción personalizada...</translation>
     </message>
@@ -2939,7 +2939,7 @@ al que añadir un fotograma o cuadro.</translation>
         <translation type="obsolete">Aprender como feminizar armaduras desde los modelos seleccionados.</translation>
     </message>
     <message>
-        <location line="-29"/>
+        <location line="-30"/>
         <source>always use shared reference files (&quot;&lt;OpenBRF-folder&gt;/reference.brf&quot;)</source>
         <translation>Compartir siempre archivos de referencia («&lt;carpeta-de-OpenBRF&gt;/reference.brf»)</translation>
     </message>
@@ -2949,7 +2949,7 @@ al que añadir un fotograma o cuadro.</translation>
         <translation>Modo de archivo de referencia</translation>
     </message>
     <message>
-        <location line="+43"/>
+        <location line="+45"/>
         <source>manual edits</source>
         <translation>edición manual</translation>
     </message>
@@ -4071,12 +4071,12 @@ al que añadir un fotograma o cuadro.</translation>
         <location line="+1146"/>
         <location line="+12"/>
         <location line="+648"/>
-        <location line="+1812"/>
+        <location line="+1813"/>
         <source>OpenBrf</source>
         <translation>OpenBRF</translation>
     </message>
     <message>
-        <location line="-5216"/>
+        <location line="-5217"/>
         <source>%1 been modified.
 Save changes?</source>
         <translation>%1 ha sido modificado.
@@ -4489,7 +4489,7 @@ Escribe el nuevo aquí:</translation>
         <translation>La animación %2 se ha dividido en %1 trozos -- ¡Nuevo actions.txt guardado en &quot;%3&quot;!</translation>
     </message>
     <message>
-        <location line="+980"/>
+        <location line="+981"/>
         <source>&amp;Repeat %1</source>
         <translation>&amp;Repetir %1</translation>
     </message>
@@ -4797,7 +4797,7 @@ Las direcciones tangentes no se guardarán...</translation>
         <translation>Indicadores de textura</translation>
     </message>
     <message>
-        <location line="-5612"/>
+        <location line="-5613"/>
         <source>Skeleton hitboxes have been modified.&lt;br/&gt;Save changes in /Data/skeleton_bodies.xml?</source>
         <translation>Los cuerpos de colisión han sido modificados. &lt;br/&gt;¿Guardar cambios en /Data/skeleton_bodies.xml?</translation>
     </message>
@@ -5144,7 +5144,7 @@ Utiliza la regla incluida con OpenBRF para introducir el tamaño de «%2».
 ¿Quieres activar la regla ahora?</translation>
     </message>
     <message>
-        <location line="+495"/>
+        <location line="+496"/>
         <source>&lt;p&gt;You are saving into the generic OpenBRF reference file &lt;br&gt;&quot;%1&quot;&lt;/p&gt;&lt;p&gt;Would you rather save in the reference file &lt;i&gt;specific&lt;/i&gt; for Module %3&lt;br&gt;&quot;%2&quot;&lt;br&gt;?&lt;/p&gt;</source>
         <translation>&lt;p&gt;Estás guardando en el archivo de referencia genérico de OpenBRF &lt;br&gt;&quot;%1&quot;&lt;/p&gt;&lt;p&gt;¿Querrías guardarlo en un archivo de referencia para utilizarlo &lt;i&gt;exclusivamente&lt;/i&gt; en el &lt;/i&gt; módulo %3&lt;br&gt;&quot;%2&quot;&lt;br&gt;?&lt;/p&gt;</translation>
     </message>
@@ -6679,7 +6679,7 @@ en la línea %3:
 <context>
     <name>TT</name>
     <message>
-        <location filename="../mainwindow.cpp" line="-4806"/>
+        <location filename="../mainwindow.cpp" line="-4807"/>
         <source>new_%1</source>
         <translation>nuevo_%1</translation>
     </message>

@@ -4000,6 +4000,7 @@ void MainWindow::optionLanguageSet1(){setLanguage(1);}
 void MainWindow::optionLanguageSet2(){setLanguage(2);}
 void MainWindow::optionLanguageSet3(){setLanguage(3);}
 void MainWindow::optionLanguageSet4(){setLanguage(4);}
+void MainWindow::optionLanguageSet5(){setLanguage(5);}
 
 void MainWindow::optionLanguageSetCustom(){
 	if (maybeSave()) {
@@ -4026,7 +4027,7 @@ void MainWindow::setLanguage(int k){
 
 		//QMessageBox::information(this,"OpenBrf",tr("Language changed:\nRerun OpenBrf for changes to take place"));
 	}
-	for (int i=0; i<4; i++) optionLanguage[i]->setChecked(i==k);
+	for (int i=0; i<6; i++) optionLanguage[i]->setChecked(i==k);
 	curLanguage = k;
 
 }
