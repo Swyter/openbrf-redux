@@ -85,11 +85,11 @@ void MainWindow::createMenus()
 	importMenu->addSeparator();
 	importMenu->addAction(importBrfAct);
 
-	Selector::addDataToAllActions(importMenu,"Import ");
+	Selector::addDataToAllActions(importMenu,tr("Import "));
 
 
 	moduleMenu->addAction(moduleSelectAct);
-	recentModsMenu = moduleMenu->addMenu("Recent Modules");
+	recentModsMenu = moduleMenu->addMenu(tr("Recent Modules"));
 
 	for (int i = 0; i < MaxRecentFiles; ++i)
 		recentModsMenu->addAction(recentModActs[i]);

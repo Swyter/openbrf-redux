@@ -832,7 +832,7 @@ void Selector::updateContextMenu(){
 			m->addAction(discardRigAct);
 			m->addAction(meshFreezeFrameAct);
 			m->addAction(meshUnmountAct);
-			addDataToAllActions(m,"Discard ");
+			addDataToAllActions(m,tr("Discard "));
 
 			discardRigAct->setEnabled(mulsel || mesh.IsSkinned());
 			discardAniAct->setEnabled(mulsel || mesh.HasVertexAni());
