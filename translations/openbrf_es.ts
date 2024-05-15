@@ -318,7 +318,7 @@ Desplazamiento</translation>
     <message>
         <location filename="../askLodOptionsDialog.ui" line="+14"/>
         <source>Dialog</source>
-        <translation>Ajustes de Niveles de Detalle</translation>
+        <translation>Ajustes de niveles de detalle</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -1192,7 +1192,7 @@ tal vez el problema sea que el sombreador usa los signos (&lt;) o (&gt;) o (&amp
         <location line="+19"/>
         <location line="+2754"/>
         <source>faces:</source>
-        <translation>Cara:</translation>
+        <translation>caras:</translation>
     </message>
     <message>
         <location line="-2735"/>
@@ -1202,7 +1202,7 @@ tal vez el problema sea que el sombreador usa los signos (&lt;) o (&gt;) o (&amp
     <message>
         <location line="+19"/>
         <source>vert:</source>
-        <translation>Vért:</translation>
+        <translation>vért:</translation>
     </message>
     <message>
         <location line="+19"/>
@@ -1212,7 +1212,7 @@ tal vez el problema sea que el sombreador usa los signos (&lt;) o (&gt;) o (&amp
     <message>
         <location line="+22"/>
         <source>pos:</source>
-        <translation>Pos:</translation>
+        <translation>pos:</translation>
     </message>
     <message>
         <location line="+19"/>
@@ -1222,7 +1222,7 @@ tal vez el problema sea que el sombreador usa los signos (&lt;) o (&gt;) o (&amp
     <message>
         <location line="+22"/>
         <source>frames:</source>
-        <translation>Fotograma:</translation>
+        <translation>fotogra.:</translation>
     </message>
     <message>
         <location line="+25"/>
@@ -1248,7 +1248,7 @@ tal vez el problema sea que el sombreador usa los signos (&lt;) o (&gt;) o (&amp
     <message>
         <location line="+61"/>
         <source>View</source>
-        <translation>Vista Previa</translation>
+        <translation>Vista previa</translation>
     </message>
     <message>
         <location line="+39"/>
@@ -1447,12 +1447,12 @@ tal vez el problema sea que el sombreador usa los signos (&lt;) o (&gt;) o (&amp
     <message>
         <location line="+78"/>
         <source>Hit-Boxes</source>
-        <translation>Cuerpos de colisión</translation>
+        <translation>Cuerpos colisión</translation>
     </message>
     <message>
         <location line="+23"/>
         <source>Floor &amp;&amp; Shadow</source>
-        <translation>suelo y sombra</translation>
+        <translation>Suelo y sombra</translation>
     </message>
     <message>
         <location line="+31"/>
@@ -2776,7 +2776,7 @@ al que añadir un fotograma o cuadro.</translation>
     <message>
         <location line="+3"/>
         <source>When computing AO, use %1 shades</source>
-        <translation>Al calcular la Oclusión Ambiental (AO), usar sombreado: %1</translation>
+        <translation>Al calcular la oclusión ambiental (AO), usar sombreado: %1</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -2846,7 +2846,7 @@ al que añadir un fotograma o cuadro.</translation>
     <message>
         <location line="+9"/>
         <source>On building LOD pyramids...</source>
-        <translation>Al crear Niveles de Detalle (LOD)...</translation>
+        <translation>Al crear niveles de detalle (LOD)...</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3552,7 +3552,7 @@ al que añadir un fotograma o cuadro.</translation>
     <message>
         <location line="+2"/>
         <source>follow back-link</source>
-        <translation>Subir un Nivel</translation>
+        <translation>Subir un nivel</translation>
     </message>
     <message>
         <source>ctrl+left</source>
@@ -3951,7 +3951,7 @@ al que añadir un fotograma o cuadro.</translation>
         <location line="+13"/>
         <source>Activating preview Shaders
 (can be disabled under Settings)</source>
-        <translation>Activando los sombreadores en la Vista Previa
+        <translation>Activando los sombreadores en la vista previa
 (se pueden desactivar en Configuración)</translation>
     </message>
     <message>
@@ -3972,7 +3972,7 @@ al que añadir un fotograma o cuadro.</translation>
     <message>
         <location line="+5"/>
         <source>OpenBrf - Preview Shader info</source>
-        <translation>OpenBrf - Información de sombreadores en Vista Previa</translation>
+        <translation>OpenBrf - Información de sombreadores en vista previa</translation>
     </message>
     <message>
         <location line="+20"/>
@@ -5259,7 +5259,7 @@ Multiplicar</translation>
     </message>
     <message>
         <source>If set, this material is optimized for LODs&gt;1</source>
-        <translation>Si se activa, el material se optimiza para Niveles de Detalle menores que 1</translation>
+        <translation>Si se activa, el material se optimiza para niveles de detalle menores que 1</translation>
     </message>
     <message>
         <source>Invert bumpmap</source>
@@ -6005,7 +6005,7 @@ en la línea %3:
     <message>
         <location line="+3"/>
         <source>Tune colors HSB...</source>
-        <translation>Ajustes de Saturación, Tonalidad y Contraste...</translation>
+        <translation>Ajustes de saturación, tonalidad y contraste...</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -6397,12 +6397,12 @@ en la línea %3:
     <message>
         <location line="+2"/>
         <source>Compute LODs</source>
-        <translation>Calcular Niveles de Detalle</translation>
+        <translation>Calcular niveles de detalle</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Tries to compute a LOD pyramid</source>
-        <translation>Calcula los distintos Niveles de Detalle (LODs) de forma automática</translation>
+        <translation>Calcula los distintos niveles de detalle (LODs) de forma automática</translation>
     </message>
     <message>
         <source>Get dimensions</source>
@@ -6515,7 +6515,7 @@ en la línea %3:
     </message>
     <message>
         <source>Tune colors HSB</source>
-        <translation type="obsolete">Ajustes de Saturación, Tonalidad y Contraste</translation>
+        <translation type="obsolete">Ajustes de saturación, tonalidad y contraste</translation>
     </message>
     <message>
         <location line="+3"/>
