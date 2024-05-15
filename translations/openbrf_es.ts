@@ -45,12 +45,12 @@
     <message>
         <location line="+13"/>
         <source>at origin</source>
-        <translation>Su origen</translation>
+        <translation>su origen</translation>
     </message>
     <message>
         <location line="+13"/>
         <source>in the correct final position</source>
-        <translation>En la posición final adecuada</translation>
+        <translation>ya en la posición final</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -60,7 +60,7 @@
     <message>
         <location line="+26"/>
         <source>(optional) carry location:</source>
-        <translation>(opcional) posición de agarre:</translation>
+        <translation>(opcional) pos. de agarre:</translation>
     </message>
     <message>
         <location filename="../askBoneDialog.cpp" line="+91"/>
@@ -604,7 +604,7 @@ Module
 folder:</source>
         <translation>En la
 carpeta
-del Módulo:</translation>
+«Module»:</translation>
     </message>
     <message>
         <source>Not
@@ -619,9 +619,10 @@ Module.ini:</translation>
         <source>Files not
 included in
 module.ini:</source>
-        <translation>Archivos no
-incluidos
-en module.ini:</translation>
+        <translation>Archivos 
+que no
+están en
+module.ini:</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -630,7 +631,8 @@ Comm Res
 folder:</source>
         <translation>En la
 carpeta
-Comm Res:</translation>
+«Common
+Res»:</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -769,7 +771,7 @@ con los mismos nombres.</translation>
         <location line="+78"/>
         <location line="+624"/>
         <source>Local</source>
-        <translation type="unfinished"></translation>
+        <translation>Local</translation>
     </message>
     <message>
         <location line="-608"/>
@@ -859,7 +861,7 @@ Ni siquiera serán cargadas por el juego...</translation>
     <message>
         <location line="+17"/>
         <source>Move all to subfolder &quot;_unused&quot;</source>
-        <translation>Mover todo a la subcarpeta &quot;_unused&quot;</translation>
+        <translation type="unfinished">Moverlos a la subcarpeta «_unused»</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -924,22 +926,22 @@ Ni siquiera serán cargadas por el juego...</translation>
     <message>
         <location line="-72"/>
         <source>Translate (in 0..1)</source>
-        <translation>Desplazamiento (entre 0 y 1)</translation>
+        <translation type="unfinished">Desplazar (de 0 a1)</translation>
     </message>
     <message>
         <location line="+89"/>
         <source>Reset</source>
-        <translation>Restablecer</translation>
+        <translation>Restabl.</translation>
     </message>
     <message>
         <location line="+13"/>
         <source>Flip U</source>
-        <translation>Voltear U</translation>
+        <translation type="unfinished">Volt. U</translation>
     </message>
     <message>
         <location line="+13"/>
         <source>V</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">V</translation>
     </message>
 </context>
 <context>
@@ -1015,17 +1017,17 @@ objeto seleccionado</translation>
     <message>
         <location line="+6"/>
         <source>&lt;br /&gt;Binding: &lt;br /&gt;</source>
-        <translation>&lt;br /&gt;Vinculando: &lt;br /&gt;</translation>
+        <translation>&lt;br /&gt;Vinculación: &lt;br /&gt;</translation>
     </message>
     <message>
         <location line="+769"/>
         <source>&quot;green&quot; NM</source>
-        <translation>Mapa de normales Verde (&quot;green&quot; NM)</translation>
+        <translation>Mapa de normales verde (&quot;green&quot; NM)</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>&quot;blue&quot; NM</source>
-        <translation>Mapa de normales Azul (&quot;blue&quot; NM)</translation>
+        <translation>Mapa de normales azul (&quot;blue&quot; NM)</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1234,7 +1236,7 @@ tal vez el problema sea que el sombreador usa los signos (&lt;) o (&gt;) o (&amp
     <message>
         <location line="+19"/>
         <source>vert:</source>
-        <translation>vért:</translation>
+        <translation type="unfinished">vért:</translation>
     </message>
     <message>
         <location line="+19"/>
@@ -1244,7 +1246,7 @@ tal vez el problema sea que el sombreador usa los signos (&lt;) o (&gt;) o (&amp
     <message>
         <location line="+22"/>
         <source>pos:</source>
-        <translation>pos:</translation>
+        <translation type="unfinished">pos:</translation>
     </message>
     <message>
         <location line="+19"/>
@@ -1254,7 +1256,7 @@ tal vez el problema sea que el sombreador usa los signos (&lt;) o (&gt;) o (&amp
     <message>
         <location line="+22"/>
         <source>frames:</source>
-        <translation>fotogra.:</translation>
+        <translation type="unfinished">fotogr:</translation>
     </message>
     <message>
         <location line="+25"/>
@@ -1621,7 +1623,7 @@ tal vez el problema sea que el sombreador usa los signos (&lt;) o (&gt;) o (&amp
     <message>
         <location line="-1048"/>
         <source>location:</source>
-        <translation type="unfinished">Está en:</translation>
+        <translation>Está en:</translation>
     </message>
     <message>
         <location line="+29"/>
@@ -1652,12 +1654,12 @@ tal vez el problema sea que el sombreador usa los signos (&lt;) o (&gt;) o (&amp
         <location line="+19"/>
         <location line="+516"/>
         <source># bones:</source>
-        <translation>Huesos:</translation>
+        <translation type="unfinished">Nº huesos:</translation>
     </message>
     <message>
         <location line="-500"/>
         <source># frames:</source>
-        <translation>Fotogram:</translation>
+        <translation type="unfinished">Nº fotogr:</translation>
     </message>
     <message>
         <location line="+16"/>
@@ -2698,12 +2700,12 @@ al que añadir un fotograma o cuadro.</translation>
     <message>
         <location line="+67"/>
         <source>Import </source>
-        <translation type="unfinished"></translation>
+        <translation>Importar </translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Recent Modules</source>
-        <translation type="unfinished"></translation>
+        <translation>Módulos recientes</translation>
     </message>
     <message>
         <location line="+78"/>
@@ -3926,7 +3928,7 @@ al que añadir un fotograma o cuadro.</translation>
     <message>
         <location line="+21"/>
         <source>&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;OpenBrf&lt;/b&gt; | &lt;i&gt;Redux&lt;/i&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; by &lt;b&gt;%2&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;ver %6&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; (%1 %7)&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;i&gt;Testing, bug reporting, suggestions by:&lt;/i&gt; %3&lt;/p&gt;&lt;p&gt;&lt;i&gt;Additional art by:&lt;/i&gt; %4&lt;/p&gt;&lt;p&gt;&lt;i&gt;Translations by:&lt;/i&gt; %5&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;OpenBrf&lt;/b&gt; | &lt;i&gt;Redux&lt;/i&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; por  &lt;b&gt;%2&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;ver %6&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; (%1 %7)&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;i&gt;Pruebas, informes y sugerencias por:&lt;/i&gt; %3&lt;/p&gt;&lt;p&gt;&lt;i&gt;Iconos y logotipos por:&lt;/i&gt; %4&lt;/p&gt;&lt;p&gt;&lt;i&gt;Traductores:&lt;/i&gt; %5&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;OpenBrf&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; by &lt;b&gt;%2&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;ver %6&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; (%1)&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;i&gt;Testing, bug reporting, suggestions by:&lt;/i&gt; %3&lt;/p&gt;&lt;p&gt;&lt;i&gt;Additional art by:&lt;/i&gt; %4&lt;/p&gt;&lt;p&gt;&lt;i&gt;Translations by:&lt;/i&gt; %5&lt;/p&gt;</source>
@@ -4876,7 +4878,7 @@ o discordancia en la vinculación esqueletal).
     <message>
         <location line="+49"/>
         <source>Unified %1 verts and %2 pos in %3 meshes.</source>
-        <translation type="unfinished"></translation>
+        <translation>Se han unificado %1 vértices y %2 posiciones en %3 modelos.</translation>
     </message>
     <message>
         <location line="+351"/>
@@ -6421,7 +6423,7 @@ en la línea %3:
     <message>
         <location line="+3"/>
         <source>Color with Ambient Occlusion</source>
-        <translation>Colorear con Oclusión Ambiental</translation>
+        <translation>Colorear con oclusión ambiental</translation>
     </message>
     <message>
         <source>Set per vertex color as ambient occlusion (globlal lighting)</source>
@@ -6507,7 +6509,7 @@ en la línea %3:
     <message>
         <location line="+2"/>
         <source>Make skinning stiffer</source>
-        <translation></translation>
+        <translation>Endurecer vinculación esqueletal</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -6662,7 +6664,7 @@ en la línea %3:
     <message>
         <location line="+8"/>
         <source>Discard </source>
-        <translation type="unfinished"></translation>
+        <translation>Descartar </translation>
     </message>
     <message>
         <location line="+47"/>
@@ -6685,12 +6687,12 @@ en la línea %3:
     <message>
         <location filename="../mainwindow.cpp" line="-4806"/>
         <source>new_%1</source>
-        <translation type="unfinished"></translation>
+        <translation>nuevo_%1</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>New %1</source>
-        <translation type="unfinished">Nuevo %1</translation>
+        <translation>Nuevo %1</translation>
     </message>
 </context>
 <context>
@@ -6765,12 +6767,12 @@ en la línea %3:
     <message>
         <location line="+51"/>
         <source>from Skeleton:</source>
-        <translation>desde esqueleto:</translation>
+        <translation>del esqueleto:</translation>
     </message>
     <message>
         <location line="+16"/>
         <source>to Skeleton:</source>
-        <translation>a esqueleto:</translation>
+        <translation>al esqueleto:</translation>
     </message>
     <message>
         <location line="+16"/>
@@ -6791,11 +6793,11 @@ en la línea %3:
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Readapting animation(s) to a different skeleton.&lt;span style=&quot; font-style:italic;&quot;&gt;&lt;br /&gt;Bone matching is done by name.&lt;br /&gt;Missing bones are fixed in positions, as in&amp;quot;from&amp;quot; skeleton.&lt;br /&gt;Extra bones are discarded from ani.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//ES&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+        <translation type="unfinished">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//ES&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Readaptando animacion(es) a un esqueleto diferente.&lt;span style=&quot; font-style:italic;&quot;&gt;&lt;br /&gt;El emparejamiento de los huesos se hace por nombre.&lt;br /&gt;Los huesos que falten se convertirán en posiciones fijas, las del esqueleto original.&lt;br /&gt;Los huesos supérfluos se descartan de la animacióni.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Readaptando animacion(es) a otro esqueleto.&lt;span style=&quot; font-style:italic;&quot;&gt; Los huesos &lt;br /&gt;se emparejan por nombren, y los que falten&lt;br /&gt;se dejarán fijos siguiendo el original.&lt;br /&gt;Los huesos supérfluos se quitan de la animación.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
