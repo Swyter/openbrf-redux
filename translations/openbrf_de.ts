@@ -3649,57 +3649,57 @@ to add a frame to.</source>
         <translation type="obsolete">&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;OpenBrf&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; von &lt;b&gt;%2&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;ver %6&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; (%1)&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;i&gt;Tests, Fehlerberichterstattung, sowie Verbesserungsvorschläge von:&lt;/i&gt; %3&lt;/p&gt;&lt;p&gt;&lt;i&gt;Zusätzlichle Gestaltung von:&lt;/i&gt; %4&lt;/p&gt;&lt;p&gt;&lt;i&gt;Übersetzungen von:&lt;/i&gt; %5&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="96"/>
+        <location filename="../main_info.cpp" line="97"/>
         <source>additional code and Chinese</source>
         <translation>Zusätzlicher Code und chinesisch</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="99"/>
+        <location filename="../main_info.cpp" line="100"/>
         <source>With detailed info about flag meanings provided by:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="143"/>
+        <location filename="../main_info.cpp" line="144"/>
         <source>&lt;p&gt;&lt;b&gt;Info on mesh recoloring:&lt;/b&gt;&lt;br/&gt;when activating any tool which assigns&lt;br/&gt;new vertex-colors to an entire mesh: &lt;ul&gt;&lt;li&gt; keep &lt;b&gt;Shift&lt;/b&gt; pressed:&lt;br/&gt;new colors will &lt;i&gt;multiply&lt;/i&gt; existing ones&lt;/li&gt;&lt;/ul&gt;(by &lt;b&gt;default&lt;/b&gt;, new colors &lt;i&gt;replace&lt;/i&gt; existing ones).&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="164"/>
+        <location filename="../main_info.cpp" line="165"/>
         <source>&lt;br&gt;&lt;p&gt;&lt;i&gt;This info has been copied to clipboard&lt;/i&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="167"/>
+        <location filename="../main_info.cpp" line="168"/>
         <source>ok</source>
         <translation type="unfinished">ok</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="171"/>
+        <location filename="../main_info.cpp" line="172"/>
         <source>&lt;p&gt;&lt;i&gt;Currently used preview Shader:&lt;/i&gt;&lt;br /&gt;%1&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;i&gt;Shader status:&lt;/i&gt;&lt;br /&gt;%2&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="176"/>
+        <location filename="../main_info.cpp" line="177"/>
         <source>OpenBrf - Preview Shader info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="184"/>
+        <location filename="../main_info.cpp" line="185"/>
         <source>&lt;i&gt;&lt;br/&gt;&lt;br/&gt;(info: skeleton metadata, including hitboxes, are kept in the separate file &quot;data/skeleton_bodies.xml&quot;)&lt;/i&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="217"/>
+        <location filename="../main_info.cpp" line="218"/>
         <source>&lt;br&gt;- double check DiffuesA texture name of the material&lt;br&gt;- (hint: remember you can navigate with ctrl-left/right)&lt;br&gt;&lt;b&gt;or&lt;/b&gt;&lt;br&gt;&lt;br&gt;- make sure the missing texture file in mod texture folder!&lt;br&gt;- put it there if it is missing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="227"/>
+        <location filename="../main_info.cpp" line="228"/>
         <source>I&apos;m supposed to understand .dds textures of formats DXT1 (maybe), DXT3, and DXT5.&lt;br&gt;But some kinds of DXT1 texture confuse me, and too big textures too.&lt;br&gt;Also, if graphic drivers are not up to date, I might ignore how to intepret DXT formats.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="230"/>
+        <location filename="../main_info.cpp" line="231"/>
         <source>Try updating the drivers. Else, maybe just accept the fact... it should still show the texture in game.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3708,38 +3708,38 @@ to add a frame to.</source>
         <translation type="obsolete">Open-Brf</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="116"/>
+        <location filename="../main_info.cpp" line="117"/>
         <source>&lt;b&gt;What is this autofix DXT texture option?&lt;/b&gt;&lt;br&gt;&lt;p&gt;Many DDS texture creation programs/plugins around will output DXT1 textures with a minor error in the header.&lt;/p&gt;&lt;p&gt;This error confuses me (OpenBRF) but not Mount and Blade (or many other programs).&lt;/p&gt;&lt;p&gt;(When I cannot read a texture for this or any other problem, I display a chekerboard pattern instead).&lt;/p&gt;&lt;p&gt;If you want, I can silently fix this error every time I encounter it (I&apos;ll shamelessly write on the texture dss files on disk).&lt;/p&gt;</source>
         <translation>&lt;b&gt;Was macht die Autofix DXT-Option?&lt;/b&gt;&lt;br&gt;&lt;p&gt;Viele DDS Texturen Programme/Plugins erstellen DXT1 Texturen mit Fehlern in der Kopfzeile.&lt;/p&gt;&lt;p&gt;Diese Fehler verwirren mich (OpenBRF) aber nicht  Mount und Blade (sowie viele andere Programme).&lt;/p&gt;&lt;p&gt;(Wenn ich die Textur wegen dieses, oder eines anderen Fehlers nicht lesen kann, wird das Schachbrettmuster stattdessen angezeigt).&lt;/p&gt;&lt;p&gt;Falls gewollt, kann ich diesen Fehler jedesmal klammheimlich beheben (Ich werde schamlos in die Textur dss-Dateien auf der Festplatte schreiben).&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="129"/>
+        <location filename="../main_info.cpp" line="130"/>
         <source>Activating preview Shaders
 (can be disabled under Settings)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="196"/>
+        <location filename="../main_info.cpp" line="197"/>
         <source>I don&apos;t know what the material &lt;i&gt;&quot;%1&quot;&lt;/i&gt; is.</source>
         <translation>Ich kenne dieses Material nichtl &lt;i&gt;&quot;%1&quot;&lt;/i&gt; is.</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="197"/>
+        <location filename="../main_info.cpp" line="198"/>
         <source>I&apos;ve scanned in all file &quot;%1&quot; and didn&apos;t find a &lt;i&gt;load_mod_resource&lt;/i&gt; or &lt;i&gt;load_resource&lt;/i&gt; command that pointed me to a brf file that contained any such material</source>
         <translation>Ich habe alle Dateien überprüft &quot;%1&quot; aber konnte dies nicht finden &lt;i&gt;load_mod_resource&lt;/i&gt; oder &lt;i&gt;load_resource&lt;/i&gt; Befehl, der mir eine brf-Datei mit irgend so einem Material zeigte</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="200"/>
+        <location filename="../main_info.cpp" line="201"/>
         <source>&lt;br&gt;- double check material name of the mesh&lt;br&gt;&lt;b&gt;or&lt;/b&gt;&lt;br&gt;- find the brf-file with the material, or create one&lt;br&gt;- add a line &lt;i&gt;load_&lt;b&gt;mod&lt;/b&gt;_resource&lt;/i&gt; in module.ini, with a text editor,&lt;br&gt;- (note the &lt;i&gt;mod&lt;/i&gt; part)!&lt;br&gt;- save module.ini&lt;br&gt;- come back, and refresh Module [f5]</source>
         <translation>&lt;br&gt;- Überprüfe Materialname des Strukturgitters&lt;br&gt;&lt;b&gt;or&lt;/b&gt;&lt;br&gt;- Lokalisiere die brf-Datei mit dem Material, oder erstelle eins&lt;br&gt;- füge eine Zeile hinzu &lt;i&gt;load_&lt;b&gt;mod&lt;/b&gt;_resource&lt;/i&gt; in module.ini, mit einem Texteditor,&lt;br&gt;- (Achte auf den &lt;i&gt;mod&lt;/i&gt; Teil)!&lt;br&gt;- Speichere module.ini&lt;br&gt;- komme zurück und aktualisiere das Modul [f5]</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="210"/>
+        <location filename="../main_info.cpp" line="211"/>
         <source>I cannot find the file &quot;%1&quot; on disk.</source>
         <translation>Ich kann die Datei &quot;%1&quot; nicht auf der Festplatte finden.</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="212"/>
+        <location filename="../main_info.cpp" line="213"/>
         <source>I&apos;ve looked in folders &lt;br&gt;%1&lt;br&gt; and &lt;br&gt;%2&lt;br&gt; and &lt;br&gt;%3&lt;br&gt; but it wasn&apos;t there...&lt;br&gt;Maybe it is was tiff texture? (I don&apos;t understand them).</source>
         <translation>Ich habe in folgenden Ordnenr gesucht &lt;br&gt;%1&lt;br&gt; sowie &lt;br&gt;%2&lt;br&gt; sowie &lt;br&gt;%3&lt;br&gt; aber es war nicht dort...&lt;br&gt;vielleicht war es eine .tiff Textur? (Ich verstehe diese nicht).</translation>
     </message>
@@ -3748,7 +3748,7 @@ to add a frame to.</source>
         <translation type="obsolete">&lt;br&gt;- Überprüfe ZerstreueA Texturname des Materialsl&lt;br&gt;- (Tip: Navigiere mit Strg-Links/Rechts)&lt;br&gt;&lt;b&gt;oder&lt;/b&gt;&lt;br&gt;-überprüfe, ob die fehlende Textur im Mod Texture Ordner ist!&lt;br&gt;- füge es dort ein, falls es fehlen sollte</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="226"/>
+        <location filename="../main_info.cpp" line="227"/>
         <source>I cannot understand the texture format of  file &quot;%1&quot;.</source>
         <translation>Ich verstehe das Texturformat dieser Datei nicht &quot;%1&quot;.</translation>
     </message>
@@ -3761,7 +3761,7 @@ to add a frame to.</source>
         <translation type="obsolete">Akzeptiere dies einfach...die Textur wird trotzdem richtig im Spiel angezeigt.</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="235"/>
+        <location filename="../main_info.cpp" line="236"/>
         <source>&lt;i&gt;I could not display the real texture because:&lt;/i&gt;&lt;br&gt;&lt;b&gt;%1&lt;/b&gt;&lt;br&gt;&lt;br&gt;%2&lt;br&gt;&lt;br&gt;&lt;b&gt;Cure: &lt;/b&gt;%3</source>
         <translation>&lt;i&gt;Ich konnte die richtige Textur nicht anzeigen, denn:&lt;/i&gt;&lt;br&gt;&lt;b&gt;%1&lt;/b&gt;&lt;br&gt;&lt;br&gt;%2&lt;br&gt;&lt;br&gt;&lt;b&gt;Lösungsvorschlag: &lt;/b&gt;%3</translation>
     </message>

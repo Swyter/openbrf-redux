@@ -92,7 +92,8 @@ void MainWindow::about()
               .arg(QString::fromUtf8(
                    "<br> [foxyman] <i>(%1)</i><br>"
                    " [Swyter] <i>(Español)</i><br>"
-                   " [Vlejundo] and [Roemerboy] <i>(Deutsche)</i>")
+                   " [Vlejundo] and [Roemerboy] <i>(Deutsche)</i><br>"
+                   " [tos1] <i>(日本語)</i><br>")
               .arg(tr("additional code and Chinese")))
               .arg(applVersion)
               .arg(__TIME__)

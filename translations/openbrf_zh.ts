@@ -3990,27 +3990,27 @@ to add a frame to.</source>
         <translation type="obsolete">&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;版本 0.0.39b&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; (%1)&lt;br&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; 作者 %2&lt;br&gt;&lt;/p&gt;&lt;p&gt;测试,bug报告,建议: %3&lt;/p&gt;&lt;p&gt;美工: %4&lt;/p&gt;&lt;p&gt;翻译: %5&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="96"/>
+        <location filename="../main_info.cpp" line="97"/>
         <source>additional code and Chinese</source>
         <translation>代码修改及汉化</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="217"/>
+        <location filename="../main_info.cpp" line="218"/>
         <source>&lt;br&gt;- double check DiffuesA texture name of the material&lt;br&gt;- (hint: remember you can navigate with ctrl-left/right)&lt;br&gt;&lt;b&gt;or&lt;/b&gt;&lt;br&gt;&lt;br&gt;- make sure the missing texture file in mod texture folder!&lt;br&gt;- put it there if it is missing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="227"/>
+        <location filename="../main_info.cpp" line="228"/>
         <source>I&apos;m supposed to understand .dds textures of formats DXT1 (maybe), DXT3, and DXT5.&lt;br&gt;But some kinds of DXT1 texture confuse me, and too big textures too.&lt;br&gt;Also, if graphic drivers are not up to date, I might ignore how to intepret DXT formats.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="230"/>
+        <location filename="../main_info.cpp" line="231"/>
         <source>Try updating the drivers. Else, maybe just accept the fact... it should still show the texture in game.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="116"/>
+        <location filename="../main_info.cpp" line="117"/>
         <source>&lt;b&gt;What is this autofix DXT texture option?&lt;/b&gt;&lt;br&gt;&lt;p&gt;Many DDS texture creation programs/plugins around will output DXT1 textures with a minor error in the header.&lt;/p&gt;&lt;p&gt;This error confuses me (OpenBRF) but not Mount and Blade (or many other programs).&lt;/p&gt;&lt;p&gt;(When I cannot read a texture for this or any other problem, I display a chekerboard pattern instead).&lt;/p&gt;&lt;p&gt;If you want, I can silently fix this error every time I encounter it (I&apos;ll shamelessly write on the texture dss files on disk).&lt;/p&gt;</source>
         <translation>&lt;b&gt;“自动修复DXT纹理”这个选项是做什么的?&lt;/b&gt;&lt;br&gt;&lt;p&gt;很多DDS纹理生成软件/插件在输出DXT1纹理时在首部中犯了一个错误。&lt;/p&gt;&lt;p&gt;这个错误导致我(OpenBRF)不能识别，但骑马与砍杀(以及其他很多程序)却可以识别。&lt;/p&gt;&lt;p&gt;(由此或者其他原因导致不能读取纹理，我会显示蓝白格替代)。&lt;/p&gt;&lt;p&gt;如果你需要，我可以在每次遇到时悄悄修复这个错误(我将会改写磁盘上的.dds文件)。&lt;/p&gt;</translation>
     </message>
@@ -4020,68 +4020,68 @@ to add a frame to.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="99"/>
+        <location filename="../main_info.cpp" line="100"/>
         <source>With detailed info about flag meanings provided by:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="129"/>
+        <location filename="../main_info.cpp" line="130"/>
         <source>Activating preview Shaders
 (can be disabled under Settings)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="143"/>
+        <location filename="../main_info.cpp" line="144"/>
         <source>&lt;p&gt;&lt;b&gt;Info on mesh recoloring:&lt;/b&gt;&lt;br/&gt;when activating any tool which assigns&lt;br/&gt;new vertex-colors to an entire mesh: &lt;ul&gt;&lt;li&gt; keep &lt;b&gt;Shift&lt;/b&gt; pressed:&lt;br/&gt;new colors will &lt;i&gt;multiply&lt;/i&gt; existing ones&lt;/li&gt;&lt;/ul&gt;(by &lt;b&gt;default&lt;/b&gt;, new colors &lt;i&gt;replace&lt;/i&gt; existing ones).&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="164"/>
+        <location filename="../main_info.cpp" line="165"/>
         <source>&lt;br&gt;&lt;p&gt;&lt;i&gt;This info has been copied to clipboard&lt;/i&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="167"/>
+        <location filename="../main_info.cpp" line="168"/>
         <source>ok</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="171"/>
+        <location filename="../main_info.cpp" line="172"/>
         <source>&lt;p&gt;&lt;i&gt;Currently used preview Shader:&lt;/i&gt;&lt;br /&gt;%1&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;i&gt;Shader status:&lt;/i&gt;&lt;br /&gt;%2&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="176"/>
+        <location filename="../main_info.cpp" line="177"/>
         <source>OpenBrf - Preview Shader info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="184"/>
+        <location filename="../main_info.cpp" line="185"/>
         <source>&lt;i&gt;&lt;br/&gt;&lt;br/&gt;(info: skeleton metadata, including hitboxes, are kept in the separate file &quot;data/skeleton_bodies.xml&quot;)&lt;/i&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="196"/>
+        <location filename="../main_info.cpp" line="197"/>
         <source>I don&apos;t know what the material &lt;i&gt;&quot;%1&quot;&lt;/i&gt; is.</source>
         <translation>我不知道&quot;%1&quot;材质是什么东西。</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="197"/>
+        <location filename="../main_info.cpp" line="198"/>
         <source>I&apos;ve scanned in all file &quot;%1&quot; and didn&apos;t find a &lt;i&gt;load_mod_resource&lt;/i&gt; or &lt;i&gt;load_resource&lt;/i&gt; command that pointed me to a brf file that contained any such material</source>
         <translation>我已扫描了&quot;%1&quot;中的所有文件,无法在经过&lt;i&gt;load_mod_resource&lt;/i&gt;或&lt;i&gt;load_resource&lt;/i&gt;申明的brf文件中找到这个材质</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="200"/>
+        <location filename="../main_info.cpp" line="201"/>
         <source>&lt;br&gt;- double check material name of the mesh&lt;br&gt;&lt;b&gt;or&lt;/b&gt;&lt;br&gt;- find the brf-file with the material, or create one&lt;br&gt;- add a line &lt;i&gt;load_&lt;b&gt;mod&lt;/b&gt;_resource&lt;/i&gt; in module.ini, with a text editor,&lt;br&gt;- (note the &lt;i&gt;mod&lt;/i&gt; part)!&lt;br&gt;- save module.ini&lt;br&gt;- come back, and refresh Module [f5]</source>
         <translation>&lt;br&gt;- 检查模型的材质名称是否拼写正确&lt;br&gt;&lt;b&gt;或者&lt;/b&gt;&lt;br&gt;- 找到包含这个材质的brf文件，或者创建这样一个文件&lt;br&gt;- 通过文本编辑器，在module.ini中添加一行&lt;i&gt;load_&lt;b&gt;mod&lt;/b&gt;_resource&lt;/i&gt;&lt;br&gt;- (不要漏掉中间的&lt;i&gt;mod&lt;/i&gt;)！&lt;br&gt;- 保存module.ini&lt;br&gt;- 返回此处刷新 [f5]</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="210"/>
+        <location filename="../main_info.cpp" line="211"/>
         <source>I cannot find the file &quot;%1&quot; on disk.</source>
         <translation>我无法找到文件&quot;%1&quot;。</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="212"/>
+        <location filename="../main_info.cpp" line="213"/>
         <source>I&apos;ve looked in folders &lt;br&gt;%1&lt;br&gt; and &lt;br&gt;%2&lt;br&gt; and &lt;br&gt;%3&lt;br&gt; but it wasn&apos;t there...&lt;br&gt;Maybe it is was tiff texture? (I don&apos;t understand them).</source>
         <translation>我已查找过如下文件夹:&lt;br&gt;%1&lt;br&gt;%2&lt;br&gt;%3&lt;br&gt;但无法找到该文件...&lt;br&gt;或许你使用了tiff纹理格式?(我无法读取这样的格式)。</translation>
     </message>
@@ -4090,7 +4090,7 @@ to add a frame to.</source>
         <translation type="obsolete">&lt;br&gt;- 检查填充A指定的纹理名称是否正确&lt;br&gt;- (提示: 记住你可以通过ctrl+左方向键导航到材质)&lt;b&gt;&lt;b&gt;或者&lt;/b&gt;&lt;br&gt;- 检查缺失的纹理文件是否在模组的texture文件夹中&lt;br&gt;- 如果在文件夹中没有这个文件,添加这个文件</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="226"/>
+        <location filename="../main_info.cpp" line="227"/>
         <source>I cannot understand the texture format of  file &quot;%1&quot;.</source>
         <translation>我无法识别文件&quot;%1&quot;中的纹理格式。</translation>
     </message>
@@ -4103,7 +4103,7 @@ to add a frame to.</source>
         <translation type="obsolete">或者不解决这个问题...只要游戏中纹理能正常显示。</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="235"/>
+        <location filename="../main_info.cpp" line="236"/>
         <source>&lt;i&gt;I could not display the real texture because:&lt;/i&gt;&lt;br&gt;&lt;b&gt;%1&lt;/b&gt;&lt;br&gt;&lt;br&gt;%2&lt;br&gt;&lt;br&gt;&lt;b&gt;Cure: &lt;/b&gt;%3</source>
         <translation>&lt;i&gt;我无法显示正确的纹理,基于如下原因: &lt;/i&gt;&lt;br&gt;&lt;b&gt;%1&lt;/b&gt;&lt;br&gt;&lt;br&gt;%2&lt;br&gt;&lt;br&gt;&lt;b&gt;解决方案: &lt;/b&gt;%3</translation>
     </message>

@@ -3385,62 +3385,62 @@ to add a frame to.</source>
         <translation>衝突</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="96"/>
+        <location filename="../main_info.cpp" line="97"/>
         <source>additional code and Chinese</source>
         <translation>追加コードと中国語</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="99"/>
+        <location filename="../main_info.cpp" line="100"/>
         <source>With detailed info about flag meanings provided by:</source>
         <translation>フラグの意味についての詳細:</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="143"/>
+        <location filename="../main_info.cpp" line="144"/>
         <source>&lt;p&gt;&lt;b&gt;Info on mesh recoloring:&lt;/b&gt;&lt;br/&gt;when activating any tool which assigns&lt;br/&gt;new vertex-colors to an entire mesh: &lt;ul&gt;&lt;li&gt; keep &lt;b&gt;Shift&lt;/b&gt; pressed:&lt;br/&gt;new colors will &lt;i&gt;multiply&lt;/i&gt; existing ones&lt;/li&gt;&lt;/ul&gt;(by &lt;b&gt;default&lt;/b&gt;, new colors &lt;i&gt;replace&lt;/i&gt; existing ones).&lt;/p&gt;</source>
         <translation>&lt;p&gt;&lt;b&gt;メッシュの再カラーに関する情報:&lt;/b&gt;&lt;br/&gt;メッシュ全体に新しい頂点カラーを割り&lt;br/&gt;当てるツールをアクティブにする時に:&lt;ul&gt;&lt;li&gt; &lt;b&gt;Shift&lt; /b&gt; を押し続けていると:&lt;br/&gt;新しい色が既存の色に&lt;i&gt;乗算&lt;/i&gt;されます&lt;/li&gt;&lt;/ul&gt;(&lt;b&gt;デフォルト&lt;/b&gt;では、既存の色が新しい色に&lt;i&gt;上書きされます&lt;/i&gt;)。&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="164"/>
+        <location filename="../main_info.cpp" line="165"/>
         <source>&lt;br&gt;&lt;p&gt;&lt;i&gt;This info has been copied to clipboard&lt;/i&gt;</source>
         <translation>&lt;br&gt;&lt;p&gt;&lt;i&gt;この情報をクリップボードにコピーしました。&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="167"/>
+        <location filename="../main_info.cpp" line="168"/>
         <source>ok</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="171"/>
+        <location filename="../main_info.cpp" line="172"/>
         <source>&lt;p&gt;&lt;i&gt;Currently used preview Shader:&lt;/i&gt;&lt;br /&gt;%1&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;i&gt;Shader status:&lt;/i&gt;&lt;br /&gt;%2&lt;/p&gt;</source>
         <translation>&lt;p&gt;&lt;i&gt;使用中のプレビュー・シェーダ:&lt;/i&gt;&lt;br /&gt;%1&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;i&gt;シェーダの状況:&lt;/i&gt;&lt;br /&gt;%2&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="176"/>
+        <location filename="../main_info.cpp" line="177"/>
         <source>OpenBrf - Preview Shader info</source>
         <translation>OpenBRF - プレビュー・シェーダ情報</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="184"/>
+        <location filename="../main_info.cpp" line="185"/>
         <source>&lt;i&gt;&lt;br/&gt;&lt;br/&gt;(info: skeleton metadata, including hitboxes, are kept in the separate file &quot;data/skeleton_bodies.xml&quot;)&lt;/i&gt;</source>
         <translation>&lt;i&gt;&lt;br/&gt;&lt;br/&gt;(情報: スケルトン・メタデータ(ヒット・ボックス含む)は別ファイル &quot;data/skeleton_bodies.xml&quot; に。)&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="217"/>
+        <location filename="../main_info.cpp" line="218"/>
         <source>&lt;br&gt;- double check DiffuesA texture name of the material&lt;br&gt;- (hint: remember you can navigate with ctrl-left/right)&lt;br&gt;&lt;b&gt;or&lt;/b&gt;&lt;br&gt;&lt;br&gt;- make sure the missing texture file in mod texture folder!&lt;br&gt;- put it there if it is missing</source>
         <translation>&lt;br&gt;- マテリアルの DiffuesA テクスチャ名を よく確認して下さい。&lt;br&gt;- (ヒント: Ctrl-左/右で項目を移動可)&lt;br&gt;&lt;b&gt;または&lt;/b&gt;&lt;br&gt;&lt;br&gt;- MOD のテクスチャ・フォルダにファイルがあるか確認を!&lt;br&gt;- 無ければ追加して下さい</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="227"/>
+        <location filename="../main_info.cpp" line="228"/>
         <source>I&apos;m supposed to understand .dds textures of formats DXT1 (maybe), DXT3, and DXT5.&lt;br&gt;But some kinds of DXT1 texture confuse me, and too big textures too.&lt;br&gt;Also, if graphic drivers are not up to date, I might ignore how to intepret DXT formats.</source>
         <translation>DXT1(多分)、DXT3、DXT5 形式の .dds テクスチャなら問題無いはずですが、&lt;br&gt;一部の DXT1 や、大きすぎるテクスチャは問題を起こす場合があります。&lt;br&gt;また、グラフィック・ドライバが古い場合も、DXT 形式を誤解釈し得ます。</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="230"/>
+        <location filename="../main_info.cpp" line="231"/>
         <source>Try updating the drivers. Else, maybe just accept the fact... it should still show the texture in game.</source>
         <translation>ドライバを更新してみて下さい。あるいは現状を受け入れる...それでもこのテクスチャはゲーム中に表示されるはず。</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="116"/>
+        <location filename="../main_info.cpp" line="117"/>
         <source>&lt;b&gt;What is this autofix DXT texture option?&lt;/b&gt;&lt;br&gt;&lt;p&gt;Many DDS texture creation programs/plugins around will output DXT1 textures with a minor error in the header.&lt;/p&gt;&lt;p&gt;This error confuses me (OpenBRF) but not Mount and Blade (or many other programs).&lt;/p&gt;&lt;p&gt;(When I cannot read a texture for this or any other problem, I display a chekerboard pattern instead).&lt;/p&gt;&lt;p&gt;If you want, I can silently fix this error every time I encounter it (I&apos;ll shamelessly write on the texture dss files on disk).&lt;/p&gt;</source>
         <translation>&lt;b&gt;この「autofix DXT テクスチャ」というオプションは?&lt;/b&gt;&lt;br&gt;&lt;p&gt;出まわっている DDS テクスチャ作成プログラム/プラグインの多くが出力する DXT1 テクスチャにはヘッダに軽微なエラーを含んでいます。&lt;/p&gt;&lt;p&gt;このエラーは私（OpenBRF）を混乱させますが、Mount and Blade（や他の多くのプログラム）は混乱しません。&lt;/p&gt;&lt;p&gt;（そういった問題でテクスチャを読めない場合、私は代わりにチェック柄を表示します）。&lt;/p&gt;&lt;p&gt;ご希望によりオプションを指定すれば、その問題に遭遇するたびに黙って修正します（ただし臆面なくディスク上のテクスチャ DSS ファイルに書き込みます）。&lt;/p&gt;</translation>
     </message>
@@ -3450,44 +3450,44 @@ to add a frame to.</source>
         <translation>&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;OpenBrf&lt;/b&gt; | &lt;i&gt;Redux&lt;/i&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; by &lt;b&gt;%2&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;ver %6&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; (%1 %7)&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;i&gt;テスト、バグ報告、提案:&lt;/i&gt; %3&lt;/p&gt;&lt;p&gt;&lt;i&gt;追加アート:&lt;/i&gt; %4&lt;/p&gt;&lt;p&gt;&lt;i&gt;翻訳:&lt;/i&gt; %5&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="129"/>
+        <location filename="../main_info.cpp" line="130"/>
         <source>Activating preview Shaders
 (can be disabled under Settings)</source>
         <translation>シェーダをプレビュー
 (設定で抑止可)</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="196"/>
+        <location filename="../main_info.cpp" line="197"/>
         <source>I don&apos;t know what the material &lt;i&gt;&quot;%1&quot;&lt;/i&gt; is.</source>
         <translation>未知のマテリアル &lt;i&gt;&quot;%1&quot;&lt;/i&gt;。</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="197"/>
+        <location filename="../main_info.cpp" line="198"/>
         <source>I&apos;ve scanned in all file &quot;%1&quot; and didn&apos;t find a &lt;i&gt;load_mod_resource&lt;/i&gt; or &lt;i&gt;load_resource&lt;/i&gt; command that pointed me to a brf file that contained any such material</source>
         <translation>ファイル &quot;%1&quot; 全体を調べても、そのようなマテリアルを含む brf ファイルを指定する&lt;i&gt;load_mod_resource&lt;/i&gt; または &lt;i&gt;load_resource&lt;/i&gt; コマンドが見つかりませんでした</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="200"/>
+        <location filename="../main_info.cpp" line="201"/>
         <source>&lt;br&gt;- double check material name of the mesh&lt;br&gt;&lt;b&gt;or&lt;/b&gt;&lt;br&gt;- find the brf-file with the material, or create one&lt;br&gt;- add a line &lt;i&gt;load_&lt;b&gt;mod&lt;/b&gt;_resource&lt;/i&gt; in module.ini, with a text editor,&lt;br&gt;- (note the &lt;i&gt;mod&lt;/i&gt; part)!&lt;br&gt;- save module.ini&lt;br&gt;- come back, and refresh Module [f5]</source>
         <translation>&lt;br&gt;- メッシュのマテリアル名をよく確認して下さい&lt;br&gt;&lt;b&gt;あるいは、&lt;/b&gt;&lt;br&gt;- このマテリアルを含む brf ファイルを見つけるか、作成し、&lt;br&gt;- テキスト・エディタを使って module.ini 内に&lt;i&gt;load_&lt;b&gt;mod&lt;/b&gt;_resource&lt;/i&gt; という行を追加し、&lt;br&gt;- (&lt;i&gt;mod&lt;/i&gt; という部分に注意!)&lt;br&gt;- module.ini を保存。&lt;br&gt;- OpenBRF に戻り、F5 キーでモジュール（MOD）を更新して下さい</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="210"/>
+        <location filename="../main_info.cpp" line="211"/>
         <source>I cannot find the file &quot;%1&quot; on disk.</source>
         <translation>&quot;%1&quot; ファイルがディスク上に見当たりません。</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="212"/>
+        <location filename="../main_info.cpp" line="213"/>
         <source>I&apos;ve looked in folders &lt;br&gt;%1&lt;br&gt; and &lt;br&gt;%2&lt;br&gt; and &lt;br&gt;%3&lt;br&gt; but it wasn&apos;t there...&lt;br&gt;Maybe it is was tiff texture? (I don&apos;t understand them).</source>
         <translation>下記フォルダに見つかりませんでした。&lt;br&gt;%1&lt;br&gt;%2&lt;br&gt;%3&lt;br&gt;もしや tiff 形式のテクスチャでは? (だとすれば理解不能です)。</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="226"/>
+        <location filename="../main_info.cpp" line="227"/>
         <source>I cannot understand the texture format of  file &quot;%1&quot;.</source>
         <translation>&quot;%1&quot; ファイルのテクスチャ形式が不明。</translation>
     </message>
     <message>
-        <location filename="../main_info.cpp" line="235"/>
+        <location filename="../main_info.cpp" line="236"/>
         <source>&lt;i&gt;I could not display the real texture because:&lt;/i&gt;&lt;br&gt;&lt;b&gt;%1&lt;/b&gt;&lt;br&gt;&lt;br&gt;%2&lt;br&gt;&lt;br&gt;&lt;b&gt;Cure: &lt;/b&gt;%3</source>
         <translation>&lt;i&gt;実際のテクスチャを表示できませんでした。理由:&lt;/i&gt;&lt;br&gt;&lt;b&gt;%1&lt;/b&gt;&lt;br&gt;&lt;br&gt;%2&lt;br&gt;&lt;br&gt;&lt;b&gt;処置: &lt;/b&gt;%3</translation>
     </message>
