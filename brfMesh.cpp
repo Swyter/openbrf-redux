@@ -3471,6 +3471,14 @@ bool BrfMesh::reverseVertexAni(){
       return false;
 
     std::reverse(frame.begin(), frame.end());
+    
+    /* swy: also swap the times of each frame around (set the timing of the first to the last one and so on);
+            I don't know if keeping them as-is after reversing is useful, who knows.
+            skeletal anims don't need seem to need this */
+    std::vector<int> timings;
+    GetTimings(timings);
+    std::reverse(timings.begin(), timings.end());
+    SetTimings(timings);
 
     return true;
 }
