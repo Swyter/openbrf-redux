@@ -357,6 +357,15 @@ static bool _copy(vector<T> &t, const QModelIndexList &l, vector<T> &d){
 
 template< class T >
 bool _compareName(const T &ta, const T &tb){
+	/* swy: make it so that we can move the LODs at the end of the list by holding Shift while clicking on Tools > Sort entries */
+	if (T::tokenIndex() == MESH && (QApplication::keyboardModifiers() & Qt::ShiftModifier)) {
+		bool ta_has_lod = strstr(ta.name, ".lod") != NULL;
+		bool tb_has_lod = strstr(tb.name, ".lod") != NULL;
+
+		if (!ta_has_lod &&  tb_has_lod) return true;  /* swy: if A doesn't have LOD it will always go first */
+		if ( ta_has_lod && !tb_has_lod) return false; /* swy: if B has          LOD it will always go last  */
+	}
+
 	return strcmp(ta.name,tb.name)<0;
 }
 
