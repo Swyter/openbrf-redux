@@ -2559,7 +2559,7 @@ al que añadir un fotograma o cuadro.</translation>
     </message>
     <message>
         <location line="+10"/>
-        <location filename="../mainwindow.cpp" line="+1587"/>
+        <location filename="../mainwindow.cpp" line="+1597"/>
         <source>Vertex number mismatch... using texture-coord matching instead of vertex-ordering</source>
         <translation>El número de vértices no concuerda... se usarán las coordenadas de textura para ordenarlos.</translation>
     </message>
@@ -4064,11 +4064,11 @@ al que añadir un fotograma o cuadro.</translation>
         <translation>&lt;i&gt;No puedo mostrar la textura real porque:&lt;/i&gt;&lt;br&gt;&lt;b&gt;%1&lt;/b&gt;&lt;br&gt;&lt;br&gt;%2&lt;br&gt;&lt;br&gt;&lt;b&gt;Solución: &lt;/b&gt;%3</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="-3246"/>
+        <location filename="../mainwindow.cpp" line="-3256"/>
         <location line="+1273"/>
         <location line="+302"/>
         <location line="+24"/>
-        <location line="+1146"/>
+        <location line="+1156"/>
         <location line="+12"/>
         <location line="+648"/>
         <location line="+1813"/>
@@ -4076,7 +4076,7 @@ al que añadir un fotograma o cuadro.</translation>
         <translation>OpenBRF</translation>
     </message>
     <message>
-        <location line="-5217"/>
+        <location line="-5227"/>
         <source>%1 been modified.
 Save changes?</source>
         <translation>%1 ha sido modificado.
@@ -4250,7 +4250,7 @@ o discordancia en la vinculación esqueletal).
 </translation>
     </message>
     <message>
-        <location line="+996"/>
+        <location line="+1006"/>
         <source>Computed AO%1</source>
         <translation>AO calculado %1</translation>
     </message>
@@ -4277,7 +4277,7 @@ Overwrite it?</source>
 ¿Quieres sobreescribirlo?</translation>
     </message>
     <message>
-        <location line="-512"/>
+        <location line="-522"/>
         <source>Normals recomputed with %1% hard edges.</source>
         <translation>Normales recalculadas con un %1% de los bordes muy marcados.</translation>
     </message>
@@ -4347,7 +4347,7 @@ selecciona un modelo vinculado a un esqueleto,
 después selecciona los modelos a vincular.</translation>
     </message>
     <message>
-        <location line="+526"/>
+        <location line="+536"/>
         <source>Same skeleton:
 reskeletonization canceled.
 </source>
@@ -4797,7 +4797,7 @@ Las direcciones tangentes no se guardarán...</translation>
         <translation>Indicadores de textura</translation>
     </message>
     <message>
-        <location line="-5613"/>
+        <location line="-5623"/>
         <source>Skeleton hitboxes have been modified.&lt;br/&gt;Save changes in /Data/skeleton_bodies.xml?</source>
         <translation>Los cuerpos de colisión han sido modificados. &lt;br/&gt;¿Guardar cambios en /Data/skeleton_bodies.xml?</translation>
     </message>
@@ -4959,7 +4959,7 @@ Overwrite it?</source>
         <translation>Primero selecciona uno o más animaciones que tengan el mismo número de huesos</translation>
     </message>
     <message>
-        <location line="+59"/>
+        <location line="+69"/>
         <source>Skeleton %1 has no associated hit-box set. Canceled</source>
         <translation>El esqueleto %1 no tiene ningún cuerpo de colisió asociado. Cancelado</translation>
     </message>
@@ -5706,7 +5706,7 @@ en la línea %3:
         <translation type="obsolete">Renombrar</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+10"/>
         <source>Remove</source>
         <translation>Eliminar</translation>
     </message>
@@ -6087,7 +6087,7 @@ en la línea %3:
         <translation>Elimina la vinculación esqueletal (las ataduras por vértice de cada hueso)</translation>
     </message>
     <message>
-        <location line="+122"/>
+        <location line="+123"/>
         <source>[Right-Click]: tools for %1. [Shift]/[Ctrl]+[Click]: Multi-sel.</source>
         <translation>[Clic derecho]: Herramientas para %1. Selecciones múltiples con [Mayús] ó [Ctrl] y [Clic].</translation>
     </message>
@@ -6105,7 +6105,7 @@ en la línea %3:
         <translation type="obsolete">descartar: </translation>
     </message>
     <message>
-        <location line="-117"/>
+        <location line="-118"/>
         <source>Discard vertex animation (keep only current frame)</source>
         <translation>Descartar animación de vértices (mantiene únicamente el fotograma actual)</translation>
     </message>
@@ -6124,7 +6124,7 @@ en la línea %3:
         <translation type="vanished">[Clic derecho]: Herramientas para %1. Selecciones múltiples con [Mayús] ó [Ctrl]</translation>
     </message>
     <message>
-        <location line="+328"/>
+        <location line="+329"/>
         <source>Group rename...</source>
         <translation>Renombrar en grupo...</translation>
     </message>
@@ -6134,24 +6134,24 @@ en la línea %3:
         <translation>Usado por:</translation>
     </message>
     <message>
-        <location line="-624"/>
-        <location line="+176"/>
+        <location line="-628"/>
+        <location line="+179"/>
         <source>Mirror</source>
         <translation>Volteo simétrico</translation>
     </message>
     <message>
-        <location line="-186"/>
+        <location line="-189"/>
         <source>Split via actions.txt...</source>
         <translation>Dividir mediante «actions.txt»...</translation>
     </message>
     <message>
-        <location line="+19"/>
-        <location line="+602"/>
+        <location line="+22"/>
+        <location line="+603"/>
         <source>Rename...</source>
         <translation>Renombrar...</translation>
     </message>
     <message>
-        <location line="-580"/>
+        <location line="-581"/>
         <source>Move up in the list</source>
         <translation>Subir un puesto en la lista</translation>
     </message>
@@ -6476,7 +6476,17 @@ en la línea %3:
         <translation>Separar todos los fotogramas</translation>
     </message>
     <message>
-        <location line="-111"/>
+        <location line="-239"/>
+        <source>Reverse animation</source>
+        <translation>Invertir el sentido de la animación</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Make the animation timeline go backwards.</source>
+        <translation>Hace que el movimiento de la animación vaya al revés.</translation>
+    </message>
+    <message>
+        <location line="+127"/>
         <source>Export skinned mesh...</source>
         <translation>Exportar modelo esqueletal...</translation>
     </message>
@@ -6633,7 +6643,7 @@ en la línea %3:
         <translation type="obsolete">[Click Derecho]: Herramientas para %1. Selecciones múltiples con [Máyus]-[Ctrl]</translation>
     </message>
     <message>
-        <location line="+122"/>
+        <location line="+123"/>
         <source>[Right-Click]: tools for %1.</source>
         <translation>[Click Derecho]: Herramientas para %1.</translation>
     </message>
@@ -6661,7 +6671,7 @@ en la línea %3:
         <translation>Descartar </translation>
     </message>
     <message>
-        <location line="+47"/>
+        <location line="+48"/>
         <source>Add to reference skins</source>
         <translation>Añadir a los modelos de referencia:</translation>
     </message>
@@ -6679,7 +6689,7 @@ en la línea %3:
 <context>
     <name>TT</name>
     <message>
-        <location filename="../mainwindow.cpp" line="-4807"/>
+        <location filename="../mainwindow.cpp" line="-4817"/>
         <source>new_%1</source>
         <translation>nuevo_%1</translation>
     </message>
