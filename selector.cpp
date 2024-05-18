@@ -41,7 +41,7 @@ void Selector::addShortCuttedAction(QAction *act){
 Selector::Selector(QWidget *parent)
   : QTabWidget(parent)
 {
-	QString keepShiftInfo("(keep shift pressed to multiply)");
+	QString keepShiftInfo("(keep Shift pressed to multiply)");
 
 	iniData = NULL;
 	for (int i=0; i<N_TOKEN; i++) {
@@ -303,7 +303,7 @@ Selector::Selector(QWidget *parent)
 	meshAddBackfacing->setData(tr("Back-faces: "));
 
 	meshComputeAoAct = new QAction(tr("Color with Ambient Occlusion"), this);
-	meshComputeAoAct->setStatusTip(tr("Set per vertex color as ambient occlusion (globlal lighting) %1").arg(keepShiftInfo));
+	meshComputeAoAct->setStatusTip(tr("Set per vertex color as ambient occlusion (global lighting) %1").arg(keepShiftInfo));
 
 	meshColorWithTextureAct = new QAction(tr("Copy colors from texture"), this);
 	meshColorWithTextureAct->setStatusTip(tr("Set per vertex color as texture colors %1").arg(keepShiftInfo));

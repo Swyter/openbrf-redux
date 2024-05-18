@@ -427,7 +427,7 @@ void MainWindow::createActions()
 	fakeEditAction = new QAction(tr("manual edits"),this);
 	fakeEditFlagAction = new QAction(tr("edit flags"),this);
 
-	QString keepShiftInfo(tr("(keep shift pressed to multiply)"));
+	QString keepShiftInfo(tr("(keep Shift pressed to multiply)"));
 
 	newAct = new QAction(tr("&New"), this);
 	newAct->setShortcuts(QKeySequence::New);
@@ -603,7 +603,7 @@ void MainWindow::createActions()
 	connect(editRefAct, SIGNAL(triggered()), this, SLOT(editRef()));
 
 	sortEntriesAct = new QAction(tr("Sort entries"), this);
-	sortEntriesAct->setStatusTip(tr("Sort current entries alphabetically"));
+	sortEntriesAct->setStatusTip(tr("Sort current entries alphabetically") + tr(" (keep Shift pressed to move all the LODs to the end of the list)"));
 	connect(sortEntriesAct, SIGNAL(triggered()), this, SLOT(sortEntries()));
 
 	invertSelectionAct = new QAction(tr("Invert selection"), this);

@@ -947,7 +947,7 @@ Ni siquiera serán cargadas por el juego...</translation>
 <context>
     <name>BrfType</name>
     <message>
-        <location filename="../mainwindow.cpp" line="+1434"/>
+        <location filename="../mainwindow.cpp" line="+1458"/>
         <source>Cannot merge these meshes
  (different number of frames,
  or skinned VS not skinned).
@@ -2960,7 +2960,7 @@ al que añadir un fotograma o cuadro.</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>(keep shift pressed to multiply)</source>
+        <source>(keep Shift pressed to multiply)</source>
         <translation>(mantén pulsado Mayús para multiplicar)</translation>
     </message>
     <message>
@@ -3104,7 +3104,12 @@ al que añadir un fotograma o cuadro.</translation>
         <translation>Realiza una vinculación de esqueleto para los modelos seleccionados basada en modelo del Portapapeles.</translation>
     </message>
     <message>
-        <location line="+144"/>
+        <location line="+119"/>
+        <source> (keep Shift pressed to move all the LODs to the end of the list)</source>
+        <translation> (mantén pulsado Mayús para mover los LODs, «niveles de detalle», al final de la lista)</translation>
+    </message>
+    <message>
+        <location line="+25"/>
         <source>Skinned mesh...</source>
         <translation>Modelo esqueletal...</translation>
     </message>
@@ -4064,8 +4069,8 @@ al que añadir un fotograma o cuadro.</translation>
         <translation>&lt;i&gt;No puedo mostrar la textura real porque:&lt;/i&gt;&lt;br&gt;&lt;b&gt;%1&lt;/b&gt;&lt;br&gt;&lt;br&gt;%2&lt;br&gt;&lt;br&gt;&lt;b&gt;Solución: &lt;/b&gt;%3</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="-3256"/>
-        <location line="+1273"/>
+        <location filename="../mainwindow.cpp" line="-3280"/>
+        <location line="+1297"/>
         <location line="+302"/>
         <location line="+24"/>
         <location line="+1156"/>
@@ -4076,7 +4081,7 @@ al que añadir un fotograma o cuadro.</translation>
         <translation>OpenBRF</translation>
     </message>
     <message>
-        <location line="-5227"/>
+        <location line="-5251"/>
         <source>%1 been modified.
 Save changes?</source>
         <translation>%1 ha sido modificado.
@@ -4093,7 +4098,7 @@ Save changes?</source>
         <translation>El conjunto de datos</translation>
     </message>
     <message>
-        <location line="+369"/>
+        <location line="+378"/>
         <source>Set %1 mesh materials to &quot;%2&quot;</source>
         <translation>Asignados los materiales del modelo %1 a &quot;%2&quot;</translation>
     </message>
@@ -4213,13 +4218,13 @@ en Z= desde %5 hasta %6
     </message>
     <message>
         <location line="+33"/>
-        <location line="+37"/>
+        <location line="+52"/>
         <source>Only one component found</source>
         <translation>Sólo se ha encontrado un único componente</translation>
     </message>
     <message>
-        <location line="-35"/>
-        <location line="+37"/>
+        <location line="-50"/>
+        <location line="+52"/>
         <source>Mesh separated into %1 pieces.</source>
         <translation>Modelo separado en %1 piezas.</translation>
     </message>
@@ -4797,7 +4802,7 @@ Las direcciones tangentes no se guardarán...</translation>
         <translation>Indicadores de textura</translation>
     </message>
     <message>
-        <location line="-5623"/>
+        <location line="-5647"/>
         <source>Skeleton hitboxes have been modified.&lt;br/&gt;Save changes in /Data/skeleton_bodies.xml?</source>
         <translation>Los cuerpos de colisión han sido modificados. &lt;br/&gt;¿Guardar cambios en /Data/skeleton_bodies.xml?</translation>
     </message>
@@ -4846,7 +4851,7 @@ archivo %2
 </translation>
     </message>
     <message>
-        <location line="+1035"/>
+        <location line="+1044"/>
         <source>Select a skeleton
 in the view panel first</source>
         <translation>Primero tienes que seleccionar
@@ -4875,7 +4880,7 @@ o discordancia en la vinculación esqueletal).
         <translation>Se han unificado %1 vértices y %2 posiciones en %3 modelos.</translation>
     </message>
     <message>
-        <location line="+351"/>
+        <location line="+366"/>
         <source>Error loading line of file %2:
 
 %1</source>
@@ -5938,12 +5943,12 @@ en la línea %3:
     </message>
     <message>
         <location line="+5"/>
-        <location line="+101"/>
+        <location line="+104"/>
         <source>Rescale...</source>
         <translation>Re-escalar...</translation>
     </message>
     <message>
-        <location line="-98"/>
+        <location line="-101"/>
         <source>(no object selected)</source>
         <translation>(ningún objeto seleccionado)</translation>
     </message>
@@ -6008,7 +6013,7 @@ en la línea %3:
     </message>
     <message>
         <location line="+3"/>
-        <source>Set per vertex color as ambient occlusion (globlal lighting) %1</source>
+        <source>Set per vertex color as ambient occlusion (global lighting) %1</source>
         <translation>Asignar el color de los vértices de acuerdo a la oclusión ambiental (iluminación global). Esto aporta volumen al objeto. %1</translation>
     </message>
     <message>
@@ -6077,7 +6082,7 @@ en la línea %3:
         <translation>Elimina la vinculación esqueletal y devuelve el objeto a la posición original.</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+10"/>
         <source>skinning</source>
         <translation>Vinc. esqueletal</translation>
     </message>
@@ -6087,7 +6092,7 @@ en la línea %3:
         <translation>Elimina la vinculación esqueletal (las ataduras por vértice de cada hueso)</translation>
     </message>
     <message>
-        <location line="+123"/>
+        <location line="+124"/>
         <source>[Right-Click]: tools for %1. [Shift]/[Ctrl]+[Click]: Multi-sel.</source>
         <translation>[Clic derecho]: Herramientas para %1. Selecciones múltiples con [Mayús] ó [Ctrl] y [Clic].</translation>
     </message>
@@ -6105,7 +6110,7 @@ en la línea %3:
         <translation type="obsolete">descartar: </translation>
     </message>
     <message>
-        <location line="-118"/>
+        <location line="-119"/>
         <source>Discard vertex animation (keep only current frame)</source>
         <translation>Descartar animación de vértices (mantiene únicamente el fotograma actual)</translation>
     </message>
@@ -6124,7 +6129,7 @@ en la línea %3:
         <translation type="vanished">[Clic derecho]: Herramientas para %1. Selecciones múltiples con [Mayús] ó [Ctrl]</translation>
     </message>
     <message>
-        <location line="+329"/>
+        <location line="+330"/>
         <source>Group rename...</source>
         <translation>Renombrar en grupo...</translation>
     </message>
@@ -6134,7 +6139,7 @@ en la línea %3:
         <translation>Usado por:</translation>
     </message>
     <message>
-        <location line="-628"/>
+        <location line="-632"/>
         <location line="+179"/>
         <source>Mirror</source>
         <translation>Volteo simétrico</translation>
@@ -6146,12 +6151,12 @@ en la línea %3:
     </message>
     <message>
         <location line="+22"/>
-        <location line="+603"/>
+        <location line="+607"/>
         <source>Rename...</source>
         <translation>Renombrar...</translation>
     </message>
     <message>
-        <location line="-581"/>
+        <location line="-585"/>
         <source>Move up in the list</source>
         <translation>Subir un puesto en la lista</translation>
     </message>
@@ -6420,7 +6425,7 @@ en la línea %3:
         <translation>Colorear con oclusión ambiental</translation>
     </message>
     <message>
-        <source>Set per vertex color as ambient occlusion (globlal lighting)</source>
+        <source>Set per vertex color as ambient occlusion (global lighting)</source>
         <translation type="obsolete">Asignar el color de los vértices de acuerdo a la Oclusión ambiental (iluminación global). Esto aporta volumen al objeto.</translation>
     </message>
     <message>
@@ -6477,16 +6482,18 @@ en la línea %3:
     </message>
     <message>
         <location line="-239"/>
+        <location line="+263"/>
         <source>Reverse animation</source>
         <translation>Invertir el sentido de la animación</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-262"/>
+        <location line="+263"/>
         <source>Make the animation timeline go backwards.</source>
         <translation>Hace que el movimiento de la animación vaya al revés.</translation>
     </message>
     <message>
-        <location line="+127"/>
+        <location line="-136"/>
         <source>Export skinned mesh...</source>
         <translation>Exportar modelo esqueletal...</translation>
     </message>
@@ -6584,7 +6591,7 @@ en la línea %3:
         <translation type="vanished">Elimina la vinculación esqueletal y devuelve el objeto a la posición original.</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+17"/>
         <source>per-vertex color</source>
         <translation>Color de vértice</translation>
     </message>
@@ -6643,7 +6650,7 @@ en la línea %3:
         <translation type="obsolete">[Click Derecho]: Herramientas para %1. Selecciones múltiples con [Máyus]-[Ctrl]</translation>
     </message>
     <message>
-        <location line="+123"/>
+        <location line="+124"/>
         <source>[Right-Click]: tools for %1.</source>
         <translation>[Click Derecho]: Herramientas para %1.</translation>
     </message>
@@ -6656,7 +6663,7 @@ en la línea %3:
         <translation type="obsolete">Usado por...</translation>
     </message>
     <message>
-        <location line="+351"/>
+        <location line="+354"/>
         <source>Backfacing faces</source>
         <translation>Caras internas</translation>
     </message>
@@ -6689,7 +6696,7 @@ en la línea %3:
 <context>
     <name>TT</name>
     <message>
-        <location filename="../mainwindow.cpp" line="-4817"/>
+        <location filename="../mainwindow.cpp" line="-4832"/>
         <source>new_%1</source>
         <translation>nuevo_%1</translation>
     </message>

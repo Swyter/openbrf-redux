@@ -1062,7 +1062,7 @@ They will not be even loaded by the game.</source>
 <context>
     <name>BrfType</name>
     <message>
-        <location filename="../mainwindow.cpp" line="1434"/>
+        <location filename="../mainwindow.cpp" line="1458"/>
         <source>Cannot merge these meshes
  (different number of frames,
  or skinned VS not skinned).
@@ -2571,9 +2571,9 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <location filename="../main_ImpExp.cpp" line="826"/>
-        <location filename="../mainwindow.cpp" line="1729"/>
-        <location filename="../mainwindow.cpp" line="1752"/>
-        <location filename="../mainwindow.cpp" line="1755"/>
+        <location filename="../mainwindow.cpp" line="1753"/>
+        <location filename="../mainwindow.cpp" line="1776"/>
+        <location filename="../mainwindow.cpp" line="1779"/>
         <source>OpenBRF</source>
         <translation></translation>
     </message>
@@ -2618,13 +2618,13 @@ to add a frame to.</source>
     </message>
     <message>
         <location filename="../main_ImpExp.cpp" line="976"/>
-        <location filename="../mainwindow.cpp" line="3352"/>
+        <location filename="../mainwindow.cpp" line="3376"/>
         <source>Vertex number mismatch... using texture-coord matching instead of vertex-ordering</source>
         <translation>顶点编号不匹配...采用纹理坐标匹配取代顺序匹配</translation>
     </message>
     <message>
         <location filename="../main_ImpExp.cpp" line="991"/>
-        <location filename="../mainwindow.cpp" line="3359"/>
+        <location filename="../mainwindow.cpp" line="3383"/>
         <source>Added frame %1</source>
         <translation>已加入帧 %1</translation>
     </message>
@@ -2983,7 +2983,7 @@ to add a frame to.</source>
     </message>
     <message>
         <location filename="../main_create.cpp" line="430"/>
-        <source>(keep shift pressed to multiply)</source>
+        <source>(keep Shift pressed to multiply)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3389,6 +3389,11 @@ to add a frame to.</source>
         <location filename="../main_create.cpp" line="611"/>
         <source>Sort current entries alphabetically</source>
         <translation>将当前项目按字典序排列</translation>
+    </message>
+    <message>
+        <location filename="../main_create.cpp" line="611"/>
+        <source> (keep Shift pressed to move all the LODs to the end of the list)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main_create.cpp" line="614"/>
@@ -3891,13 +3896,13 @@ to add a frame to.</source>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="103"/>
-        <location filename="../mainwindow.cpp" line="1376"/>
-        <location filename="../mainwindow.cpp" line="1678"/>
+        <location filename="../mainwindow.cpp" line="1400"/>
         <location filename="../mainwindow.cpp" line="1702"/>
-        <location filename="../mainwindow.cpp" line="2858"/>
-        <location filename="../mainwindow.cpp" line="2870"/>
-        <location filename="../mainwindow.cpp" line="3518"/>
-        <location filename="../mainwindow.cpp" line="5331"/>
+        <location filename="../mainwindow.cpp" line="1726"/>
+        <location filename="../mainwindow.cpp" line="2882"/>
+        <location filename="../mainwindow.cpp" line="2894"/>
+        <location filename="../mainwindow.cpp" line="3542"/>
+        <location filename="../mainwindow.cpp" line="5355"/>
         <source>OpenBrf</source>
         <translation></translation>
     </message>
@@ -4124,38 +4129,38 @@ Save changes?</source>
         <translation>数据</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="474"/>
+        <location filename="../mainwindow.cpp" line="483"/>
         <source>Set %1 mesh materials to &quot;%2&quot;</source>
         <translation>已将%1件模型材质设置为&quot;%2&quot;</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="533"/>
+        <location filename="../mainwindow.cpp" line="542"/>
         <source>Set time of frame %1 to %2</source>
         <translation>已将帧%1时间设置为%2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="586"/>
+        <location filename="../mainwindow.cpp" line="595"/>
         <source>CAnnot find skel_human, skel_dwarf and skel_orc in reference data.
 </source>
         <translation>在样板数据中找不到skel_human，skel_dwarf和 skel_orc。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="972"/>
+        <location filename="../mainwindow.cpp" line="981"/>
         <source>Stop editing reference data</source>
         <translation>停止编辑样本数据</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="973"/>
+        <location filename="../mainwindow.cpp" line="982"/>
         <source>Stop editing &quot;reference&quot; skeletons, animations &amp; meshes, that OpenBrf uses to display data.</source>
         <translation>停止编辑OpenBrf用于显示数据的&quot;样本&quot;骨骼，动画或模型。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="975"/>
+        <location filename="../mainwindow.cpp" line="984"/>
         <source>Edit reference data</source>
         <translation>编辑样本数据</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="976"/>
+        <location filename="../mainwindow.cpp" line="985"/>
         <source>Edit &quot;reference&quot; skeletons, animations &amp; meshes, that OpenBrf uses to display data.</source>
         <translation>编辑OpenBrf用于显示数据的&quot;样本&quot;骨骼、动画以及模型。</translation>
     </message>
@@ -4169,24 +4174,24 @@ Save changes?</source>
 </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1204"/>
+        <location filename="../mainwindow.cpp" line="1213"/>
         <source>Oops... no skin is currently available...
 </source>
         <translation>啊欧...没有可用的皮肤...
 </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1209"/>
+        <location filename="../mainwindow.cpp" line="1218"/>
         <source>Skin %1</source>
         <translation>皮肤 %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1213"/>
+        <location filename="../mainwindow.cpp" line="1222"/>
         <source>Select a skin</source>
         <translation>选择一个皮肤</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1214"/>
+        <location filename="../mainwindow.cpp" line="1223"/>
         <source>Select a skin:</source>
         <translation>选择一个皮肤:</translation>
     </message>
@@ -4205,17 +4210,17 @@ Save changes?</source>
 </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1898"/>
+        <location filename="../mainwindow.cpp" line="1922"/>
         <source>Normals recomputed with %1% hard edges.</source>
         <translation>法线已重新计算，硬边数%1%。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2067"/>
+        <location filename="../mainwindow.cpp" line="2091"/>
         <source>Shift animation timings</source>
         <translation>平移动画时间</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2068"/>
+        <location filename="../mainwindow.cpp" line="2092"/>
         <source>Current Interval: [%1 %2]
 New interval: [%1+k %2+k]
 
@@ -4226,12 +4231,12 @@ Select k:</source>
 选择 k:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2682"/>
+        <location filename="../mainwindow.cpp" line="2706"/>
         <source>Transfer Skinning</source>
         <translation>传递绑定</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2683"/>
+        <location filename="../mainwindow.cpp" line="2707"/>
         <source>Transfer skinning:
 select a skinned mesh first,
 then all target meshes.
@@ -4242,7 +4247,7 @@ then all target meshes.
 </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2710"/>
+        <location filename="../mainwindow.cpp" line="2734"/>
         <source>Same skeleton:
 reskeletonization canceled.
 </source>
@@ -4251,7 +4256,7 @@ reskeletonization canceled.
 </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2720"/>
+        <location filename="../mainwindow.cpp" line="2744"/>
         <source>Different number of bones:
 reskeletonization canceled.
 </source>
@@ -4260,47 +4265,47 @@ reskeletonization canceled.
 </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2859"/>
+        <location filename="../mainwindow.cpp" line="2883"/>
         <source>Renaming %1...
 new name:</source>
         <translation>重命名 %1...
 新名称:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2871"/>
+        <location filename="../mainwindow.cpp" line="2895"/>
         <source>%3 common prefix for %1 %2...
 new prefix:</source>
         <translation>%3 %1个%2的公共前缀...
 新前缀:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2871"/>
+        <location filename="../mainwindow.cpp" line="2895"/>
         <source>Changing the</source>
         <translation>修改</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2871"/>
+        <location filename="../mainwindow.cpp" line="2895"/>
         <source>Adding a</source>
         <translation>添加</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="634"/>
+        <location filename="../mainwindow.cpp" line="643"/>
         <source>Invalid frame %1</source>
         <translation>无效帧 %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="643"/>
+        <location filename="../mainwindow.cpp" line="652"/>
         <source>%1 meshes shrunk around bones</source>
         <translation>%1件模型缩放到覆盖骨骼</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="655"/>
+        <location filename="../mainwindow.cpp" line="664"/>
         <source>Cannot find skel_human, skel_dwarf and skel_orc in reference data.
 </source>
         <translation>在样板数据中找不到skel_human，skel_dwarf和 skel_orc。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="801"/>
+        <location filename="../mainwindow.cpp" line="810"/>
         <source>Set flag(s) to &quot;%1&quot;</source>
         <translation>将标签的第s项设为%1</translation>
     </message>
@@ -4309,7 +4314,7 @@ new prefix:</source>
         <translation type="vanished">顶点已一致化。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1377"/>
+        <location filename="../mainwindow.cpp" line="1401"/>
         <source>Mesh %1 will be 
 split in %2 sub-meshes!.
 
@@ -4317,23 +4322,23 @@ Proceed?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1348"/>
-        <location filename="../mainwindow.cpp" line="1385"/>
+        <location filename="../mainwindow.cpp" line="1357"/>
+        <location filename="../mainwindow.cpp" line="1409"/>
         <source>Only one component found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1305"/>
+        <location filename="../mainwindow.cpp" line="1314"/>
         <source>object &apos;%1&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1307"/>
+        <location filename="../mainwindow.cpp" line="1316"/>
         <source>%1 objects</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1315"/>
+        <location filename="../mainwindow.cpp" line="1324"/>
         <source>Spatial extension of %7:
 
 in X=%1 to %2
@@ -4344,28 +4349,28 @@ in Z=%5 to %6
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1350"/>
-        <location filename="../mainwindow.cpp" line="1387"/>
+        <location filename="../mainwindow.cpp" line="1359"/>
+        <location filename="../mainwindow.cpp" line="1411"/>
         <source>Mesh separated into %1 pieces.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1414"/>
+        <location filename="../mainwindow.cpp" line="1438"/>
         <source>Autofixed rigid parts.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2420"/>
+        <location filename="../mainwindow.cpp" line="2444"/>
         <source>Computed AO%1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2420"/>
+        <location filename="../mainwindow.cpp" line="2444"/>
         <source>(in alpha channel)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1953"/>
+        <location filename="../mainwindow.cpp" line="1977"/>
         <source>Softened %1 skinned meshes!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4380,68 +4385,68 @@ in Z=%5 to %6
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1973"/>
+        <location filename="../mainwindow.cpp" line="1997"/>
         <source>Stiffened %1 skinned meshes!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2111"/>
+        <location filename="../mainwindow.cpp" line="2135"/>
         <source>Extract Interval</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2124"/>
+        <location filename="../mainwindow.cpp" line="2148"/>
         <source>Remove Interval</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2147"/>
+        <location filename="../mainwindow.cpp" line="2171"/>
         <source>Cannot merge these animations
  (different number of bones).
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2174"/>
+        <location filename="../mainwindow.cpp" line="2198"/>
         <source>Cannot merge these meshes
  (different number of vertices, faces, points...).
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2287"/>
+        <location filename="../mainwindow.cpp" line="2311"/>
         <source>Skeleton %1 has no associated hit-box set. Canceled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2293"/>
+        <location filename="../mainwindow.cpp" line="2317"/>
         <source>Remove the hit-box associated to skeleton name %1?&lt;br /&gt;&lt;br /&gt;(this means that no skeleton named &apos;%1&apos; will have a hitbox, in this Module)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2958"/>
-        <location filename="../mainwindow.cpp" line="2979"/>
+        <location filename="../mainwindow.cpp" line="2982"/>
+        <location filename="../mainwindow.cpp" line="3003"/>
         <source>%1: Select one skeleton with a hitbox first</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2964"/>
+        <location filename="../mainwindow.cpp" line="2988"/>
         <source>%1: skeleton %2 has no kwown hitbox to copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2992"/>
-        <location filename="../mainwindow.cpp" line="3003"/>
+        <location filename="../mainwindow.cpp" line="3016"/>
+        <location filename="../mainwindow.cpp" line="3027"/>
         <source>Wrong number of bones! (%1 in %2 VS %3 in %4). Cannot perform action</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3012"/>
+        <location filename="../mainwindow.cpp" line="3036"/>
         <source>Cannot paste hitboxes: I don&apos;t have a hitboxes plus skeleton in clipboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3268"/>
+        <location filename="../mainwindow.cpp" line="3292"/>
         <source>Copy Skinning into another mesh</source>
         <translation>将绑定复制到另一个模型</translation>
     </message>
@@ -4464,37 +4469,37 @@ in Z=%5 to %6
 </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3356"/>
+        <location filename="../mainwindow.cpp" line="3380"/>
         <source>Vertex number mismatch... using texture-coord matching instead</source>
         <translation>顶点编号不匹配...采用纹理坐标匹配取代顺序匹配</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3483"/>
+        <location filename="../mainwindow.cpp" line="3507"/>
         <source>Cannot paste timings! Select *one* animated mesh or skel animation</source>
         <translation>无法粘贴时间信息! 一次选择*一个*顶点动画模型或骨骼动画</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3496"/>
+        <location filename="../mainwindow.cpp" line="3520"/>
         <source>Pasted timings over %1 (animated) mesh</source>
         <translation>将时间信息粘贴到%1个模型(动画)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3502"/>
+        <location filename="../mainwindow.cpp" line="3526"/>
         <source>Pasted timings over %1 skeletal animations</source>
         <translation>将时间信息粘贴到%1个骨骼动画</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3505"/>
+        <location filename="../mainwindow.cpp" line="3529"/>
         <source>Cannot paste times over that</source>
         <translation>无法将时间信息粘贴到此处</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3518"/>
+        <location filename="../mainwindow.cpp" line="3542"/>
         <source>To use paste modification mesh: firstcopy a 2 frames mesh. Then, select one or more destination meshes, and &quot;paste modification&quot;any vertex in any frame of the destination mesh that are in the same pos of frame 0,will be moved on the position of frame 1.</source>
         <translation>粘贴修改的用法: 首先复制一个包含2帧的模型；随后，选中一个或多个需要修改的目标模型；选择&quot;粘贴修改&quot;。所有坐标与复制模型第0帧对应顶点相同的顶点，将在目标模型第1帧中被移动到复制模型对应顶点的相应位置。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3804"/>
+        <location filename="../mainwindow.cpp" line="3828"/>
         <source>Canceled.</source>
         <translation>取消。</translation>
     </message>
@@ -4503,72 +4508,72 @@ in Z=%5 to %6
         <translation type="obsolete">已加载%1件模型%2到骨骼%3</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3872"/>
+        <location filename="../mainwindow.cpp" line="3896"/>
         <source>Added mesh %1 to set %2.</source>
         <translation>已添加模型%1到%2组合。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3893"/>
+        <location filename="../mainwindow.cpp" line="3917"/>
         <source>Animation %2 split in %1 chunks!</source>
         <translation>已将动画%2拆分为%1段!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3895"/>
+        <location filename="../mainwindow.cpp" line="3919"/>
         <source>Animation could be auto-split (frames are too conescutive)</source>
         <translation>动画可能被自动拆分(帧太密集)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3902"/>
+        <location filename="../mainwindow.cpp" line="3926"/>
         <source>Select an &quot;actions.txt&quot; file (hint: it&apos;s in the module dir)</source>
         <translation>选择一个&quot;actions.txt&quot;文件(提示:在模组目录下)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3903"/>
+        <location filename="../mainwindow.cpp" line="3927"/>
         <source>%1\actions.txt</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3904"/>
+        <location filename="../mainwindow.cpp" line="3928"/>
         <source>Txt file(*.txt)</source>
         <translation>文本文件 (*.txt)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3907"/>
+        <location filename="../mainwindow.cpp" line="3931"/>
         <source>Split canceled.</source>
         <translation>拆分取消。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3915"/>
+        <location filename="../mainwindow.cpp" line="3939"/>
         <source>Nothing to split (or could not split).</source>
         <translation>没有东西可以拆分(或者无法拆分)。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3925"/>
+        <location filename="../mainwindow.cpp" line="3949"/>
         <source>Animation %2 split in %1 chunks -- new animation.txt file save in &quot;%3&quot;!</source>
         <translation>动画%2被拆分为了%1段 -- 新animation.txt文件保存在%3!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4327"/>
+        <location filename="../mainwindow.cpp" line="4351"/>
         <source>&lt;p&gt;You are saving into the generic OpenBRF reference file &lt;br&gt;&quot;%1&quot;&lt;/p&gt;&lt;p&gt;Would you rather save in the reference file &lt;i&gt;specific&lt;/i&gt; for Module %3&lt;br&gt;&quot;%2&quot;&lt;br&gt;?&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4340"/>
+        <location filename="../mainwindow.cpp" line="4364"/>
         <source>Cannot save reference file!</source>
         <translation>无法保存样本文件!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4374"/>
+        <location filename="../mainwindow.cpp" line="4398"/>
         <source>Editing reference file...</source>
         <translation>编辑样本文件...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4399"/>
+        <location filename="../mainwindow.cpp" line="4423"/>
         <source>Cannot load %1.</source>
         <translation>无法载入%1。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4433"/>
+        <location filename="../mainwindow.cpp" line="4457"/>
         <source>You are saving a CommonRes file!
 (i.e. not one specific of this module).
 
@@ -4579,57 +4584,57 @@ Are you sure?</source>
 你确定吗?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4445"/>
+        <location filename="../mainwindow.cpp" line="4469"/>
         <source>Cannot write file %1.</source>
         <translation>无法写入文件 %1。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4448"/>
+        <location filename="../mainwindow.cpp" line="4472"/>
         <source>File saved!</source>
         <translation>文件已保存!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4624"/>
+        <location filename="../mainwindow.cpp" line="4648"/>
         <source>Open File</source>
         <translation>打开文件</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4626"/>
+        <location filename="../mainwindow.cpp" line="4650"/>
         <source>Resource (*.brf)</source>
         <translation>资源文件 (*.brf)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4644"/>
+        <location filename="../mainwindow.cpp" line="4668"/>
         <source>Reference file saved!</source>
         <translation>样本文件已保存!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4657"/>
+        <location filename="../mainwindow.cpp" line="4681"/>
         <source>M&amp;B Resource (*.brf)</source>
         <translation>M&amp;B资源文件 (*.brf)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4657"/>
+        <location filename="../mainwindow.cpp" line="4681"/>
         <source>WarBand Resource v.1 (*.brf)</source>
         <translation>战团资源文件 v.1 (*.brf)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4660"/>
+        <location filename="../mainwindow.cpp" line="4684"/>
         <source>Save File</source>
         <translation>保存文件</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4687"/>
+        <location filename="../mainwindow.cpp" line="4711"/>
         <source> [not in module.ini]</source>
         <translation>[不在module.ini中]</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4691"/>
+        <location filename="../mainwindow.cpp" line="4715"/>
         <source>%1%2</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4693"/>
+        <location filename="../mainwindow.cpp" line="4717"/>
         <source>%1 - %2%3%4</source>
         <translation></translation>
     </message>
@@ -4638,33 +4643,33 @@ Are you sure?</source>
         <translation type="obsolete">%1 - 编辑内部样本数据%2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5024"/>
+        <location filename="../mainwindow.cpp" line="5048"/>
         <source>%5 %1 brf files from module.ini of &quot;%3&quot;-- %2 msec total [%4 text/mat/shad]</source>
         <oldsource>%4 %n brf files from module.ini of &quot;%2&quot;-- %1 msec total [%3 text/mat/shad]</oldsource>
         <translation>在&quot;%3&quot;的module.ini文件中找到%1 个brf%5 -- 总用时%2毫秒[%4 纹理/材质/着色层]</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5026"/>
+        <location filename="../mainwindow.cpp" line="5050"/>
         <source>scanned</source>
         <translation>文件</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5026"/>
+        <location filename="../mainwindow.cpp" line="5050"/>
         <source>ERRORS found while scanning</source>
         <translation>文件包含错误</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5218"/>
+        <location filename="../mainwindow.cpp" line="5242"/>
         <source>Navigate: cannot find &quot;%1&quot; in current module</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5881"/>
+        <location filename="../mainwindow.cpp" line="5905"/>
         <source>Shader Requirements</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5937"/>
+        <location filename="../mainwindow.cpp" line="5961"/>
         <source>Shader flags</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4681,32 +4686,32 @@ Are you sure?</source>
         <translation type="obsolete">向右导航: 位置 %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5466"/>
+        <location filename="../mainwindow.cpp" line="5490"/>
         <source>&amp;%1 %2</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5505"/>
+        <location filename="../mainwindow.cpp" line="5529"/>
         <source>New Lod parameters set</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5507"/>
+        <location filename="../mainwindow.cpp" line="5531"/>
         <source>Cancelled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5637"/>
+        <location filename="../mainwindow.cpp" line="5661"/>
         <source>Collision objects flags</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5695"/>
+        <location filename="../mainwindow.cpp" line="5719"/>
         <source>Mesh flags</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5747"/>
+        <location filename="../mainwindow.cpp" line="5771"/>
         <source>Texture flags</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4744,43 +4749,43 @@ file %2
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1229"/>
+        <location filename="../mainwindow.cpp" line="1238"/>
         <source>Select a skeleton
 in the view panel first</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1238"/>
+        <location filename="../mainwindow.cpp" line="1247"/>
         <source>Select an animation
 in the view panel first</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1287"/>
+        <location filename="../mainwindow.cpp" line="1296"/>
         <source>Unified %1 verts and %2 pos in %3 meshes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1638"/>
+        <location filename="../mainwindow.cpp" line="1662"/>
         <source>Error loading line of file %2:
 
 %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1656"/>
+        <location filename="../mainwindow.cpp" line="1680"/>
         <source>Failed loading carry positions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1729"/>
+        <location filename="../mainwindow.cpp" line="1753"/>
         <source>No mesh found to learn how to femininize an armour.
 
 You must select meshes with feminine frame, and I&apos;ll try to learn the way to build a femenine frame from a given armour</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1737"/>
+        <location filename="../mainwindow.cpp" line="1761"/>
         <source>Select a emphasis factor between -100% and +100%
 
 zero =&gt; normal.
@@ -4791,57 +4796,57 @@ negative =&gt; milder effect
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1742"/>
+        <location filename="../mainwindow.cpp" line="1766"/>
         <source>Select amount of extra breastification in mm
 (default: 13mm)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1752"/>
+        <location filename="../mainwindow.cpp" line="1776"/>
         <source>Learnt a custom way to femininize an armour
 from %1 examples!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1755"/>
+        <location filename="../mainwindow.cpp" line="1779"/>
         <source>Canceled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1777"/>
+        <location filename="../mainwindow.cpp" line="1801"/>
         <source>Warning: mesh %1 has already a feminine frame %2.
 
 Overwrite it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2206"/>
-        <location filename="../mainwindow.cpp" line="2218"/>
+        <location filename="../mainwindow.cpp" line="2230"/>
+        <location filename="../mainwindow.cpp" line="2242"/>
         <source>Select one or more animation using same number of bones first</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2313"/>
+        <location filename="../mainwindow.cpp" line="2337"/>
         <source>Rescale skeleton&lt;br/&gt;(and hitboxes, if present)&lt;br /&gt;by which percent?&lt;br /&gt;&lt;br /&gt;(&gt;100 for bigger)&lt;br /&gt;&lt;br /&gt;&lt;b&gt;WARNING!&lt;/b&gt;&lt;br /&gt;All skinned meshes using&lt;br /&gt;this skeleton will need&lt;br /&gt;be rescaled too!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2363"/>
+        <location filename="../mainwindow.cpp" line="2387"/>
         <source>Uniform color for mesh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3075"/>
+        <location filename="../mainwindow.cpp" line="3099"/>
         <source>%1 new BRF items found in clipboard...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3076"/>
+        <location filename="../mainwindow.cpp" line="3100"/>
         <source>Unusable data in clipboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3134"/>
+        <location filename="../mainwindow.cpp" line="3158"/>
         <source>Copied prop code for %1 objects
 (%2 with matching collison mesh)
 on the clipboard.
@@ -4850,12 +4855,12 @@ Paste at will!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3137"/>
+        <location filename="../mainwindow.cpp" line="3161"/>
         <source>No prop mesh found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3269"/>
+        <location filename="../mainwindow.cpp" line="3293"/>
         <source>Copy Skinning into another mesh:
 - select one or more sample skinned mesh
 - copy them (ctrl+C)
@@ -4867,17 +4872,17 @@ Paste at will!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3284"/>
+        <location filename="../mainwindow.cpp" line="3308"/>
         <source>Transferred skinning into %1 mesh(es) from %2 exemplar mesh(es).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3293"/>
+        <location filename="../mainwindow.cpp" line="3317"/>
         <source>Transferred skinning into %1 mesh(es) from skeleton &apos;%2&apos;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3637"/>
+        <location filename="../mainwindow.cpp" line="3661"/>
         <source>This will produce a vertex ani
 with %1x%2 xyz positions+normals (%4 MB).
 
@@ -4885,27 +4890,27 @@ Proceed?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3679"/>
+        <location filename="../mainwindow.cpp" line="3703"/>
         <source>Incompatible animation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3708"/>
+        <location filename="../mainwindow.cpp" line="3732"/>
         <source>Incompatible skin</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3767"/>
+        <location filename="../mainwindow.cpp" line="3791"/>
         <source>I need to know from which skeleton to Unmount. Select a skeleton in the panel.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3790"/>
+        <location filename="../mainwindow.cpp" line="3814"/>
         <source>Not a single skeleton found in reference data! Cancelling operation.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3831"/>
+        <location filename="../mainwindow.cpp" line="3855"/>
         <source>To apply carry position &apos;%1&apos;, I need to know the weapon lenght.
 Use the ruler tool to tell me the lenght of weapon &apos;%2&apos;.
 
@@ -4913,54 +4918,54 @@ Activate ruler tool?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4439"/>
+        <location filename="../mainwindow.cpp" line="4463"/>
         <source>You are trying to save meshes with tangent directions in M&amp;B 1.011 file format.
 Unfortunately, tangent directions can only be saved in Warband file format.
 Tangent directions will not be saved...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4695"/>
+        <location filename="../mainwindow.cpp" line="4719"/>
         <source>%1 - editing internal reference data %3 %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4696"/>
+        <location filename="../mainwindow.cpp" line="4720"/>
         <source>(for [%1] mod)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4715"/>
+        <location filename="../mainwindow.cpp" line="4739"/>
         <source>Redone %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4747"/>
+        <location filename="../mainwindow.cpp" line="4771"/>
         <source>Undone %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4771"/>
+        <location filename="../mainwindow.cpp" line="4795"/>
         <source>Undo %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4774"/>
+        <location filename="../mainwindow.cpp" line="4798"/>
         <source>Undo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4780"/>
+        <location filename="../mainwindow.cpp" line="4804"/>
         <source>Redo %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4783"/>
+        <location filename="../mainwindow.cpp" line="4807"/>
         <source>Redo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4906"/>
+        <location filename="../mainwindow.cpp" line="4930"/>
         <source>&amp;Repeat %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5017,7 +5022,7 @@ Tangent directions will not be saved...</source>
         <translation type="obsolete">反转凹凸贴图</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5808"/>
+        <location filename="../mainwindow.cpp" line="5832"/>
         <source>Material flags</source>
         <translation>材质标签</translation>
     </message>
@@ -5987,22 +5992,22 @@ at line %3:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="344"/>
+        <location filename="../selector.cpp" line="347"/>
         <source>per-vertex color</source>
         <translation>顶点着色</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="346"/>
+        <location filename="../selector.cpp" line="349"/>
         <source>skinning</source>
         <translation>绑定</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="348"/>
+        <location filename="../selector.cpp" line="351"/>
         <source>tangent directions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="352"/>
+        <location filename="../selector.cpp" line="355"/>
         <source>vertex animation</source>
         <translation>顶点动画</translation>
     </message>
@@ -6068,17 +6073,19 @@ at line %3:
     </message>
     <message>
         <location filename="../selector.cpp" line="81"/>
+        <location filename="../selector.cpp" line="344"/>
         <source>Reverse animation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../selector.cpp" line="82"/>
+        <location filename="../selector.cpp" line="345"/>
         <source>Make the animation timeline go backwards.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../selector.cpp" line="84"/>
-        <location filename="../selector.cpp" line="687"/>
+        <location filename="../selector.cpp" line="691"/>
         <source>Rename...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6222,7 +6229,7 @@ at line %3:
     </message>
     <message>
         <location filename="../selector.cpp" line="259"/>
-        <location filename="../selector.cpp" line="360"/>
+        <location filename="../selector.cpp" line="363"/>
         <source>Rescale...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6268,7 +6275,7 @@ at line %3:
     </message>
     <message>
         <location filename="../selector.cpp" line="306"/>
-        <source>Set per vertex color as ambient occlusion (globlal lighting) %1</source>
+        <source>Set per vertex color as ambient occlusion (global lighting) %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6302,17 +6309,17 @@ at line %3:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="347"/>
+        <location filename="../selector.cpp" line="350"/>
         <source>Discard skinning (per-verex bone attachments)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="687"/>
+        <location filename="../selector.cpp" line="691"/>
         <source>Group rename...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="700"/>
+        <location filename="../selector.cpp" line="704"/>
         <source>Used by:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6372,52 +6379,52 @@ at line %3:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="345"/>
+        <location filename="../selector.cpp" line="348"/>
         <source>Reset per-vertex coloring (i.e. turn all full-white)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="349"/>
+        <location filename="../selector.cpp" line="352"/>
         <source>Remove tangent directions (saves space, they are needed mainly for bumbmapping)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="350"/>
+        <location filename="../selector.cpp" line="353"/>
         <source>normals</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="351"/>
+        <location filename="../selector.cpp" line="354"/>
         <source>Disregard normals, so to merge more vertices (and use less of them)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="353"/>
+        <location filename="../selector.cpp" line="356"/>
         <source>Discard vertex animation (keep only current frame)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="357"/>
+        <location filename="../selector.cpp" line="360"/>
         <source>Make a skeleton-modification mesh...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="358"/>
+        <location filename="../selector.cpp" line="361"/>
         <source>Modify from a skeleton-modification mesh...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="470"/>
+        <location filename="../selector.cpp" line="474"/>
         <source>[Right-Click]: tools for %1. [Shift]/[Ctrl]+[Click]: Multi-sel.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="471"/>
+        <location filename="../selector.cpp" line="475"/>
         <source> [Double-Click]: select whole.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="475"/>
+        <location filename="../selector.cpp" line="479"/>
         <source>[Right-Click]: tools for %1.</source>
         <translation>[右键]：%1工具。</translation>
     </message>
@@ -6426,32 +6433,32 @@ at line %3:
         <translation type="obsolete">被引用于...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="826"/>
+        <location filename="../selector.cpp" line="833"/>
         <source>Backfacing faces</source>
         <translation>背向面</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="831"/>
+        <location filename="../selector.cpp" line="838"/>
         <source>Discard</source>
         <translation>抛弃</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="839"/>
+        <location filename="../selector.cpp" line="846"/>
         <source>Discard </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="887"/>
+        <location filename="../selector.cpp" line="894"/>
         <source>Add to reference skins</source>
         <translation>添加到样本皮肤</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="890"/>
+        <location filename="../selector.cpp" line="897"/>
         <source>to Skin Set %1</source>
         <translation>到皮肤组%1</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="894"/>
+        <location filename="../selector.cpp" line="901"/>
         <source>to Skin Set %1 [new set]</source>
         <translation>到皮肤组%1[新组]</translation>
     </message>
@@ -6459,12 +6466,12 @@ at line %3:
 <context>
     <name>TT</name>
     <message>
-        <location filename="../mainwindow.cpp" line="1120"/>
+        <location filename="../mainwindow.cpp" line="1129"/>
         <source>new_%1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1124"/>
+        <location filename="../mainwindow.cpp" line="1133"/>
         <source>New %1</source>
         <translation type="unfinished">新建%1
 </translation>
