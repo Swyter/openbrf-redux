@@ -59,8 +59,8 @@ Selector::Selector(QWidget *parent)
 	//connect(this, SIGNAL(currentChanged(int)), parent, SLOT(undoHistoryAddAction()) );
 	connect(contextMenu, SIGNAL(triggered(QAction *)),parent, SLOT(undoHistoryAddAction(QAction *)));
 
-	breakAniWithIniAct = new QAction(tr("Split via action.txt..."), this);
-	breakAniWithIniAct ->setStatusTip(tr("Split sequence following the action.txt file. A new \"action [after split].txt\" file is also produced, which use the new animation."));
+	breakAniWithIniAct = new QAction(tr("Split via actions.txt..."), this);
+	breakAniWithIniAct ->setStatusTip(tr("Split sequence following the actions.txt file. A new \"action [after split].txt\" file is also produced, which use the new animation."));
 
 	breakAniAct = new QAction(tr("Auto-split"), this);
 	breakAniAct->setStatusTip(tr("Auto-split sequence into its separated chunks, separating it at lasge gaps in frames."));

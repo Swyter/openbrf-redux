@@ -5648,18 +5648,18 @@ en la línea %3:
         <translation>&amp;Colisión</translation>
     </message>
     <message>
-        <source>Split via action.txt</source>
-        <translation type="obsolete">Dividir mediante &quot;Action.txt&quot;</translation>
+        <source>Split via actions.txt</source>
+        <translation type="obsolete">Dividir mediante &quot;Actions.txt&quot;</translation>
     </message>
     <message>
         <location line="+42"/>
-        <source>Split sequence following the action.txt file. A new &quot;action [after split].txt&quot; file is also produced, which use the new animation.</source>
-        <translation>Divide la sequencia siguiendo la referencia del archivo &quot;action.txt&quot;. Un nuevo &quot;action [tras división].txt&quot; se creará como resguardo.</translation>
+        <source>Split sequence following the actions.txt file. A new &quot;action [after split].txt&quot; file is also produced, which use the new animation.</source>
+        <translation>Divide la sequencia siguiendo la referencia del archivo &quot;actions.txt&quot;. Un nuevo &quot;action [tras división].txt&quot; se creará como resguardo.</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Auto-split</source>
-        <translation>Auto Dividir</translation>
+        <translation>Autodividir</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -6141,8 +6141,8 @@ en la línea %3:
     </message>
     <message>
         <location line="-186"/>
-        <source>Split via action.txt...</source>
-        <translation>Dividir mediante action.txt...</translation>
+        <source>Split via actions.txt...</source>
+        <translation>Dividir mediante «actions.txt»...</translation>
     </message>
     <message>
         <location line="+19"/>

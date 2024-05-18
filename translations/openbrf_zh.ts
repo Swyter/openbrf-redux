@@ -5509,13 +5509,13 @@ at line %3:
 <context>
     <name>Selector</name>
     <message>
-        <source>Split via action.txt</source>
-        <translation type="obsolete">根据action.txt拆分</translation>
+        <source>Split via actions.txt</source>
+        <translation type="obsolete">根据actions.txt拆分</translation>
     </message>
     <message>
         <location filename="../selector.cpp" line="63"/>
-        <source>Split sequence following the action.txt file. A new &quot;action [after split].txt&quot; file is also produced, which use the new animation.</source>
-        <translation>根据action.txt文件拆分序列，并将生成一个新的&quot;action [after split].txt&quot;文件，包含新的动画。</translation>
+        <source>Split sequence following the actions.txt file. A new &quot;action [after split].txt&quot; file is also produced, which use the new animation.</source>
+        <translation>根据actions.txt文件拆分序列，并将生成一个新的&quot;action [after split].txt&quot;文件，包含新的动画。</translation>
     </message>
     <message>
         <location filename="../selector.cpp" line="65"/>
@@ -6063,7 +6063,7 @@ at line %3:
     </message>
     <message>
         <location filename="../selector.cpp" line="62"/>
-        <source>Split via action.txt...</source>
+        <source>Split via actions.txt...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

@@ -4553,8 +4553,8 @@ at line %3:
     </message>
     <message>
         <location filename="../selector.cpp" line="63"/>
-        <source>Split sequence following the action.txt file. A new &quot;action [after split].txt&quot; file is also produced, which use the new animation.</source>
-        <translation>action.txt ファイルに従ってシーケンスを分割。新しいアニメーションを使う新しい「分割後のアクション.txt」ファイルも生成されます。</translation>
+        <source>Split sequence following the actions.txt file. A new &quot;action [after split].txt&quot; file is also produced, which use the new animation.</source>
+        <translation>actions.txt ファイルに従ってシーケンスを分割。新しいアニメーションを使う新しい「分割後のアクション.txt」ファイルも生成されます。</translation>
     </message>
     <message>
         <location filename="../selector.cpp" line="65"/>
@@ -4978,8 +4978,8 @@ at line %3:
     </message>
     <message>
         <location filename="../selector.cpp" line="62"/>
-        <source>Split via action.txt...</source>
-        <translation>action.txt 経由で分割...</translation>
+        <source>Split via actions.txt...</source>
+        <translation>actions.txt 経由で分割...</translation>
     </message>
     <message>
         <location filename="../selector.cpp" line="81"/>

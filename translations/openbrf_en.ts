@@ -4375,7 +4375,7 @@ at line %3:
     </message>
     <message>
         <location filename="../selector.cpp" line="63"/>
-        <source>Split sequence following the action.txt file. A new &quot;action [after split].txt&quot; file is also produced, which use the new animation.</source>
+        <source>Split sequence following the actions.txt file. A new &quot;action [after split].txt&quot; file is also produced, which use the new animation.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4794,7 +4794,7 @@ at line %3:
     </message>
     <message>
         <location filename="../selector.cpp" line="62"/>
-        <source>Split via action.txt...</source>
+        <source>Split via actions.txt...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

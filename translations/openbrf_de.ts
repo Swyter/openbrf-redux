@@ -4883,13 +4883,13 @@ in Zeile %3:
         <translation>Kollision</translation>
     </message>
     <message>
-        <source>Split via action.txt</source>
-        <translation type="obsolete">Teile via action.txt</translation>
+        <source>Split via actions.txt</source>
+        <translation type="obsolete">Teile via actions.txt</translation>
     </message>
     <message>
         <location filename="../selector.cpp" line="63"/>
-        <source>Split sequence following the action.txt file. A new &quot;action [after split].txt&quot; file is also produced, which use the new animation.</source>
-        <translation>Teile die Sequenz anhand der action.txt Datei. Eine neue &quot;action [after split].txt&quot; Datei wird erstellt, welche die neuen Animationen nutzt.</translation>
+        <source>Split sequence following the actions.txt file. A new &quot;action [after split].txt&quot; file is also produced, which use the new animation.</source>
+        <translation>Teile die Sequenz anhand der actions.txt Datei. Eine neue &quot;action [after split].txt&quot; Datei wird erstellt, welche die neuen Animationen nutzt.</translation>
     </message>
     <message>
         <location filename="../selector.cpp" line="65"/>
@@ -5217,8 +5217,8 @@ in Zeile %3:
     </message>
     <message>
         <location filename="../selector.cpp" line="62"/>
-        <source>Split via action.txt...</source>
-        <translation>Per action.txt teilen...</translation>
+        <source>Split via actions.txt...</source>
+        <translation>Per actions.txt teilen...</translation>
     </message>
     <message>
         <location filename="../selector.cpp" line="81"/>
