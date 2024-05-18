@@ -78,6 +78,8 @@ public:
 
   void Shuffle( std::vector<int> &map, std::vector<vcg::Point4<float> > &fallback);
 
+  bool Reverse();
+  
 private:
   void EnlongFrames(int nframes);
 

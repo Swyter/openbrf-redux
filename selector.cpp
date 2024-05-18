@@ -78,6 +78,9 @@ Selector::Selector(QWidget *parent)
 	aniMergeAct = new QAction(tr("Merge animations"), this);
 	aniMergeAct->setStatusTip(tr("Merge two animations into one -- intervals must be right!"));
 
+	aniReverseAct = new QAction(tr("Reverse animation"), this);
+	aniReverseAct->setStatusTip(tr("Make the animation timeline go backwards."));
+
 	renameAct = new QAction(tr("Rename..."), this);
 	renameAct->setShortcut(QString("F2"));
 	connect(renameAct, SIGNAL(triggered()), parent, SLOT(renameSel()));
@@ -365,6 +368,7 @@ Selector::Selector(QWidget *parent)
 	connect(aniExtractIntervalAct, SIGNAL(triggered()),parent,SLOT(aniExtractInterval()));
 	connect(aniRemoveIntervalAct, SIGNAL(triggered()),parent,SLOT(aniRemoveInterval()));
 	connect(aniMergeAct, SIGNAL(triggered()),parent,SLOT(aniMerge()));
+	connect(aniReverseAct, SIGNAL(triggered()),parent,SLOT(aniReverse()));
 	connect(aniMirrorAct, SIGNAL(triggered()),parent,SLOT(aniMirror()));
 	connect(breakAniWithIniAct, SIGNAL(triggered()),this,SLOT(onBreakAniWithIni()));
 	connect(meshRecolorAct,SIGNAL(triggered()),parent,SLOT(meshRecolor()));
@@ -872,6 +876,7 @@ void Selector::updateContextMenu(){
 			}
 			contextMenu->addAction(aniReskeletonizeAct);
 			if (mulsel) contextMenu->addAction(aniMergeAct);
+			contextMenu->addAction(aniReverseAct);
 		}
 	}
 

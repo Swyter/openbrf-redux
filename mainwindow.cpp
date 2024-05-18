@@ -2241,6 +2241,16 @@ void MainWindow::aniReskeletonize(){
 
 }
 
+void MainWindow::aniReverse(){
+	if (selector->currentTabName()!=ANIMATION) return;
+	QModelIndexList list= selector->selectedList();
+	for (int i=0; i<list.size(); i++){
+		int j = list[i].row();
+		if (brfdata.animation[j].Reverse())
+			setModified();
+	}
+}
+
 void MainWindow::meshFreezeFrame(){
 	bool mod = false;
 	for (int j=0; j<getNumSelected(); j++){

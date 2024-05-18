@@ -72,6 +72,15 @@ void BrfAnimation::Shuffle( std::vector<int> &map, std::vector<vcg::Point4<float
   assert(map.size()==frame[0].rot.size());
 }
 
+bool BrfAnimation::Reverse(){
+  if (frame.size() <= 1)
+    return false;
+
+  std::reverse(frame.begin(), frame.end());
+
+  return true;
+}
+
 
 Matrix44f BrfAnimationFrame::getRotationMatrix(int i) const{
   vcg::Matrix44f res;

@@ -104,6 +104,7 @@ private slots:
 	void aniMirror();
 	void aniRemoveInterval();
 	void aniMerge();
+	void aniReverse();
 	void aniReskeletonize();
 	void aniToVertexAni();
 

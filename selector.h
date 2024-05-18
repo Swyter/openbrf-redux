@@ -98,6 +98,7 @@ public:
 	*aniMergeAct,
 	*aniReskeletonizeAct,
 	*aniToVertexAniAct,
+	*aniReverseAct,
 
 	*breakAniAct,
 	*breakAniWithIniAct,
