@@ -245,6 +245,7 @@ private slots:
 	void meshFreezeFrame();
 	void meshAniMerge();
 	void meshAniSplit();
+	void meshAniReverse();
 	void meshTellBoundingBox();
 	void meshUvTransform();
 	void meshUvTransformDoIt();

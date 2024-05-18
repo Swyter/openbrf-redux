@@ -3465,3 +3465,12 @@ uint BrfMesh::multCol(uint col1, uint col2){
 	rgba1[3]=(rgba1[3]*rgba2[3] + 128) / 255;
 	return rgba2col(rgba1);
 }
+
+bool BrfMesh::reverseVertexAni(){
+    if (frame.size() <= 1)
+      return false;
+
+    std::reverse(frame.begin(), frame.end());
+
+    return true;
+}

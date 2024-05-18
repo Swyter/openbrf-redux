@@ -1368,6 +1368,21 @@ void MainWindow::meshAniSplit(){
 	}
 }
 
+void MainWindow::meshAniReverse(){
+  	for (int k=0; k<selector->selectedList().size(); k++) {
+      int i= selector->selectedList()[k].row();
+      if (i<0) continue;
+      if (i>(int)brfdata.mesh.size()) continue;
+
+      BrfMesh &m (brfdata.mesh[i]);
+
+	  if (m.reverseVertexAni())
+	  	setModified();
+    }
+
+	updateGui();
+	updateGl();
+}
 
 void MainWindow::meshSubdivideIntoComponents(){
 	for (int k=0; k<selector->selectedList().size(); k++) {

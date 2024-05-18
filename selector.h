@@ -126,7 +126,7 @@ public:
 
 	*meshAniMergeAct,
 	*meshAniSplitAct,
-
+	*meshAniReverseAct,
 
 	*renameAct,
 	*removeAct,

@@ -341,6 +341,9 @@ Selector::Selector(QWidget *parent)
 	meshAniMergeAct = new QAction(tr("Merge as frames in a vertex ani"), this);
 	meshAniMergeAct->setStatusTip(tr("Merge these meshes, in their current order, as frames in a mesh ani"));
 
+	meshAniReverseAct = new QAction(tr("Reverse animation"), this);
+	meshAniReverseAct->setStatusTip(tr("Make the animation timeline go backwards."));
+
 	discardColAct = new QAction(tr("per-vertex color"), this);
 	discardColAct->setStatusTip(tr("Reset per-vertex coloring (i.e. turn all full-white)"));
     discardRigAct = new QAction(tr("skinning"), this);
@@ -428,6 +431,7 @@ Selector::Selector(QWidget *parent)
 
 	connect(meshAniSplitAct,SIGNAL(triggered()),parent,SLOT(meshAniSplit()));
 	connect(meshAniMergeAct,SIGNAL(triggered()),parent,SLOT(meshAniMerge()));
+	connect(meshAniReverseAct,SIGNAL(triggered()),parent,SLOT(meshAniReverse()));
 
 	connect(discardAniAct,SIGNAL(triggered()),parent,SLOT(meshDiscardAni()));
 	connect(discardColAct,SIGNAL(triggered()),parent,SLOT(meshDiscardCol()));
@@ -815,6 +819,9 @@ void Selector::updateContextMenu(){
 				if (mesh.HasVertexAni())
 				contextMenu->addAction(meshAniSplitAct);
 			}
+			if (mesh.HasVertexAni())
+				contextMenu->addAction(meshAniReverseAct);
+
 			if (!onesel) {
 				contextMenu->addAction(meshMerge);
 				contextMenu->addAction(meshAniMergeAct);

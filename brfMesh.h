@@ -250,7 +250,7 @@ public:
 	bool StoresTangentField() const; // on disk
 	bool HasTangentField() const; // for previewing
 	bool HasVertexAni() const;
-
+	bool reverseVertexAni();
 
 	bool Merge(const BrfMesh &brf);
 	bool AddAllFrames(const BrfMesh &brf);
