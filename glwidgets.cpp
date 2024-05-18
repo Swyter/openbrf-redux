@@ -233,7 +233,7 @@ void GLWidget::renderRuler(){
 	glDisable(GL_LIGHTING);
 	float h=0.4f;
 	glBegin(GL_LINES);
-	for (int i=1; i<=300; i+=1){
+	for (int i=1; i<=max(900, rulerLenght); i+=1){
 		int lvl=0;
 		if (i==rulerLenght) continue;
 		if (i%5==0) lvl =1;

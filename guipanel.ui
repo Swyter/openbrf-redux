@@ -811,7 +811,7 @@
         <string>Current weapon reach.</string>
        </property>
        <property name="maximum">
-        <number>511</number>
+        <number>9900</number>
        </property>
        <property name="value">
         <number>100</number>
