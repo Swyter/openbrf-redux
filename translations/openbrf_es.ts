@@ -295,12 +295,12 @@ Desplazamiento</translation>
     <message>
         <location line="-10"/>
         <source>to:</source>
-        <translation>Desde:</translation>
+        <translation>hasta:</translation>
     </message>
     <message>
         <location line="+17"/>
         <source>from:</source>
-        <translation>Hasta:</translation>
+        <translation>desde:</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1295,7 +1295,7 @@ tal vez el problema sea que el sombreador usa los signos (&lt;) o (&gt;) o (&amp
     </message>
     <message>
         <source>Select a reference skin to show this animation.</source>
-        <translation type="obsolete">Selecciona un Conjunto de referencia para mostrar ésta animación.</translation>
+        <translation type="obsolete">Selecciona un conjunto de referencia para mostrar esta animación.</translation>
     </message>
     <message>
         <location line="+45"/>
@@ -1658,7 +1658,7 @@ tal vez el problema sea que el sombreador usa los signos (&lt;) o (&gt;) o (&amp
     <message>
         <location line="+16"/>
         <source>interval:</source>
-        <translation>Intervalo:</translation>
+        <translation>intervalo:</translation>
     </message>
     <message>
         <location line="+16"/>
@@ -1678,7 +1678,7 @@ tal vez el problema sea que el sombreador usa los signos (&lt;) o (&gt;) o (&amp
     <message>
         <location line="+31"/>
         <source>Time of this frame (must always be increasing)</source>
-        <translation>Tiempo de estefotograma (tiene que ser incremental)</translation>
+        <translation>Tiempo de este fotograma (tiene que ser incremental)</translation>
     </message>
     <message>
         <location line="+46"/>
@@ -1688,22 +1688,22 @@ tal vez el problema sea que el sombreador usa los signos (&lt;) o (&gt;) o (&amp
     <message>
         <location line="+13"/>
         <source>Main diffuse (RGB color) texture</source>
-        <translation>M. Difuso principal (color RGB).</translation>
+        <translation>M. difuso principal (color RGB).</translation>
     </message>
     <message>
         <location line="+13"/>
         <source>Second diffuse (RGB color) texture</source>
-        <translation>Segunda textura Difusa (color RGB)</translation>
+        <translation>Segunda textura difusa (color RGB)</translation>
     </message>
     <message>
         <location line="+13"/>
         <source>Bumpmap texture</source>
-        <translation>Textura de Desplazamiento</translation>
+        <translation>Textura de desplazamiento</translation>
     </message>
     <message>
         <location line="+13"/>
         <source>Environment map texture</source>
-        <translation>Textura del mapa de Entorno</translation>
+        <translation>Textura del mapa de entorno</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -1738,7 +1738,7 @@ tal vez el problema sea que el sombreador usa los signos (&lt;) o (&gt;) o (&amp
     <message>
         <location line="+16"/>
         <source>Specular coefficient (glossiness). Higher = smaller brighter reflections.</source>
-        <translation>Coeficiente Especular (brillo). A mayor número = zonas brillantes más pequeñas.</translation>
+        <translation>Coeficiente especular (brillo). A mayor número = zonas brillantes más pequeñas.</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -3383,7 +3383,7 @@ al que añadir un fotograma o cuadro.</translation>
     <message>
         <location line="+3"/>
         <source>Preview-shaders diagnostics</source>
-        <translation>Diagnósticos de sombreadores en la Vista Previa</translation>
+        <translation>Diagnósticar sombreadores en la vista previa</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3398,7 +3398,7 @@ al que añadir un fotograma o cuadro.</translation>
     <message>
         <location line="+1"/>
         <source>Diagnose why I&apos;m seeing a checkboard pattern instead of my texture.</source>
-        <translation>Diagnosticar la razón de ver un patrón de cuadrados en vez de la textura.</translation>
+        <translation>Diagnosticar por qué veo un patrón de cuadrados en vez de la textura.</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -4446,7 +4446,7 @@ Escribe el nuevo aquí:</translation>
     <message>
         <location line="+68"/>
         <source>Added mesh %1 to set %2.</source>
-        <translation>Añadido modelo %1 al Conjunto %2.</translation>
+        <translation>Se ha añadido modelo %1 al conjunto %2.</translation>
     </message>
     <message>
         <location line="+21"/>
@@ -5175,7 +5175,7 @@ Las direcciones tangentes no se guardarán...</translation>
     <message>
         <location line="+32"/>
         <source>Undone %1</source>
-        <translation>Se ha desecho %1</translation>
+        <translation>Se ha revertido %1</translation>
     </message>
     <message>
         <location line="+24"/>
@@ -5421,7 +5421,7 @@ Desplazamiento</translation>
     </message>
     <message>
         <source>shader receives binormal and tangent as input (TANGENT, BINORMAL)</source>
-        <translation type="vanished">el shader recibe binormales y tangentes como entrada (TANGENT, BINORMAL)</translation>
+        <translation type="vanished">el sombreador recibe binormales y tangentes como entrada (TANGENT, BINORMAL)</translation>
     </message>
     <message>
         <source>uses skinning</source>
@@ -5429,7 +5429,7 @@ Desplazamiento</translation>
     </message>
     <message>
         <source>shader receives skinning data as input (BLENDWEIGHTS, BLENDINDICES)</source>
-        <translation type="vanished">el shader recibe datos de skinning como entrada (BLENDWEIGHTS, BLENDINDICES)</translation>
+        <translation type="vanished">el shader recibe datos skeletales para procesar (BLENDWEIGHTS, BLENDINDICES)</translation>
     </message>
     <message>
         <location line="+56"/>
@@ -5674,7 +5674,7 @@ en la línea %3:
     <message>
         <location line="+1"/>
         <source>Extract an animation from an interval of times.</source>
-        <translation>Extrae una animación desde un intervalo de tiempos.</translation>
+        <translation>Extrae una animación desde un intervalo temporal.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -5689,7 +5689,7 @@ en la línea %3:
     <message>
         <location line="+1"/>
         <source>Remove an interval of times from the animation.</source>
-        <translation>Elimina un intervalo de tiempos en la animación seleccionada.</translation>
+        <translation>Elimina un intervalo temporal de la animación seleccionada.</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -5900,11 +5900,11 @@ en la línea %3:
     <message>
         <location line="+3"/>
         <source>Export a skin for this ani</source>
-        <translation>Exportar un Conjunto con esta animación</translation>
+        <translation>Exportar un conjunto con esta animación</translation>
     </message>
     <message>
         <source>Export a rigged skin which can be used for this animation.</source>
-        <translation type="vanished">Exporta un modelo vinculado que puede ser usado para esta animación. Debe ser un Conjunto de visualización previamente señalado.</translation>
+        <translation type="vanished">Exporta un modelo vinculado que puede ser usado para esta animación. Debe ser un conjunto de visualización previamente señalado.</translation>
     </message>
     <message>
         <source>Export animation</source>
@@ -5950,7 +5950,7 @@ en la línea %3:
     <message>
         <location line="+4"/>
         <source>Shift time interval...</source>
-        <translation>Cambiar intervalo de tiempo...</translation>
+        <translation>Mover intervalo de tiempo...</translation>
     </message>
     <message>
         <location line="+8"/>
@@ -6212,7 +6212,7 @@ en la línea %3:
     <message>
         <location line="+2"/>
         <source>Export a skinned skin which can be used for this animation.</source>
-        <translation>Exporta un modelo vinculado que puede ser usado para esta animación. Debe ser un Conjunto de visualización previamente señalado.</translation>
+        <translation>Exporta un modelo vinculado que puede ser usado para esta animación. Debe ser un conjunto de visualización previamente señalado.</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -6673,7 +6673,7 @@ en la línea %3:
     <message>
         <location line="+4"/>
         <source>to Skin Set %1 [new set]</source>
-        <translation>Conjunto %1  [Crear nuevo conjunto]</translation>
+        <translation>Conjunto %1 [Crear nuevo conjunto]</translation>
     </message>
 </context>
 <context>
