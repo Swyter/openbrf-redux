@@ -222,18 +222,21 @@ bool GLWidget::myBindTexture(const QString &fileName, DdsData &data)
                                      size, pixels + offset);
         offset += size;
 
-        // half size for each mip-map level
-        w = max(w/2, 1);
-        h = max(h/2, 1);
+        // half size for each mip-map level; don't halve when we're at the end of the loop to reuse the values
+        if (i + 1 < (int) ddsHeader.dwMipMapCount) {
+          w = max(w/2, 1);
+          h = max(h/2, 1);
+        }
     }
 
     free(pixels);
 
     /* swy: allocate a tiny buffer in the stack; easy and fast */
-    uint8_t decodedPixels[4u * 4u * sizeof(uint32_t)] = {0};
+    #define DEC_PIXEL_BUF_SZ (4u * 4u * sizeof(uint32_t))
+    uint8_t decodedPixels[DEC_PIXEL_BUF_SZ + 64u] = {0}; /* swy: leave a bit of secret extra padding for alignment, just in case glGetTexImage() tries to write past the end */
 
     /* swy: if it does not fit in our small buffer (we're interested in tiny mip sizes like 1x1 or 4x4 pixels), then ignore it */
-    if ((w * h * sizeof(uint32_t)) <= sizeof(decodedPixels)) {
+    if ((w * h * sizeof(uint32_t)) <= DEC_PIXEL_BUF_SZ) {
         /* swy: grab the decoded pixel data of the last mipmap; which should contain a single pixel with the average color,
                 useful to analyze the texture contents for the normalmap encoding and RGBA channel usage */
         glGetTexImage(GL_TEXTURE_2D, max((int) ddsHeader.dwMipMapCount - 1, 0), GL_RGBA, GL_UNSIGNED_BYTE, &decodedPixels); /* swy: make sure we pick mip index zero when there's only a single mipmap, instead of -1; which will cause a crash */
