@@ -30,11 +30,13 @@ public:
 
     void applyAlignments();
     void setBoundingBox(float* minv, float * maxv);
+    void setBoundingBoxForAllButLast(float* minv, float * maxv);
     void setRotCenterPoint(float lx, float ly, float lz, float gx, float gy, float gz);
 
 protected:
     void changeEvent(QEvent *e);
     float bb_min[3], bb_max[3];
+    float bb_min_all_but_last[3], bb_max_all_but_last[3];
     float rot_center_point[3][3];
 
 public slots:

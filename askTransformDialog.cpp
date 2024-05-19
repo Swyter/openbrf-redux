@@ -22,6 +22,13 @@ void AskTransformDialog::setBoundingBox(float *minv, float *maxv){
   }
 }
 
+void AskTransformDialog::setBoundingBoxForAllButLast(float *minv, float *maxv){
+  for (int i=0; i<3; i++) {
+    bb_min_all_but_last[i]= minv[i];
+    bb_max_all_but_last[i]= maxv[i];
+  }
+}
+
 /* swy: save the position/coords of the middle of the bounding box so that we
         can go from global to local coordinates and do local rotations */
 void AskTransformDialog::setRotCenterPoint(float lx, float ly, float lz, float ax, float ay, float az){
@@ -115,17 +122,35 @@ void AskTransformDialog::applyAlignments(){
   ui->tray->blockSignals(true);
   ui->traz->blockSignals(true);
 
-  if (ui->midX->isChecked()) ui->trax->setValue( - (bb_min[0]+bb_max[0])/2 );
-  if (ui->midY->isChecked()) ui->tray->setValue( - (bb_min[1]+bb_max[1])/2 );
-  if (ui->midZ->isChecked()) ui->traz->setValue( - (bb_min[2]+bb_max[2])/2 );
+  if (ui->applyToLastSel->isChecked()) {
+    /* swy: new! when the «Apply to last selected object only» mode is on; we center/align around the cumulative
+            bounding box of all the other meshes; that way we can recenter objects around other objects */
+    if (ui->midX->isChecked())   ui->trax->setValue( ((bb_min_all_but_last[0]+bb_max_all_but_last[0])/2.f) - rot_center_point[1][0] );
+    if (ui->midY->isChecked())   ui->tray->setValue( ((bb_min_all_but_last[1]+bb_max_all_but_last[1])/2.f) - rot_center_point[1][1] );
+    if (ui->midZ->isChecked())   ui->traz->setValue( ((bb_min_all_but_last[2]+bb_max_all_but_last[2])/2.f) - rot_center_point[1][2] );
 
-  if (ui->leftX->isChecked()) ui->trax->setValue( - bb_min[0] );
-  if (ui->leftY->isChecked()) ui->tray->setValue( - bb_min[1] );
-  if (ui->leftZ->isChecked()) ui->traz->setValue( - bb_min[2] );
+    if (ui->leftX->isChecked())  ui->trax->setValue( bb_min_all_but_last[0] - rot_center_point[1][0]);
+    if (ui->leftY->isChecked())  ui->tray->setValue( bb_min_all_but_last[1] - rot_center_point[1][1]);
+    if (ui->leftZ->isChecked())  ui->traz->setValue( bb_min_all_but_last[2] - rot_center_point[1][2]);
 
-  if (ui->rightX->isChecked()) ui->trax->setValue( - bb_max[0] );
-  if (ui->rightY->isChecked()) ui->tray->setValue( - bb_max[1] );
-  if (ui->rightZ->isChecked()) ui->traz->setValue( - bb_max[2] );
+    if (ui->rightX->isChecked()) ui->trax->setValue( bb_max_all_but_last[0] - rot_center_point[1][0]);
+    if (ui->rightY->isChecked()) ui->tray->setValue( bb_max_all_but_last[1] - rot_center_point[1][1]);
+    if (ui->rightZ->isChecked()) ui->traz->setValue( bb_max_all_but_last[2] - rot_center_point[1][2]);
+    
+  } else {
+    /* swy: when not, keep using the classic alignment mode that Marco wrote */
+    if (ui->midX->isChecked()) ui->trax->setValue( - (bb_min[0]+bb_max[0])/2 );
+    if (ui->midY->isChecked()) ui->tray->setValue( - (bb_min[1]+bb_max[1])/2 );
+    if (ui->midZ->isChecked()) ui->traz->setValue( - (bb_min[2]+bb_max[2])/2 );
+
+    if (ui->leftX->isChecked()) ui->trax->setValue( - bb_min[0] );
+    if (ui->leftY->isChecked()) ui->tray->setValue( - bb_min[1] );
+    if (ui->leftZ->isChecked()) ui->traz->setValue( - bb_min[2] );
+
+    if (ui->rightX->isChecked()) ui->trax->setValue( - bb_max[0] );
+    if (ui->rightY->isChecked()) ui->tray->setValue( - bb_max[1] );
+    if (ui->rightZ->isChecked()) ui->traz->setValue( - bb_max[2] );
+  }
 
   ui->trax->blockSignals(false);
   ui->tray->blockSignals(false);

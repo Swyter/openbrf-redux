@@ -2603,16 +2603,20 @@ void MainWindow::transform(){
 		glWidget->lastSelected = list[ list.size()-1 ].row();
 
 		// find bbox
-		Box3f bboxAll, bboxOne; bboxAll.SetNull();
+		Box3f bboxAll, bboxAllButLast, bboxOne; bboxAll.SetNull(), bboxAllButLast.SetNull();
 		if (selector->currentTabName()==MESH)
-			for (int j=0; j<list.size(); j++){
+			for (int j=0, lastIndex=list.size()-1; j<list.size(); j++){
 				bboxOne = brfdata.mesh[list[j].row()].bbox;
 				bboxAll.Add( bboxOne );
+				if (j != lastIndex)
+					bboxAllButLast.Add( bboxOne );
 			} else
 			if (selector->currentTabName()==BODY)
-				for (int j=0; j<list.size(); j++){
+				for (int j=0, lastIndex=list.size()-1; j<list.size(); j++){
 					bboxOne = brfdata.body[list[j].row()].bbox;
 					bboxAll.Add( bboxOne );
+					if (j != lastIndex)
+						bboxAllButLast.Add( bboxOne );
 				}
 
 		AskTransformDialog *d = askTransformDialog;
@@ -2642,6 +2646,7 @@ void MainWindow::transform(){
 		if (!executingRepeatedCommand) d->reset(); else d->update(); /* swy: reset all the controls to zero when opening it normally; just refresh the 3D view from the pre-filled repeated input values if not */
 
 		d->setBoundingBox(bboxAll.min.V(), bboxAll.max.V());
+		d->setBoundingBoxForAllButLast(bboxAllButLast.min.V(), bboxAllButLast.max.V());
 
 		/* swy: get the center coordinates of the bounding box surrounding the last selected mesh;
 		        that way we can subtract the coordinates to center the mesh in the scene,
