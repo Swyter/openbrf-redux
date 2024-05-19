@@ -4,6 +4,7 @@
 
 QT += opengl
 QT += xml
+QT += network
 
 CONFIG += exceptions
 

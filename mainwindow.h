@@ -6,6 +6,7 @@
 #include <QMainWindow>
 #include <QButtonGroup>
 #include <QLabel>
+#include <QNetworkReply>
 
 //#include <map>
 
@@ -324,6 +325,9 @@ private slots:
 	void setNormalmap(int);
     void setSpecularmap(int);
 	void updateSelectedMenu();
+	void checkForUpdates();
+	void checkUpdateNetworkRequestFinished(QNetworkReply *reply);
+	void openDownloadList();
 
 public slots:
 	void displayInfo(QString st, int howlong);

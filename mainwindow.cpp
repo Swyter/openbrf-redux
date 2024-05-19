@@ -8,7 +8,7 @@
 #include <QFileDialog>
 #include <QAction>
 #include <QStatusBar>
-
+#include <QNetworkAccessManager>
 #include <algorithm>
 
 #include "brfData.h"
@@ -959,6 +959,7 @@ MainWindow::MainWindow(QWidget *parent):QMainWindow(parent),inidata(brfdata)
 	askUvTransformDialog = new AskUvTransformDialog(this);
 	connect(askUvTransformDialog,SIGNAL(changed()),this,SLOT(meshUvTransformDoIt()));
 
+	checkForUpdates();
 }
 
 
@@ -5961,3 +5962,33 @@ void MainWindow::setFlagsShader(){
 
 }
 
+
+void MainWindow::checkForUpdates(){
+	qDebug("checkForUpdates");
+	QNetworkAccessManager * manager = new QNetworkAccessManager(this);
+
+	QNetworkRequest request(QUrl("https://https://swyter.github.io/openbrf-redux/latest.txt"));
+	
+	connect(manager, SIGNAL(finished(QNetworkReply *)), this, SLOT(checkUpdateNetworkRequestFinished(QNetworkReply *)));
+
+	manager->get(request);
+}
+
+void MainWindow::checkUpdateNetworkRequestFinished(QNetworkReply *reply){
+	qDebug("checkUpdateNetworkRequestFinished code=%u", reply->error());
+
+	if (1) {
+		QMenuBar *rightAlignedBar = new QMenuBar();
+		menuBar()->setCornerWidget(rightAlignedBar);
+
+		QAction *test = rightAlignedBar->addAction(tr("There is a newer version on GitHub!"));
+		test->setStatusTip(tr("Click here to download the latest version from the Internet."));
+		menuBar()->addAction(test);
+		
+		connect(test, SIGNAL(triggered()), this, SLOT(openDownloadList()));
+	}
+}
+
+void MainWindow::openDownloadList(){
+	QDesktopServices::openUrl(QUrl("https://github.com/Swyter/openbrf-redux/releases/tag/redux"));
+}
