@@ -18,6 +18,7 @@ using namespace vcg;
 #include <QString>
 #include <QFile>
 #include <QPair>
+#include <QMap>
 
 #include "ioOBJ.h"
 
@@ -71,13 +72,52 @@ bool IoOBJ::writeMesh(QFile &f, const BrfMesh& m, int fr){
   s = QString("newmtl %1\nKa 0.8 0.8 0.8\nKd 0.2 0.2 0.2\nusemtl %1\n").arg(m.material);
   f.write(s.toLatin1());
 
+  //QMap
+//
+  //int *a = NULL;
+//
+  //if (m.hasVertexColor) {
+  //  int thing = m.frame[fr].pos.size();
+  //  a = new int[thing];
+  //}
 
-  int np = 0, nv =0;
-  for (unsigned int i=0; i<m.frame[fr].pos.size(); i++) {
-    s = QString("v %1 %2 %3\n")
-      .arg(-m.frame[fr].pos[i].X())
-      .arg( m.frame[fr].pos[i].Y())
-      .arg( m.frame[fr].pos[i].Z());
+  struct uniqueVertex {
+    int pos;
+    unsigned int col;
+  };
+
+typedef QPair<int, unsigned int> position_and_color_pair;
+
+  QMap<position_and_color_pair, uint32_t> unique_pos;
+
+  for (unsigned int i=0; i<m.vert.size(); i++) {
+    position_and_color_pair uv = {m.vert[i].index, m.vert[i].col};
+    unique_pos.insert(uv, 0);
+  }
+
+
+  int np = 0, nv =0; int index = 0;
+  for (auto i = unique_pos.begin(), end = unique_pos.end(); i != end; ++i) {
+    int cur_pos_idx = i.key().first;
+    unsigned int cur_col = i.key().second;
+    i.value() = index++;
+
+    s = QString("v %1 %2 %3")
+      .arg(-m.frame[fr].pos[cur_pos_idx].X())
+      .arg( m.frame[fr].pos[cur_pos_idx].Y())
+      .arg( m.frame[fr].pos[cur_pos_idx].Z());
+
+    /* swy: add support for exporting vertex colors using this Wavefront OBJ extension:
+            https://en.wikipedia.org/wiki/Wavefront_.obj_file#cite_ref-2 */
+    if (m.hasVertexColor) {
+      s += QString("  %3 %2 %1  %4")
+        .arg(((cur_col >> (8*0)) & 0xFF) / 255.f)  /* swy: B */
+        .arg(((cur_col >> (8*1)) & 0xFF) / 255.f)  /* swy: G */
+        .arg(((cur_col >> (8*2)) & 0xFF) / 255.f)  /* swy: R */
+        .arg(((cur_col >> (8*3)) & 0xFF) / 255.f); /* swy: A */
+    }
+
+    s += "\n";
     f.write(s.toLatin1());
     np++;
   }
@@ -97,9 +137,11 @@ bool IoOBJ::writeMesh(QFile &f, const BrfMesh& m, int fr){
 
   for (unsigned int i=0; i<m.face.size(); i++) {
     f.write("f");
-    for (int w=0; w<3; w++) {;
+    for (int w=0; w<3; w++) {
+      position_and_color_pair uv = {m.vert[m.face[i].index[w]].index, m.vert[m.face[i].index[w]].col};
+      auto uniquePosIdx = unique_pos.value(uv);
       s = QString(" %1/%2/%2")
-        .arg(m.vert[m.face[i].index[w]].index +1 + cp)
+        .arg(uniquePosIdx +1 + cp)
         .arg(m.face[i].index[w] +1 +cv);
       f.write(s.toLatin1());
     }
