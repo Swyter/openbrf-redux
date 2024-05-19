@@ -524,6 +524,10 @@ void MainWindow::createActions()
 	editPasteHitboxAct->setStatusTip(tr("Paste hit-boxes into current skeleton."));
 	editPasteHitboxAct->setEnabled(false);
 
+	//editPasteRecenterAct = new QAction(tr("Paste re-centered position"), this);
+	//editPasteRecenterAct->setStatusTip(tr("Use the center point of the copied mesh as the new center point of the selected mesh, and move it there."));
+	//editPasteRecenterAct->setEnabled(false);
+
 	connect(undoAct, SIGNAL(triggered()), this, SLOT(performUndo()));
 	connect(redoAct, SIGNAL(triggered()), this, SLOT(performRedo()));
 
@@ -537,6 +541,7 @@ void MainWindow::createActions()
 	connect(editAddToCopyAct, SIGNAL(triggered()), this, SLOT(editAddToCopy()));
 	connect(editPasteMergeMeshAct, SIGNAL(triggered()), this, SLOT(editPasteMergeMesh()));
 	connect(editPasteHitboxAct, SIGNAL(triggered()), this, SLOT(editPasteHitbox()));
+	//connect(editPasteRecenterAct, SIGNAL(triggered()), this, SLOT(editPasteHitbox()));
 
 	connect(editCutFrameAct, SIGNAL(triggered()), this, SLOT(editCutFrame()));
 	connect(editPasteFrameAct, SIGNAL(triggered()), this, SLOT(editPasteFrame()));

@@ -216,6 +216,7 @@ private slots:
 	void editPasteVertColors();
 	void editPasteVertAni();
 	void editPasteHitbox();
+	void editPasteRecenterPosition();
 	void sortEntries();
 	void meshRecomputeNormalsAndUnifyDoIt();
 	void meshRecomputeNormalsAndUnify_onSlider(int i);
@@ -495,6 +496,7 @@ private:
 	QAction *editPasteAniLowerPartsAct;
 	QAction *editPasteModificationAct;
 	QAction *editPasteHitboxAct;
+	//QAction *editPasteRecenterAct;
 	QAction *editCutFrameAct;
 	QAction *editCopyFrameAct;
 	QAction *editPasteFrameAct;

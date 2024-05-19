@@ -3055,6 +3055,11 @@ void MainWindow::editPasteHitbox(){
 
 }
 
+void MainWindow::editPasteRecenterPosition(){
+
+}
+
+
 void MainWindow::editCopyFrame(){
 	if (selector->currentTabName()!=MESH) return;
 	int i = selector->firstSelected();
