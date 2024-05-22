@@ -72,15 +72,6 @@ bool IoOBJ::writeMesh(QFile &f, const BrfMesh& m, int fr){
   s = QString("newmtl %1\nKa 0.8 0.8 0.8\nKd 0.2 0.2 0.2\nusemtl %1\n").arg(m.material);
   f.write(s.toLatin1());
 
-  //QMap
-//
-  //int *a = NULL;
-//
-  //if (m.hasVertexColor) {
-  //  int thing = m.frame[fr].pos.size();
-  //  a = new int[thing];
-  //}
-
   struct uniqueVertex {
     int pos;
     unsigned int col;
@@ -208,6 +199,7 @@ bool BrfMesh::LoadOBJ(char* fn){
   std::vector<Point3f> norm;
   std::vector<Point2f> ta;
   std::map<Triple,int> map;
+  std::vector<uint32_t> posColor; /* swy: store optional vertex colors retrieved from the .OBJ position lines all lined up, so that we can paste them in vertex properties (multiple vertices can share a XYZ position, each having different colors) */
 
   matMeshMap.clear();
   matMeshVec.clear();
@@ -237,9 +229,19 @@ bool BrfMesh::LoadOBJ(char* fn){
     }
     else if (s.startsWith("v ")) {
       char cp[512]; sprintf(cp,"%s",s.toLatin1().data());
-      Point3f p;
-      sscanf( cp,"v %f %f %f",&(p[0]),&(p[1]),&(p[2])); p[0]=-p[0];
+      Point3f p; float r, g, b, a = 1.f;
+      int foundElemCount = sscanf( cp,"v %f %f %f %f %f %f %f",&(p[0]),&(p[1]),&(p[2]), &r, &g, &b, &a); p[0]=-p[0];
       frame[0].pos.push_back(p);
+
+      uint32_t cur_col = 0xFFFFFFFF;
+      if (foundElemCount >= (3 + 3)) /* swy: have the optional colors part at the end of the line been parsed? alpha is optional and will be 1.f otherwise */
+      {
+        cur_col = (((uint32_t)(b * 255) & 0xFF) << (8*0)) |  /* swy: B */
+                  (((uint32_t)(g * 255) & 0xFF) << (8*1)) |  /* swy: G */
+                  (((uint32_t)(r * 255) & 0xFF) << (8*2)) |  /* swy: R */
+                  (((uint32_t)(a * 255) & 0xFF) << (8*3));   /* swy: A */
+      }
+      posColor.push_back(cur_col); /* swy: make it so that the posColor index line ups with the vertex position one; see below */
     }
     else if (s.startsWith("vn ")) {
       char cp[512]; sprintf(cp,"%s",s.toLatin1().data());
@@ -301,7 +303,7 @@ bool BrfMesh::LoadOBJ(char* fn){
             norms=true;
             setGotNormals(true);
           }
-          v.col=0xFFFFFFFF;
+          v.col=posColor[t.a];
           vert.push_back(v);
           remap[w] = map[t] = vert.size()-1;
         } else remap[w] = map[t];
