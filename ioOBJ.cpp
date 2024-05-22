@@ -102,10 +102,10 @@ typedef QPair<int, unsigned int> position_and_color_pair;
             https://en.wikipedia.org/wiki/Wavefront_.obj_file#cite_ref-2 */
     if (m.hasVertexColor) {
       s += QString("  %3 %2 %1  %4")
-        .arg(((cur_col >> (8*0)) & 0xFF) / 255.f)  /* swy: B */
-        .arg(((cur_col >> (8*1)) & 0xFF) / 255.f)  /* swy: G */
-        .arg(((cur_col >> (8*2)) & 0xFF) / 255.f)  /* swy: R */
-        .arg(((cur_col >> (8*3)) & 0xFF) / 255.f); /* swy: A */
+        .arg(((cur_col >> (8*0)) & 0xFF) / 255.f)  /* swy: ......BB */
+        .arg(((cur_col >> (8*1)) & 0xFF) / 255.f)  /* swy: ....GG__ */
+        .arg(((cur_col >> (8*2)) & 0xFF) / 255.f)  /* swy: ..RR____ */
+        .arg(((cur_col >> (8*3)) & 0xFF) / 255.f); /* swy: AA______ */
     }
 
     s += "\n";
@@ -230,17 +230,16 @@ bool BrfMesh::LoadOBJ(char* fn){
     else if (s.startsWith("v ")) {
       char cp[512]; sprintf(cp,"%s",s.toLatin1().data());
       Point3f p; float r, g, b, a = 1.f;
-      int foundElemCount = sscanf( cp,"v %f %f %f %f %f %f %f",&(p[0]),&(p[1]),&(p[2]), &r, &g, &b, &a); p[0]=-p[0];
+      int foundElemCount = sscanf( cp,"v %f %f %f %f %f %f %f",&(p[0]),&(p[1]),&(p[2]), &r, &g, &b, &a); p[0]=-p[0]; /* swy: e.g from Blender: v 0.016425 1.192640 -0.156026 0.3882 0.3882 0.3882 */
       frame[0].pos.push_back(p);
 
       uint32_t cur_col = 0xFFFFFFFF;
-      if (foundElemCount >= (3 + 3)) /* swy: have the optional colors part at the end of the line been parsed? alpha is optional and will be 1.f otherwise */
-      {
-        cur_col = (((uint32_t)(b * 255) & 0xFF) << (8*0)) |  /* swy: B */
-                  (((uint32_t)(g * 255) & 0xFF) << (8*1)) |  /* swy: G */
-                  (((uint32_t)(r * 255) & 0xFF) << (8*2)) |  /* swy: R */
-                  (((uint32_t)(a * 255) & 0xFF) << (8*3));   /* swy: A */
-      }
+      if (foundElemCount >= (3 + 3)) { /* swy: have the optional colors part at the end of the line been parsed? alpha is optional (most programs support RGB-only) and will be 1.f otherwise */
+        cur_col = (((uint32_t)(b * 255u) & 0xFF) << (8*0)) |  /* swy: ......BB <- BB    */
+                  (((uint32_t)(g * 255u) & 0xFF) << (8*1)) |  /* swy: ....GG__ <- GG    */
+                  (((uint32_t)(r * 255u) & 0xFF) << (8*2)) |  /* swy: ..RR____ <- RR    */
+                  (((uint32_t)(a * 255u) & 0xFF) << (8*3));   /* swy: AA______ <- AA    */
+      }                                                       /* swy: AARRGGBB (result) */
       posColor.push_back(cur_col); /* swy: make it so that the posColor index line ups with the vertex position one; see below */
     }
     else if (s.startsWith("vn ")) {

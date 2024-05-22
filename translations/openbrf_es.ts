@@ -3104,7 +3104,7 @@ al que añadir un fotograma o cuadro.</translation>
         <translation>Realiza una vinculación de esqueleto para los modelos seleccionados basada en modelo del Portapapeles.</translation>
     </message>
     <message>
-        <location line="+119"/>
+        <location line="+114"/>
         <source> (keep Shift pressed to move all the LODs to the end of the list)</source>
         <translation> (mantén pulsado Mayús para mover los LODs, «niveles de detalle», al final de la lista)</translation>
     </message>
@@ -3127,7 +3127,7 @@ al que añadir un fotograma o cuadro.</translation>
         <translation type="vanished">Realiza una vinculación de esqueleto para los modelos seleccionados basado en la guardada en el portapapeles.</translation>
     </message>
     <message>
-        <location line="-142"/>
+        <location line="-137"/>
         <source>Paste into mesh (matches LODs)</source>
         <translation>Pegar en modelo (coincide con LODs)</translation>
     </message>
@@ -3177,7 +3177,7 @@ al que añadir un fotograma o cuadro.</translation>
         <translation>Pegar cuerpos de colisión en el esqueleto actual.</translation>
     </message>
     <message>
-        <location line="+100"/>
+        <location line="+95"/>
         <source>Measure with ruler</source>
         <translation>Medir con regla</translation>
     </message>
@@ -3300,7 +3300,7 @@ al que añadir un fotograma o cuadro.</translation>
         <translation type="obsolete">Copia las coordenadas de texturas desde el modelo en el portapapeles.</translation>
     </message>
     <message>
-        <location line="-275"/>
+        <location line="-270"/>
         <source>Paste vert colors</source>
         <translation>Pegar colores de vértice</translation>
     </message>
@@ -3346,7 +3346,7 @@ al que añadir un fotograma o cuadro.</translation>
         <translation type="obsolete">Pega los tiempos de unos cuadros de animación, sean de vértices o esqueletales en otra animación u animaciones.</translation>
     </message>
     <message>
-        <location line="+37"/>
+        <location line="+32"/>
         <source>Save &amp;As...</source>
         <translation>Gu&amp;ardar como...</translation>
     </message>
@@ -4073,9 +4073,9 @@ al que añadir un fotograma o cuadro.</translation>
         <location line="+1297"/>
         <location line="+302"/>
         <location line="+24"/>
-        <location line="+1156"/>
+        <location line="+1161"/>
         <location line="+12"/>
-        <location line="+648"/>
+        <location line="+643"/>
         <location line="+1813"/>
         <source>OpenBrf</source>
         <translation>OpenBRF</translation>
@@ -4352,7 +4352,7 @@ selecciona un modelo vinculado a un esqueleto,
 después selecciona los modelos a vincular.</translation>
     </message>
     <message>
-        <location line="+536"/>
+        <location line="+541"/>
         <source>Same skeleton:
 reskeletonization canceled.
 </source>
@@ -4410,7 +4410,7 @@ Escribe el nuevo aquí:</translation>
 (funciona mejor si los modelos de origen y destino se parecen)</translation>
     </message>
     <message>
-        <location line="+485"/>
+        <location line="+480"/>
         <source>Vertex number mismatch... using texture-coord matching instead</source>
         <translation>El número de vértices no concuerda... se usarán las coordenadas de textura para ordenarlos.</translation>
     </message>
@@ -4984,7 +4984,7 @@ Overwrite it?</source>
         <translation>Color uniforme para modelo</translation>
     </message>
     <message>
-        <location line="+319"/>
+        <location line="+324"/>
         <source>Transfer Skinning</source>
         <translation>Transferir unión esqueletal</translation>
     </message>
@@ -5021,7 +5021,7 @@ después selecciona los modelos a vincular.</translation>
         <translation>No se pueden pegar los cuerpos de colisión: No tengo ningún esqueleto con colisiones en el portapapeles</translation>
     </message>
     <message>
-        <location line="+63"/>
+        <location line="+58"/>
         <source>%1 new BRF items found in clipboard...</source>
         <translation>Se han encontrado %1 objetos nuevos en el portapapeles...</translation>
     </message>

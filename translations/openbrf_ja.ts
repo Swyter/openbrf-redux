@@ -2618,162 +2618,162 @@ to add a frame to.</source>
         <translation>ヒット・ボックスを現スケルトンへ貼り付け。</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="556"/>
+        <location filename="../main_create.cpp" line="551"/>
         <source>Save &amp;As...</source>
         <translation>名前を付けて保存(&amp;A)...</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="558"/>
+        <location filename="../main_create.cpp" line="553"/>
         <source>Save the document under a new name</source>
         <translation>ドキュメントを新しい名前で保存</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="561"/>
+        <location filename="../main_create.cpp" line="556"/>
         <source>Save module hitbox-sets for all skeletons</source>
         <translation>全スケルトンについて、MOD のヒット・ボックス群を保存</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="564"/>
+        <location filename="../main_create.cpp" line="559"/>
         <source>Create scene prop code for module</source>
         <translation>MOD 用のシーン小道具コードを作成</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="565"/>
+        <location filename="../main_create.cpp" line="560"/>
         <source>Create scene prop text for current meshes and collision bodies</source>
         <translation>現在のメッシュと衝突判定体のシーン小道具テキストを作成</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="578"/>
+        <location filename="../main_create.cpp" line="573"/>
         <source>E&amp;xit</source>
         <translation>終了(&amp;X)</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="579"/>
+        <location filename="../main_create.cpp" line="574"/>
         <source>Alt+F4</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="580"/>
+        <location filename="../main_create.cpp" line="575"/>
         <source>Exit the application</source>
         <translation>アプリケーションを終了</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="585"/>
+        <location filename="../main_create.cpp" line="580"/>
         <source>Why the checkerboard pattern?</source>
         <translation>チェック柄になる原因は?</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="586"/>
+        <location filename="../main_create.cpp" line="581"/>
         <source>Diagnose why I&apos;m seeing a checkboard pattern instead of my texture.</source>
         <translation>テクスチャが貼られずチェック柄になる理由を診断。</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="592"/>
+        <location filename="../main_create.cpp" line="587"/>
         <source>On mesh recoloring (info)...</source>
         <translation>メッシュを再着色時 (情報)...</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="596"/>
+        <location filename="../main_create.cpp" line="591"/>
         <source>About</source>
         <translation>このツールについて</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="597"/>
+        <location filename="../main_create.cpp" line="592"/>
         <source>F1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="598"/>
+        <location filename="../main_create.cpp" line="593"/>
         <source>About OpenBRF</source>
         <translation>OpenBRF について</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="601"/>
+        <location filename="../main_create.cpp" line="596"/>
         <source>_</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="603"/>
+        <location filename="../main_create.cpp" line="598"/>
         <source>Enter vertex-data editor</source>
         <translation>頂点データ・エディタで入力</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="604"/>
+        <location filename="../main_create.cpp" line="599"/>
         <source>Exit vertex-data editor</source>
         <translation>頂点データのエディタを終了</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="610"/>
+        <location filename="../main_create.cpp" line="605"/>
         <source>Sort entries</source>
         <translation>表示項目を並べ替え</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="611"/>
+        <location filename="../main_create.cpp" line="606"/>
         <source>Sort current entries alphabetically</source>
         <translation>現在の一覧をアルファベット順に並べ替え</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="611"/>
+        <location filename="../main_create.cpp" line="606"/>
         <source> (keep Shift pressed to move all the LODs to the end of the list)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="614"/>
+        <location filename="../main_create.cpp" line="609"/>
         <source>Invert selection</source>
         <translation>選択を反転</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="615"/>
+        <location filename="../main_create.cpp" line="610"/>
         <source>Invert current selection</source>
         <translation>現在の選択・非選択状態を、逆にします</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="619"/>
+        <location filename="../main_create.cpp" line="614"/>
         <source>Select all</source>
         <translation>全て選択</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="620"/>
+        <location filename="../main_create.cpp" line="615"/>
         <source>Select all items</source>
         <translation>全項目を選択します</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="624"/>
+        <location filename="../main_create.cpp" line="619"/>
         <source>Measure with ruler</source>
         <translation>定規（ものさし）で測る</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="625"/>
+        <location filename="../main_create.cpp" line="620"/>
         <source>Use a ruler to measure object lenghts</source>
         <translation>オブジェクトの長さを、定規（ものさし）ツールで測ります</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="629"/>
+        <location filename="../main_create.cpp" line="624"/>
         <source>Measure with Floating Probe</source>
         <translation>測位ツール(浮遊プローブ)で位置を測る</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="630"/>
+        <location filename="../main_create.cpp" line="625"/>
         <source>Use the Floating Probe -- click on the 3D object rendering to position it</source>
         <translation>測位ツール(浮遊プローブ)を有効にします -- 3D オブジェクトの表面をクリックすると、座標が View に表示されます</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="635"/>
+        <location filename="../main_create.cpp" line="630"/>
         <source>Import a static Mesh</source>
         <translation>静的メッシュをインポート</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="637"/>
+        <location filename="../main_create.cpp" line="632"/>
         <source>Import skinned (skeletal animable) Mesh</source>
         <translation>スキンの付いた（スケルトンでアニメーション可能な）メッシュをインポート</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="639"/>
+        <location filename="../main_create.cpp" line="634"/>
         <source>Import a static mesh and add it as a vertex-animation frame of current Mesh</source>
         <translation>静的メッシュを 1 つインポートし、それを現メッシュの頂点アニメ・フレームの 1 つとして追加</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="641"/>
+        <location filename="../main_create.cpp" line="636"/>
         <source>Import a vertex animated mesh from a MD3 file</source>
         <translation>MD3 ファイルから頂点アニメ付きメッシュをインポート</translation>
     </message>
@@ -2783,148 +2783,148 @@ to add a frame to.</source>
         <translation>スケルトン</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="643"/>
+        <location filename="../main_create.cpp" line="638"/>
         <source>Import a Skeleton</source>
         <translation>スケルトンをインポート</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="647"/>
+        <location filename="../main_create.cpp" line="642"/>
         <source>Import a skeletal Animation</source>
         <translation>スケルトン付きのアニメーションをインポート</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="649"/>
+        <location filename="../main_create.cpp" line="644"/>
         <source>Import an (multi-object) OBJ mesh as a Collision object.</source>
         <translation>(複数オブジェクトを含み得る) OBJ ファイルのメッシュを衝突判定オブジェクトとしてインポートします。</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="651"/>
+        <location filename="../main_create.cpp" line="646"/>
         <source>Import all content form another BRF file into current one.</source>
         <translation>他の BRF ファイルから全ての内容をインポートします。</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="653"/>
+        <location filename="../main_create.cpp" line="648"/>
         <source>Make a new Material object.</source>
         <translation>新規マテリアル・オブジェクトを作成。</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="655"/>
+        <location filename="../main_create.cpp" line="650"/>
         <source>Make a new Texture object from a dds texture</source>
         <translation>dds 形式のテクスチャ・ファイルを基に新規テクスチャを作成</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="657"/>
+        <location filename="../main_create.cpp" line="652"/>
         <source>Enlist a new Shader</source>
         <translation>新しいシェーダを一覧に追加</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="660"/>
+        <location filename="../main_create.cpp" line="655"/>
         <source>Add a Menu Background (Mesh, Material, and Texture)</source>
         <translation>メニュー背景を追加(メッシュ,マテリアル,テクスチャ)</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="662"/>
+        <location filename="../main_create.cpp" line="657"/>
         <source>follow link</source>
         <translation>リンクを追跡</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="664"/>
+        <location filename="../main_create.cpp" line="659"/>
         <source>Go from a mesh to used material; go from a material to used textures/shader</source>
         <translation>メッシュからそのマテリアルへ; マテリアルからそのテクスチャ/シェーダへ</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="666"/>
+        <location filename="../main_create.cpp" line="661"/>
         <source>follow back-link</source>
         <translation>バック・リンクを追跡</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="668"/>
+        <location filename="../main_create.cpp" line="663"/>
         <source>Go back to the mesh (from a material) or material (from texture or shaders).</source>
         <translation>(マテリアルから)メッシュへ、または(テクスチャかシェーダから)マテリアルへ戻って下さい。</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="669"/>
+        <location filename="../main_create.cpp" line="664"/>
         <source>next back-link</source>
         <translation>次のバック・リンクへ</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="670"/>
+        <location filename="../main_create.cpp" line="665"/>
         <source>prev back-link</source>
         <translation>前のバック・リンクへ</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="672"/>
-        <location filename="../main_create.cpp" line="702"/>
+        <location filename="../main_create.cpp" line="667"/>
+        <location filename="../main_create.cpp" line="697"/>
         <source>ctrl+F</source>
         <translation>Ctrl f</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="674"/>
+        <location filename="../main_create.cpp" line="669"/>
         <source>Reload ini files, brf files inside it, and dds textures</source>
         <translation>ini ファイルと そこで指定された brf ファイルと、dds テクスチャを再ロード</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="675"/>
+        <location filename="../main_create.cpp" line="670"/>
         <source>F5</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="676"/>
+        <location filename="../main_create.cpp" line="671"/>
         <source>Scan module for usages</source>
         <translation>MOD のファイル使用状況をスキャン</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="677"/>
+        <location filename="../main_create.cpp" line="672"/>
         <source>Scans module content and txt files, to compute what uses what</source>
         <translation>MOD の内容と txt ファイルをスキャンし、何が何を使っているか調べる</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="678"/>
+        <location filename="../main_create.cpp" line="673"/>
         <source>F3</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="680"/>
+        <location filename="../main_create.cpp" line="675"/>
         <source>Choose the current module</source>
         <translation>対象とする MOD を選択</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="682"/>
+        <location filename="../main_create.cpp" line="677"/>
         <source>Open Module folder in explorer...</source>
         <translation>MOD のフォルダを、エクスプローラーで開く...</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="695"/>
+        <location filename="../main_create.cpp" line="690"/>
         <source>Export al the contnt in a txt file</source>
         <translation>全ての内容を txt ファイルへエクスポート</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="697"/>
+        <location filename="../main_create.cpp" line="692"/>
         <source>Scan module for errors</source>
         <translation>MOD の問題箇所をスキャン</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="698"/>
+        <location filename="../main_create.cpp" line="693"/>
         <source>ctrl+E</source>
         <translation>Ctrl e</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="699"/>
+        <location filename="../main_create.cpp" line="694"/>
         <source>Scan module.ini and included brf files for inconsistencies.</source>
         <translation>module.ini と 指定されている brf ファイルの不整合を調べます。</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="701"/>
+        <location filename="../main_create.cpp" line="696"/>
         <source>Find in module...</source>
         <translation>MOD 内を検索...</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="705"/>
+        <location filename="../main_create.cpp" line="700"/>
         <source>Select a BRF in module...</source>
         <translation>MOD 内の BRF を選択...</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="703"/>
+        <location filename="../main_create.cpp" line="698"/>
         <source>Look for an object in all brf listed inside current module.ini.</source>
         <translation>現在の module.ini 内で指定された全 brf ファイルから、オブジェクトを探します。</translation>
     </message>
@@ -3084,237 +3084,237 @@ to add a frame to.</source>
         <translation>頂点アニメーションを貼り付け</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="583"/>
+        <location filename="../main_create.cpp" line="578"/>
         <source>Preview-shaders diagnostics</source>
         <translation>プレビュー・シェーダの診断</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="584"/>
+        <location filename="../main_create.cpp" line="579"/>
         <source>Tell me about the preview hader that is being used now.</source>
         <translation>使用中のプレビュー・シェーダについて情報を表示する。</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="634"/>
+        <location filename="../main_create.cpp" line="629"/>
         <source>Static mesh...</source>
         <translation>静的メッシュ...</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="636"/>
+        <location filename="../main_create.cpp" line="631"/>
         <source>Skinned mesh...</source>
         <translation>スキン付きメッシュ...</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="638"/>
+        <location filename="../main_create.cpp" line="633"/>
         <source>Frame of vertex-animated mesh...</source>
         <translation>頂点アニメ付きメッシュのフレーム...</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="640"/>
+        <location filename="../main_create.cpp" line="635"/>
         <source>Vertex-animated mesh...</source>
         <translation>頂点アニメ付きメッシュ...</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="642"/>
+        <location filename="../main_create.cpp" line="637"/>
         <source>Skeleton...</source>
         <translation>スケルトン...</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="646"/>
+        <location filename="../main_create.cpp" line="641"/>
         <source>Skeletal animation...</source>
         <translation>スケルトン・アニメーション...</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="648"/>
+        <location filename="../main_create.cpp" line="643"/>
         <source>Collision body...</source>
         <translation>衝突判定体...</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="650"/>
+        <location filename="../main_create.cpp" line="645"/>
         <source>Anything from a BRF...</source>
         <translation>BRF からすべて ...</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="652"/>
+        <location filename="../main_create.cpp" line="647"/>
         <source>New Material...</source>
         <translation>新規マテリアル...</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="654"/>
+        <location filename="../main_create.cpp" line="649"/>
         <source>New Texture...</source>
         <translation>新規テクスチャ...</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="656"/>
+        <location filename="../main_create.cpp" line="651"/>
         <source>New Shader...</source>
         <translation>新規シェーダ...</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="659"/>
+        <location filename="../main_create.cpp" line="654"/>
         <source>New Menu Background...</source>
         <translation>新規メニュー背景...</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="663"/>
+        <location filename="../main_create.cpp" line="658"/>
         <source>shift+right</source>
         <translation>Shift →</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="671"/>
+        <location filename="../main_create.cpp" line="666"/>
         <source>Find...</source>
         <translation>検索...</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="673"/>
+        <location filename="../main_create.cpp" line="668"/>
         <source>Refresh all</source>
         <translation>すべて最新に</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="679"/>
+        <location filename="../main_create.cpp" line="674"/>
         <source>Change current Module...</source>
         <translation>対象とする MOD を変更...</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="683"/>
+        <location filename="../main_create.cpp" line="678"/>
         <source>Open Module folder in file explorer</source>
         <translation>MOD のフォルダをエクスプローラで開く</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="685"/>
+        <location filename="../main_create.cpp" line="680"/>
         <source>Next BRF in module</source>
         <translation>MOD 内の次の BRF</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="686"/>
+        <location filename="../main_create.cpp" line="681"/>
         <source>Open next BRF file as defined in module.ini</source>
         <translation>module.ini で定義された、次の BRF を開く</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="688"/>
+        <location filename="../main_create.cpp" line="683"/>
         <source>Prev BRF in module</source>
         <translation>MOD 内の前の BRF</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="689"/>
+        <location filename="../main_create.cpp" line="684"/>
         <source>Open previous BRF file as defined in module.ini</source>
         <translation>module.ini で定義された、前の BRF を開く</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="694"/>
+        <location filename="../main_create.cpp" line="689"/>
         <source>Export names...</source>
         <translation>名前をエクスポート...</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="706"/>
+        <location filename="../main_create.cpp" line="701"/>
         <source>Select a BRF file of this module.</source>
         <translation>この MOD の BRF を一つ選択する。</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="707"/>
+        <location filename="../main_create.cpp" line="702"/>
         <source>F7</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="708"/>
+        <location filename="../main_create.cpp" line="703"/>
         <source>Show unreferenced texture files</source>
         <translation>不使用テクスチャ・ファイルを表示</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="709"/>
+        <location filename="../main_create.cpp" line="704"/>
         <source>Show texture files non referenced in any brf</source>
         <translation>どの brf からも使われていないテクスチャ・ファイルを一覧</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="711"/>
+        <location filename="../main_create.cpp" line="706"/>
         <source>Show module stats</source>
         <translation>MOD の統計情報</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="712"/>
+        <location filename="../main_create.cpp" line="707"/>
         <source>Show statistics for current Module</source>
         <translation>現在の MOD の、統計的な数値を表示</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="730"/>
+        <location filename="../main_create.cpp" line="725"/>
         <source>&amp;Repeat last command</source>
         <translation>コマンドを繰り返す(&amp;R)</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="741"/>
+        <location filename="../main_create.cpp" line="736"/>
         <source>Register BRF extension</source>
         <translation>拡張子 brf を登録</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="742"/>
+        <location filename="../main_create.cpp" line="737"/>
         <source>Make so that clicking on a brf file opens OpenBRF.</source>
         <translation>拡張子 brf をクリック時に OpenBRF が開くようにします。</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="757"/>
+        <location filename="../main_create.cpp" line="752"/>
         <source>default</source>
         <translation>デフォルト</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="758"/>
+        <location filename="../main_create.cpp" line="753"/>
         <source>Default mode: rotate objects with mouse, zoom in/out with wheel.</source>
         <translation>デフォルト・モード: マウスで回転、ホイールでズーム・イン/アウト。</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="759"/>
+        <location filename="../main_create.cpp" line="754"/>
         <source>helmet</source>
         <translation>兜/ヘルメット</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="760"/>
+        <location filename="../main_create.cpp" line="755"/>
         <source>Helmet mode: for objects with vertical Z axis, like M&amp;B helmets or weapons.</source>
         <translation>ヘルメット・モード: M&amp;B のヘルメットや武器のような、鉛直 Z 軸を持つオブジェクト用。</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="761"/>
+        <location filename="../main_create.cpp" line="756"/>
         <source>scene</source>
         <translation>シーン</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="762"/>
+        <location filename="../main_create.cpp" line="757"/>
         <source>Scene mode: navigate with mouse and WASD (levitate with wheel, zoom with shift)</source>
         <translation>シーン・モード: マウスと W,A,S,D キーで移動 (ホイールで上下、Shitt でズーム)</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="773"/>
+        <location filename="../main_create.cpp" line="768"/>
         <source>combo</source>
         <translation>組み合わせ</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="774"/>
+        <location filename="../main_create.cpp" line="769"/>
         <source>See objects combined (when multiple things are selected)</source>
         <translation>結合されたオブジェクトを見る (複数を選択時)</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="776"/>
+        <location filename="../main_create.cpp" line="771"/>
         <source>See object side-to-side (when multiple things are selected)</source>
         <translation>オブジェクトを左右交互に見る (複数を選択時)</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="777"/>
+        <location filename="../main_create.cpp" line="772"/>
         <source>auto</source>
         <translation>自動</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="778"/>
+        <location filename="../main_create.cpp" line="773"/>
         <source>See sub-parts combined (when multiple things are selected)</source>
         <translation>結合されたサブ・パーツを見る (複数を選択時)</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="775"/>
+        <location filename="../main_create.cpp" line="770"/>
         <source>aside</source>
         <translation>脇</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="780"/>
+        <location filename="../main_create.cpp" line="775"/>
         <source>mult-view:</source>
         <translation>マルチ・ビュー:</translation>
     </message>
     <message>
-        <location filename="../main_create.cpp" line="798"/>
+        <location filename="../main_create.cpp" line="793"/>
         <source>view-mode:</source>
         <translation>ビュー・モード:</translation>
     </message>
@@ -3501,8 +3501,8 @@ to add a frame to.</source>
         <location filename="../mainwindow.cpp" line="1400"/>
         <location filename="../mainwindow.cpp" line="1702"/>
         <location filename="../mainwindow.cpp" line="1726"/>
-        <location filename="../mainwindow.cpp" line="2882"/>
-        <location filename="../mainwindow.cpp" line="2894"/>
+        <location filename="../mainwindow.cpp" line="2887"/>
+        <location filename="../mainwindow.cpp" line="2899"/>
         <location filename="../mainwindow.cpp" line="3542"/>
         <location filename="../mainwindow.cpp" line="5355"/>
         <source>OpenBrf</source>
@@ -3765,12 +3765,12 @@ k の値を選択:</translation>
         <translation>スケルトンを再スケールします&lt;br/&gt;(存在する場合はヒット・ボックスも)&lt;br /&gt;何パーセントで再スケールしますか?&lt;br /&gt;&lt;br /&gt;(&gt;100 なら拡大)&lt;br /&gt;&lt;br /&gt;&lt;b&gt;警告!&lt;/ b&gt;&lt;br /&gt;このスケルトンを使用しているすべてのスキン付きメッシュも&lt;br /&gt;再スケールする必要があります!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2706"/>
+        <location filename="../mainwindow.cpp" line="2711"/>
         <source>Transfer Skinning</source>
         <translation>スキン状態の移行</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2707"/>
+        <location filename="../mainwindow.cpp" line="2712"/>
         <source>Transfer skinning:
 select a skinned mesh first,
 then all target meshes.
@@ -3781,7 +3781,7 @@ then all target meshes.
 </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2734"/>
+        <location filename="../mainwindow.cpp" line="2739"/>
         <source>Same skeleton:
 reskeletonization canceled.
 </source>
@@ -3790,7 +3790,7 @@ reskeletonization canceled.
 </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2744"/>
+        <location filename="../mainwindow.cpp" line="2749"/>
         <source>Different number of bones:
 reskeletonization canceled.
 </source>
@@ -3799,14 +3799,14 @@ reskeletonization canceled.
 </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2883"/>
+        <location filename="../mainwindow.cpp" line="2888"/>
         <source>Renaming %1...
 new name:</source>
         <translation>%1 を改名中...
 新しい名前:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2895"/>
+        <location filename="../mainwindow.cpp" line="2900"/>
         <source>%3 common prefix for %1 %2...
 new prefix:</source>
         <translatorcomment>「%3」は &quot;Changing the&quot; または &quot;Adding a&quot;。</translatorcomment>
@@ -3814,34 +3814,34 @@ new prefix:</source>
 新規 接頭子:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2895"/>
+        <location filename="../mainwindow.cpp" line="2900"/>
         <source>Changing the</source>
         <translation>変更</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2895"/>
+        <location filename="../mainwindow.cpp" line="2900"/>
         <source>Adding a</source>
         <translation>追加</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2982"/>
-        <location filename="../mainwindow.cpp" line="3003"/>
+        <location filename="../mainwindow.cpp" line="2987"/>
+        <location filename="../mainwindow.cpp" line="3008"/>
         <source>%1: Select one skeleton with a hitbox first</source>
         <translation>%1: 先に、ヒット・ボックス付きスケルトンを一つ選択して下さい</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2988"/>
+        <location filename="../mainwindow.cpp" line="2993"/>
         <source>%1: skeleton %2 has no kwown hitbox to copy</source>
         <translation>%1: スケルトン %2 にはコピーできる既知のヒット・ボックスがありません</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3016"/>
-        <location filename="../mainwindow.cpp" line="3027"/>
+        <location filename="../mainwindow.cpp" line="3021"/>
+        <location filename="../mainwindow.cpp" line="3032"/>
         <source>Wrong number of bones! (%1 in %2 VS %3 in %4). Cannot perform action</source>
         <translation>ボーンの数が不正です! (%2 に %1 個、%4 に %3 個)。実行できません</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3036"/>
+        <location filename="../mainwindow.cpp" line="3041"/>
         <source>Cannot paste hitboxes: I don&apos;t have a hitboxes plus skeleton in clipboard</source>
         <translation>ヒット・ボックスを貼り付けできません: クリップボードに「ヒットボックス+スケルトン」無し</translation>
     </message>
