@@ -353,7 +353,7 @@ bool MainWindow::exportSkeletonMod(){
   if (fn.isEmpty()) return false;
 
   VcgMesh::add(brfdata.skeleton[ i ]);
-  if (!VcgMesh::save(fn.toLatin1().data())){
+  if (!VcgMesh::save(fn.toUtf8().data())){
     QMessageBox::information(this,
       tr("Open Brf"),
       tr("Cannot export control mesh in file \n\"%1\"\n\n").arg(fn)
@@ -383,7 +383,7 @@ bool MainWindow::importSkeletonMod(){
   if (fn.isEmpty()) return false;
   //VcgMesh::clear();
   BrfSkeleton s = brfdata.skeleton[i];
-  if (!VcgMesh::load(fn.toLatin1().data())) {
+  if (!VcgMesh::load(fn.toUtf8().data())) {
     QMessageBox::information(this,
       tr("Open Brf"),
       tr("Cannot read mesh!")
@@ -464,7 +464,7 @@ bool MainWindow::exportMovingMesh(){
   if (fn.isEmpty()) return false;
   if (fn.endsWith(".000.obj",Qt::CaseInsensitive)) {
 	  fn.truncate( fn.length()-8 );
-	  brfdata.mesh[i].SaveVertexAniAsOBJ( fn.toLatin1().data() );
+	  brfdata.mesh[i].SaveVertexAniAsOBJ( fn.toUtf8().data() );
   } else {
 	if (!IoMD::Export(fn.toStdWString().c_str(),brfdata.mesh[i])){
 		QMessageBox::information(this,
@@ -491,12 +491,12 @@ bool MainWindow::exportStaticMesh(){
       if (fn.isEmpty()) return false;
       if (QFileInfo(fn).suffix().toLower()== "obj") {
         return brfdata.mesh[i].SaveOBJ(
-          fn.toLatin1().data(),this->currentDisplayFrame()
+          fn.toUtf8().data(),this->currentDisplayFrame()
         );
       } else {
         // save mesh as Ply
         VcgMesh::add(brfdata.mesh[ i ], this->currentDisplayFrame() );
-        return VcgMesh::save(fn.toLatin1().data());
+        return VcgMesh::save(fn.toUtf8().data());
       }
     break;
     default: assert(0); // how was this signal sent?!
@@ -745,7 +745,7 @@ bool MainWindow::_importStaticMesh(QString s, std::vector<BrfMesh> &mV, std::vec
 			}
     }
     else if (QFileInfo(fn).suffix().toLower()== "obj") {
-      if (!m.LoadOBJ( fn.toLatin1().data() )) {
+      if (!m.LoadOBJ( fn.toUtf8().data() )) {
         QMessageBox::information(this,
           tr("Open Brf"),
 				  tr("Cannot import file %1\n").arg(fn)
@@ -755,7 +755,7 @@ bool MainWindow::_importStaticMesh(QString s, std::vector<BrfMesh> &mV, std::vec
       wasMultipleMatV[j] = IoOBJ::wasMultpileMat();
     } else {
       wasMultipleMatV[j] = false;
-      if (!VcgMesh::load(fn.toLatin1().data())) {
+      if (!VcgMesh::load(fn.toUtf8().data())) {
         QMessageBox::information(this,
           tr("Open Brf"),
           tr("Cannot import file %1\n\n"
