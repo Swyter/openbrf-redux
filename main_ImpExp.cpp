@@ -92,7 +92,7 @@ void MainWindow::meshComputeLod(){
       res.flags = m.flags;
       sprintf(res.material,"%s", m.material);
       res.hasVertexColor = m.hasVertexColor;
-      sprintf(res.name,"%s.lod%d%s",partname.toLatin1().data(),lod,partnumber.toLatin1().data());
+      sprintf(res.name,"%s.lod%d%s",partname.toUtf8().data(),lod,partnumber.toUtf8().data());
       res.AnalyzeName();
       res.RemoveUnreferenced();
       res.UnifyPos();
@@ -400,7 +400,7 @@ bool MainWindow::importSkeletonMod(){
 
   QString name=QFileInfo(fn).completeBaseName();
   name.truncate(254);
-  sprintf( s.name, "%s", name.toLatin1().data());
+  sprintf( s.name, "%s", name.toUtf8().data());
   insert(s);
   setModified();
   return true;
@@ -684,7 +684,7 @@ bool MainWindow::_importCollisionBody(bool reimportExisting){
 
 		QString name=QFileInfo(fn[i]).completeBaseName();
 		name.truncate(254);
-		sprintf( b.name, "%s", name.toLatin1().data());
+		sprintf( b.name, "%s", name.toUtf8().data());
 
 		if (reimportExisting) replace( b ); else insert( b );
 
@@ -779,7 +779,7 @@ bool MainWindow::_importStaticMesh(QString s, std::vector<BrfMesh> &mV, std::vec
       // assign name of the mesh
       QString meshname=QFileInfo(fn).completeBaseName();
       meshname.truncate(254);
-      sprintf( m.name, "%s", meshname.toLatin1().data());
+      sprintf( m.name, "%s", meshname.toUtf8().data());
     }
     applyAfterMeshImport(m);
     res=true;
@@ -920,7 +920,7 @@ bool MainWindow::importSkinnedMesh(){
     for (unsigned int i=0; i<m.size(); i++) {
       QString name2 ;
       if (i>0) name2=QString("%1.%2").arg(name).arg(i); else name2=name;
-      sprintf( m[i].name, "%s", name2.toLatin1().data());
+      sprintf( m[i].name, "%s", name2.toUtf8().data());
 
       applyAfterMeshImport(m[i]);
       insert(m[i]);
@@ -1021,7 +1021,7 @@ bool MainWindow::_importAnimation(bool reimportExisting){
 
 		QString name=QFileInfo(fn).completeBaseName();
 		name.truncate(254);
-		sprintf( a.name, "%s", name.toLatin1().data());
+		sprintf( a.name, "%s", name.toUtf8().data());
 
 		if (backComp) {
 			//int j = gimmeASkeleton( s.bone.size() );
@@ -1080,7 +1080,7 @@ bool MainWindow::importSkeleton(){
 
   QString name=QFileInfo(fn).completeBaseName();
   name.truncate(254);
-  sprintf( s.name, "%s", name.toLatin1().data());
+  sprintf( s.name, "%s", name.toUtf8().data());
 
   insert(s);
   setModified();

@@ -229,7 +229,7 @@ static void setSign(int &s, const QLineEdit *q){
 }
 static void setString(char* st, QString s){
 	s.truncate(254);
-	sprintf(st,"%s",s.trimmed().toLatin1().data());
+	sprintf(st,"%s",s.trimmed().toUtf8().data());
 }
 static void setString(char* st, QLineEdit *q){
 	if (!q->hasFrame() && q->text().isEmpty()) return;
@@ -322,17 +322,17 @@ static char* _getName(T &t, int i){
 template< class T >
 void _setName(T &t, QString s){
 	s.truncate(254);
-	sprintf(t.name, "%s", s.toLatin1().data());
+	sprintf(t.name, "%s", s.toUtf8().data());
 }
 template<>
 void _setName(BrfMesh &t, QString s){
 	s.truncate(254);
-	sprintf(t.name, "%s", s.toLatin1().data());
+	sprintf(t.name, "%s", s.toUtf8().data());
 	t.AnalyzeName();
 }
 void _setNameOnCharStar(char* st, QString s){
 	s.truncate(254);
-	sprintf(st, "%s", s.toLatin1().data());
+	sprintf(st, "%s", s.toUtf8().data());
 }
 
 
@@ -576,7 +576,7 @@ void MainWindow::tldMakeDwarfBoots(){
 
 		int indof = tmp.indexOf(".",0); if (indof == -1) indof = tmp.length();
 		QString tmp2 = tmp.left(indof)+"_dwarf"+tmp.right(tmp.length()-indof);
-		m.SetName(tmp2.toLatin1().data());
+		m.SetName(tmp2.toUtf8().data());
 
 		//res.push_back(m);
 		setModified();
@@ -1090,7 +1090,7 @@ bool MainWindow::addNewUiPicture(){
 		sprintf(mat.name,"%s",AskNewUiPictureDialog::name);
 		sprintf(tex.name,"%s.%s",
 		        AskNewUiPictureDialog::name,
-		        d.ext.toLatin1().data());
+		        d.ext.toUtf8().data());
 		sprintf(mes.name,"%s",AskNewUiPictureDialog::name);
 		sprintf(mat.diffuseA,"%s",AskNewUiPictureDialog::name);
 		sprintf(mes.material,"%s",AskNewUiPictureDialog::name);
@@ -1224,7 +1224,7 @@ int MainWindow::askRefSkin(){
 	      );
 
 	if (ok && !resSt.isEmpty())
-		return resSt.toLatin1().data()[5]-'A';
+		return resSt.toUtf8().data()[5]-'A';
 	else return -1;
 }
 
@@ -1466,7 +1466,7 @@ void MainWindow::objectMergeSelected(vector<BrfType> &v){
 	if (commonPrefix.endsWith(".")) commonPrefix.chop(1);
     else if (commonPrefix.endsWith("_")) commonPrefix+="combined";
     else commonPrefix+="_combined";
-	_setName(res,commonPrefix.toLatin1().data());
+	_setName(res,commonPrefix.toUtf8().data());
 	insert(res);
 	setModified();
 }
@@ -1697,7 +1697,7 @@ void MainWindow::optionFemininzationUseCustom(){
 		if (femininizer.Load(r.data())) ok = true;
 	}
 	if (!ok){
-        qDebug( (QString("PATH = ")+QCoreApplication::applicationDirPath()).toLatin1().data() );
+        qDebug( (QString("PATH = ")+QCoreApplication::applicationDirPath()).toUtf8().data() );
 
 		QMessageBox::warning(this, tr("OpenBrf"),
 		                     QString(

@@ -75,7 +75,7 @@ void AskModErrorDialog::getOptions(bool *b, int *i,QString *st){
 
 void AskModErrorDialog::linkClicked(const QUrl&l){
   QString s = l.toString();
-  sscanf(s.toLatin1().data(), "#%d.%d.%d",&i, &j, &kind);
+  sscanf(s.toUtf8().data(), "#%d.%d.%d",&i, &j, &kind);
   accept();
 }
 
