@@ -54,10 +54,10 @@ AskTransformDialog::AskTransformDialog(QWidget *parent) :
     /* swy: make the alignment icons vertical for the Y axis; making them way more intuitive to use.
             suggested by @tos1 in the TaleWorlds forum. https://stackoverflow.com/a/66429169/674685
                                                         https://stackoverflow.com/a/57692067/674685 */
-    QTransform tr; tr.rotate(90);
-    QIcon iconMidY = ui->midY->icon();   QPixmap pixmapMidY = iconMidY.pixmap(16, 16, QIcon::Mode::Normal,   QIcon::State::On).transformed(tr); ui->midY->setIcon(pixmapMidY);
-    QIcon iconLeftY = ui->leftY->icon();  QPixmap pixmapLeftY = iconLeftY.pixmap(16, 16, QIcon::Mode::Normal,  QIcon::State::On).transformed(tr); ui->leftY->setIcon(pixmapLeftY);
-    QIcon iconRightY = ui->rightY->icon(); QPixmap pixmapRightY = iconRightY.pixmap(16, 16, QIcon::Mode::Normal, QIcon::State::On).transformed(tr); ui->rightY->setIcon(pixmapRightY);
+    QTransform tr; tr.rotate(90); /* swy: clockwise */
+    ui->  midY->setIcon(ui->  midY->icon().pixmap(16, 16, QIcon::Mode::Normal, QIcon::State::On).transformed(tr));
+    ui-> leftY->setIcon(ui-> leftY->icon().pixmap(16, 16, QIcon::Mode::Normal, QIcon::State::On).transformed(tr));
+    ui->rightY->setIcon(ui->rightY->icon().pixmap(16, 16, QIcon::Mode::Normal, QIcon::State::On).transformed(tr));
 
     //connect(ui->rotx,SIGNAL())
     connect(ui->rotx,SIGNAL(valueChanged(double)),this,SLOT(update()));
