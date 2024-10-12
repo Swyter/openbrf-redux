@@ -1014,7 +1014,7 @@ void GLWidget::setDummyNormTexture(){
 
 bool GLWidget::fixTextureFormat(QString st){
 
-	FILE* f = _wfopen(st.toStdWString().c_str(),L"rb");
+	FILE* f = fopen(st.toUtf8(), "rb");
 	if (!f) return false;
 	unsigned int h[22]; // header
 	fread(h,4 , 22,f); // 4 = sizeof uint

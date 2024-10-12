@@ -32,7 +32,7 @@ class BrfHitBoxSet;
 class BrfData {
 public:
 	BrfData();
-	BrfData(const wchar_t*f,int verbose=0);
+	BrfData(const char*f,int verbose=0);
 	BrfData(FILE*f,int verbose=0);
 	vector<BrfMesh> mesh;
 	vector<BrfTexture> texture;
@@ -42,18 +42,18 @@ public:
 	vector<BrfAnimation> animation;
 	vector<BrfBody> body;
 	bool Load(FILE*f,int verbose=0, int imposeVers = -1);
-	bool Load(const wchar_t*filename,int verbose=1, int imposeVers = -1);
+	bool Load(const char*filename,int verbose=1, int imposeVers = -1);
 
-	int LoadHitBoxesFromXml(const wchar_t*filename); // loads all hitboxes as collision meshes form skeleton_data.xml
-	int SaveHitBoxesToXml(const wchar_t *fin, const wchar_t *fout);
-	static char* LastHitBoxesLoadSaveError(const char* st=NULL,const wchar_t* subst1=NULL,const char* subst2=NULL,const char* subst3=NULL); // sets or reads the error
+	int LoadHitBoxesFromXml(const char*filename); // loads all hitboxes as collision meshes form skeleton_data.xml
+	int SaveHitBoxesToXml(const char *fin, const char *fout);
+	static char* LastHitBoxesLoadSaveError(const char* st=NULL,const char* subst1=NULL,const char* subst2=NULL,const char* subst3=NULL); // sets or reads the error
 
-	bool LoadFast(const wchar_t*filename, bool ultrafast); // skips most data
+	bool LoadFast(const char*filename, bool ultrafast); // skips most data
 	bool LoadMat(FILE *f);
 	void Clear();
 	int FirstToken() const;
 
-	bool Save(const wchar_t* f) const;
+	bool Save(const char* f) const;
 	bool Save(FILE* f) const;
 	void  Merge(const BrfData& b);
 	const char* GetName(int i, int token) const;

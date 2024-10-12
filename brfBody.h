@@ -95,8 +95,8 @@ public:
 
   Box3f bbox;
 
-  bool ExportOBJ(const wchar_t *fn) const;
-  bool ImportOBJ(const wchar_t *fn);
+  bool ExportOBJ(const char *fn) const;
+  bool ImportOBJ(const char *fn);
   void MakeQuadDominant();
 
   void UpdateBBox();

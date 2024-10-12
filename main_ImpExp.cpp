@@ -203,10 +203,10 @@ bool MainWindow::exportSkinnedMesh(){
   int res;
   const char *errorSt;
   if (fn.endsWith(".ma",Qt::CaseInsensitive)) {
-    res = IoMB::Export(fn.toStdWString().c_str(), m, *s, currentDisplayFrame() );
+    res = IoMB::Export(fn.toUtf8().data(), m, *s, currentDisplayFrame() );
     errorSt = IoMB::LastErrorString();
   } else {
-    res = ioSMD::Export(fn.toStdWString().c_str(), m, *s, currentDisplayFrame() );
+    res = ioSMD::Export(fn.toUtf8().data(), m, *s, currentDisplayFrame() );
     errorSt = ioSMD::LastErrorString();
 
   }
@@ -260,9 +260,9 @@ bool MainWindow::exportSkeletonAndSkin(){
   int res;
 
   if (fn.endsWith(".ma",Qt::CaseInsensitive)) {
-    res = IoMB::Export(fn.toStdWString().c_str(),m,*s,0);
+    res = IoMB::Export(fn.toUtf8().data(),m,*s,0);
   } else {
-    res = ioSMD::Export(fn.toStdWString().c_str(), m,*s, 0);
+    res = ioSMD::Export(fn.toUtf8().data(), m,*s, 0);
   }
   if (res) {
     QMessageBox::information(this,
@@ -292,7 +292,7 @@ bool MainWindow::exportAnimation(){
   QString fn = askExportFilename(brfdata.animation[ i ].name,"Studiomdl Data Animation (*.SMD)");
   if (fn.isEmpty()) return false;
 
-  int res = ioSMD::Export(fn.toStdWString().c_str(), a, *s);
+  int res = ioSMD::Export(fn.toUtf8().data(), a, *s);
   if (res) {
     QMessageBox::information(this,
       tr("Open Brf"),
@@ -329,9 +329,9 @@ bool MainWindow::exportSkeleton(){
 
   int res;
   if (fn.endsWith(".smd",Qt::CaseInsensitive)) {
-    res = ioSMD::Export(fn.toStdWString().c_str(), m, s, 0);
+    res = ioSMD::Export(fn.toUtf8().data(), m, s, 0);
   } else {
-    res = IoMB::Export(fn.toStdWString().c_str(), m, s, 0);
+    res = IoMB::Export(fn.toUtf8().data(), m, s, 0);
   }
   if (res) {
     QMessageBox::information(this,
@@ -423,7 +423,7 @@ bool MainWindow::exportBodyGroupManyFiles(){
     int i = selector->selectedList()[k].row();
     const BrfBody &m(brfdata.body[ i ]);
     QString fn = QString("%1/%2.obj").arg(dir,m.name);
-    if (!brfdata.body[i].ExportOBJ(fn.toStdWString().c_str())){
+    if (!brfdata.body[i].ExportOBJ(fn.toUtf8().data())){
       QMessageBox::information(this,
         tr("Open Brf"),
         tr("Cannot open file %1 for writing;").arg(fn)
@@ -444,7 +444,7 @@ bool MainWindow::exportCollisionBody(){
   if (selector->currentTabName()!=BODY) return false;
   QString fn = askExportFilename(brfdata.body[ i ].name,"Wavefront Object Files (*.obj)");
   if (fn.isEmpty()) return false;
-  if (!brfdata.body[i].ExportOBJ(fn.toStdWString().c_str())){
+  if (!brfdata.body[i].ExportOBJ(fn.toUtf8().data())){
     QMessageBox::information(this,
       tr("Open Brf"),
       tr("Cannot write file?")
@@ -466,10 +466,10 @@ bool MainWindow::exportMovingMesh(){
 	  fn.truncate( fn.length()-8 );
 	  brfdata.mesh[i].SaveVertexAniAsOBJ( fn.toUtf8().data() );
   } else {
-	if (!IoMD::Export(fn.toStdWString().c_str(),brfdata.mesh[i])){
+	if (!IoMD::Export(fn.toUtf8().data(),brfdata.mesh[i])){
 		QMessageBox::information(this,
 		tr("Open Brf"),
-		tr("Error exporting MD3 file\n: %1").arg(QString::fromStdWString(IoMD::LastErrorString()))
+		tr("Error exporting MD3 file\n: %1").arg(QString::fromUtf8(IoMD::LastErrorString()))
 		);
 		return false;
   }
@@ -648,7 +648,7 @@ bool MainWindow::importBrf(){
   for (int i=0; i<fn.size(); i++) {
     BrfData tmp;
 
-    if (!tmp.Load(fn[i].toStdWString().c_str(),0)) {
+    if (!tmp.Load(fn[i].toUtf8().data(),0)) {
       QMessageBox::information(this,
         tr("Open Brf"),
         tr("Cannot import file %1\n\n")
@@ -675,7 +675,7 @@ bool MainWindow::_importCollisionBody(bool reimportExisting){
   for (int i=0; i<fn.size(); i++) {
     BrfBody b;
 
-    if (!b.ImportOBJ(fn[i].toStdWString().c_str())) {
+    if (!b.ImportOBJ(fn[i].toUtf8().data())) {
       QMessageBox::information(this, tr("Open Brf"),
         tr("Cannot import file %1\n").arg(fn[i])
       );
@@ -737,7 +737,7 @@ bool MainWindow::_importStaticMesh(QString s, std::vector<BrfMesh> &mV, std::vec
 
 		if (QFileInfo(fn).suffix().toLower() == "smd") {
 			BrfSkeleton tmp;
-			if (ioSMD::Import(fn.toStdWString().c_str(), m, tmp)!=0) {
+			if (ioSMD::Import(fn.toUtf8().data(), m, tmp)!=0) {
 				QMessageBox::information(this,
           tr("Open Brf"),
 				  tr("Cannot import file %1:\n%2\n").arg(fn).arg(ioSMD::LastErrorString())
@@ -797,11 +797,11 @@ bool MainWindow::importMovingMesh(){
   std::vector<BrfMesh> tmp;
 
   bool ok=false;
-  ok = IoMD::Import(fn.toStdWString().c_str(),tmp);
+  ok = IoMD::Import(fn.toUtf8().data(),tmp);
   if (!ok) {
     QMessageBox::information(this, tr("Open Brf"),
      tr("Cannot import file %1:\n%3\n").arg(fn)
-     .arg(QString::fromStdWString(std::wstring(IoMD::LastErrorString())))
+     .arg(QString::fromUtf8(IoMD::LastErrorString()))
     );
     return false;
   }
@@ -889,7 +889,7 @@ bool MainWindow::importSkinnedMesh(){
 
     if (fnList[j].endsWith(".smd",Qt::CaseInsensitive)) {
       m.resize(1);
-      ok = ioSMD::Import(fnList[j].toStdWString().c_str(), m[0], s)==0;
+      ok = ioSMD::Import(fnList[j].toUtf8().data(), m[0], s)==0;
 			if (!(m[0].face.size())) {
 				QMessageBox::information(this,
 					tr("Open Brf"),
@@ -903,7 +903,7 @@ bool MainWindow::importSkinnedMesh(){
 
     if (fnList[j].endsWith(".ma",Qt::CaseInsensitive)) {
       warning = false;
-      ok = IoMB::Import(fnList[j].toStdWString().c_str(), m, s,0);
+      ok = IoMB::Import(fnList[j].toUtf8().data(), m, s,0);
       resst = IoMB::LastErrorString();
     }
 
@@ -1009,7 +1009,7 @@ bool MainWindow::_importAnimation(bool reimportExisting){
 
 		QString fn = list.at(i);
 		bool backComp=(lastImpExpFormat==brfFormat);
-		int res = ioSMD::Import(fn.toStdWString().c_str(), a, s);
+		int res = ioSMD::Import(fn.toUtf8().data(), a, s);
 		if (res!=0) {
 			 QMessageBox::information(this,
 				tr("Open Brf"),
@@ -1061,12 +1061,12 @@ bool MainWindow::importSkeleton(){
 
   if (fn.endsWith(".smd",Qt::CaseInsensitive)) {
     m.resize(1);
-    ok = ioSMD::Import(fn.toStdWString().c_str(), m[0], s)==0;
+    ok = ioSMD::Import(fn.toUtf8().data(), m[0], s)==0;
     resst = ioSMD::LastErrorString();
   }
 
   if (fn.endsWith(".ma",Qt::CaseInsensitive)) {
-    ok = IoMB::Import(fn.toStdWString().c_str(), m, s, 1);
+    ok = IoMB::Import(fn.toUtf8().data(), m, s, 1);
     resst = IoMB::LastErrorString();
   }
 

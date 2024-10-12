@@ -95,7 +95,7 @@ BrfData::BrfData(){
 BrfData::BrfData(FILE*f,int verbose){
   Load(f,verbose);
 }
-BrfData::BrfData(const wchar_t*f,int verbose){
+BrfData::BrfData(const char*f,int verbose){
   Load(f,verbose);
 }
 
@@ -208,8 +208,8 @@ void  BrfData::Merge(const BrfData& b){
 }
 
 
-bool BrfData::Load(const wchar_t *filename,int verbose, int imposeVersion){
-  FILE *f = _wfopen(filename,L"rb");
+bool BrfData::Load(const char *filename,int verbose, int imposeVersion){
+  FILE *f = fopen(filename,"rb");
   if (!f) return false;
   return Load(f, verbose, imposeVersion);
 }
@@ -251,9 +251,9 @@ bool BrfData::Save(FILE *f) const{
   return true;
 }
 
-bool BrfData::Save(const wchar_t*fn) const{
+bool BrfData::Save(const char*fn) const{
 
-  FILE *f = _wfopen(fn,L"wb");
+  FILE *f = fopen(fn,"wb");
   if (!f) return false;
 
   Save(f);
@@ -350,8 +350,8 @@ bool BrfData::Load(FILE*f,int verbose,int imposeVers){
 }
 
 
-bool BrfData::LoadFast(const wchar_t*filename, bool faster){
-  FILE *f = _wfopen(filename,L"rb");
+bool BrfData::LoadFast(const char*filename, bool faster){
+  FILE *f = fopen(filename,"rb");
   if (!f) return false;
 
   version = 0;

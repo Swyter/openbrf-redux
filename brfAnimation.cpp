@@ -591,12 +591,12 @@ static bool myReadline(FILE* f, char*res, int max){
   return true;
 }
 
-int BrfAnimation::Break(vector<BrfAnimation> &vect, const wchar_t* fn, wchar_t *fn2) const{
+int BrfAnimation::Break(vector<BrfAnimation> &vect, const char* fn, char *fn2) const{
 
   int res=0;
-  FILE *fin=_wfopen(fn,L"rt");
+  FILE *fin=fopen(fn,"rt");
   //static char fn2[1024];
-  //swprintf(fn2,L"%ls [after splitting %s].txt",fn,name);
+  //sprintf(fn2,L"%s [after splitting %s].txt",fn,name);
   //FILE *fout=_wfopen(fn2,L"wt");
   if (!fin) return -1;
   //if (!fout) return -2;
@@ -746,8 +746,8 @@ void BrfAnimation::Save(FILE *f) const{
 
 }
 
-void BrfAnimation::Export(const wchar_t* fn){
-  FILE* f = _wfopen(fn,L"wt");
+void BrfAnimation::Export(const char* fn){
+  FILE* f = fopen(fn,"wt");
   fprintf(f,"%s -- %d bones  %u frames...\n",name, nbones,frame.size());
   for (unsigned int j=0; j<frame.size(); j++) {
     for (int i=0; i<nbones; i++) {

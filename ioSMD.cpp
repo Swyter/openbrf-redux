@@ -314,8 +314,8 @@ static bool ioSMD_ImportPose(FILE* f, BrfSkeleton &s,  T& pose, int &time){
   return true;
 }
 
-int ioSMD::Export(const wchar_t*filename, const BrfMesh &m , const BrfSkeleton &s, int fi){
-  FILE* f=_wfopen(filename,L"wb");
+int ioSMD::Export(const char*filename, const BrfMesh &m , const BrfSkeleton &s, int fi){
+  FILE* f=fopen(filename,"wb");
   lastErr = 0;
   if (!f) return(lastErr=2);
 
@@ -331,9 +331,9 @@ int ioSMD::Export(const wchar_t*filename, const BrfMesh &m , const BrfSkeleton &
 }
 
 
-int ioSMD::Export(const wchar_t*filename, const BrfAnimation &a, const BrfSkeleton &s){
+int ioSMD::Export(const char*filename, const BrfAnimation &a, const BrfSkeleton &s){
 
-  FILE* f=_wfopen(filename,L"wb");
+  FILE* f=fopen(filename,"wb");
   lastErr = 0;
   if (!f) return(lastErr=2);
 
@@ -356,10 +356,10 @@ int ioSMD::Export(const wchar_t*filename, const BrfAnimation &a, const BrfSkelet
 }
 
 
-int ioSMD::Import(const wchar_t*filename, BrfMesh &m , BrfSkeleton &s){
+int ioSMD::Import(const char*filename, BrfMesh &m , BrfSkeleton &s){
   lastErr = 0;
   nMaxBones = 0;
-  FILE* f=_wfopen(filename,L"rt");
+  FILE* f=fopen(filename,"rt");
   if (!f) return(lastErr=1);
 
   if (!ioSMD_ImportBoneStruct(f,s)) return lastErr;
@@ -381,10 +381,10 @@ int ioSMD::Import(const wchar_t*filename, BrfMesh &m , BrfSkeleton &s){
   return lastErr;
 }
 
-int ioSMD::Import(const wchar_t*filename, BrfAnimation &a, BrfSkeleton &s){
+int ioSMD::Import(const char*filename, BrfAnimation &a, BrfSkeleton &s){
 
   lastErr = 0;
-  FILE* f=_wfopen(filename,L"rt");
+  FILE* f=fopen(filename,"rt");
   if (!f) return(lastErr=1);
 
   if (!ioSMD_ImportBoneStruct(f,s)) return lastErr;

@@ -762,8 +762,8 @@ static void ioMB_exportSkeleton(const BrfSkeleton &s){
   }
 }
 
-bool IoMB::Export(const wchar_t*filename, const BrfMesh &m , const BrfSkeleton &s, int fi){
-  f = _wfopen(filename,L"wt");
+bool IoMB::Export(const char*filename, const BrfMesh &m , const BrfSkeleton &s, int fi){
+  f = fopen(filename,"wt");
   if (!f) return false;
   ioMB_exportHeader();
   ioMB_exportSkeleton(s);
@@ -858,13 +858,13 @@ static bool ioMB_importBone(BrfSkeleton &s ){
 }
 
 
-bool IoMB::Import(const wchar_t*filename, std::vector<BrfMesh> &m , BrfSkeleton &s, int want){
-  debug=_wfopen(L"debug.txt",L"w");
+bool IoMB::Import(const char*filename, std::vector<BrfMesh> &m , BrfSkeleton &s, int want){
+  debug=fopen("debug.txt","w");
 
   lastErr = QString("Unkonwn error??");
-  f = _wfopen(filename,L"rb"); lineN=0;
+  f = fopen(filename,"rb"); lineN=0;
   if (!f) {
-    lastErr =QString("cannot open file '%1' for reading").arg(QString::fromStdWString(filename));
+    lastErr =QString("cannot open file '%1' for reading").arg(QString::fromUtf8(filename));
     return false;
   }
   s.root= -1;
@@ -916,6 +916,6 @@ bool IoMB::Import(const wchar_t*filename, std::vector<BrfMesh> &m , BrfSkeleton 
 }
 
 char* IoMB::LastErrorString(){
-  return lastErr.toLatin1().data();
+  return lastErr.toUtf8().data();
 }
 

@@ -101,8 +101,8 @@ public:
 	void LearnFrom(BrfMesh& a, int framei, int framej); // learn from an example
 	void ResetLearning();
 	void FinishLearning();
-	bool Save(const wchar_t* filename) const;
-	bool Load(const char *text);
+	bool Save(const char* filename) const;
+	bool Load(const char* text);
 	void Emphatize(float k);
 	Point3f s[MAX_BONES], t[MAX_BONES];
 	float extraBreast;
@@ -144,7 +144,7 @@ public:
 	void DiscardTangentField();
 
 	int IsNamedAsLOD() const; // does it follow the M&B convention for LOD meshes?
-	bool IsNamedAsBody(const char * bodyName) const; // is it the M&B conventional rule for Collision body? ("bo_"+name)
+	bool IsNamedAsBody(const char* bodyName) const; // is it the M&B conventional rule for Collision body? ("bo_"+name)
 
 	bool CopyModification(const BrfMesh& mod);
 	bool CopyTextcoords(const BrfMesh& b);
@@ -227,7 +227,7 @@ public:
 	void Save(FILE*f) const;
 	bool Skip(FILE* f);
 
-	bool SaveAsPly(int nframe=0, const wchar_t* path=L"") const;
+	bool SaveAsPly(int nframe=0, const char* path="") const;
 
 	void Flip();
 	void Bend(int frame, float range); // bends as if on a cylinder

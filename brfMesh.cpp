@@ -541,9 +541,9 @@ void BrfMesh::FreezeFrame(const BrfSkeleton& s, const BrfAnimation& a, int frame
   UpdateBBox();
 }
 
-bool MeshMorpher::Save(const wchar_t *filename) const{
+bool MeshMorpher::Save(const char *filename) const{
 
-  FILE *f = _wfopen(filename,L"wt");
+  FILE *f = fopen(filename,"wt");
   if (!f) return false;
   for (int bi=0; bi<MAX_BONES; bi++) {
     for (int i=0; i<3; i++) {
@@ -2385,14 +2385,14 @@ void BrfMesh::SetTimings(const std::vector<int> &v){
 }
 
 
-bool BrfMesh::SaveAsPly(int frameIndex, const wchar_t* path) const{
-  wchar_t filename[255];
-  if (frame.size()==0) swprintf(filename,L"%s%s.ply",path, name);
-  else swprintf(filename,L"%ls\\%ls%02d.ply",path, name,frameIndex);
+bool BrfMesh::SaveAsPly(int frameIndex, const char* path) const{
+  char filename[255];
+  if (frame.size()==0) sprintf(filename,"%s%s.ply",path, name);
+  else sprintf(filename,"%s\\%s%02d.ply",path, name,frameIndex);
 
-  FILE* f = _wfopen(filename,L"wt");
-  if (!f) { printf("Cannot save \"%ls\"!\n",filename); return false;}
-  printf("Saving \"%ls\"...\n",filename);
+  FILE* f = fopen(filename,"wt");
+  if (!f) { printf("Cannot save \"%s\"!\n",filename); return false;}
+  printf("Saving \"%s\"...\n",filename);
   fprintf(f,
     "ply\n"
     "format ascii 1.0\n"

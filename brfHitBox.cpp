@@ -86,18 +86,18 @@ static bool BrfBody_to_qDomElement(const BrfBody & b, QDomElement &skelNode, QDo
 
     skelNode.setAttribute("name",b.name);
 
-    wchar_t filename[1]; filename[0] = 0;
+    char filename[1]; filename[0] = 0;
 
     QDomElement bonesNode = skelNode.firstChildElement("Bones");
     if (bonesNode.isNull()) {
-        BrfData::LastHitBoxesLoadSaveError("%ls No 'Bones' node found in XML skel \"%s\"",
+        BrfData::LastHitBoxesLoadSaveError("%s No 'Bones' node found in XML skel \"%s\"",
            filename,skelNode.attribute("name").toLatin1().data());
         return false;
     }
 
     QDomElement boneNode = bonesNode.firstChildElement("Bone");
     if (bonesNode.isNull()) {
-        BrfData::LastHitBoxesLoadSaveError("%ls No 'Bone' node found in 'Bones' of XML skel \"%s\"",
+        BrfData::LastHitBoxesLoadSaveError("%s No 'Bone' node found in 'Bones' of XML skel \"%s\"",
            filename,skelNode.attribute("name").toLatin1().data());
         return false;
     }
@@ -107,7 +107,7 @@ static bool BrfBody_to_qDomElement(const BrfBody & b, QDomElement &skelNode, QDo
       if (k>=(int)b.part.size()) {
           qDebug("ERROR saving brf-part %d of brf-body '%s' (over xml-bone '%s' of xml-skel %s)",
                  k,b.name,boneNode.attribute("name").toLatin1().data(),skelNode.attribute("name").toLatin1().data());
-          BrfData::LastHitBoxesLoadSaveError("Too many bones %ls:\n in base hitbox %s with respect to skeleton %s ",
+          BrfData::LastHitBoxesLoadSaveError("Too many bones %s:\n in base hitbox %s with respect to skeleton %s ",
              filename,b.name, skelNode.attribute("name").toLatin1().data() );
           return false;
       }
@@ -139,14 +139,14 @@ static bool BrfBody_to_qDomElement(const BrfBody & b, QDomElement &skelNode, QDo
 
     }
     if (k!=(int)b.part.size()){
-        BrfData::LastHitBoxesLoadSaveError("Too many bones (file %ls):\n in base hitbox %s with respect to skeleton %s",
+        BrfData::LastHitBoxesLoadSaveError("Too many bones (file %s):\n in base hitbox %s with respect to skeleton %s",
            filename,b.name, skelNode.attribute("name").toLatin1().data());
         return false;
     }
     return true;
 }
 
-char* BrfData::LastHitBoxesLoadSaveError(const char *st, const wchar_t *subst1, const char *subst2, const char *subst3){
+char* BrfData::LastHitBoxesLoadSaveError(const char *st, const char *subst1, const char *subst2, const char *subst3){
     return NULL; /* avoid funny bugs!  */
   static char str[512];
   if (st && subst1 && subst2 && subst3) {
@@ -165,19 +165,19 @@ char* BrfData::LastHitBoxesLoadSaveError(const char *st, const wchar_t *subst1, 
 }
 
 
-int BrfData::SaveHitBoxesToXml(const wchar_t *fin, const wchar_t *fout) {
+int BrfData::SaveHitBoxesToXml(const char *fin, const char *fout) {
 
-    const wchar_t *filename = fin;
+    const char *filename = fin;
 
-    QFile file( QString::fromWCharArray(filename) );
+    QFile file( QString::fromUtf8(filename) );
     if( !file.open( QIODevice::ReadOnly ) ) {
-        LastHitBoxesLoadSaveError("Could not open '%ls' for reading.",filename);
+        LastHitBoxesLoadSaveError("Could not open '%s' for reading.",filename);
         return -1; // file not found
     }
 
     QDomDocument doc;
     if( !doc.setContent( &file ) ) {
-        LastHitBoxesLoadSaveError("Could not scan XML contents from %ls",filename);
+        LastHitBoxesLoadSaveError("Could not scan XML contents from %s",filename);
         file.close();
         return 0; // file not found
     }
@@ -188,7 +188,7 @@ int BrfData::SaveHitBoxesToXml(const wchar_t *fin, const wchar_t *fout) {
     QDomNode skelSetOld = root.firstChildElement("Skeletons");
 
     if (skelSetOld.isNull()) {
-        LastHitBoxesLoadSaveError("no Skeletons found in %ls",filename);
+        LastHitBoxesLoadSaveError("no Skeletons found in %s",filename);
         return false;
     };
 
@@ -212,7 +212,7 @@ int BrfData::SaveHitBoxesToXml(const wchar_t *fin, const wchar_t *fout) {
             skelOld = skelOld.nextSiblingElement("Skeleton");
         }
         if (skelNew.isNull()) {
-            LastHitBoxesLoadSaveError("in %ls, no Skeleton named %s found",fin, baseSkelName);
+            LastHitBoxesLoadSaveError("in %s, no Skeleton named %s found",fin, baseSkelName);
             return 0;
         }
 
@@ -227,10 +227,10 @@ int BrfData::SaveHitBoxesToXml(const wchar_t *fin, const wchar_t *fout) {
     root.replaceChild(skelSetNew,skelSetOld);
 
     // save final result in file...
-    QFile fileout( QString::fromWCharArray(fout) );
+    QFile fileout( QString::fromUtf8(fout) );
 
     if( !fileout.open( QIODevice::WriteOnly ) ) {
-        LastHitBoxesLoadSaveError("Could not open '%ls' for writing.",filename);
+        LastHitBoxesLoadSaveError("Could not open '%s' for writing.",filename);
         return 0; // file not found
     }
 
@@ -242,22 +242,22 @@ int BrfData::SaveHitBoxesToXml(const wchar_t *fin, const wchar_t *fout) {
 
 }
 
-int BrfData::LoadHitBoxesFromXml(const wchar_t *filename) {
+int BrfData::LoadHitBoxesFromXml(const char *filename) {
 
 
   Clear();
 
-  QString fn = QString::fromWCharArray(filename);
+  QString fn = QString::fromUtf8(filename);
 
   QFile file( fn );
   if( !file.open( QIODevice::ReadOnly ) ) {
-      LastHitBoxesLoadSaveError("Could not open '%ls' for reading.",filename);
+      LastHitBoxesLoadSaveError("Could not open '%s' for reading.",filename);
       return -1; // file not found
   }
 
   QDomDocument doc;
   if( !doc.setContent( &file ) ) {
-      LastHitBoxesLoadSaveError("Could not scan XML contents from %ls",filename);
+      LastHitBoxesLoadSaveError("Could not scan XML contents from %s",filename);
       file.close();
       return 0; // file not found
   }
@@ -278,7 +278,7 @@ int BrfData::LoadHitBoxesFromXml(const wchar_t *filename) {
   n = n.firstChildElement("Skeletons");
 
   if (n.isNull()) {
-      LastHitBoxesLoadSaveError("no Skeletons found in %ls",filename);
+      LastHitBoxesLoadSaveError("no Skeletons found in %s",filename);
       return false;
   } //else qDebug("Skeletons found");
 

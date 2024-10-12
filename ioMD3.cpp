@@ -17,7 +17,7 @@ using namespace std;
 #include "ioMD3.h"
 #include "saveLoad.h"
 
-static wchar_t errorStr[512];
+static char errorStr[512];
 static const unsigned int MAGIC_MD3 = 0x33504449;
 static const unsigned int MAGIC_MD2 = 0x32504449; // "IDP2"
 
@@ -68,7 +68,7 @@ static void tryExtractNumber(char* st, int &res){
   sscanf(st,"%d",&res);
 }
 
-wchar_t* IoMD::LastErrorString(){
+char* IoMD::LastErrorString(){
   return errorStr;
 }
 
@@ -99,10 +99,10 @@ static void norm2int(vcg::Point3f  res, Byte &zenb,Byte &azib){
 }
 
 
-bool IoMD::ExportMD2(const wchar_t *filename, const BrfMesh &m){
-    FILE *f = _wfopen(filename,L"wb");
+bool IoMD::ExportMD2(const char *filename, const BrfMesh &m){
+    FILE *f = fopen(filename,"wb");
     if (!f){
-        swprintf(errorStr,L"Cannot write on file:\n %ls",filename);
+        sprintf(errorStr,"Cannot write on file:\n %s",filename);
         return false;
     }
     SaveUint(f,MAGIC_MD2);
@@ -132,7 +132,7 @@ bool IoMD::ExportMD2(const wchar_t *filename, const BrfMesh &m){
     unsigned int ofs_pos = ftell( f ); //
 
     SaveUint( f, ofs_pos );
-    //swprintf(errorStr,"TEST1 %d == %d\n",ftell(f),64+11*4);
+    //sprintf(errorStr,"TEST1 %d == %d\n",ftell(f),64+11*4);
 
     // frames
     for (uint i=0; i<m.frame.size(); i++){
@@ -152,23 +152,23 @@ bool IoMD::ExportMD2(const wchar_t *filename, const BrfMesh &m){
 
 
 
-bool IoMD::Export(const wchar_t *filename, const BrfMesh &m){
+bool IoMD::Export(const char *filename, const BrfMesh &m){
   if (m.frame.size()>1024){
-    swprintf(errorStr,L"Too many frames %d. Max = 1024",m.frame.size());
+    sprintf(errorStr,"Too many frames %d. Max = 1024",m.frame.size());
     return false;
   }
   if (m.vert.size()>4096){
-    swprintf(errorStr,L"Too many vertices %d. Max = 4096",m.vert.size());
+    sprintf(errorStr,"Too many vertices %d. Max = 4096",m.vert.size());
     return false;
   }
   if (m.face.size()>8192){
-    swprintf(errorStr,L"Too many faces: %d. Max = 8192",m.face.size());
+    sprintf(errorStr,"Too many faces: %d. Max = 8192",m.face.size());
     return false;
   }
-  FILE *f = _wfopen(filename,L"wb");
+  FILE *f = fopen(filename,"wb");
 
   if (!f){
-    swprintf(errorStr,L"Cannot write on file:\n %ls",filename);
+    sprintf(errorStr,"Cannot write on file:\n %s",filename);
     return false;
   }
   SaveUint(f,MAGIC_MD3);
@@ -187,7 +187,7 @@ bool IoMD::Export(const wchar_t *filename, const BrfMesh &m){
   off += 10000 ;
   SaveUint(f,off); // oef
 
-  //swprintf(errorStr,"TEST1 %d == %d\n",ftell(f),64+11*4);
+  //sprintf(errorStr,"TEST1 %d == %d\n",ftell(f),64+11*4);
 
   // frames
   for (uint i=0; i<m.frame.size(); i++){
@@ -260,7 +260,7 @@ bool IoMD::Import(FILE *f, BrfMesh &m){
   unsigned int magic=0;
   LoadUint(f,magic);
   if (magic != MAGIC_MD3) {
-    swprintf(errorStr,L"Invalid magic number in surface: %X",magic);
+    sprintf(errorStr,"Invalid magic number in surface: %X",magic);
     return false;
   }
 
@@ -283,7 +283,7 @@ bool IoMD::Import(FILE *f, BrfMesh &m){
   LoadUint(f,oxyz);
   LoadUint(f,oend);
 
-  swprintf(errorStr, L"Loaded: %dv %dt %df\n",nverts,ntriangles,nframes);
+  sprintf(errorStr, "Loaded: %dv %dt %df\n",nverts,ntriangles,nframes);
 
   m.face.resize(ntriangles);
   m.vert.resize(nverts);
@@ -339,17 +339,17 @@ bool IoMD::Import(FILE *f, BrfMesh &m){
   return true;
 }
 
-bool IoMD::Import(const wchar_t *filename, std::vector<BrfMesh> &mv){
+bool IoMD::Import(const char *filename, std::vector<BrfMesh> &mv){
 
-  FILE *f = _wfopen(filename,L"rb");
+  FILE *f = fopen(filename,"rb");
   if (!f) {
-    swprintf(errorStr,L"File not found");
+    sprintf(errorStr,"File not found");
     return false;
   }
   unsigned int magic=0,ver=0;
   LoadUint(f,magic);
   if (magic != MAGIC_MD3) {
-    swprintf(errorStr,L"Invalid magic number: %X",magic);
+    sprintf(errorStr,"Invalid magic number: %X",magic);
     return false;
   }
 
@@ -370,12 +370,12 @@ bool IoMD::Import(const wchar_t *filename, std::vector<BrfMesh> &mv){
   //sprintf(errorStr,"Found: %s (%d surface %d frames, off: %0X)",name,nsurfaces,nframes,osurfaces);
 
   if (nsurfaces>255 ) {
-    swprintf(errorStr,L"File format error (%d surfaces?)",nsurfaces);
+    sprintf(errorStr,"File format error (%d surfaces?)",nsurfaces);
     return false;
   }
 
   if (nsurfaces==0 ) {
-    swprintf(errorStr,L"no \"surface\" found");
+    sprintf(errorStr,"no \"surface\" found");
     return false;
   }
   fseek(f,osurfaces,SEEK_SET);

@@ -179,7 +179,7 @@ bool MainWindow::saveHitboxes(){
 		QFile(fn).copy(backupFn);
 	}
 
-	int res = hitboxSet.SaveHitBoxesToXml(lastSkeletonBodiesXmlPath.toStdWString().c_str(), fn.toStdWString().c_str());
+	int res = hitboxSet.SaveHitBoxesToXml(lastSkeletonBodiesXmlPath.toUtf8().data(), fn.toUtf8().data());
 
 	if (res!=1) {
 		QMessageBox::warning(this,"OpenBrf",
@@ -848,7 +848,7 @@ void MainWindow::refreshReference(){
 		// attempt to use module spcific folder
 		QString fn = referenceFilename(1);
 		//qDebug("Trying to load '%s'",fn.toLatin1().data());
-		if (reference.Load(fn.toStdWString().c_str())) {
+		if (reference.Load(fn.toUtf8().data())) {
 			loadedModReference = true;
 			loaded = true;
 			quickHackFixName( reference );
@@ -858,7 +858,7 @@ void MainWindow::refreshReference(){
 		loadedModReference = false;
 		QString fn = referenceFilename(0);
 		//qDebug("Trying to standard load '%s'",fn.toLatin1().data());
-		if (reference.Load(fn.toStdWString().c_str()))  loaded = true;
+		if (reference.Load(fn.toUtf8().data()))  loaded = true;
 		quickHackFixName( reference );( reference );
 	}
 	if (loaded) {
@@ -869,6 +869,10 @@ void MainWindow::refreshReference(){
 
 MainWindow::MainWindow(QWidget *parent):QMainWindow(parent),inidata(brfdata)
 {
+#ifdef __WINDOWS__
+	setlocale(LC_ALL, "C.UTF8"); /* swy: same as ".65001"; needed for our UTF-8-encoded fopen() paths to work correctly, C is for parsing 0.5-ish decimals with the right separator */
+#endif
+
 	setWindowIcon(QIcon(":/openBrf.ico"));
 
 	usingWarband = true; // until proven otherwise
@@ -1772,7 +1776,7 @@ void MainWindow::learnFemininzation(){
 		femininizer.Emphatize(emp/100.0);
 		femininizer.extraBreast = breast / 1000.0;
 
-        femininizer.Save( (QCoreApplication::applicationDirPath()+"/customFemininizer.morpher" ).toStdWString().data() );
+        femininizer.Save( (QCoreApplication::applicationDirPath()+"/customFemininizer.morpher" ).toUtf8().data() );
         QMessageBox::information(this,tr("OpenBRF"),tr("Learnt a custom way to femininize an armour\nfrom %1 examples!").arg(ndone));
 		optionFeminizerUseCustom->trigger();
 	} else {
@@ -3209,10 +3213,9 @@ void MainWindow::loadSystemClipboard(){
 	const QMimeData *mime = QApplication::clipboard()->mimeData();
 	const QByteArray &ba = mime->data("application/openBrf");
 	QTemporaryFile f;
-	wchar_t fn[1000];
+	QByteArray fn;
 	f.open();
-	f.fileName().toWCharArray(fn);
-	fn[f.fileName().size()]=0;
+	fn = f.fileName().toUtf8();
 	f.write(ba);
 	f.flush();
 	/*
@@ -3932,9 +3935,9 @@ void MainWindow::breakAni(int which, bool useIni){
 				return;
 			}
 			//settings->setValue("LastModulePath",QFileInfo(fileName).absolutePath());
-			wchar_t newTxt[2048];
+			char newTxt[2048];
 			vector<BrfAnimation> resVec;
-			int res = ani.Break(resVec, fileName.toStdWString().c_str(),newTxt );
+			int res = ani.Break(resVec, fileName.toUtf8().data(),newTxt );
 
 			if (res==0) statusBar()->showMessage(tr("Nothing to split (or could not split)."));
 			else {
@@ -3947,7 +3950,7 @@ void MainWindow::breakAni(int which, bool useIni){
 
 				statusBar()->showMessage(
 				      tr("Animation %2 split in %1 chunks -- new animation.txt file save in \"%3\"!")
-				      .arg(res).arg(ani.name).arg(QString::fromStdWString(std::wstring(newTxt))), 8000);
+				      .arg(res).arg(ani.name).arg(QString::fromUtf8(newTxt)), 8000);
 			}
 		}
 	}
@@ -4359,7 +4362,7 @@ bool MainWindow::saveReference(){
 	QString fn = referenceFilename(loadedModReference);
 	//QMessageBox::information(this, "OpenBRF",QString("Saving ref: %1").arg(fn));
 
-	if (!reference.Save(fn.toStdWString().c_str()))
+	if (!reference.Save(fn.toUtf8().data()))
 	{
 		QMessageBox::warning(this, "OpenBRF",tr("Cannot save reference file!"));
 	}
@@ -4416,7 +4419,7 @@ bool MainWindow::loadFile(const QString &_fileName)
 	if (!maybeSave()) return false;
 	setEditingRef(false);
 
-	if (!brfdata.Load(fileName.toStdWString().c_str())) {
+	if (!brfdata.Load(fileName.toUtf8().data())) {
 
 
 		QMessageBox::information(this, "OpenBRF",
@@ -4464,7 +4467,7 @@ bool MainWindow::saveFile(const QString &fileName)
 		      QMessageBox::Ok
 		      );
 	}
-	if (!brfdata.Save(fileName.toStdWString().c_str())) {
+	if (!brfdata.Save(fileName.toUtf8().data())) {
 		QMessageBox::information(this, "OpenBRF",
 		                         tr("Cannot write file %1.").arg(fileName));
 		return false;
@@ -5333,13 +5336,13 @@ bool MainWindow::refreshSkeletonBodiesXml(){
 
 
 	QString fn = modPath()+"/Data/skeleton_bodies.xml";
-    qDebug("LOADING: %ls" , fn.toStdWString().c_str());
-    int res = hitboxSet.LoadHitBoxesFromXml(fn.toStdWString().c_str());
+    qDebug("LOADING: %s" , fn.toUtf8().data());
+    int res = hitboxSet.LoadHitBoxesFromXml(fn.toUtf8().data());
 
 	// if file not found: try reading default path
 	if (res==-1) {
 		fn = mabPath+"/Data/skeleton_bodies.xml";
-		res = hitboxSet.LoadHitBoxesFromXml(fn.toStdWString().c_str());
+		res = hitboxSet.LoadHitBoxesFromXml(fn.toUtf8().data());
 	}
 
     if (res==1) {

@@ -251,7 +251,7 @@ static bool fscanln(FILE*f, char *ln){
   return false;
 }
 
-bool BrfBody::ImportOBJ(const wchar_t *fn){
+bool BrfBody::ImportOBJ(const char *fn){
 
   BrfBodyPart dump, curr;
   dump.flags=0;
@@ -261,7 +261,7 @@ bool BrfBody::ImportOBJ(const wchar_t *fn){
   int startV = 0; // starting v
 
   // to do: read all v and f fields, looking for "o" (objects)
-  FILE* f = _wfopen(fn,L"rt");
+  FILE* f = fopen(fn,"rt");
   if (!f) return false;
 
   std::string s;
@@ -781,8 +781,8 @@ bool BrfBodyPart::ExportOBJ(FILE* f, int i, int &vc) const{
   return true;
 }
 
-bool BrfBody::ExportOBJ(const wchar_t* fn) const {
-  FILE* f =_wfopen(fn,L"wb");
+bool BrfBody::ExportOBJ(const char* fn) const {
+  FILE* f =fopen(fn,"wb");
   if (!f) return false;
   fprintf(f,
     "# export of a body (Mount and Blade collision object)\n"

@@ -41,7 +41,7 @@ public:
   bool Skip(FILE*f);
   void Save(FILE*f) const;
 
-  void Export(const wchar_t *f);
+  void Export(const char *f);
 
   // to dysplay the animation...
   bool IsAnimable() const{return true;}
@@ -52,7 +52,7 @@ public:
   static Box3f bbox;
 
   int Break(std::vector<BrfAnimation> &res) const;
-  int Break(std::vector<BrfAnimation> &res, const wchar_t* aniFile, wchar_t *fn2) const;
+  int Break(std::vector<BrfAnimation> &res, const char* aniFile, char *fn2) const;
 
   bool SaveSMD(FILE *f) const;
   bool LoadSMD(FILE *f);

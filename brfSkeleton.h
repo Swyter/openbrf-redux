@@ -91,7 +91,7 @@ public:
   static float BoneSizeX();
   static float BoneSizeY();
   static float BoneSizeZ();
-  int FindBoneByName(const char * name) const;
+  int FindBoneByName(const char* name) const;
   int FindSpecularBoneOf(int bonei) const; /* judges by the name */
 
   std::vector<int> Bone2BoneMap(const BrfSkeleton & s) const;
@@ -103,7 +103,7 @@ public:
   void Scale( float f );
 private:
 
-  void Export(const wchar_t *f); // for intrnal use
+  void Export(const char* f); // for intrnal use
   void SetBoneMatrices(const BrfAnimationFrame &fr, int boneIndex,
                        std::vector<vcg::Matrix44<float> > &boneMatrV, const vcg::Matrix44<float>  &curr) const;
   void SetBoneMatrices(int boneIndex,

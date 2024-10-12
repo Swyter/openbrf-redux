@@ -1505,7 +1505,7 @@ bool IniData::addBrfFile(const char* name, Origin ori, int line, int howFast){
   //printf("Loading \"%s\"...\n",brfFn.toLatin1().data());
   bool onlyMatAndTextures = (howFast<=2);
   if (howFast>1) {
-    if (!d.LoadFast(brfFn.toStdWString().c_str(),onlyMatAndTextures)) {
+    if (!d.LoadFast(brfFn.toUtf8().data(),onlyMatAndTextures)) {
 
       // ERROR!!
       if (!QDir(brfPath).exists( QString("%1.brf").arg(name)))
