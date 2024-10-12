@@ -14,8 +14,8 @@
 //#include <vcg/complex/trimesh/clean.h>
 
 
-#include "vcgexport.h"
-#include "vcgimport.h"
+#include "vcgExport.h"
+#include "vcgImport.h"
 //#include <wrap/io_trimesh/import.h>
 //#include <wrap/io_trimesh/export.h>
 

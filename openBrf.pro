@@ -183,6 +183,12 @@ OTHER_FILES += femininizer.morpher
 #      our own included in the .rc resource file. without this we'll get duplication errors.
 win32:CONFIG -= embed_manifest_exe
 
+win32 {
+    LIBS += -lopengl32 -lglu32
+} else { # swy: at least for Unix-likes, macOS will probably need frameworks instead
+    LIBS += -lGL -lGLU
+}
+
 DISTFILES += \
     translations/openbrf_de.ts \
     translations/openbrf_en.ts \
