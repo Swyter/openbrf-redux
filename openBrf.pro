@@ -179,7 +179,9 @@ OTHER_FILES += shaders/bump_vertex.cpp
 OTHER_FILES += shaders/iron_fragment.cpp
 OTHER_FILES += femininizer.morpher
 
-LIBS += -lopengl32 -lglu32
+# swy: needed so that Qt stops appending its own pregenerated XML manifest when we already have
+#      our own included in the .rc resource file. without this we'll get duplication errors.
+win32:CONFIG -= embed_manifest_exe
 
 DISTFILES += \
     translations/openbrf_de.ts \

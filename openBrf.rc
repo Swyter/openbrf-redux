@@ -32,3 +32,5 @@ BEGIN
         VALUE "Translation", 0x409, 1200
     END
 END
+
+1 24 "openBrf.win32manifest.xml" /* swy: 24 = RT_MANIFEST */
