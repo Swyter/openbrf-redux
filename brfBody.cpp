@@ -10,6 +10,9 @@ using namespace vcg;
 
 #include "saveLoad.h"
 
+#ifdef _MSC_VER
+  #define strcasecmp _stricmp
+#endif
 
 // for hitboxes:
 // HACK: store/read original skel name into 2nd, 3rd, 4th bytes of flags of all parts
@@ -154,7 +157,7 @@ bool _startsWith(const char*a, const char* b){
   char s[512];
   sprintf(s,"%s",a);
   s[ strlen(b) ] =0;
-  return !stricmp(s,b);
+  return !strcasecmp(s,b);
 }
 void BrfBodyPart::InferTypeFromString(char* str){
   type = MANIFOLD;
