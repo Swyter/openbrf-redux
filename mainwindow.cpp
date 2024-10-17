@@ -1037,7 +1037,7 @@ template<class BrfType> void MainWindow::insert( vector<BrfType> &v, const BrfTy
 		v.push_back(o);
 		newpos=v.size()-1;
 	} else {
-        int i = selector->lastSelected(); /* +1 for inserting AFTER the current */
+        int i = selector->lastSelected() + 1; /* +1 for inserting AFTER the current */ /* swy: added that +1 so that inserted stuff line split animation frames don't appear backwards, why wasn't like this before? */
 		if (i<0 || i>=(int)v.size()) i=v.size();
 		if (i==(int)v.size()) v.push_back(o); else
 			v.insert( v.begin()+i, o);
