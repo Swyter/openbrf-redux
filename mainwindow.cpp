@@ -871,6 +871,8 @@ MainWindow::MainWindow(QWidget *parent):QMainWindow(parent),inidata(brfdata)
 {
 #ifdef __WINDOWS__
 	setlocale(LC_ALL, "C.UTF8"); /* swy: same as ".65001"; needed for our UTF-8-encoded fopen() paths to work correctly, C is for parsing 0.5-ish decimals with the right separator */
+#else /* swy: __linux__ */
+	setlocale(LC_ALL, "C");      /* swy: make sure the %f formatter for sscanf() (in carry_positions.txt and other functions) works with (.) as the decimal separator even on French of Spanish computers that would make it throw not-found errors, as their separator is (,) */
 #endif
 
 	setWindowIcon(QIcon(":/openBrf.ico"));
