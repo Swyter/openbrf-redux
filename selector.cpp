@@ -1166,7 +1166,7 @@ void Selector::onChanged(){
 		if (this->currentWidget()==tab[ti]) {
 			QItemSelectionModel * tmp = tab[ti]->selectionModel();
 			assert(tmp);
-
+#if 0 /* swy: hack seemingly no longer needed after the Qt6 upgrade; great! */
 			qDebug("OnCHANGED! (%d)",tmp->selectedIndexes().size());
 
 			/* swy: funky workaround to retain the multi-selection caused by a double right-click, that otherwise would get immediately resetted to a single element
@@ -1187,7 +1187,7 @@ void Selector::onChanged(){
 				{
 					lastDoubleClickSel.clear();
 				}
-
+#endif
 
 			emit setSelection(
 			      tmp->selectedIndexes()
