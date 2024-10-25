@@ -32,6 +32,16 @@
 GLWidget::GLWidget(QWidget *parent, IniData &_inidata)
   : QOpenGLWidget(parent), inidata(_inidata)
 {
+#if 1 /* swy: enable multisample antialiasing (MSAA) for less jaggies/softer triangle edges */
+    QSurfaceFormat sf = format();
+	sf.setSamples(8);
+	sf.setSwapBehavior(QSurfaceFormat::TripleBuffer);
+	sf.setSwapInterval(-1);
+	sf.setProfile(QSurfaceFormat::CompatibilityProfile);
+	sf.setMajorVersion(3);
+	sf.setMinorVersion(0);
+	setFormat(sf);
+#endif
 
 	//grabKeyboard ();
 	selectNone();
@@ -1716,7 +1726,6 @@ void GLWidget::initializeGL()
 
     initializeOpenGLFunctions();
 
-
 	openGL2ready = false;
 	initDefaultTextures();
 	glEnable(GL_DEPTH_TEST);
@@ -2879,11 +2888,36 @@ void GLWidget::mouseClickEvent(QMouseEvent *e){
 	int x = e->x();
 	int y = height()-1-e->y();
 	if (!useFloatingProbe) return;
+#if 1 /* swy: if we use multisample antialiasing we can't pick the depth via glReadPixels() in unproject(), we need to make a "resolved" copy of it without MSAA */
+	GLsizei w = widthPix(), h = heightPix();
+
+	if (!singleSampleFramebuffer.fbo || singleSampleFramebuffer.w != w || singleSampleFramebuffer.h != h) {
+		GLuint fbo; glGenFramebuffers(1, &fbo); glBindFramebuffer(GL_FRAMEBUFFER, fbo);
+		GLuint rb; glGenRenderbuffers(1, &rb ); glBindRenderbuffer(GL_RENDERBUFFER, rb);
+	
+		glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT, w, h);
+		glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT,  GL_RENDERBUFFER, rb);
+
+		static volatile GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+
+		singleSampleFramebuffer.fbo = fbo,
+		singleSampleFramebuffer.rb = rb,
+		singleSampleFramebuffer.w = w,
+		singleSampleFramebuffer.h = h;
+	}
+
+	glBindFramebuffer(GL_READ_FRAMEBUFFER, defaultFramebufferObject());
+	glBindFramebuffer(GL_DRAW_FRAMEBUFFER, singleSampleFramebuffer.fbo);
+	glBlitFramebuffer(0, 0, singleSampleFramebuffer.w, singleSampleFramebuffer.h,
+	                  0, 0, singleSampleFramebuffer.w, singleSampleFramebuffer.h, GL_DEPTH_BUFFER_BIT, GL_NEAREST);
+
+	glBindFramebuffer(GL_FRAMEBUFFER, singleSampleFramebuffer.fbo);
+#endif
 	for (int i=0; i<(int)camera.size(); i++){
 		GlCamera &c(camera[i]);
 		//if (c.targetIndex==selPointIndex)
 		if (c.isInViewport(x,y))  {
-			makeCurrent();
+			/* swy: was makeCurrent(); */
 			floatingProbe = c.unproject(x,y);
 			if (floatingProbe.X()!=-666.0) {
 				selPointIndex = c.targetIndex;
@@ -2901,10 +2935,13 @@ void GLWidget::mouseClickEvent(QMouseEvent *e){
 					      floatingProbe.Y()*100.0
 					      );
 				}
-				update();
+				/* swy: update(); */
 			}
 		}
 	}
+#if 1
+	glBindFramebuffer(GL_FRAMEBUFFER, defaultFramebufferObject()); update();
+#endif
 }
 
 void GLWidget::mousePressEvent(QMouseEvent *event)
