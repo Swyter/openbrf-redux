@@ -351,9 +351,9 @@ void MainWindow::createMenus()
 
 	optionLearnFeminization= new QAction(tr("Learn custom setting from selected meshes..."),this);
     optionLearnFeminization->setStatusTip(tr("Use currently selected armours as examples to learn how to auto-feminize armours"));
-	connect(optionLearnFeminization,  SIGNAL(triggered()), this, SLOT(learnFemininzation()));
-	connect(optionFeminizerUseDefault,SIGNAL(triggered()), this, SLOT(optionFemininzationUseDefault()));
-	connect(optionFeminizerUseCustom, SIGNAL(triggered()), this, SLOT(optionFemininzationUseCustom()));
+	connect(optionLearnFeminization,  SIGNAL(triggered()), this, SLOT(learnFeminization()));
+	connect(optionFeminizerUseDefault,SIGNAL(triggered()), this, SLOT(optionFeminizationUseDefault()));
+	connect(optionFeminizerUseCustom, SIGNAL(triggered()), this, SLOT(optionFeminizationUseCustom()));
 
 	autoFemMenu->addActions(group8->actions());
 	autoFemMenu->addSeparator();

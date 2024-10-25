@@ -251,9 +251,9 @@ private slots:
 	void meshUvTransformDoIt();
 	void meshUnmount();
 	void meshToVertexAni();
-	void learnFemininzation(); // from current selection
-	void optionFemininzationUseDefault();
-	void optionFemininzationUseCustom();
+	void learnFeminization(); // from current selection
+	void optionFeminizationUseDefault();
+	void optionFeminizationUseCustom();
     void optionSetAutocomputeTangents( bool );
 
 	void setFlagsShader();
