@@ -534,7 +534,7 @@ public:
       }
   };
   
-  struct QualitySignSplit : public std::unary_function<face::Pos<FaceType> ,  Point3f>
+  struct QualitySignSplit
   {
     EdgeGrid &edgeGrid;
     MeshType &poly;
@@ -597,8 +597,10 @@ public:
       }
   };
   
-  struct EdgePointSplit : public std::unary_function<face::Pos<FaceType> ,  Point3f>
+  struct EdgePointSplit
   {
+    typedef ArraySampleKey first_argument_type;
+    typedef ArraySampleKey second_argument_type;
     CoM &com;
     KdTree<ScalarType> &kdtree;
     MeshType &poly;

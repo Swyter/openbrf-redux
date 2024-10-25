@@ -126,7 +126,7 @@ struct BaseInterpolator
 // providing, in the constructor, an interpolator functor that will be called for each new vertex to be created.
 
 template<class MESH_TYPE, class InterpolatorFunctorType = BaseInterpolator< MESH_TYPE> >
-struct MidPoint : public   std::unary_function<face::Pos<typename MESH_TYPE::FaceType> ,  typename MESH_TYPE::CoordType >
+struct MidPoint
 {
      typedef typename face::Pos<typename MESH_TYPE::FaceType> PosType;
      typedef typename MESH_TYPE::VertexType VertexType;
@@ -183,7 +183,7 @@ struct MidPoint : public   std::unary_function<face::Pos<typename MESH_TYPE::Fac
 
 
 template<class MESH_TYPE>
-struct MidPointArc : public std::unary_function<face::Pos<typename MESH_TYPE::FaceType> ,  typename MESH_TYPE::CoordType>
+struct MidPointArc
 {
     void operator()(typename MESH_TYPE::VertexType &nv, face::Pos<typename MESH_TYPE::FaceType> ep)
     {
@@ -255,7 +255,7 @@ A non linear subdivision scheme for triangle meshes
 
 */
 template<class MESH_TYPE>
-struct MidPointArcNaive : public std::unary_function< face::Pos<typename MESH_TYPE::FaceType> , typename MESH_TYPE::CoordType>
+struct MidPointArcNaive
 {
     typename MESH_TYPE::CoordType operator()(face::Pos<typename MESH_TYPE::FaceType>  ep)
     {
@@ -562,7 +562,7 @@ Siggraph 2000 Course Notes
 */
 
 template<class MESH_TYPE>
-struct MidPointButterfly : public std::unary_function<face::Pos<typename MESH_TYPE::FaceType> , typename MESH_TYPE::CoordType>
+struct MidPointButterfly
 {
   MESH_TYPE &m;
   MidPointButterfly(MESH_TYPE &_m):m(_m){}
@@ -676,7 +676,7 @@ struct MidPointButterfly : public std::unary_function<face::Pos<typename MESH_TY
 // Versione modificata per tenere di conto in meniara corretta dei vertici con valenza alta
 
 template<class MESH_TYPE>
-struct MidPointButterfly2 : public std::unary_function<face::Pos<typename MESH_TYPE::FaceType> , typename MESH_TYPE::CoordType>
+struct MidPointButterfly2
 {
     typename MESH_TYPE::CoordType operator()(face::Pos<typename MESH_TYPE::FaceType>  ep)
     {
@@ -767,7 +767,7 @@ face::Pos<typename MESH_TYPE::FaceType> he(ep.f,ep.z,ep.f->V(ep.z));
   */
 
 template<class MESH_TYPE>
-class QualityMidPointFunctor : public std::unary_function<face::Pos<typename MESH_TYPE::FaceType> , typename MESH_TYPE::CoordType>
+class QualityMidPointFunctor 
 {
 public:
   typedef Point3<typename MESH_TYPE::ScalarType> Point3x;
@@ -830,7 +830,7 @@ class QualityEdgePredicate
 
 
 template<class MESH_TYPE>
-struct MidPointSphere : public std::unary_function<face::Pos<typename MESH_TYPE::FaceType> , typename MESH_TYPE::CoordType>
+struct MidPointSphere
 {
     Sphere3<typename MESH_TYPE::ScalarType> sph;
     typedef Point3<typename MESH_TYPE::ScalarType> Point3x;
@@ -876,7 +876,7 @@ class EdgeSplSphere
 };
 
 template<class TRIMESH_TYPE>
-struct CenterPointBarycenter : public std::unary_function<typename TRIMESH_TYPE::FacePointer, typename TRIMESH_TYPE::CoordType>
+struct CenterPointBarycenter
 {
     typename TRIMESH_TYPE::CoordType operator()(typename TRIMESH_TYPE::FacePointer f){
         return vcg::Barycenter<typename TRIMESH_TYPE::FaceType>(*f);

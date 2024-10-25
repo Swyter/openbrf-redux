@@ -55,7 +55,7 @@ namespace vcg{
 
 
 	// hashing function
-	struct HashFunctor2D : public std::unary_function<Point2i, size_t>
+	struct HashFunctor2D
 	{
 		enum
 		{ // parameters for hash table
