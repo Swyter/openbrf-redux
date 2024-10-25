@@ -940,8 +940,8 @@ MainWindow::MainWindow(QWidget *parent):QMainWindow(parent),inidata(brfdata)
 	setLocale(QLocale::system());
 
 
-	if (optionFeminizerUseDefault->isChecked()) optionFemininzationUseDefault();
-	else optionFemininzationUseCustom();
+	if (optionFeminizerUseDefault->isChecked()) optionFeminizationUseDefault();
+	else optionFeminizationUseCustom();
 
 	loadCarryPositions();
 
@@ -1693,7 +1693,7 @@ void MainWindow::optionSetAutocomputeTangents(bool on){
     updateSel();
 }
 
-void MainWindow::optionFemininzationUseCustom(){
+void MainWindow::optionFeminizationUseCustom(){
     QFile f(QCoreApplication::applicationDirPath()+"/customFemininizer.morpher");
 
 	QByteArray r;
@@ -1720,7 +1720,7 @@ void MainWindow::optionFemininzationUseCustom(){
 	}
 }
 
-void MainWindow::optionFemininzationUseDefault(){
+void MainWindow::optionFeminizationUseDefault(){
 	QFile f(":/femininizer.morpher");
 	QByteArray r;
 	bool ok = false;
@@ -1736,7 +1736,7 @@ void MainWindow::optionFemininzationUseDefault(){
 }
 
 
-void MainWindow::learnFemininzation(){
+void MainWindow::learnFeminization(){
 	int ndone = 0;
 
 	int feminineFrame = (usingWarband)?2:1;
