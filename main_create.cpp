@@ -743,7 +743,7 @@ void MainWindow::createActions()
 void MainWindow::createMiniViewOptions(){
 	QWidget* w = new QWidget(this);
 	w->setLayout(new QBoxLayout(QBoxLayout::LeftToRight));
-	w->layout()->setMargin(0);
+	w->layout()->setContentsMargins(0,0,0,0);
 	w->layout()->setAlignment(w,Qt::AlignRight);
 	w->layout()->setSpacing(0);
 
@@ -759,7 +759,7 @@ void MainWindow::createMiniViewOptions(){
 
 	comboViewmodeSelector = new QWidget(this);
 	comboViewmodeSelector->setLayout(new QBoxLayout(QBoxLayout::LeftToRight));
-	comboViewmodeSelector->layout()->setMargin(0);
+	comboViewmodeSelector->layout()->setContentsMargins(0,0,0,0);
 	comboViewmodeSelector->layout()->setAlignment(w,Qt::AlignRight);
 	comboViewmodeSelector->layout()->setSpacing(0);
 

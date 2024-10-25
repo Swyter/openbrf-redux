@@ -32,7 +32,7 @@ void AskTexturenameDialog::setRes(QStringList & l){
 
 QStringList AskTexturenameDialog::getRes() const{
   QStringList res;
-  res =  m_ui->lineEdit->toPlainText().split(QRegExp("[\\s,]"), QString::SkipEmptyParts);
+  res =  m_ui->lineEdit->toPlainText().split(QRegularExpression("[\\s,]"), Qt::SkipEmptyParts);
   for (int i=0; i<res.size(); i++){
     res[i] = res[i].trimmed().replace("\"","");
   }

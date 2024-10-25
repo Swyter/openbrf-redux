@@ -1345,7 +1345,7 @@ bool IniData::loadAll(int howFast){
 			if (!readModuleTxts(modPath,mabPath+"/Data")) res = false;
 			// remove duplicates
 			for (int i=0; i<int(txtNameList.size()); i++)
-				txtNameList[i].name=txtNameList[i].name.toSet().toList();
+				txtNameList[i].name.removeDuplicates(); /* swy: simpler is better: https://stackoverflow.com/a/73397086/674685 */
 			updateUsedIn();
 			propagateUsedIn();
 

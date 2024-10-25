@@ -62,12 +62,12 @@ QVariant MyTableModel::data(const QModelIndex &index, int role) const
   if (role==Qt::FontRole){
     return (vecUsed[ i ]!=1)?QApplication::font():alternate;
   }
-  if (role==Qt::BackgroundColorRole) return QColor(255,255,255,255);
+  if (role==Qt::BackgroundRole) return QColor(255,255,255,255);
    // //return (index.row()%2==0)?QColor(128,128,128,255):QColor(0,0,0,255);
    // return (vecUsed[ index.row() ]!=0)?
     //    QApplication::palette().color (QPalette::Base):
     //    QApplication::palette().color (QPalette::AlternateBase);
-  if (role==Qt::TextColorRole) {
+  if (role==Qt::ForegroundRole) {
     switch(vecUsed[ i ]){
     case 1: return QColor(0,0,150,255);
     case 0: return QColor(0,0,0,255);//QApplication::palette().color(QPalette::Text);

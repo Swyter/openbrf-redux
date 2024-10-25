@@ -4,7 +4,7 @@
 
 // everything VCG mesh related is implemented here
 
-#include <QGLWidget>
+#include <QOpenGLWidget>
 
 #include <vector>
 //#include <vcg/simplex/vertex/base.h>

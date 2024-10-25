@@ -2,10 +2,14 @@
 # OpenBRF -- by marco tarini. Provided under GNU General Public License
 #
 
+QT += widgets
 QT += opengl
+QT += openglwidgets
 QT += xml
+QT += core5compat
 
 CONFIG += exceptions
+CONFIG += c++14
 
 
 VCGLIB = dependencies/vcglib # v1.0.1
@@ -168,7 +172,7 @@ win32 {
 
     message("Adding step to deploy the DLL files on Windows.")
     DESTDIR = $$PWD/_build
-    QMAKE_POST_LINK = $$[QT_INSTALL_BINS]/windeployqt --no-system-d3d-compiler --no-angle --no-opengl-sw $$MSVC_WINDEPLOY_EXTRA_ARGS $$shell_path($$DESTDIR/$${TARGET}.exe)
+    QMAKE_POST_LINK = $$[QT_INSTALL_BINS]/windeployqt --no-system-d3d-compiler --no-opengl-sw $$MSVC_WINDEPLOY_EXTRA_ARGS $$shell_path($$DESTDIR/$${TARGET}.exe)
 }
 
 MOC_DIR = tmp
