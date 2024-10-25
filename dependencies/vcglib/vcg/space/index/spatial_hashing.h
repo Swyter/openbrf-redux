@@ -36,7 +36,7 @@ namespace vcg{
 
 
     // hashing function
-    struct HashFunctor : public std::unary_function<Point3i, size_t>
+    struct HashFunctor
     {
         enum
           { // parameters for hash table
