@@ -967,6 +967,7 @@ void Selector::addBrfTab(const vector<BrfType>  &v){
 
 
 	} else {
+		tab[ti]->clearSelection(); /* swy: make sure there is no selection bigger than the data itself in the tab; avoid indexing beyond the array limits */
 	}
 
 	/*QModelIndexList list = tab[ti]->selectionModel()->selectedIndexes();

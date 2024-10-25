@@ -1265,7 +1265,7 @@ void GLWidget::setSelection(const QModelIndexList &newsel, int k){
         int i = s.row();
         lastSelected = i;
 
-        int thisLod = (k==MESH) ? data->mesh[ i ].lodLevel : 0;
+        int thisLod = (k==MESH && i < data->mesh.size()) ? data->mesh[ i ].lodLevel : 0;
 
         switch(_viewmodeMult ){
         case 0:
@@ -1280,7 +1280,7 @@ void GLWidget::setSelection(const QModelIndexList &newsel, int k){
         case 2: {
             // it depends...
             int whichVp = -1;
-            if (k==MESH) {
+            if (k==MESH && i < data->mesh.size()) {
                 const char* base = data->mesh[ i ].baseName;
 
                 auto ma = basenameToVP.find( QString(base) );
@@ -1346,7 +1346,7 @@ void GLWidget::maybeApplyRenderOrder(){
     if (viewmodeMult==1) return;
     for (ViewportData& vd : inViewport) {
         std::vector< std::pair<int,int> > ro( vd.items.size() );
-        for (uint i=0; i<vd.items.size(); i++) {
+        for (uint i=0; i<min(vd.items.size(), data->mesh.size()); i++) {
             BrfMaterial *mat = inidata.findMaterial( data->mesh[vd.items[i]].material );
             ro[i].first=(mat)? mat->FlagRenderOrder() : 0;
             ro[i].second = vd.items[i];
@@ -2582,7 +2582,7 @@ void GLWidget::renderSelected(const std::vector<BrfType>& v){
         bbox.SetNull();
 
         if (commonBBox) for (auto& i: v) bbox.Add(i.bbox );
-        else for (auto& inv:inViewport) for (int i:inv.items) bbox.Add( v[i].bbox );
+        else for (auto& inv:inViewport) for (int i:inv.items) if (i < v.size()) bbox.Add( v[i].bbox );
         bboxReady = true;
     }
 	animating=false;
@@ -2641,6 +2641,7 @@ void GLWidget::renderSelected(const std::vector<BrfType>& v){
 		bool firstDraw = true;
 
         for (int i:inViewport[vi].items)
+		if (i < v.size())
         if ( !hideLods || (lodOf(v[i])<=inViewport[vi].bestLod) ) { // don't draw
             glPushMatrix();
 
@@ -2690,6 +2691,7 @@ void GLWidget::renderSelected(const std::vector<BrfType>& v){
 			if ( displaying==SKELETON && selRefAnimation>=0 ) animating=true;
 			firstDraw = false;
 		}
+		else qDebug("GLWidget::renderSelected: FIXME: the selection index is bigger than the list of elements, probably wasn't cleared correctly.");
 	}
 
 }
