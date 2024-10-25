@@ -43,7 +43,9 @@ int main(int argc, char* argv[])
   app.setApplicationName("OpenBrf");
   app.setOrganizationName("Marco Tarini");
   app.setOrganizationDomain("Marco Tarini");
-
+#if 1 /* swy: in Qt6 this theme will auto-detect system-wide dark mode and change as needed */
+  app.setStyle("fusion");
+#endif
 
   bool useAlphaC = false;
 
