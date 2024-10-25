@@ -194,8 +194,8 @@ new prefix:</source>
         <translation type="obsolete">%1 - 编辑内部样本数据%2</translation>
     </message>
     <message>
-        <source>%5 %1 brf files from module.ini of &quot;%3&quot;-- %2 msec total [%4 text/mat/shad]</source>
-        <translation type="obsolete">在&quot;%3&quot;的module.ini文件中找到%1 个brf%5 -- 总用时%2毫秒[%4 纹理/材质/着色层]</translation>
+        <source>%5 %1 BRF files from module.ini of &quot;%3&quot;-- %2 msec total [%4 text/mat/shad]</source>
+        <translation type="obsolete">在&quot;%3&quot;的module.ini文件中找到%1 个BRF%5 -- 总用时%2毫秒[%4 纹理/材质/着色层]</translation>
     </message>
     <message>
         <source>scanned</source>
@@ -2312,12 +2312,12 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">&lt;b&gt;txt中有缺失文件:&lt;/b&gt;无法找到&apos;%3&apos;所声明的 %1 &lt;u&gt;%2&lt;/u&gt;</translation>
     </message>
     <message>
-        <source>&lt;b&gt;File-Not-Found:&lt;/b&gt; could not read brf file &lt;u&gt;%1&lt;/u&gt;, listed in module.ini file</source>
-        <translation type="obsolete">&lt;b&gt;文件未找到:&lt;/b&gt; 无法读取module.ini中列出的brf文件 &lt;u&gt;%1&lt;/u&gt;</translation>
+        <source>&lt;b&gt;File-Not-Found:&lt;/b&gt; could not read BRF file &lt;u&gt;%1&lt;/u&gt;, listed in module.ini file</source>
+        <translation type="obsolete">&lt;b&gt;文件未找到:&lt;/b&gt; 无法读取module.ini中列出的BRF文件 &lt;u&gt;%1&lt;/u&gt;</translation>
     </message>
     <message>
-        <source>&lt;b&gt;File-Format Error:&lt;/b&gt; could not read brf file &lt;u&gt;%1&lt;/u&gt;</source>
-        <translation type="obsolete">&lt;b&gt;文件格式错误:&lt;/b&gt; 无法读取brf文件 &lt;u&gt;%1&lt;/u&gt;</translation>
+        <source>&lt;b&gt;File-Format Error:&lt;/b&gt; could not read BRF file &lt;u&gt;%1&lt;/u&gt;</source>
+        <translation type="obsolete">&lt;b&gt;文件格式错误:&lt;/b&gt; 无法读取BRF文件 &lt;u&gt;%1&lt;/u&gt;</translation>
     </message>
 </context>
 <context>
@@ -3696,13 +3696,13 @@ to add a frame to.</source>
         <translation></translation>
     </message>
     <message>
-        <source>Refresh ini</source>
-        <translation type="obsolete">刷新ini</translation>
+        <source>Refresh INI</source>
+        <translation type="obsolete">刷新INI</translation>
     </message>
     <message>
         <location filename="../main_create.cpp" line="669"/>
-        <source>Reload ini files, brf files inside it, and dds textures</source>
-        <translation>重新载入ini文件,其声明的brf文件,以及dds纹理文件</translation>
+        <source>Reload INI files, BRF files inside it, and dds textures</source>
+        <translation>重新载入INI文件,其声明的BRF文件,以及dds纹理文件</translation>
     </message>
     <message>
         <location filename="../main_create.cpp" line="670"/>
@@ -3775,8 +3775,8 @@ to add a frame to.</source>
     </message>
     <message>
         <location filename="../main_create.cpp" line="694"/>
-        <source>Scan module.ini and included brf files for inconsistencies.</source>
-        <translation>扫描module.ini文件，并针对不一致情况添加brf文件名。</translation>
+        <source>Scan module.ini and included BRF files for inconsistencies.</source>
+        <translation>扫描module.ini文件，并针对不一致情况添加BRF文件名。</translation>
     </message>
     <message>
         <source>Find in module</source>
@@ -3784,8 +3784,8 @@ to add a frame to.</source>
     </message>
     <message>
         <location filename="../main_create.cpp" line="698"/>
-        <source>Look for an object in all brf listed inside current module.ini.</source>
-        <translation>在所有当前module.ini文件包含的brf文件中查找项目。</translation>
+        <source>Look for an object in all BRF listed inside current module.ini.</source>
+        <translation>在所有当前module.ini文件包含的BRF文件中查找项目。</translation>
     </message>
     <message>
         <source>Select a BRF in module</source>
@@ -3808,8 +3808,8 @@ to add a frame to.</source>
     </message>
     <message>
         <location filename="../main_create.cpp" line="704"/>
-        <source>Show texture files non referenced in any brf</source>
-        <translation>显示没有在任何brf中引用的纹理文件</translation>
+        <source>Show texture files non referenced in any BRF</source>
+        <translation>显示没有在任何BRF中引用的纹理文件</translation>
     </message>
     <message>
         <location filename="../main_create.cpp" line="706"/>
@@ -3833,8 +3833,8 @@ to add a frame to.</source>
     </message>
     <message>
         <location filename="../main_create.cpp" line="737"/>
-        <source>Make so that clicking on a brf file opens OpenBRF.</source>
-        <translation>使双击brf文件时由OpenBRF打开。</translation>
+        <source>Make so that clicking on a BRF file opens OpenBRF.</source>
+        <translation>使双击BRF文件时由OpenBRF打开。</translation>
     </message>
     <message>
         <location filename="../main_create.cpp" line="752"/>
@@ -4072,13 +4072,13 @@ to add a frame to.</source>
     </message>
     <message>
         <location filename="../main_info.cpp" line="198"/>
-        <source>I&apos;ve scanned in all file &quot;%1&quot; and didn&apos;t find a &lt;i&gt;load_mod_resource&lt;/i&gt; or &lt;i&gt;load_resource&lt;/i&gt; command that pointed me to a brf file that contained any such material</source>
-        <translation>我已扫描了&quot;%1&quot;中的所有文件,无法在经过&lt;i&gt;load_mod_resource&lt;/i&gt;或&lt;i&gt;load_resource&lt;/i&gt;申明的brf文件中找到这个材质</translation>
+        <source>I&apos;ve scanned in all file &quot;%1&quot; and didn&apos;t find a &lt;i&gt;load_mod_resource&lt;/i&gt; or &lt;i&gt;load_resource&lt;/i&gt; command that pointed me to a BRF file that contained any such material</source>
+        <translation>我已扫描了&quot;%1&quot;中的所有文件,无法在经过&lt;i&gt;load_mod_resource&lt;/i&gt;或&lt;i&gt;load_resource&lt;/i&gt;申明的BRF文件中找到这个材质</translation>
     </message>
     <message>
         <location filename="../main_info.cpp" line="201"/>
-        <source>&lt;br&gt;- double check material name of the mesh&lt;br&gt;&lt;b&gt;or&lt;/b&gt;&lt;br&gt;- find the brf-file with the material, or create one&lt;br&gt;- add a line &lt;i&gt;load_&lt;b&gt;mod&lt;/b&gt;_resource&lt;/i&gt; in module.ini, with a text editor,&lt;br&gt;- (note the &lt;i&gt;mod&lt;/i&gt; part)!&lt;br&gt;- save module.ini&lt;br&gt;- come back, and refresh Module [f5]</source>
-        <translation>&lt;br&gt;- 检查模型的材质名称是否拼写正确&lt;br&gt;&lt;b&gt;或者&lt;/b&gt;&lt;br&gt;- 找到包含这个材质的brf文件，或者创建这样一个文件&lt;br&gt;- 通过文本编辑器，在module.ini中添加一行&lt;i&gt;load_&lt;b&gt;mod&lt;/b&gt;_resource&lt;/i&gt;&lt;br&gt;- (不要漏掉中间的&lt;i&gt;mod&lt;/i&gt;)！&lt;br&gt;- 保存module.ini&lt;br&gt;- 返回此处刷新 [f5]</translation>
+        <source>&lt;br&gt;- double check material name of the mesh&lt;br&gt;&lt;b&gt;or&lt;/b&gt;&lt;br&gt;- find the BRF-file with the material, or create one&lt;br&gt;- add a line &lt;i&gt;load_&lt;b&gt;mod&lt;/b&gt;_resource&lt;/i&gt; in module.ini, with a text editor,&lt;br&gt;- (note the &lt;i&gt;mod&lt;/i&gt; part)!&lt;br&gt;- save module.ini&lt;br&gt;- come back, and refresh Module [f5]</source>
+        <translation>&lt;br&gt;- 检查模型的材质名称是否拼写正确&lt;br&gt;&lt;b&gt;或者&lt;/b&gt;&lt;br&gt;- 找到包含这个材质的BRF文件，或者创建这样一个文件&lt;br&gt;- 通过文本编辑器，在module.ini中添加一行&lt;i&gt;load_&lt;b&gt;mod&lt;/b&gt;_resource&lt;/i&gt;&lt;br&gt;- (不要漏掉中间的&lt;i&gt;mod&lt;/i&gt;)！&lt;br&gt;- 保存module.ini&lt;br&gt;- 返回此处刷新 [f5]</translation>
     </message>
     <message>
         <location filename="../main_info.cpp" line="211"/>
@@ -4644,9 +4644,9 @@ Are you sure?</source>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="5048"/>
-        <source>%5 %1 brf files from module.ini of &quot;%3&quot;-- %2 msec total [%4 text/mat/shad]</source>
-        <oldsource>%4 %n brf files from module.ini of &quot;%2&quot;-- %1 msec total [%3 text/mat/shad]</oldsource>
-        <translation>在&quot;%3&quot;的module.ini文件中找到%1 个brf%5 -- 总用时%2毫秒[%4 纹理/材质/着色层]</translation>
+        <source>%5 %1 BRF files from module.ini of &quot;%3&quot;-- %2 msec total [%4 text/mat/shad]</source>
+        <oldsource>%4 %n BRF files from module.ini of &quot;%2&quot;-- %1 msec total [%3 text/mat/shad]</oldsource>
+        <translation>在&quot;%3&quot;的module.ini文件中找到%1 个BRF%5 -- 总用时%2毫秒[%4 纹理/材质/着色层]</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="5050"/>
@@ -5495,13 +5495,13 @@ at line %3:
     </message>
     <message>
         <location filename="../iniData.cpp" line="1512"/>
-        <source>&lt;b&gt;File-Not-Found:&lt;/b&gt; could not read brf file &lt;u&gt;%1&lt;/u&gt;, listed in module.ini file</source>
-        <translation>&lt;b&gt;文件未找到:&lt;/b&gt; 无法读取module.ini中列出的brf文件 &lt;u&gt;%1&lt;/u&gt;</translation>
+        <source>&lt;b&gt;File-Not-Found:&lt;/b&gt; could not read BRF file &lt;u&gt;%1&lt;/u&gt;, listed in module.ini file</source>
+        <translation>&lt;b&gt;文件未找到:&lt;/b&gt; 无法读取module.ini中列出的BRF文件 &lt;u&gt;%1&lt;/u&gt;</translation>
     </message>
     <message>
         <location filename="../iniData.cpp" line="1515"/>
-        <source>&lt;b&gt;File-Format Error:&lt;/b&gt; could not read brf file &lt;u&gt;%1&lt;/u&gt;</source>
-        <translation>&lt;b&gt;文件格式错误:&lt;/b&gt; 无法读取brf文件 &lt;u&gt;%1&lt;/u&gt;</translation>
+        <source>&lt;b&gt;File-Format Error:&lt;/b&gt; could not read BRF file &lt;u&gt;%1&lt;/u&gt;</source>
+        <translation>&lt;b&gt;文件格式错误:&lt;/b&gt; 无法读取BRF文件 &lt;u&gt;%1&lt;/u&gt;</translation>
     </message>
 </context>
 <context>

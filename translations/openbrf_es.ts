@@ -2235,12 +2235,12 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">&lt;b&gt;Ausente en txt:&lt;/b&gt; no se encuentra %1 &lt;u&gt;%2&lt;/u&gt;, definido en &apos;%3&apos;</translation>
     </message>
     <message>
-        <source>&lt;b&gt;File-Not-Found:&lt;/b&gt; could not read brf file &lt;u&gt;%1&lt;/u&gt;, listed in module.ini file</source>
-        <translation type="obsolete">&lt;b&gt;Archivo no Encontrado:&lt;/b&gt; no se puede leer el archivo brf &lt;u&gt;%1&lt;/u&gt;, listado en module.ini</translation>
+        <source>&lt;b&gt;File-Not-Found:&lt;/b&gt; could not read BRF file &lt;u&gt;%1&lt;/u&gt;, listed in module.ini file</source>
+        <translation type="obsolete">&lt;b&gt;Archivo no Encontrado:&lt;/b&gt; no se puede leer el archivo BRF &lt;u&gt;%1&lt;/u&gt;, listado en module.ini</translation>
     </message>
     <message>
-        <source>&lt;b&gt;File-Format Error:&lt;/b&gt; could not read brf file &lt;u&gt;%1&lt;/u&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Error de Formato de Archivo:&lt;/b&gt; no se puede leer el archivo brf &lt;u&gt;%1&lt;/u&gt;</translation>
+        <source>&lt;b&gt;File-Format Error:&lt;/b&gt; could not read BRF file &lt;u&gt;%1&lt;/u&gt;</source>
+        <translation type="obsolete">&lt;b&gt;Error de Formato de Archivo:&lt;/b&gt; no se puede leer el archivo BRF &lt;u&gt;%1&lt;/u&gt;</translation>
     </message>
 </context>
 <context>
@@ -3650,13 +3650,13 @@ al que añadir un fotograma o cuadro.</translation>
         <translation>Seleccionar un BRF en el módulo...</translation>
     </message>
     <message>
-        <source>Refresh ini</source>
+        <source>Refresh INI</source>
         <translation type="obsolete">Recargar INI</translation>
     </message>
     <message>
         <location line="-31"/>
-        <source>Reload ini files, brf files inside it, and dds textures</source>
-        <translation>Racarga los archivos ini, con sus respectivos BRF y, a su vez, sus texturas</translation>
+        <source>Reload INI files, BRF files inside it, and dds textures</source>
+        <translation>Racarga los archivos INI, con sus respectivos BRF y, a su vez, sus texturas</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3734,8 +3734,8 @@ al que añadir un fotograma o cuadro.</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Scan module.ini and included brf files for inconsistencies.</source>
-        <translation>Escanea module.ini y todas las inconsistencias relacionadas.</translation>
+        <source>Scan module.ini and included BRF files for inconsistencies.</source>
+        <translation>Escanea module.ini y todas las inconsistencias relacionadas con los BRF incluidos.</translation>
     </message>
     <message>
         <source>Find in module</source>
@@ -3743,7 +3743,7 @@ al que añadir un fotograma o cuadro.</translation>
     </message>
     <message>
         <location line="+4"/>
-        <source>Look for an object in all brf listed inside current module.ini.</source>
+        <source>Look for an object in all BRF listed inside current module.ini.</source>
         <translation>Encuentra lo que estés buscando en cualquier archivo del juego.</translation>
     </message>
     <message>
@@ -3767,7 +3767,7 @@ al que añadir un fotograma o cuadro.</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Show texture files non referenced in any brf</source>
+        <source>Show texture files non referenced in any BRF</source>
         <translation>Muestra las texturas dentro del módulo que no carga el juego</translation>
     </message>
     <message>
@@ -3792,8 +3792,8 @@ al que añadir un fotograma o cuadro.</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Make so that clicking on a brf file opens OpenBRF.</source>
-        <translation>Vincula los archivos BRF con este programa, con lo que se pueden abrir directamente.</translation>
+        <source>Make so that clicking on a BRF file opens OpenBRF.</source>
+        <translation>Vincula los archivos BRF con este programa y ábrelos directamente.</translation>
     </message>
     <message>
         <location line="+15"/>
@@ -3803,7 +3803,7 @@ al que añadir un fotograma o cuadro.</translation>
     <message>
         <location line="+1"/>
         <source>Default mode: rotate objects with mouse, zoom in/out with wheel.</source>
-        <translation>Modo Normal: rota objetos con el ratón, y acerca/aleja con la rueda del ratón.</translation>
+        <translation>Modo normal: gira objetos con el ratón, y acerca/aleja con la rueda de desplazamiento.</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3813,7 +3813,7 @@ al que añadir un fotograma o cuadro.</translation>
     <message>
         <location line="+1"/>
         <source>Helmet mode: for objects with vertical Z axis, like M&amp;B helmets or weapons.</source>
-        <translation>Modo Casco: para objetos con eje Z vertical, como los cascos o las armas del juego.</translation>
+        <translation>Modo casco: para objetos con eje Z vertical, como los cascos o las armas del juego.</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3823,7 +3823,7 @@ al que añadir un fotograma o cuadro.</translation>
     <message>
         <location line="+1"/>
         <source>Scene mode: navigate with mouse and WASD (levitate with wheel, zoom with shift)</source>
-        <translation>Modo Escena: navega mediante el ratón y WASD (levita utilizando la rueda, y mayús para acercar/alejar)</translation>
+        <translation>Modo escena: navega con el ratón y WASD (levita utilizando la rueda, y Mayús para acercar/alejar)</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -4028,12 +4028,12 @@ al que añadir un fotograma o cuadro.</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>I&apos;ve scanned in all file &quot;%1&quot; and didn&apos;t find a &lt;i&gt;load_mod_resource&lt;/i&gt; or &lt;i&gt;load_resource&lt;/i&gt; command that pointed me to a brf file that contained any such material</source>
-        <translation>He escaneado en el archivo &quot;%1&quot; y no he encontrado un comando &lt;i&gt;load_mod_resource&lt;/i&gt; o &lt;i&gt;load_resource&lt;/i&gt; que me muestre un archivo brf en el que pueda encontrarse ese material</translation>
+        <source>I&apos;ve scanned in all file &quot;%1&quot; and didn&apos;t find a &lt;i&gt;load_mod_resource&lt;/i&gt; or &lt;i&gt;load_resource&lt;/i&gt; command that pointed me to a BRF file that contained any such material</source>
+        <translation>He escaneado en el archivo &quot;%1&quot; y no he encontrado un comando &lt;i&gt;load_mod_resource&lt;/i&gt; o &lt;i&gt;load_resource&lt;/i&gt; que me muestre un archivo BRF en el que pueda encontrarse ese material</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&lt;br&gt;- double check material name of the mesh&lt;br&gt;&lt;b&gt;or&lt;/b&gt;&lt;br&gt;- find the brf-file with the material, or create one&lt;br&gt;- add a line &lt;i&gt;load_&lt;b&gt;mod&lt;/b&gt;_resource&lt;/i&gt; in module.ini, with a text editor,&lt;br&gt;- (note the &lt;i&gt;mod&lt;/i&gt; part)!&lt;br&gt;- save module.ini&lt;br&gt;- come back, and refresh Module [f5]</source>
+        <source>&lt;br&gt;- double check material name of the mesh&lt;br&gt;&lt;b&gt;or&lt;/b&gt;&lt;br&gt;- find the BRF-file with the material, or create one&lt;br&gt;- add a line &lt;i&gt;load_&lt;b&gt;mod&lt;/b&gt;_resource&lt;/i&gt; in module.ini, with a text editor,&lt;br&gt;- (note the &lt;i&gt;mod&lt;/i&gt; part)!&lt;br&gt;- save module.ini&lt;br&gt;- come back, and refresh Module [f5]</source>
         <translation>&lt;br&gt;- Cerciórate de que has escrito bien el nombre del material.&lt;br&gt;&lt;b&gt;o&lt;/b&gt;&lt;br&gt;- Busca el BRF con el material , o crea uno.&lt;br&gt;- Añade una línea &lt;i&gt;load_&lt;b&gt;mod&lt;/b&gt;_resource&lt;/i&gt; en module.ini, con un editor de texto como Notepad ++&lt;br&gt;- (¡atención a la parte de  &lt;i&gt;mod&lt;/i&gt;!)&lt;br&gt;- Guarda el archivo module.ini&lt;br&gt;- Vuelve y recarga el módulo [f5]</translation>
     </message>
     <message>
@@ -4602,8 +4602,8 @@ Las direcciones tangentes no se guardarán...</translation>
     </message>
     <message>
         <location line="+331"/>
-        <source>%5 %1 brf files from module.ini of &quot;%3&quot;-- %2 msec total [%4 text/mat/shad]</source>
-        <translation>%5 %1 archivos brf en module.ini de &quot;%3&quot;-- %2 msec en total [%4 text/mat/sombread]</translation>
+        <source>%5 %1 BRF files from module.ini of &quot;%3&quot;-- %2 msec total [%4 text/mat/shad]</source>
+        <translation>%5 %1 archivos BRF en module.ini de &quot;%3&quot;-- %2 msec en total [%4 text/mat/sombread]</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -5591,13 +5591,13 @@ en la línea %3:
     </message>
     <message>
         <location line="+706"/>
-        <source>&lt;b&gt;File-Not-Found:&lt;/b&gt; could not read brf file &lt;u&gt;%1&lt;/u&gt;, listed in module.ini file</source>
-        <translation>&lt;b&gt;Archivo no encontrado:&lt;/b&gt; no se puede leer el archivo brf &lt;u&gt;%1&lt;/u&gt;, listado en module.ini</translation>
+        <source>&lt;b&gt;File-Not-Found:&lt;/b&gt; could not read BRF file &lt;u&gt;%1&lt;/u&gt;, listed in module.ini file</source>
+        <translation>&lt;b&gt;Archivo no encontrado:&lt;/b&gt; no se puede leer el archivo BRF &lt;u&gt;%1&lt;/u&gt;, listado en module.ini</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&lt;b&gt;File-Format Error:&lt;/b&gt; could not read brf file &lt;u&gt;%1&lt;/u&gt;</source>
-        <translation>&lt;b&gt;Error de formato:&lt;/b&gt;no se ha podido leer el archivo brf &lt;u&gt;%1&lt;/u&gt;</translation>
+        <source>&lt;b&gt;File-Format Error:&lt;/b&gt; could not read BRF file &lt;u&gt;%1&lt;/u&gt;</source>
+        <translation>&lt;b&gt;Error de formato:&lt;/b&gt;no se ha podido leer el archivo BRF &lt;u&gt;%1&lt;/u&gt;</translation>
     </message>
 </context>
 <context>
