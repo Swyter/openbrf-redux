@@ -4714,7 +4714,7 @@ void MainWindow::updateTitle(){
 	else if (isModifiedHitboxes) maybestar=QString("(**)");
 
 	QString notInIni = (curFileIndex==-1)?tr(" [not in module.ini]"):tr("");
-	QString tit("OpenBrf Redux");
+	QString tit("OpenBRF Redux");
 	if (!editingRef) {
 		if (curFile.isEmpty())
 			setWindowTitle(tr("%1%2").arg(tit).arg(maybestar));
@@ -5428,7 +5428,7 @@ void MainWindow::registerExtension(){
 
 		//settings.beginGroup(".brf");
 		QSettings settings(QSettings::NativeFormat,QSettings::SystemScope, "classes", ".brf");
-		settings.setValue("","brf.resourceT");
+		settings.setValue("","brf.resource");
 		//settings.endGroup();
 	}
 	//QSettings settings("HKEY_CLASSES_ROOT", QSettings::NativeFormat);
@@ -5440,7 +5440,7 @@ void MainWindow::registerExtension(){
 	settings.setValue("FriendlyTypeName","Mount&Blade Binary Resource File");
 	settings.setValue("PerceivedType","Application");
 
-	settings.beginGroup("DafualtIcon");
+	settings.beginGroup("DefaultIcon");
 	settings.setValue("",QString("%1%2 test").arg(exeFile).arg(",0") );
 	settings.endGroup();
 
