@@ -2459,7 +2459,7 @@ void MainWindow::meshComputeAo(){
 unsigned int tuneColor(unsigned int col, int contr, int dh, int ds, int db){
 	QColor c(col&0xFF,(col>>8)&0xFF,(col>>16)&0xFF,(col>>24)&0xFF);
 	c.convertTo(QColor::Hsv);
-	qreal h,s,b,a;
+	float h,s,b,a;
 	c.getHsvF(&h,&s,&b,&a);
 	h = c.hueF();
 	if (h<0) h=0;
@@ -2512,7 +2512,7 @@ void MainWindow::meshTuneColorDo(int c,int h,int s,int b, bool applyToLastSel){
 	QModelIndexList list= selector->selectedList();
 
 	/* swy: fastforward the start index to be the last element, if the AskHueSatBriDialog::onAnySliderMove() checkbox says so */
-	int j = (!applyToLastSel) ? 0 : max(list.size() - 1, 0);
+	int j = (!applyToLastSel) ? 0 : max<int>(list.size() - 1, 0);
 
 	for (; j<list.size(); j++){
 		BrfMesh &m(brfdata.mesh[list[j].row()]);
@@ -5040,7 +5040,7 @@ void MainWindow::updateSelectedMenu(){
 
 bool MainWindow::loadIni(int lvl){
 
-    QTime qtime;
+    QElapsedTimer qtime;
 	qtime.start();
 
     if (inidata.updated==0) {

@@ -109,7 +109,7 @@ void AskFlagsDialog::setBitCombo(QString name, QString tip, int aa, int bb, int*
 void resizeAsContents(QComboBox * c){
     int max = 1;
     for (int i=0; i<c->count(); i++)
-    max = std::max( max, c->itemText(i).count('\n')+1 );
+    max = std::max<int>( max, c->itemText(i).count('\n')+1 );
 
     c->setMinimumHeight(max*(3+c->fontMetrics().height()));
     c->setMaximumWidth(120);
@@ -134,7 +134,7 @@ void AskFlagsDialog::_setBitCombo(QString name, QString tip, int aa, int bb, int
 
   QComboBox *b = new QComboBox(this);
 
-  g->layout()->setMargin(0);
+  g->layout()->setContentsMargins(0,0,0,0);
 
   QLabel * label = new QLabel(name+":",this);
   label->setStatusTip(tip);

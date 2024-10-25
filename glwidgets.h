@@ -3,7 +3,7 @@
 #ifndef GLWIDGETS_H
 #define GLWIDGETS_H
 
-#include <QGLWidget>
+#include <QOpenGLWidget>
 #include <QOpenGLFunctions_2_0>
 
 #include <QtGui>
@@ -12,7 +12,7 @@
 #include "ddsData.h"
 
 class BrfData;
-class QGLShaderProgram;
+class QOpenGLShaderProgram;
 
 // for picking
 class GlCamera{
@@ -35,7 +35,7 @@ struct ViewportData{
     int bestLod = 100;
 };
 
-class GLWidget : public QGLWidget, protected QOpenGLFunctions_2_0
+class GLWidget : public QOpenGLWidget, protected QOpenGLFunctions_2_0
 {
 	Q_OBJECT
 	QSize minimumSizeHint() const;
@@ -74,7 +74,7 @@ public:
 	MaterialError lastMatErr;
 	void setMaterialError(int newErr);
 
-	QSet<QString> supportedExtensionsList;
+	QStringList supportedExtensionsList;
 	int32_t maxSupportedTexAnisoTaps = 0;
 
 	void keyPressEvent( QKeyEvent * event );
@@ -316,7 +316,7 @@ private:
 	// fragment programs
 	enum { NM_PLAIN = 0, NM_ALPHA, NM_IRON, NM_SHINE, SHADER_IRON, SHADER_MODES, SHADER_FIXEDFUNC , SHADER_CUSTOM };
 	//unsigned int
-	QGLShaderProgram* shaderProgram[SHADER_MODES][SHADER_MODES];
+	QOpenGLShaderProgram* shaderProgram[SHADER_MODES][SHADER_MODES];
 	bool shaderTried[SHADER_MODES][SHADER_MODES];
 	QString shaderLog[SHADER_MODES][SHADER_MODES];
 	int lastUsedShader;
@@ -324,12 +324,12 @@ private:
 
 	std::vector<GlCamera> camera;
 
-	//void newShaderProgram(QGLShaderProgram& s, const QStirng prefix, const QStirng vs, const QStirng fs);
+	//void newShaderProgram(QOpenGLShaderProgram& s, const QStirng prefix, const QStirng vs, const QStirng fs);
 
-	QGLShaderProgram* initFramPrograms(int mode, bool green);
+	QOpenGLShaderProgram* initFramPrograms(int mode, bool green);
 
-	QMap<QString, QGLShaderProgram*> customShaders;
-	QGLShaderProgram* currentCustomShader;
+	QMap<QString, QOpenGLShaderProgram*> customShaders;
+	QOpenGLShaderProgram* currentCustomShader;
 
     int widthPix() const;
     int heightPix() const;

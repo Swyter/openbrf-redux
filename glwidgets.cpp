@@ -2,10 +2,15 @@
 
 //#include <GL/glew.h>
 
+#ifdef _WIN32
+  #include <Windows.h>
+#endif
+
 #include <QtGui>
 #include <QDomDocument>
 //#include <QtOpenGL>
-#include <QGLShaderProgram>
+#include <QOpenGLShaderProgram>
+#include <QOpenGLTexture>
 #include <QMessageBox>
 #include <GL/glu.h>
 
@@ -25,7 +30,7 @@
 
 
 GLWidget::GLWidget(QWidget *parent, IniData &_inidata)
-  : QGLWidget(parent), inidata(_inidata)
+  : QOpenGLWidget(parent), inidata(_inidata)
 {
 
 	//grabKeyboard ();
@@ -61,7 +66,7 @@ GLWidget::GLWidget(QWidget *parent, IniData &_inidata)
 	for (int j=0; j<2; j++)
 		for (int i=0; i<SHADER_MODES; i++) {
 			shaderTried[i][j] = false;
-			shaderProgram[i][j] = new QGLShaderProgram();
+			shaderProgram[i][j] = new QOpenGLShaderProgram();
 		}
 
 
@@ -148,11 +153,11 @@ void GLWidget::setFrameNumber(int i){
 }
 
 int GLWidget::widthPix() const{
-    return width() * windowHandle()->devicePixelRatio();
+    return width() * devicePixelRatio();
 }
 
 int GLWidget::heightPix() const{
-    return height() * windowHandle()->devicePixelRatio();
+    return height() * devicePixelRatio();
 }
 
 
@@ -174,9 +179,9 @@ void GLWidget::setRefAnimation(int i){
 
 void GLWidget::setEditingRef(bool mode){
 	if (mode) {
-		currBgColor.setRedF(0.45);
-		currBgColor.setGreenF(0.5);
-		currBgColor.setBlueF(0.35);
+		currBgColor.setRedF(0.45f);
+		currBgColor.setGreenF(0.5f);
+		currBgColor.setBlueF(0.35f);
 	} else {
 		currBgColor = defaultBgColor;
 	}
@@ -599,14 +604,14 @@ void GLWidget::enableDefMaterial(){
 #define STRINGIFY(X) #X
 
 
-QGLShaderProgram* GLWidget::initFramPrograms(int mode, bool green){
+QOpenGLShaderProgram* GLWidget::initFramPrograms(int mode, bool green){
 
 	lastUsedShader = mode;
 	lastUsedShaderBumpgreen = green;
 
 	if (shaderTried[mode][green]) return NULL;
 
-	QGLShaderProgram * s(shaderProgram[mode][green]);
+	QOpenGLShaderProgram * s(shaderProgram[mode][green]);
 	QString& log(shaderLog[mode][green]);
 
 	if (s->isLinked()) {
@@ -647,7 +652,7 @@ QGLShaderProgram* GLWidget::initFramPrograms(int mode, bool green){
 			QFile file(fileVertexSource);
 			file.open(QIODevice::Text|QIODevice::ReadOnly);
 			QString src = QString(file.readAll()).arg(prefix);
-			res &= s->addShaderFromSourceCode(QGLShader::Vertex,src);
+			res &= s->addShaderFromSourceCode(QOpenGLShader::Vertex,src);
 			if (!s->log().isEmpty())
 				log += tr("<br />Vertex compilation: <br />")+s->log().replace("\n","<br />");
 		}
@@ -655,7 +660,7 @@ QGLShaderProgram* GLWidget::initFramPrograms(int mode, bool green){
 			QFile file(fileFragmentSource);
 			file.open(QIODevice::Text|QIODevice::ReadOnly);
 			QString src = QString(file.readAll()).arg(prefix);
-			res &= s->addShaderFromSourceCode(QGLShader::Fragment, src);
+			res &= s->addShaderFromSourceCode(QOpenGLShader::Fragment, src);
 			if (!s->log().isEmpty())
 				log += tr("<br />Fragment compilation: <br />")+s->log().replace("\n","<br />");
 		}
@@ -737,7 +742,7 @@ void GLWidget::enableMaterial(const BrfMaterial &m){
             else if ( m.FlagAlphaTest()||m.FlagBlend() ) w=NM_ALPHA;
 			else w=NM_PLAIN;
 
-			QGLShaderProgram* p = initFramPrograms(w, bumpmapUsingGreen);
+			QOpenGLShaderProgram* p = initFramPrograms(w, bumpmapUsingGreen);
 			if (p)  {
 				p->setUniformValue("usePerVertColor", (colorMode==0)?GLfloat(-1):GLfloat(1));
 				p->setUniformValue("spec_col",m.r,m.g,m.b);
@@ -759,7 +764,7 @@ void GLWidget::enableMaterial(const BrfMaterial &m){
 				glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, ones);
 				glMateriali(GL_FRONT_AND_BACK,GL_SHININESS, (int)m.specular);
 
-				QGLShaderProgram* p = initFramPrograms(SHADER_IRON, false);
+				QOpenGLShaderProgram* p = initFramPrograms(SHADER_IRON, false);
 				if (p) {
 					p->setUniformValue("spec_col",m.r,m.g,m.b);
 					p->setUniformValue("samplRgb",0);
@@ -1643,13 +1648,13 @@ int GLWidget::readCustomShaders(){
 			}
 			n = n.nextSibling();
 
-			QGLShaderProgram *s = new QGLShaderProgram();
+			QOpenGLShaderProgram *s = new QOpenGLShaderProgram();
 
-			QStringList techList = tech.split(",",QString::SkipEmptyParts );
+			QStringList techList = tech.split(",",Qt::SkipEmptyParts );
 
 			bool ok = false;
-			if (s->addShaderFromSourceCode(QGLShader::Vertex,vert))
-				if (s->addShaderFromSourceCode(QGLShader::Fragment,frag))
+			if (s->addShaderFromSourceCode(QOpenGLShader::Vertex,vert))
+				if (s->addShaderFromSourceCode(QOpenGLShader::Fragment,frag))
 					if (s->link()) {
 						for (int i=0; i<techList.size(); i++) {
 							customShaders[techList[i].trimmed() ] = s;
@@ -1688,7 +1693,7 @@ void GLWidget::initOpenGL2(){
 	/* swy: retrieve the list of supported OpenGL extensions; first as a long space-separated string,
 	        then split into a QtSet dictionary for fast lookups */
 	const char *longSausageString = (const char *) glGetString(GL_EXTENSIONS);
-	supportedExtensionsList = QString(longSausageString).split(" ").toSet(); qDebug() << supportedExtensionsList;
+	supportedExtensionsList = QString(longSausageString).split(" "); qDebug() << supportedExtensionsList;
 
 	if (supportedExtensionsList.contains("GL_EXT_texture_filter_anisotropic"))
 	{
@@ -2691,7 +2696,7 @@ void GLWidget::glClearCheckBoard(){
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-    int N =16 * windowHandle()->devicePixelRatio();
+    int N =16 * devicePixelRatio();
 	glBegin(GL_QUADS);
 	for (int x=0; x<(w+N-1)/N; x++)
 		for (int y=0; y<(h+N-1)/N; y++) {
@@ -2978,7 +2983,7 @@ void GLWidget::keyReleaseEvent( QKeyEvent * e ){
 
 void GLWidget::wheelEvent(QWheelEvent *event)
 {
-	if (event->delta()>0) {
+	if (event->angleDelta().y()>0) {
         if (viewIs2D()) zoom/=1.2f; else {
             if(viewmode==2) avatP[1]+=0.2f;
             else dist*=1.1f;
