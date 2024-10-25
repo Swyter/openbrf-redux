@@ -1509,10 +1509,10 @@ bool IniData::addBrfFile(const char* name, Origin ori, int line, int howFast){
 
       // ERROR!!
       if (!QDir(brfPath).exists( QString("%1.brf").arg(name)))
-      errorListOnLoad.push_back(QTextBrowser::tr("<b>File-Not-Found:</b> could not read brf file <u>%1</u>, listed in module.ini file")
+      errorListOnLoad.push_back(QTextBrowser::tr("<b>File-Not-Found:</b> could not read BRF file <u>%1</u>, listed in module.ini file")
          .arg(shortFileName(file.size()-1)));
       else
-      errorListOnLoad.push_back(QTextBrowser::tr("<b>File-Format Error:</b> could not read brf file <u>%1</u>")
+      errorListOnLoad.push_back(QTextBrowser::tr("<b>File-Format Error:</b> could not read BRF file <u>%1</u>")
          .arg(shortFileName(file.size()-1)));
 
       //file.pop_back();

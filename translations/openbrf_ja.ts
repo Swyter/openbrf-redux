@@ -633,7 +633,7 @@ object only</source>
         <source>Note: these are the files which are not included
  in any BRF file as textures.
 They will not be even loaded by the game.</source>
-        <translation>注: どの brf ファイルにもテクスチャとして含まれない
+        <translation>注: どの BRF ファイルにもテクスチャとして含まれない
 もの。これらはゲーム・エンジンからロードすら されま
 せん。</translation>
     </message>
@@ -2860,8 +2860,8 @@ to add a frame to.</source>
     </message>
     <message>
         <location filename="../main_create.cpp" line="669"/>
-        <source>Reload ini files, brf files inside it, and dds textures</source>
-        <translation>ini ファイルと そこで指定された brf ファイルと、dds テクスチャを再ロード</translation>
+        <source>Reload INI files, BRF files inside it, and dds textures</source>
+        <translation>INI ファイルと そこで指定された BRF ファイルと、dds テクスチャを再ロード</translation>
     </message>
     <message>
         <location filename="../main_create.cpp" line="670"/>
@@ -2910,8 +2910,8 @@ to add a frame to.</source>
     </message>
     <message>
         <location filename="../main_create.cpp" line="694"/>
-        <source>Scan module.ini and included brf files for inconsistencies.</source>
-        <translation>module.ini と 指定されている brf ファイルの不整合を調べます。</translation>
+        <source>Scan module.ini and included BRF files for inconsistencies.</source>
+        <translation>module.ini と 指定されている BRF ファイルの不整合を調べます。</translation>
     </message>
     <message>
         <location filename="../main_create.cpp" line="696"/>
@@ -2925,8 +2925,8 @@ to add a frame to.</source>
     </message>
     <message>
         <location filename="../main_create.cpp" line="698"/>
-        <source>Look for an object in all brf listed inside current module.ini.</source>
-        <translation>現在の module.ini 内で指定された全 brf ファイルから、オブジェクトを探します。</translation>
+        <source>Look for an object in all BRF listed inside current module.ini.</source>
+        <translation>現在の module.ini 内で指定された全 BRF ファイルから、オブジェクトを探します。</translation>
     </message>
     <message>
         <location filename="../main_create.cpp" line="18"/>
@@ -3220,8 +3220,8 @@ to add a frame to.</source>
     </message>
     <message>
         <location filename="../main_create.cpp" line="704"/>
-        <source>Show texture files non referenced in any brf</source>
-        <translation>どの brf からも使われていないテクスチャ・ファイルを一覧</translation>
+        <source>Show texture files non referenced in any BRF</source>
+        <translation>どの BRF からも使われていないテクスチャ・ファイルを一覧</translation>
     </message>
     <message>
         <location filename="../main_create.cpp" line="706"/>
@@ -3241,12 +3241,12 @@ to add a frame to.</source>
     <message>
         <location filename="../main_create.cpp" line="736"/>
         <source>Register BRF extension</source>
-        <translation>拡張子 brf を登録</translation>
+        <translation>拡張子 BRF を登録</translation>
     </message>
     <message>
         <location filename="../main_create.cpp" line="737"/>
-        <source>Make so that clicking on a brf file opens OpenBRF.</source>
-        <translation>拡張子 brf をクリック時に OpenBRF が開くようにします。</translation>
+        <source>Make so that clicking on a BRF file opens OpenBRF.</source>
+        <translation>拡張子 BRF をクリック時に OpenBRF が開くようにします。</translation>
     </message>
     <message>
         <location filename="../main_create.cpp" line="752"/>
@@ -3468,13 +3468,13 @@ to add a frame to.</source>
     </message>
     <message>
         <location filename="../main_info.cpp" line="198"/>
-        <source>I&apos;ve scanned in all file &quot;%1&quot; and didn&apos;t find a &lt;i&gt;load_mod_resource&lt;/i&gt; or &lt;i&gt;load_resource&lt;/i&gt; command that pointed me to a brf file that contained any such material</source>
-        <translation>ファイル &quot;%1&quot; 全体を調べても、そのようなマテリアルを含む brf ファイルを指定する&lt;i&gt;load_mod_resource&lt;/i&gt; または &lt;i&gt;load_resource&lt;/i&gt; コマンドが見つかりませんでした</translation>
+        <source>I&apos;ve scanned in all file &quot;%1&quot; and didn&apos;t find a &lt;i&gt;load_mod_resource&lt;/i&gt; or &lt;i&gt;load_resource&lt;/i&gt; command that pointed me to a BRF file that contained any such material</source>
+        <translation>ファイル &quot;%1&quot; 全体を調べても、そのようなマテリアルを含む BRF ファイルを指定する&lt;i&gt;load_mod_resource&lt;/i&gt; または &lt;i&gt;load_resource&lt;/i&gt; コマンドが見つかりませんでした</translation>
     </message>
     <message>
         <location filename="../main_info.cpp" line="201"/>
-        <source>&lt;br&gt;- double check material name of the mesh&lt;br&gt;&lt;b&gt;or&lt;/b&gt;&lt;br&gt;- find the brf-file with the material, or create one&lt;br&gt;- add a line &lt;i&gt;load_&lt;b&gt;mod&lt;/b&gt;_resource&lt;/i&gt; in module.ini, with a text editor,&lt;br&gt;- (note the &lt;i&gt;mod&lt;/i&gt; part)!&lt;br&gt;- save module.ini&lt;br&gt;- come back, and refresh Module [f5]</source>
-        <translation>&lt;br&gt;- メッシュのマテリアル名をよく確認して下さい&lt;br&gt;&lt;b&gt;あるいは、&lt;/b&gt;&lt;br&gt;- このマテリアルを含む brf ファイルを見つけるか、作成し、&lt;br&gt;- テキスト・エディタを使って module.ini 内に&lt;i&gt;load_&lt;b&gt;mod&lt;/b&gt;_resource&lt;/i&gt; という行を追加し、&lt;br&gt;- (&lt;i&gt;mod&lt;/i&gt; という部分に注意!)&lt;br&gt;- module.ini を保存。&lt;br&gt;- OpenBRF に戻り、F5 キーでモジュール（MOD）を更新して下さい</translation>
+        <source>&lt;br&gt;- double check material name of the mesh&lt;br&gt;&lt;b&gt;or&lt;/b&gt;&lt;br&gt;- find the BRF-file with the material, or create one&lt;br&gt;- add a line &lt;i&gt;load_&lt;b&gt;mod&lt;/b&gt;_resource&lt;/i&gt; in module.ini, with a text editor,&lt;br&gt;- (note the &lt;i&gt;mod&lt;/i&gt; part)!&lt;br&gt;- save module.ini&lt;br&gt;- come back, and refresh Module [f5]</source>
+        <translation>&lt;br&gt;- メッシュのマテリアル名をよく確認して下さい&lt;br&gt;&lt;b&gt;あるいは、&lt;/b&gt;&lt;br&gt;- このマテリアルを含む BRF ファイルを見つけるか、作成し、&lt;br&gt;- テキスト・エディタを使って module.ini 内に&lt;i&gt;load_&lt;b&gt;mod&lt;/b&gt;_resource&lt;/i&gt; という行を追加し、&lt;br&gt;- (&lt;i&gt;mod&lt;/i&gt; という部分に注意!)&lt;br&gt;- module.ini を保存。&lt;br&gt;- OpenBRF に戻り、F5 キーでモジュール（MOD）を更新して下さい</translation>
     </message>
     <message>
         <location filename="../main_info.cpp" line="211"/>
@@ -4089,9 +4089,9 @@ Are you sure?</source>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="5048"/>
-        <source>%5 %1 brf files from module.ini of &quot;%3&quot;-- %2 msec total [%4 text/mat/shad]</source>
+        <source>%5 %1 BRF files from module.ini of &quot;%3&quot;-- %2 msec total [%4 text/mat/shad]</source>
         <translatorcomment>1=配列サイズ, 2=経過時間, 3=MOD名, 4=参照obj, 5=&quot;scanned&quot; または&quot;ERRORS found while scanning&quot;</translatorcomment>
-        <translation>&quot;%3&quot; の module.ini から %1 個の brf ファイルを %5 -- 所要時間 %2 msec [%4 テクスチャ/マテリアル/シェーダ]</translation>
+        <translation>&quot;%3&quot; の module.ini から %1 個の BRF ファイルを %5 -- 所要時間 %2 msec [%4 テクスチャ/マテリアル/シェーダ]</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="5050"/>
@@ -4471,12 +4471,12 @@ at line %3:
     <message>
         <location filename="../iniData.cpp" line="877"/>
         <source>&lt;h2&gt;Original BRF files: %1&lt;/h2&gt;</source>
-        <translation>&lt;h2&gt;オリジナル brf ファイル: %1&lt;/h2&gt;</translation>
+        <translation>&lt;h2&gt;オリジナル BRF ファイル: %1&lt;/h2&gt;</translation>
     </message>
     <message>
         <location filename="../iniData.cpp" line="879"/>
         <source>&lt;h2&gt;CommonRes BRF files: %1&lt;/h2&gt;</source>
-        <translation>&lt;h2&gt;CommonRes brf ファイル: %1&lt;/h2&gt;</translation>
+        <translation>&lt;h2&gt;CommonRes BRF ファイル: %1&lt;/h2&gt;</translation>
     </message>
     <message>
         <location filename="../iniData.cpp" line="887"/>
@@ -4510,13 +4510,13 @@ at line %3:
     </message>
     <message>
         <location filename="../iniData.cpp" line="1512"/>
-        <source>&lt;b&gt;File-Not-Found:&lt;/b&gt; could not read brf file &lt;u&gt;%1&lt;/u&gt;, listed in module.ini file</source>
+        <source>&lt;b&gt;File-Not-Found:&lt;/b&gt; could not read BRF file &lt;u&gt;%1&lt;/u&gt;, listed in module.ini file</source>
         <translation>&lt;b&gt;ファイル無し:&lt;/b&gt; module.ini に書かれた brf、&lt;u&gt;%1&lt;/u&gt; が見つかりません</translation>
     </message>
     <message>
         <location filename="../iniData.cpp" line="1515"/>
-        <source>&lt;b&gt;File-Format Error:&lt;/b&gt; could not read brf file &lt;u&gt;%1&lt;/u&gt;</source>
-        <translation>&lt;b&gt;ファイル形式エラー:&lt;/b&gt; brf ファイル &lt;u&gt;%1&lt;/u&gt; を読めませんでした</translation>
+        <source>&lt;b&gt;File-Format Error:&lt;/b&gt; could not read BRF file &lt;u&gt;%1&lt;/u&gt;</source>
+        <translation>&lt;b&gt;ファイル形式エラー:&lt;/b&gt; BRF ファイル &lt;u&gt;%1&lt;/u&gt; を読めませんでした</translation>
     </message>
 </context>
 <context>

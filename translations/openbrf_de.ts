@@ -63,7 +63,7 @@
     <message>
         <location filename="../askCreaseDialog.ui" line="14"/>
         <source>OpenBRF</source>
-        <translation>Öffne Brf</translation>
+        <translation>OpenBRF</translation>
     </message>
     <message>
         <location filename="../askCreaseDialog.ui" line="64"/>
@@ -3390,8 +3390,8 @@ to add a frame to.</source>
     </message>
     <message>
         <location filename="../main_create.cpp" line="669"/>
-        <source>Reload ini files, brf files inside it, and dds textures</source>
-        <translation>Lade alle ini Dateien, brf Dateien, sowie  dds Texturen neu</translation>
+        <source>Reload INI files, BRF files inside it, and dds textures</source>
+        <translation>Lade alle INI Dateien, BRF Dateien, sowie  dds Texturen neu</translation>
     </message>
     <message>
         <location filename="../main_create.cpp" line="670"/>
@@ -3444,8 +3444,8 @@ to add a frame to.</source>
     </message>
     <message>
         <location filename="../main_create.cpp" line="694"/>
-        <source>Scan module.ini and included brf files for inconsistencies.</source>
-        <translation>Prüfe module.ini und brf-Dateien auf Unstimmigkeiten</translation>
+        <source>Scan module.ini and included BRF files for inconsistencies.</source>
+        <translation>Prüfe module.ini und BRF-Dateien auf Unstimmigkeiten</translation>
     </message>
     <message>
         <location filename="../main_create.cpp" line="696"/>
@@ -3463,8 +3463,8 @@ to add a frame to.</source>
     </message>
     <message>
         <location filename="../main_create.cpp" line="698"/>
-        <source>Look for an object in all brf listed inside current module.ini.</source>
-        <translation>Suche nach einem Objekt in allen in current module.ini aufgelisteten brf Dateien.</translation>
+        <source>Look for an object in all BRF listed inside current module.ini.</source>
+        <translation>Suche nach einem Objekt in allen in current module.ini aufgelisteten BRF Dateien.</translation>
     </message>
     <message>
         <source>Select a BRF in module</source>
@@ -3487,8 +3487,8 @@ to add a frame to.</source>
     </message>
     <message>
         <location filename="../main_create.cpp" line="704"/>
-        <source>Show texture files non referenced in any brf</source>
-        <translation>Zeige Texturedateien, welche in allen brf&apos;s unreferenziert sind</translation>
+        <source>Show texture files non referenced in any BRF</source>
+        <translation>Zeige Texturedateien, welche in allen BRF&apos;s unreferenziert sind</translation>
     </message>
     <message>
         <location filename="../main_create.cpp" line="706"/>
@@ -3512,8 +3512,8 @@ to add a frame to.</source>
     </message>
     <message>
         <location filename="../main_create.cpp" line="737"/>
-        <source>Make so that clicking on a brf file opens OpenBRF.</source>
-        <translation>Setze OpenBRF als Standardprogramm für brf-Dateien.</translation>
+        <source>Make so that clicking on a BRF file opens OpenBRF.</source>
+        <translation>Setze OpenBRF als Standardprogramm für BRF-Dateien.</translation>
     </message>
     <message>
         <location filename="../main_create.cpp" line="752"/>
@@ -3730,13 +3730,13 @@ to add a frame to.</source>
     </message>
     <message>
         <location filename="../main_info.cpp" line="198"/>
-        <source>I&apos;ve scanned in all file &quot;%1&quot; and didn&apos;t find a &lt;i&gt;load_mod_resource&lt;/i&gt; or &lt;i&gt;load_resource&lt;/i&gt; command that pointed me to a brf file that contained any such material</source>
-        <translation>Ich habe alle Dateien überprüft &quot;%1&quot; aber konnte dies nicht finden &lt;i&gt;load_mod_resource&lt;/i&gt; oder &lt;i&gt;load_resource&lt;/i&gt; Befehl, der mir eine brf-Datei mit irgend so einem Material zeigte</translation>
+        <source>I&apos;ve scanned in all file &quot;%1&quot; and didn&apos;t find a &lt;i&gt;load_mod_resource&lt;/i&gt; or &lt;i&gt;load_resource&lt;/i&gt; command that pointed me to a BRF file that contained any such material</source>
+        <translation>Ich habe alle Dateien überprüft &quot;%1&quot; aber konnte dies nicht finden &lt;i&gt;load_mod_resource&lt;/i&gt; oder &lt;i&gt;load_resource&lt;/i&gt; Befehl, der mir eine BRF-Datei mit irgend so einem Material zeigte</translation>
     </message>
     <message>
         <location filename="../main_info.cpp" line="201"/>
-        <source>&lt;br&gt;- double check material name of the mesh&lt;br&gt;&lt;b&gt;or&lt;/b&gt;&lt;br&gt;- find the brf-file with the material, or create one&lt;br&gt;- add a line &lt;i&gt;load_&lt;b&gt;mod&lt;/b&gt;_resource&lt;/i&gt; in module.ini, with a text editor,&lt;br&gt;- (note the &lt;i&gt;mod&lt;/i&gt; part)!&lt;br&gt;- save module.ini&lt;br&gt;- come back, and refresh Module [f5]</source>
-        <translation>&lt;br&gt;- Überprüfe Materialname des Strukturgitters&lt;br&gt;&lt;b&gt;or&lt;/b&gt;&lt;br&gt;- Lokalisiere die brf-Datei mit dem Material, oder erstelle eins&lt;br&gt;- füge eine Zeile hinzu &lt;i&gt;load_&lt;b&gt;mod&lt;/b&gt;_resource&lt;/i&gt; in module.ini, mit einem Texteditor,&lt;br&gt;- (Achte auf den &lt;i&gt;mod&lt;/i&gt; Teil)!&lt;br&gt;- Speichere module.ini&lt;br&gt;- komme zurück und aktualisiere das Modul [f5]</translation>
+        <source>&lt;br&gt;- double check material name of the mesh&lt;br&gt;&lt;b&gt;or&lt;/b&gt;&lt;br&gt;- find the BRF-file with the material, or create one&lt;br&gt;- add a line &lt;i&gt;load_&lt;b&gt;mod&lt;/b&gt;_resource&lt;/i&gt; in module.ini, with a text editor,&lt;br&gt;- (note the &lt;i&gt;mod&lt;/i&gt; part)!&lt;br&gt;- save module.ini&lt;br&gt;- come back, and refresh Module [f5]</source>
+        <translation>&lt;br&gt;- Überprüfe Materialname des Strukturgitters&lt;br&gt;&lt;b&gt;or&lt;/b&gt;&lt;br&gt;- Lokalisiere die BRF-Datei mit dem Material, oder erstelle eins&lt;br&gt;- füge eine Zeile hinzu &lt;i&gt;load_&lt;b&gt;mod&lt;/b&gt;_resource&lt;/i&gt; in module.ini, mit einem Texteditor,&lt;br&gt;- (Achte auf den &lt;i&gt;mod&lt;/i&gt; Teil)!&lt;br&gt;- Speichere module.ini&lt;br&gt;- komme zurück und aktualisiere das Modul [f5]</translation>
     </message>
     <message>
         <location filename="../main_info.cpp" line="211"/>
@@ -4414,8 +4414,8 @@ Sind Sie sicher?</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="5048"/>
-        <source>%5 %1 brf files from module.ini of &quot;%3&quot;-- %2 msec total [%4 text/mat/shad]</source>
-        <translation>%5 %1 brf-Dateien von module.ini von &quot;%3&quot;-- %2 msec total [%4 Text/Mat/Shat]</translation>
+        <source>%5 %1 BRF files from module.ini of &quot;%3&quot;-- %2 msec total [%4 text/mat/shad]</source>
+        <translation>%5 %1 BRF-Dateien von module.ini von &quot;%3&quot;-- %2 msec total [%4 Text/Mat/Shat]</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="5050"/>
@@ -4826,13 +4826,13 @@ in Zeile %3:
     </message>
     <message>
         <location filename="../iniData.cpp" line="1512"/>
-        <source>&lt;b&gt;File-Not-Found:&lt;/b&gt; could not read brf file &lt;u&gt;%1&lt;/u&gt;, listed in module.ini file</source>
-        <translation>&lt;b&gt;Datei-Nicht-Gefunden:&lt;/b&gt; Kann brf-Datei nicht lesen &lt;u&gt;%1&lt;/u&gt;, aufgelistet in der module.ini Datei</translation>
+        <source>&lt;b&gt;File-Not-Found:&lt;/b&gt; could not read BRF file &lt;u&gt;%1&lt;/u&gt;, listed in module.ini file</source>
+        <translation>&lt;b&gt;Datei-Nicht-Gefunden:&lt;/b&gt; Kann BRF-Datei nicht lesen &lt;u&gt;%1&lt;/u&gt;, aufgelistet in der module.ini Datei</translation>
     </message>
     <message>
         <location filename="../iniData.cpp" line="1515"/>
-        <source>&lt;b&gt;File-Format Error:&lt;/b&gt; could not read brf file &lt;u&gt;%1&lt;/u&gt;</source>
-        <translation>&lt;b&gt;Datei-Formatfehler:&lt;/b&gt; Konnte die brf-Datei nicht lesen &lt;u&gt;%1&lt;/u&gt;</translation>
+        <source>&lt;b&gt;File-Format Error:&lt;/b&gt; could not read BRF file &lt;u&gt;%1&lt;/u&gt;</source>
+        <translation>&lt;b&gt;Datei-Formatfehler:&lt;/b&gt; Konnte die BRF-Datei nicht lesen &lt;u&gt;%1&lt;/u&gt;</translation>
     </message>
 </context>
 <context>

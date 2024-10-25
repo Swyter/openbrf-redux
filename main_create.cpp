@@ -666,7 +666,7 @@ void MainWindow::createActions()
 	searchBrfAct = new QAction(tr("Find..."),this);
 	searchBrfAct->setShortcut(tr("ctrl+F"));
 	refreshIniAct = new QAction(tr("Refresh all"),this);
-	refreshIniAct->setStatusTip(tr("Reload ini files, brf files inside it, and dds textures"));
+	refreshIniAct->setStatusTip(tr("Reload INI files, BRF files inside it, and dds textures"));
 	refreshIniAct->setShortcut(tr("F5"));
 	computeUsedByAct = new QAction(tr("Scan module for usages"),this);
 	computeUsedByAct->setStatusTip(tr("Scans module content and txt files, to compute what uses what"));
@@ -691,17 +691,17 @@ void MainWindow::createActions()
 
 	checkIniAct = new QAction(tr("Scan module for errors"),this);
 	checkIniAct->setShortcut(tr("ctrl+E"));
-	checkIniAct->setStatusTip(tr("Scan module.ini and included brf files for inconsistencies."));
+	checkIniAct->setStatusTip(tr("Scan module.ini and included BRF files for inconsistencies."));
 
 	searchIniAct = new QAction(tr("Find in module..."),this);
 	searchIniAct->setShortcut(tr("ctrl+F"));
-	searchIniAct->setStatusTip(tr("Look for an object in all brf listed inside current module.ini."));
+	searchIniAct->setStatusTip(tr("Look for an object in all BRF listed inside current module.ini."));
 
 	selectBrfDataAct = new QAction(tr("Select a BRF in module..."),this);
 	selectBrfDataAct->setStatusTip(tr("Select a BRF file of this module."));
 	selectBrfDataAct->setShortcut(tr("F7"));
 	showUnrefTexturesAct = new QAction(tr("Show unreferenced texture files"),this);
-	showUnrefTexturesAct->setStatusTip(tr("Show texture files non referenced in any brf"));
+	showUnrefTexturesAct->setStatusTip(tr("Show texture files non referenced in any BRF"));
 
 	showModuleStatsAct = new QAction(tr("Show module stats"),this);
 	showModuleStatsAct->setStatusTip(tr("Show statistics for current Module"));
@@ -734,7 +734,7 @@ void MainWindow::createActions()
 	connect(extraShortcut, SIGNAL(activated()), repeatLastCommandAct, SLOT(trigger()));
 
 	registerMime = new QAction(tr("Register BRF extension"),this);
-	registerMime->setStatusTip(tr("Make so that clicking on a brf file opens OpenBRF."));
+	registerMime->setStatusTip(tr("Make so that clicking on a BRF file opens OpenBRF."));
 	connect(registerMime, SIGNAL(triggered()), this, SLOT(registerExtension()));
 
 

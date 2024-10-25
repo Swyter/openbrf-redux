@@ -493,7 +493,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location line="+19"/>
         <source>Size and Pos:</source>
-        <translation>Tamaño y Posición:</translation>
+        <translation>Tamaño y posición:</translation>
     </message>
     <message>
         <location line="+15"/>
@@ -520,7 +520,7 @@ corner: </source>
     <message>
         <location line="+218"/>
         <source>Actual pixels</source>
-        <translation>Pixeles reales</translation>
+        <translation>Píxeles reales</translation>
     </message>
     <message>
         <source>Center</source>
@@ -546,12 +546,12 @@ de 1024x768</translation>
     <message>
         <location line="+19"/>
         <source>Set fullscreen</source>
-        <translation>Pantalla Completa</translation>
+        <translation>Pantalla completa</translation>
     </message>
     <message>
         <location line="+19"/>
         <source>Picture name:</source>
-        <translation>Nombre de Imagen:</translation>
+        <translation>Nombre de imagen:</translation>
     </message>
     <message>
         <location line="+12"/>
@@ -561,7 +561,7 @@ de 1024x768</translation>
     <message>
         <location line="+24"/>
         <source>Overlay mode:</source>
-        <translation>Modo de Superposición:</translation>
+        <translation>Modo de superposición:</translation>
     </message>
     <message>
         <location line="+12"/>
@@ -947,7 +947,7 @@ Ni siquiera serán cargadas por el juego...</translation>
 <context>
     <name>BrfType</name>
     <message>
-        <location filename="../mainwindow.cpp" line="+1458"/>
+        <location filename="../mainwindow.cpp" line="+1464"/>
         <source>Cannot merge these meshes
  (different number of frames,
  or skinned VS not skinned).
@@ -1955,7 +1955,7 @@ zar</translation>
     <message>
         <location line="-2888"/>
         <source>Mesh flags</source>
-        <translation>Indicadores de Modelo</translation>
+        <translation>Indicadores de modelo</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -2087,12 +2087,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location line="+35"/>
         <source>Shader flags (no known meaning).</source>
-        <translation>Indicadores del sombreador (Significado desconocido)</translation>
+        <translation>Indicadores del sombreador (significado desconocido)</translation>
     </message>
     <message>
         <location line="+22"/>
         <source>Specify if a DDX version is required here</source>
-        <translation>Especifica si se requiere una versión de DDX</translation>
+        <translation>Especifica si se necesita una versión de DDX</translation>
     </message>
     <message>
         <location line="+16"/>
@@ -2192,7 +2192,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>&lt;b&gt;File-not-found:&lt;/b&gt; can&apos;t find texture file for %1.</source>
-        <translation type="obsolete">&lt;b&gt;Archivo no Encontrado:&lt;/b&gt; no se encuentra la textura de %1.</translation>
+        <translation type="obsolete">&lt;b&gt;Archivo no encontrado:&lt;/b&gt; no se encuentra la textura de %1.</translation>
     </message>
     <message>
         <source>&lt;b&gt;Duplicate:&lt;/b&gt; %1 was already defined in file %2</source>
@@ -2204,7 +2204,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>&lt;b&gt;Ordering problem:&lt;/b&gt; %1 uses %2, which appears later in &lt;i&gt;module.ini&lt;/i&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Problema de Ordenación:&lt;/b&gt; %1 usa %2, que aparece después de este en &lt;i&gt;module.ini&lt;/i&gt;</translation>
+        <translation type="obsolete">&lt;b&gt;Problema de ordenación:&lt;/b&gt; %1 usa %2, que aparece después de este en &lt;i&gt;module.ini&lt;/i&gt;</translation>
     </message>
     <message>
         <source>&lt;h1&gt;Module &lt;b&gt;%1&lt;/b&gt;&lt;/h1&gt;</source>
@@ -2212,7 +2212,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>&lt;h2&gt;Original BRF files: %1&lt;/h2&gt;</source>
-        <translation type="obsolete">&lt;h2&gt;Archivos BRF Originales: %1&lt;/h2&gt;</translation>
+        <translation type="obsolete">&lt;h2&gt;Archivos BRF originales: %1&lt;/h2&gt;</translation>
     </message>
     <message>
         <source>&lt;h2&gt;CommonRes BRF files: %1&lt;/h2&gt;</source>
@@ -2235,12 +2235,12 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">&lt;b&gt;Ausente en txt:&lt;/b&gt; no se encuentra %1 &lt;u&gt;%2&lt;/u&gt;, definido en &apos;%3&apos;</translation>
     </message>
     <message>
-        <source>&lt;b&gt;File-Not-Found:&lt;/b&gt; could not read brf file &lt;u&gt;%1&lt;/u&gt;, listed in module.ini file</source>
-        <translation type="obsolete">&lt;b&gt;Archivo no Encontrado:&lt;/b&gt; no se puede leer el archivo brf &lt;u&gt;%1&lt;/u&gt;, listado en module.ini</translation>
+        <source>&lt;b&gt;File-Not-Found:&lt;/b&gt; could not read BRF file &lt;u&gt;%1&lt;/u&gt;, listed in module.ini file</source>
+        <translation type="obsolete">&lt;b&gt;Archivo no encontrado:&lt;/b&gt; no se puede leer el archivo BRF &lt;u&gt;%1&lt;/u&gt;, listado en module.ini</translation>
     </message>
     <message>
-        <source>&lt;b&gt;File-Format Error:&lt;/b&gt; could not read brf file &lt;u&gt;%1&lt;/u&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Error de Formato de Archivo:&lt;/b&gt; no se puede leer el archivo brf &lt;u&gt;%1&lt;/u&gt;</translation>
+        <source>&lt;b&gt;File-Format Error:&lt;/b&gt; could not read BRF file &lt;u&gt;%1&lt;/u&gt;</source>
+        <translation type="obsolete">&lt;b&gt;Error de Formato de archivo:&lt;/b&gt; no se puede leer el archivo BRF &lt;u&gt;%1&lt;/u&gt;</translation>
     </message>
 </context>
 <context>
@@ -2259,7 +2259,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../main_ImpExp.cpp" line="+22"/>
         <source>Select Module folder</source>
-        <translation>Selecciona una Carpeta de Módulo</translation>
+        <translation>Selecciona una carpeta de módulo</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -2559,7 +2559,7 @@ al que añadir un fotograma o cuadro.</translation>
     </message>
     <message>
         <location line="+10"/>
-        <location filename="../mainwindow.cpp" line="+1597"/>
+        <location filename="../mainwindow.cpp" line="+1596"/>
         <source>Vertex number mismatch... using texture-coord matching instead of vertex-ordering</source>
         <translation>El número de vértices no concuerda... se usarán las coordenadas de textura para ordenarlos.</translation>
     </message>
@@ -3650,13 +3650,13 @@ al que añadir un fotograma o cuadro.</translation>
         <translation>Seleccionar un BRF en el módulo...</translation>
     </message>
     <message>
-        <source>Refresh ini</source>
+        <source>Refresh INI</source>
         <translation type="obsolete">Recargar INI</translation>
     </message>
     <message>
         <location line="-31"/>
-        <source>Reload ini files, brf files inside it, and dds textures</source>
-        <translation>Racarga los archivos ini, con sus respectivos BRF y, a su vez, sus texturas</translation>
+        <source>Reload INI files, BRF files inside it, and dds textures</source>
+        <translation>Racarga los archivos INI, con sus respectivos BRF y, a su vez, sus texturas</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3734,8 +3734,8 @@ al que añadir un fotograma o cuadro.</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Scan module.ini and included brf files for inconsistencies.</source>
-        <translation>Escanea module.ini y todas las inconsistencias relacionadas.</translation>
+        <source>Scan module.ini and included BRF files for inconsistencies.</source>
+        <translation>Escanea module.ini y todas las inconsistencias relacionadas con los BRF incluidos.</translation>
     </message>
     <message>
         <source>Find in module</source>
@@ -3743,7 +3743,7 @@ al que añadir un fotograma o cuadro.</translation>
     </message>
     <message>
         <location line="+4"/>
-        <source>Look for an object in all brf listed inside current module.ini.</source>
+        <source>Look for an object in all BRF listed inside current module.ini.</source>
         <translation>Encuentra lo que estés buscando en cualquier archivo del juego.</translation>
     </message>
     <message>
@@ -3767,7 +3767,7 @@ al que añadir un fotograma o cuadro.</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Show texture files non referenced in any brf</source>
+        <source>Show texture files non referenced in any BRF</source>
         <translation>Muestra las texturas dentro del módulo que no carga el juego</translation>
     </message>
     <message>
@@ -3792,8 +3792,8 @@ al que añadir un fotograma o cuadro.</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Make so that clicking on a brf file opens OpenBRF.</source>
-        <translation>Vincula los archivos BRF con este programa, con lo que se pueden abrir directamente.</translation>
+        <source>Make so that clicking on a BRF file opens OpenBRF.</source>
+        <translation>Vincula los archivos BRF con este programa y ábrelos directamente.</translation>
     </message>
     <message>
         <location line="+15"/>
@@ -3803,7 +3803,7 @@ al que añadir un fotograma o cuadro.</translation>
     <message>
         <location line="+1"/>
         <source>Default mode: rotate objects with mouse, zoom in/out with wheel.</source>
-        <translation>Modo Normal: rota objetos con el ratón, y acerca/aleja con la rueda del ratón.</translation>
+        <translation>Modo normal: gira objetos con el ratón, y acerca/aleja con la rueda de desplazamiento.</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3813,7 +3813,7 @@ al que añadir un fotograma o cuadro.</translation>
     <message>
         <location line="+1"/>
         <source>Helmet mode: for objects with vertical Z axis, like M&amp;B helmets or weapons.</source>
-        <translation>Modo Casco: para objetos con eje Z vertical, como los cascos o las armas del juego.</translation>
+        <translation>Modo casco: para objetos con eje Z vertical, como los cascos o las armas del juego.</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3823,7 +3823,7 @@ al que añadir un fotograma o cuadro.</translation>
     <message>
         <location line="+1"/>
         <source>Scene mode: navigate with mouse and WASD (levitate with wheel, zoom with shift)</source>
-        <translation>Modo Escena: navega mediante el ratón y WASD (levita utilizando la rueda, y mayús para acercar/alejar)</translation>
+        <translation>Modo escena: navega con el ratón y WASD (levita utilizando la rueda, y Mayús para acercar/alejar)</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -4028,13 +4028,13 @@ al que añadir un fotograma o cuadro.</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>I&apos;ve scanned in all file &quot;%1&quot; and didn&apos;t find a &lt;i&gt;load_mod_resource&lt;/i&gt; or &lt;i&gt;load_resource&lt;/i&gt; command that pointed me to a brf file that contained any such material</source>
-        <translation>He escaneado en el archivo &quot;%1&quot; y no he encontrado un comando &lt;i&gt;load_mod_resource&lt;/i&gt; o &lt;i&gt;load_resource&lt;/i&gt; que me muestre un archivo brf en el que pueda encontrarse ese material</translation>
+        <source>I&apos;ve scanned in all file &quot;%1&quot; and didn&apos;t find a &lt;i&gt;load_mod_resource&lt;/i&gt; or &lt;i&gt;load_resource&lt;/i&gt; command that pointed me to a BRF file that contained any such material</source>
+        <translation>He escaneado en el archivo &quot;%1&quot; y no he encontrado un comando &lt;i&gt;load_mod_resource&lt;/i&gt; o &lt;i&gt;load_resource&lt;/i&gt; que me muestre un archivo BRF en el que pueda encontrarse ese material</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&lt;br&gt;- double check material name of the mesh&lt;br&gt;&lt;b&gt;or&lt;/b&gt;&lt;br&gt;- find the brf-file with the material, or create one&lt;br&gt;- add a line &lt;i&gt;load_&lt;b&gt;mod&lt;/b&gt;_resource&lt;/i&gt; in module.ini, with a text editor,&lt;br&gt;- (note the &lt;i&gt;mod&lt;/i&gt; part)!&lt;br&gt;- save module.ini&lt;br&gt;- come back, and refresh Module [f5]</source>
-        <translation>&lt;br&gt;- Cerciórate de que has escrito bien el nombre del material.&lt;br&gt;&lt;b&gt;o&lt;/b&gt;&lt;br&gt;- Busca el BRF con el material , o crea uno.&lt;br&gt;- Añade una línea &lt;i&gt;load_&lt;b&gt;mod&lt;/b&gt;_resource&lt;/i&gt; en module.ini, con un editor de texto como Notepad ++&lt;br&gt;- (¡atención a la parte de  &lt;i&gt;mod&lt;/i&gt;!)&lt;br&gt;- Guarda el archivo module.ini&lt;br&gt;- Vuelve y recarga el módulo [f5]</translation>
+        <source>&lt;br&gt;- double check material name of the mesh&lt;br&gt;&lt;b&gt;or&lt;/b&gt;&lt;br&gt;- find the BRF-file with the material, or create one&lt;br&gt;- add a line &lt;i&gt;load_&lt;b&gt;mod&lt;/b&gt;_resource&lt;/i&gt; in module.ini, with a text editor,&lt;br&gt;- (note the &lt;i&gt;mod&lt;/i&gt; part)!&lt;br&gt;- save module.ini&lt;br&gt;- come back, and refresh Module [f5]</source>
+        <translation>&lt;br&gt;- Cerciórate de que has escrito bien el nombre del material.&lt;br&gt;&lt;b&gt;o&lt;/b&gt;&lt;br&gt;- Busca el BRF con el material, o crea uno.&lt;br&gt;- Añade una línea &lt;i&gt;load_&lt;b&gt;mod&lt;/b&gt;_resource&lt;/i&gt; en module.ini, con un editor de texto como Notepad ++&lt;br&gt;- (¡atención a la parte de  &lt;i&gt;mod&lt;/i&gt;!)&lt;br&gt;- Guarda el archivo module.ini&lt;br&gt;- Vuelve y recarga el módulo [f5]</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -4069,19 +4069,19 @@ al que añadir un fotograma o cuadro.</translation>
         <translation>&lt;i&gt;No puedo mostrar la textura real porque:&lt;/i&gt;&lt;br&gt;&lt;b&gt;%1&lt;/b&gt;&lt;br&gt;&lt;br&gt;%2&lt;br&gt;&lt;br&gt;&lt;b&gt;Solución: &lt;/b&gt;%3</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="-3280"/>
-        <location line="+1297"/>
+        <location filename="../mainwindow.cpp" line="-3285"/>
+        <location line="+1303"/>
         <location line="+302"/>
         <location line="+24"/>
         <location line="+1161"/>
         <location line="+12"/>
-        <location line="+643"/>
+        <location line="+642"/>
         <location line="+1813"/>
         <source>OpenBrf</source>
         <translation>OpenBRF</translation>
     </message>
     <message>
-        <location line="-5251"/>
+        <location line="-5256"/>
         <source>%1 been modified.
 Save changes?</source>
         <translation>%1 ha sido modificado.
@@ -4137,7 +4137,7 @@ Save changes?</source>
         <translation>Asignar indicador(es) a &quot;%1&quot;</translation>
     </message>
     <message>
-        <location line="+171"/>
+        <location line="+177"/>
         <source>Stop editing reference data</source>
         <translation>Detener la edición de datos de referencia</translation>
     </message>
@@ -4410,7 +4410,7 @@ Escribe el nuevo aquí:</translation>
 (funciona mejor si los modelos de origen y destino se parecen)</translation>
     </message>
     <message>
-        <location line="+480"/>
+        <location line="+479"/>
         <source>Vertex number mismatch... using texture-coord matching instead</source>
         <translation>El número de vértices no concuerda... se usarán las coordenadas de textura para ordenarlos.</translation>
     </message>
@@ -4602,8 +4602,8 @@ Las direcciones tangentes no se guardarán...</translation>
     </message>
     <message>
         <location line="+331"/>
-        <source>%5 %1 brf files from module.ini of &quot;%3&quot;-- %2 msec total [%4 text/mat/shad]</source>
-        <translation>%5 %1 archivos brf en module.ini de &quot;%3&quot;-- %2 msec en total [%4 text/mat/sombread]</translation>
+        <source>%5 %1 BRF files from module.ini of &quot;%3&quot;-- %2 msec total [%4 text/mat/shad]</source>
+        <translation>%5 %1 archivos BRF en module.ini de &quot;%3&quot;-- %2 msec en total [%4 text/mat/sombread]</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -4802,7 +4802,7 @@ Las direcciones tangentes no se guardarán...</translation>
         <translation>Indicadores de textura</translation>
     </message>
     <message>
-        <location line="-5647"/>
+        <location line="-5652"/>
         <source>Skeleton hitboxes have been modified.&lt;br/&gt;Save changes in /Data/skeleton_bodies.xml?</source>
         <translation>Los cuerpos de colisión han sido modificados. &lt;br/&gt;¿Guardar cambios en /Data/skeleton_bodies.xml?</translation>
     </message>
@@ -4851,7 +4851,7 @@ archivo %2
 </translation>
     </message>
     <message>
-        <location line="+1044"/>
+        <location line="+1050"/>
         <source>Select a skeleton
 in the view panel first</source>
         <translation>Primero tienes que seleccionar
@@ -5049,7 +5049,7 @@ en el portapapeles.
         <translation>No se ha encontrado ningún modelo de «prop»</translation>
     </message>
     <message>
-        <location line="+131"/>
+        <location line="+130"/>
         <source>Copy Skinning into another mesh</source>
         <translation>Copiar vinculación esquetal a otro modelo</translation>
     </message>
@@ -5591,13 +5591,13 @@ en la línea %3:
     </message>
     <message>
         <location line="+706"/>
-        <source>&lt;b&gt;File-Not-Found:&lt;/b&gt; could not read brf file &lt;u&gt;%1&lt;/u&gt;, listed in module.ini file</source>
-        <translation>&lt;b&gt;Archivo no encontrado:&lt;/b&gt; no se puede leer el archivo brf &lt;u&gt;%1&lt;/u&gt;, listado en module.ini</translation>
+        <source>&lt;b&gt;File-Not-Found:&lt;/b&gt; could not read BRF file &lt;u&gt;%1&lt;/u&gt;, listed in module.ini file</source>
+        <translation>&lt;b&gt;Archivo no encontrado:&lt;/b&gt; no se puede leer el archivo BRF &lt;u&gt;%1&lt;/u&gt;, listado en module.ini</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&lt;b&gt;File-Format Error:&lt;/b&gt; could not read brf file &lt;u&gt;%1&lt;/u&gt;</source>
-        <translation>&lt;b&gt;Error de formato:&lt;/b&gt;no se ha podido leer el archivo brf &lt;u&gt;%1&lt;/u&gt;</translation>
+        <source>&lt;b&gt;File-Format Error:&lt;/b&gt; could not read BRF file &lt;u&gt;%1&lt;/u&gt;</source>
+        <translation>&lt;b&gt;Error de formato:&lt;/b&gt;no se ha podido leer el archivo BRF &lt;u&gt;%1&lt;/u&gt;</translation>
     </message>
 </context>
 <context>
@@ -6696,7 +6696,7 @@ en la línea %3:
 <context>
     <name>TT</name>
     <message>
-        <location filename="../mainwindow.cpp" line="-4832"/>
+        <location filename="../mainwindow.cpp" line="-4831"/>
         <source>new_%1</source>
         <translation>nuevo_%1</translation>
     </message>

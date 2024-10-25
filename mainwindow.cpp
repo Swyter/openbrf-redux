@@ -5050,7 +5050,7 @@ bool MainWindow::loadIni(int lvl){
 
 	bool res = inidata.loadAll(lvl); // if lvl == 2 only tex mat etc
 
-	statusBar()->showMessage( tr("%5 %1 brf files from module.ini of \"%3\"-- %2 msec total [%4 text/mat/shad]").
+	statusBar()->showMessage( tr("%5 %1 BRF files from module.ini of \"%3\"-- %2 msec total [%4 text/mat/shad]").
 	                          arg(inidata.file.size()).arg(qtime.elapsed()).arg(modName).arg(inidata.nRefObjects())
 	                          .arg((res)?tr("scanned"):tr("ERRORS found while scanning")),6000);
 

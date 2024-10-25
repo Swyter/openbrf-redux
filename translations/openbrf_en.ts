@@ -2779,7 +2779,7 @@ to add a frame to.</source>
     </message>
     <message>
         <location filename="../main_create.cpp" line="669"/>
-        <source>Reload ini files, brf files inside it, and dds textures</source>
+        <source>Reload INI files, BRF files inside it, and dds textures</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2829,7 +2829,7 @@ to add a frame to.</source>
     </message>
     <message>
         <location filename="../main_create.cpp" line="694"/>
-        <source>Scan module.ini and included brf files for inconsistencies.</source>
+        <source>Scan module.ini and included BRF files for inconsistencies.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2844,7 +2844,7 @@ to add a frame to.</source>
     </message>
     <message>
         <location filename="../main_create.cpp" line="698"/>
-        <source>Look for an object in all brf listed inside current module.ini.</source>
+        <source>Look for an object in all BRF listed inside current module.ini.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3134,7 +3134,7 @@ to add a frame to.</source>
     </message>
     <message>
         <location filename="../main_create.cpp" line="704"/>
-        <source>Show texture files non referenced in any brf</source>
+        <source>Show texture files non referenced in any BRF</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3159,7 +3159,7 @@ to add a frame to.</source>
     </message>
     <message>
         <location filename="../main_create.cpp" line="737"/>
-        <source>Make so that clicking on a brf file opens OpenBRF.</source>
+        <source>Make so that clicking on a BRF file opens OpenBRF.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3381,12 +3381,12 @@ to add a frame to.</source>
     </message>
     <message>
         <location filename="../main_info.cpp" line="198"/>
-        <source>I&apos;ve scanned in all file &quot;%1&quot; and didn&apos;t find a &lt;i&gt;load_mod_resource&lt;/i&gt; or &lt;i&gt;load_resource&lt;/i&gt; command that pointed me to a brf file that contained any such material</source>
+        <source>I&apos;ve scanned in all file &quot;%1&quot; and didn&apos;t find a &lt;i&gt;load_mod_resource&lt;/i&gt; or &lt;i&gt;load_resource&lt;/i&gt; command that pointed me to a BRF file that contained any such material</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main_info.cpp" line="201"/>
-        <source>&lt;br&gt;- double check material name of the mesh&lt;br&gt;&lt;b&gt;or&lt;/b&gt;&lt;br&gt;- find the brf-file with the material, or create one&lt;br&gt;- add a line &lt;i&gt;load_&lt;b&gt;mod&lt;/b&gt;_resource&lt;/i&gt; in module.ini, with a text editor,&lt;br&gt;- (note the &lt;i&gt;mod&lt;/i&gt; part)!&lt;br&gt;- save module.ini&lt;br&gt;- come back, and refresh Module [f5]</source>
+        <source>&lt;br&gt;- double check material name of the mesh&lt;br&gt;&lt;b&gt;or&lt;/b&gt;&lt;br&gt;- find the BRF-file with the material, or create one&lt;br&gt;- add a line &lt;i&gt;load_&lt;b&gt;mod&lt;/b&gt;_resource&lt;/i&gt; in module.ini, with a text editor,&lt;br&gt;- (note the &lt;i&gt;mod&lt;/i&gt; part)!&lt;br&gt;- save module.ini&lt;br&gt;- come back, and refresh Module [f5]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3958,7 +3958,7 @@ Are you sure?</source>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="5048"/>
-        <source>%5 %1 brf files from module.ini of &quot;%3&quot;-- %2 msec total [%4 text/mat/shad]</source>
+        <source>%5 %1 BRF files from module.ini of &quot;%3&quot;-- %2 msec total [%4 text/mat/shad]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4332,12 +4332,12 @@ at line %3:
     </message>
     <message>
         <location filename="../iniData.cpp" line="1512"/>
-        <source>&lt;b&gt;File-Not-Found:&lt;/b&gt; could not read brf file &lt;u&gt;%1&lt;/u&gt;, listed in module.ini file</source>
+        <source>&lt;b&gt;File-Not-Found:&lt;/b&gt; could not read BRF file &lt;u&gt;%1&lt;/u&gt;, listed in module.ini file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../iniData.cpp" line="1515"/>
-        <source>&lt;b&gt;File-Format Error:&lt;/b&gt; could not read brf file &lt;u&gt;%1&lt;/u&gt;</source>
+        <source>&lt;b&gt;File-Format Error:&lt;/b&gt; could not read BRF file &lt;u&gt;%1&lt;/u&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -196,11 +196,11 @@ void MainWindow::aboutCheckboard(){
   case 1:
     mot = QString(tr("I don't know what the material <i>\"%1\"</i> is.")).arg(glWidget->lastMatErr.matName);
     longmot = QString(tr("I've scanned in all file \"%1\" and didn't find a "
-      "<i>load_mod_resource</i> or <i>load_resource</i> command that pointed me to a brf file "
+      "<i>load_mod_resource</i> or <i>load_resource</i> command that pointed me to a BRF file "
       "that contained any such material")).arg(mabPath+"/Modules/"+modName+"/module.ini");
     cure = QString(tr("<br>- double check material name of the mesh<br>"
                    "<b>or</b><br>"
-                   "- find the brf-file with the material, or create one<br>"
+                   "- find the BRF-file with the material, or create one<br>"
                    "- add a line <i>load_<b>mod</b>_resource</i> in module.ini, with a text editor,<br>"
                    "- (note the <i>mod</i> part)!<br>"
                    "- save module.ini<br>"
