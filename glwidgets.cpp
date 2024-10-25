@@ -965,54 +965,58 @@ void GLWidget::initDefaultTextures(){
 		for (int y=0; y<N; y++)
 			if ((x+y)%2) im.setPixel(QPoint(x,y),0xFFFFFFFF);
 			else im.setPixel(QPoint(x,y),0xFFAAAAFF);
-	checkboardTexture = bindTexture(im);
+	checkboardTexture = new QOpenGLTexture(im, QOpenGLTexture::GenerateMipMaps);
+	checkboardTexture->setMinMagFilters(QOpenGLTexture::NearestMipMapLinear, QOpenGLTexture::Nearest);
 	//glGetIntegerv(GL_TEXTURE_BINDING_2D, &checkboardTexture);
 
 	tw=th=16;
-	glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST);
-	glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST);
+	/* swy: was glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST); */
+	/* swy: was glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST); */
 
 
 	{
 		QImage im(1,1,QImage::Format_ARGB32);
 		im.setPixel(0,0,0xFFEEEEEE);
-		dummyRgbTexture = bindTexture(im);
-		glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST);
-		glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST);
+		dummyRgbTexture = new QOpenGLTexture(im, QOpenGLTexture::GenerateMipMaps);
+		dummyRgbTexture->setMinMagFilters(QOpenGLTexture::NearestMipMapLinear, QOpenGLTexture::Nearest);
+		/* swy: was glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST); */
+		/* swy: was glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST); */
 	}
 
 	{
 		QImage im(1,1,QImage::Format_ARGB32);
 		im.setPixel(0,0,0xFF000000);
-		dummySpecTexture = bindTexture(im);
-		glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST);
-		glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST);
+		dummySpecTexture = new QOpenGLTexture(im, QOpenGLTexture::GenerateMipMaps);
+		dummySpecTexture->setMinMagFilters(QOpenGLTexture::NearestMipMapLinear, QOpenGLTexture::Nearest);
+		/* swy: was glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST); */
+		/* swy: was glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST); */
 	}
 	{
 		QImage im(1,1,QImage::Format_ARGB32);
 		im.setPixel(0,0,0xFF8080FF); // normal 0,1,0
-		dummyNormTexture = bindTexture(im);
-		glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST);
-		glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST);
+		dummyNormTexture = new QOpenGLTexture(im, QOpenGLTexture::GenerateMipMaps);
+		dummyNormTexture->setMinMagFilters(QOpenGLTexture::NearestMipMapLinear, QOpenGLTexture::Nearest);
+		/* swy: was glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST); */
+		/* swy: was glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST); */
 	}
 
 }
 
 void GLWidget::setCheckboardTexture(){
-	glBindTexture( GL_TEXTURE_2D, checkboardTexture);
+	if (checkboardTexture) checkboardTexture->bind(QOpenGLTexture::BindingTarget2D); /* glBindTexture( GL_TEXTURE_2D, checkboardTexture); */
 }
 
 void GLWidget::setDummyRgbTexture(){
-	glBindTexture(GL_TEXTURE_2D, dummyRgbTexture );
+	if (dummyRgbTexture) dummyRgbTexture->bind(QOpenGLTexture::BindingTarget2D); /* glBindTexture(GL_TEXTURE_2D, dummyRgbTexture ); */
 }
 void GLWidget::setDummySpecTexture(){
 	glActiveTexture(GL_TEXTURE2);
-	glBindTexture(GL_TEXTURE_2D, dummySpecTexture );
+	if (dummySpecTexture) dummySpecTexture->bind(QOpenGLTexture::BindingTarget2D); /* glBindTexture(GL_TEXTURE_2D, dummySpecTexture ); */
 	glActiveTexture(GL_TEXTURE0);
 }
 void GLWidget::setDummyNormTexture(){
 	glActiveTexture(GL_TEXTURE1);
-	glBindTexture(GL_TEXTURE_2D, dummyNormTexture );
+	if (dummyNormTexture) dummyNormTexture->bind(QOpenGLTexture::BindingTarget2D); /* glBindTexture(GL_TEXTURE_2D, dummyNormTexture ); */
 	glActiveTexture(GL_TEXTURE0);
 	bumpmapActivated = true; bumpmapUsingGreen = false;
 }
