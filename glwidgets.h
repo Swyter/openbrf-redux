@@ -6,6 +6,7 @@
 #include <QOpenGLWidget>
 #include <QOpenGLTexture>
 #include <QOpenGLFunctions_2_0>
+#include <QOpenGLFunctions_3_0>
 
 #include <QtGui>
 #include "brfData.h"
@@ -36,7 +37,8 @@ struct ViewportData{
     int bestLod = 100;
 };
 
-class GLWidget : public QOpenGLWidget, protected QOpenGLFunctions_2_0
+
+class GLWidget : public QOpenGLWidget, protected QOpenGLFunctions_3_0
 {
 	Q_OBJECT
 	QSize minimumSizeHint() const;
@@ -155,6 +157,10 @@ public:
 	bool commonBBox;
 	bool inferMaterial;
 	bool useOpenGL2;
+
+	struct {
+		GLuint fbo, rb; GLsizei w, h;
+	} singleSampleFramebuffer = {0};
 
 	float runningSpeed;
 	int relTime; // msec, zeroed at stop.
