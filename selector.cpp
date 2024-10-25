@@ -49,8 +49,6 @@ Selector::Selector(QWidget *parent)
 		//tabIndex[i]=-1;
 	}
 	iniDataWaitsSaving = false;
-	someDoubleClickHappened = false; /* swy: keep track of any previous double click events that cause a selection change */
-
 
 	contextMenu = new QMenu(this);
 	connect(contextMenu, SIGNAL(triggered(QAction *)),parent, SLOT(onActionTriggered(QAction *)));
@@ -602,7 +600,6 @@ int Selector::numSelected() const{
 
 
 void Selector::updateData(const BrfData &data){
-	lastDoubleClickSel.clear();
 	setup(data);
 
 }
@@ -1132,22 +1129,15 @@ void Selector::onDoubleClicked(const QModelIndex & mi){
 	if (p!=-1) meshName.truncate(p);
 	QString meshNamePlusDot = meshName;
 	meshNamePlusDot.append('.');
-
-	/* swy: this was a local variable called QItemSelection newSel, but we need to store it to retrieve and compare ranges in Selector::OnChanged() */
-	lastDoubleClickIndex = mi;
-	lastDoubleClickSel.clear();       /* swy: start the selection from scratch, clear the data of any previous calls */
-	lastDoubleClickSel.select(mi,mi); /* swy: add the base element were we actually clicked */
+	QItemSelection newSel;
 
 	for (uint j=0; j<data->mesh.size(); j++) if (j!=(uint)i){
 		QString nameJ(data->mesh.at(j).name);
 		if ( (nameJ == meshName) || nameJ.startsWith(meshNamePlusDot) ) {
 			QModelIndex mj = tm->pleaseCreateIndex(j,0);
-			lastDoubleClickSel.select(mj,mj);
+			newSel.select(mj,mj);
+			m->select(newSel,QItemSelectionModel::ToggleCurrent);
 		}
-	}
-	if (!lastDoubleClickSel.isEmpty()) {
-		m->select(lastDoubleClickSel,QItemSelectionModel::ToggleCurrent); /* swy: this was QItemSelectionModel::Toggle, but using Ctrl/Shift while double-clicking ranges was bugged, even in original versions from Marco; leave only this range selected and clear anything else */
-		someDoubleClickHappened = true;                                   /* swy: make it possible to detect previous Selector::onDoubleClicked() calls from Selector::onChanged() */
 	}
 	//t->grabKeyboard();
 
@@ -1160,35 +1150,13 @@ void Selector::keyPressEvent(QKeyEvent * e){
 }
 
 void Selector::onChanged(){
-	qDebug("OnCHANGED?");
-
+	//qDebug("OnCHANGED?");
 	for(int ti=0; ti<N_TOKEN; ti++) if (tab[ti]) {
 		//if (tab[ti]) tab[ti]->clearSelection();
 		if (this->currentWidget()==tab[ti]) {
 			QItemSelectionModel * tmp = tab[ti]->selectionModel();
 			assert(tmp);
-#if 0 /* swy: hack seemingly no longer needed after the Qt6 upgrade; great! */
-			qDebug("OnCHANGED! (%d)",tmp->selectedIndexes().size());
-
-			/* swy: funky workaround to retain the multi-selection caused by a double right-click, that otherwise would get immediately resetted to a single element
-			        again by a spurious Qt event sent by that very last right-click in double-click; the funny thing is that if we right-click with the
-			        middle/mouse scroll button the bug doesn't happen, and in official OpenBRF builds with older Qt versions the behavior is different. */
-			if (someDoubleClickHappened)
-				if (tmp->selectedIndexes().size() == 1 && tmp->currentIndex() == lastDoubleClickIndex &&
-					tmp->selectedIndexes().size() != lastDoubleClickSel.size())
-				{
-					qDebug("swy: resetted selection back, protecting from spurious left-click event! (%d) != (%d)",tmp->selectedIndexes().size(), lastDoubleClickSel.size());
-					tmp->blockSignals(true); /* swy: we need to block signals while inside the onChanged() callback or we'll get infinite recursion, go figure */
-					tmp->select(lastDoubleClickSel, QItemSelectionModel::ToggleCurrent);
-					tmp->blockSignals(false);
-					someDoubleClickHappened = false;
-					return;
-				}
-				else
-				{
-					lastDoubleClickSel.clear();
-				}
-#endif
+			//qDebug("OnCHANGED! (%d)",tmp->selectedIndexes().size());
 
 			emit setSelection(
 			      tmp->selectedIndexes()
