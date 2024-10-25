@@ -4,6 +4,7 @@
 #define GLWIDGETS_H
 
 #include <QOpenGLWidget>
+#include <QOpenGLTexture>
 #include <QOpenGLFunctions_2_0>
 
 #include <QtGui>
@@ -304,7 +305,7 @@ private:
 
 	int viewmode;
 	int viewmodeMult;
-	int dummyRgbTexture, dummySpecTexture, dummyNormTexture, checkboardTexture;
+	QOpenGLTexture *dummyRgbTexture = NULL, *dummySpecTexture = NULL, *dummyNormTexture = NULL, *checkboardTexture = NULL;
 
 
 	float currViewmodeHelmet;
