@@ -8,7 +8,7 @@ QT += openglwidgets
 QT += xml
 QT += core5compat
 
-CONFIG += exceptions debug
+CONFIG += exceptions
 CONFIG += c++14
 
 
