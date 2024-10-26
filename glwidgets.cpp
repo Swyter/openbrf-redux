@@ -34,12 +34,12 @@ GLWidget::GLWidget(QWidget *parent, IniData &_inidata)
 {
 #if 1 /* swy: enable multisample antialiasing (MSAA) for less jaggies/softer triangle edges */
     QSurfaceFormat sf = format();
-	sf.setSamples(8);
+	sf.setSamples(4); /* swy: maybe MSAA x8 is asking for trouble? */
 	sf.setSwapBehavior(QSurfaceFormat::TripleBuffer);
 	sf.setSwapInterval(-1);
-	sf.setProfile(QSurfaceFormat::CompatibilityProfile);
-	sf.setMajorVersion(3);
-	sf.setMinorVersion(0);
+//	sf.setProfile(QSurfaceFormat::CompatibilityProfile); /* swy: some drivers like @kraggrim's Radeon (TM) RX 470 don't work with a compatibility profile, at least in GL 3.0/3.1 */
+//	sf.setMajorVersion(3);
+//	sf.setMinorVersion(0);
 	setFormat(sf);
 #endif
 
@@ -1715,6 +1715,17 @@ void GLWidget::initOpenGL2(){
 		qDebug("swy: GL_EXT_texture_filter_anisotropic is supported, with x%u taps...", maxSupportedTexAnisoTaps);
 	}
 
+	/* swy: here's a good example about why C++ is an overcomplicated mess that tries to helpfully save you time
+	        by being a pain in the rear and fails spectacularly; you can check for != but not for >= */
+	QOpenGLVersionProfile glProf(format()); QPair<int, int> r = glProf.version(); int glVersion = (r.first * 10) + r.second;
+
+	if (supportedExtensionsList.contains("GL_ARB_framebuffer_object") ||
+	    supportedExtensionsList.contains("GL_EXT_framebuffer_object") || glVersion >= 30)
+	{
+		qDebug("swy: GL_ARB_framebuffer_object / GL_EXT_framebuffer_object is supported... We can blit MSAA surfaces into a resolved buffer for the floating probe.");
+		frameBuffersAreSupported = true;
+	}
+
 	openGL2ready = true;
 
 	readCustomShaders();
@@ -2891,29 +2902,28 @@ void GLWidget::mouseClickEvent(QMouseEvent *e){
 	int y = height()-1-e->y();
 	if (!useFloatingProbe) return;
 #if 1 /* swy: if we use multisample antialiasing we can't pick the depth via glReadPixels() in unproject(), we need to make a "resolved" copy of it without MSAA */
-	GLsizei w = widthPix(), h = heightPix();
+	if (frameBuffersAreSupported)
+	{
+		GLsizei w = widthPix(), h = heightPix();
 
-	if (!singleSampleFramebuffer.fbo || singleSampleFramebuffer.w != w || singleSampleFramebuffer.h != h) {
-		GLuint fbo; glGenFramebuffers(1, &fbo); glBindFramebuffer(GL_FRAMEBUFFER, fbo);
-		GLuint rb; glGenRenderbuffers(1, &rb ); glBindRenderbuffer(GL_RENDERBUFFER, rb);
-	
-		glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT, w, h);
-		glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT,  GL_RENDERBUFFER, rb);
+		if (!singleSampleFramebuffer.fbo || singleSampleFramebuffer.w != w || singleSampleFramebuffer.h != h) { /* swy: hasn't been created yet? was the viewport been resized? */
+			GLuint fbo; glGenFramebuffers(1, &fbo);  glBindFramebuffer(GL_FRAMEBUFFER, fbo); /* swy: create the framebuffer and the actual depth buffer surface, no multisampling */
+			GLuint rb; glGenRenderbuffers(1, &rb ); glBindRenderbuffer(GL_RENDERBUFFER, rb);
+		
+			    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT, w, h); /* swy: attach the depth buffer surface to our framebuffer */
+			glFramebufferRenderbuffer(GL_FRAMEBUFFER,  GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, rb);
 
-		static volatile GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+			static volatile GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER); /* swy: save the width, height and IDs for future frames */
+			singleSampleFramebuffer = {fbo, rb, w, h, status};
+		}
 
-		singleSampleFramebuffer.fbo = fbo,
-		singleSampleFramebuffer.rb = rb,
-		singleSampleFramebuffer.w = w,
-		singleSampleFramebuffer.h = h;
+		glBindFramebuffer(GL_READ_FRAMEBUFFER, defaultFramebufferObject()); /* swy: copy the pixel data from the MSAA depth into the resolved (1 single sample) depth, so that we can grab the value and find the world position from that */
+		glBindFramebuffer(GL_DRAW_FRAMEBUFFER, singleSampleFramebuffer.fbo);
+		glBlitFramebuffer(0, 0, singleSampleFramebuffer.w, singleSampleFramebuffer.h,
+		                  0, 0, singleSampleFramebuffer.w, singleSampleFramebuffer.h, GL_DEPTH_BUFFER_BIT, GL_NEAREST);
+
+		glBindFramebuffer(GL_FRAMEBUFFER, singleSampleFramebuffer.fbo); /* swy: this marks the surface as not only active for write but for reading as well, deselects the default framebuffer completely */
 	}
-
-	glBindFramebuffer(GL_READ_FRAMEBUFFER, defaultFramebufferObject());
-	glBindFramebuffer(GL_DRAW_FRAMEBUFFER, singleSampleFramebuffer.fbo);
-	glBlitFramebuffer(0, 0, singleSampleFramebuffer.w, singleSampleFramebuffer.h,
-	                  0, 0, singleSampleFramebuffer.w, singleSampleFramebuffer.h, GL_DEPTH_BUFFER_BIT, GL_NEAREST);
-
-	glBindFramebuffer(GL_FRAMEBUFFER, singleSampleFramebuffer.fbo);
 #endif
 	for (int i=0; i<(int)camera.size(); i++){
 		GlCamera &c(camera[i]);
@@ -2937,12 +2947,13 @@ void GLWidget::mouseClickEvent(QMouseEvent *e){
 					      floatingProbe.Y()*100.0
 					      );
 				}
-				/* swy: update(); */
+				/* swy: was update(); */
 			}
 		}
 	}
 #if 1
-	glBindFramebuffer(GL_FRAMEBUFFER, defaultFramebufferObject()); update();
+	if (frameBuffersAreSupported)
+		glBindFramebuffer(GL_FRAMEBUFFER, defaultFramebufferObject()); update(); /* swy: restore it back so that we can continue drawing as normal after getting the value we wanted */
 #endif
 }
 

@@ -79,6 +79,7 @@ public:
 
 	QStringList supportedExtensionsList;
 	int32_t maxSupportedTexAnisoTaps = 0;
+	bool frameBuffersAreSupported = false;
 
 	void keyPressEvent( QKeyEvent * event );
 	void keyReleaseEvent( QKeyEvent * event );
@@ -158,8 +159,8 @@ public:
 	bool inferMaterial;
 	bool useOpenGL2;
 
-	struct {
-		GLuint fbo, rb; GLsizei w, h;
+	struct ssfb {
+		GLuint fbo, rb; GLsizei w, h; GLenum status;
 	} singleSampleFramebuffer = {0};
 
 	float runningSpeed;
