@@ -76,7 +76,7 @@ signals:
 	void notifyFloatingProbePos(float x, float y, float z);
 
 private slots:
-	void on_listView_customContextMenuRequested(QPoint pos);
+	void on_lvBodyPart_customContextMenuRequested(QPoint pos);
 	void on_lvTextAcc_customContextMenuRequested(QPoint pos);
 	void updateVisibility();
 	void setRulerLength(int l);

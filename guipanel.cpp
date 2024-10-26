@@ -1271,9 +1271,9 @@ void GuiPanel::setNavigationStackDepth(int i){
   ui->labBackS->setVisible(i>1);
 }
 
-void GuiPanel::on_listView_customContextMenuRequested(QPoint pos)
+void GuiPanel::on_lvBodyPart_customContextMenuRequested(QPoint pos) /* swy: the name was wrong, change listView to lvBodyPart, which is defined in the .ui file: https://stackoverflow.com/a/49892587/674685 */
 {
-  return;
+  return; /* swy: FIXME: this right-click/contextual menu for collision parts is seemingly disabled because the options are only stubbed. Hmm, good idea, Marco. */
   QMenu menu(this);
   int k=getCurrentSubpieceIndex(BODY);
   if (k>=0) {
