@@ -3183,7 +3183,7 @@ al que añadir un fotograma o cuadro.</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Use a ruler to measure object lenghts</source>
+        <source>Use a ruler to measure object lengths</source>
         <translation>Utiliza una regla para medir longitudes de objetos</translation>
     </message>
     <message>
@@ -5139,8 +5139,8 @@ con %1x%2 posiciones xyz+normales (%4 MB).
     </message>
     <message>
         <location line="+41"/>
-        <source>To apply carry position &apos;%1&apos;, I need to know the weapon lenght.
-Use the ruler tool to tell me the lenght of weapon &apos;%2&apos;.
+        <source>To apply carry position &apos;%1&apos;, I need to know the weapon length.
+Use the ruler tool to tell me the length of weapon &apos;%2&apos;.
 
 Activate ruler tool?</source>
         <translation>Para aplicar la posición de agarre «%1» necesito saber la longitud del arma.

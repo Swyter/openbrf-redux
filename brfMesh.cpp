@@ -3037,7 +3037,7 @@ class Rope{
 public:
   vector<Point3f> pos;
   Point3f width;
-  float lenght;
+  float length;
   
   void Fall(){
     for (unsigned int i=1; i<pos.size()-1; i++) {
@@ -3045,14 +3045,14 @@ public:
     }
   }
   
-  void SetMinLenght(Point3f a, Point3f b){
+  void SetMinLength(Point3f a, Point3f b){
     float tmp =(a-b).Norm();
-    if (lenght<tmp) lenght=tmp;
+    if (length<tmp) length=tmp;
   }
   
   void Resist(){
     vector<Point3f> post=pos;
-    float k=lenght / (pos.size()-1);
+    float k=length / (pos.size()-1);
     for (unsigned int i=0; i<pos.size()-1; i++) {
       Point3f v=pos[i]-pos[i+1];
       float l=v.Norm();
@@ -3074,7 +3074,7 @@ public:
   
   void Init(int n){
     pos.resize(n);
-    lenght=0;
+    length=0;
   }
 
   void SetPos(Point3f a, Point3f b, float w){
@@ -3130,7 +3130,7 @@ void BrfMesh::AddRope(const BrfMesh &to, int nseg, float width){
   rope.Init(nseg);
   
   for (unsigned int i=1; i<frame.size(); i++) {
-    rope.SetMinLenght(from.GetAvgSelectedPos(i), to.GetAvgSelectedPos(i));
+    rope.SetMinLength(from.GetAvgSelectedPos(i), to.GetAvgSelectedPos(i));
   }
   
   rope.AddTo(*this);

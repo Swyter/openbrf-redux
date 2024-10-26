@@ -2744,7 +2744,7 @@ to add a frame to.</source>
     </message>
     <message>
         <location filename="../main_create.cpp" line="620"/>
-        <source>Use a ruler to measure object lenghts</source>
+        <source>Use a ruler to measure object lengths</source>
         <translation>オブジェクトの長さを、定規（ものさし）ツールで測ります</translation>
     </message>
     <message>
@@ -4218,9 +4218,9 @@ Are you sure?</source>
         <translation>参照先データにスケルトンが見つかりませんでした。操作を中止します。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3855"/>
-        <source>To apply carry position &apos;%1&apos;, I need to know the weapon lenght.
-Use the ruler tool to tell me the lenght of weapon &apos;%2&apos;.
+        <location filename="../mainwindow.cpp" line="3860"/>
+        <source>To apply carry position &apos;%1&apos;, I need to know the weapon length.
+Use the ruler tool to tell me the length of weapon &apos;%2&apos;.
 
 Activate ruler tool?</source>
         <translation>携行位置 &apos;%1&apos; を指定するには、武器の長さの情報が必要です。

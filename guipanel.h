@@ -79,7 +79,7 @@ private slots:
 	void on_listView_customContextMenuRequested(QPoint pos);
 	void on_lvTextAcc_customContextMenuRequested(QPoint pos);
 	void updateVisibility();
-	void setRulerLenght(int l);
+	void setRulerLength(int l);
 	void setTextureData(DdsData d);
 	void onEditHitbox(int);
 	void onEditFloatingProbePos();

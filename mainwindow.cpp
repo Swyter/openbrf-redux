@@ -3857,7 +3857,7 @@ bool MainWindow::makeMeshSkinned(BrfMesh &m, bool sayNotSkinned,  bool askUserAg
 		CarryPosition &cp(carryPositionSet[carryPosIndex]);
 		if (cp.needExtraTrasl) {
 			if (!guiPanel->ui->rulerSpin->isVisible()) {
-				int answ = QMessageBox::warning(this, "OpenBrf",tr("To apply carry position '%1', I need to know the weapon lenght.\nUse the ruler tool to tell me the lenght of weapon '%2'.\n\nActivate ruler tool?")
+				int answ = QMessageBox::warning(this, "OpenBrf",tr("To apply carry position '%1', I need to know the weapon length.\nUse the ruler tool to tell me the length of weapon '%2'.\n\nActivate ruler tool?")
 				   .arg(cp.name).arg(m.name),
 				   QMessageBox::Yes|QMessageBox::Cancel,QMessageBox::Yes
 				);
@@ -3867,8 +3867,8 @@ bool MainWindow::makeMeshSkinned(BrfMesh &m, bool sayNotSkinned,  bool askUserAg
 				return false;
 			}
 		}
-		float weaponLenght = guiPanel->ui->rulerSpin->value()/100.0;
-		m.Apply( cp, s, weaponLenght, isAtOrigin );
+		float weaponlength = guiPanel->ui->rulerSpin->value()/100.0;
+		m.Apply( cp, s, weaponlength, isAtOrigin );
 		char newname[255];
 		sprintf(newname,"%s_carried_on_%s",m.name,cp.name );
 		m.SetName(newname);

@@ -617,7 +617,7 @@ void MainWindow::createActions()
 	connect(selectAllAct, SIGNAL(triggered()), selector, SLOT(selectAll()));
 
 	activateRulerAct = new QAction(tr("Measure with ruler"), this);
-	activateRulerAct->setStatusTip(tr("Use a ruler to measure object lenghts"));
+	activateRulerAct->setStatusTip(tr("Use a ruler to measure object lengths"));
 	activateRulerAct->setCheckable(true);
 	connect(activateRulerAct, SIGNAL(triggered(bool)), this, SLOT(activateRuler(bool)));
 
@@ -896,8 +896,8 @@ void MainWindow::createConnections(){
 	        this,SLOT(onChangeMeshMaterial(QString)));
 	connect(guiPanel->ui->boxMaterial    ,SIGNAL(textChanged(QString)),
             guiPanel,SLOT(updateSingleMaterial(QString)));
-	connect(guiPanel->ui->rulerSlid, SIGNAL(sliderMoved(int)),glWidget,SLOT(setRulerLenght(int)));
-	connect(guiPanel->ui->rulerSpin, SIGNAL(valueChanged(int)),glWidget,SLOT(setRulerLenght(int)));
+	connect(guiPanel->ui->rulerSlid, SIGNAL(sliderMoved(int)),glWidget,SLOT(setRulerLength(int)));
+	connect(guiPanel->ui->rulerSpin, SIGNAL(valueChanged(int)),glWidget,SLOT(setRulerLength(int)));
 	connect(guiPanel->ui->labMatName, SIGNAL(linkActivated(QString)), this, SLOT(navigateRight()) ) ;
 	connect(guiPanel, SIGNAL(followLink()), this, SLOT(navigateRight()) ) ;
 	connect(guiPanel->ui->labBackM, SIGNAL(linkActivated(QString)), this, SLOT(navigateLeft()) ) ;

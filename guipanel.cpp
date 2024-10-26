@@ -342,8 +342,8 @@ GuiPanel::GuiPanel(QWidget *parent, IniData &id) :
   connect(ui->cbRuler, SIGNAL(stateChanged(int)), this, SLOT(updateVisibility()));
   connect(ui->cbRefani, SIGNAL(currentIndexChanged(QString)), this, SLOT(updateRefAnimation()));
 
-  connect(ui->rulerSlid, SIGNAL(sliderMoved (int)), this, SLOT(setRulerLenght(int)));
-  connect(ui->rulerSpin, SIGNAL(valueChanged(int)), this, SLOT(setRulerLenght(int)));
+  connect(ui->rulerSlid, SIGNAL(sliderMoved (int)), this, SLOT(setRulerLength(int)));
+  connect(ui->rulerSpin, SIGNAL(valueChanged(int)), this, SLOT(setRulerLength(int)));
 
   connect(ui->lvTextAcc->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
           this, SLOT(updateShaderTextaccData()));
@@ -1145,7 +1145,7 @@ void GuiPanel::updateFrameNumber(int newFr){
 
 }
 
-void GuiPanel::setRulerLenght(int l){
+void GuiPanel::setRulerLength(int l){
   ui->rulerSlid->blockSignals(true);
   ui->rulerSpin->blockSignals(true);
 

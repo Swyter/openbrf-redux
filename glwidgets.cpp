@@ -93,7 +93,7 @@ GLWidget::GLWidget(QWidget *parent, IniData &_inidata)
 
 	bumpmapActivated = false;
 	shadowMode = false;
-	rulerLenght = 100;
+	rulerLength = 100;
 	ghostMode = false;
 	curMaterialTexture = DIFFUSEA;
 
@@ -248,9 +248,9 @@ void GLWidget::renderRuler(){
 	glDisable(GL_LIGHTING);
 	float h=0.4f;
 	glBegin(GL_LINES);
-	for (int i=1; i<=max(900, rulerLenght); i+=1){
+	for (int i=1; i<=max(900, rulerLength); i+=1){
 		int lvl=0;
-		if (i==rulerLenght) continue;
+		if (i==rulerLength) continue;
 		if (i%5==0) lvl =1;
 		if (i%10==0) lvl =2;
 		if (i%50==0) lvl =3;
@@ -262,7 +262,7 @@ void GLWidget::renderRuler(){
 	}
     glColor4f( 1,0,0,0.3f);
 
-	float r = rulerLenght*0.01f;
+	float r = rulerLength*0.01f;
     glVertex3f(0,-0.2f,0);
 	glVertex3f(0,h,0);
     glVertex3f(0,-0.2f,r);
@@ -1167,8 +1167,8 @@ void GLWidget::setFloatingProbe(int i){
 void GLWidget::setHitboxes(int i){
 	useHitboxes = i; update();
 }
-void GLWidget::setRulerLenght(int i){
-	rulerLenght = i; update();
+void GLWidget::setRulerLength(int i){
+	rulerLength = i; update();
 }
 void GLWidget::setLighting(int i){
 	useLighting = i; update();
@@ -2614,7 +2614,7 @@ void GLWidget::renderSelected(const std::vector<BrfType>& v){
 		glScalef(s,s,s);
 
 		Point3f ta = -bbox.Center(),  // center on object
-		    tb(0,0,-rulerLenght/100.0); // center on ruler
+		    tb(0,0,-rulerLength/100.0); // center on ruler
 		lastCenter = -ta;
 
 		// interpolate between the two centers

@@ -151,7 +151,7 @@ public:
     bool autoComputeTangents;
 	bool ghostMode;
 	bool fixTexturesOnSight;
-	int colorMode, rulerLenght;
+	int colorMode, rulerLength;
 	enum{STOP, PAUSE, PLAY} runningState, defaultRunningState;
 	enum{DIFFUSEA, DIFFUSEB, BUMP, ENVIRO, SPECULAR } curMaterialTexture;
 	enum{TRANSALPHA, PURPLEALPHA, NOALPHA} showAlpha;
