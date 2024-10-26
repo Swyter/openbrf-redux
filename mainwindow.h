@@ -321,8 +321,8 @@ private slots:
 
 	void repeatLastCommand();
 	void setUseOpenGL2(bool);
-	void setNormalmap(int);
-    void setSpecularmap(int);
+	void setNormalmap(bool);
+    void setSpecularmap(bool);
 	void updateSelectedMenu();
 
 public slots:

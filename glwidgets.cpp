@@ -1155,43 +1155,43 @@ void GLWidget::setMaterialName(QString st){
 }
 
 // SLOTS
-void GLWidget::setWireframe(int i){
+void GLWidget::setWireframe(bool i){
 	useWireframe = i; update();
 }
-void GLWidget::setRuler(int i){
+void GLWidget::setRuler(bool i){
 	useRuler = i; update();
 }
-void GLWidget::setFloatingProbe(int i){
+void GLWidget::setFloatingProbe(bool i){
 	useFloatingProbe = i; update();
 }
-void GLWidget::setHitboxes(int i){
+void GLWidget::setHitboxes(bool i){
 	useHitboxes = i; update();
 }
 void GLWidget::setRulerLength(int i){
 	rulerLength = i; update();
 }
-void GLWidget::setLighting(int i){
+void GLWidget::setLighting(bool i){
 	useLighting = i; update();
 }
-void GLWidget::setTexture(int i){
+void GLWidget::setTexture(bool i){
 	useTexture = i; update();
 }
-void GLWidget::setNormalmap(int i){
+void GLWidget::setNormalmap(bool i){
 	useNormalmap = i; update();
 }
-void GLWidget::setTransparency(int i){
+void GLWidget::setTransparency(bool i){
     useTransparency = i; update();
 }
-void GLWidget::setSpecularmap(int i){
+void GLWidget::setSpecularmap(bool i){
 	useSpecularmap = i; update();
 }
-void GLWidget::setComparisonMesh(int i){
+void GLWidget::setComparisonMesh(bool i){
 	useComparisonMesh = i; update();
 }
-void GLWidget::setFloor(int i){
+void GLWidget::setFloor(bool i){
 	useFloor = i; update();
 }
-void GLWidget::setFloorForAni(int i){
+void GLWidget::setFloorForAni(bool i){
 	useFloorInAni = i; update();
 }
 void GLWidget::setPlay(){

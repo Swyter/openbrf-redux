@@ -16,7 +16,7 @@ AskHueSatBriDialog::AskHueSatBriDialog(QWidget *parent) :
   connect(ui->sliderContrast,SIGNAL(valueChanged(int)), this, SLOT(onAnySliderMove(int)));
   connect(ui->sliderHue,SIGNAL(valueChanged(int)), this, SLOT(onAnySliderMove(int)));
   connect(ui->sliderSat,SIGNAL(valueChanged(int)), this, SLOT(onAnySliderMove(int)));
-  connect(ui->applyToLastSel, SIGNAL(stateChanged(int)), this, SLOT(onAnySliderMove(int))); /* swy: this checkbox should copy the behavior from the roto-rescale tool */
+  connect(ui->applyToLastSel, SIGNAL(clicked(bool)), this, SLOT(onAnySliderMove(int))); /* swy: this checkbox should copy the behavior from the roto-rescale tool */
 }
 
 void AskHueSatBriDialog::onAnySliderMove(int){

@@ -86,10 +86,10 @@ AskTransformDialog::AskTransformDialog(QWidget *parent) :
     connect(ui->rightY,SIGNAL(toggled(bool)),this,SLOT(onAlignmentRY(bool)));
     connect(ui->rightZ,SIGNAL(toggled(bool)),this,SLOT(onAlignmentRZ(bool)));
 
-    connect(ui->localRot,SIGNAL(stateChanged(int)),this,SLOT(update()));
-    connect(ui->localScl,SIGNAL(stateChanged(int)),this,SLOT(update()));
-    connect(ui->applyToLastSel,SIGNAL(stateChanged(int)),this,SLOT(update()));
-		connect(ui->checkBox,SIGNAL(clicked()),this,SLOT(update()));
+    connect(ui->localRot,SIGNAL(clicked(bool)),this,SLOT(update()));
+    connect(ui->localScl,SIGNAL(clicked(bool)),this,SLOT(update()));
+    connect(ui->applyToLastSel,SIGNAL(clicked(bool)),this,SLOT(update()));
+		connect(ui->checkBox,SIGNAL(clicked(bool)),this,SLOT(update()));
 
     connect(ui->buttonBox, SIGNAL(clicked(QAbstractButton*)), this, SLOT(onButton(QAbstractButton*)));
 }

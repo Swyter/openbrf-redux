@@ -337,10 +337,10 @@ GuiPanel::GuiPanel(QWidget *parent, IniData &id) :
   bodyPartDel = new QAction("Remove",this);
   bodyPartAdd = new QAction("Add",this);
 
-  connect(ui->cbSkin, SIGNAL(currentIndexChanged(QString)), this, SLOT(updateVisibility()));
-  connect(ui->cbRefani, SIGNAL(currentIndexChanged(QString)), this, SLOT(updateVisibility()));
-  connect(ui->cbRuler, SIGNAL(stateChanged(int)), this, SLOT(updateVisibility()));
-  connect(ui->cbRefani, SIGNAL(currentIndexChanged(QString)), this, SLOT(updateRefAnimation()));
+  connect(ui->cbSkin,   SIGNAL(currentIndexChanged(int)), this, SLOT(updateVisibility()));
+  connect(ui->cbRefani, SIGNAL(currentIndexChanged(int)), this, SLOT(updateVisibility()));
+  connect(ui->cbRuler,  SIGNAL(clicked(bool)),            this, SLOT(updateVisibility()));
+  connect(ui->cbRefani, SIGNAL(currentIndexChanged(int)), this, SLOT(updateRefAnimation()));
 
   connect(ui->rulerSlid, SIGNAL(sliderMoved (int)), this, SLOT(setRulerLength(int)));
   connect(ui->rulerSpin, SIGNAL(valueChanged(int)), this, SLOT(setRulerLength(int)));
@@ -373,7 +373,7 @@ GuiPanel::GuiPanel(QWidget *parent, IniData &id) :
   ui->editHbRotAlpha->setStatusTip(ui->editHbRotAlpha->statusTip()+st);
   ui->editHbRotBeta->setStatusTip(ui->editHbRotBeta->statusTip()+st);
 
-  connect(ui->editHbActive, SIGNAL(stateChanged(int)),this,SLOT(setHbEditVisible(int)));
+  connect(ui->editHbActive, SIGNAL(clicked(bool)),this,SLOT(setHbEditVisible(bool)));
 
   connect(ui->floatingProbeX,SIGNAL(valueChanged(double)),this,SLOT(onEditFloatingProbePos()));
   connect(ui->floatingProbeY,SIGNAL(valueChanged(double)),this,SLOT(onEditFloatingProbePos()));
@@ -420,7 +420,7 @@ void GuiPanel::onEditHitbox(int k){
   if (sender==ui->editHbLenTop)   { emit editHitbox( BrfBodyPart::LEN_TOP, dir ); }
 }
 
-void GuiPanel::setHbEditVisible(int vis){
+void GuiPanel::setHbEditVisible(bool vis){
   QObjectList ol = ui->hitboxEdit->children();
   for (int i=0; i<ol.size(); i++) {
       //QObject &o (ol[i]);

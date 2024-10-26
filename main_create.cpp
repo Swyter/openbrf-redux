@@ -828,8 +828,8 @@ void MainWindow::createMiniViewOptions(){
 	modStatus = new QLabel("Mod",this);
 	statusBar()->addPermanentWidget(modStatus);
 
-	connect(bg,SIGNAL(buttonClicked(int)),glWidget,SLOT(setViewmode(int)));
-    connect(comboViewmodeBG,SIGNAL(buttonClicked(int)),this,SLOT(setViewmodeMult(int)));
+    connect(             bg,SIGNAL(idClicked(int)),glWidget,SLOT(setViewmode    (int))); /* swy: buttonClicked(int) is obsolete: https://stackoverflow.com/a/74239114/674685 */
+    connect(comboViewmodeBG,SIGNAL(idClicked(int)),this,    SLOT(setViewmodeMult(int)));
 
 }
 
@@ -868,18 +868,18 @@ void MainWindow::createConnections(){
 	connect(addNewTextureAct, SIGNAL(triggered()),this,SLOT(addNewTexture()));
 	connect(addNewUiPictureAct, SIGNAL(triggered()),this,SLOT(addNewUiPicture()));
 
-	connect(guiPanel->ui->cbLighting        ,SIGNAL(stateChanged(int)),glWidget,SLOT(setLighting(int)));
-	connect(guiPanel->ui->cbTexture         ,SIGNAL(stateChanged(int)),glWidget,SLOT(setTexture(int)));
-    connect(guiPanel->ui->cbNormalmap       ,SIGNAL(stateChanged(int)),this,SLOT(setNormalmap(int)));
-    connect(guiPanel->ui->cbTransp          ,SIGNAL(stateChanged(int)),glWidget,SLOT(setTransparency(int)));
-	connect(guiPanel->ui->cbSpecularmap     ,SIGNAL(stateChanged(int)),this,SLOT(setSpecularmap(int)));
-	connect(guiPanel->ui->cbFloor           ,SIGNAL(stateChanged(int)),glWidget,SLOT(setFloor(int)));
-	connect(guiPanel->ui->cbFloorForAni     ,SIGNAL(stateChanged(int)),glWidget,SLOT(setFloorForAni(int)) );
-	connect(guiPanel->ui->cbComparisonMesh  ,SIGNAL(stateChanged(int)),glWidget,SLOT(setComparisonMesh(int)));
-	connect(guiPanel->ui->cbComparisonMesh  ,SIGNAL(stateChanged(int)),guiPanel,SLOT(updateVisibility()));
-	connect(guiPanel->ui->cbWireframe       ,SIGNAL(stateChanged(int)),glWidget,SLOT(setWireframe(int)));
-	connect(guiPanel->ui->cbRuler           ,SIGNAL(stateChanged(int)),glWidget,SLOT(setRuler(int)));
-	connect(guiPanel->ui->cbHitboxes        ,SIGNAL(stateChanged(int)),glWidget,SLOT(setHitboxes(int)));
+	connect(guiPanel->ui->cbLighting        ,SIGNAL(clicked(bool)),glWidget,SLOT(setLighting(bool)));
+	connect(guiPanel->ui->cbTexture         ,SIGNAL(clicked(bool)),glWidget,SLOT(setTexture(bool)));
+    connect(guiPanel->ui->cbNormalmap       ,SIGNAL(clicked(bool)),this,SLOT(setNormalmap(bool)));
+    connect(guiPanel->ui->cbTransp          ,SIGNAL(clicked(bool)),glWidget,SLOT(setTransparency(bool)));
+	connect(guiPanel->ui->cbSpecularmap     ,SIGNAL(clicked(bool)),this,SLOT(setSpecularmap(bool)));
+	connect(guiPanel->ui->cbFloor           ,SIGNAL(clicked(bool)),glWidget,SLOT(setFloor(bool)));
+	connect(guiPanel->ui->cbFloorForAni     ,SIGNAL(clicked(bool)),glWidget,SLOT(setFloorForAni(bool)) );
+	connect(guiPanel->ui->cbComparisonMesh  ,SIGNAL(clicked(bool)),glWidget,SLOT(setComparisonMesh(bool)));
+	connect(guiPanel->ui->cbComparisonMesh  ,SIGNAL(clicked(bool)),guiPanel,SLOT(updateVisibility()));
+	connect(guiPanel->ui->cbWireframe       ,SIGNAL(clicked(bool)),glWidget,SLOT(setWireframe(bool)));
+	connect(guiPanel->ui->cbRuler           ,SIGNAL(clicked(bool)),glWidget,SLOT(setRuler(bool)));
+	connect(guiPanel->ui->cbHitboxes        ,SIGNAL(clicked(bool)),glWidget,SLOT(setHitboxes(bool)));
 	connect(guiPanel->ui->rbNocolor         ,SIGNAL(clicked(bool)),glWidget,SLOT(setColorPerWhite()));
 	connect(guiPanel->ui->rbRiggingcolor    ,SIGNAL(clicked(bool)),glWidget,SLOT(setColorPerRig()));
 	connect(guiPanel->ui->rbVertexcolor     ,SIGNAL(clicked(bool)),glWidget,SLOT(setColorPerVert()));

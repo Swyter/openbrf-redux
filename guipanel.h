@@ -100,7 +100,7 @@ public slots:
 	void updateRefAnimation();
 	void setRefAnimation(int i);
 
-	void setHbEditVisible(int);
+	void setHbEditVisible(bool);
 
 	void showMaterialDiffuseA();
 	void showMaterialDiffuseB();

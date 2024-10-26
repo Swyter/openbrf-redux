@@ -4138,7 +4138,7 @@ void MainWindow::setUseOpenGL2(bool b){
 }
 
 
-void MainWindow::setNormalmap(int k){
+void MainWindow::setNormalmap(bool k){
 	if (!glWidget) return;
 	if (k) {
 		// setting normalmaps... need to enable opengl2.0
@@ -4154,7 +4154,7 @@ void MainWindow::setNormalmap(int k){
 	}
 }
 
-void MainWindow::setSpecularmap(int k){
+void MainWindow::setSpecularmap(bool k){
 	if (!glWidget) return;
 	if (k) {
 		// setting normalmaps... need to enable opengl2.0
