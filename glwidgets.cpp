@@ -2652,7 +2652,7 @@ void GLWidget::renderSelected(const std::vector<BrfType>& v){
 		bool firstDraw = true;
 
         for (int i:inViewport[vi].items)
-		if (i < v.size())
+		if (i < v.size()) {
         if ( !hideLods || (lodOf(v[i])<=inViewport[vi].bestLod) ) { // don't draw
             glPushMatrix();
 
@@ -2701,8 +2701,10 @@ void GLWidget::renderSelected(const std::vector<BrfType>& v){
 			if (v[i].IsAnimable()) animating=true;
 			if ( displaying==SKELETON && selRefAnimation>=0 ) animating=true;
 			firstDraw = false;
+		}} else {
+			qDebug("GLWidget::renderSelected: FIXME: the selection index is bigger than the list of elements, probably wasn't cleared correctly.");
+			inViewport.clear();
 		}
-		else qDebug("GLWidget::renderSelected: FIXME: the selection index is bigger than the list of elements, probably wasn't cleared correctly.");
 	}
 
 }

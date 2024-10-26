@@ -1039,7 +1039,7 @@ switch (TokenEnum(k)){
       {
       if (!newsel.size()) break;
       int sel = newsel[0].row();
-      if (sel<0 || sel>=(int)data->shader.size())  break;
+      if (sel<=0 || sel>=(int)data->shader.size())  break;
       BrfShader &s(data->shader[sel]);
       ui->leShaderTechnique->setText( s.technique );
       ui->leShaderFallback->setText( s.fallback );
