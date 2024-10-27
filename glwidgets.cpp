@@ -2900,8 +2900,8 @@ void GLWidget::setFloatingProbePos(float x, float y, float z){
 
 //void GLWidget::set
 void GLWidget::mouseClickEvent(QMouseEvent *e){
-	int x = e->x();
-	int y = height()-1-e->y();
+	int x =             e->x()  * devicePixelRatioF(); /* swy: keep the HiDPI scaling factor in mind to get the right cursor coordinates no matter how big the interface is */
+	int y = (height()-1-e->y()) * devicePixelRatioF();
 	if (!useFloatingProbe) return;
 #if 1 /* swy: if we use multisample antialiasing we can't pick the depth via glReadPixels() in unproject(), we need to make a "resolved" copy of it without MSAA */
 	if (frameBuffersAreSupported)
