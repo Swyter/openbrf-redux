@@ -182,7 +182,7 @@ new prefix:</source>
         <translation type="obsolete">M&amp;B资源文件 (*.brf)</translation>
     </message>
     <message>
-        <source>WarBand Resource v.1 (*.brf)</source>
+        <source>Warband Resource v.1 (*.brf)</source>
         <translation type="obsolete">战团资源文件 v.1 (*.brf)</translation>
     </message>
     <message>
@@ -4615,7 +4615,7 @@ Are you sure?</source>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="4681"/>
-        <source>WarBand Resource v.1 (*.brf)</source>
+        <source>Warband Resource v.1 (*.brf)</source>
         <translation>战团资源文件 v.1 (*.brf)</translation>
     </message>
     <message>

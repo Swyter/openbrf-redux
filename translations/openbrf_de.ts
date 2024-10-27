@@ -4385,8 +4385,8 @@ Sind Sie sicher?</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="4681"/>
-        <source>WarBand Resource v.1 (*.brf)</source>
-        <translation>WarBand Ressource v.1 (*.brf)</translation>
+        <source>Warband Resource v.1 (*.brf)</source>
+        <translation>Warband Ressource v.1 (*.brf)</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="4684"/>

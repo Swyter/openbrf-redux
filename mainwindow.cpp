@@ -4683,7 +4683,7 @@ bool MainWindow::save()
 
 bool MainWindow::saveAs()
 {
-	QString f0=tr("M&B Resource (*.brf)"),f1 = tr("WarBand Resource v.1 (*.brf)");
+	QString f0=tr("M&B Resource (*.brf)"),f1 = tr("Warband Resource v.1 (*.brf)");
 	QString selectedf = (brfdata.version==1)?f1:f0;
 	QString fileName = QFileDialog::getSaveFileName(this,
 	                                                tr("Save File") ,

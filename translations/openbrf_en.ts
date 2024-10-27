@@ -3898,7 +3898,7 @@ Are you sure?</source>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="4681"/>
-        <source>WarBand Resource v.1 (*.brf)</source>
+        <source>Warband Resource v.1 (*.brf)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

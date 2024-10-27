@@ -4573,7 +4573,7 @@ Las direcciones tangentes no se guardarán...</translation>
     </message>
     <message>
         <location line="+0"/>
-        <source>WarBand Resource v.1 (*.brf)</source>
+        <source>Warband Resource v.1 (*.brf)</source>
         <translation>Recurso de M&amp;B Warband v.1 (*.brf)</translation>
     </message>
     <message>
