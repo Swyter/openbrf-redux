@@ -44,8 +44,8 @@ Qt::DropActions MyTableModel::supportedDropActions() const{
 
 QVariant MyTableModel::data(const QModelIndex &index, int role) const
 {
-  static QFont alternate;
-  static bool firstTime=true;
+  static QFont alternate; QPalette palette = QApplication::palette();
+  static bool firstTime=true; bool isDarkMode = palette.color(QPalette::WindowText).lightness() > palette.color(QPalette::Window).lightness();
   if (firstTime) {
     alternate= QApplication::font();
     //alternate.setItalic(!alternate.italic());
@@ -62,17 +62,17 @@ QVariant MyTableModel::data(const QModelIndex &index, int role) const
   if (role==Qt::FontRole){
     return (vecUsed[ i ]!=1)?QApplication::font():alternate;
   }
-  if (role==Qt::BackgroundRole) return QColor(255,255,255,255);
+  if (role==Qt::BackgroundRole) return palette.color (QPalette::Base); /* swy: use the default background color for list entries, this was originally QColor(255,255,255,255), always pure white */
    // //return (index.row()%2==0)?QColor(128,128,128,255):QColor(0,0,0,255);
    // return (vecUsed[ index.row() ]!=0)?
     //    QApplication::palette().color (QPalette::Base):
     //    QApplication::palette().color (QPalette::AlternateBase);
   if (role==Qt::ForegroundRole) {
     switch(vecUsed[ i ]){
-    case 1: return QColor(0,0,150,255);
-    case 0: return QColor(0,0,0,255);//QApplication::palette().color(QPalette::Text);
-    case -1:return QColor(40,50,40,255);
-    case -2:return QColor(140,150,140,255);
+    case  1 /* swy:    item-used-in-mod text color */: { return isDarkMode ? QColor(207, 207, 252, 255) /* swy: light blue */ : QColor(  0,   0, 150, 255) /* swy: dark blue */;                            } 
+    case  0 /* swy: normal/neutral list text color */: { return palette.brush(QPalette::Active, QPalette::WindowText); /* swy: normal list color, use the default (usually black-on-white in light mode) */ } 
+    case -1 /* swy:                 ??? text color */:   return QColor(40,50,40,255); /* swy: this color is probably deprecated/obsolete */
+    case -2 /* swy:  item-unused-in-mod text color */: { return isDarkMode ? QColor(163, 163, 163, 255) /* swy: light gray */ : QColor(140, 150, 140, 255) /* swy: dark gray */;                            } 
     //return QApplication::palette().color(QPalette::Text);
     }
   }
