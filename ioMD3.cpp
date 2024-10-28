@@ -140,8 +140,8 @@ bool IoMD::ExportMD2(const char *filename, const BrfMesh &m){
         SavePoint(f,m.bbox.max*RATIO); // 4*3
         SavePoint(f,vcg::Point3f(0,0,0)); // 4*3
         SaveFloat(f,m.bbox.Diag()*RATIO); // 4
-        char tmp[255];
-        sprintf(tmp, "T%d", m.frame[i].time);
+        char tmp[999];
+        snprintf(tmp, sizeof(tmp) - 1, "T%d", m.frame[i].time);
         SaveStringFix(f,tmp,16);  // 16
     }
 

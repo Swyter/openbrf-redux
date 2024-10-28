@@ -1044,7 +1044,7 @@ switch (TokenEnum(k)){
       ui->leShaderTechnique->setText( s.technique );
       ui->leShaderFallback->setText( s.fallback );
       ui->leShaderFlags->setText( StringH(s.flags) );
-      ui->leShaderRequires->setText( StringH(s.requires) );
+      ui->leShaderRequires->setText( StringH(s.requirements) );
       updateShaderTextaccSize();
       }
       break;

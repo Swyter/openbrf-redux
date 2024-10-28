@@ -53,7 +53,7 @@ public:
     static int overlayMode;
     static float sx, sy, px, py;
     static int mode;
-    static char name[255];
+    static char name[999];
     static bool replace;
 };
 

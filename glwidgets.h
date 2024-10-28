@@ -161,7 +161,7 @@ public:
 
 	struct ssfb {
 		GLuint fbo, rb; GLsizei w, h; GLenum status;
-	} singleSampleFramebuffer = {0};
+	} singleSampleFramebuffer = {};
 
 	float runningSpeed;
 	int relTime; // msec, zeroed at stop.

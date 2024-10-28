@@ -122,7 +122,7 @@ public:
     trymeFirstPath = "";
   }
 
-  void open(QString filename) throw (int){
+  void open(QString filename){
     line = 0;
     if (!trymeFirstPath.isEmpty()){
       qf.setFileName(QString("%1/%2").arg(trymeFirstPath).arg(filename));
@@ -133,7 +133,7 @@ public:
       error(QTextBrowser::tr("cannot open file"));
     }
   }
-  void expectLine(const char* st) throw (int){
+  void expectLine(const char* st){
     qf.readLine(data, (sizeof(data) - 1));
     line++;
     QString dataS = QString(data).remove(QChar('\n'), Qt::CaseSensitive);
@@ -141,15 +141,15 @@ public:
       error(QTextBrowser::tr("expected '%1',\ngot '%2'").arg(st).arg(dataS));
     }
   }
-  void nextLine() throw (int){
+  void nextLine(){
     if (qf.readLine(data, (sizeof(data) - 1))==-1) error(QTextBrowser::tr("unexpected end of file"));
     line++;
   }
-  void skipLines(int n) throw (int){
+  void skipLines(int n){
     for (int i=0; i<n; i++) nextLine();
   }
   // reads the n^th string token from last read line
-  char* stringT(int n) throw (int){
+  char* stringT(int n){
     if (n>=512)
       error(QString("Internal error: StringT parameter %1").arg(n));
     makeFormat(n);
@@ -193,7 +193,7 @@ public:
     return to[n-1];
   }
   // reads the n^th int token from last read line
-  int intT(int n, int min=0, int max=10000) throw (int){
+  int intT(int n, int min=0, int max=10000){
     int num;
     int k=sscanf(stringT(n),"%d",&num);
     if (k!=1) error(QTextBrowser::tr("expected number istead of '%1' (token %2)").arg(stringT(n)).arg(n));
@@ -201,7 +201,7 @@ public:
     return num;
   }
   // reads the n^th int token from last read line
-  long long longT(int n) throw (int){
+  long long longT(int n){
     long long num;
 		int k=sscanf(stringT(n),"%ld",&num);
     if (k!=1) error(QTextBrowser::tr("expected number istead of '%1' (token %2)").arg(stringT(n)).arg(n));
@@ -222,7 +222,7 @@ public:
   }
 
 private:
-  void error(QString s) throw (int){
+  void error(QString s){
     errorString =  QString(
         QTextBrowser::tr("Error reading file '%1',\nat line %3:\n%2\n").arg(qf.fileName()).arg(s).arg(line)
     );
@@ -1046,8 +1046,8 @@ bool IniData::findErrors(int maxErr){
         checkFile(i,j,TEXTURE, tex.name , &d0, &d1, false);
       } else {
         for (int ti=0; ti<tex.NFrames(); ti++) {
-          char fullname[255];
-          sprintf(fullname,"%s_%d.dds",tex.name,ti);
+          char fullname[999];
+          snprintf(fullname, sizeof(fullname) - 1, "%s_%d.dds",tex.name,ti);
           checkFile(i,j,TEXTURE, fullname , &d0, &d1, true);
         }
       }

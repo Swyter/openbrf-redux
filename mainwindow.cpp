@@ -229,7 +229,7 @@ static void setSign(int &s, const QLineEdit *q){
 }
 static void setString(char* st, QString s){
 	s.truncate(254);
-	sprintf(st,"%s",s.trimmed().toUtf8().data());
+	snprintf(st, 254, "%s",s.trimmed().toUtf8().data());
 }
 static void setString(char* st, QLineEdit *q){
 	if (!q->hasFrame() && q->text().isEmpty()) return;
@@ -282,7 +282,7 @@ static std::vector<int> _dup(vector<T> &t, std::vector<int> &v){
     for (uint i=0; i<v.size(); i++) {
         if (i<0 || i>=(int)t.size()) return res;
         T newItem = t[v[i]];
-        sprintf(newItem.name,"copy_%s",t[v[i]].name);
+        snprintf(newItem.name, sizeof(newItem.name) - 1, "copy_%s",t[v[i]].name);
         t.insert(t.begin()+last+i+1, newItem );
         res.push_back(last+i+1);
     }
@@ -322,17 +322,17 @@ static char* _getName(T &t, int i){
 template< class T >
 void _setName(T &t, QString s){
 	s.truncate(254);
-	sprintf(t.name, "%s", s.toUtf8().data());
+	snprintf(t.name, sizeof(t.name) - 1, "%s", s.toUtf8().data());
 }
 template<>
 void _setName(BrfMesh &t, QString s){
 	s.truncate(254);
-	sprintf(t.name, "%s", s.toUtf8().data());
+	snprintf(t.name, sizeof(t.name) - 1, "%s", s.toUtf8().data());
 	t.AnalyzeName();
 }
 void _setNameOnCharStar(char* st, QString s){
 	s.truncate(254);
-	sprintf(st, "%s", s.toUtf8().data());
+	snprintf(st, 254, "%s", s.toUtf8().data());
 }
 
 
@@ -414,7 +414,7 @@ void MainWindow::updateDataShader(){
 	Ui::GuiPanel* u = guiPanel->ui;
 	setFlags(s.flags, u->leShaderFlags);
 	setString(s.technique, u->leShaderTechnique);
-	setFlags(s.requires, u->leShaderRequires);
+	setFlags(s.requirements, u->leShaderRequires);
 	setString(s.fallback, u->leShaderFallback);
 
 	int ta =guiPanel->getCurrentSubpieceIndex(SHADER);
@@ -448,8 +448,8 @@ void MainWindow::updateDataBody(){
 			setFloat(p.dir.X(),ui->leBodyBX);
 			setFloat(p.dir.Y(),ui->leBodyBY);
 			setFloat(p.dir.Z(),ui->leBodyBZ);
-		case BrfBodyPart::SPHERE:
 			// fallthrough
+		case BrfBodyPart::SPHERE:
 			setFloat(p.center.X(),ui->leBodyAX);
 			setFloat(p.center.Y(),ui->leBodyAY);
 			setFloat(p.center.Z(),ui->leBodyAZ);
@@ -1014,7 +1014,7 @@ template <class BrfType>
 void MainWindow::replaceInit(BrfType &o){
 	BrfType& curr = getUniqueSelected<BrfType>();
 	if (&curr) {
-		sprintf( o.name, curr.name );
+		snprintf( o.name, sizeof(o.name) - 1, curr.name );
 		curr = o;
 	}
 	setModified();
@@ -1093,13 +1093,13 @@ bool MainWindow::addNewUiPicture(){
 			// add 0x10 for no depth
 		}
 
-		sprintf(mat.name,"%s",AskNewUiPictureDialog::name);
-		sprintf(tex.name,"%s.%s",
+		snprintf(mat.name, sizeof(mat.name) - 1, "%s",AskNewUiPictureDialog::name);
+		snprintf(tex.name, sizeof(tex.name) - 1, "%s.%s",
 		        AskNewUiPictureDialog::name,
 		        d.ext.toUtf8().data());
-		sprintf(mes.name,"%s",AskNewUiPictureDialog::name);
-		sprintf(mat.diffuseA,"%s",AskNewUiPictureDialog::name);
-		sprintf(mes.material,"%s",AskNewUiPictureDialog::name);
+		snprintf(mes.name, sizeof(mes.name) - 1, "%s",AskNewUiPictureDialog::name);
+		snprintf(mat.diffuseA, sizeof(mat.diffuseA) - 1, "%s",AskNewUiPictureDialog::name);
+		snprintf(mes.material, sizeof(mes.material) - 1, "%s",AskNewUiPictureDialog::name);
 		if (AskNewUiPictureDialog::replace) {
 			insertOrReplace(mat);
 			insertOrReplace(tex);
@@ -1351,7 +1351,7 @@ void MainWindow::meshAniSplit(){
 			m2.frame[0]=m.frame[i];
 			m2.frame.resize(1);
 			char newName[1024];
-			sprintf( newName, "%s_frame%d", m.name, i);
+			snprintf( newName, sizeof(newName) - 1, "%s_frame%d", m.name, i);
 			m2.SetName(newName);
 			res.push_back( m2 );
 
@@ -2060,7 +2060,7 @@ void MainWindow::meshToBody(){
 		for (int j=0; j<list.size(); j++){
 			BrfMesh &m (brfdata.mesh[list[j].row()]);
 			m.AddToBody(bp);
-			if (j==0) sprintf(b.name, m.GetLikelyCollisonBodyName() );
+			if (j==0) snprintf(b.name, sizeof(b.name), m.GetLikelyCollisonBodyName() );
 		}
 		b.part.push_back(bp);
 		b.MakeQuadDominant();
@@ -2781,7 +2781,7 @@ void MainWindow::reskeletonize(){
 
 			if (output==1) {
 				char newName[1024];
-				sprintf(newName,"%s_%s",m.name,reference.skeleton[b].name);
+				snprintf(newName, sizeof(newName) - 1, "%s_%s",m.name,reference.skeleton[b].name);
 				m.SetName(newName);
 				toInsert.push_back(m);
 				k++;
@@ -3708,7 +3708,7 @@ void MainWindow::meshToVertexAni(){
 			QMessageBox::warning(this,"OpenBRF",tr("Incompatible animation")); return;
 		}
 		char newName[2048];
-		sprintf( newName, "%s_%s", m.name, a->name );
+		snprintf( newName, sizeof(newName) - 1, "%s_%s", m.name, a->name );
 		m.SetName(newName);
 
 		m.DiscardRigging();
@@ -3849,8 +3849,8 @@ bool MainWindow::makeMeshSkinned(BrfMesh &m, bool sayNotSkinned,  bool askUserAg
 		if (isAtOrigin) {
 			m.MountOnBone(s,boneIndex);
 
-			char newname[255];
-			sprintf(newname,"%s_on_%s",m.name,s.bone.at(boneIndex).name );
+			char newname[1024];
+			snprintf(newname, sizeof(newname) - 1, "%s_on_%s",m.name,s.bone.at(boneIndex).name );
 			m.SetName(newname);
 		}
 	} else {
@@ -3869,8 +3869,8 @@ bool MainWindow::makeMeshSkinned(BrfMesh &m, bool sayNotSkinned,  bool askUserAg
 		}
 		float weaponlength = guiPanel->ui->rulerSpin->value()/100.0;
 		m.Apply( cp, s, weaponlength, isAtOrigin );
-		char newname[255];
-		sprintf(newname,"%s_carried_on_%s",m.name,cp.name );
+		char newname[1024];
+		snprintf(newname, sizeof(newname) - 1, "%s_carried_on_%s",m.name,cp.name );
 		m.SetName(newname);
 
 	}
@@ -3890,8 +3890,8 @@ void MainWindow::addToRefMesh(int k){
 
 	}
 	char ch =char('A'+k);
-	char newname[500];
-	sprintf(newname, "skin%c.%s", ch , brfdata.mesh[i].name);
+	char newname[1024];
+	snprintf(newname, sizeof(newname) - 1, "skin%c.%s", ch , brfdata.mesh[i].name);
 	m.SetName(newname);
 	reference.mesh.push_back(m);
 	//bool wasModified = isModified;
@@ -5144,7 +5144,7 @@ bool MainWindow::navigateLeft(){
 		BrfMesh &m = getSelected<BrfMesh>();
 		if (!&m) return false;
 		char nextName[1024];
-		sprintf(nextName,m.GetLikelyCollisonBodyName() );
+		snprintf(nextName, sizeof(nextName) - 1,m.GetLikelyCollisonBodyName() );
 		int loc = brfdata.Find( nextName, nextTab );
 		if ( loc!=-1 ) {
 			selectOne(nextTab,loc);
@@ -5570,8 +5570,8 @@ void MainWindow::getAllRequires(const vector<BrfShader> &v, unsigned int &curfOR
 	for (int i=0; i<(int)list.size(); i++) {
 		int sel = list[i].row();
 		if (sel<0 || sel>=(int)v.size()) continue;
-		curfOR |= v[sel].requires;
-		curfAND &= v[sel].requires;
+		curfOR |= v[sel].requirements;
+		curfAND &= v[sel].requirements;
 	}
 }
 
@@ -5600,10 +5600,10 @@ bool MainWindow::setAllRequires(vector<BrfShader> &v, unsigned int toZero, unsig
 	for (int i=0; i<(int)list.size(); i++) {
 		int sel = list[i].row();
 		if (sel<0 || sel>=(int)v.size()) continue;
-		unsigned int oldreqs = v[sel].requires;
-		v[sel].requires |= toOne;
-		v[sel].requires &= toZero;
-		if (oldreqs!=v[sel].requires) mod = true;
+		unsigned int oldreqs = v[sel].requirements;
+		v[sel].requirements |= toOne;
+		v[sel].requirements &= toZero;
+		if (oldreqs!=v[sel].requirements) mod = true;
 	}
 	updateGui();
 	if (mod) setModified();

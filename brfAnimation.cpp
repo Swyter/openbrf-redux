@@ -604,8 +604,8 @@ int BrfAnimation::Break(vector<BrfAnimation> &vect, const char* fn, char *fn2) c
   fscanf(fin,"%d ",&n);
   //fprintf(fout,"%d \n",n);
 
-  char aniName[255];
-  char aniSubName[255];
+  char aniName[999];
+  char aniSubName[999];
   int nparts;
   float speed;
 
@@ -616,7 +616,7 @@ int BrfAnimation::Break(vector<BrfAnimation> &vect, const char* fn, char *fn2) c
 
   for (int i=0; i<n; i++){
     char line[1024];
-    myReadline(fin,line,255);
+    myReadline(fin,line,sizeof(line) - 1);
 
     unsigned int v00, v01;
 
@@ -634,8 +634,8 @@ int BrfAnimation::Break(vector<BrfAnimation> &vect, const char* fn, char *fn2) c
       ani.nbones=nbones;
       fscanf   (fin, formatAni,&speed,aniSubName,&ia,&ib,&flags,&v0,&v1,&v2,&v3,&v4);
       if (!strcmp(aniSubName,name) && (ia!=0 || ib!=1) ) {
-        if (nparts>1) sprintf(ani.name, "%s_%s_%d",name, aniName,j+1);
-        else sprintf(ani.name, "%s_%s",name, aniName);
+        if (nparts>1) snprintf(ani.name, sizeof(ani.name) - 1, "%s_%s_%d",name, aniName,j+1);
+        else snprintf(ani.name, sizeof(ani.name) - 1, "%s_%s",name, aniName);
         for (unsigned int h=0; h<frame.size(); h++) {
           if (frame[h].index>=ia && frame[h].index<=ib) {
             ani.frame.push_back(frame[h]);
@@ -670,7 +670,7 @@ int BrfAnimation::Break(vector<BrfAnimation> &vect) const{
 
     if (( i>0) && (frame[i].index>frame[i-1].index+11)) {
       res++;
-      sprintf(ani.name,"%s_%d_%d",name, start, frame[i-1].index);
+      snprintf(ani.name, sizeof(ani.name) - 1, "%s_%d_%d",name, start, frame[i-1].index);
       vect.push_back(ani);
       ani.frame.clear();
       start = frame[i].index;

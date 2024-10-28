@@ -6,10 +6,9 @@ QT += widgets
 QT += opengl
 QT += openglwidgets
 QT += xml
-QT += core5compat
 
 CONFIG += exceptions
-CONFIG += c++14
+CONFIG += c++17
 
 
 VCGLIB = dependencies/vcglib # v1.0.1

@@ -40,7 +40,7 @@ void BrfShaderOpt::Save(FILE*f) const{
 }
 
 void BrfShader::SetDefault(){
-  requires = 0;
+  requirements = 0;
   sprintf(technique,name);
   fallback[0]=0;
   flags = 0;
@@ -72,7 +72,7 @@ bool BrfShader::Load(FILE*f, int verbose){
   if (!LoadString(f, name)) return false;
   if (verbose>0) printf("loading \"%s\"...\n",name);
   LoadUint(f , flags);
-  LoadUint(f , requires);
+  LoadUint(f , requirements);
   if (!LoadString(f, technique)) return false;
 
   unsigned int k;
@@ -89,7 +89,7 @@ bool BrfShader::Load(FILE*f, int verbose){
 void BrfShader::Save(FILE*f) const{
   SaveString(f, name);
   SaveUint(f , flags);
-  SaveUint(f , requires);
+  SaveUint(f , requirements);
   SaveString(f, technique);
   if (fallback[0]==0) SaveUint(f,0);
   else {

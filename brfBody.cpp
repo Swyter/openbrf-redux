@@ -265,7 +265,7 @@ bool BrfBody::ImportOBJ(const char *fn){
   if (!f) return false;
 
   std::string s;
-  char line[255];
+  char line[999];
   bool reading = false;
   int nvRead=0;
   while (fscanln(f, line)) {
@@ -301,7 +301,7 @@ bool BrfBody::ImportOBJ(const char *fn){
           break;
         }
         case 'o':
-          char str[255];
+          char str[999];
           sscanf(line, "o %s", str);
           if (reading) {
             if (curr.face.size()>0) part.push_back(curr);

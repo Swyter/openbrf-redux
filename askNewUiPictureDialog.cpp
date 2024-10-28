@@ -86,7 +86,7 @@ void AskNewUiPictureDialog::onUiChanged(){
   }
   replace = ui->replaceOpt->isChecked();
 
-  sprintf(name, "%s", ui->NameBox->text().toUtf8().data());
+  snprintf(name, sizeof(name) - 1, "%s", ui->NameBox->text().toUtf8().data());
 }
 
 void AskNewUiPictureDialog::accept(){
@@ -101,7 +101,7 @@ float AskNewUiPictureDialog::sy=100.0;
 float AskNewUiPictureDialog::px=0.0;
 float AskNewUiPictureDialog::py=0.0;
 int AskNewUiPictureDialog::mode = 0;
-char AskNewUiPictureDialog::name[255];
+char AskNewUiPictureDialog::name[999];
 bool AskNewUiPictureDialog::replace = true;
 
 int AskNewUiPictureDialog::toPixX(float x){return int(round(x/100*1024));}
@@ -166,7 +166,7 @@ void AskNewUiPictureDialog::browse()
   if (!fileName.isEmpty()) {
     QString base = QFileInfo(fileName).baseName();
     ext = QFileInfo(fileName).completeSuffix();
-    sprintf(name,"%s",base.toUtf8().data());
+    snprintf(name,sizeof(name) - 1,"%s",base.toUtf8().data());
     ui->NameBox->setText(QString(name));
     DdsData data;
     if (loadOnlyDDSHeader(fileName,data)) {

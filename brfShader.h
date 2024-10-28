@@ -33,7 +33,7 @@ public:
 
   BrfShader();
   unsigned int flags;
-  unsigned int requires;
+  unsigned int requirements;
   std::vector<BrfShaderOpt> opt;
 };
 
