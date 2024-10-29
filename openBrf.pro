@@ -10,7 +10,6 @@ QT += xml
 CONFIG += exceptions
 CONFIG += c++17
 
-
 VCGLIB = dependencies/vcglib # v1.0.1
 
 *g++* {
@@ -197,3 +196,9 @@ DISTFILES += \
     translations/openbrf_en.ts \
     translations/openbrf_es.ts \
     translations/openbrf_zh.ts
+
+# swy: super neat way of including the year/month/day numerically as a C preprocessor define by massaging the _DATE_ (e.g. 'Mon Oct 28 11:25:58 2024') variable: https://stackoverflow.com/a/71335257/674685
+{BUILD_MO_STR = $$str_member($${_DATE_}, -20, -18)} {BUILD_MO_STR = $$replace(BUILD_MO_STR, Jan,  1)} {BUILD_MO_STR = $$replace(BUILD_MO_STR, Feb,  2)} {BUILD_MO_STR = $$replace(BUILD_MO_STR, Mar,  3)} {BUILD_MO_STR = $$replace(BUILD_MO_STR, Apr,  4)} {BUILD_MO_STR = $$replace(BUILD_MO_STR, May,  5)} {BUILD_MO_STR = $$replace(BUILD_MO_STR, Jun,  6)} {BUILD_MO_STR = $$replace(BUILD_MO_STR, Jul,  7)} {BUILD_MO_STR = $$replace(BUILD_MO_STR, Aug,  8)} {BUILD_MO_STR = $$replace(BUILD_MO_STR, Sep,  9)} {BUILD_MO_STR = $$replace(BUILD_MO_STR, Oct, 10)} {BUILD_MO_STR = $$replace(BUILD_MO_STR, Nov, 11)} {BUILD_MO_STR = $$replace(BUILD_MO_STR, Dec, 12)}
+DEFINES += "QMAKE_BUILD_YEA=$$str_member($${_DATE_},  -4,  -1)" # swy; (e.g. 'Mon Oct 28 11:25:58 2024' -> '2024'        )
+DEFINES += "QMAKE_BUILD_MON=$${BUILD_MO_STR}"                   # swy; (e.g. 'Mon Oct 28 11:25:58 2024' ->  'Oct' -> '10')
+DEFINES += "QMAKE_BUILD_DAY=$$str_member($${_DATE_}, -16, -15)" # swy; (e.g. 'Mon Oct 28 11:25:58 2024' ->   '28'        )
