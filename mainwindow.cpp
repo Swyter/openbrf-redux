@@ -1,5 +1,10 @@
 /* OpenBRF -- by marco tarini. Provided under GNU General Public License */
 
+#ifdef _WIN32
+ #include <Windows.h>
+ #include <sddl.h>
+#endif
+
 #include <QtGui>
 #include <QMessageBox>
 #include <QDebug>
@@ -5413,6 +5418,130 @@ void MainWindow::newFile(){
 	}
 }
 
+#ifdef _WIN32
+/* swy: code reverse-engineered by @Wendelin and grabbed from here: https://pastebin.com/yVhWeQ3X
+        https://stackoverflow.com/questions/17946282/whats-the-hash-in-hkcu-software-microsoft-windows-currentversion-explorer-filee#comment123662884_49256437 */
+bool CS64_WordSwap(const unsigned int *data, unsigned int dataLength, const unsigned int *md5Start, unsigned int *output) {
+    unsigned int v5, v7, v8, v12, v14, v15, v18, v20, v21; const unsigned int *v6; int v9, v10, v11, v16, v17, v22; __int64 v13;
+    v5 = dataLength; v6 = data;
+    if (dataLength < 2 || dataLength & 1) {
+        return false;
+    } else {
+        v7 = *md5Start | 1; v8 = md5Start[1] | 1; v9 = 0; v10 = v7 + 0x69FB0000; v11 = v8 + 0x13DB0000; v12 = 0; v13 = ((v5 - 2) >> 1) + 1;
+        do {
+            v14 = *v6 + v12; v6 += 2; v5 -= 2;
+            v15 = 0x79F8A395 *  (v14 * v10 - 0x10FA9605 * (v14 >> 16))
+                + 0x689B6B9F * ((v14 * v10 - 0x10FA9605 * (v14 >> 16)) >> 16);
+            v16 = 0xEA970001 * v15 - 0x3C101569 * (v15 >> 16);
+            v17 = v16 + v9;
+            v18 = (*(v6 - 1) + v16) * v11 - 0x3CE8EC25 * ((*(v6 - 1) + v16) >> 16);
+            v12 = 0x1EC90001 *  (0x59C3AF2D * v18 - 0x2232E0F1 * (v18 >> 16))
+                + 0x35BD1EC9 * ((0x59C3AF2D * v18 - 0x2232E0F1 * (v18 >> 16)) >> 16);
+            v9 = v12 + v17;
+            --v13;
+        } while (v13);
+        if (v5 == 1) {
+            v20 = (*v6 + v12) * v10 - 0x10FA9605 * ((*v6 + v12) >> 16);
+            v21 = 0xEA970001  * (0x79F8A395 * v20 + 0x689B6B9F * (v20 >> 16))
+                - 0x3C101569 * ((0x79F8A395 * v20 + 0x689B6B9F * (v20 >> 16)) >> 16);
+            v22 = v21 + v9;
+            v12 = 0x1EC90001
+                * (0x59C3AF2D *  (v21 * v11 - 0x3CE8EC25 * (v21 >> 16))
+                 - 0x2232E0F1 * ((v21 * v11 - 0x3CE8EC25 * (v21 >> 16)) >> 16))
+                + 901586633
+                * ((0x59C3AF2D * (v21 * v11 - 0x3CE8EC25 * (v21 >> 16))
+                 - 0x2232E0F1 * ((v21 * v11 - 0x3CE8EC25 * (v21 >> 16)) >> 16)) >> 16);
+            v9 = v12 + v22;
+        }
+        *output = v12;  output[1] = v9;
+		return true;
+    }
+}
+ 
+bool CS64_Reversible(const unsigned int *data, unsigned int dataLength, const unsigned int *md5, unsigned int *output) {
+    unsigned int v5, v7, v9, v11, v13, v14, v15, v17, v18, v20, v21, v23, v24;
+    const unsigned int *v6; int v8, v10, v16, v22; __int64 v12; bool result;
+    v5 = dataLength; v6 = data;
+
+    if (dataLength < 2 || dataLength & 1)
+        return false;
+    else {
+        v7 = *md5; v8 = 0; v9 = md5[1] | 1; v10 = v7 | 1; v11 = 0; v12 = ((v5 - 2) >> 1) + 1;
+        do {
+            v5 -= 2; v13 = v10 * (*v6 + v11); v6 += 2;
+            v14 = 0x5B9F0000 * (0xB1110000 * v13 - 0x30674EEF * (v13 >> 16))
+                - 0x78F7A461
+                * ((0xB1110000 * v13 - 0x30674EEF * (v13 >> 16)) >> 16);
+            v15 = 0x1D830000 * (0x12CEB96D * (v14 >> 16) - 0x46930000 * v14)
+                + 0x257E1D83
+                * ((0x12CEB96D * (v14 >> 16) - 0x46930000 * v14) >> 16);
+            v16 = v15 + v8;
+            v17 = 0x16F50000 * v9 * (*(v6 - 1) + v15) - 0x5D8BE90B
+                * (v9 * (*(v6 - 1) + v15) >> 16);
+            v18 = 0x2B890000 * (0x96FF0000 * v17 - 0x2C7C6901 * (v17 >> 16))
+                + 0x7C932B89
+                * ((0x96FF0000 * v17 - 0x2C7C6901 * (v17 >> 16)) >> 16);
+            v11 = 0x9F690000 * v18 - 0x405B6097 * (v18 >> 16);
+            v8 = v11 + v16; --v12;
+        } while (v12);
+
+        if (v5 == 1) {
+            v20 = 0xB1110000 * v10 * (v11 + *v6) - 0x30674EEF
+                            * (v10 * (v11 + *v6) >> 16);
+            v21 = 0x1D830000
+                * (0x12CEB96D * ((0x5B9F0000 * v20 - 0x78F7A461 * (v20 >> 16)) >> 16)
+                  - 0x46930000 * (0x5B9F0000 * v20 - 0x78F7A461 * (v20 >> 16)))
+                + 0x257E1D83
+                * ((0x12CEB96D * ((0x5B9F0000 * v20 - 0x78F7A461 * (v20 >> 16)) >> 16)
+                   - 0x46930000 * (0x5B9F0000 * v20 - 0x78F7A461 * (v20 >> 16))) >> 16);
+            v22 = v21 + v8;
+            v23 = 0x16F50000 * v9 * v21 - 0x5D8BE90B * (v9 * v21 >> 16);
+            v24 = (0x96FF0000 * v23 - 0x2C7C6901 * (v23 >> 16)) >> 16;
+            v11 = 0x9F690000 *  (0x2B890000 * (0x96FF0000 * v23 - 0x2C7C6901 * (v23 >> 16)) + 0x7C932B89 * v24)
+                - 0x405B6097 * ((0x2B890000 * (0x96FF0000 * v23 - 0x2C7C6901 * (v23 >> 16)) + 0x7C932B89 * v24) >> 16);
+            v8 = v11 + v22;
+        }
+        *output = v11; output[1] = v8;
+		return true;
+    }
+}
+ 
+QString getSid()
+{
+	HMODULE hMod = LoadLibraryA("advapi32.dll"); /* swy: dynamically load the function pointers to avoid having to statically link advapi32.dll just for this */
+	typedef BOOL WINAPI TOpenProcessToken(HANDLE ProcessHandle,DWORD DesiredAccess, PHANDLE TokenHandle);                                                                                    TOpenProcessToken             *OpenProcessToken = (TOpenProcessToken *)       GetProcAddress(hMod, "OpenProcessToken");       if (!OpenProcessToken)       return "";
+	typedef BOOL WINAPI TGetTokenInformation(HANDLE TokenHandle, TOKEN_INFORMATION_CLASS TokenInformationClass, LPVOID TokenInformation, DWORD TokenInformationLength, PDWORD ReturnLength); TGetTokenInformation       *GetTokenInformation = (TGetTokenInformation *)    GetProcAddress(hMod, "GetTokenInformation");    if (!GetTokenInformation)    return "";
+    typedef BOOL WINAPI TConvertSidToStringSidW(PSID Sid, LPWSTR* StringSid);                                                                                                                TConvertSidToStringSidW *ConvertSidToStringSidW = (TConvertSidToStringSidW *) GetProcAddress(hMod, "ConvertSidToStringSidW"); if (!ConvertSidToStringSidW) return "";
+
+    HANDLE hToken = NULL; OpenProcessToken(GetCurrentProcess(), TOKEN_QUERY, &hToken);
+    DWORD dwBufferSize = 0; GetTokenInformation(hToken, TokenUser, NULL, 0, &dwBufferSize);
+    std::vector<BYTE> buffer; buffer.resize(dwBufferSize); PTOKEN_USER pTokenUser = reinterpret_cast<PTOKEN_USER>(&buffer[0]);
+ 
+    GetTokenInformation(hToken, TokenUser, pTokenUser, dwBufferSize, &dwBufferSize);
+	LPWSTR output; ConvertSidToStringSidW(pTokenUser->User.Sid, &output); CloseHandle(hToken); hToken = NULL;
+ 
+    return QString::fromWCharArray(output);
+}
+ 
+QString genHash(QString protocol, QString exepath, QString sid, QString progid)
+{
+    // start out zero'd because towchararray doesn't append 0s and laziness
+    wchar_t* data = (wchar_t*)calloc(1024, 1);
+    QString((protocol + sid + progid + exepath).toLower()).toWCharArray(data);
+    QCryptographicHash hash(QCryptographicHash::Md5);
+    int dataLength = wcslen(data)*2+2;
+    hash.addData((char *)data, dataLength);
+    int v6 = dataLength >> 2; if ((dataLength >> 2) & 1) --v6;
+ 
+    // result of the aforementioned md5 operation
+    unsigned int* md5 = (unsigned int*)hash.result().data(); unsigned int out[2], out2[2];
+    CS64_WordSwap  ((unsigned int *)data, v6, md5, out);
+    CS64_Reversible((unsigned int *)data, v6, md5, out2);
+ 
+    unsigned int finalResult[2] = { out[0] ^ out2[0], out[1] ^ out2[1] };
+    return QByteArray((char*)finalResult, sizeof(finalResult)).toBase64();
+}
+#endif
 
 void MainWindow::registerExtension(){
 #ifdef _WIN32
@@ -5447,6 +5576,19 @@ void MainWindow::registerExtension(){
 		QSettings settings("HKEY_CURRENT_USER\\SOFTWARE\\Classes\\Applications\\" + exeFile + "\\shell\\open\\command", QSettings::NativeFormat);
 		settings.setValue(".", QString("\"" + exePath + "\" \"%1\""));
 	}
+
+	/* swy: even after all the previous cruft windows 10 and newer only adds us to the "Open with..." list and adds a cryptographic
+	        hash to protect the programs from self-assigning themselves as the default handler in Explorer, go figure */
+	{
+		QSettings settings("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FileExts\\.brf\\OpenWithProgids", QSettings::NativeFormat);
+		settings.setValue(progId, ""); /* swy: add our handler to the list of suggested programs when changing the selection */
+	}{
+		QSettings settings("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FileExts\\.brf\\UserChoice", QSettings::NativeFormat);
+		settings.clear();
+		settings.setValue("ProgId", progId);
+		settings.setValue("Hash",  genHash(".brf", "", getSid(), progId));
+	}
+
 	QMessageBox::information(this,"OpenBRF Redux", tr("This OpenBRF version is now assigned as the default program to open your .brf files on this user account. At least I hope so!"));
 	//statusBar()->showMessage(tr("Registered %1?").arg(f));
 #endif
