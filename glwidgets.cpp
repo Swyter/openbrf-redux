@@ -2909,6 +2909,10 @@ void GLWidget::mouseClickEvent(QMouseEvent *e){
 		GLsizei w = widthPix(), h = heightPix();
 
 		if (!singleSampleFramebuffer.fbo || singleSampleFramebuffer.w != w || singleSampleFramebuffer.h != h) { /* swy: hasn't been created yet? was the viewport been resized? */
+
+			if (singleSampleFramebuffer.fbo != 0)  glDeleteFramebuffers(1, &singleSampleFramebuffer.fbo); /* swy: delete any previous framebuffers or renderbuffers on resize, don't leave them hanging and leaking, we may eventually run out of memory. */
+			if (singleSampleFramebuffer.rb  != 0) glDeleteRenderbuffers(1, &singleSampleFramebuffer.rb);
+
 			GLuint fbo; glGenFramebuffers(1, &fbo);  glBindFramebuffer(GL_FRAMEBUFFER, fbo); /* swy: create the framebuffer and the actual depth buffer surface, no multisampling */
 			GLuint rb; glGenRenderbuffers(1, &rb ); glBindRenderbuffer(GL_RENDERBUFFER, rb);
 		
