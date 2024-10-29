@@ -3,6 +3,7 @@
 #ifdef _WIN32
  #include <Windows.h>
  #include <sddl.h>
+ #include <shlobj.h>
 #endif
 
 #include <QtGui>
@@ -5588,6 +5589,9 @@ void MainWindow::registerExtension(){
 		settings.setValue("ProgId", progId);
 		settings.setValue("Hash",  genHash(".brf", "", getSid(), progId));
 	}
+
+	/* swy: refresh any Windows Explorer window to show the updated friendly filetype name (and icon), from: https://github.com/DanysysTeam/PS-SFTA/blob/22a3229/SFTA.ps1#L217C24-L217C33 */
+	SHChangeNotify(SHCNE_ASSOCCHANGED, 0, 0, NULL);
 
 	QMessageBox::information(this,"OpenBRF Redux", tr("This OpenBRF version is now assigned as the default program to open your .brf files on this user account. At least I hope so!"));
 	//statusBar()->showMessage(tr("Registered %1?").arg(f));
