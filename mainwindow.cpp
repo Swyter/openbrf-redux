@@ -5415,56 +5415,41 @@ void MainWindow::newFile(){
 
 
 void MainWindow::registerExtension(){
-	QString exeFile = QCoreApplication::applicationFilePath();
-	exeFile.replace('/',QString("\\\\"));
+#ifdef _WIN32
+	const QString progId = "OpenBRF.resource";
+	const QString typeNm = "Mount&Blade Binary Resource File";
 
-	//QSettings settings(QSettings::NativeFormat, QSettings::SystemScope,"HKEY_CLASSES_ROOT");
+	QString exePath = QCoreApplication::applicationFilePath(); exePath.replace('/', QString("\\"));
+	QString exeFile = exePath.section('\\', -1); /* swy: get just the filename from the path */
 	{
-		//QSettings settings("HKEY_CLASSES_ROOT", QSettings::NativeFormat);
-		//QSettings settings("HKEY_LOCAL_MACHINE", QSettings::NativeFormat);
-		//settings.beginGroup("SOFTWARE");
-		//settings.beginGroup("Classes");
-
-
-		//settings.beginGroup(".brf");
-		QSettings settings(QSettings::NativeFormat,QSettings::SystemScope, "classes", ".brf");
-		settings.setValue("","brf.resource");
-		//settings.endGroup();
+		QSettings settings("HKEY_CURRENT_USER\\SOFTWARE\\Classes\\.brf", QSettings::NativeFormat); /* swy: this doesn't do anything in Windows 10+, see below */
+		settings.setValue(".", progId); /* swy: make our progId the selected handler to open this file type "." is a stand-in for the "Default" key */
+	}{
+		QSettings settings("HKEY_CURRENT_USER\\SOFTWARE\\Classes\\.brf\\OpenWithProgids", QSettings::NativeFormat);
+		settings.setValue(progId, ""); /* swy: add our handler to the list of suggested programs when changing the selection */
+	}{
+		QSettings settings("HKEY_CURRENT_USER\\SOFTWARE\\Classes\\" + progId, QSettings::NativeFormat);
+		settings.setValue(".", typeNm); /* swy: file type name string shown when selected as default handler */
+	}{
+		QSettings settings("HKEY_CURRENT_USER\\SOFTWARE\\Classes\\" + progId + "\\shell", QSettings::NativeFormat);
+		settings.setValue("FriendlyTypeName", typeNm);
+		settings.setValue("PerceivedType",   "Gamemedia"); /* swy: both of these probably don't do anything useful, added just in case */
+	}{
+		QSettings settings("HKEY_CURRENT_USER\\SOFTWARE\\Classes\\" + progId + "\\DefaultIcon", QSettings::NativeFormat);
+		settings.setValue(".", QString("\"" + exePath + "\",0")); /* swy: using the .exe default icon is already the default, this would be useful if a different document icon existed as part of the .rc file, we would use ,1 */
+	}{
+		QSettings settings("HKEY_CURRENT_USER\\SOFTWARE\\Classes\\" + progId + "\\shell\\open\\command", QSettings::NativeFormat);
+		settings.setValue(".", QString("\"" + exePath + "\" \"%1\"")); /* swy: path to the program that opens it when the progId handler is selected */
+	}{
+		QSettings settings("HKEY_CURRENT_USER\\SOFTWARE\\Classes\\Applications\\" + exeFile + "\\SupportedTypes", QSettings::NativeFormat);
+		settings.setValue(".brf", ""); /* swy: add the program as a candidate in the Open with... dialog for this file type */
+	}{
+		QSettings settings("HKEY_CURRENT_USER\\SOFTWARE\\Classes\\Applications\\" + exeFile + "\\shell\\open\\command", QSettings::NativeFormat);
+		settings.setValue(".", QString("\"" + exePath + "\" \"%1\""));
 	}
-	//QSettings settings("HKEY_CLASSES_ROOT", QSettings::NativeFormat);
-	QSettings settings(QSettings::NativeFormat,QSettings::SystemScope,"classes", "brf.resource");
-
-	//settings.beginGroup("brf.resource");
-	//settings.setValue("","Mount&Blade Binary Resource File");
-	settings.setValue("","");
-	settings.setValue("FriendlyTypeName","Mount&Blade Binary Resource File");
-	settings.setValue("PerceivedType","Application");
-
-	settings.beginGroup("DefaultIcon");
-	settings.setValue("",QString("%1%2 test").arg(exeFile).arg(",0") );
-	settings.endGroup();
-
-	settings.beginGroup("shell");
-	//settings.setValue("","");
-	settings.beginGroup("open");
-	//settings.setValue("","");
-	settings.beginGroup("command");
-	settings.setValue("",
-	                  QString("\"%1\" \"%2\"").
-	                  arg(exeFile).arg("%1") );
-	settings.endGroup();
-	settings.endGroup();
-	settings.endGroup();
-	//settings.endGroup();
-	//QSettings::Format brfFormat = QSettings::registerFormat("brf",readFile,writeFile,Qt::CaseInsensitive);
-
-	//QSettings fsettings(brfFormat, QSettings::UserSettings, "mtarini", "openBrf");
-
-	//fsettings.setValue
-	//int f = QWindowsMime::registerMimeType("brf");
-	//if (!f) statusBar()->showMessage("Failed");
+	QMessageBox::information(this,"OpenBRF Redux", tr("This OpenBRF version is now assigned as the default program to open your .brf files on this user account. At least I hope so!"));
 	//statusBar()->showMessage(tr("Registered %1?").arg(f));
-	//QSetting sett(brfFormat,
+#endif
 }
 
 bool MainWindow::openRecentFile()
