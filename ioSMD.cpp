@@ -37,7 +37,7 @@ float* matrix2euler(const Matrix44f &_m){
   m = inv*m.transpose()*inv;
   m.ToEulerAngles(res[0], res[1], res[2]);
     if (res[1]!=res[1]) res[1]=-(float)M_PI/2;
-  if (fabs(fabs(res[1])-M_PI/2)<0.000001) {
+  if (fabs(fabs(res[1])-M_PI/2)<0.000001f) {
     // ouch: pivot angle... let's try everythin...
     float best = 1000;
     static float win[3];
@@ -45,9 +45,9 @@ float* matrix2euler(const Matrix44f &_m){
     for (int i=0; i<4; i++)
 
     for (int j=0; j<4; j++) {
-        res[0]=(i-2)*M_PI/2;
-        res[1]=(k)*M_PI/2;
-        res[2]=(j-2)*M_PI/2;
+        res[0]=(i-2)*M_PI/2.f;
+        res[1]=(k)*M_PI/2.f;
+        res[2]=(j-2)*M_PI/2.f;
         Matrix44f m2 = euler2matrix(res);
         float score =Norm(m2-_m.transpose());
         if (score<best) {

@@ -110,7 +110,7 @@ void  BrfSkeleton::Scale(float f){
 int BrfSkeleton::FindSpecularBoneOf(int i) const{
 	char boneName[255];
 	sprintf(boneName, "%s", bone[i].name );
-	int l = strlen(boneName)-1;
+	int l = (int) strlen(boneName)-1;
 	if (l<1) return i;
 	if (boneName[l-1]!='.') return i;
 	if (boneName[l]=='L') boneName[l]='R';
@@ -386,7 +386,7 @@ void BrfSkeleton::BuildTree(){
 
 void BrfSkeleton::Export(const char* fn){
   FILE* f = fopen(fn,"wt");
-  fprintf(f,"%s -- %d bones:\n",name,bone.size());
+  fprintf(f,"%s -- %d bones:\n",name, (int) bone.size());
   for (unsigned int i=0; i<bone.size(); i++){
     fprintf(f,"\n (%d) ",i);
     bone[i].Export(f);

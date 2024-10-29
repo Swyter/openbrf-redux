@@ -263,7 +263,7 @@ static bool readInterval(QString s, const char* tokenA, int *n, const char* toke
   return false;
 }
 
-static bool checkInterval(int a, int b, int max){
+static bool checkInterval(size_t a, size_t b, size_t max){
   if (b>max) {
     lastErr=QString("Invalid %4 interval %1 %2 not in [0..%3]")
             .arg(a).arg(b).arg(max).arg(lastIntervalName);
@@ -313,7 +313,7 @@ static void ioMB_exportRigging(const BrfMesh &m){
   fprintf(f,
     "createNode skinCluster -n \"%s_skin\";\n"
     "\tsetAttr -s %d \".wl\";\n"
-    ,m.name, m.skinning.size()
+    ,m.name, (int) m.skinning.size()
   );
   for (unsigned int i=0; i<m.skinning.size(); i++) {
     int minj = m.skinning[i].boneIndex[0];
@@ -395,7 +395,7 @@ static void ioMB_exportMesh(const BrfMesh &m, int fr){
     "\tsetAttr \".uvst[0].uvsn\" -type \"string\" \"%s\";\n"
     "\tsetAttr -s %d \".uvst[0].uvsp\";\n"
     "\tsetAttr \".uvst[0].uvsp[0:%d]\" -type \"float2\"",
-    m.face.size()-1,m.material,  m.vert.size(), m.vert.size()-1
+    (int) m.face.size()-1,m.material,  (int) m.vert.size(), (int) m.vert.size()-1
   );
 
   for (unsigned int i=0,k=4; i<m.vert.size(); i++,k+=2) {
@@ -412,7 +412,7 @@ static void ioMB_exportMesh(const BrfMesh &m, int fr){
   fprintf(f,
     "\tsetAttr -s %d \".vt\";\n"
     "\tsetAttr \".vt[0:%d]\"",
-    m.frame[fr].pos.size(),m.frame[fr].pos.size()-1
+    (int) m.frame[fr].pos.size(), (int) m.frame[fr].pos.size()-1
   );
   for (unsigned int i=0,k=2; i<m.frame[fr].pos.size(); i++,k+=3) {
     if (k>9) { fprintf(f,"\n\t\t"); k=0; }
@@ -448,7 +448,7 @@ static void ioMB_exportMesh(const BrfMesh &m, int fr){
     }
 
     edg.flip();
-    tmpfa[i].index[e] = map[edg] = tmped.size();
+    tmpfa[i].index[e] = map[edg] = (int) tmped.size();
     tmped.push_back(edg);
   }
 
@@ -456,7 +456,7 @@ static void ioMB_exportMesh(const BrfMesh &m, int fr){
   fprintf(f,
     "\tsetAttr -s %d \".ed\";\n"
     "\tsetAttr \".ed[0:%d]\"",
-    tmped.size(),tmped.size()-1
+    (int) tmped.size(), (int) tmped.size()-1
   );
   for (unsigned int i=0,k=2; i<tmped.size(); i++,k+=3){
      if (k>9) { fprintf(f,"\n\t\t"); k=0; }
@@ -465,7 +465,7 @@ static void ioMB_exportMesh(const BrfMesh &m, int fr){
   fprintf(f,";\n");
 
   // normals
-  int vertsize = m.face.size()*3;
+  int vertsize = (int) m.face.size()*3;
 
   fprintf(f,
     "\tsetAttr -s %d \".n\";\n"
@@ -484,7 +484,7 @@ static void ioMB_exportMesh(const BrfMesh &m, int fr){
   fprintf(f,
     "\tsetAttr -s %d \".fc\";\n"
     "\tsetAttr \".fc[0:%d]\" -type \"polyFaces\"\n" ,
-    m.face.size(), m.face.size()-1
+    (int) m.face.size(), (int) m.face.size()-1
   );
   for (unsigned int i=0,k=4; i<m.face.size(); i++,k+=3) {
     fprintf(f,
@@ -519,7 +519,7 @@ static int ioMB_importRiggingSize(){
 
 static int ioMB_importRigging(BrfMesh &m){
   int a,b,n;
-  int max = m.frame[0].pos.size();
+  size_t max = m.frame[0].pos.size();
   m.skinning.resize(max);
   //qDebug("Start...");
 
@@ -799,7 +799,7 @@ static bool ioMB_importBone(BrfSkeleton &s ){
       lastErr = QString("Found multiple skeleton's roots (bone \"%1\"").arg(b.name);
       return false;
     }
-    s.root = s.bone.size();
+    s.root = (int) s.bone.size();
   }
   skipLine();
   bool hasT=false;
@@ -842,7 +842,7 @@ static bool ioMB_importBone(BrfSkeleton &s ){
   if (!hasT) {lastErr=QString("No translation found for bone '%1'").arg(b.name); return false; };
   if (!hasR) {lastErr=QString("No rotation found for bone '%1'").arg(b.name); return false; };
   s.bone.push_back(b);
-  int i = s.bone.size()-1;
+  int i = (int) s.bone.size()-1;
   s.setRotationMatrix( euler2matrix(&(rot[0])) , i );
   s.BuildTree();
   vector<Matrix44f> v = s.GetBoneMatrices();
