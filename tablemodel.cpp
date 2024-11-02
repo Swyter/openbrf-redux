@@ -69,10 +69,10 @@ QVariant MyTableModel::data(const QModelIndex &index, int role) const
     //    QApplication::palette().color (QPalette::AlternateBase);
   if (role==Qt::ForegroundRole) {
     switch(vecUsed[ i ]){
-    case  1 /* swy:    item-used-in-mod text color */: { return isDarkMode ? QColor(207, 207, 252, 255) /* swy: light blue */ : QColor(  0,   0, 150, 255) /* swy: dark blue */;                            } 
-    case  0 /* swy: normal/neutral list text color */: { return palette.brush(QPalette::Active, QPalette::WindowText); /* swy: normal list color, use the default (usually black-on-white in light mode) */ } 
-    case -1 /* swy:                 ??? text color */:   return QColor(40,50,40,255); /* swy: this color is probably deprecated/obsolete */
-    case -2 /* swy:  item-unused-in-mod text color */: { return isDarkMode ? QColor(163, 163, 163, 255) /* swy: light gray */ : QColor(140, 150, 140, 255) /* swy: dark gray */;                            } 
+    case  1 /* swy: [used in mod   ] e.g. eventually used by some asset chaining back to a .txt file    */: { return isDarkMode ? QColor(207, 207, 252, 255) /* swy: light blue  */ : QColor(  0,   0, 150, 255) /* swy: dark blue  */;                          } 
+    case  0 /* swy: [no usage check] normal/neutral list text color before using the check function     */: { return palette.brush(QPalette::Active, QPalette::WindowText); /* swy: normal list color, use the default (usually black-on-white in light mode) */ } 
+    case -1 /* swy: [used by asset ] e.g. material used by some (unused) mesh that the mod doesn't load */: { return isDarkMode ? QColor(156, 209, 156, 255) /* swy: muted green */ : QColor( 40,  50,  40, 255) /* swy: dark green */;                          }
+    case -2 /* swy: [unused        ] not used by anything, not even other unused stuff                  */: { return isDarkMode ? QColor(163, 163, 163, 255) /* swy: light gray  */ : QColor(140, 150, 140, 255) /* swy: dark gray  */;                          } 
     //return QApplication::palette().color(QPalette::Text);
     }
   }

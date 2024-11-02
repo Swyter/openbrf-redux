@@ -940,9 +940,9 @@ void Selector::addBrfTab(const vector<BrfType>  &v){
 		if (iniData && (iniData->updated>=4) && (!iniDataWaitsSaving)) {
 			for (unsigned int k=0; k<v.size(); k++) {
 				ObjCoord oc(iniFileIndex,k,ti);
-				int h=-1;
-				if (iniData->usedIn(oc).directOrIndirect()!=0) h=1;
-				else if (iniData->usedBy(oc).size()==0) h=-2;
+				int h=-1;                                           /* swy: -1 means that this asset is needed by some other asset which in turn is unused (e.g. material of old mesh) */
+				if (iniData->usedIn(oc).directOrIndirect()!=0) h=1; /* swy:  1 means used by something that eventually gets loaded and referenced in mod .txt files */
+				else if (iniData->usedBy(oc).size()==0) h=-2;       /* swy: -2 means completely unused and unreferenced by any other asset, nothing needs this */
 				tableModel[ti]->vecUsed.push_back( h );
 			}
 		} else {
