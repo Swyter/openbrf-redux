@@ -17,6 +17,9 @@ AskHueSatBriDialog::AskHueSatBriDialog(QWidget *parent) :
   connect(ui->sliderHue,SIGNAL(valueChanged(int)), this, SLOT(onAnySliderMove(int)));
   connect(ui->sliderSat,SIGNAL(valueChanged(int)), this, SLOT(onAnySliderMove(int)));
   connect(ui->applyToLastSel, SIGNAL(clicked(bool)), this, SLOT(onAnySliderMove(int))); /* swy: this checkbox should copy the behavior from the roto-rescale tool */
+  this->setStyleSheet(
+    "* { color: black; background-color: aliceblue }"  /* swy: make the so that the dialog uses light mode to make QSlider markers visible */
+  );
 }
 
 void AskHueSatBriDialog::onAnySliderMove(int){
