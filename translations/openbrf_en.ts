@@ -582,8 +582,7 @@ with the same name(s)</source>
     </message>
     <message>
         <location filename="../askTransformDialog.ui" line="777"/>
-        <source>Apply to last selected
-object only</source>
+        <source>Apply to last selected object only</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -733,8 +732,7 @@ They will not be even loaded by the game.</source>
     </message>
     <message>
         <location filename="../askHueSatBriDialog.ui" line="206"/>
-        <source>Apply to last selected
-object only</source>
+        <source>Apply to last selected object only</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

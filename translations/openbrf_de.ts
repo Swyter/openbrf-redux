@@ -695,10 +695,8 @@ mit dem selben Namen hinzu</translation>
     </message>
     <message>
         <location filename="../askTransformDialog.ui" line="777"/>
-        <source>Apply to last selected
-object only</source>
-        <translation>Nur das letzte Objekt
-verändern</translation>
+        <source>Apply to last selected object only</source>
+        <translation>Nur das letzte Objekt verändern</translation>
     </message>
 </context>
 <context>
@@ -855,10 +853,8 @@ in %2</translation>
     </message>
     <message>
         <location filename="../askHueSatBriDialog.ui" line="206"/>
-        <source>Apply to last selected
-object only</source>
-        <translation type="unfinished">Nur das letzte Objekt
-verändern</translation>
+        <source>Apply to last selected object only</source>
+        <translation type="unfinished">Nur das letzte Objekt verändern</translation>
     </message>
 </context>
 <context>

@@ -811,10 +811,8 @@ con los mismos nombres.</translation>
     </message>
     <message>
         <location line="+17"/>
-        <source>Apply to last selected
-object only</source>
-        <translation>Sólo aplicar al último
-objeto seleccionado</translation>
+        <source>Apply to last selected object only</source>
+        <translation>Sólo aplicar al último objeto seleccionado</translation>
     </message>
     <message>
         <source>Apply to
@@ -991,10 +989,8 @@ o discordancia en la vinculación esqueletal).
     </message>
     <message>
         <location line="+16"/>
-        <source>Apply to last selected
-object only</source>
-        <translation type="unfinished">Sólo aplicar al último
-objeto seleccionado</translation>
+        <source>Apply to last selected object only</source>
+        <translation>Sólo aplicar al último objeto seleccionado</translation>
     </message>
 </context>
 <context>
