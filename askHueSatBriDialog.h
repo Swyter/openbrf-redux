@@ -20,7 +20,8 @@ signals:
 
 private slots:
     void onAnySliderMove(int);
-
+    void onClicked();
+    
 private:
     Ui::Dialog *ui;
 };
