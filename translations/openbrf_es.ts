@@ -3477,7 +3477,7 @@ al que añadir un fotograma o cuadro.</translation>
     </message>
     <message>
         <source>Rigged mesh</source>
-        <translation type="obsolete">Modelo Esqueletal</translation>
+        <translation type="obsolete">Modelo esqueletal</translation>
     </message>
     <message>
         <source>Import rigged (skeletal animable) Mesh</source>
@@ -3494,7 +3494,7 @@ al que añadir un fotograma o cuadro.</translation>
     </message>
     <message>
         <source>Vertex-animated mesh</source>
-        <translation type="obsolete">Modelo de Animación por Vértices</translation>
+        <translation type="obsolete">Modelo de animación por vértices</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -3513,7 +3513,7 @@ al que añadir un fotograma o cuadro.</translation>
     </message>
     <message>
         <source>Skeletal animation</source>
-        <translation type="obsolete">Animación Esqueletal</translation>
+        <translation type="obsolete">Animación esqueletal</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -3522,16 +3522,16 @@ al que añadir un fotograma o cuadro.</translation>
     </message>
     <message>
         <source>Collision body</source>
-        <translation type="obsolete">Cuerpo de Colisión</translation>
+        <translation type="obsolete">Cuerpo de colisión</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Import an (multi-object) OBJ mesh as a Collision object.</source>
-        <translation>Importa uno o varios modelos como una malla  u objeto de colisión.</translation>
+        <translation>Importa uno o varios modelos como una malla u objeto de colisión.</translation>
     </message>
     <message>
         <source>Anything from a BRF</source>
-        <translation type="obsolete">Importación Masiva desde un BRF</translation>
+        <translation type="obsolete">Importación masiva desde un BRF</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -3545,11 +3545,11 @@ al que añadir un fotograma o cuadro.</translation>
     <message>
         <location line="+2"/>
         <source>Make a new Material object.</source>
-        <translation>Crea un objeto de  material nuevo.</translation>
+        <translation>Crea un objeto de material nuevo.</translation>
     </message>
     <message>
         <source>New Texture</source>
-        <translation type="obsolete">Nueva Referencia de Textura</translation>
+        <translation type="obsolete">Nueva referencia de textura</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -3605,12 +3605,12 @@ al que añadir un fotograma o cuadro.</translation>
     <message>
         <location line="+1"/>
         <source>next back-link</source>
-        <translation>Nivel Siguiente</translation>
+        <translation>Nivel siguiente</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>prev back-link</source>
-        <translation>Nivel Anterior</translation>
+        <translation>Nivel anterior</translation>
     </message>
     <message>
         <source>Find</source>
@@ -3643,7 +3643,7 @@ al que añadir un fotograma o cuadro.</translation>
     <message>
         <location line="+4"/>
         <source>Select a BRF in module...</source>
-        <translation>Seleccionar un BRF en el módulo...</translation>
+        <translation>Elige un BRF del módulo...</translation>
     </message>
     <message>
         <source>Refresh INI</source>
@@ -3667,7 +3667,7 @@ al que añadir un fotograma o cuadro.</translation>
     <message>
         <location line="+1"/>
         <source>Scans module content and txt files, to compute what uses what</source>
-        <translation>Escanea el contenido del módulo y los archivos txt, para calcular que, donde, y si se usa un recurso del juego</translation>
+        <translation>Escanea el contenido del módulo y los archivos txt, para calcular qué, dónde, y si se usa un recurso del juego</translation>
     </message>
     <message>
         <location line="+1"/>
