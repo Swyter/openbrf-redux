@@ -1040,6 +1040,8 @@ int Selector::currentIndexOnList() const{
 
 
 void Selector::selectMany(std::vector<int> v){
+	if (!this->isEnabled()) /* swy: make it so that a double-click on one of the multiple objects in the 3D view doesn't deselect the rest */
+		return;
     int kind = currentTabName();
     if (kind<0 || kind>=N_TOKEN) return;
     bool unselect = (QApplication::keyboardModifiers()&Qt::ControlModifier);
@@ -1070,6 +1072,8 @@ void Selector::selectMany(std::vector<int> v){
 }
 
 void Selector::selectOne(int kind, int i){
+	if (!this->isEnabled()) /* swy: make it so that a double-click on one of the multiple objects in the 3D view doesn't deselect the rest */
+		return;
 	assert(kind>=0 && kind<N_TOKEN);
 	QListView* c=tab[kind];
 	if (c) {
