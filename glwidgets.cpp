@@ -2442,38 +2442,36 @@ void GLWidget::renderTextureColorOnMeshes(bool overwrite){
 }
 
 #if 1
-void GLWidget::beginSingleSampledFramebufferUse(void){  /* swy: if we use multisample antialiasing we can't pick the depth via glReadPixels() in unproject(), we need to make a "resolved" copy of it without MSAA */
-	if (frameBuffersAreSupported)
-	{
-		GLsizei w = widthPix(), h = heightPix();
+void GLWidget::beginSingleSampledFramebufferUse(void) {  /* swy: if we use multisample antialiasing we can't pick the depth via glReadPixels() in unproject(), we need to make a "resolved" copy of it without MSAA */
+	if (!frameBuffersAreSupported) return;
+	GLsizei w = widthPix(), h = heightPix();
 
-		if (!singleSampleFramebuffer.fbo || singleSampleFramebuffer.w != w || singleSampleFramebuffer.h != h) { /* swy: hasn't been created yet? was the viewport been resized? */
+	if (!singleSampleFramebuffer.fbo || singleSampleFramebuffer.w != w || singleSampleFramebuffer.h != h) { /* swy: hasn't been created yet? was the viewport been resized? */
 
-			if (singleSampleFramebuffer.fbo != 0)  glDeleteFramebuffers(1, &singleSampleFramebuffer.fbo); /* swy: delete any previous framebuffers or renderbuffers on resize, don't leave them hanging and leaking, we may eventually run out of memory. */
-			if (singleSampleFramebuffer.rb  != 0) glDeleteRenderbuffers(1, &singleSampleFramebuffer.rb);
+		if (singleSampleFramebuffer.fbo != 0)  glDeleteFramebuffers(1, &singleSampleFramebuffer.fbo); /* swy: delete any previous framebuffers or renderbuffers on resize, don't leave them hanging and leaking, we may eventually run out of memory. */
+		if (singleSampleFramebuffer.rb  != 0) glDeleteRenderbuffers(1, &singleSampleFramebuffer.rb);
 
-			GLuint fbo; glGenFramebuffers(1, &fbo);  glBindFramebuffer(GL_FRAMEBUFFER, fbo); /* swy: create the framebuffer and the actual depth buffer surface, no multisampling */
-			GLuint rb; glGenRenderbuffers(1, &rb ); glBindRenderbuffer(GL_RENDERBUFFER, rb);
-		
-			    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT, w, h); /* swy: attach the depth buffer surface to our framebuffer */
-			glFramebufferRenderbuffer(GL_FRAMEBUFFER,  GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, rb);
+		GLuint fbo; glGenFramebuffers(1, &fbo);  glBindFramebuffer(GL_FRAMEBUFFER, fbo); /* swy: create the framebuffer and the actual depth buffer surface, no multisampling */
+		GLuint rb; glGenRenderbuffers(1, &rb ); glBindRenderbuffer(GL_RENDERBUFFER, rb);
+	
+		    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT, w, h); /* swy: attach the depth buffer surface to our framebuffer */
+		glFramebufferRenderbuffer(GL_FRAMEBUFFER,  GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, rb);
 
-			static volatile GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER); /* swy: save the width, height and IDs for future frames */
-			singleSampleFramebuffer = {fbo, rb, w, h, status};
-		}
-
-		glBindFramebuffer(GL_READ_FRAMEBUFFER, defaultFramebufferObject()); /* swy: copy the pixel data from the MSAA depth into the resolved (1 single sample) depth, so that we can grab the value and find the world position from that */
-		glBindFramebuffer(GL_DRAW_FRAMEBUFFER, singleSampleFramebuffer.fbo);
-		glBlitFramebuffer(0, 0, singleSampleFramebuffer.w, singleSampleFramebuffer.h,
-		                  0, 0, singleSampleFramebuffer.w, singleSampleFramebuffer.h, GL_DEPTH_BUFFER_BIT, GL_NEAREST);
-
-		glBindFramebuffer(GL_FRAMEBUFFER, singleSampleFramebuffer.fbo); /* swy: this marks the surface as not only active for write but for reading as well, deselects the default framebuffer completely */
+		static volatile GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER); /* swy: save the width, height and IDs for future frames */
+		singleSampleFramebuffer = {fbo, rb, w, h, status};
 	}
+
+	glBindFramebuffer(GL_READ_FRAMEBUFFER, defaultFramebufferObject()); /* swy: copy the pixel data from the MSAA depth into the resolved (1 single sample) depth, so that we can grab the value and find the world position from that */
+	glBindFramebuffer(GL_DRAW_FRAMEBUFFER, singleSampleFramebuffer.fbo);
+	glBlitFramebuffer(0, 0, singleSampleFramebuffer.w, singleSampleFramebuffer.h,
+	                  0, 0, singleSampleFramebuffer.w, singleSampleFramebuffer.h, GL_DEPTH_BUFFER_BIT, GL_NEAREST);
+
+	glBindFramebuffer(GL_FRAMEBUFFER, singleSampleFramebuffer.fbo); /* swy: this marks the surface as not only active for write but for reading as well, deselects the default framebuffer completely */
 }
 
-void GLWidget::endSingleSampledFramebufferUse(void){
-	if (frameBuffersAreSupported)
-		glBindFramebuffer(GL_FRAMEBUFFER, defaultFramebufferObject()); update(); /* swy: restore it back so that we can continue drawing as normal after getting the value we wanted */
+void GLWidget::endSingleSampledFramebufferUse(void) {
+	if (!frameBuffersAreSupported) return;
+	glBindFramebuffer(GL_FRAMEBUFFER, defaultFramebufferObject()); update(); /* swy: restore it back so that we can continue drawing as normal after getting the value we wanted */
 }
 #endif
 
