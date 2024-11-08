@@ -341,6 +341,9 @@ private:
 
     int widthPix() const;
     int heightPix() const;
+
+	void beginSingleSampledFramebufferUse(void);
+	void endSingleSampledFramebufferUse(void);
 };
 
 #endif // GLWIDGETS_H
