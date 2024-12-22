@@ -172,11 +172,11 @@ void IoOBJ::subdivideLast(const BrfMesh& m, std::vector<BrfMesh> &res){
   for (int i=0; i<nmat; i++){
     res[i] = m;
     res[i].face.clear();
-    sprintf(res[i].material,"%s",matMeshVec[i].second.toLatin1().data());
+    snprintf(res[i].material,sizeof(res[i].material)-1,"%s",matMeshVec[i].second.toLatin1().data());
     if (i>0)
-      sprintf(res[i].name,"%s.%d",m.name,i);
+      snprintf(res[i].name,sizeof(res[i].name),"%s.%d",m.name,i);
     else
-      sprintf(res[i].name,"%s",m.name);
+      snprintf(res[i].name,sizeof(res[i].name),"%s",m.name);
   }
   for (unsigned int i=0; i<m.face.size(); i++) {
     int j = matMeshIndex[i];

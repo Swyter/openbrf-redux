@@ -853,7 +853,7 @@ bool MainWindow::reimportMesh(){
 	BrfMesh &newMesh = m[0];
 
 	//if (!VcgMesh::gotMaterialName()) // let's do that anyway
-  sprintf(newMesh.material,oldMesh.material);
+  sprintf(newMesh.material,"%s",oldMesh.material);
 
 	if (!VcgMesh::gotColor()) newMesh.CopyVertColors(oldMesh);
 

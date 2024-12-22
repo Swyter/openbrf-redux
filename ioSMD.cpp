@@ -128,7 +128,7 @@ static bool ioSMD_ImportTriangles(FILE*f, BrfMesh &m ){
     fscanln(f, matName); //
     //fscanf(f,"%s\n", matName);
     if (strcmp(matName,"end")==0) break;
-    sprintf(m.material,"%s",matName);
+    snprintf(m.material,sizeof(m.material)-1,"%s",matName);
     for (int w=0; w<3; w++) {
       int bi;
       Point3f p;
@@ -253,7 +253,7 @@ static bool ioSMD_ImportBoneStruct(FILE*f,BrfSkeleton &s ){
     if (a>=(int)s.bone.size()) s.bone.resize(a+1);
     //qDebug("size %d, a=%d",s.bone.size(),a);
     s.bone[a].attach=b;
-    sprintf(s.bone[a].name,"%s",st);
+    snprintf(s.bone[a].name,sizeof(s.bone[a].name)-1,"%s",st);
   }
   s.BuildTree();
   return true;

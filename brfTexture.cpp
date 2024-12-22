@@ -30,7 +30,7 @@ void BrfTexture::Save(FILE* f) const{
 }
 
 void BrfTexture::SetDefault(){
-  sprintf(name, "%s.dds" ,name);
+  char buf[255] = {0}; snprintf(buf, sizeof(buf)-1, "%s.dds", name); strncpy(name, buf, sizeof(name)); /* swy: concat name + ".dds" safely without using the source as the destination buffer directly :) */
   flags=0x00000000;
 }
 
@@ -44,6 +44,6 @@ bool BrfTexture::IsAnimable() const {
 
 char* BrfTexture::FrameName(int i) const{
   static char res[1024];
-  sprintf(res,"%s_%d.dds",name,i);
+  snprintf(res,sizeof(res)-1,"%s_%d.dds",name,i);
   return res;
 }

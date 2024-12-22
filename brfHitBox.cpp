@@ -159,7 +159,7 @@ char* BrfData::LastHitBoxesLoadSaveError(const char *st, const char *subst1, con
     sprintf(str, st, subst1);
   }
   if (st) {
-    sprintf(str, st);
+    sprintf(str, "%s", st);
   }
   return str;
 }

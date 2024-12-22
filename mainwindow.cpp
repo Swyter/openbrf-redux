@@ -1020,7 +1020,7 @@ template <class BrfType>
 void MainWindow::replaceInit(BrfType &o){
 	BrfType& curr = getUniqueSelected<BrfType>();
 	if (&curr) {
-		snprintf( o.name, sizeof(o.name) - 1, curr.name );
+		snprintf( o.name, sizeof(o.name) - 1, "%s", curr.name );
 		curr = o;
 	}
 	setModified();
@@ -1709,7 +1709,7 @@ void MainWindow::optionFeminizationUseCustom(){
 		if (femininizer.Load(r.data())) ok = true;
 	}
 	if (!ok){
-        qDebug( (QString("PATH = ")+QCoreApplication::applicationDirPath()).toUtf8().data() );
+        qDebug("%s", (QString("PATH = ")+QCoreApplication::applicationDirPath()).toUtf8().data() );
 
 		QMessageBox::warning(this, tr("OpenBrf"),
 		                     QString(
@@ -2066,7 +2066,7 @@ void MainWindow::meshToBody(){
 		for (int j=0; j<list.size(); j++){
 			BrfMesh &m (brfdata.mesh[list[j].row()]);
 			m.AddToBody(bp);
-			if (j==0) snprintf(b.name, sizeof(b.name), m.GetLikelyCollisonBodyName() );
+			if (j==0) snprintf(b.name, sizeof(b.name), "%s", m.GetLikelyCollisonBodyName() );
 		}
 		b.part.push_back(bp);
 		b.MakeQuadDominant();
@@ -2260,7 +2260,7 @@ void MainWindow::aniReskeletonize(){
 		BrfSkeleton &s2( reference.skeleton[d->skelTo()] );
 		std::vector<int> map = s2.Bone2BoneMap(s1);
 		std::vector<vcg::Point4<float> > boneRot = s2.BoneRotations();
-		qDebug("sizes = %d %d %d",s2.bone.size(),map.size(),boneRot.size());
+		qDebug("sizes = %ld %ld %ld",s2.bone.size(),map.size(),boneRot.size());
 		for (int j=0; j<n; j++){
 			BrfAnimation &a( getSelected<BrfAnimation>(j) );
 			if (!&a) continue;
@@ -5150,7 +5150,7 @@ bool MainWindow::navigateLeft(){
 		BrfMesh &m = getSelected<BrfMesh>();
 		if (!&m) return false;
 		char nextName[1024];
-		snprintf(nextName, sizeof(nextName) - 1,m.GetLikelyCollisonBodyName() );
+		snprintf(nextName, sizeof(nextName) - 1, "%s", m.GetLikelyCollisonBodyName() );
 		int loc = brfdata.Find( nextName, nextTab );
 		if ( loc!=-1 ) {
 			selectOne(nextTab,loc);

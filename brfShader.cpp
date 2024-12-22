@@ -41,7 +41,7 @@ void BrfShaderOpt::Save(FILE*f) const{
 
 void BrfShader::SetDefault(){
   requirements = 0;
-  sprintf(technique,name);
+  sprintf(technique,"%s",name);
   fallback[0]=0;
   flags = 0;
   BrfShaderOpt o;

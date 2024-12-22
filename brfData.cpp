@@ -69,7 +69,7 @@ const char* BrfData::GetAllObjectNamesAsSceneProps(int *nFound, int *nFoundWithB
 		if (hasBody) (*nFoundWithB)++;
 		c.append(fullstr);
 
-		sprintf(lastName,mesh[i].baseName);
+		sprintf(lastName,"%s",mesh[i].baseName);
 
 	}
 	if (!*nFound) return NULL;

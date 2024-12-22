@@ -477,7 +477,7 @@ bool BrfBodyPart::Load(FILE*f, char* _firstWord, int verbose ){
   if (!_firstWord) {
     if (!LoadString(f,firstWord)) return false;
   }
-  else sprintf(firstWord,_firstWord);
+  else sprintf(firstWord,"%s",_firstWord);
 
   if (!strcmp(firstWord,"manifold")) {
     type=MANIFOLD;
@@ -546,7 +546,7 @@ bool BrfBodyPart::Skip(FILE*f, char* _firstWord){
   char firstWord[255];
 
   if (!_firstWord) { if (!LoadString(f,firstWord)) return false; }
-  else sprintf(firstWord,_firstWord);
+  else sprintf(firstWord,"%s",_firstWord);
 
 
   if (!strcmp(firstWord,"manifold")) {

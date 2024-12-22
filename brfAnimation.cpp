@@ -522,7 +522,7 @@ void BrfAnimation::ShiftIndexInterval(int d){
 }
 
 int BrfAnimation::ExtractIndexInterval(BrfAnimation &res, int a, int b){
-  sprintf(res.name, "%s_%d_%d", name, a,b);
+  snprintf(res.name, sizeof(res.name)-1, "%s_%d_%d", name, a,b);
   res.nbones = nbones;
   res.bbox = bbox;
   res.frame.clear();
@@ -748,7 +748,7 @@ void BrfAnimation::Save(FILE *f) const{
 
 void BrfAnimation::Export(const char* fn){
   FILE* f = fopen(fn,"wt");
-  fprintf(f,"%s -- %d bones  %u frames...\n",name, nbones,frame.size());
+  fprintf(f,"%s -- %d bones  %lu frames...\n",name, nbones,frame.size());
   for (unsigned int j=0; j<frame.size(); j++) {
     for (int i=0; i<nbones; i++) {
 

@@ -83,7 +83,7 @@ bool LoadStringMaybe(FILE *f, char *st, const char *ifnot){
     return true;
   } else {
     fseek(f,-4,SEEK_CUR);
-    sprintf(st,ifnot);
+    sprintf(st,"%s",ifnot);
     return false;
   }
 

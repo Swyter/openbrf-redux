@@ -154,15 +154,15 @@ bool IoMD::ExportMD2(const char *filename, const BrfMesh &m){
 
 bool IoMD::Export(const char *filename, const BrfMesh &m){
   if (m.frame.size()>1024){
-    sprintf(errorStr,"Too many frames %d. Max = 1024",m.frame.size());
+    sprintf(errorStr,"Too many frames %ld. Max = 1024",m.frame.size());
     return false;
   }
   if (m.vert.size()>4096){
-    sprintf(errorStr,"Too many vertices %d. Max = 4096",m.vert.size());
+    sprintf(errorStr,"Too many vertices %ld. Max = 4096",m.vert.size());
     return false;
   }
   if (m.face.size()>8192){
-    sprintf(errorStr,"Too many faces: %d. Max = 8192",m.face.size());
+    sprintf(errorStr,"Too many faces: %ld. Max = 8192",m.face.size());
     return false;
   }
   FILE *f = fopen(filename,"wb");
@@ -266,8 +266,8 @@ bool IoMD::Import(FILE *f, BrfMesh &m){
 
   char str[65];
   LoadStringFix(f,str,64);
-  sprintf(m.name,str);
-  sprintf(m.material,str);
+  strncpy(m.name,str,sizeof(m.name)-1);
+  strncpy(m.material,str,sizeof(m.material)-1);
 
   unsigned int flags;
   LoadUint(f,flags);
