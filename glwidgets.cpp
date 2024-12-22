@@ -1262,7 +1262,7 @@ void GLWidget::setSelection(const QModelIndexList &newsel, int k){
     std::map< QString, int > basenameToVP;
 
     for (const auto &s : newsel ) {
-        int i = s.row();
+        uint i = s.row();
         lastSelected = i;
 
         int thisLod = (k==MESH && i < data->mesh.size()) ? data->mesh[ i ].lodLevel : 0;
@@ -2636,7 +2636,7 @@ void GLWidget::renderSelected(const std::vector<BrfType>& v){
         bbox.SetNull();
 
         if (commonBBox) for (auto& i: v) bbox.Add(i.bbox );
-        else for (auto& inv:inViewport) for (int i:inv.items) if (i < v.size()) bbox.Add( v[i].bbox );
+        else for (auto& inv:inViewport) for (int i:inv.items) if ((unsigned)i < v.size()) bbox.Add( v[i].bbox );
         bboxReady = true;
     }
 	animating=false;
@@ -2694,7 +2694,7 @@ void GLWidget::renderSelected(const std::vector<BrfType>& v){
 		mySetViewport( vi );
 		bool firstDraw = true;
 
-        for (int i:inViewport[vi].items)
+        for (unsigned int i:inViewport[vi].items)
 		if (i < v.size()) {
         if ( !hideLods || (lodOf(v[i])<=inViewport[vi].bestLod) ) { // don't draw
             glPushMatrix();
@@ -2728,7 +2728,7 @@ void GLWidget::renderSelected(const std::vector<BrfType>& v){
 
 			}
 
-			if ( (i==lastSelected) || applyExtraMatrixToAll ) glMultMatrixf(extraMatrix);
+			if ( (i==(unsigned)lastSelected) || applyExtraMatrixToAll ) glMultMatrixf(extraMatrix);
 			renderBrfItem(v[i]);
 
 			if (firstDraw) {

@@ -519,7 +519,7 @@ static int ioMB_importRiggingSize(){
 
 static int ioMB_importRigging(BrfMesh &m){
   int a,b,n;
-  size_t max = m.frame[0].pos.size();
+  long max = m.frame[0].pos.size();
   m.skinning.resize(max);
   //qDebug("Start...");
 
@@ -666,7 +666,7 @@ static bool ioMB_importMesh(BrfMesh &m ){
         //m.face[i]=BrfFace(v0a,v1a,v1b);
         //m.face.push_back(BrfFace(v0a,v1a,v1b));
 
-        int v0, v1, v2, v3;
+        int v0, v1, v2, v3=0;
         //v0=i*3;
         //v1=i*3+1;
         //v2=i*3+2;

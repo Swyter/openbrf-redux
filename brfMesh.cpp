@@ -1062,7 +1062,7 @@ void BrfMesh::Scale(float f){
 void BrfMesh::Transform(float *f, int frameN){
   vcg::Matrix44f m(f); m.transposeInPlace();
   vcg::Point3f z = m * Point3f(0,0,0);
-  for (unsigned int i=0; i<frame.size(); i++) if ((frameN==-1) || (frameN==i) ){
+  for (unsigned int i=0; i<frame.size(); i++) if ((frameN==-1) || ((unsigned)frameN==i) ){
     for (unsigned int j=0; j<frame[i].pos.size(); j++)
       frame[i].pos[j]=m*frame[i].pos[j];
     for (unsigned int j=0; j<frame[i].norm.size(); j++)
