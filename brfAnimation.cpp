@@ -37,7 +37,7 @@ void BrfAnimation::AddBoneHack(int copyfrom){
 void BrfAnimation::ResampleOneEvery(int nFrames){
 	std::vector<BrfAnimationFrame> oldFrame = frame;
 	frame.clear();
-	for (uint i=0; i<oldFrame.size(); i+=nFrames) {
+	for (unsigned int i=0; i<oldFrame.size(); i+=nFrames) {
 		frame.push_back( oldFrame[i] );
 	}
 }

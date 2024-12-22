@@ -3,25 +3,28 @@
 #include <QApplication>
 #include "mainwindow.h"
 
-static void showUsage(){
-  system(
-    "echo off&"
-    "echo off&"
-    "echo.usages: &"
-    "echo.&"
-    "echo.  OpenBRF &"
-    "echo.     ...starts GUI&"
-    "echo.&"
-    "echo.  OpenBRF ^<file.brf^> &"
-    "echo.     ...starts GUI, opens file.brf&"
-    "echo.&"
-    "echo.  OpenBRF --dump ^<module_path^> ^<file.txt^>&"
-    "echo.     ...shell only, dumps objects names into file.txt&"
-    "echo.&"
-    "echo.&"
-    "pause"
-  );
+#ifdef _WIN32 /* swy: only pause on the Windows version so that the command-line doesn't blink and disappear, this isn't ideal for macOS and Linux */
+ #define __PAUSE() system("pause")
+#else
+ #define __PAUSE() /* system("read") */
+#endif
 
+static void showUsage(){
+  printf(
+    "usages:\n"
+    "\n"
+    "  OpenBRF\n"
+    "     ...starts GUI\n"
+    "\n"
+    "  OpenBRF <file.brf>\n"
+    "     ...starts GUI, opens file.brf\n"
+    "\n"
+    "  OpenBRF --dump <module_path> <file.txt>\n"
+    "     ...shell only, dumps objects names into file.txt\n"
+    "\n"
+    "\n"
+  );
+  __PAUSE();
 }
 
 extern const char* applVersion;
@@ -52,9 +55,9 @@ int main(int argc, char* argv[])
   if ((arguments.size()>1)&&(arguments[1].startsWith("-"))) {
     if ((arguments[1] == "--dump")&&(arguments.size()==4)) {
       switch (MainWindow().loadModAndDump(arguments[2],arguments[3])) {
-      case -1: system("echo OpenBRF: invalid module folder & pause"); break;
-      case -2: system("echo OpenBRF: error scanning brf data or ini file & pause"); break;
-      case -3: system("echo OpenBRF: error writing output file & pause"); break;
+      case -1: printf("OpenBRF: invalid module folder");               __PAUSE(); break;
+      case -2: printf("OpenBRF: error scanning brf data or ini file"); __PAUSE(); break;
+      case -3: printf("OpenBRF: error writing output file");           __PAUSE(); break;
       default: return 0;
       }
       return -1;

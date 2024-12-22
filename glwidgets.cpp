@@ -1708,7 +1708,7 @@ void GLWidget::initOpenGL2(){
 	/* swy: retrieve the list of supported OpenGL extensions; first as a long space-separated string,
 	        then split into a QtSet dictionary for fast lookups */
 	const char *longSausageString = (const char *) glGetString(GL_EXTENSIONS);
-	supportedExtensionsList = QString(longSausageString).split(" "); qDebug() << supportedExtensionsList;
+	supportedExtensionsList = QString(longSausageString).split(" "); // qDebug() << supportedExtensionsList;
 
 	if (supportedExtensionsList.contains("GL_EXT_texture_filter_anisotropic"))
 	{
