@@ -64,6 +64,7 @@ void BrfBodyPart::Flip(){
   case MANIFOLD: {
     for (unsigned int i=0; i<pos.size(); i++) pos[i].X()*=-1;
     for (unsigned int i=0; i<face.size(); i++) invertV(face[i]);
+    break; /* swy: FIXME: found by the compiler, recheck that a fallthrough isn't needed */
   };
   case CAPSULE: {
     center.X()*=-1;

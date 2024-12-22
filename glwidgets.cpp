@@ -1298,6 +1298,7 @@ void GLWidget::setSelection(const QModelIndexList &newsel, int k){
             }
             // else continue...
         }
+		/* fallthrough */
         case 1: {
             // each in its viewport
             ViewportData tmp;

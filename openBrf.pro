@@ -21,6 +21,10 @@ VCGLIB = dependencies/vcglib # v1.0.1
     #      https://github.com/openscad/openscad/issues/2771
     QMAKE_CXXFLAGS += -Wno-attributes -Wno-misleading-indentation -Wno-int-in-bool-context
     QMAKE_CXXFLAGS += -Wno-deprecated-declarations
+
+    # swy: silence some noisy, but mostly harmless, warnings that obscure the real bugs
+    QMAKE_CXXFLAGS += -Wno-unused-parameter -Wno-unused-but-set-variable -Wno-unused-result -Wno-deprecated-copy
+    QMAKE_CXXFLAGS += -Wno-format-truncation -Wno-address -Wimplicit-fallthrough=2
 }
 
 # RC_FILE = openBrf.rc
