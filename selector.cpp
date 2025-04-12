@@ -467,7 +467,7 @@ Selector::Selector(QWidget *parent)
 
 		//if (ti==MESH) tab[ti]->setSelectionModel(new MySelectionModel() );
 
-		if (ti==MESH || ti==MATERIAL || ti==BODY || ti==TEXTURE || ti==SKELETON || ti==ANIMATION) {
+		if (ti==MESH || ti==MATERIAL || ti==BODY || ti==TEXTURE || ti==SKELETON || ti==ANIMATION || ti==SHADER) {
 			tab[ti]->setSelectionMode(QAbstractItemView::ExtendedSelection);
             QString msg =  tr("[Right-Click]: tools for %1. [Shift]/[Ctrl]+[Click]: Multi-sel.").arg(IniData::tokenFullName(ti));
             if (ti==MESH) {  msg.append(tr(" [Double-Click]: select whole.")); }
