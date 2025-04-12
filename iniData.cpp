@@ -679,6 +679,11 @@ bool IniData::readModuleTxts(const QString &pathMod, const QString& pathData){
           break;
         }
         list.appendNonNone( QString(tf.stringT(3)) );
+
+        /* swy: also register the ground_earth_under_grass, ground_earth_under_steppe, ground_forest_under_snow,
+                ground_forest_under_desert materials, ground_earth_under_grass and so on as used by the mod */
+        if (tf.tokenCount() >= 5 && tf.stringT(5) != "none")
+          list.appendNonNone( QString(tf.stringT(5)) );
       }
 
       //errorStringOnScan = list.test(); return false;
