@@ -406,7 +406,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../askModErrorDialog.cpp" line="+37"/>
         <source>Look for:</source>
-        <translation> Buscar:</translation>
+        <translation>Buscar:</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -3614,13 +3614,13 @@ al que añadir un fotograma o cuadro.</translation>
     </message>
     <message>
         <source>Find</source>
-        <translation type="obsolete">Búsqueda</translation>
+        <translation type="obsolete">Buscar</translation>
     </message>
     <message>
         <location line="+2"/>
         <location line="+30"/>
         <source>ctrl+F</source>
-        <translation>ctrl+B</translation>
+        <translation>ctrl+F</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -3638,7 +3638,7 @@ al que añadir un fotograma o cuadro.</translation>
     <message>
         <location line="+6"/>
         <source>Find in module...</source>
-        <translation>Búsqueda en el módulo...</translation>
+        <translation>Buscar en el módulo...</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -5539,7 +5539,7 @@ en la línea %3:
     <message>
         <location line="+6"/>
         <source>&lt;h2&gt;Original BRF files: %1&lt;/h2&gt;</source>
-        <translation>&lt;h2&gt;Archivos BRF Originales: %1&lt;/h2&gt;</translation>
+        <translation>&lt;h2&gt;Archivos BRF originales: %1&lt;/h2&gt;</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -5776,7 +5776,7 @@ en la línea %3:
     <message>
         <location line="+25"/>
         <source>&lt;none&gt;</source>
-        <translation>&lt;vacio&gt;</translation>
+        <translation>&lt;vacío&gt;</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -5796,12 +5796,12 @@ en la línea %3:
     <message>
         <location line="+2"/>
         <source>&lt;core engine&gt;</source>
-        <translation>&lt;archivo core  del motor gráfico&gt;</translation>
+        <translation>&lt;archivo core del motor gráfico&gt;</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>&lt;core engine&gt; (indirectly)</source>
-        <translation>&lt;archivo core  del motor gráfico&gt; (indirectamente)</translation>
+        <translation>&lt;archivo core del motor gráfico&gt; (indirectamente)</translation>
     </message>
     <message>
         <location line="+3"/>
