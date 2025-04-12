@@ -299,6 +299,93 @@ bool IniData::readModuleTxts(const QString &pathMod, const QString& pathData){
     list.append("track");
     list.append("compass");
 
+    /* swy: scene editor */
+    list.append("entry_arrow"); /* swy: entry point rotation marker */
+    list.append("edit_cursor"); /* swy: XYZ 3D gizmo and center point for the selected object */
+
+    /* swy: hardcoded GUI meshes; */
+    list.append("handle_hor");
+    list.append("slider_hor");
+    list.append("scrollbar");
+    list.append("scrollbar_handle");
+    list.append("medium_button_down");
+    list.append("medium_button");
+    list.append("progressbar_handle");
+    list.append("progressbar");
+    list.append("button_drop_child_hl");
+    list.append("button_drop_child_clicked");
+    list.append("button_drop_child");
+    list.append("button_drop_hl");
+    list.append("button_drop_clicked");
+    list.append("button_drop");
+    list.append("party_button_down");
+    list.append("party_button");
+    list.append("short_button");
+    list.append("short_button_down");
+    list.append("longer_button");
+    list.append("longer_button_down");
+    list.append("message_window");
+
+    /* swy: hardcoded GUI meshes; stored by default in user_interface_b.brf */
+    list.append("dlg_button");
+    list.append("dlg_button_down");
+    list.append("face_gen_window");
+    list.append("left_arrow_hl");
+    list.append("left_arrow");
+    list.append("left_arrow_down");
+    list.append("right_arrow_hl");
+    list.append("right_arrow");
+    list.append("right_arrow_down");
+    list.append("talk_relation_bar");
+    list.append("talk_reln_pointer");
+    list.append("status_health_bar");
+    list.append("status_background");
+    list.append("arrow_left");
+    list.append("arrow_down");
+    list.append("arrow_right");
+    list.append("arrow_up");
+    list.append("crosshair_right");
+    list.append("crosshair_left");
+    list.append("crosshair_up");
+
+    list.append("status_shield_100");
+    list.append("status_shield_80");
+    list.append("status_shield_60");
+    list.append("status_shield_40");
+    list.append("status_shield_20");
+
+    list.append("game_log_window");
+    list.append("inv_slot");
+    list.append("inventory_window_b");
+    list.append("inventory_window_hinge");
+    list.append("inventory_equipment_panel");
+    list.append("restore_game_panel");
+    list.append("restore_game_panel_down");
+    list.append("character_window");
+    list.append("frame_corner_a");
+    list.append("frame_corner_b");
+    list.append("frame_corner_c");
+    list.append("frame_corner_d");
+    list.append("character_window_shadow");
+    list.append("note_window");
+    list.append("party_member_button");
+    list.append("party_member_button_pressed");
+    list.append("party_window_b");
+
+    list.append("warrider_logo");
+    list.append("load_window");
+    list.append("mission_window");
+    list.append("facegen_board");
+    list.append("quests_window");
+    list.append("map_bar");
+
+    list.append("pic_mb_warrior_1"); /* swy: M&B 1.011-only? */
+    list.append("pic_mb_warrior_2");
+    list.append("pic_mb_warrior_3");
+    list.append("pic_mercenary");
+
+    list.append("debrief_window");
+
     /* swy: add the hardcoded map trees to the list, suggested by @Erundil:
             https://discord.com/channels/411286129317249035/411291053702774784/1221451619426767009 */
     list.append("map_tree_a");
@@ -317,6 +404,7 @@ bool IniData::readModuleTxts(const QString &pathMod, const QString& pathData){
     list.append("map_tree_o");
     list.append("map_tree_p");
     list.append("map_tree_q");
+    list.append("map_tree_n");
     list.append("snow_tree_a");
     list.append("snow_tree_b");
     list.append("snow_tree_c");
@@ -329,7 +417,6 @@ bool IniData::readModuleTxts(const QString &pathMod, const QString& pathData){
     list.append("desert_tree_b");
     list.append("desert_tree_c");
     list.append("desert_tree_d");
-    list.append("map_tree_n");
 
     txtNameList.push_back(list);
   }
@@ -341,6 +428,51 @@ bool IniData::readModuleTxts(const QString &pathMod, const QString& pathData){
   {
     ModuleTxtNameList list(SHADER, TXTFILE_CORE);
     list.append("def_shader");
+    txtNameList.push_back(list);
+  }
+  {
+    ModuleTxtNameList list(MATERIAL, TXTFILE_CORE);
+    list.append("map_reverse_foam");
+    list.append("map_foam");
+    list.append("map_shore");
+    list.append("map_bridge");
+    list.append("map_mountain_forest");
+    list.append("map_river");
+    list.append("map_desert");
+    list.append("map_snow");
+    list.append("map_steppe");
+    list.append("map_plain");
+    list.append("map_mountain");
+    list.append("map_ocean");
+
+    list.append("map_trees");
+
+    list.append("map_track"); /* swy: used in the executable next to compass, (by the battle_track mesh?) */
+    list.append("_mesh_passage"); /* swy: used in the scene editor together with bo_mesh_passage? */
+
+    list.append("map_legend");
+    list.append("map_legend_outline");
+
+    list.append("ui_font");
+    list.append("ui_font_background");
+    list.append("ui_item_shadow");
+
+    list.append("matte"); /* swy: for what? needs some research */
+    list.append("shadow_default");
+    list.append("background");
+
+    /* swy: InVain found that fkf_grass-flagged in flora_kinds will always be forced to use the 'grass' material
+            instead of what is actually set, probably due to drawcall batching or instancing */
+    list.append("grass");
+    list.append("grass_no_shadow");
+
+    list.append("flare"); /* swy: hardcoded to be used by the sample_flare mesh, I think */
+    txtNameList.push_back(list);
+  }
+  {
+    ModuleTxtNameList list(BODY, TXTFILE_CORE);
+    list.append("bo_mesh_passage");
+    list.append("boshield");
     txtNameList.push_back(list);
   }
 
