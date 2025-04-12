@@ -951,7 +951,7 @@ switch (TokenEnum(k)){
 
     for (QModelIndexList::ConstIterator i=newsel.constBegin(); i!=newsel.constEnd(); i++){
       int j=i->row();
-      if (j<0 && j>=(int)data->texture.size()) continue; /* swy: make sure we don't index out-of-bounds textures from a previous texture selection, then loading a .brf via (back) button with less textures and going back into the material */
+      if (j<0 || j>=(int)data->texture.size()) continue; /* swy: make sure we don't index out-of-bounds textures from a previous texture selection, then loading a .brf via (back) button with less textures and going back into the material */
       mySetText(ui->boxTextureFlags,StringH(data->texture[j].flags));
       int nf = data->texture[j].NFrames();
       if (nf==0)
