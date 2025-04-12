@@ -10,6 +10,9 @@ QT += xml
 CONFIG += exceptions
 CONFIG += c++17
 
+# swy: comment out the line below to enable debuggable builds with symbols and PDB files
+# CONFIG += debug
+
 VCGLIB = dependencies/vcglib # v1.0.1
 
 *g++* {
