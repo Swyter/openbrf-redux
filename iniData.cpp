@@ -804,12 +804,8 @@ bool IniData::readModuleTxts(const QString &pathMod, const QString& pathData){
       tf.open(txtFileName[txtFile]);
       ModuleTxtNameList list(MATERIAL, txtFile);
 
-      while  (1) {
-        try{
-          tf.nextLine();
-        } catch (int) {
-          break;
-        }
+      while (tf.qf.canReadLine()) { /* swy: there is not explicit line/element counter here in the first line, so just keep reading until exhausting them all */
+        tf.nextLine();
         list.appendNonNone( QString(tf.stringT(3)) );
 
         /* swy: also register the ground_earth_under_grass, ground_earth_under_steppe, ground_forest_under_snow,
