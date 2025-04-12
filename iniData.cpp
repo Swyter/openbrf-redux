@@ -1423,11 +1423,11 @@ bool IniData::loadAll(int howFast){
 
 			QString s = QString("%1").arg(st);
 			lineN ++;
-
+#if 0 /* swy: @Erundil discovered that the game's .ini parser does not support comments, and will happily open files starting with # */
 			// remove commented part
 			int posOfComm = s.indexOf('#');
 			if (posOfComm>-1) s.truncate(posOfComm);
-
+#endif
 			s = s.trimmed(); // removal of spaces
 			if (s.isEmpty()) continue; // skip empty lines (including comments)
 			QString com1, com2;
