@@ -3856,7 +3856,7 @@ bool MainWindow::makeMeshSkinned(BrfMesh &m, bool sayNotSkinned,  bool askUserAg
 			m.MountOnBone(s,boneIndex);
 
 			char newname[1024];
-			snprintf(newname, sizeof(newname) - 1, "%s_on_%s",m.name,s.bone.at(boneIndex).name );
+			snprintf(newname, sizeof(newname) - 1, "%s.on_%s",m.name,s.bone.at(boneIndex).name );
 			m.SetName(newname);
 		}
 	} else {
