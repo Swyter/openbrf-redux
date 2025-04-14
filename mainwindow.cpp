@@ -3876,7 +3876,7 @@ bool MainWindow::makeMeshSkinned(BrfMesh &m, bool sayNotSkinned,  bool askUserAg
 		float weaponlength = guiPanel->ui->rulerSpin->value()/100.0;
 		m.Apply( cp, s, weaponlength, isAtOrigin );
 		char newname[1024];
-		snprintf(newname, sizeof(newname) - 1, "%s_carried_on_%s",m.name,cp.name );
+		snprintf(newname, sizeof(newname) - 1, "%s.carried_on_%s",m.name,cp.name );
 		m.SetName(newname);
 
 	}
