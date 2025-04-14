@@ -505,7 +505,14 @@ void GLWidget::renderBrfItem(const BrfMaterial& t){
                 glPushMatrix();
                 int d = (p - DIFFUSEA);
                 glTranslatef(d*0.1f,d*0.1f,0);
+#if 0
                 renderTexture(t.getTextureName(i));
+#else /* swy: try to also draw multi-frame textures (e.g. waterbump) in the material preview instead of a checkerboard; we need to find it (BrfTexture) to get the flag and metadata, maybe the tex reference is in a different BRF, search mod-wide */
+				const char *texName  = t.getTextureName(i);
+				BrfTexture *foundTex = inidata.findTexture(texName);
+				if (foundTex) renderBrfItem(*foundTex);
+				else          renderTexture(texName);
+#endif
                 glPopMatrix();
             }
             p++;
@@ -516,7 +523,14 @@ void GLWidget::renderBrfItem(const BrfMaterial& t){
         glPushMatrix();
         int d = (postPonedP - DIFFUSEA);
         glTranslatef(d*0.1f,d*0.1f,0);
+#if 0
         renderTexture(t.getTextureName(postPoned));
+#else /* swy: try to also draw multi-frame textures (e.g. waterbump) in the material preview instead of a checkerboard; we need to find it (BrfTexture) to get the flag and metadata, maybe the tex reference is in a different BRF, search mod-wide */
+		const char *texName  = t.getTextureName(postPoned);
+		BrfTexture *foundTex = inidata.findTexture(texName);
+		if (foundTex) renderBrfItem(*foundTex);
+		else          renderTexture(texName);
+#endif
         glPopMatrix();
     }
 }

@@ -1288,11 +1288,12 @@ BrfTexture* IniData::findTexture(const QString &fn){
 
     const BrfTexture &t(file[i].texture[j]);
 
-    if (t.NFrames()==0) {
+    { /* swy: also search multi-frame textures by the plain name, was: if (t.NFrames()==0) */
       if (!(fn.compare(t.name,Qt::CaseInsensitive))) {
         return &(file[i].texture[j]);
      }
-    } else {
+    } /* else { */
+    {
         for (int fi=0; fi<t.NFrames(); fi++)
           if (!(fn.compare(QString("%1_%2.dds").arg(t.name).arg(fi),Qt::CaseInsensitive))) {
               return &(file[i].texture[j]);
