@@ -1036,18 +1036,37 @@ switch (TokenEnum(k)){
     }
     break;
   case SHADER:
-      {
+    {
       if (!newsel.size()) break;
-      int sel = newsel[0].row();
-      if (sel<0 || sel>=(int)data->shader.size())  break; /* swy: this was sel<=0 instead, there was a off-by-one bug, breaking the first element */
-      BrfShader &s(data->shader[sel]);
-      ui->leShaderTechnique->setText( s.technique );
-      ui->leShaderFallback->setText( s.fallback );
-      ui->leShaderFlags->setText( StringH(s.flags) );
-      ui->leShaderRequires->setText( StringH(s.requirements) );
-      updateShaderTextaccSize();
+
+      myClear(ui->leShaderTechnique); /* swy: clear the values like in the other modes above to support smart multi-selection */
+      myClear(ui->leShaderFallback);  /*      with the panel fields reacting dynamically to it                                */
+      myClear(ui->leShaderFlags);
+      myClear(ui->leShaderRequires);
+
+      for (QModelIndexList::ConstIterator i=newsel.constBegin(); i!=newsel.constEnd(); i++){
+        int sel = i->row();
+        if (sel<0 || sel>=(int)data->shader.size()) continue; /* swy: this was sel<=0 instead, there was a off-by-one bug, breaking the first element */
+
+        BrfShader &s(data->shader[sel]);
+
+        mySetText(ui->leShaderTechnique, s.technique);
+        mySetText(ui->leShaderFallback,  s.fallback);
+        mySetText(ui->leShaderFlags,     StringH(s.flags));
+        mySetText(ui->leShaderRequires,  StringH(s.requirements));
       }
-      break;
+
+      updateShaderTextaccSize();
+      
+      bool enabledIfNoMultiSelect = (newsel.size() == 1);
+      ui->lvTextAcc        ->setEnabled(enabledIfNoMultiSelect); /* swy: disable the shader texture access listbox and fields if more than one of them is selected at the same time to avoid confusion and prevent edits */
+      ui->leShaderTaColorOp->setEnabled(enabledIfNoMultiSelect);
+      ui->leShaderTaAlphaOp->setEnabled(enabledIfNoMultiSelect);
+      ui->leShaderTaFlags  ->setEnabled(enabledIfNoMultiSelect);
+      ui->leShaderTaMap    ->setEnabled(enabledIfNoMultiSelect);
+
+    }
+    break;
     case BODY:
 
       bool collisionBodyHasMesh;
