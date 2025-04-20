@@ -1212,7 +1212,7 @@ Vielleicht ist das Problem, dass ein Shader das Zeichen (&lt;) oder (&gt;) oder 
     </message>
     <message>
         <source>Ctrl+R</source>
-        <translation type="obsolete">Strg+R</translation>
+        <translation type="obsolete">Ctrl+R</translation>
     </message>
     <message>
         <location filename="../guipanel.ui" line="597"/>
@@ -1227,7 +1227,7 @@ Vielleicht ist das Problem, dass ein Shader das Zeichen (&lt;) oder (&gt;) oder 
     <message>
         <location filename="../guipanel.ui" line="718"/>
         <source>Ctrl+T</source>
-        <translation>Strg+T</translation>
+        <translation>Ctrl+T</translation>
     </message>
     <message>
         <location filename="../guipanel.ui" line="734"/>
@@ -3339,7 +3339,7 @@ to add a frame to.</source>
     </message>
     <message>
         <source>ctrl+right</source>
-        <translation type="obsolete">Strg+Rechts</translation>
+        <translation type="obsolete">ctrl+right</translation>
     </message>
     <message>
         <location filename="../main_create.cpp" line="659"/>
@@ -3353,7 +3353,7 @@ to add a frame to.</source>
     </message>
     <message>
         <source>ctrl+left</source>
-        <translation type="obsolete">Strg+Links</translation>
+        <translation type="obsolete">ctrl+left</translation>
     </message>
     <message>
         <location filename="../main_create.cpp" line="663"/>
@@ -3378,7 +3378,7 @@ to add a frame to.</source>
         <location filename="../main_create.cpp" line="667"/>
         <location filename="../main_create.cpp" line="697"/>
         <source>ctrl+F</source>
-        <translation>Strg+F</translation>
+        <translation>ctrl+F</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -3436,7 +3436,7 @@ to add a frame to.</source>
     <message>
         <location filename="../main_create.cpp" line="693"/>
         <source>ctrl+E</source>
-        <translation>Strg+E</translation>
+        <translation>ctrl+E</translation>
     </message>
     <message>
         <location filename="../main_create.cpp" line="694"/>

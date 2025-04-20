@@ -1122,7 +1122,7 @@ maybe the problem is that a shader uses the sign (&lt;) or (&gt;) or (&amp;)?
     <message>
         <location filename="../guipanel.ui" line="718"/>
         <source>Ctrl+T</source>
-        <translation>Ctrl t</translation>
+        <translation>Ctrl+T</translation>
     </message>
     <message>
         <location filename="../guipanel.ui" line="734"/>
@@ -2852,7 +2852,7 @@ to add a frame to.</source>
         <location filename="../main_create.cpp" line="667"/>
         <location filename="../main_create.cpp" line="697"/>
         <source>ctrl+F</source>
-        <translation>Ctrl f</translation>
+        <translation>ctrl+F</translation>
     </message>
     <message>
         <location filename="../main_create.cpp" line="669"/>
@@ -2902,7 +2902,7 @@ to add a frame to.</source>
     <message>
         <location filename="../main_create.cpp" line="693"/>
         <source>ctrl+E</source>
-        <translation>Ctrl e</translation>
+        <translation>ctrl+E</translation>
     </message>
     <message>
         <location filename="../main_create.cpp" line="694"/>
