@@ -31,6 +31,26 @@ jobs:
         #      finally start the actual build with jom instead of nmake; for speed
         . .\_build.ps1
 
+        # swy: try to add Windows 7 and 8.1 support
+        Push-Location _qt_download
+
+        curl.exe -LJ --no-clobber -o qt-unofficial-win7.7z  https://github.com/crystalidea/qt6windows7/releases/download/v6.8.3/qt6_x64_to_run_on_windows7.7z
+
+        7z x qt-unofficial-win7.7z -oqt-unofficial-win7 -y
+        
+        # swy: replace the DLL files with these retro-compatible versions, the rest work fine
+        #      should we rebuild these from source to make sure there is nothing iffy going on? probably.
+        #      CrystalIDEA seems to be an actual company that ships actual commercial programs, though.
+
+        cp qt-unofficial-win7/Qt6Core.dll               ../_build
+        cp qt-unofficial-win7/Qt6Gui.dll                ../_build
+        cp qt-unofficial-win7/Qt6OpenGL.dll             ../_build
+        cp qt-unofficial-win7/Qt6OpenGLWidgets.dll      ../_build
+        cp qt-unofficial-win7/Qt6Widgets.dll            ../_build
+        cp qt-unofficial-win7/platforms/qwindows.dll    ../_build/platforms
+        
+        Pop-Location
+
     - uses: actions/upload-artifact@v4
       with:
         name: compiled
