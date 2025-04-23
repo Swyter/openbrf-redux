@@ -1,7 +1,10 @@
+mkdir _make
 Push-Location _make
 
 # swy: configuring the msvc environment variables
-Push-Location "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Auxiliary/Build"
+#      note: you can also use:
+#             "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Auxiliary/Build"
+Push-Location "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Auxiliary/Build"
 
 # swy: https://stackoverflow.com/a/41399983/674685
 # Invokes a Cmd.exe shell script and updates the environment.
@@ -30,9 +33,17 @@ $env:Path += ";..\_qt\; ..\_qt\6.8.0\msvc2022_64\bin\"
 & ..\_qt\6.8.0\msvc2022_64\bin\lupdate ..\openBrf.pro
 & ..\_qt\6.8.0\msvc2022_64\bin\lrelease ..\openBrf.pro
 
+# swy: don't loop and exit normally when this is used by an automated process like a buildbot: https://stackoverflow.com/a/33855217/674685
+$isDotSourced = $MyInvocation.InvocationName -eq '.' -or $MyInvocation.Line -eq ''
+
 while (1) {
   # swy: start the actual build with jom instead of nmake; for speed
   & ..\_qt\jom
 
+  # swy: we're done, do it once and exit
+  if ($isDotSourced) {
+    break
+  }
+  
   pause
 }

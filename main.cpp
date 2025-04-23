@@ -1,6 +1,7 @@
 /* OpenBRF -- by marco tarini. Provided under GNU General Public License */
 
 #include <QApplication>
+#include <QOperatingSystemVersion>
 #include "mainwindow.h"
 
 #ifdef _WIN32 /* swy: only pause on the Windows version so that the command-line doesn't blink and disappear, this isn't ideal for macOS and Linux */
@@ -46,9 +47,11 @@ int main(int argc, char* argv[])
   app.setApplicationName("OpenBrf");
   app.setOrganizationName("Marco Tarini");
   app.setOrganizationDomain("Marco Tarini");
-#if 1 /* swy: in Qt6 this theme will auto-detect system-wide dark mode and change as needed */
-  app.setStyle("fusion");
+#ifdef Q_OS_WIN /* swy: disable it for older Windows versions (7 and 8.1) in case it helps compatibility */
+  if (QOperatingSystemVersion::current() >= QOperatingSystemVersion::Windows10)
 #endif
+    app.setStyle("fusion"); /* swy: in Qt6 this theme will auto-detect system-wide dark mode and change as needed */
+
 
   bool useAlphaC = false;
 
@@ -87,7 +90,7 @@ int main(int argc, char* argv[])
       }
       /* swy: changed it to use the UI language, see this: https://www.kdab.com/fixing-a-common-antipattern-when-loading-translations-in-qt/ */
       apTranslator.load(loc, QString("openbrf"), QString("_"), QCoreApplication::applicationDirPath() + "/translations"); /* swy: load ./translations/openbrf_<lang>.qm (app strings) */
-      qtTranslator.load(loc, QString("qtbase" ), QString("_"), QCoreApplication::applicationDirPath() + "/translations"); /* swy: load ./translations/qtbase_<lang>.qm  (built-in Qt strings for default dialogs and buttons like 'OK' and 'Accept') */
+      qtTranslator.load(loc, QString("qt" ),     QString("_"), QCoreApplication::applicationDirPath() + "/translations"); /* swy: load ./translations/qt_<lang>.qm  (built-in Qt strings for default dialogs and buttons like 'OK' and 'Accept') */
     } else {
       apTranslator.load(nextTranslator);
     }

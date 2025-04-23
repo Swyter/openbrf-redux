@@ -140,12 +140,10 @@ FORMS += guipanel.ui \
 INCLUDEPATH += "$$VCGLIB"
 INCLUDEPATH += "C:/libs/lib3ds-1.3.0"
 INCLUDEPATH += "./"
+
+TRANSLATIONS += $$files(translations/openbrf_*.ts)
+
 RESOURCES += resource.qrc
-TRANSLATIONS += translations/openbrf_zh.ts
-TRANSLATIONS += translations/openbrf_en.ts
-TRANSLATIONS += translations/openbrf_es.ts
-TRANSLATIONS += translations/openbrf_de.ts
-TRANSLATIONS += translations/openbrf_ja.ts
 RC_FILE = openBrf.rc
 win32 { 
     DEFINES += NOMINMAX
@@ -177,20 +175,17 @@ win32 {
 
     message("Adding step to deploy the DLL files on Windows.")
     DESTDIR = $$PWD/_build
-    QMAKE_POST_LINK = $$[QT_INSTALL_BINS]/windeployqt --no-system-d3d-compiler --no-system-dxc-compiler --skip-plugin-types generic,tls --exclude-plugins qgif,qjpeg --no-opengl-sw $$MSVC_WINDEPLOY_EXTRA_ARGS $$shell_path($$DESTDIR/$${TARGET}.exe)
+    QMAKE_POST_LINK = $$[QT_INSTALL_BINS]/windeployqt --translations de,es,ja,zh_CN --no-system-d3d-compiler --no-system-dxc-compiler --skip-plugin-types generic,tls --exclude-plugins qgif,qjpeg --no-opengl-sw $$MSVC_WINDEPLOY_EXTRA_ARGS $$shell_path($$DESTDIR/$${TARGET}.exe)
 }
 
 MOC_DIR = tmp
 UI_DIR = tmp
 
-OTHER_FILES += shaders/bump_fragment.cpp
-OTHER_FILES += shaders/bump_vertex.cpp
-OTHER_FILES += shaders/iron_fragment.cpp
-OTHER_FILES += femininizer.morpher
-
-# swy: needed so that Qt stops appending its own pregenerated XML manifest when we already have
-#      our own included in the .rc resource file. without this we'll get duplication errors.
-win32:CONFIG -= embed_manifest_exe
+win32 {
+    # swy: needed so that Qt stops appending its own generated XML manifest when we already have
+    #      our own one with UTF-8 support in there. without this we'll get duplication errors.
+    QMAKE_MANIFEST = openBrf.win32manifest.xml
+}
 
 win32 {
     LIBS += -lopengl32 -lglu32
@@ -198,11 +193,18 @@ win32 {
     LIBS += -lGL -lGLU
 }
 
-DISTFILES += \
-    translations/openbrf_de.ts \
-    translations/openbrf_en.ts \
-    translations/openbrf_es.ts \
-    translations/openbrf_zh.ts
+translations.files = translations/openbrf_de.qm \
+                     translations/openbrf_es.qm \
+                     translations/openbrf_ja.qm \
+                     translations/openbrf_zh.qm
+translations.path = $$DESTDIR/translations
+
+misc_files.files += carry_positions.txt
+misc_files.path = $$DESTDIR
+
+# swy: https://evileg.com/en/post/476/ (Undocumented QMake - Copying Files)
+CONFIG += file_copies
+COPIES += translations misc_files
 
 # swy: super neat way of including the year/month/day numerically as a C preprocessor define by massaging the _DATE_ (e.g. 'Mon Oct 28 11:25:58 2024') variable: https://stackoverflow.com/a/71335257/674685
 DATELIST = $$split(_DATE_, " ")
