@@ -72,26 +72,26 @@ int main(int argc, char* argv[])
   }
 
   while (1){
-    QTranslator translator;
+    QTranslator apTranslator;
     QTranslator qtTranslator;
 
     if (nextTranslator.isEmpty()){
-      QString loc;
+      QLocale loc;
       switch (MainWindow::getLanguageOption()) {
-      default: loc = QLocale::system().name(); break;
-      case 1: loc = QString("en");break;
-      case 2: loc = QString("zh_CN");break;
-      case 3: loc = QString("es");break;
-      case 4: loc = QString("de");break;
-      case 5: loc = QString("ja");break;
+      default: loc = QLocale(); break;
+      case 1: loc = QLocale("en");break;
+      case 2: loc = QLocale("zh_CN");break;
+      case 3: loc = QLocale("es");break;
+      case 4: loc = QLocale("de");break;
+      case 5: loc = QLocale("ja");break;
       }
-      translator.load(QString(":/translations/openbrf_%1.qm").arg(loc));
-
-      qtTranslator.load(QString(":/translations/qt_%1.qm").arg(loc));
+      /* swy: changed it to use the UI language, see this: https://www.kdab.com/fixing-a-common-antipattern-when-loading-translations-in-qt/ */
+      apTranslator.load(loc, QString("openbrf"), QString("_"), QCoreApplication::applicationDirPath() + "/translations"); /* swy: load ./translations/openbrf_<lang>.qm (app strings) */
+      qtTranslator.load(loc, QString("qtbase" ), QString("_"), QCoreApplication::applicationDirPath() + "/translations"); /* swy: load ./translations/qtbase_<lang>.qm  (built-in Qt strings for default dialogs and buttons like 'OK' and 'Accept') */
     } else {
-      translator.load(nextTranslator);
+      apTranslator.load(nextTranslator);
     }
-    app.installTranslator(&translator);
+    app.installTranslator(&apTranslator);
     app.installTranslator(&qtTranslator);
 
     MainWindow w;
