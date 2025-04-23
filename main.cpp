@@ -78,12 +78,12 @@ int main(int argc, char* argv[])
     if (nextTranslator.isEmpty()){
       QLocale loc;
       switch (MainWindow::getLanguageOption()) {
-      default: loc = QLocale(); break;
-      case 1: loc = QLocale("en");break;
-      case 2: loc = QLocale("zh_CN");break;
-      case 3: loc = QLocale("es");break;
-      case 4: loc = QLocale("de");break;
-      case 5: loc = QLocale("ja");break;
+      case 1:  loc = QLocale("en");    break;
+      case 2:  loc = QLocale("zh_CN"); break;
+      case 3:  loc = QLocale("es");    break;
+      case 4:  loc = QLocale("de");    break;
+      case 5:  loc = QLocale("ja");    break;
+      default: loc = QLocale();
       }
       /* swy: changed it to use the UI language, see this: https://www.kdab.com/fixing-a-common-antipattern-when-loading-translations-in-qt/ */
       apTranslator.load(loc, QString("openbrf"), QString("_"), QCoreApplication::applicationDirPath() + "/translations"); /* swy: load ./translations/openbrf_<lang>.qm (app strings) */
