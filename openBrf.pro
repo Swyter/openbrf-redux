@@ -16,7 +16,7 @@ CONFIG += c++17
 VCGLIB = dependencies/vcglib # v1.0.1
 
 *g++* {
-    message("Generating makefile for the MinGW version.")
+    message("swy: Generating makefile for the MinGW or GCC version.")
     QMAKE_CXXFLAGS += -std=c++0x
     QMAKE_CXXFLAGS += "-isystem $$VCGLIB"
 
@@ -197,10 +197,10 @@ translations.files = translations/openbrf_de.qm \
                      translations/openbrf_es.qm \
                      translations/openbrf_ja.qm \
                      translations/openbrf_zh.qm
-translations.path = $$DESTDIR/translations
+translations.path = $$OUT_PWD/translations
 
-misc_files.files += carry_positions.txt
-misc_files.path = $$DESTDIR
+misc_files.files = carry_positions.txt
+misc_files.path  = $$OUT_PWD
 
 # swy: https://evileg.com/en/post/476/ (Undocumented QMake - Copying Files)
 CONFIG += file_copies
