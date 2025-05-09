@@ -1021,7 +1021,7 @@ static int Open( OpenMeshType &m, const char * filename, PlyInfo &pi )
     return 0;
 }
 
-
+/*
 // Caricamento camera da un ply
 int LoadCamera(const char * filename)
 {
@@ -1095,7 +1095,7 @@ int LoadCamera(const char * filename)
 
     return 0;
 }
-
+*/
 
 static bool LoadMask(const char * filename, int &mask)
 {

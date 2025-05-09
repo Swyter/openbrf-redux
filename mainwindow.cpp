@@ -286,7 +286,7 @@ static std::vector<int> _dup(vector<T> &t, std::vector<int> &v){
     int last = v.back();
 
     for (uint i=0; i<v.size(); i++) {
-        if (i<0 || i>=t.size()) return res;
+        if (i>=t.size()) return res;
         T newItem = t[v[i]];
         snprintf(newItem.name, sizeof(newItem.name) - 1, "copy_%s",t[v[i]].name);
         t.insert(t.begin()+last+i+1, newItem );
