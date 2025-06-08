@@ -6558,7 +6558,7 @@ en la línea %3:
     <message>
         <location line="+1"/>
         <source>Create a separate object for each sub-piece or part in this collision body.</source>
-        <translation>Crea un objeto separado por cada uno de las subpiezas o partes que conforman este cuerpo de colisión.</translation>
+        <translation>Crea un objeto separado por cada una de las subpiezas o partes que conforman este cuerpo de colisión.</translation>
     </message>
     <message>
         <location line="+11"/>

@@ -22,12 +22,16 @@ curl.exe -LJ --no-clobber -o qt-jom.zip  'https://download.qt.io/official_releas
 
 # --
 Write-Output '[-] swy: extracting the downloaded qt binaries'
+
 # --
 7z x qt-base.7z  '-o../_qt' -y
 7z x qt-tools.7z '-o../_qt' -y
 7z x qt-trans.7z '-o../_qt' -y
-7z x qt-decla.7z '-o../_qt' -y
+7z x qt-decla.7z '-o../_qt' '6.8.0\msvc2022_64\bin\Qt6Qml*.dll' -y # swy: only extract the needed DLLs for lupdate.exe to run, instead of almost a gigabyte of crap, the quotes are needed for it to work under PowerShell
 7z x qt-jom.zip  '-o../_qt' -y
+
+Write-Output '         feel free to delete the qt-something.7z files in the _qt_download subfolder'
+Write-Output '         once this is finished, as they really take a ton of space!'
 
 # --
 Write-Output '[-] swy: turn the qt install from enterprise to foss; remove the licensing checks'
