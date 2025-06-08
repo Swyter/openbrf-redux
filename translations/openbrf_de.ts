@@ -695,8 +695,13 @@ mit dem selben Namen hinzu</translation>
     </message>
     <message>
         <location filename="../askTransformDialog.ui" line="777"/>
+        <source>Apply to last selected
+object only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Apply to last selected object only</source>
-        <translation>Nur das letzte Objekt verändern</translation>
+        <translation type="vanished">Nur das letzte Objekt verändern</translation>
     </message>
 </context>
 <context>
@@ -813,7 +818,7 @@ in %2</translation>
 <context>
     <name>BrfType</name>
     <message>
-        <location filename="../mainwindow.cpp" line="1458"/>
+        <location filename="../mainwindow.cpp" line="1470"/>
         <source>Cannot merge these meshes
  (different number of frames,
  or skinned VS not skinned).
@@ -827,32 +832,32 @@ in %2</translation>
 <context>
     <name>Dialog</name>
     <message>
-        <location filename="../askHueSatBriDialog.ui" line="14"/>
+        <location filename="../askHueSatBriDialog.ui" line="38"/>
         <source>Tune Per-Vertex Colors</source>
         <translation>Optimieren der Vertex Farben</translation>
     </message>
     <message>
-        <location filename="../askHueSatBriDialog.ui" line="42"/>
+        <location filename="../askHueSatBriDialog.ui" line="114"/>
         <source>Hue:</source>
         <translation>Farbtona:</translation>
     </message>
     <message>
-        <location filename="../askHueSatBriDialog.ui" line="58"/>
+        <location filename="../askHueSatBriDialog.ui" line="152"/>
         <source>Saturation:</source>
         <translation>Sättigung:</translation>
     </message>
     <message>
-        <location filename="../askHueSatBriDialog.ui" line="74"/>
+        <location filename="../askHueSatBriDialog.ui" line="190"/>
         <source>Brightness:</source>
         <translation>Helligkeit:</translation>
     </message>
     <message>
-        <location filename="../askHueSatBriDialog.ui" line="190"/>
+        <location filename="../askHueSatBriDialog.ui" line="58"/>
         <source>Contrast:</source>
         <translation>Kontrast:</translation>
     </message>
     <message>
-        <location filename="../askHueSatBriDialog.ui" line="206"/>
+        <location filename="../askHueSatBriDialog.ui" line="221"/>
         <source>Apply to last selected object only</source>
         <translation type="unfinished">Nur das letzte Objekt verändern</translation>
     </message>
@@ -860,87 +865,87 @@ in %2</translation>
 <context>
     <name>GLWidget</name>
     <message>
-        <location filename="../glwidgets.cpp" line="652"/>
+        <location filename="../glwidgets.cpp" line="681"/>
         <source>&lt;br /&gt;Vertex compilation: &lt;br /&gt;</source>
         <translation>&lt;br /&gt;Vertex Kompilierung: &lt;br /&gt;</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="660"/>
+        <location filename="../glwidgets.cpp" line="689"/>
         <source>&lt;br /&gt;Fragment compilation: &lt;br /&gt;</source>
         <translation>&lt;br /&gt;Fragment zusammenstellen: &lt;br /&gt;</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="665"/>
+        <location filename="../glwidgets.cpp" line="694"/>
         <source>&lt;br /&gt;Linking: &lt;br /&gt;</source>
         <translation>&lt;br /&gt;verknüpfen: &lt;br /&gt;</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="671"/>
+        <location filename="../glwidgets.cpp" line="700"/>
         <source>&lt;br /&gt;Binding: &lt;br /&gt;</source>
         <translation>&lt;br /&gt;Bindung: &lt;br /&gt;</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1440"/>
+        <location filename="../glwidgets.cpp" line="1474"/>
         <source>&quot;green&quot; NM</source>
         <translation>&quot;grün&quot; NM</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1440"/>
+        <location filename="../glwidgets.cpp" line="1474"/>
         <source>&quot;blue&quot; NM</source>
         <translation>&quot;blau&quot; NM</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1443"/>
+        <location filename="../glwidgets.cpp" line="1477"/>
         <source>Custom User Shader</source>
         <translation>Benutzerdefinierter Shader</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1446"/>
+        <location filename="../glwidgets.cpp" line="1480"/>
         <source>Default (fixed functionality)</source>
         <translation>Serverstandard verwenden(feste Funktionalität)</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1447"/>
+        <location filename="../glwidgets.cpp" line="1481"/>
         <source>Alpha to Shininess</source>
         <translation>Alpha zum Glanz</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1448"/>
+        <location filename="../glwidgets.cpp" line="1482"/>
         <source>Plain NormalMap (%1)</source>
         <translation>Nur NormalMap (%1)</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1449"/>
+        <location filename="../glwidgets.cpp" line="1483"/>
         <source>NormalMap + Alpha to Transparency (%1)</source>
         <translation>NormalMap + Alpha zur Transparenz (%1)</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1450"/>
+        <location filename="../glwidgets.cpp" line="1484"/>
         <source>NormalMap + Alpha to Shininess (%1)</source>
         <translation>NormalMap + Alpha zum Glanz (%1)</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1451"/>
+        <location filename="../glwidgets.cpp" line="1485"/>
         <source>NormalMap + ShininessMap (%1)</source>
         <translation>NormalMap + GlanzMap (%1)</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1492"/>
+        <location filename="../glwidgets.cpp" line="1526"/>
         <source>Scene mode: navigate with mouse and WASD (levitate with wheel, zoom in with shift)</source>
         <translation>Szenenmodus: Navigiere mit Maus und WASD (bewege dich mit Mausrad, zoome mit Shift)</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1497"/>
+        <location filename="../glwidgets.cpp" line="1531"/>
         <source>Helmet mode: for objects with vertical Z axis, like M&amp;B helmets or weapons.</source>
         <translation>Helmmodus: Für Objekte mit vertikaler Z-Axe, z.B. M&amp;B Helme und Waffen.</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1499"/>
+        <location filename="../glwidgets.cpp" line="1533"/>
         <source>Default mode: rotate objects with mouse, zoom in/out with wheel.</source>
         <translation>Standard Modus: Drehe Objekte mit Maus, zoome ein/aus mit dem Mausrad.</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1610"/>
+        <location filename="../glwidgets.cpp" line="1644"/>
         <source>Error parsing %1:
 
 maybe the problem is that a shader uses the sign (&lt;) or (&gt;) or (&amp;)?
@@ -1008,7 +1013,7 @@ Vielleicht ist das Problem, dass ein Shader das Zeichen (&lt;) oder (&gt;) oder 
     </message>
     <message>
         <location filename="../guipanel.cpp" line="911"/>
-        <location filename="../guipanel.cpp" line="1107"/>
+        <location filename="../guipanel.cpp" line="1126"/>
         <source>&lt;not found&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2033,7 +2038,7 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="5242"/>
+        <location filename="../mainwindow.cpp" line="5278"/>
         <source>Navigate: cannot find &quot;%1&quot; in current module</source>
         <translation>Navigiere: kann &quot;%1&quot; im aktuellen Modul nicht finden</translation>
     </message>
@@ -2271,9 +2276,9 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <location filename="../main_ImpExp.cpp" line="826"/>
-        <location filename="../mainwindow.cpp" line="1753"/>
-        <location filename="../mainwindow.cpp" line="1776"/>
-        <location filename="../mainwindow.cpp" line="1779"/>
+        <location filename="../mainwindow.cpp" line="1765"/>
+        <location filename="../mainwindow.cpp" line="1788"/>
+        <location filename="../mainwindow.cpp" line="1791"/>
         <source>OpenBRF</source>
         <translation>OpenBRF</translation>
     </message>
@@ -2319,13 +2324,13 @@ to add a frame to.</source>
     </message>
     <message>
         <location filename="../main_ImpExp.cpp" line="976"/>
-        <location filename="../mainwindow.cpp" line="3376"/>
+        <location filename="../mainwindow.cpp" line="3412"/>
         <source>Vertex number mismatch... using texture-coord matching instead of vertex-ordering</source>
         <translation>Vertexanzahl stimmt nicht überein... verwende Texturkoord, anstelle von Vertexanordnung</translation>
     </message>
     <message>
         <location filename="../main_ImpExp.cpp" line="991"/>
-        <location filename="../mainwindow.cpp" line="3383"/>
+        <location filename="../mainwindow.cpp" line="3419"/>
         <source>Added frame %1</source>
         <translation>Bild hinzugefügt %1</translation>
     </message>
@@ -3767,52 +3772,52 @@ to add a frame to.</source>
         <translation>&lt;i&gt;Ich konnte die richtige Textur nicht anzeigen, denn:&lt;/i&gt;&lt;br&gt;&lt;b&gt;%1&lt;/b&gt;&lt;br&gt;&lt;br&gt;%2&lt;br&gt;&lt;br&gt;&lt;b&gt;Lösungsvorschlag: &lt;/b&gt;%3</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="103"/>
-        <location filename="../mainwindow.cpp" line="1400"/>
-        <location filename="../mainwindow.cpp" line="1702"/>
-        <location filename="../mainwindow.cpp" line="1726"/>
-        <location filename="../mainwindow.cpp" line="2887"/>
-        <location filename="../mainwindow.cpp" line="2899"/>
-        <location filename="../mainwindow.cpp" line="3542"/>
-        <location filename="../mainwindow.cpp" line="5355"/>
+        <location filename="../mainwindow.cpp" line="109"/>
+        <location filename="../mainwindow.cpp" line="1412"/>
+        <location filename="../mainwindow.cpp" line="1714"/>
+        <location filename="../mainwindow.cpp" line="1738"/>
+        <location filename="../mainwindow.cpp" line="2924"/>
+        <location filename="../mainwindow.cpp" line="2936"/>
+        <location filename="../mainwindow.cpp" line="3578"/>
+        <location filename="../mainwindow.cpp" line="5391"/>
         <source>OpenBrf</source>
         <translation>OpenBRF</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="104"/>
+        <location filename="../mainwindow.cpp" line="110"/>
         <source>%1 been modified.
 Save changes?</source>
         <translation>%1 wurde geängert.
 Sollen Änderungen gespeichert werden?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="105"/>
+        <location filename="../mainwindow.cpp" line="111"/>
         <source>Internal reference objects have</source>
         <translation>Interne Referenzobjekte haben</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="105"/>
+        <location filename="../mainwindow.cpp" line="111"/>
         <source>The dataset has</source>
         <translation>Das Datenset hat</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="124"/>
+        <location filename="../mainwindow.cpp" line="130"/>
         <source>Skeleton hitboxes have been modified.&lt;br/&gt;Save changes in /Data/skeleton_bodies.xml?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="155"/>
+        <location filename="../mainwindow.cpp" line="161"/>
         <source>Error: could not make missing folder &apos;Data&apos; in module folder:
  %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="172"/>
+        <location filename="../mainwindow.cpp" line="178"/>
         <source>&lt;br /&gt;&lt;br /&gt;A backup will be saved in %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="186"/>
+        <location filename="../mainwindow.cpp" line="192"/>
         <source>Error saving hitbox data:
 
 %1
@@ -3821,7 +3826,7 @@ Sollen Änderungen gespeichert werden?</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="194"/>
+        <location filename="../mainwindow.cpp" line="200"/>
         <source>Saved hitboxes (with the other metadata) for %1 skeletons inside
 file %2
 
@@ -3829,61 +3834,61 @@ file %2
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="483"/>
+        <location filename="../mainwindow.cpp" line="489"/>
         <source>Set %1 mesh materials to &quot;%2&quot;</source>
         <translation>Setze %1 Strukturgittermaterial zu &quot;%2&quot;</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="542"/>
+        <location filename="../mainwindow.cpp" line="548"/>
         <source>Set time of frame %1 to %2</source>
         <translation>Setze Zeit of Bild %1 to %2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="595"/>
+        <location filename="../mainwindow.cpp" line="601"/>
         <source>CAnnot find skel_human, skel_dwarf and skel_orc in reference data.
 </source>
         <translation>Kann skel_humen, skel_dwarf und skel_orc nicht in den Referenzdaten finden.
 </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="643"/>
+        <location filename="../mainwindow.cpp" line="649"/>
         <source>Invalid frame %1</source>
         <translation>Ungültiges Bild %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="652"/>
+        <location filename="../mainwindow.cpp" line="658"/>
         <source>%1 meshes shrunk around bones</source>
         <translation>%1 Strukturgitter verkleinert um die Knochen herum</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="664"/>
+        <location filename="../mainwindow.cpp" line="670"/>
         <source>Cannot find skel_human, skel_dwarf and skel_orc in reference data.
 </source>
         <translation>Kann skel_humen, skel_dwarf und skel_orc nicht in den Referenzdaten finden.
 </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="810"/>
+        <location filename="../mainwindow.cpp" line="816"/>
         <source>Set flag(s) to &quot;%1&quot;</source>
         <translation>Setze Flagge(n) zu &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="981"/>
+        <location filename="../mainwindow.cpp" line="993"/>
         <source>Stop editing reference data</source>
         <translation>Verändere keine Referenzdaten</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="982"/>
+        <location filename="../mainwindow.cpp" line="994"/>
         <source>Stop editing &quot;reference&quot; skeletons, animations &amp; meshes, that OpenBrf uses to display data.</source>
         <translation>Verändere keine &quot;Referenz&quot; Skelette, Animationen &amp; Strukturgitter, welche von OpenBRF genutzt werden, um Daten anzuzeigen.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="984"/>
+        <location filename="../mainwindow.cpp" line="996"/>
         <source>Edit reference data</source>
         <translation>Ändere Referenzdaten</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="985"/>
+        <location filename="../mainwindow.cpp" line="997"/>
         <source>Edit &quot;reference&quot; skeletons, animations &amp; meshes, that OpenBrf uses to display data.</source>
         <translation>Ändere &quot;Referenz&quot; Skelette, Animationen &amp; Strukturgitter, welche von OpenBRF zum Anzeigen genutzt werden.</translation>
     </message>
@@ -3900,23 +3905,23 @@ file %2
         <translation type="vanished">neu_%1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1213"/>
+        <location filename="../mainwindow.cpp" line="1225"/>
         <source>Oops... no skin is currently available...
 </source>
         <translation>Oooh... kein Skin ist momentan verfügbar...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1218"/>
+        <location filename="../mainwindow.cpp" line="1230"/>
         <source>Skin %1</source>
         <translation>Haut %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1222"/>
+        <location filename="../mainwindow.cpp" line="1234"/>
         <source>Select a skin</source>
         <translation>Wähle eine Haut</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1223"/>
+        <location filename="../mainwindow.cpp" line="1235"/>
         <source>Select a skin:</source>
         <translation>Wähle eine Haut:</translation>
     </message>
@@ -3925,7 +3930,7 @@ file %2
         <translation type="vanished">Vertex einheitlich</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1401"/>
+        <location filename="../mainwindow.cpp" line="1413"/>
         <source>Mesh %1 will be 
 split in %2 sub-meshes!.
 
@@ -3933,23 +3938,24 @@ Proceed?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1357"/>
-        <location filename="../mainwindow.cpp" line="1409"/>
+        <location filename="../mainwindow.cpp" line="1369"/>
+        <location filename="../mainwindow.cpp" line="1421"/>
+        <location filename="../mainwindow.cpp" line="1864"/>
         <source>Only one component found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1314"/>
+        <location filename="../mainwindow.cpp" line="1326"/>
         <source>object &apos;%1&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1316"/>
+        <location filename="../mainwindow.cpp" line="1328"/>
         <source>%1 objects</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1324"/>
+        <location filename="../mainwindow.cpp" line="1336"/>
         <source>Spatial extension of %7:
 
 in X=%1 to %2
@@ -3960,13 +3966,13 @@ in Z=%5 to %6
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1359"/>
-        <location filename="../mainwindow.cpp" line="1411"/>
+        <location filename="../mainwindow.cpp" line="1371"/>
+        <location filename="../mainwindow.cpp" line="1423"/>
         <source>Mesh separated into %1 pieces.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1438"/>
+        <location filename="../mainwindow.cpp" line="1450"/>
         <source>Autofixed rigid parts.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3981,76 +3987,81 @@ in Z=%5 to %6
 </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2444"/>
+        <location filename="../mainwindow.cpp" line="2481"/>
         <source>Computed AO%1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2444"/>
+        <location filename="../mainwindow.cpp" line="2481"/>
         <source>(in alpha channel)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1922"/>
+        <location filename="../mainwindow.cpp" line="1959"/>
         <source>Normals recomputed with %1% hard edges.</source>
         <translation>Normals neuberechnet mit %1% harten Kanten.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="169"/>
+        <location filename="../mainwindow.cpp" line="175"/>
         <source>There are %1 sets of hitboxes, for skeletons:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="171"/>
+        <location filename="../mainwindow.cpp" line="177"/>
         <source>&lt;br /&gt;&lt;br /&gt;Save them inside %2?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1238"/>
+        <location filename="../mainwindow.cpp" line="1250"/>
         <source>Select a skeleton
 in the view panel first</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1247"/>
+        <location filename="../mainwindow.cpp" line="1259"/>
         <source>Select an animation
 in the view panel first</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1296"/>
+        <location filename="../mainwindow.cpp" line="1308"/>
         <source>Unified %1 verts and %2 pos in %3 meshes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1662"/>
+        <location filename="../mainwindow.cpp" line="1674"/>
         <source>Error loading line of file %2:
 
 %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1680"/>
+        <location filename="../mainwindow.cpp" line="1692"/>
         <source>Failed loading carry positions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1977"/>
+        <location filename="../mainwindow.cpp" line="1866"/>
+        <source>Collision body separated into %1 pieces.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2014"/>
         <source>Softened %1 skinned meshes!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1997"/>
+        <location filename="../mainwindow.cpp" line="2034"/>
         <source>Stiffened %1 skinned meshes!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2091"/>
+        <location filename="../mainwindow.cpp" line="2128"/>
         <source>Shift animation timings</source>
         <translation>Verschiebe Animationszeitintervalle</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2092"/>
+        <location filename="../mainwindow.cpp" line="2129"/>
         <source>Current Interval: [%1 %2]
 New interval: [%1+k %2+k]
 
@@ -4061,62 +4072,62 @@ Neues Interval: [%1+k %2+k]
 Wähle k:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2135"/>
+        <location filename="../mainwindow.cpp" line="2172"/>
         <source>Extract Interval</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2148"/>
+        <location filename="../mainwindow.cpp" line="2185"/>
         <source>Remove Interval</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2171"/>
+        <location filename="../mainwindow.cpp" line="2208"/>
         <source>Cannot merge these animations
  (different number of bones).
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2198"/>
+        <location filename="../mainwindow.cpp" line="2235"/>
         <source>Cannot merge these meshes
  (different number of vertices, faces, points...).
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2230"/>
-        <location filename="../mainwindow.cpp" line="2242"/>
+        <location filename="../mainwindow.cpp" line="2267"/>
+        <location filename="../mainwindow.cpp" line="2279"/>
         <source>Select one or more animation using same number of bones first</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2311"/>
+        <location filename="../mainwindow.cpp" line="2348"/>
         <source>Skeleton %1 has no associated hit-box set. Canceled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2317"/>
+        <location filename="../mainwindow.cpp" line="2354"/>
         <source>Remove the hit-box associated to skeleton name %1?&lt;br /&gt;&lt;br /&gt;(this means that no skeleton named &apos;%1&apos; will have a hitbox, in this Module)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2337"/>
+        <location filename="../mainwindow.cpp" line="2374"/>
         <source>Rescale skeleton&lt;br/&gt;(and hitboxes, if present)&lt;br /&gt;by which percent?&lt;br /&gt;&lt;br /&gt;(&gt;100 for bigger)&lt;br /&gt;&lt;br /&gt;&lt;b&gt;WARNING!&lt;/b&gt;&lt;br /&gt;All skinned meshes using&lt;br /&gt;this skeleton will need&lt;br /&gt;be rescaled too!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2387"/>
+        <location filename="../mainwindow.cpp" line="2424"/>
         <source>Uniform color for mesh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2711"/>
+        <location filename="../mainwindow.cpp" line="2748"/>
         <source>Transfer Skinning</source>
         <translation>Übertrage Skinning</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2712"/>
+        <location filename="../mainwindow.cpp" line="2749"/>
         <source>Transfer skinning:
 select a skinned mesh first,
 then all target meshes.
@@ -4124,76 +4135,76 @@ then all target meshes.
         <translation>Übertrage Verknüpfung: Zuerst wähle ein verknüpftes Strukturgitter, dann alle Zielstrukturgitter.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2739"/>
+        <location filename="../mainwindow.cpp" line="2776"/>
         <source>Same skeleton:
 reskeletonization canceled.
 </source>
         <translation>Gleiches Skelett: Reskelettierung abgebrochen.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2749"/>
+        <location filename="../mainwindow.cpp" line="2786"/>
         <source>Different number of bones:
 reskeletonization canceled.
 </source>
         <translation>Unterschiedliche Knochenzahl: Reskelettierung abgebrochen.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2888"/>
+        <location filename="../mainwindow.cpp" line="2925"/>
         <source>Renaming %1...
 new name:</source>
         <translation>Umbenennen %1... neuer Name:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2900"/>
+        <location filename="../mainwindow.cpp" line="2937"/>
         <source>%3 common prefix for %1 %2...
 new prefix:</source>
         <translation>%3 Gewöhnlicher prefix für %1 %2...
 Neuer prefix:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2900"/>
+        <location filename="../mainwindow.cpp" line="2937"/>
         <source>Changing the</source>
         <translation>Ändere die</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2900"/>
+        <location filename="../mainwindow.cpp" line="2937"/>
         <source>Adding a</source>
         <translation>Füge hinzu</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2987"/>
-        <location filename="../mainwindow.cpp" line="3008"/>
+        <location filename="../mainwindow.cpp" line="3024"/>
+        <location filename="../mainwindow.cpp" line="3045"/>
         <source>%1: Select one skeleton with a hitbox first</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2993"/>
+        <location filename="../mainwindow.cpp" line="3030"/>
         <source>%1: skeleton %2 has no kwown hitbox to copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3021"/>
-        <location filename="../mainwindow.cpp" line="3032"/>
+        <location filename="../mainwindow.cpp" line="3058"/>
+        <location filename="../mainwindow.cpp" line="3069"/>
         <source>Wrong number of bones! (%1 in %2 VS %3 in %4). Cannot perform action</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3041"/>
+        <location filename="../mainwindow.cpp" line="3078"/>
         <source>Cannot paste hitboxes: I don&apos;t have a hitboxes plus skeleton in clipboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3099"/>
+        <location filename="../mainwindow.cpp" line="3136"/>
         <source>%1 new BRF items found in clipboard...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3100"/>
+        <location filename="../mainwindow.cpp" line="3137"/>
         <source>Unusable data in clipboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3158"/>
+        <location filename="../mainwindow.cpp" line="3195"/>
         <source>Copied prop code for %1 objects
 (%2 with matching collison mesh)
 on the clipboard.
@@ -4202,17 +4213,17 @@ Paste at will!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3161"/>
+        <location filename="../mainwindow.cpp" line="3198"/>
         <source>No prop mesh found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3292"/>
+        <location filename="../mainwindow.cpp" line="3328"/>
         <source>Copy Skinning into another mesh</source>
         <translation>Kopiere Skinning in ein anderes Strukturgitter</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4930"/>
+        <location filename="../mainwindow.cpp" line="4966"/>
         <source>&amp;Repeat %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4235,37 +4246,37 @@ Paste at will!</source>
 Ähnlichkeiten mit dem Zielstrukturgitter hat)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3380"/>
+        <location filename="../mainwindow.cpp" line="3416"/>
         <source>Vertex number mismatch... using texture-coord matching instead</source>
         <translation>Vertexanzahl unterschiedlich... nutze stattdessen Texturkoordinaten</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3507"/>
+        <location filename="../mainwindow.cpp" line="3543"/>
         <source>Cannot paste timings! Select *one* animated mesh or skel animation</source>
         <translation>Kann Zeitintervalle nicht einsetzen! Wähle *1* animiertes Strukturgitter oder Skelettanimation</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3520"/>
+        <location filename="../mainwindow.cpp" line="3556"/>
         <source>Pasted timings over %1 (animated) mesh</source>
         <translation>Zeitintervalle eingefügt in %1 (animiertes) Strukturgitter</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3526"/>
+        <location filename="../mainwindow.cpp" line="3562"/>
         <source>Pasted timings over %1 skeletal animations</source>
         <translation>Zeitintervalle eingesetzt in %1 Skelettanimation</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3529"/>
+        <location filename="../mainwindow.cpp" line="3565"/>
         <source>Cannot paste times over that</source>
         <translation>Es ist unmöglichi Zeitintervalle darüber zuschreiben</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3542"/>
+        <location filename="../mainwindow.cpp" line="3578"/>
         <source>To use paste modification mesh: firstcopy a 2 frames mesh. Then, select one or more destination meshes, and &quot;paste modification&quot;any vertex in any frame of the destination mesh that are in the same pos of frame 0,will be moved on the position of frame 1.</source>
         <translation>Um ein kopiertes Strukturgitter zu verwenden: Zuerst kopiere ein 2 Bild Strukturgitter. Dann: Wähle ein/mehrere Zielstrukturgitter, und &quot;Setze Modifizierungen ein&quot;. Jeder Vertex in jedem Fenster des Zielstrukturgitters, die sich in der gleichen Position wie in Bild 0 befinden, werden in die Position von Bild 1 bewegt.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3828"/>
+        <location filename="../mainwindow.cpp" line="3864"/>
         <source>Canceled.</source>
         <translation>Abgebrochen.</translation>
     </message>
@@ -4274,72 +4285,72 @@ Paste at will!</source>
         <translation type="obsolete">Befestige %1 Strukturgitter %2 auf Knochen %3</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3896"/>
+        <location filename="../mainwindow.cpp" line="3932"/>
         <source>Added mesh %1 to set %2.</source>
         <translation>Strukturgitter %1 zu Set %2 hinzugefügt.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3917"/>
+        <location filename="../mainwindow.cpp" line="3953"/>
         <source>Animation %2 split in %1 chunks!</source>
         <translation>Animation %2 wurde in %1 Teile gesplittet!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3919"/>
+        <location filename="../mainwindow.cpp" line="3955"/>
         <source>Animation could be auto-split (frames are too conescutive)</source>
         <translation>Animation kann automatisch gesplittet werden (Bilder sind zu zusammenhängend)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3926"/>
+        <location filename="../mainwindow.cpp" line="3962"/>
         <source>Select an &quot;actions.txt&quot; file (hint: it&apos;s in the module dir)</source>
         <translation>Wähle eine &quot;actions.txt&quot; Datei (Tip: In dem Modul Verzeichnis)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3927"/>
+        <location filename="../mainwindow.cpp" line="3963"/>
         <source>%1\actions.txt</source>
         <translation>%1\actions.txt</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3928"/>
+        <location filename="../mainwindow.cpp" line="3964"/>
         <source>Txt file(*.txt)</source>
         <translation>Txt-Datei(*.txt)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3931"/>
+        <location filename="../mainwindow.cpp" line="3967"/>
         <source>Split canceled.</source>
         <translation>Aufteilen abgebrochen.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3939"/>
+        <location filename="../mainwindow.cpp" line="3975"/>
         <source>Nothing to split (or could not split).</source>
         <translation>Nichts zum aufteilen (oder teilen ist nicht möglich).</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3949"/>
+        <location filename="../mainwindow.cpp" line="3985"/>
         <source>Animation %2 split in %1 chunks -- new animation.txt file save in &quot;%3&quot;!</source>
         <translation>Animation %2 wurde in %1 Einzelteile zerlegt -- neue animation.txt Datei wurde in %3 gespeichert!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4351"/>
+        <location filename="../mainwindow.cpp" line="4387"/>
         <source>&lt;p&gt;You are saving into the generic OpenBRF reference file &lt;br&gt;&quot;%1&quot;&lt;/p&gt;&lt;p&gt;Would you rather save in the reference file &lt;i&gt;specific&lt;/i&gt; for Module %3&lt;br&gt;&quot;%2&quot;&lt;br&gt;?&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4364"/>
+        <location filename="../mainwindow.cpp" line="4400"/>
         <source>Cannot save reference file!</source>
         <translation>Kann Referenzdatei nicht speichern!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4398"/>
+        <location filename="../mainwindow.cpp" line="4434"/>
         <source>Editing reference file...</source>
         <translation>Ändere Referenzdatei...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4423"/>
+        <location filename="../mainwindow.cpp" line="4459"/>
         <source>Cannot load %1.</source>
         <translation>Kann %1 nicht laden.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4457"/>
+        <location filename="../mainwindow.cpp" line="4493"/>
         <source>You are saving a CommonRes file!
 (i.e. not one specific of this module).
 
@@ -4350,57 +4361,57 @@ Are you sure?</source>
 Sind Sie sicher?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4469"/>
+        <location filename="../mainwindow.cpp" line="4505"/>
         <source>Cannot write file %1.</source>
         <translation>Kann Datei %1 nicht schreiben.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4472"/>
+        <location filename="../mainwindow.cpp" line="4508"/>
         <source>File saved!</source>
         <translation>Datei gespeichert!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4648"/>
+        <location filename="../mainwindow.cpp" line="4684"/>
         <source>Open File</source>
         <translation>Öffne Datei</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4650"/>
+        <location filename="../mainwindow.cpp" line="4686"/>
         <source>Resource (*.brf)</source>
         <translation>Ressource (*.brf)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4668"/>
+        <location filename="../mainwindow.cpp" line="4704"/>
         <source>Reference file saved!</source>
         <translation>Referenzdatei gespeichert!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4681"/>
+        <location filename="../mainwindow.cpp" line="4717"/>
         <source>M&amp;B Resource (*.brf)</source>
         <translation>M&amp;B Ressource (*.brf)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4681"/>
+        <location filename="../mainwindow.cpp" line="4717"/>
         <source>Warband Resource v.1 (*.brf)</source>
         <translation>Warband Ressource v.1 (*.brf)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4684"/>
+        <location filename="../mainwindow.cpp" line="4720"/>
         <source>Save File</source>
         <translation>Speichere Datei</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4711"/>
+        <location filename="../mainwindow.cpp" line="4747"/>
         <source> [not in module.ini]</source>
         <translation> [Nicht in module.ini]</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4715"/>
+        <location filename="../mainwindow.cpp" line="4751"/>
         <source>%1%2</source>
         <translation>%1%2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4717"/>
+        <location filename="../mainwindow.cpp" line="4753"/>
         <source>%1 - %2%3%4</source>
         <translation>%1 - %2%3%4</translation>
     </message>
@@ -4409,27 +4420,32 @@ Sind Sie sicher?</translation>
         <translation type="obsolete">%1 - Ändere intere Referenzdaten%2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5048"/>
+        <location filename="../mainwindow.cpp" line="5084"/>
         <source>%5 %1 BRF files from module.ini of &quot;%3&quot;-- %2 msec total [%4 text/mat/shad]</source>
         <translation>%5 %1 BRF-Dateien von module.ini von &quot;%3&quot;-- %2 msec total [%4 Text/Mat/Shat]</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5050"/>
+        <location filename="../mainwindow.cpp" line="5086"/>
         <source>scanned</source>
         <translation>geprüft</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5050"/>
+        <location filename="../mainwindow.cpp" line="5086"/>
         <source>ERRORS found while scanning</source>
         <translation>FEHLER beim Überprüfen gefunden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5905"/>
+        <location filename="../mainwindow.cpp" line="5621"/>
+        <source>This OpenBRF version is now assigned as the default program to open your .brf files on this user account. At least I hope so!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="6066"/>
         <source>Shader Requirements</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5961"/>
+        <location filename="../mainwindow.cpp" line="6122"/>
         <source>Shader flags</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4446,44 +4462,44 @@ Sind Sie sicher?</translation>
         <translation type="obsolete">Navigiere nach rechts: Pos = %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5490"/>
+        <location filename="../mainwindow.cpp" line="5651"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5529"/>
+        <location filename="../mainwindow.cpp" line="5690"/>
         <source>New Lod parameters set</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5531"/>
+        <location filename="../mainwindow.cpp" line="5692"/>
         <source>Cancelled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5661"/>
+        <location filename="../mainwindow.cpp" line="5822"/>
         <source>Collision objects flags</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5719"/>
+        <location filename="../mainwindow.cpp" line="5880"/>
         <source>Mesh flags</source>
         <translation type="unfinished">Texturflaggen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5771"/>
+        <location filename="../mainwindow.cpp" line="5932"/>
         <source>Texture flags</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1753"/>
+        <location filename="../mainwindow.cpp" line="1765"/>
         <source>No mesh found to learn how to femininize an armour.
 
 You must select meshes with feminine frame, and I&apos;ll try to learn the way to build a femenine frame from a given armour</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1761"/>
+        <location filename="../mainwindow.cpp" line="1773"/>
         <source>Select a emphasis factor between -100% and +100%
 
 zero =&gt; normal.
@@ -4494,31 +4510,31 @@ negative =&gt; milder effect
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1766"/>
+        <location filename="../mainwindow.cpp" line="1778"/>
         <source>Select amount of extra breastification in mm
 (default: 13mm)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1776"/>
+        <location filename="../mainwindow.cpp" line="1788"/>
         <source>Learnt a custom way to femininize an armour
 from %1 examples!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1779"/>
+        <location filename="../mainwindow.cpp" line="1791"/>
         <source>Canceled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1801"/>
+        <location filename="../mainwindow.cpp" line="1813"/>
         <source>Warning: mesh %1 has already a feminine frame %2.
 
 Overwrite it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3293"/>
+        <location filename="../mainwindow.cpp" line="3329"/>
         <source>Copy Skinning into another mesh:
 - select one or more sample skinned mesh
 - copy them (ctrl+C)
@@ -4530,17 +4546,17 @@ Overwrite it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3308"/>
+        <location filename="../mainwindow.cpp" line="3344"/>
         <source>Transferred skinning into %1 mesh(es) from %2 exemplar mesh(es).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3317"/>
+        <location filename="../mainwindow.cpp" line="3353"/>
         <source>Transferred skinning into %1 mesh(es) from skeleton &apos;%2&apos;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3661"/>
+        <location filename="../mainwindow.cpp" line="3697"/>
         <source>This will produce a vertex ani
 with %1x%2 xyz positions+normals (%4 MB).
 
@@ -4548,27 +4564,27 @@ Proceed?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3703"/>
+        <location filename="../mainwindow.cpp" line="3739"/>
         <source>Incompatible animation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3732"/>
+        <location filename="../mainwindow.cpp" line="3768"/>
         <source>Incompatible skin</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3791"/>
+        <location filename="../mainwindow.cpp" line="3827"/>
         <source>I need to know from which skeleton to Unmount. Select a skeleton in the panel.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3814"/>
+        <location filename="../mainwindow.cpp" line="3850"/>
         <source>Not a single skeleton found in reference data! Cancelling operation.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3860"/>
+        <location filename="../mainwindow.cpp" line="3891"/>
         <source>To apply carry position &apos;%1&apos;, I need to know the weapon length.
 Use the ruler tool to tell me the length of weapon &apos;%2&apos;.
 
@@ -4576,49 +4592,49 @@ Activate ruler tool?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4463"/>
+        <location filename="../mainwindow.cpp" line="4499"/>
         <source>You are trying to save meshes with tangent directions in M&amp;B 1.011 file format.
 Unfortunately, tangent directions can only be saved in Warband file format.
 Tangent directions will not be saved...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4719"/>
+        <location filename="../mainwindow.cpp" line="4755"/>
         <source>%1 - editing internal reference data %3 %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4720"/>
+        <location filename="../mainwindow.cpp" line="4756"/>
         <source>(for [%1] mod)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4739"/>
+        <location filename="../mainwindow.cpp" line="4775"/>
         <source>Redone %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4771"/>
+        <location filename="../mainwindow.cpp" line="4807"/>
         <source>Undone %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4795"/>
+        <location filename="../mainwindow.cpp" line="4831"/>
         <source>Undo %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4798"/>
+        <location filename="../mainwindow.cpp" line="4834"/>
         <source>Undo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4804"/>
+        <location filename="../mainwindow.cpp" line="4840"/>
         <source>Redo %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4807"/>
+        <location filename="../mainwindow.cpp" line="4843"/>
         <source>Redo</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4671,7 +4687,7 @@ Tangent directions will not be saved...</source>
         <translation type="obsolete">Bumpmap umdrehen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5832"/>
+        <location filename="../mainwindow.cpp" line="5993"/>
         <source>Material flags</source>
         <translation>Materialflaggen</translation>
     </message>
@@ -4742,7 +4758,7 @@ in Zeile %3:
 </translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="765"/>
+        <location filename="../iniData.cpp" line="898"/>
         <source>%6 &lt;a href=&quot;#%1.%2.%3&quot;&gt;%4&lt;/a&gt; (in %5)</source>
         <translation>%6 &lt;a href=&quot;#%1.%2.%3&quot;&gt;%4&lt;/a&gt; (in %5)</translation>
     </message>
@@ -4751,82 +4767,82 @@ in Zeile %3:
         <translation type="obsolete">&lt;b&gt;Datei nicht gefunden:&lt;/b&gt; Kann Texturdatei für %1 nicht finden.</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="780"/>
+        <location filename="../iniData.cpp" line="913"/>
         <source>&lt;b&gt;File-not-found:&lt;/b&gt; can&apos;t find image file for %1.</source>
         <translation>&lt;b&gt;Datei nicht gefunden:&lt;/b&gt; Kann kein Bild für %1 finden.</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="785"/>
+        <location filename="../iniData.cpp" line="918"/>
         <source>&lt;b&gt;File-not-found:&lt;/b&gt; can&apos;t find frame &quot;%2&quot; for %1.</source>
         <translation>&lt;b&gt;Datei nicht gefunden:&lt;/b&gt; Kann keinen Frame &quot;%2&quot; für %1 finden.</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="806"/>
+        <location filename="../iniData.cpp" line="939"/>
         <source>&lt;b&gt;Duplicate:&lt;/b&gt; %1 was already defined in file %2</source>
         <translation type="unfinished">&lt;b&gt;Duplikat:&lt;/b&gt; %1 wurde schon in Datei %2 definiert</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="833"/>
+        <location filename="../iniData.cpp" line="966"/>
         <source>&lt;b&gt;Missing:&lt;/b&gt; %1 uses unknown %2 &lt;u&gt;%3&lt;/u&gt;</source>
         <translation>&lt;b&gt;Fehlend:&lt;/b&gt; %1 Nutzt unbekanntes %2 &lt;u&gt;%3&lt;/u&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="839"/>
+        <location filename="../iniData.cpp" line="972"/>
         <source>&lt;b&gt;Ordering problem:&lt;/b&gt; %1 uses %2, which appears later in &lt;i&gt;module.ini&lt;/i&gt;</source>
         <translation>&lt;b&gt;Anordnungsproblem:&lt;/b&gt; %1 Verwendet %2, welches später hier auftaucht &lt;i&gt;module.ini&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="871"/>
+        <location filename="../iniData.cpp" line="1004"/>
         <source>&lt;h1&gt;Module &lt;b&gt;%1&lt;/b&gt;&lt;/h1&gt;</source>
         <translation>&lt;h1&gt;Modul &lt;b&gt;%1&lt;/b&gt;&lt;/h1&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="877"/>
+        <location filename="../iniData.cpp" line="1010"/>
         <source>&lt;h2&gt;Original BRF files: %1&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;Original BRF-Dateien: %1&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="879"/>
+        <location filename="../iniData.cpp" line="1012"/>
         <source>&lt;h2&gt;CommonRes BRF files: %1&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;CommonRes BRF-Dateien: %1&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="887"/>
+        <location filename="../iniData.cpp" line="1020"/>
         <source>&lt;i&gt;(used+unused)&lt;/i&gt;</source>
         <translation>&lt;i&gt;(benutzt+unbenutzt)&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="888"/>
+        <location filename="../iniData.cpp" line="1021"/>
         <source>&lt;br&gt;</source>
         <translation>&lt;br&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="894"/>
+        <location filename="../iniData.cpp" line="1027"/>
         <source>&lt;h2&gt;Txt data:&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;Txt Daten:&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1057"/>
+        <location filename="../iniData.cpp" line="1190"/>
         <source>&lt;i&gt;more errors to follow...&lt;/i&gt;</source>
         <translation type="unfinished">&lt;i&gt;Weitere Störungen folgen...&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1079"/>
+        <location filename="../iniData.cpp" line="1212"/>
         <source>&lt;i&gt;[0 results]&lt;/i&gt;</source>
         <translation type="unfinished">&lt;i&gt;[0 Ergebnisse]&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1412"/>
+        <location filename="../iniData.cpp" line="1546"/>
         <source>&lt;b&gt;Missing in txt:&lt;/b&gt; cannot find %1 &lt;u&gt;%2&lt;/u&gt;, referred in &apos;%3&apos;</source>
         <translation>&lt;b&gt;Fehlt in txt:&lt;/b&gt; Kann %1 nicht finden&lt;u&gt;%2&lt;/u&gt;, bezeichnet in &apos;%3&apos;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1512"/>
+        <location filename="../iniData.cpp" line="1646"/>
         <source>&lt;b&gt;File-Not-Found:&lt;/b&gt; could not read BRF file &lt;u&gt;%1&lt;/u&gt;, listed in module.ini file</source>
         <translation>&lt;b&gt;Datei-Nicht-Gefunden:&lt;/b&gt; Kann BRF-Datei nicht lesen &lt;u&gt;%1&lt;/u&gt;, aufgelistet in der module.ini Datei</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1515"/>
+        <location filename="../iniData.cpp" line="1649"/>
         <source>&lt;b&gt;File-Format Error:&lt;/b&gt; could not read BRF file &lt;u&gt;%1&lt;/u&gt;</source>
         <translation>&lt;b&gt;Datei-Formatfehler:&lt;/b&gt; Konnte die BRF-Datei nicht lesen &lt;u&gt;%1&lt;/u&gt;</translation>
     </message>
@@ -4888,77 +4904,77 @@ in Zeile %3:
         <translation type="obsolete">Teile via actions.txt</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="63"/>
+        <location filename="../selector.cpp" line="61"/>
         <source>Split sequence following the actions.txt file. A new &quot;action [after split].txt&quot; file is also produced, which use the new animation.</source>
         <translation>Teile die Sequenz anhand der actions.txt Datei. Eine neue &quot;action [after split].txt&quot; Datei wird erstellt, welche die neuen Animationen nutzt.</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="65"/>
+        <location filename="../selector.cpp" line="63"/>
         <source>Auto-split</source>
         <translation>Automatisch teilen</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="66"/>
+        <location filename="../selector.cpp" line="64"/>
         <source>Auto-split sequence into its separated chunks, separating it at lasge gaps in frames.</source>
         <translation>Teile die Sequenz automatisch in mehrere Stücke, wird bei großen Lücken in den Bildern getrennt.</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="69"/>
+        <location filename="../selector.cpp" line="67"/>
         <source>Extract interval...</source>
         <translation>extrahiere Intervall...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="70"/>
+        <location filename="../selector.cpp" line="68"/>
         <source>Extract an animation from an interval of times.</source>
         <translation>Extrahiere eine Animation aus einem Zeitabschnitt.</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="73"/>
+        <location filename="../selector.cpp" line="71"/>
         <source>Mirror this animation over the X axis.</source>
         <translation>Spiegel diese Animation über die X-Achse.</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="75"/>
+        <location filename="../selector.cpp" line="73"/>
         <source>Remove interval...</source>
         <translation>setze den Intervall zurück...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="76"/>
+        <location filename="../selector.cpp" line="74"/>
         <source>Remove an interval of times from the animation.</source>
         <translation>Setze einen Zeitintervall von einer Animation zurück.</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="78"/>
+        <location filename="../selector.cpp" line="76"/>
         <source>Merge animations</source>
         <translation>Führe Animationen zusammen</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="79"/>
+        <location filename="../selector.cpp" line="77"/>
         <source>Merge two animations into one -- intervals must be right!</source>
         <translation>Verbinde zwei Animationen zu einer--Die Intervalle müssen richtig sein!</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="350"/>
+        <location filename="../selector.cpp" line="351"/>
         <source>Discard skinning (per-verex bone attachments)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="360"/>
+        <location filename="../selector.cpp" line="361"/>
         <source>Make a skeleton-modification mesh...</source>
         <translation>Erstelle eine Skelettmodifizierungs Mesh...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="361"/>
+        <location filename="../selector.cpp" line="362"/>
         <source>Modify from a skeleton-modification mesh...</source>
         <translation>Modifiziere von einem Skelettmodifikations Mesh...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="691"/>
+        <location filename="../selector.cpp" line="692"/>
         <source>Group rename...</source>
         <translation>Benenne Gruppe um...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="704"/>
+        <location filename="../selector.cpp" line="705"/>
         <source>Used by:</source>
         <translation>Benutzt von:</translation>
     </message>
@@ -4967,22 +4983,22 @@ in Zeile %3:
         <translation type="obsolete">Umbenennen</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="89"/>
+        <location filename="../selector.cpp" line="87"/>
         <source>Remove</source>
         <translation>Entfernen</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="94"/>
+        <location filename="../selector.cpp" line="92"/>
         <source>Duplicate</source>
         <translation>Dupliziere</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="96"/>
+        <location filename="../selector.cpp" line="94"/>
         <source>next tab</source>
         <translation>Nächster Reiter</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="101"/>
+        <location filename="../selector.cpp" line="99"/>
         <source>left tab</source>
         <translation>Vorheriger Reiter</translation>
     </message>
@@ -4991,7 +5007,7 @@ in Zeile %3:
         <translation type="obsolete">Nach oben rücken</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="108"/>
+        <location filename="../selector.cpp" line="106"/>
         <source>Move this object upward in the list</source>
         <translation>Rücke dieses Objekt weiter nach oben in der Liste</translation>
     </message>
@@ -5000,82 +5016,82 @@ in Zeile %3:
         <translation type="obsolete">Nach unten rücken</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="114"/>
+        <location filename="../selector.cpp" line="112"/>
         <source>Move this object one step down in the list</source>
         <translation>Bewege dieses Objekt einen Schritt nach unten in der Liste</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="131"/>
+        <location filename="../selector.cpp" line="129"/>
         <source>Add to reference animations</source>
         <translation>Füge zu Referenzanimationen hinzu</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="132"/>
+        <location filename="../selector.cpp" line="130"/>
         <source>Add this animation to reference animations (to use it later to display skinned meshes).</source>
         <translation>Füge diese Animation zur Referenzanimation hinzu (um es später zum Anzeigen von verknüpften Strukturgittern zu nutzen).</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="134"/>
+        <location filename="../selector.cpp" line="132"/>
         <source>Add to reference skeletons</source>
         <translation>Füge zu Referenzskeletten hinzu</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="135"/>
+        <location filename="../selector.cpp" line="133"/>
         <source>Add this animation to reference skeletons (to use it later for animations).</source>
         <translation>Füge diese Animation zu Referenzskeletten hinzu (um es später für Animationen zu nutzen).</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="138"/>
+        <location filename="../selector.cpp" line="136"/>
         <source>set %1</source>
         <translation>setze %1</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="139"/>
+        <location filename="../selector.cpp" line="137"/>
         <source>Add this mesh to reference skins (to use it later to display animations).</source>
         <translation>Füge dieses Strukturgitter zur Referenzhaut hinzu (um es später zum Animationsabspielen zu verwenden).</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="164"/>
+        <location filename="../selector.cpp" line="162"/>
         <source>&lt;none&gt;</source>
         <translation>&lt;kein&gt;</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="169"/>
+        <location filename="../selector.cpp" line="167"/>
         <source>mod file &lt;%1&gt;</source>
         <translation>Moddatei &lt;%1&gt;</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="171"/>
+        <location filename="../selector.cpp" line="169"/>
         <source>mod file &lt;%1&gt; (indirectly)</source>
         <translation>Moddatei &lt;%1&gt; (indirekt)</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="175"/>
+        <location filename="../selector.cpp" line="173"/>
         <source>&lt;no .txt file&gt;</source>
         <translation>&lt;keine .txt file&gt;</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="177"/>
+        <location filename="../selector.cpp" line="175"/>
         <source>&lt;core engine&gt;</source>
         <translation>&lt;Kerntriebwerk&gt;</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="179"/>
+        <location filename="../selector.cpp" line="177"/>
         <source>&lt;core engine&gt; (indirectly)</source>
         <translation>&lt;Kerntriebwerk&gt; (indirekt)</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="182"/>
+        <location filename="../selector.cpp" line="180"/>
         <source>&lt;not in module.ini&gt;</source>
         <translation>&lt;nicht in module.ini&gt;</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="184"/>
+        <location filename="../selector.cpp" line="182"/>
         <source>&lt;save file to find out&gt;</source>
         <translation>&lt;Speichere Datei um es herauszufinden&gt;</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="187"/>
+        <location filename="../selector.cpp" line="185"/>
         <source>(not computed: compute now)</source>
         <translation>(Unberechnet: Berechne jetzt)</translation>
     </message>
@@ -5084,7 +5100,7 @@ in Zeile %3:
         <translation type="obsolete">Exportiere</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="193"/>
+        <location filename="../selector.cpp" line="191"/>
         <source>Info on mesh import/export</source>
         <translation>Info zu Strukturgitter Import/Export</translation>
     </message>
@@ -5093,7 +5109,7 @@ in Zeile %3:
         <translation type="obsolete">Exportiere statisches Strukturgitter</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="196"/>
+        <location filename="../selector.cpp" line="194"/>
         <source>Export this model (or this frame) as a 3D static mesh.</source>
         <translation>Exportiere dieses Modell (oder Bild) als ein 3D statisches Strukturgitter.</translation>
     </message>
@@ -5102,7 +5118,7 @@ in Zeile %3:
         <translation type="obsolete">Exportiere Vertexanimation</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="199"/>
+        <location filename="../selector.cpp" line="197"/>
         <source>Export this model as a mesh with vertex animation.</source>
         <translation>Exportiere dieses Modell als Strukturgitter mit Vertexanimation.</translation>
     </message>
@@ -5111,22 +5127,22 @@ in Zeile %3:
         <translation type="obsolete">Exportiere kombiniertes Strukturgitter</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="202"/>
+        <location filename="../selector.cpp" line="200"/>
         <source>Export this group of models in a single OBJ.</source>
         <translation>Exportiere diese Gruppe of Modellen in eine einzige OBJ.</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="203"/>
+        <location filename="../selector.cpp" line="201"/>
         <source>Export all meshes</source>
         <translation>Exportiere alle Strukturgitter</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="204"/>
+        <location filename="../selector.cpp" line="202"/>
         <source>Export each of these models as separate OBJs.</source>
         <translation>Exportiere jedes Model als einzelne OBJ Datei.</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="207"/>
+        <location filename="../selector.cpp" line="205"/>
         <source>Export each of these collison bodies as separate files.</source>
         <translation>Exportiere jeden dieser Kollisionskörper als eine seperate Datei.</translation>
     </message>
@@ -5135,7 +5151,7 @@ in Zeile %3:
         <translation type="obsolete">Exportiere verknüpfte Strukturgitter</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="210"/>
+        <location filename="../selector.cpp" line="208"/>
         <source>Export this model (or this frame) as a skinned mesh.</source>
         <translation>Exportiere dieses Model (oder Bild) als ein verknüpftes Strukturgitter.</translation>
     </message>
@@ -5144,7 +5160,7 @@ in Zeile %3:
         <translation type="obsolete">Exportiere (naktes) Skelett</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="213"/>
+        <location filename="../selector.cpp" line="211"/>
         <source>Export this skeleton (as a set of nude bones).</source>
         <translation>Exportiere dieses Skelett (als Set von blanken Knochen).</translation>
     </message>
@@ -5153,17 +5169,17 @@ in Zeile %3:
         <translation type="obsolete">Exportiere Skelett mit Haut</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="215"/>
+        <location filename="../selector.cpp" line="213"/>
         <source>Export this skeleton (as a skinned skin).</source>
         <translation>Exportiere dieses Skelett (als eine verknüpfte Haut).</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="216"/>
+        <location filename="../selector.cpp" line="214"/>
         <source>Export a skin for this ani</source>
         <translation>Exportiere eine Haut für diese .ani</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="217"/>
+        <location filename="../selector.cpp" line="215"/>
         <source>Export a skinned skin which can be used for this animation.</source>
         <translation>Exportiere eine verknüpfte Haut, welche für diese Animation genutzt werden kann.</translation>
     </message>
@@ -5172,7 +5188,7 @@ in Zeile %3:
         <translation type="obsolete">Exportiere Animation</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="226"/>
+        <location filename="../selector.cpp" line="224"/>
         <source>Export this animation.</source>
         <translation>Exportiere diese Animation.</translation>
     </message>
@@ -5181,205 +5197,215 @@ in Zeile %3:
         <translation type="obsolete">Reskelettiere</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="237"/>
+        <location filename="../selector.cpp" line="235"/>
         <source>Adapt this skinned mesh to a new skeleton</source>
         <translation>Passe das verknüpfte Strukturgitter an ein neues Skelett an</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="242"/>
+        <location filename="../selector.cpp" line="240"/>
         <source>Transfer skinning</source>
         <translation>Transferiere skinning</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="243"/>
+        <location filename="../selector.cpp" line="241"/>
         <source>Copy skinning from one mesh to another</source>
         <translation>Kopiere skinning von einem Strukturgitter zu einem Anderen</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="254"/>
+        <location filename="../selector.cpp" line="252"/>
         <source>Roto-translate-rescale...</source>
         <translation>Rotieren-Skallieren-vergrößern...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="329"/>
+        <location filename="../selector.cpp" line="330"/>
         <source>Tune colors HSB...</source>
         <translation>Optiemiere die Farbe HSB...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="356"/>
+        <location filename="../selector.cpp" line="357"/>
         <source>Discard vertex animation (keep only current frame)</source>
         <translation>Vertexanimation ausstellen (behalte nur den aktuellen frame)</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="72"/>
-        <location filename="../selector.cpp" line="251"/>
+        <location filename="../selector.cpp" line="70"/>
+        <location filename="../selector.cpp" line="249"/>
         <source>Mirror</source>
         <translation>Spiegeln</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="62"/>
+        <location filename="../selector.cpp" line="60"/>
         <source>Split via actions.txt...</source>
         <translation>Per actions.txt teilen...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="81"/>
-        <location filename="../selector.cpp" line="344"/>
+        <location filename="../selector.cpp" line="79"/>
+        <location filename="../selector.cpp" line="345"/>
         <source>Reverse animation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="82"/>
-        <location filename="../selector.cpp" line="345"/>
+        <location filename="../selector.cpp" line="80"/>
+        <location filename="../selector.cpp" line="346"/>
         <source>Make the animation timeline go backwards.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="84"/>
-        <location filename="../selector.cpp" line="691"/>
+        <location filename="../selector.cpp" line="82"/>
+        <location filename="../selector.cpp" line="692"/>
         <source>Rename...</source>
         <translation>Umbenennen...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="106"/>
+        <location filename="../selector.cpp" line="104"/>
         <source>Move up in the list</source>
         <translation>Nach oben bewegen</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="112"/>
+        <location filename="../selector.cpp" line="110"/>
         <source>Move down in the list</source>
         <translation>Nach unten bewegen</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="191"/>
+        <location filename="../selector.cpp" line="189"/>
         <source>Export...</source>
         <translation>Exportiere...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="195"/>
+        <location filename="../selector.cpp" line="193"/>
         <source>Export static mesh...</source>
         <translation>Exportiere ststische Mesh...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="198"/>
+        <location filename="../selector.cpp" line="196"/>
         <source>Export vertex ani...</source>
         <translation>Exportiere Vertexanim...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="201"/>
+        <location filename="../selector.cpp" line="199"/>
         <source>Export combined mesh...</source>
         <translation>Exportiere kombiniertses Mesh...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="206"/>
+        <location filename="../selector.cpp" line="204"/>
         <source>Export all...</source>
         <translation>Exportiere alles...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="209"/>
+        <location filename="../selector.cpp" line="207"/>
         <source>Export skinned mesh...</source>
         <translation>Exportiere animiertes Mesh...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="212"/>
+        <location filename="../selector.cpp" line="210"/>
         <source>Export (nude) skeleton...</source>
         <translation>Exportiere (nacktes) Skelett...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="214"/>
+        <location filename="../selector.cpp" line="212"/>
         <source>Export skeleton with skin...</source>
         <translation>Exportiere Skelett mit Skin...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="219"/>
-        <location filename="../selector.cpp" line="222"/>
+        <location filename="../selector.cpp" line="217"/>
+        <location filename="../selector.cpp" line="220"/>
         <source>Convert into vertex animation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="220"/>
+        <location filename="../selector.cpp" line="218"/>
         <source>Convert skeletal animation into a vertex animation using current skin and skeleton</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="223"/>
+        <location filename="../selector.cpp" line="221"/>
         <source>Convert skinned mesh into a vertex animation using current animation and skeleton</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="225"/>
+        <location filename="../selector.cpp" line="223"/>
         <source>Export animation...</source>
         <translation>Exportiere Animation...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="228"/>
+        <location filename="../selector.cpp" line="226"/>
         <source>Reimport mesh...</source>
         <translation>Importiere Mesh...</translation>
     </message>
     <message>
+        <location filename="../selector.cpp" line="227"/>
         <location filename="../selector.cpp" line="229"/>
-        <location filename="../selector.cpp" line="231"/>
         <source>Reimport this mesh from file.</source>
         <translation>Importiere dieses Mesh von dieser Datei.</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="230"/>
+        <location filename="../selector.cpp" line="228"/>
         <source>Reimport animation...</source>
         <translation>Importiere Animationen...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="232"/>
+        <location filename="../selector.cpp" line="230"/>
         <source>Reimport collision body...</source>
         <translation>Importiere Kollisionskörper...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="233"/>
+        <location filename="../selector.cpp" line="231"/>
         <source>Reimport this collision mesh from file.</source>
         <translation>Importiere dieses Kollisionsgitter aus der Datei.</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="236"/>
-        <location filename="../selector.cpp" line="239"/>
+        <location filename="../selector.cpp" line="234"/>
+        <location filename="../selector.cpp" line="237"/>
         <source>Reskeletonize...</source>
         <translation>Reskelettieren...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="240"/>
+        <location filename="../selector.cpp" line="238"/>
         <source>Adapt this animation to a new skeleton</source>
         <translation>Passe diese Animation an ein neues Skelett an</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="245"/>
+        <location filename="../selector.cpp" line="243"/>
         <source>Make skinning stiffer</source>
         <translation>Mache die Animation steifer</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="246"/>
+        <location filename="../selector.cpp" line="244"/>
         <source>Make the skinning of selected mesh(es) somewhat rigidier</source>
         <translatorcomment>What means rigidier?</translatorcomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="248"/>
+        <location filename="../selector.cpp" line="246"/>
         <source>Make skinning softer</source>
         <translation>Mache die Animation weicher</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="249"/>
+        <location filename="../selector.cpp" line="247"/>
         <source>Make the skinning of selected mesh(es) somewhat softer.</source>
         <translation>Mache die Animation der ausgwählten Mesh etwas weicher.</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="252"/>
+        <location filename="../selector.cpp" line="250"/>
         <source>Mirror this object on the X axis.</source>
         <translation>Spiegel dieses Objekt auf der X-Achse.</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="474"/>
+        <location filename="../selector.cpp" line="272"/>
+        <source>Split into individual sub-pieces</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../selector.cpp" line="273"/>
+        <source>Create a separate object for each sub-piece or part in this collision body.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../selector.cpp" line="476"/>
         <source>[Right-Click]: tools for %1. [Shift]/[Ctrl]+[Click]: Multi-sel.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="475"/>
+        <location filename="../selector.cpp" line="477"/>
         <source> [Double-Click]: select whole.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5388,136 +5414,136 @@ in Zeile %3:
         <translation type="obsolete">Rotiere-Verschiebe-Skaliere</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="255"/>
+        <location filename="../selector.cpp" line="253"/>
         <source>Apply a geometric transform.</source>
         <translation>Erlaube eine geometrische Transformation.</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="259"/>
-        <location filename="../selector.cpp" line="363"/>
+        <location filename="../selector.cpp" line="257"/>
+        <location filename="../selector.cpp" line="364"/>
         <source>Rescale...</source>
         <translation>Neuskallierung...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="262"/>
+        <location filename="../selector.cpp" line="260"/>
         <source>(no object selected)</source>
         <translation>(kein Objekt ausgewält)</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="266"/>
+        <location filename="../selector.cpp" line="264"/>
         <source>Shift time interval...</source>
         <translation>Verschiebe Zeitinterval...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="274"/>
+        <location filename="../selector.cpp" line="275"/>
         <source>Recompute normals...</source>
         <translation>Senkrechte neu berechnen...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="277"/>
+        <location filename="../selector.cpp" line="278"/>
         <source>Clean redundant vert/pos</source>
         <translatorcomment>What means redundant?</translatorcomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="278"/>
+        <location filename="../selector.cpp" line="279"/>
         <source>Removes any unused vertices or positions and merge identical ones</source>
         <translation>Entferne allen Vertices oder Positionen und führe alle identischen zusammen</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="280"/>
+        <location filename="../selector.cpp" line="281"/>
         <source>Transform texture coords</source>
         <translation>Transformiere Texturkoordinaten</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="281"/>
+        <location filename="../selector.cpp" line="282"/>
         <source>Translates/Scales/Flips UV coords</source>
         <translation>Übersetzungen/Größen/Kippe UV Koordinaten</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="295"/>
+        <location filename="../selector.cpp" line="296"/>
         <source>Mount on one bone...</source>
         <translation>Auf einem Knochen montieren...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="300"/>
-        <location filename="../selector.cpp" line="303"/>
+        <location filename="../selector.cpp" line="301"/>
+        <location filename="../selector.cpp" line="304"/>
         <source>Back-faces: </source>
         <translatorcomment>I dodn&apos;t know how to translate this right. So I guess....</translatorcomment>
         <translation>Rückengesicht: </translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="306"/>
+        <location filename="../selector.cpp" line="307"/>
         <source>Set per vertex color as ambient occlusion (global lighting) %1</source>
         <translation>Setze für jede Vertexfarbe einen ambient occlusion (Globale Beleuchtung) %1</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="308"/>
+        <location filename="../selector.cpp" line="309"/>
         <source>Copy colors from texture</source>
         <translation>Kopiere Farben von Textur</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="309"/>
+        <location filename="../selector.cpp" line="310"/>
         <source>Set per vertex color as texture colors %1</source>
         <translation>Setze für jede Vertexfarbe die Texturfarbe %1</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="317"/>
+        <location filename="../selector.cpp" line="318"/>
         <source>Get dimensions...</source>
         <translation>Erhalte Dimensionen...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="335"/>
+        <location filename="../selector.cpp" line="336"/>
         <source>skinning (freeze current pose)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="336"/>
+        <location filename="../selector.cpp" line="337"/>
         <source>Discard skinning, but freeze mesh in its current pose</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="338"/>
+        <location filename="../selector.cpp" line="339"/>
         <source>skinning (un-mount from bone)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="339"/>
+        <location filename="../selector.cpp" line="340"/>
         <source>Discard skinning, and move object back at origin.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="341"/>
+        <location filename="../selector.cpp" line="342"/>
         <source>Merge as frames in a vertex ani</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="342"/>
+        <location filename="../selector.cpp" line="343"/>
         <source>Merge these meshes, in their current order, as frames in a mesh ani</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="320"/>
+        <location filename="../selector.cpp" line="321"/>
         <source>Separate all frames</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="321"/>
+        <location filename="../selector.cpp" line="322"/>
         <source>Split all frames, making 1 mesh per frame</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="323"/>
+        <location filename="../selector.cpp" line="324"/>
         <source>Color uniform...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="324"/>
+        <location filename="../selector.cpp" line="325"/>
         <source>Set per vertex color as a uniform color %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="326"/>
+        <location filename="../selector.cpp" line="327"/>
         <source>Recompute tangent dirs</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5530,7 +5556,7 @@ in Zeile %3:
         <translation type="obsolete">Skaliere</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="260"/>
+        <location filename="../selector.cpp" line="258"/>
         <source>Rescale this object.</source>
         <translation>Skaliere dieses Objekts.</translation>
     </message>
@@ -5539,27 +5565,27 @@ in Zeile %3:
         <translation type="obsolete">Verschiebe Zeitinterval</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="267"/>
+        <location filename="../selector.cpp" line="265"/>
         <source>Shift a time interval for this animation</source>
         <translation>Verschiebe ein Zeitinterval für diese Animation</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="269"/>
+        <location filename="../selector.cpp" line="267"/>
         <source>Make quad-dominant</source>
         <translation>Mache quad-dominant</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="270"/>
+        <location filename="../selector.cpp" line="268"/>
         <source>Try to merge most triangles into fewer quads (more efficient!)</source>
         <translation>Versuche die Dreiecke in weniger Vierecke zu kombinieren (effizienter!)</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="271"/>
+        <location filename="../selector.cpp" line="269"/>
         <source>Combine collision objects</source>
         <translation>Kombiniere Kollisionsobjekte</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="272"/>
+        <location filename="../selector.cpp" line="270"/>
         <source>Make a combined collision obj. unifying these objs.</source>
         <translation>Erstelle eine kombinierte Kollisions-OBJ. (Vereinigt diese objs).</translation>
     </message>
@@ -5568,7 +5594,7 @@ in Zeile %3:
         <translation type="obsolete">Neuberechnung von Normals</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="275"/>
+        <location filename="../selector.cpp" line="276"/>
         <source>Recompute normals for this model, and unify pos and vertices</source>
         <translation>Neuberechnung von Normals für das Model, außerdem vereinigt es Position und Vertexes</translation>
     </message>
@@ -5581,42 +5607,42 @@ in Zeile %3:
         <translation type="obsolete">Vereinige Vertexe und Positionen.</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="283"/>
+        <location filename="../selector.cpp" line="284"/>
         <source>Quick fix skinning of rigid-parts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="284"/>
+        <location filename="../selector.cpp" line="285"/>
         <source>Attempts to fix skinning of small-parts, making them rigid</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="286"/>
+        <location filename="../selector.cpp" line="287"/>
         <source>Split into connected sub-meshes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="287"/>
+        <location filename="../selector.cpp" line="288"/>
         <source>Create a separate mesh for each connected component of this mesh.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="289"/>
+        <location filename="../selector.cpp" line="290"/>
         <source>Combine meshes</source>
         <translation>Kombiniere Strukturgitter</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="290"/>
+        <location filename="../selector.cpp" line="291"/>
         <source>Make a combined mesh unifying these meshes.</source>
         <translation>Erstelle ein kombiniertes Strukturgitter, welches die Strukturgitter vereinigt.</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="292"/>
+        <location filename="../selector.cpp" line="293"/>
         <source>Make a collision object</source>
         <translation>Erstelle ein Kollisionsobjekt</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="293"/>
+        <location filename="../selector.cpp" line="294"/>
         <source>Turn this mesh(es) into a combined Collision object.</source>
         <translation>Ändere diese(s) Strukturgitter in ein kombiniertes Kollisionsobjekt.</translation>
     </message>
@@ -5625,117 +5651,117 @@ in Zeile %3:
         <translation type="obsolete">Setze auf einen Knochen</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="296"/>
+        <location filename="../selector.cpp" line="297"/>
         <source>Put this mesh on top of a single skeleton bone.</source>
         <translation>Setze das Strukturgitter auf einen einzelnen Skelettknochen.</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="298"/>
+        <location filename="../selector.cpp" line="299"/>
         <source>remove all</source>
         <translation>Entferne alle</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="299"/>
+        <location filename="../selector.cpp" line="300"/>
         <source>Remove all faces that are backfacing (e.g. in beard meshes).</source>
         <translation>Entferne alle rückwärtsgewandten Flächen (z.B. Bard Strukturgitter).</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="301"/>
+        <location filename="../selector.cpp" line="302"/>
         <source>add (x2 faces)</source>
         <translation>Hinzufügen (x2 Flächen)</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="302"/>
+        <location filename="../selector.cpp" line="303"/>
         <source>Duplicate all faces: for each current face, add a backfacing face.</source>
         <translation>Dupliziere alle Flächen: Für alle Flächen wird eine rückwärtsgewandte Fläche eingesetzt.</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="305"/>
+        <location filename="../selector.cpp" line="306"/>
         <source>Color with Ambient Occlusion</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="311"/>
+        <location filename="../selector.cpp" line="312"/>
         <source>Add femininized frame</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="312"/>
+        <location filename="../selector.cpp" line="313"/>
         <source>Build a feminine frame for this armour(s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="314"/>
+        <location filename="../selector.cpp" line="315"/>
         <source>Compute LODs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="315"/>
+        <location filename="../selector.cpp" line="316"/>
         <source>Tries to compute a LOD pyramid</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="318"/>
+        <location filename="../selector.cpp" line="319"/>
         <source>Tell me the dimension of selected object(s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="327"/>
+        <location filename="../selector.cpp" line="328"/>
         <source>(Tangent dirs are needed for bump-mapping)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="330"/>
+        <location filename="../selector.cpp" line="331"/>
         <source>Then Hue Saturation and Brightness of per-vertex colors</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="332"/>
+        <location filename="../selector.cpp" line="333"/>
         <source>Discard hit-boxes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="333"/>
+        <location filename="../selector.cpp" line="334"/>
         <source>Discard hit-box set associated to skeletons with this name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="347"/>
+        <location filename="../selector.cpp" line="348"/>
         <source>per-vertex color</source>
         <translation>Per-Vertexfarbe</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="348"/>
+        <location filename="../selector.cpp" line="349"/>
         <source>Reset per-vertex coloring (i.e. turn all full-white)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="349"/>
+        <location filename="../selector.cpp" line="350"/>
         <source>skinning</source>
         <translation>skinning</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="351"/>
+        <location filename="../selector.cpp" line="352"/>
         <source>tangent directions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="352"/>
+        <location filename="../selector.cpp" line="353"/>
         <source>Remove tangent directions (saves space, they are needed mainly for bumbmapping)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="353"/>
+        <location filename="../selector.cpp" line="354"/>
         <source>normals</source>
         <translation>Normals</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="354"/>
+        <location filename="../selector.cpp" line="355"/>
         <source>Disregard normals, so to merge more vertices (and use less of them)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="355"/>
+        <location filename="../selector.cpp" line="356"/>
         <source>vertex animation</source>
         <translation>Vertexanimation</translation>
     </message>
@@ -5756,7 +5782,7 @@ in Zeile %3:
         <translation type="obsolete">[Rechtsklick]: Werkzeug für %1. Wähle mehrere mit [Shift]-[Strg] aus.</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="479"/>
+        <location filename="../selector.cpp" line="481"/>
         <source>[Right-Click]: tools for %1.</source>
         <translation>[Rechtsklick]: Werkzeuge für %1.</translation>
     </message>
@@ -5769,32 +5795,32 @@ in Zeile %3:
         <translation type="obsolete">Genutzt von...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="833"/>
+        <location filename="../selector.cpp" line="834"/>
         <source>Backfacing faces</source>
         <translation>Rückwärtsgewandte Flächen</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="838"/>
+        <location filename="../selector.cpp" line="839"/>
         <source>Discard</source>
         <translation>Verwerfe</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="846"/>
+        <location filename="../selector.cpp" line="847"/>
         <source>Discard </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="894"/>
+        <location filename="../selector.cpp" line="896"/>
         <source>Add to reference skins</source>
         <translation>Füge zu Referenzhaut hinzu</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="897"/>
+        <location filename="../selector.cpp" line="899"/>
         <source>to Skin Set %1</source>
         <translation>Nach Skinset %1</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="901"/>
+        <location filename="../selector.cpp" line="903"/>
         <source>to Skin Set %1 [new set]</source>
         <translation>Nach Skinset %1 [Neues Set]</translation>
     </message>
@@ -5802,12 +5828,12 @@ in Zeile %3:
 <context>
     <name>TT</name>
     <message>
-        <location filename="../mainwindow.cpp" line="1129"/>
+        <location filename="../mainwindow.cpp" line="1141"/>
         <source>new_%1</source>
         <translation type="unfinished">neu_%1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1133"/>
+        <location filename="../mainwindow.cpp" line="1145"/>
         <source>New %1</source>
         <translation type="unfinished">Neu %1</translation>
     </message>

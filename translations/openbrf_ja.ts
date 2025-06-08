@@ -607,8 +607,13 @@ with the same name(s)</source>
     </message>
     <message>
         <location filename="../askTransformDialog.ui" line="777"/>
+        <source>Apply to last selected
+object only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Apply to last selected object only</source>
-        <translation>最後に選択したオブジェクトにだけ適用</translation>
+        <translation type="vanished">最後に選択したオブジェクトにだけ適用</translation>
     </message>
 </context>
 <context>
@@ -725,7 +730,7 @@ They will not be even loaded by the game.</source>
 <context>
     <name>BrfType</name>
     <message>
-        <location filename="../mainwindow.cpp" line="1458"/>
+        <location filename="../mainwindow.cpp" line="1470"/>
         <source>Cannot merge these meshes
  (different number of frames,
  or skinned VS not skinned).
@@ -738,32 +743,32 @@ They will not be even loaded by the game.</source>
 <context>
     <name>Dialog</name>
     <message>
-        <location filename="../askHueSatBriDialog.ui" line="14"/>
+        <location filename="../askHueSatBriDialog.ui" line="38"/>
         <source>Tune Per-Vertex Colors</source>
         <translation>頂点色毎の調整</translation>
     </message>
     <message>
-        <location filename="../askHueSatBriDialog.ui" line="42"/>
+        <location filename="../askHueSatBriDialog.ui" line="114"/>
         <source>Hue:</source>
         <translation>色相:</translation>
     </message>
     <message>
-        <location filename="../askHueSatBriDialog.ui" line="58"/>
+        <location filename="../askHueSatBriDialog.ui" line="152"/>
         <source>Saturation:</source>
         <translation>彩度:</translation>
     </message>
     <message>
-        <location filename="../askHueSatBriDialog.ui" line="74"/>
+        <location filename="../askHueSatBriDialog.ui" line="190"/>
         <source>Brightness:</source>
         <translation>明度:</translation>
     </message>
     <message>
-        <location filename="../askHueSatBriDialog.ui" line="190"/>
+        <location filename="../askHueSatBriDialog.ui" line="58"/>
         <source>Contrast:</source>
         <translation>コントラスト:</translation>
     </message>
     <message>
-        <location filename="../askHueSatBriDialog.ui" line="206"/>
+        <location filename="../askHueSatBriDialog.ui" line="221"/>
         <source>Apply to last selected object only</source>
         <translation>最後に選択したものにだけ適用</translation>
     </message>
@@ -771,90 +776,90 @@ They will not be even loaded by the game.</source>
 <context>
     <name>GLWidget</name>
     <message>
-        <location filename="../glwidgets.cpp" line="652"/>
+        <location filename="../glwidgets.cpp" line="681"/>
         <source>&lt;br /&gt;Vertex compilation: &lt;br /&gt;</source>
         <translation>&lt;br /&gt;頂点の統合: &lt;br /&gt;</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="660"/>
+        <location filename="../glwidgets.cpp" line="689"/>
         <source>&lt;br /&gt;Fragment compilation: &lt;br /&gt;</source>
         <translation>&lt;br /&gt;断片の統合: &lt;br /&gt;</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="665"/>
+        <location filename="../glwidgets.cpp" line="694"/>
         <source>&lt;br /&gt;Linking: &lt;br /&gt;</source>
         <translation>&lt;br /&gt;リンク: &lt;br /&gt;</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="671"/>
+        <location filename="../glwidgets.cpp" line="700"/>
         <source>&lt;br /&gt;Binding: &lt;br /&gt;</source>
         <translation>&lt;br /&gt;バインド: &lt;br /&gt;</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1440"/>
+        <location filename="../glwidgets.cpp" line="1474"/>
         <source>&quot;green&quot; NM</source>
         <translatorcomment>NM=NormalMap 「法線マップ」らしい。</translatorcomment>
         <translation>&quot;緑&quot; NM</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1440"/>
+        <location filename="../glwidgets.cpp" line="1474"/>
         <source>&quot;blue&quot; NM</source>
         <translatorcomment>NM=NormalMap 「法線マップ」らしい。</translatorcomment>
         <translation>&quot;青&quot; NM</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1443"/>
+        <location filename="../glwidgets.cpp" line="1477"/>
         <source>Custom User Shader</source>
         <translation>カスタム・ユーザ・シェーダ</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1446"/>
+        <location filename="../glwidgets.cpp" line="1480"/>
         <source>Default (fixed functionality)</source>
         <translation>デフォルト (固定機能)</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1447"/>
+        <location filename="../glwidgets.cpp" line="1481"/>
         <source>Alpha to Shininess</source>
         <translation>アルファから輝度</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1448"/>
+        <location filename="../glwidgets.cpp" line="1482"/>
         <source>Plain NormalMap (%1)</source>
         <translatorcomment>平面??</translatorcomment>
         <translation>プレーン 法線マップ (%1)</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1449"/>
+        <location filename="../glwidgets.cpp" line="1483"/>
         <source>NormalMap + Alpha to Transparency (%1)</source>
         <translation>法線マップ+透明度アルファ (%1)</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1450"/>
+        <location filename="../glwidgets.cpp" line="1484"/>
         <source>NormalMap + Alpha to Shininess (%1)</source>
         <translation>法線マップ+輝度アルファ (%1)</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1451"/>
+        <location filename="../glwidgets.cpp" line="1485"/>
         <source>NormalMap + ShininessMap (%1)</source>
         <translation>法線マップ+輝度マップ (%1)</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1492"/>
+        <location filename="../glwidgets.cpp" line="1526"/>
         <source>Scene mode: navigate with mouse and WASD (levitate with wheel, zoom in with shift)</source>
         <translation>シーン モード: マウスと W,A,S,D キーで移動 (ホイールで上下、Shift でズーム)</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1497"/>
+        <location filename="../glwidgets.cpp" line="1531"/>
         <source>Helmet mode: for objects with vertical Z axis, like M&amp;B helmets or weapons.</source>
         <translation>ヘルメット・モード: M&amp;B のヘルメットや武器のような、鉛直 Z 軸を持つオブジェクト用。</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1499"/>
+        <location filename="../glwidgets.cpp" line="1533"/>
         <source>Default mode: rotate objects with mouse, zoom in/out with wheel.</source>
         <translation>デフォルト・モード: マウスで回転、ホイールでズーム・イン/アウト。</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1610"/>
+        <location filename="../glwidgets.cpp" line="1644"/>
         <source>Error parsing %1:
 
 maybe the problem is that a shader uses the sign (&lt;) or (&gt;) or (&amp;)?
@@ -923,7 +928,7 @@ maybe the problem is that a shader uses the sign (&lt;) or (&gt;) or (&amp;)?
     </message>
     <message>
         <location filename="../guipanel.cpp" line="911"/>
-        <location filename="../guipanel.cpp" line="1107"/>
+        <location filename="../guipanel.cpp" line="1126"/>
         <source>&lt;not found&gt;</source>
         <translation>&lt;見つからず&gt;</translation>
     </message>
@@ -1892,7 +1897,7 @@ ze</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="5242"/>
+        <location filename="../mainwindow.cpp" line="5278"/>
         <source>Navigate: cannot find &quot;%1&quot; in current module</source>
         <translation>リンク追跡: 現在の MOD に &quot;%1&quot; は見つかりません</translation>
     </message>
@@ -2135,9 +2140,9 @@ ze</source>
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <location filename="../main_ImpExp.cpp" line="826"/>
-        <location filename="../mainwindow.cpp" line="1753"/>
-        <location filename="../mainwindow.cpp" line="1776"/>
-        <location filename="../mainwindow.cpp" line="1779"/>
+        <location filename="../mainwindow.cpp" line="1765"/>
+        <location filename="../mainwindow.cpp" line="1788"/>
+        <location filename="../mainwindow.cpp" line="1791"/>
         <source>OpenBRF</source>
         <translation></translation>
     </message>
@@ -2184,13 +2189,13 @@ to add a frame to.</source>
     </message>
     <message>
         <location filename="../main_ImpExp.cpp" line="976"/>
-        <location filename="../mainwindow.cpp" line="3376"/>
+        <location filename="../mainwindow.cpp" line="3412"/>
         <source>Vertex number mismatch... using texture-coord matching instead of vertex-ordering</source>
         <translation>頂点番号が不一致... 頂点の順番の代わりにテクスチャ座標の一致で判定</translation>
     </message>
     <message>
         <location filename="../main_ImpExp.cpp" line="991"/>
-        <location filename="../mainwindow.cpp" line="3383"/>
+        <location filename="../mainwindow.cpp" line="3419"/>
         <source>Added frame %1</source>
         <translation>追加されたフレーム %1</translation>
     </message>
@@ -3493,117 +3498,117 @@ to add a frame to.</source>
         <translation>&lt;i&gt;実際のテクスチャを表示できませんでした。理由:&lt;/i&gt;&lt;br&gt;&lt;b&gt;%1&lt;/b&gt;&lt;br&gt;&lt;br&gt;%2&lt;br&gt;&lt;br&gt;&lt;b&gt;処置: &lt;/b&gt;%3</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="103"/>
-        <location filename="../mainwindow.cpp" line="1400"/>
-        <location filename="../mainwindow.cpp" line="1702"/>
-        <location filename="../mainwindow.cpp" line="1726"/>
-        <location filename="../mainwindow.cpp" line="2887"/>
-        <location filename="../mainwindow.cpp" line="2899"/>
-        <location filename="../mainwindow.cpp" line="3542"/>
-        <location filename="../mainwindow.cpp" line="5355"/>
+        <location filename="../mainwindow.cpp" line="109"/>
+        <location filename="../mainwindow.cpp" line="1412"/>
+        <location filename="../mainwindow.cpp" line="1714"/>
+        <location filename="../mainwindow.cpp" line="1738"/>
+        <location filename="../mainwindow.cpp" line="2924"/>
+        <location filename="../mainwindow.cpp" line="2936"/>
+        <location filename="../mainwindow.cpp" line="3578"/>
+        <location filename="../mainwindow.cpp" line="5391"/>
         <source>OpenBrf</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="104"/>
+        <location filename="../mainwindow.cpp" line="110"/>
         <source>%1 been modified.
 Save changes?</source>
         <translation>%1 が変更されています。
 保存しますか?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="105"/>
+        <location filename="../mainwindow.cpp" line="111"/>
         <source>Internal reference objects have</source>
         <translation>内部参照オブジェクト</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="105"/>
+        <location filename="../mainwindow.cpp" line="111"/>
         <source>The dataset has</source>
         <translation>データセット</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="483"/>
+        <location filename="../mainwindow.cpp" line="489"/>
         <source>Set %1 mesh materials to &quot;%2&quot;</source>
         <translation>%1 メッシュ・マテリアルを &quot;%2&quot; に設定</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="542"/>
+        <location filename="../mainwindow.cpp" line="548"/>
         <source>Set time of frame %1 to %2</source>
         <translation>フレーム %1 の時刻を %2 に設定</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="595"/>
+        <location filename="../mainwindow.cpp" line="601"/>
         <source>CAnnot find skel_human, skel_dwarf and skel_orc in reference data.
 </source>
         <translation>参照データに skel_human、skel_dwarf、skel_orc が見つかりません。
 </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="643"/>
+        <location filename="../mainwindow.cpp" line="649"/>
         <source>Invalid frame %1</source>
         <translation>不正フレーム %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="652"/>
+        <location filename="../mainwindow.cpp" line="658"/>
         <source>%1 meshes shrunk around bones</source>
         <translation>%1 個のメッシュが、ボーンの周りで縮小</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="664"/>
+        <location filename="../mainwindow.cpp" line="670"/>
         <source>Cannot find skel_human, skel_dwarf and skel_orc in reference data.
 </source>
         <translation>参照データに skel_human、skel_dwarf、skel_orc が見つかりません。
 </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="810"/>
+        <location filename="../mainwindow.cpp" line="816"/>
         <source>Set flag(s) to &quot;%1&quot;</source>
         <translation>フラグを &quot;%1&quot; に設定</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="981"/>
+        <location filename="../mainwindow.cpp" line="993"/>
         <source>Stop editing reference data</source>
         <translation>参照データの編集を中止</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="982"/>
+        <location filename="../mainwindow.cpp" line="994"/>
         <source>Stop editing &quot;reference&quot; skeletons, animations &amp; meshes, that OpenBrf uses to display data.</source>
         <translation>OpenBRF がデータ表示用に使う「参照」スケルトン、アニメーション、メッシュの編集を中止します。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="984"/>
+        <location filename="../mainwindow.cpp" line="996"/>
         <source>Edit reference data</source>
         <translation>参照データを編集</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="985"/>
+        <location filename="../mainwindow.cpp" line="997"/>
         <source>Edit &quot;reference&quot; skeletons, animations &amp; meshes, that OpenBrf uses to display data.</source>
         <translation>OpenBRF がデータを表示すべき「参照先」スケルトンとアニメ付きメッシュを編集。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1213"/>
+        <location filename="../mainwindow.cpp" line="1225"/>
         <source>Oops... no skin is currently available...
 </source>
         <translation>残念...利用可能なスキンがありません...
 </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1218"/>
+        <location filename="../mainwindow.cpp" line="1230"/>
         <source>Skin %1</source>
         <translation>スキン %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1222"/>
+        <location filename="../mainwindow.cpp" line="1234"/>
         <source>Select a skin</source>
         <translation>スキンを選択</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1223"/>
+        <location filename="../mainwindow.cpp" line="1235"/>
         <source>Select a skin:</source>
         <translation>スキンを選択:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1401"/>
+        <location filename="../mainwindow.cpp" line="1413"/>
         <source>Mesh %1 will be 
 split in %2 sub-meshes!.
 
@@ -3614,23 +3619,24 @@ Proceed?</source>
 続行しますか?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1357"/>
-        <location filename="../mainwindow.cpp" line="1409"/>
+        <location filename="../mainwindow.cpp" line="1369"/>
+        <location filename="../mainwindow.cpp" line="1421"/>
+        <location filename="../mainwindow.cpp" line="1864"/>
         <source>Only one component found</source>
         <translation>コンポーネントが一つしか見つかりません</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1314"/>
+        <location filename="../mainwindow.cpp" line="1326"/>
         <source>object &apos;%1&apos;</source>
         <translation>オブジェクト &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1316"/>
+        <location filename="../mainwindow.cpp" line="1328"/>
         <source>%1 objects</source>
         <translation>%1 オブジェクト</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1324"/>
+        <location filename="../mainwindow.cpp" line="1336"/>
         <source>Spatial extension of %7:
 
 in X=%1 to %2
@@ -3647,67 +3653,72 @@ Z=%5 ～ %6
 (クリップボードにコピー済)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1359"/>
-        <location filename="../mainwindow.cpp" line="1411"/>
+        <location filename="../mainwindow.cpp" line="1371"/>
+        <location filename="../mainwindow.cpp" line="1423"/>
         <source>Mesh separated into %1 pieces.</source>
         <translation>メッシュは %1 個に分割されました。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1438"/>
+        <location filename="../mainwindow.cpp" line="1450"/>
         <source>Autofixed rigid parts.</source>
         <translation>剛体を自動修正済み。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2444"/>
+        <location filename="../mainwindow.cpp" line="2481"/>
         <source>Computed AO%1</source>
         <translation>計算された AO%1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2444"/>
+        <location filename="../mainwindow.cpp" line="2481"/>
         <source>(in alpha channel)</source>
         <translation>(アルファ・チャネル)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1922"/>
+        <location filename="../mainwindow.cpp" line="1959"/>
         <source>Normals recomputed with %1% hard edges.</source>
         <translation>法線は %1% のハード・エッジで再計算されました。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1238"/>
+        <location filename="../mainwindow.cpp" line="1250"/>
         <source>Select a skeleton
 in the view panel first</source>
         <translation>先にビュー・パネルで
 スケルトンを選択</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1247"/>
+        <location filename="../mainwindow.cpp" line="1259"/>
         <source>Select an animation
 in the view panel first</source>
         <translation>先にビュー・パネルで
 アニメーションを選択</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1296"/>
+        <location filename="../mainwindow.cpp" line="1308"/>
         <source>Unified %1 verts and %2 pos in %3 meshes.</source>
         <translation>%3 個のメッシュ内の頂点 %1 個、位置 %2 個を統合しました。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1977"/>
+        <location filename="../mainwindow.cpp" line="1866"/>
+        <source>Collision body separated into %1 pieces.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2014"/>
         <source>Softened %1 skinned meshes!</source>
         <translation>%1 個のスキン付きメッシュを平滑化しました!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1997"/>
+        <location filename="../mainwindow.cpp" line="2034"/>
         <source>Stiffened %1 skinned meshes!</source>
         <translation>%1 個のスキン付きメッシュを平滑化しました!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2091"/>
+        <location filename="../mainwindow.cpp" line="2128"/>
         <source>Shift animation timings</source>
         <translation>アニメーションのタイミングをシフト</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2092"/>
+        <location filename="../mainwindow.cpp" line="2129"/>
         <source>Current Interval: [%1 %2]
 New interval: [%1+k %2+k]
 
@@ -3718,17 +3729,17 @@ Select k:</source>
 k の値を選択:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2135"/>
+        <location filename="../mainwindow.cpp" line="2172"/>
         <source>Extract Interval</source>
         <translation>間隔を抽出</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2148"/>
+        <location filename="../mainwindow.cpp" line="2185"/>
         <source>Remove Interval</source>
         <translation>間隙を削除</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2171"/>
+        <location filename="../mainwindow.cpp" line="2208"/>
         <source>Cannot merge these animations
  (different number of bones).
 </source>
@@ -3737,7 +3748,7 @@ k の値を選択:</translation>
 </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2198"/>
+        <location filename="../mainwindow.cpp" line="2235"/>
         <source>Cannot merge these meshes
  (different number of vertices, faces, points...).
 </source>
@@ -3746,27 +3757,27 @@ k の値を選択:</translation>
 </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2311"/>
+        <location filename="../mainwindow.cpp" line="2348"/>
         <source>Skeleton %1 has no associated hit-box set. Canceled</source>
         <translation>スケルトン %1 に対応するヒット・ボックス・セットがありません。中止しました</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2317"/>
+        <location filename="../mainwindow.cpp" line="2354"/>
         <source>Remove the hit-box associated to skeleton name %1?&lt;br /&gt;&lt;br /&gt;(this means that no skeleton named &apos;%1&apos; will have a hitbox, in this Module)</source>
         <translation>スケルトン名 %1 に関連付けられたヒット・ボックスを削除しますか?&lt;br /&gt;&lt;br /&gt;(この MOD では、この %1 というスケルトンにヒット・ボックスが無くなることを意味します)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2337"/>
+        <location filename="../mainwindow.cpp" line="2374"/>
         <source>Rescale skeleton&lt;br/&gt;(and hitboxes, if present)&lt;br /&gt;by which percent?&lt;br /&gt;&lt;br /&gt;(&gt;100 for bigger)&lt;br /&gt;&lt;br /&gt;&lt;b&gt;WARNING!&lt;/b&gt;&lt;br /&gt;All skinned meshes using&lt;br /&gt;this skeleton will need&lt;br /&gt;be rescaled too!</source>
         <translation>スケルトンを再スケールします&lt;br/&gt;(存在する場合はヒット・ボックスも)&lt;br /&gt;何パーセントで再スケールしますか?&lt;br /&gt;&lt;br /&gt;(&gt;100 なら拡大)&lt;br /&gt;&lt;br /&gt;&lt;b&gt;警告!&lt;/ b&gt;&lt;br /&gt;このスケルトンを使用しているすべてのスキン付きメッシュも&lt;br /&gt;再スケールする必要があります!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2711"/>
+        <location filename="../mainwindow.cpp" line="2748"/>
         <source>Transfer Skinning</source>
         <translation>スキン状態の移行</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2712"/>
+        <location filename="../mainwindow.cpp" line="2749"/>
         <source>Transfer skinning:
 select a skinned mesh first,
 then all target meshes.
@@ -3777,7 +3788,7 @@ then all target meshes.
 </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2739"/>
+        <location filename="../mainwindow.cpp" line="2776"/>
         <source>Same skeleton:
 reskeletonization canceled.
 </source>
@@ -3786,7 +3797,7 @@ reskeletonization canceled.
 </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2749"/>
+        <location filename="../mainwindow.cpp" line="2786"/>
         <source>Different number of bones:
 reskeletonization canceled.
 </source>
@@ -3795,14 +3806,14 @@ reskeletonization canceled.
 </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2888"/>
+        <location filename="../mainwindow.cpp" line="2925"/>
         <source>Renaming %1...
 new name:</source>
         <translation>%1 を改名中...
 新しい名前:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2900"/>
+        <location filename="../mainwindow.cpp" line="2937"/>
         <source>%3 common prefix for %1 %2...
 new prefix:</source>
         <translatorcomment>「%3」は &quot;Changing the&quot; または &quot;Adding a&quot;。</translatorcomment>
@@ -3810,39 +3821,39 @@ new prefix:</source>
 新規 接頭子:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2900"/>
+        <location filename="../mainwindow.cpp" line="2937"/>
         <source>Changing the</source>
         <translation>変更</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2900"/>
+        <location filename="../mainwindow.cpp" line="2937"/>
         <source>Adding a</source>
         <translation>追加</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2987"/>
-        <location filename="../mainwindow.cpp" line="3008"/>
+        <location filename="../mainwindow.cpp" line="3024"/>
+        <location filename="../mainwindow.cpp" line="3045"/>
         <source>%1: Select one skeleton with a hitbox first</source>
         <translation>%1: 先に、ヒット・ボックス付きスケルトンを一つ選択して下さい</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2993"/>
+        <location filename="../mainwindow.cpp" line="3030"/>
         <source>%1: skeleton %2 has no kwown hitbox to copy</source>
         <translation>%1: スケルトン %2 にはコピーできる既知のヒット・ボックスがありません</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3021"/>
-        <location filename="../mainwindow.cpp" line="3032"/>
+        <location filename="../mainwindow.cpp" line="3058"/>
+        <location filename="../mainwindow.cpp" line="3069"/>
         <source>Wrong number of bones! (%1 in %2 VS %3 in %4). Cannot perform action</source>
         <translation>ボーンの数が不正です! (%2 に %1 個、%4 に %3 個)。実行できません</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3041"/>
+        <location filename="../mainwindow.cpp" line="3078"/>
         <source>Cannot paste hitboxes: I don&apos;t have a hitboxes plus skeleton in clipboard</source>
         <translation>ヒット・ボックスを貼り付けできません: クリップボードに「ヒットボックス+スケルトン」無し</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3158"/>
+        <location filename="../mainwindow.cpp" line="3195"/>
         <source>Copied prop code for %1 objects
 (%2 with matching collison mesh)
 on the clipboard.
@@ -3855,47 +3866,47 @@ Paste at will!</source>
 貼り付け は ご自由に!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3161"/>
+        <location filename="../mainwindow.cpp" line="3198"/>
         <source>No prop mesh found</source>
         <translation>小道具のメッシュが見つかりません</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3292"/>
+        <location filename="../mainwindow.cpp" line="3328"/>
         <source>Copy Skinning into another mesh</source>
         <translation>スキン状態を他のメッシュへコピー</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3380"/>
+        <location filename="../mainwindow.cpp" line="3416"/>
         <source>Vertex number mismatch... using texture-coord matching instead</source>
         <translation>頂点数が不一致...代わりに一致するテクスチャ座標を使います</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3507"/>
+        <location filename="../mainwindow.cpp" line="3543"/>
         <source>Cannot paste timings! Select *one* animated mesh or skel animation</source>
         <translation>タイミングの貼り付けができません。アニメーション付きメッシュかスケルトン・アニメーションを「1 つ」選択して下さい。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3520"/>
+        <location filename="../mainwindow.cpp" line="3556"/>
         <source>Pasted timings over %1 (animated) mesh</source>
         <translation>%1 の（アニメ付き）メッシュにタイミングを貼り付けました</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3526"/>
+        <location filename="../mainwindow.cpp" line="3562"/>
         <source>Pasted timings over %1 skeletal animations</source>
         <translation>%1 のスケルトン・アニメーションにタイミングを貼り付けました</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3529"/>
+        <location filename="../mainwindow.cpp" line="3565"/>
         <source>Cannot paste times over that</source>
         <translation>そこへはタイミングを貼り付けできません</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3542"/>
+        <location filename="../mainwindow.cpp" line="3578"/>
         <source>To use paste modification mesh: firstcopy a 2 frames mesh. Then, select one or more destination meshes, and &quot;paste modification&quot;any vertex in any frame of the destination mesh that are in the same pos of frame 0,will be moved on the position of frame 1.</source>
         <translation>修正メッシュの貼り付けを使うには、まず 2 フレームからなるメッシュをコピーします。次に、1 つ以上の宛先メッシュを選択し、フレーム 0 と同じ位置にある宛先メッシュの任意フレーム内の頂点を「修正を貼り付け」すると、フレーム 1 の位置に貼り付けられます。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3661"/>
+        <location filename="../mainwindow.cpp" line="3697"/>
         <source>This will produce a vertex ani
 with %1x%2 xyz positions+normals (%4 MB).
 
@@ -3906,83 +3917,83 @@ Proceed?</source>
 続行しますか?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3703"/>
+        <location filename="../mainwindow.cpp" line="3739"/>
         <source>Incompatible animation</source>
         <translation>アニメーションが非互換</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3732"/>
+        <location filename="../mainwindow.cpp" line="3768"/>
         <source>Incompatible skin</source>
         <translation>スキンが非互換</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3828"/>
+        <location filename="../mainwindow.cpp" line="3864"/>
         <source>Canceled.</source>
         <translation>キャンセルされました。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3896"/>
+        <location filename="../mainwindow.cpp" line="3932"/>
         <source>Added mesh %1 to set %2.</source>
         <translation>追加されたメッシュ %1 to set %2.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3917"/>
+        <location filename="../mainwindow.cpp" line="3953"/>
         <source>Animation %2 split in %1 chunks!</source>
         <translation>アニメーション %2 の分割数 %1 !</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3919"/>
+        <location filename="../mainwindow.cpp" line="3955"/>
         <source>Animation could be auto-split (frames are too conescutive)</source>
         <translation>アニメーションが自動分割され得ます (フレームが連続しすぎ)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3926"/>
+        <location filename="../mainwindow.cpp" line="3962"/>
         <source>Select an &quot;actions.txt&quot; file (hint: it&apos;s in the module dir)</source>
         <translation>actions.txt ファイルを一つ選択して下さい (MOD のフォルダ下)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3927"/>
+        <location filename="../mainwindow.cpp" line="3963"/>
         <source>%1\actions.txt</source>
         <translatorcomment>Windows のパスなので、円記号のままでよい。</translatorcomment>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3928"/>
+        <location filename="../mainwindow.cpp" line="3964"/>
         <source>Txt file(*.txt)</source>
         <translation>テキスト・ファイル (*.txt)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3931"/>
+        <location filename="../mainwindow.cpp" line="3967"/>
         <source>Split canceled.</source>
         <translation>分割を中止しました。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3939"/>
+        <location filename="../mainwindow.cpp" line="3975"/>
         <source>Nothing to split (or could not split).</source>
         <translation>分割すべきものがありません (または できません)。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3949"/>
+        <location filename="../mainwindow.cpp" line="3985"/>
         <source>Animation %2 split in %1 chunks -- new animation.txt file save in &quot;%3&quot;!</source>
         <translation>アニメーション %2 の分割数 %1 -- 新規 animation.txt を &quot;%3&quot; に保存!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4364"/>
+        <location filename="../mainwindow.cpp" line="4400"/>
         <source>Cannot save reference file!</source>
         <translation>参照ファイルを保存できません!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4398"/>
+        <location filename="../mainwindow.cpp" line="4434"/>
         <source>Editing reference file...</source>
         <translation>参照ファイルを編集中...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4423"/>
+        <location filename="../mainwindow.cpp" line="4459"/>
         <source>Cannot load %1.</source>
         <translation>%1 をロードできません。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4457"/>
+        <location filename="../mainwindow.cpp" line="4493"/>
         <source>You are saving a CommonRes file!
 (i.e. not one specific of this module).
 
@@ -3993,154 +4004,159 @@ Are you sure?</source>
 よろしいですか?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4469"/>
+        <location filename="../mainwindow.cpp" line="4505"/>
         <source>Cannot write file %1.</source>
         <translation>ファイル %1 へ書き込めません。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4472"/>
+        <location filename="../mainwindow.cpp" line="4508"/>
         <source>File saved!</source>
         <translation>ファイルは保存されました!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4648"/>
+        <location filename="../mainwindow.cpp" line="4684"/>
         <source>Open File</source>
         <translation>ファイルを開く</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4650"/>
+        <location filename="../mainwindow.cpp" line="4686"/>
         <source>Resource (*.brf)</source>
         <translation>リソース (*.brf)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4668"/>
+        <location filename="../mainwindow.cpp" line="4704"/>
         <source>Reference file saved!</source>
         <translation>参照ファイルを保存しました!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4681"/>
+        <location filename="../mainwindow.cpp" line="4717"/>
         <source>M&amp;B Resource (*.brf)</source>
         <translation>M&amp;B リソース  (*.brf)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4681"/>
+        <location filename="../mainwindow.cpp" line="4717"/>
         <source>Warband Resource v.1 (*.brf)</source>
         <translation>Warband リソース v.1 (*.brf)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4684"/>
+        <location filename="../mainwindow.cpp" line="4720"/>
         <source>Save File</source>
         <translation>ファイルを保存</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4711"/>
+        <location filename="../mainwindow.cpp" line="4747"/>
         <source> [not in module.ini]</source>
         <translation> [module.ini 内に無し]</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4715"/>
+        <location filename="../mainwindow.cpp" line="4751"/>
         <source>%1%2</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4717"/>
+        <location filename="../mainwindow.cpp" line="4753"/>
         <source>%1 - %2%3%4</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4739"/>
+        <location filename="../mainwindow.cpp" line="4775"/>
         <source>Redone %1</source>
         <translation>%1 をやり直す</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4771"/>
+        <location filename="../mainwindow.cpp" line="4807"/>
         <source>Undone %1</source>
         <translatorcomment>「元に戻した」??</translatorcomment>
         <translation>%1 を元に戻す</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4795"/>
+        <location filename="../mainwindow.cpp" line="4831"/>
         <source>Undo %1</source>
         <translation>%1 を元に戻す</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4798"/>
+        <location filename="../mainwindow.cpp" line="4834"/>
         <source>Undo</source>
         <translation>元に戻す</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4804"/>
+        <location filename="../mainwindow.cpp" line="4840"/>
         <source>Redo %1</source>
         <translation>%1 をやり直す</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4807"/>
+        <location filename="../mainwindow.cpp" line="4843"/>
         <source>Redo</source>
         <translation>やり直す</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4930"/>
+        <location filename="../mainwindow.cpp" line="4966"/>
         <source>&amp;Repeat %1</source>
         <translation>%1 を繰り返す (&amp;R)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5048"/>
+        <location filename="../mainwindow.cpp" line="5084"/>
         <source>%5 %1 BRF files from module.ini of &quot;%3&quot;-- %2 msec total [%4 text/mat/shad]</source>
         <translatorcomment>1=配列サイズ, 2=経過時間, 3=MOD名, 4=参照obj, 5=&quot;scanned&quot; または&quot;ERRORS found while scanning&quot;</translatorcomment>
         <translation>&quot;%3&quot; の module.ini から %1 個の BRF ファイルを %5 -- 所要時間 %2 msec [%4 テクスチャ/マテリアル/シェーダ]</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5050"/>
+        <location filename="../mainwindow.cpp" line="5086"/>
         <source>scanned</source>
         <translation>スキャン済</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5050"/>
+        <location filename="../mainwindow.cpp" line="5086"/>
         <source>ERRORS found while scanning</source>
         <translation>スキャンし、ERROR あり</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5490"/>
+        <location filename="../mainwindow.cpp" line="5621"/>
+        <source>This OpenBRF version is now assigned as the default program to open your .brf files on this user account. At least I hope so!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="5651"/>
         <source>&amp;%1 %2</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5529"/>
+        <location filename="../mainwindow.cpp" line="5690"/>
         <source>New Lod parameters set</source>
         <translation>新規 LOD パラメータ・セット</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5531"/>
+        <location filename="../mainwindow.cpp" line="5692"/>
         <source>Cancelled</source>
         <translation>キャンセルされました</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5661"/>
+        <location filename="../mainwindow.cpp" line="5822"/>
         <source>Collision objects flags</source>
         <translation>衝突オブジェクト・フラグ</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5719"/>
+        <location filename="../mainwindow.cpp" line="5880"/>
         <source>Mesh flags</source>
         <translation>メッシュ・フラグ群</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5771"/>
+        <location filename="../mainwindow.cpp" line="5932"/>
         <source>Texture flags</source>
         <translation>テクスチャ・フラグ群</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="169"/>
+        <location filename="../mainwindow.cpp" line="175"/>
         <source>There are %1 sets of hitboxes, for skeletons:</source>
         <translation>ヒット・ボックスが %1 セットあり、スケルトン用が:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="171"/>
+        <location filename="../mainwindow.cpp" line="177"/>
         <source>&lt;br /&gt;&lt;br /&gt;Save them inside %2?</source>
         <translation>&lt;br /&gt;&lt;br /&gt;%2 内に保存しますか?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1662"/>
+        <location filename="../mainwindow.cpp" line="1674"/>
         <source>Error loading line of file %2:
 
 %1</source>
@@ -4149,33 +4165,33 @@ Are you sure?</source>
 %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1680"/>
+        <location filename="../mainwindow.cpp" line="1692"/>
         <source>Failed loading carry positions</source>
         <translation>所持位置のロードに失敗</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2230"/>
-        <location filename="../mainwindow.cpp" line="2242"/>
+        <location filename="../mainwindow.cpp" line="2267"/>
+        <location filename="../mainwindow.cpp" line="2279"/>
         <source>Select one or more animation using same number of bones first</source>
         <translation>まず、同じ数のボーンを使う 1 つ以上のアニメーションを選択して下さい</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2387"/>
+        <location filename="../mainwindow.cpp" line="2424"/>
         <source>Uniform color for mesh</source>
         <translation>メッシュの色を均一にする</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3099"/>
+        <location filename="../mainwindow.cpp" line="3136"/>
         <source>%1 new BRF items found in clipboard...</source>
         <translation>クリップボード内に、%1 個の新しい BRF 項目が見つかりました...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3100"/>
+        <location filename="../mainwindow.cpp" line="3137"/>
         <source>Unusable data in clipboard</source>
         <translation>クリップボード内に、使えないデータがあります</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3293"/>
+        <location filename="../mainwindow.cpp" line="3329"/>
         <source>Copy Skinning into another mesh:
 - select one or more sample skinned mesh
 - copy them (ctrl+C)
@@ -4194,27 +4210,27 @@ Are you sure?</source>
 </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3308"/>
+        <location filename="../mainwindow.cpp" line="3344"/>
         <source>Transferred skinning into %1 mesh(es) from %2 exemplar mesh(es).</source>
         <translation>参照先メッシュ %2 から目的のメッシュ %1 へスキン状態をコピーしました。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3317"/>
+        <location filename="../mainwindow.cpp" line="3353"/>
         <source>Transferred skinning into %1 mesh(es) from skeleton &apos;%2&apos;.</source>
         <translation>参照先スケルトン %2 から目的のメッシュ %1 へスキン状態をコピーしました。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3791"/>
+        <location filename="../mainwindow.cpp" line="3827"/>
         <source>I need to know from which skeleton to Unmount. Select a skeleton in the panel.</source>
         <translation>アンマウントすべきスケルトンを、パネルで選択して下さい。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3814"/>
+        <location filename="../mainwindow.cpp" line="3850"/>
         <source>Not a single skeleton found in reference data! Cancelling operation.</source>
         <translation>参照先データにスケルトンが見つかりませんでした。操作を中止します。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3860"/>
+        <location filename="../mainwindow.cpp" line="3891"/>
         <source>To apply carry position &apos;%1&apos;, I need to know the weapon length.
 Use the ruler tool to tell me the length of weapon &apos;%2&apos;.
 
@@ -4225,12 +4241,12 @@ Activate ruler tool?</source>
 定規（ものさし）ツールを起動しますか?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4351"/>
+        <location filename="../mainwindow.cpp" line="4387"/>
         <source>&lt;p&gt;You are saving into the generic OpenBRF reference file &lt;br&gt;&quot;%1&quot;&lt;/p&gt;&lt;p&gt;Would you rather save in the reference file &lt;i&gt;specific&lt;/i&gt; for Module %3&lt;br&gt;&quot;%2&quot;&lt;br&gt;?&lt;/p&gt;</source>
         <translation>&lt;p&gt;全 MOD 共通の OpenBRF 参照ファイル（下記）に保存しようとしています。&lt;br&gt;&quot;%1&quot;&lt;/p&gt;&lt;p&gt;MOD &quot;%3&quot; に&lt;i&gt;固有&lt;/i&gt;の下記に保存しますか?&lt;br&gt;&quot;%2&quot;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4463"/>
+        <location filename="../mainwindow.cpp" line="4499"/>
         <source>You are trying to save meshes with tangent directions in M&amp;B 1.011 file format.
 Unfortunately, tangent directions can only be saved in Warband file format.
 Tangent directions will not be saved...</source>
@@ -4239,45 +4255,45 @@ Tangent directions will not be saved...</source>
 接線方向は保存されません...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4719"/>
+        <location filename="../mainwindow.cpp" line="4755"/>
         <source>%1 - editing internal reference data %3 %2</source>
         <translatorcomment>1=ウィンドウ・タイトル&quot;OpenBrf&quot;, 2=&quot;(*)(**)&quot;か&quot;(*)&quot;か&quot;(**), 3=&quot;(for [MOD名] mod)&quot;か空。</translatorcomment>
         <translation>%1 - %3 内部参照データを編集中 %2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="4720"/>
+        <location filename="../mainwindow.cpp" line="4756"/>
         <source>(for [%1] mod)</source>
         <translation>(mod [%1] の)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5905"/>
+        <location filename="../mainwindow.cpp" line="6066"/>
         <source>Shader Requirements</source>
         <translation>シェーダの要件</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5961"/>
+        <location filename="../mainwindow.cpp" line="6122"/>
         <source>Shader flags</source>
         <translation>シェーダ・フラグ群</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="124"/>
+        <location filename="../mainwindow.cpp" line="130"/>
         <source>Skeleton hitboxes have been modified.&lt;br/&gt;Save changes in /Data/skeleton_bodies.xml?</source>
         <translation>スケルトンのヒット・ボックスが変更されています。&lt;br/&gt;変更分を /Data/skeleton_bodies.xml に保存しますか?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="155"/>
+        <location filename="../mainwindow.cpp" line="161"/>
         <source>Error: could not make missing folder &apos;Data&apos; in module folder:
  %1</source>
         <translation>エラー: MOD のフォルダ下に Data フォルダが無く、作成できません:
  %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="172"/>
+        <location filename="../mainwindow.cpp" line="178"/>
         <source>&lt;br /&gt;&lt;br /&gt;A backup will be saved in %2</source>
         <translation>&lt;br /&gt;&lt;br /&gt;バックアップを %2 に保存します</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="186"/>
+        <location filename="../mainwindow.cpp" line="192"/>
         <source>Error saving hitbox data:
 
 %1
@@ -4290,7 +4306,7 @@ Tangent directions will not be saved...</source>
 </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="194"/>
+        <location filename="../mainwindow.cpp" line="200"/>
         <source>Saved hitboxes (with the other metadata) for %1 skeletons inside
 file %2
 
@@ -4301,7 +4317,7 @@ file %2
 </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1753"/>
+        <location filename="../mainwindow.cpp" line="1765"/>
         <source>No mesh found to learn how to femininize an armour.
 
 You must select meshes with feminine frame, and I&apos;ll try to learn the way to build a femenine frame from a given armour</source>
@@ -4310,7 +4326,7 @@ You must select meshes with feminine frame, and I&apos;ll try to learn the way t
 女性フレームを持つメッシュを選択する必要があります。(そこから、指定された鎧から女性フレームを構築する方法が OpneBRF に伝わります)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1761"/>
+        <location filename="../mainwindow.cpp" line="1773"/>
         <source>Select a emphasis factor between -100% and +100%
 
 zero =&gt; normal.
@@ -4327,26 +4343,26 @@ negative =&gt; milder effect
 (デフォルト値: +15 %)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1766"/>
+        <location filename="../mainwindow.cpp" line="1778"/>
         <source>Select amount of extra breastification in mm
 (default: 13mm)</source>
         <translation>胸の厚さの増分 (mm) を指定して下さい。
 (デフォルト値: 13 mm)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1776"/>
+        <location filename="../mainwindow.cpp" line="1788"/>
         <source>Learnt a custom way to femininize an armour
 from %1 examples!</source>
         <translation>鎧を女性化する方法の例を、
 %1 から読み込みました!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1779"/>
+        <location filename="../mainwindow.cpp" line="1791"/>
         <source>Canceled</source>
         <translation>キャンセルされました</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1801"/>
+        <location filename="../mainwindow.cpp" line="1813"/>
         <source>Warning: mesh %1 has already a feminine frame %2.
 
 Overwrite it?</source>
@@ -4355,7 +4371,7 @@ Overwrite it?</source>
 上書きしても よいですか?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="5832"/>
+        <location filename="../mainwindow.cpp" line="5993"/>
         <source>Material flags</source>
         <translation>マテリアル・フラグ群</translation>
     </message>
@@ -4428,89 +4444,89 @@ at line %3:
 </translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="765"/>
+        <location filename="../iniData.cpp" line="898"/>
         <source>%6 &lt;a href=&quot;#%1.%2.%3&quot;&gt;%4&lt;/a&gt; (in %5)</source>
         <translatorcomment>link() が作って返す。1=i, 2=j, 3=種類コード, 4=（リンク先 見出しの）何か, 5=ショート・ファイル名, 6=種類のトークン・フルネーム</translatorcomment>
         <translation>%6 &lt;a href=&quot;#%1.%2.%3&quot;&gt;%4&lt;/a&gt; (%5 内)</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="780"/>
+        <location filename="../iniData.cpp" line="913"/>
         <source>&lt;b&gt;File-not-found:&lt;/b&gt; can&apos;t find image file for %1.</source>
         <translation>&lt;b&gt;ファイル無し:&lt;/b&gt; %1 用の画像ファイルが見つかりません。</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="785"/>
+        <location filename="../iniData.cpp" line="918"/>
         <source>&lt;b&gt;File-not-found:&lt;/b&gt; can&apos;t find frame &quot;%2&quot; for %1.</source>
         <translation>&lt;b&gt;ファイル無し:&lt;/b&gt; %1 用のフレーム &quot;%2&quot; が見つかりません。</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="806"/>
+        <location filename="../iniData.cpp" line="939"/>
         <source>&lt;b&gt;Duplicate:&lt;/b&gt; %1 was already defined in file %2</source>
         <translation>&lt;b&gt;重複:&lt;/b&gt; %1 は既にファイル %2 で定義済み</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="833"/>
+        <location filename="../iniData.cpp" line="966"/>
         <source>&lt;b&gt;Missing:&lt;/b&gt; %1 uses unknown %2 &lt;u&gt;%3&lt;/u&gt;</source>
         <translatorcomment>1=link()で作ったリンク含む文字列, 2=種類のフルネーム, 3=何かの名前</translatorcomment>
         <translation>&lt;b&gt;見つからず:&lt;/b&gt; %1 が未知の %2 &lt;u&gt;%3&lt;/u&gt; を使用</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="839"/>
+        <location filename="../iniData.cpp" line="972"/>
         <source>&lt;b&gt;Ordering problem:&lt;/b&gt; %1 uses %2, which appears later in &lt;i&gt;module.ini&lt;/i&gt;</source>
         <translation>&lt;b&gt;順序が不正:&lt;/b&gt; %1 が使う %2 が、&lt;i&gt;module.ini&lt;/i&gt; 内で後ろにある</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="871"/>
+        <location filename="../iniData.cpp" line="1004"/>
         <source>&lt;h1&gt;Module &lt;b&gt;%1&lt;/b&gt;&lt;/h1&gt;</source>
         <translation>&lt;h1&gt;モジュール &lt;b&gt;%1&lt;/b&gt;&lt;/h1&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="877"/>
+        <location filename="../iniData.cpp" line="1010"/>
         <source>&lt;h2&gt;Original BRF files: %1&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;オリジナル BRF ファイル: %1&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="879"/>
+        <location filename="../iniData.cpp" line="1012"/>
         <source>&lt;h2&gt;CommonRes BRF files: %1&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;CommonRes BRF ファイル: %1&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="887"/>
+        <location filename="../iniData.cpp" line="1020"/>
         <source>&lt;i&gt;(used+unused)&lt;/i&gt;</source>
         <translation>&lt;i&gt;(使用+不用)&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="888"/>
+        <location filename="../iniData.cpp" line="1021"/>
         <source>&lt;br&gt;</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="894"/>
+        <location filename="../iniData.cpp" line="1027"/>
         <source>&lt;h2&gt;Txt data:&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;txt データ:&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1057"/>
+        <location filename="../iniData.cpp" line="1190"/>
         <source>&lt;i&gt;more errors to follow...&lt;/i&gt;</source>
         <translation>&lt;i&gt;後続のエラーあり...&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1079"/>
+        <location filename="../iniData.cpp" line="1212"/>
         <source>&lt;i&gt;[0 results]&lt;/i&gt;</source>
         <translation>&lt;i&gt;[結果 0 件]&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1412"/>
+        <location filename="../iniData.cpp" line="1546"/>
         <source>&lt;b&gt;Missing in txt:&lt;/b&gt; cannot find %1 &lt;u&gt;%2&lt;/u&gt;, referred in &apos;%3&apos;</source>
         <translation>&lt;b&gt;txt に無い:&lt;/b&gt; &apos;%3&apos; で参照する %1 &lt;u&gt;%2&lt;/u&gt; が見つかりません</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1512"/>
+        <location filename="../iniData.cpp" line="1646"/>
         <source>&lt;b&gt;File-Not-Found:&lt;/b&gt; could not read BRF file &lt;u&gt;%1&lt;/u&gt;, listed in module.ini file</source>
         <translation>&lt;b&gt;ファイル無し:&lt;/b&gt; module.ini に書かれた brf、&lt;u&gt;%1&lt;/u&gt; が見つかりません</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1515"/>
+        <location filename="../iniData.cpp" line="1649"/>
         <source>&lt;b&gt;File-Format Error:&lt;/b&gt; could not read BRF file &lt;u&gt;%1&lt;/u&gt;</source>
         <translation>&lt;b&gt;ファイル形式エラー:&lt;/b&gt; BRF ファイル &lt;u&gt;%1&lt;/u&gt; を読めませんでした</translation>
     </message>
@@ -4553,812 +4569,822 @@ at line %3:
         <translation>衝突(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="63"/>
+        <location filename="../selector.cpp" line="61"/>
         <source>Split sequence following the actions.txt file. A new &quot;action [after split].txt&quot; file is also produced, which use the new animation.</source>
         <translation>actions.txt ファイルに従ってシーケンスを分割。新しいアニメーションを使う新しい「分割後のアクション.txt」ファイルも生成されます。</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="65"/>
+        <location filename="../selector.cpp" line="63"/>
         <source>Auto-split</source>
         <translation>自動分割</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="66"/>
+        <location filename="../selector.cpp" line="64"/>
         <source>Auto-split sequence into its separated chunks, separating it at lasge gaps in frames.</source>
         <translation>シーケンスを、フレーム間の大きなギャップ毎に複数の塊に自動分割します。</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="69"/>
+        <location filename="../selector.cpp" line="67"/>
         <source>Extract interval...</source>
         <translation>間隙を抽出...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="70"/>
+        <location filename="../selector.cpp" line="68"/>
         <source>Extract an animation from an interval of times.</source>
         <translation>一つの時間間隔からアニメーションを一つ抽出します。</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="73"/>
+        <location filename="../selector.cpp" line="71"/>
         <source>Mirror this animation over the X axis.</source>
         <translation>このアニメーションから、X 軸を境にした鏡像を作ります。</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="75"/>
+        <location filename="../selector.cpp" line="73"/>
         <source>Remove interval...</source>
         <translation>間隙を削除...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="76"/>
+        <location filename="../selector.cpp" line="74"/>
         <source>Remove an interval of times from the animation.</source>
         <translation>このアニメーションから、時間の間隙を一つ、削除します。</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="78"/>
+        <location filename="../selector.cpp" line="76"/>
         <source>Merge animations</source>
         <translation>アニメーションをマージ</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="79"/>
+        <location filename="../selector.cpp" line="77"/>
         <source>Merge two animations into one -- intervals must be right!</source>
         <translation>二つのアニメーションを一つにマージ。いずれの間隙も正しいことが必要!</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="81"/>
-        <location filename="../selector.cpp" line="344"/>
+        <location filename="../selector.cpp" line="79"/>
+        <location filename="../selector.cpp" line="345"/>
         <source>Reverse animation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="82"/>
-        <location filename="../selector.cpp" line="345"/>
+        <location filename="../selector.cpp" line="80"/>
+        <location filename="../selector.cpp" line="346"/>
         <source>Make the animation timeline go backwards.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="89"/>
+        <location filename="../selector.cpp" line="87"/>
         <source>Remove</source>
         <translation>削除</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="94"/>
+        <location filename="../selector.cpp" line="92"/>
         <source>Duplicate</source>
         <translation>複製</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="96"/>
+        <location filename="../selector.cpp" line="94"/>
         <source>next tab</source>
         <translation>次のタブ</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="101"/>
+        <location filename="../selector.cpp" line="99"/>
         <source>left tab</source>
         <translation>左タブ</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="108"/>
+        <location filename="../selector.cpp" line="106"/>
         <source>Move this object upward in the list</source>
         <translation>このオブジェクトを、一覧の中で上行へ移動</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="114"/>
+        <location filename="../selector.cpp" line="112"/>
         <source>Move this object one step down in the list</source>
         <translation>このオブジェクトを、一覧の中で下行へ移動</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="131"/>
+        <location filename="../selector.cpp" line="129"/>
         <source>Add to reference animations</source>
         <translation>参照先アニメーションに追加</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="132"/>
+        <location filename="../selector.cpp" line="130"/>
         <source>Add this animation to reference animations (to use it later to display skinned meshes).</source>
         <translation>このアニメーションを、参照アニメーションへ追加します (後でスキン付きメッシュを表示するのに使えます)。</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="134"/>
+        <location filename="../selector.cpp" line="132"/>
         <source>Add to reference skeletons</source>
         <translation>参照先スケルトンへ追加</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="135"/>
+        <location filename="../selector.cpp" line="133"/>
         <source>Add this animation to reference skeletons (to use it later for animations).</source>
         <translation>このアニメーションを、参照先スケルトンへ追加します(後でアニメーションに使用)。</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="138"/>
+        <location filename="../selector.cpp" line="136"/>
         <source>set %1</source>
         <translatorcomment>1=「A」～「J」。恐らく「to Skin Set %1」と同類?</translatorcomment>
         <translation>セット %1</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="139"/>
+        <location filename="../selector.cpp" line="137"/>
         <source>Add this mesh to reference skins (to use it later to display animations).</source>
         <translation>このメッシュを、参照先スキンへ追加(後でアニメーション表示に使用)。</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="164"/>
+        <location filename="../selector.cpp" line="162"/>
         <source>&lt;none&gt;</source>
         <translatorcomment>タグではなさそう?</translatorcomment>
         <translation></translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="169"/>
+        <location filename="../selector.cpp" line="167"/>
         <source>mod file &lt;%1&gt;</source>
         <translation>MOD ファイル &lt;%1&gt;</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="171"/>
+        <location filename="../selector.cpp" line="169"/>
         <source>mod file &lt;%1&gt; (indirectly)</source>
         <translation>MOD ファイル &lt;%1&gt; (間接的)</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="175"/>
+        <location filename="../selector.cpp" line="173"/>
         <source>&lt;no .txt file&gt;</source>
         <translation>&lt;.txt なし&gt;</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="177"/>
+        <location filename="../selector.cpp" line="175"/>
         <source>&lt;core engine&gt;</source>
         <translation>&lt;コア・エンジン&gt;</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="179"/>
+        <location filename="../selector.cpp" line="177"/>
         <source>&lt;core engine&gt; (indirectly)</source>
         <translation>&lt;コア・エンジン&gt; (間接的)</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="182"/>
+        <location filename="../selector.cpp" line="180"/>
         <source>&lt;not in module.ini&gt;</source>
         <translation>&lt;module.ini 内になし&gt;</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="184"/>
+        <location filename="../selector.cpp" line="182"/>
         <source>&lt;save file to find out&gt;</source>
         <translation>&lt;ファイルを保存して確認を&gt;</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="187"/>
+        <location filename="../selector.cpp" line="185"/>
         <source>(not computed: compute now)</source>
         <translation>(未計算: 今すぐ計算する)</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="193"/>
+        <location filename="../selector.cpp" line="191"/>
         <source>Info on mesh import/export</source>
         <translation>メッシュのインポート/エクスポートの情報</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="196"/>
+        <location filename="../selector.cpp" line="194"/>
         <source>Export this model (or this frame) as a 3D static mesh.</source>
         <translation>このモデル(またはフレーム)を、3D 静的メッシュとしてエクスポート。</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="199"/>
+        <location filename="../selector.cpp" line="197"/>
         <source>Export this model as a mesh with vertex animation.</source>
         <translation>このモデルを、頂点アニメ付きメッシュとしてエクスポート。</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="202"/>
+        <location filename="../selector.cpp" line="200"/>
         <source>Export this group of models in a single OBJ.</source>
         <translation>このモデル・グループを、単一の .obj へエクスポート。</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="203"/>
+        <location filename="../selector.cpp" line="201"/>
         <source>Export all meshes</source>
         <translation>全メッシュをエクスポート</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="204"/>
+        <location filename="../selector.cpp" line="202"/>
         <source>Export each of these models as separate OBJs.</source>
         <translation>これら各モデルを、別々の .obj へエクスポート。</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="207"/>
+        <location filename="../selector.cpp" line="205"/>
         <source>Export each of these collison bodies as separate files.</source>
         <translation>これら各 衝突体を、別々のファイルへエクスポート。</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="210"/>
+        <location filename="../selector.cpp" line="208"/>
         <source>Export this model (or this frame) as a skinned mesh.</source>
         <translation>このモデル (またはフレーム) を、スキン付きメッシュとしてエクスポート。</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="213"/>
+        <location filename="../selector.cpp" line="211"/>
         <source>Export this skeleton (as a set of nude bones).</source>
         <translation>このスケルトンを、(ボーンだけからなり集合として)エクスポート。</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="215"/>
+        <location filename="../selector.cpp" line="213"/>
         <source>Export this skeleton (as a skinned skin).</source>
         <translatorcomment>原文 as a skinned skin は不可解。</translatorcomment>
         <translation>このスケルトンを、(スキン付きとして) エクスポート。</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="216"/>
+        <location filename="../selector.cpp" line="214"/>
         <source>Export a skin for this ani</source>
         <translation>このアニメーション用のスキンをエクスポート</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="217"/>
+        <location filename="../selector.cpp" line="215"/>
         <source>Export a skinned skin which can be used for this animation.</source>
         <translatorcomment>原文 as a skinned skin は不可解。</translatorcomment>
         <translation>このアニメーションで使われるスキン状態をエクスポート。</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="219"/>
-        <location filename="../selector.cpp" line="222"/>
+        <location filename="../selector.cpp" line="217"/>
+        <location filename="../selector.cpp" line="220"/>
         <source>Convert into vertex animation</source>
         <translation>頂点アニメーションに変換</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="220"/>
+        <location filename="../selector.cpp" line="218"/>
         <source>Convert skeletal animation into a vertex animation using current skin and skeleton</source>
         <translation>スケルトン・アニメーションを、現在のスキンとスケルトンを使った頂点アニメーションに変換</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="223"/>
+        <location filename="../selector.cpp" line="221"/>
         <source>Convert skinned mesh into a vertex animation using current animation and skeleton</source>
         <translation>スキン付きメッシュを、現在のアニメーションとスキンを使う頂点アニメに変換</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="226"/>
+        <location filename="../selector.cpp" line="224"/>
         <source>Export this animation.</source>
         <translation>このアニメーションをエクスポート。</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="237"/>
+        <location filename="../selector.cpp" line="235"/>
         <source>Adapt this skinned mesh to a new skeleton</source>
         <translation>このスキン付きメッシュを、新規スケルトンに適用</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="242"/>
+        <location filename="../selector.cpp" line="240"/>
         <source>Transfer skinning</source>
         <translation>スキン状態を移行</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="243"/>
+        <location filename="../selector.cpp" line="241"/>
         <source>Copy skinning from one mesh to another</source>
         <translation>メッシュ間でスキン状態をコピー</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="254"/>
+        <location filename="../selector.cpp" line="252"/>
         <source>Roto-translate-rescale...</source>
         <translation>回転-移動-拡縮...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="259"/>
-        <location filename="../selector.cpp" line="363"/>
+        <location filename="../selector.cpp" line="257"/>
+        <location filename="../selector.cpp" line="364"/>
         <source>Rescale...</source>
         <translation>拡縮...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="262"/>
+        <location filename="../selector.cpp" line="260"/>
         <source>(no object selected)</source>
         <translation>(オブジェクトが未選択)</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="266"/>
+        <location filename="../selector.cpp" line="264"/>
         <source>Shift time interval...</source>
         <translation>時間間隔をシフト...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="274"/>
+        <location filename="../selector.cpp" line="272"/>
+        <source>Split into individual sub-pieces</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../selector.cpp" line="273"/>
+        <source>Create a separate object for each sub-piece or part in this collision body.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../selector.cpp" line="275"/>
         <source>Recompute normals...</source>
         <translation>法線を再計算...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="277"/>
+        <location filename="../selector.cpp" line="278"/>
         <source>Clean redundant vert/pos</source>
         <translation>冗長な頂点/位置を削除</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="278"/>
+        <location filename="../selector.cpp" line="279"/>
         <source>Removes any unused vertices or positions and merge identical ones</source>
         <translation>不用の頂点や位置を削除し、同一なものは統合</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="295"/>
+        <location filename="../selector.cpp" line="296"/>
         <source>Mount on one bone...</source>
         <translation>ボーンの一つに付ける...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="300"/>
-        <location filename="../selector.cpp" line="303"/>
+        <location filename="../selector.cpp" line="301"/>
+        <location filename="../selector.cpp" line="304"/>
         <source>Back-faces: </source>
         <translation>裏面: </translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="306"/>
+        <location filename="../selector.cpp" line="307"/>
         <source>Set per vertex color as ambient occlusion (global lighting) %1</source>
         <translatorcomment>1=(keep Shift pressed to multiply)</translatorcomment>
         <translation>頂点毎の色を、アンビエント オクルージョン (グローバル ライティング) として設定 %1</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="308"/>
+        <location filename="../selector.cpp" line="309"/>
         <source>Copy colors from texture</source>
         <translation>テクスチャから色をコピー</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="309"/>
+        <location filename="../selector.cpp" line="310"/>
         <source>Set per vertex color as texture colors %1</source>
         <translatorcomment>1=(keep Shift pressed to multiply)</translatorcomment>
         <translation>頂点毎の色を、テクスチャの色として設定 %1</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="317"/>
+        <location filename="../selector.cpp" line="318"/>
         <source>Get dimensions...</source>
         <translation>寸法を取得...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="335"/>
+        <location filename="../selector.cpp" line="336"/>
         <source>skinning (freeze current pose)</source>
         <translation>スキン付け（スキニング） (現在の姿勢を維持)</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="336"/>
+        <location filename="../selector.cpp" line="337"/>
         <source>Discard skinning, but freeze mesh in its current pose</source>
         <translation>スキン状態を解除。メッシュの姿勢は現状維持</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="338"/>
+        <location filename="../selector.cpp" line="339"/>
         <source>skinning (un-mount from bone)</source>
         <translation>スキン付けを解除 (ボーンから外す)</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="339"/>
+        <location filename="../selector.cpp" line="340"/>
         <source>Discard skinning, and move object back at origin.</source>
         <translation>スキン状態をやめ、オブジェクトを原点に戻す。</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="341"/>
+        <location filename="../selector.cpp" line="342"/>
         <source>Merge as frames in a vertex ani</source>
         <translation>頂点アニメーション内のフレームとしてマージ</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="342"/>
+        <location filename="../selector.cpp" line="343"/>
         <source>Merge these meshes, in their current order, as frames in a mesh ani</source>
         <translation>これらのメッシュを、別のメッシュ内のフレーム群として、現在の順でマージ</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="320"/>
+        <location filename="../selector.cpp" line="321"/>
         <source>Separate all frames</source>
         <translation>全フレームを分離</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="321"/>
+        <location filename="../selector.cpp" line="322"/>
         <source>Split all frames, making 1 mesh per frame</source>
         <translation>全フレームを分割して、1 フレームあたり 1 メッシュにする</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="323"/>
+        <location filename="../selector.cpp" line="324"/>
         <source>Color uniform...</source>
         <translation>色統合...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="324"/>
+        <location filename="../selector.cpp" line="325"/>
         <source>Set per vertex color as a uniform color %1</source>
         <translation>頂点毎の色を均一な色 %1 にする</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="329"/>
+        <location filename="../selector.cpp" line="330"/>
         <source>Tune colors HSB...</source>
         <translation>色の HSB を調整...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="332"/>
+        <location filename="../selector.cpp" line="333"/>
         <source>Discard hit-boxes</source>
         <translation>ヒット・ボックスを破棄</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="333"/>
+        <location filename="../selector.cpp" line="334"/>
         <source>Discard hit-box set associated to skeletons with this name</source>
         <translation>この名前のスケルトンに関連付けられたヒット・ボックス セットを破棄</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="350"/>
+        <location filename="../selector.cpp" line="351"/>
         <source>Discard skinning (per-verex bone attachments)</source>
         <translation>スキン状態 (頂点毎のボーンの割り当て) を破棄</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="356"/>
+        <location filename="../selector.cpp" line="357"/>
         <source>Discard vertex animation (keep only current frame)</source>
         <translation>頂点アニメーションを破棄 (現在のフレームのみ残す)</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="360"/>
+        <location filename="../selector.cpp" line="361"/>
         <source>Make a skeleton-modification mesh...</source>
         <translation>スケルトン変形メッシュを作成...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="361"/>
+        <location filename="../selector.cpp" line="362"/>
         <source>Modify from a skeleton-modification mesh...</source>
         <translation>スケルトン変形メッシュ (a skeleton-modification mesh) から変更...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="691"/>
+        <location filename="../selector.cpp" line="692"/>
         <source>Group rename...</source>
         <translation>グループ改名...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="704"/>
+        <location filename="../selector.cpp" line="705"/>
         <source>Used by:</source>
         <translation>使用元:</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="72"/>
-        <location filename="../selector.cpp" line="251"/>
+        <location filename="../selector.cpp" line="70"/>
+        <location filename="../selector.cpp" line="249"/>
         <source>Mirror</source>
         <translation>ミラー</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="62"/>
+        <location filename="../selector.cpp" line="60"/>
         <source>Split via actions.txt...</source>
         <translation>actions.txt 経由で分割...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="84"/>
-        <location filename="../selector.cpp" line="691"/>
+        <location filename="../selector.cpp" line="82"/>
+        <location filename="../selector.cpp" line="692"/>
         <source>Rename...</source>
         <translation>改名...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="106"/>
+        <location filename="../selector.cpp" line="104"/>
         <source>Move up in the list</source>
         <translation>一覧内の一つ上へ</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="112"/>
+        <location filename="../selector.cpp" line="110"/>
         <source>Move down in the list</source>
         <translation>一覧内の一つ下へ</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="191"/>
+        <location filename="../selector.cpp" line="189"/>
         <source>Export...</source>
         <translation>エクスポート...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="195"/>
+        <location filename="../selector.cpp" line="193"/>
         <source>Export static mesh...</source>
         <translation>静的メッシュをエクスポート...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="198"/>
+        <location filename="../selector.cpp" line="196"/>
         <source>Export vertex ani...</source>
         <translation>頂点アニメをエクスポート...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="201"/>
+        <location filename="../selector.cpp" line="199"/>
         <source>Export combined mesh...</source>
         <translation>結合メッシュをエクスポート...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="206"/>
+        <location filename="../selector.cpp" line="204"/>
         <source>Export all...</source>
         <translation>全てをエクスポート...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="209"/>
+        <location filename="../selector.cpp" line="207"/>
         <source>Export skinned mesh...</source>
         <translation>スキン付きメッシュをエクスポート...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="212"/>
+        <location filename="../selector.cpp" line="210"/>
         <source>Export (nude) skeleton...</source>
         <translation>スケルトン (単体) をエクスポート...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="214"/>
+        <location filename="../selector.cpp" line="212"/>
         <source>Export skeleton with skin...</source>
         <translation>スキン付きスケルトンをエクスポート...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="225"/>
+        <location filename="../selector.cpp" line="223"/>
         <source>Export animation...</source>
         <translation>アニメーションをエクスポート...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="228"/>
+        <location filename="../selector.cpp" line="226"/>
         <source>Reimport mesh...</source>
         <translation>メッシュを再インポート...</translation>
     </message>
     <message>
+        <location filename="../selector.cpp" line="227"/>
         <location filename="../selector.cpp" line="229"/>
-        <location filename="../selector.cpp" line="231"/>
         <source>Reimport this mesh from file.</source>
         <translation>このメッシュをファイルからインポートし直す。</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="230"/>
+        <location filename="../selector.cpp" line="228"/>
         <source>Reimport animation...</source>
         <translation>アニメーションを再インポート...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="232"/>
+        <location filename="../selector.cpp" line="230"/>
         <source>Reimport collision body...</source>
         <translation>衝突判定体を再インポート...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="233"/>
+        <location filename="../selector.cpp" line="231"/>
         <source>Reimport this collision mesh from file.</source>
         <translation>この衝突判定用メッシュをファイルからインポートし直す。</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="236"/>
-        <location filename="../selector.cpp" line="239"/>
+        <location filename="../selector.cpp" line="234"/>
+        <location filename="../selector.cpp" line="237"/>
         <source>Reskeletonize...</source>
         <translation>再スケルトン化...</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="240"/>
+        <location filename="../selector.cpp" line="238"/>
         <source>Adapt this animation to a new skeleton</source>
         <translation>このアニメーションを新規スケルトンに適用</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="245"/>
+        <location filename="../selector.cpp" line="243"/>
         <source>Make skinning stiffer</source>
         <translation>スキンを きつく (硬く) する</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="246"/>
+        <location filename="../selector.cpp" line="244"/>
         <source>Make the skinning of selected mesh(es) somewhat rigidier</source>
         <translation>選択中のメッシュのスキン状態を いくらか強める。</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="248"/>
+        <location filename="../selector.cpp" line="246"/>
         <source>Make skinning softer</source>
         <translation>スキンを ゆるく (柔らかく) する</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="249"/>
+        <location filename="../selector.cpp" line="247"/>
         <source>Make the skinning of selected mesh(es) somewhat softer.</source>
         <translation>選択中のメッシュのスキン状態を いくらか弱める。</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="252"/>
+        <location filename="../selector.cpp" line="250"/>
         <source>Mirror this object on the X axis.</source>
         <translation>X 軸に対称の鏡像を作る。</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="255"/>
+        <location filename="../selector.cpp" line="253"/>
         <source>Apply a geometric transform.</source>
         <translation>幾何学的変換を適用する。</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="260"/>
+        <location filename="../selector.cpp" line="258"/>
         <source>Rescale this object.</source>
         <translation>このオブジェクトを拡大縮小する。</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="267"/>
+        <location filename="../selector.cpp" line="265"/>
         <source>Shift a time interval for this animation</source>
         <translation>このアニメーション用の時間間隔をシフトする</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="269"/>
+        <location filename="../selector.cpp" line="267"/>
         <source>Make quad-dominant</source>
         <translation>クワッド・ドミナント再メッシュ化</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="270"/>
+        <location filename="../selector.cpp" line="268"/>
         <source>Try to merge most triangles into fewer quads (more efficient!)</source>
         <translation>ほとんどの三角形から より少ない四角形へのマージを試みる (より効率的!)</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="271"/>
+        <location filename="../selector.cpp" line="269"/>
         <source>Combine collision objects</source>
         <translation>衝突判定オブジェクトを結合</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="272"/>
+        <location filename="../selector.cpp" line="270"/>
         <source>Make a combined collision obj. unifying these objs.</source>
         <translation>これらのオブジェクトを統合し、結合された衝突オブジェクトにする。</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="275"/>
+        <location filename="../selector.cpp" line="276"/>
         <source>Recompute normals for this model, and unify pos and vertices</source>
         <translation>このモデルの法線を再計算し、位置 (pos) と頂点 (vertices) を統合</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="280"/>
+        <location filename="../selector.cpp" line="281"/>
         <source>Transform texture coords</source>
         <translation>テクスチャ座標を変更</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="281"/>
+        <location filename="../selector.cpp" line="282"/>
         <source>Translates/Scales/Flips UV coords</source>
         <translation>UV 座標を、移動/拡縮/反転</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="283"/>
+        <location filename="../selector.cpp" line="284"/>
         <source>Quick fix skinning of rigid-parts</source>
         <translation>リグ付き部品のスキン状態を簡易修正</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="284"/>
+        <location filename="../selector.cpp" line="285"/>
         <source>Attempts to fix skinning of small-parts, making them rigid</source>
         <translation>小さな部品のスキン状態を修正し、リグの整合性を高めるよう試みる</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="286"/>
+        <location filename="../selector.cpp" line="287"/>
         <source>Split into connected sub-meshes</source>
         <translation>結合されたサブメッシュに分割</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="287"/>
+        <location filename="../selector.cpp" line="288"/>
         <source>Create a separate mesh for each connected component of this mesh.</source>
         <translation>このメッシュについて、結合されたコンポーネント毎に個別のメッシュを作成する。</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="289"/>
+        <location filename="../selector.cpp" line="290"/>
         <source>Combine meshes</source>
         <translation>メッシュ同士を結合</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="290"/>
+        <location filename="../selector.cpp" line="291"/>
         <source>Make a combined mesh unifying these meshes.</source>
         <translation>これらのメッシュを統合し、結合メッシュにする。</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="292"/>
+        <location filename="../selector.cpp" line="293"/>
         <source>Make a collision object</source>
         <translation>衝突判定オブジェクトを作成</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="293"/>
+        <location filename="../selector.cpp" line="294"/>
         <source>Turn this mesh(es) into a combined Collision object.</source>
         <translation>このメッシュ (群) を、結合された衝突判定オブジェクトに変換する。</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="296"/>
+        <location filename="../selector.cpp" line="297"/>
         <source>Put this mesh on top of a single skeleton bone.</source>
         <translation>このメッシュを、単一スケルトンの先頭ボーンに据える。</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="298"/>
+        <location filename="../selector.cpp" line="299"/>
         <source>remove all</source>
         <translation>全て削除</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="299"/>
+        <location filename="../selector.cpp" line="300"/>
         <source>Remove all faces that are backfacing (e.g. in beard meshes).</source>
         <translation>反転した面を全て削除する (例: ひげメッシュ内)。</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="301"/>
+        <location filename="../selector.cpp" line="302"/>
         <source>add (x2 faces)</source>
         <translation>追加 (面を倍に)</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="302"/>
+        <location filename="../selector.cpp" line="303"/>
         <source>Duplicate all faces: for each current face, add a backfacing face.</source>
         <translation>全ての面を複製。現在の各面に、反転した面を追加。</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="305"/>
+        <location filename="../selector.cpp" line="306"/>
         <source>Color with Ambient Occlusion</source>
         <translation>アンビエント・オクルージョンで着色</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="311"/>
+        <location filename="../selector.cpp" line="312"/>
         <source>Add femininized frame</source>
         <translation>女性化用フレームを追加</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="312"/>
+        <location filename="../selector.cpp" line="313"/>
         <source>Build a feminine frame for this armour(s)</source>
         <translation>この防具 (群) に女性のフレームを一つ生成</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="314"/>
+        <location filename="../selector.cpp" line="315"/>
         <source>Compute LODs</source>
         <translation>LOD を計算</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="315"/>
+        <location filename="../selector.cpp" line="316"/>
         <source>Tries to compute a LOD pyramid</source>
         <translation>LOD ピラミッド (カメラからの距離ごとのローポリ) の計算を試みる</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="318"/>
+        <location filename="../selector.cpp" line="319"/>
         <source>Tell me the dimension of selected object(s)</source>
         <translation>選択オブジェクト (群) の寸法を読み取る</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="326"/>
+        <location filename="../selector.cpp" line="327"/>
         <source>Recompute tangent dirs</source>
         <translation>接線方向を再計算</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="327"/>
+        <location filename="../selector.cpp" line="328"/>
         <source>(Tangent dirs are needed for bump-mapping)</source>
         <translation>(接線方向は、バンプ・マッピングに必要)</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="330"/>
+        <location filename="../selector.cpp" line="331"/>
         <source>Then Hue Saturation and Brightness of per-vertex colors</source>
         <translation>次に、各頂点色の色相/彩度/明度</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="347"/>
+        <location filename="../selector.cpp" line="348"/>
         <source>per-vertex color</source>
         <translation>頂点毎の色</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="348"/>
+        <location filename="../selector.cpp" line="349"/>
         <source>Reset per-vertex coloring (i.e. turn all full-white)</source>
         <translation>頂点毎の色をリセット (全て白に)</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="349"/>
+        <location filename="../selector.cpp" line="350"/>
         <source>skinning</source>
         <translation>スキニング</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="351"/>
+        <location filename="../selector.cpp" line="352"/>
         <source>tangent directions</source>
         <translation>接線方向</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="352"/>
+        <location filename="../selector.cpp" line="353"/>
         <source>Remove tangent directions (saves space, they are needed mainly for bumbmapping)</source>
         <translation>接線方向を削除 (スペースを節約。主にバンプ・マッピング用)</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="353"/>
+        <location filename="../selector.cpp" line="354"/>
         <source>normals</source>
         <translation>法線</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="354"/>
+        <location filename="../selector.cpp" line="355"/>
         <source>Disregard normals, so to merge more vertices (and use less of them)</source>
         <translation>法線を破棄し、より多くの頂点のマージ (頂点数 減) を可能にする</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="355"/>
+        <location filename="../selector.cpp" line="356"/>
         <source>vertex animation</source>
         <translation>頂点アニメーション</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="474"/>
+        <location filename="../selector.cpp" line="476"/>
         <source>[Right-Click]: tools for %1. [Shift]/[Ctrl]+[Click]: Multi-sel.</source>
         <translation>[Right-Click]: %1 用ツール。 Shift/Ctrl クリック: 複数選択。</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="475"/>
+        <location filename="../selector.cpp" line="477"/>
         <source> [Double-Click]: select whole.</source>
         <translation> ダブル・クリック: 全選択。</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="479"/>
+        <location filename="../selector.cpp" line="481"/>
         <source>[Right-Click]: tools for %1.</source>
         <translation>右クリック: %1 用ツール。</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="833"/>
+        <location filename="../selector.cpp" line="834"/>
         <source>Backfacing faces</source>
         <translation>反転した面</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="838"/>
+        <location filename="../selector.cpp" line="839"/>
         <source>Discard</source>
         <translation>破棄</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="846"/>
+        <location filename="../selector.cpp" line="847"/>
         <source>Discard </source>
         <translation>破棄 </translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="894"/>
+        <location filename="../selector.cpp" line="896"/>
         <source>Add to reference skins</source>
         <translation>参照先スキンへ追加</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="897"/>
+        <location filename="../selector.cpp" line="899"/>
         <source>to Skin Set %1</source>
         <translation>スキン・セット %1 へ</translation>
     </message>
     <message>
-        <location filename="../selector.cpp" line="901"/>
+        <location filename="../selector.cpp" line="903"/>
         <source>to Skin Set %1 [new set]</source>
         <translation>新規スキン・セット %1 へ</translation>
     </message>
@@ -5366,12 +5392,12 @@ at line %3:
 <context>
     <name>TT</name>
     <message>
-        <location filename="../mainwindow.cpp" line="1129"/>
+        <location filename="../mainwindow.cpp" line="1141"/>
         <source>new_%1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1133"/>
+        <location filename="../mainwindow.cpp" line="1145"/>
         <source>New %1</source>
         <translation>新規 %1</translation>
     </message>
