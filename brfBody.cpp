@@ -827,3 +827,17 @@ bool BrfBody::Load(FILE*f, int verbose){
 
   return true;
 }
+
+void BrfBody::SubdivideIntoConnectedComponents(std::vector<BrfBody> &res){
+  int k = part.size();
+  if (k==1) return;
+  res.resize(k);
+
+  /* swy: set the name, append it to the sub-piece/part list and don't forget to recompute the bounding box
+          of the parent single-part BrfBody, otherwise pretty much lifted from its mesh counterpart */
+  for (unsigned int i=0; i<res.size(); i++) {
+    snprintf(res[i].name, sizeof(res[i].name)-1, "%s.%d", name,i);
+    res[i].part.push_back(part[i]);
+    res[i].UpdateBBox();
+  }
+}

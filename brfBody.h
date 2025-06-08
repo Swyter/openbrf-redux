@@ -98,6 +98,7 @@ public:
   bool ExportOBJ(const char *fn) const;
   bool ImportOBJ(const char *fn);
   void MakeQuadDominant();
+  void SubdivideIntoConnectedComponents(std::vector<BrfBody> &res);
 
   void UpdateBBox();
 

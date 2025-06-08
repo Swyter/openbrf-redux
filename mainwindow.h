@@ -117,6 +117,7 @@ private slots:
 	void shiftAni();
 	void bodyMakeQuadDominant();
 	void bodyMerge();
+	void bodySubdivideIntoComponents();
 	void reskeletonize();
 	void transferRigging();
 	void flip();

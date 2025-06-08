@@ -1848,6 +1848,31 @@ void MainWindow::bodyMerge(){
 	objectMergeSelected(brfdata.body);
 }
 
+/* swy: requested by Dalion; pretty much mirrors MainWindow::meshSubdivideIntoComponents() and its related functions, but simpler */
+void MainWindow::bodySubdivideIntoComponents(){
+	for (int k=0; k<selector->selectedList().size(); k++) {
+		int i= selector->selectedList()[k].row();
+		if (i<0) continue;
+		if (i>(int)brfdata.body.size()) continue;
+
+		BrfBody &b (brfdata.body[i]); std::vector<BrfBody> res;
+		b.SubdivideIntoConnectedComponents(res);
+
+		for (uint i=0; i<res.size(); i++) insert(res[i]);
+
+		if (!res.size())
+			statusBar()->showMessage(tr("Only one component found"), 2000);
+		else
+			statusBar()->showMessage(tr("Collision body separated into %1 pieces.").arg(res.size()), 2000);
+
+		updateGui();
+		updateGl();
+
+		setModified();
+		break; /* swy: do only the first valid one in the selection and bail out, should se support multi-selection? >:) */
+	}
+}
+
 void MainWindow::updateGl(){
 	glWidget->update();
 }

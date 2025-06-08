@@ -269,6 +269,9 @@ Selector::Selector(QWidget *parent)
 	bodyMerge = new QAction(tr("Combine collision objects"), this);
 	bodyMerge->setStatusTip(tr("Make a combined collision obj. unifying these objs."));
 
+	bodySubdivideIntoComponents = new QAction(tr("Split into individual sub-pieces"), this);
+	bodySubdivideIntoComponents->setStatusTip(tr("Create a separate object for each sub-piece or part in this collision body."));
+
 	meshRecomputeNormalsAndUnify = new QAction(tr("Recompute normals..."), this);
 	meshRecomputeNormalsAndUnify->setStatusTip(tr("Recompute normals for this model, and unify pos and vertices"));
 
@@ -385,6 +388,7 @@ Selector::Selector(QWidget *parent)
 	connect(meshUnify,  SIGNAL(triggered()),parent,SLOT(meshUnify()));
 	connect(meshMerge,  SIGNAL(triggered()),parent,SLOT(meshMerge()));
 	connect(bodyMerge,  SIGNAL(triggered()),parent,SLOT(bodyMerge()));
+	connect(bodySubdivideIntoComponents, SIGNAL(triggered()), parent, SLOT(bodySubdivideIntoComponents()));
 	connect(meshToBody,SIGNAL(triggered()),parent,SLOT(meshToBody()));
 	connect(meshMountOnBone,SIGNAL(triggered()),parent,SLOT(meshMountOnBone()));
 	connect(meshRemoveBackfacing,SIGNAL(triggered()),parent,SLOT(meshRemoveBack()));
@@ -865,6 +869,7 @@ void Selector::updateContextMenu(){
 			contextMenu->addAction(flipAct);
 			contextMenu->addAction(transformAct);
 			if (!onesel && !nosel) { contextMenu->addAction(bodyMerge); }
+			if (onesel) contextMenu->addAction(bodySubdivideIntoComponents); /* swy: make it so that it only appears when we select a single collision entry */
 			contextMenu->addAction(bodyMakeQuadDominantAct);
 		}
 		if (t==ANIMATION) {

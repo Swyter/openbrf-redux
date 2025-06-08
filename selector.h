@@ -175,6 +175,7 @@ public:
 	*shiftAniAct,
 	*bodyMakeQuadDominantAct,
 	*bodyMerge,
+	*bodySubdivideIntoComponents,
 
     *scaleSkeletonAct,
 	*sortEntriesAct,
