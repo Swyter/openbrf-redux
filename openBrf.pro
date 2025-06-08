@@ -175,6 +175,7 @@ win32 {
 
     message("Adding step to deploy the DLL files on Windows.")
     DESTDIR = $$PWD/_build
+    OUT_PWD = $$DESTDIR
     QMAKE_POST_LINK = $$[QT_INSTALL_BINS]/windeployqt --translations de,es,ja,zh_CN --no-system-d3d-compiler --no-system-dxc-compiler --skip-plugin-types generic,tls --exclude-plugins qgif,qjpeg --no-opengl-sw $$MSVC_WINDEPLOY_EXTRA_ARGS $$shell_path($$DESTDIR/$${TARGET}.exe)
 }
 
