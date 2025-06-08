@@ -17,6 +17,7 @@ Push-Location _qt_download
 curl.exe -LJ --no-clobber -o qt-base.7z  'https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtbase-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z'
 curl.exe -LJ --no-clobber -o qt-tools.7z 'https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qttools-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z'
 curl.exe -LJ --no-clobber -o qt-trans.7z 'https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qttranslations-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z'
+curl.exe -LJ --no-clobber -o qt-decla.7z 'https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtdeclarative-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z' # swy: needed only for Qt6Qml.dll to be able to run lupdate.exe to refresh translations from source code, go figure >:(
 curl.exe -LJ --no-clobber -o qt-jom.zip  'https://download.qt.io/official_releases/jom/jom.zip'
 
 # --
@@ -25,6 +26,7 @@ Write-Output '[-] swy: extracting the downloaded qt binaries'
 7z x qt-base.7z  '-o../_qt' -y
 7z x qt-tools.7z '-o../_qt' -y
 7z x qt-trans.7z '-o../_qt' -y
+7z x qt-decla.7z '-o../_qt' -y
 7z x qt-jom.zip  '-o../_qt' -y
 
 # --
