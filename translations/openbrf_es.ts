@@ -348,12 +348,12 @@ p, li { white-space: pre-wrap; }
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Cuando OpenBRF calcula &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;una &lt;/span&gt;&lt;span style=&quot; font-size:8pt; font-weight:600;&quot;&gt;Pirámide LOD (Nivel de Detalle)&lt;/span&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt; para un modelo...&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;una &lt;/span&gt;&lt;span style=&quot; font-size:8pt; font-weight:600;&quot;&gt;pirámide LOD (de niveles de detalle)&lt;/span&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt; para un modelo...&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location line="+14"/>
         <source>which levels to build, and with how many faces (w.r.t. original mesh)?</source>
-        <translation>¿Qué niveles tiene que hacer, y con cuantas caras? (en % desde la malla original)</translation>
+        <translation>¿Qué niveles quieres crear, y con cuántas caras? (en % con la orig.)</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -383,7 +383,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location line="+10"/>
         <source>% faces:</source>
-        <translation>% caras:</translation>
+        <translation>% de caras:</translation>
     </message>
     <message>
         <location line="+25"/>
@@ -847,9 +847,9 @@ seleccionado</translation>
         <source>Note: these are the files which are not included
  in any BRF file as textures.
 They will not be even loaded by the game.</source>
-        <translation>Nota: estas son las texturas que no están incluidas
-en ningún archivo BRF como referencia.
-Ni siquiera serán cargadas por el juego...</translation>
+        <translation>Nota: estas son las texturas que no parece
+que se usen en ningún archivo BRF.
+Así que tampoco las carga el juego.</translation>
     </message>
     <message>
         <location line="+37"/>
@@ -859,7 +859,7 @@ Ni siquiera serán cargadas por el juego...</translation>
     <message>
         <location line="+17"/>
         <source>Move all to subfolder &quot;_unused&quot;</source>
-        <translation type="unfinished">Moverlos a la subcarpeta «_unused»</translation>
+        <translation>Moverlas a la subcarpeta «_unused»</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -893,7 +893,7 @@ Ni siquiera serán cargadas por el juego...</translation>
         <location line="+13"/>
         <source>Error creating folder %1 in
 %2</source>
-        <translation>Error al crear la carpeta %1 en
+        <translation>Hubo un error al crear la carpeta %1 en
 %2</translation>
     </message>
 </context>
