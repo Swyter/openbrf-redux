@@ -10,7 +10,7 @@ jobs:
     # swy: allow this for the attestation mumbojumbo shenanigans
     permissions:
       id-token: write
-      contents: read
+      contents: write
       attestations: write
 
     steps:
