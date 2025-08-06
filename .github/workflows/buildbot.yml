@@ -72,12 +72,11 @@ jobs:
         api-token: '${{ secrets.SIGNPATH_API_TOKEN }}'
         organization-id: 'bc4b305f-1a8a-49ad-914b-914d31e57a6b'
         project-slug: 'openbrf-redux'
-        signing-policy-slug: 'test-signing'
+        signing-policy-slug: 'release-signing'
         artifact-configuration-slug: 'sign-only-obrf-exe'
         github-artifact-id: '${{ steps.upload-unsigned-artifact.outputs.artifact-id }}'
         wait-for-completion: true
         output-artifact-directory: './_build'
-
 
     - name: Pack things up
       id: pack
