@@ -1040,10 +1040,10 @@ void MainWindow::replace(BrfBody &o     ){ replaceInit(o); }
 template<class BrfType> void MainWindow::insert( vector<BrfType> &v, const BrfType &o){
 	int newpos;
 	if (selector->currentTabName()!=BrfType::tokenIndex() ) {
-		v.push_back(o);
-		newpos=v.size()-1;
+		v.push_back(o);   /* swy: the list is empty, just add it and mark it as selected */
+		newpos=v.size();  /* swy: note: this was originally v.size()-1 because they were inserted backwards, with every subsequent element on top of the previous one, causing meshes to appear as 5/4/3/2/1 from top to bottom, to fix that Marco also inserted the pasted entries in MainWindow::editPaste() back to front so that they would appear ordered on top of the initial selection :D */
 	} else {
-        int i = selector->lastSelected() + 1; /* +1 for inserting AFTER the current */ /* swy: added that +1 so that inserted stuff line split animation frames don't appear backwards, why wasn't like this before? */
+        int i = selector->lastSelected() + 1; /* +1 for inserting AFTER the current */ /* swy: added that +1 so that inserted stuff like split animation frames don't appear backwards, why wasn't like this before? this also causes pasted stuff to show up *under* the Ctrl+V selection, not over */
 		if (i<0 || i>=(int)v.size()) i=v.size();
 		if (i==(int)v.size()) v.push_back(o); else
 			v.insert( v.begin()+i, o);
@@ -3603,13 +3603,13 @@ void MainWindow::editPaste(){
 		}
 	}
 
-    for (int i=(int)clipboard.body     .size()-1;i>=0;--i) insert(clipboard.body     [i]);
-    for (int i=(int)clipboard.texture  .size()-1;i>=0;--i) insert(clipboard.texture  [i]);
-    for (int i=(int)clipboard.shader   .size()-1;i>=0;--i) insert(clipboard.shader   [i]);
-    for (int i=(int)clipboard.material .size()-1;i>=0;--i) insert(clipboard.material [i]);
-    for (int i=(int)clipboard.mesh     .size()-1;i>=0;--i) insert(clipboard.mesh     [i]);
-    for (int i=(int)clipboard.skeleton .size()-1;i>=0;--i) insert(clipboard.skeleton [i]);
-    for (int i=(int)clipboard.animation.size()-1;i>=0;--i) insert(clipboard.animation[i]);
+    for (int i=0, max=(int)clipboard.body     .size()-1; i<=max; i++) insert(clipboard.body     [i]); /* swy: Marco originally inserted these back to front to kind of fix the fact that */
+    for (int i=0, max=(int)clipboard.texture  .size()-1; i<=max; i++) insert(clipboard.texture  [i]); /*      MainWindow::insert() worked by adding entries on top of the current one.   */
+    for (int i=0, max=(int)clipboard.shader   .size()-1; i<=max; i++) insert(clipboard.shader   [i]); /*      --                                                                         */
+    for (int i=0, max=(int)clipboard.material .size()-1; i<=max; i++) insert(clipboard.material [i]); /*      so yeeeah, changed it so that pasted stuff appears under the selection,    */
+    for (int i=0, max=(int)clipboard.mesh     .size()-1; i<=max; i++) insert(clipboard.mesh     [i]); /*      so from now on insert them in normal order and call it a day.              */
+    for (int i=0, max=(int)clipboard.skeleton .size()-1; i<=max; i++) insert(clipboard.skeleton [i]);
+    for (int i=0, max=(int)clipboard.animation.size()-1; i<=max; i++) insert(clipboard.animation[i]);
 
 	setModified(false);
 }
