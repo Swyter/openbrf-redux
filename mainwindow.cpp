@@ -5950,7 +5950,7 @@ void MainWindow::setFlagsMaterial(){
       TR("No fog"),TR("Objects are not affected by fog"),
       TR("No Lighting"),TR("Objects won't be dynamically relit (UNUSED)"),
       TR("Don't block light"),"Don't draw objects in depth pre-pass (won't block sun flares)",
-      TR("No Z-write"),TR("Rendering object leaves the depth buffer unaffected (won't occlude objects drawm after them)"),
+      TR("No Z-write"),TR("Rendering object leaves the depth buffer unaffected (won't occlude objects drawn after them)"),
       TR("No depth Test"),TR("Objects ignore depth test: i.e. they will be always drawn over things rendered before them."), //
       TR("Specular enable"),TR("Enables specular reflections."),
       TR("Uniform lighting"),TR("Uniform lighting applied (light is uniform)."),
@@ -5969,7 +5969,7 @@ void MainWindow::setFlagsMaterial(){
       TR("Render 1st"),TR("Render objects as very first thing, plus [don't block light] (for skyboxes)"),
       TR("Origin at camera"),TR("Fixed position w.r.t. viewer (not in height). Useful for distant backgrounds."),
       TR("Combine meshes"),TR("Optimization: merge meshes sharing this material into one object. Useful for small objects."),
-      TR("Combine low-poly meshes"),TR("As above, but only for low poly meshes  (<30-70 tirs) [WB only]"),
+      TR("Combine low-poly meshes"),TR("As above, but only for low poly meshes (<30-70 tirs) [WB only]"),
 	  "","",
 	  "","",
 	  "","",
