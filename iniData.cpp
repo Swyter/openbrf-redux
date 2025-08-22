@@ -804,13 +804,13 @@ bool IniData::readModuleTxts(const QString &pathMod, const QString& pathData){
       tf.open(txtFileName[txtFile]);
       ModuleTxtNameList list(MATERIAL, txtFile);
 
-      while (tf.qf.canReadLine()) { /* swy: there is not explicit line/element counter here in the first line, so just keep reading until exhausting them all */
+      while (!tf.qf.atEnd()) { /* swy: there is not explicit line/element counter here in the first line, so just keep reading until exhausting them all */
         tf.nextLine();
         list.appendNonNone( QString(tf.stringT(3)) );
 
         /* swy: also register the ground_earth_under_grass, ground_earth_under_steppe, ground_forest_under_snow,
                 ground_forest_under_desert materials, ground_earth_under_grass and so on as used by the mod */
-        if (tf.tokenCount() >= 5 && tf.stringT(5) != "none")
+        if (tf.tokenCount() >= 5 && QString(tf.stringT(5)).compare("none", Qt::CaseInsensitive) != 0)
           list.appendNonNone( QString(tf.stringT(5)) );
       }
 
