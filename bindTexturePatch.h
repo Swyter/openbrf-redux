@@ -14,10 +14,20 @@ struct DDSFormat {
     quint32 dwMipMapCount;
     quint32 dummy2[11];
     struct {
-        quint32 dummy3[2];
+        quint32 size, flags;
         quint32 dwFourCC;
-        quint32 dummy4[5];
+        quint32 rgbBitCount, rBitMask, gBitMask, bBitMask, aBitMask;
     } ddsPixelFormat;
+    quint32 caps, caps2, caps3, caps4, reserved;
+};
+
+enum DDSPixelFmtFlags {
+  DDPF_ALPHAPIXELS =     0x1,
+  DDPF_ALPHA       =     0x2,
+  DDPF_FOURCC      =     0x4,
+  DDPF_RGB         =    0x40,
+  DDPF_YUV         =   0x200,
+  DDPF_LUMINANCE   = 0x20000
 };
 
 // compressed texture pixel formats
@@ -62,6 +72,7 @@ static void forgetChachedTextures(){
 }
 
 bool loadDDSHeader(QFile &f, DdsData &data,  DDSFormat &ddsHeader){
+  int factor =4;
 
   f.open(QIODevice::ReadOnly);
 
@@ -71,32 +82,38 @@ bool loadDDSHeader(QFile &f, DdsData &data,  DDSFormat &ddsHeader){
   f.read(&tag[0], 4);
   if (strncmp(tag,"DDS ", 4) != 0) {
       qWarning("QGLContext::bindTexture(): not a DDS image file.");
-
-      return false;
+      goto fail;
   }
 
   f.read((char *) &ddsHeader, sizeof(DDSFormat));
 
+  /* swy: size of the ddsPixelFormat structure */
+  if (ddsHeader.ddsPixelFormat.size != 32)
+    goto fail;
 
+  /* swy: a fourCC is a four letter code like DXT1 that signals a compressed format */
+  if (ddsHeader.ddsPixelFormat.flags & DDPF_FOURCC) {
+    switch(ddsHeader.ddsPixelFormat.dwFourCC) {
+    default:
+        qWarning("QGLContext::bindTexture() DDS image format not supported.");
+        goto fail;
+    case FOURCC_DXT1:
+        factor = 2;
+        data.ddxversion=1;
 
-  int factor =4;
-  switch(ddsHeader.ddsPixelFormat.dwFourCC) {
-  default:
-      qWarning("QGLContext::bindTexture() DDS image format not supported.");
-      return false;
-  case FOURCC_DXT1:
-      factor = 2;
-      data.ddxversion=1;
-
-      break;
-  case FOURCC_DXT3:
-      data.ddxversion=3;
-      break;
-  case FOURCC_DXT5:
-      data.ddxversion=5;
-      break;
+        break;
+    case FOURCC_DXT3:
+        data.ddxversion=3;
+        break;
+    case FOURCC_DXT5:
+        data.ddxversion=5;
+        break;
+    }
+  /* swy: otherwise we only support uncompressed RGBA textures that use a standard BRG/A swizzling mask, simpler */
+  } else if (ddsHeader.ddsPixelFormat.flags & (DDPF_RGB | DDPF_ALPHAPIXELS)) {
+    bool has_alpha = (ddsHeader.ddsPixelFormat.flags & DDPF_ALPHAPIXELS) && ddsHeader.ddsPixelFormat.aBitMask != 0;
+    data.ddxversion= has_alpha ? -0 : -1;
   }
-
 
   if (ddsHeader.dwMipMapCount == 0) ddsHeader.dwMipMapCount=1;
 
@@ -114,6 +131,9 @@ bool loadDDSHeader(QFile &f, DdsData &data,  DDSFormat &ddsHeader){
   data.sy = ddsHeader.dwHeight;
 
   return true;
+
+fail:
+  return false;
 }
 
 
@@ -147,13 +167,15 @@ bool GLWidget::myBindTexture(const QString &fileName, DdsData &data)
     if (!loadDDSHeader(f, data, ddsHeader )) return false;
 
     int blockSize = 16;
-    GLenum format=4;
+    GLenum intFormat=4, format=0, type=0, pixelSize=0;
     int factor = 4;
 
     switch(data.ddxversion){
-    case 1: format = GL_COMPRESSED_RGBA_S3TC_DXT1_EXT; blockSize=8; factor = 2; break;
-    case 3: format = GL_COMPRESSED_RGBA_S3TC_DXT3_EXT; break;
-    case 5: format = GL_COMPRESSED_RGBA_S3TC_DXT5_EXT; break;
+    case  1: intFormat = GL_COMPRESSED_RGBA_S3TC_DXT1_EXT; blockSize=8; factor = 2; break;
+    case  3: intFormat = GL_COMPRESSED_RGBA_S3TC_DXT3_EXT; break;
+    case  5: intFormat = GL_COMPRESSED_RGBA_S3TC_DXT5_EXT; break;
+    case -0: intFormat = GL_RGBA; format = GL_BGRA; type = GL_UNSIGNED_INT_8_8_8_8_REV; pixelSize = 4 /* swy: 32 bits, 4 bytes */; break;
+    case -1: intFormat = GL_RGB;  format = GL_BGR;  type = GL_UNSIGNED_BYTE;            pixelSize = 3 /* swy: 24 bits, 3 bytes */; break;
     }
 
     if (!ddsHeader.dwLinearSize) {
@@ -167,6 +189,11 @@ bool GLWidget::myBindTexture(const QString &fileName, DdsData &data)
         bufferSize = ddsHeader.dwLinearSize * factor;
     else
         bufferSize = ddsHeader.dwLinearSize;
+
+    /* swy: for RGBA or RGB8 textures just allocate a temp chunk of memory as big
+            as the file itself, who cares, less code */
+    if (data.ddxversion <= 0)
+      bufferSize = data.filesize;
 
 
     GLubyte *pixels = (GLubyte *) malloc(bufferSize*sizeof(GLubyte));
@@ -212,15 +239,21 @@ bool GLWidget::myBindTexture(const QString &fileName, DdsData &data)
         //if (i>4)  continue;
         if (w == 0) w = 1;
         if (h == 0) h = 1;
-        int size = ((w+3)/4) * ((h+3)/4) * blockSize;
-        if (offset+size>=bufferSize) offset = bufferSize-size;
 
+        if (data.ddxversion <= 0) { /* swy: upload the uncompressed RGBA0 or RGB8 texture into the GPU */
+          glTexImage2D(GL_TEXTURE_2D, i, intFormat, w, h, 0, format, type, pixels + offset);
+          offset += w * h * pixelSize;
 
-        glCompressedTexImage2D
-        //qt_glCompressedTexImage2DARB
-                                    (GL_TEXTURE_2D, i, format, w, h, 0,
-                                     size, pixels + offset);
-        offset += size;
+        } else { /* swy: or upload the compressed DXT1/3/5 texture instead */
+          int size = ((w+3)/4) * ((h+3)/4) * blockSize;
+          if (offset+size>=bufferSize) offset = bufferSize-size;
+
+            glCompressedTexImage2D
+          //qt_glCompressedTexImage2DARB
+                                      (GL_TEXTURE_2D, i, intFormat, w, h, 0,
+                                       size, pixels + offset);
+          offset += size;
+        }
 
         // half size for each mip-map level; don't halve when we're at the end of the loop to reuse the values
         if (i + 1 < (int) ddsHeader.dwMipMapCount) {

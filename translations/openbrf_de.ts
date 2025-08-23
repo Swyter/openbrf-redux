@@ -962,7 +962,7 @@ Vielleicht ist das Problem, dass ein Shader das Zeichen (&lt;) oder (&gt;) oder 
     <name>GuiPanel</name>
     <message>
         <location filename="../guipanel.cpp" line="167"/>
-        <location filename="../guipanel.cpp" line="178"/>
+        <location filename="../guipanel.cpp" line="180"/>
         <source>unknown</source>
         <translation>unbekannt</translation>
     </message>
@@ -1002,18 +1002,28 @@ Vielleicht ist das Problem, dass ein Shader das Zeichen (&lt;) oder (&gt;) oder 
         <translation>DXT 5 (Interpolierte Alpha)</translation>
     </message>
     <message>
-        <location filename="../guipanel.cpp" line="366"/>
+        <location filename="../guipanel.cpp" line="178"/>
+        <source>RGBA8 (uncompr.)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../guipanel.cpp" line="179"/>
+        <source>RGB8 (uncompr.)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../guipanel.cpp" line="368"/>
         <source> (keep [shift] pressed to nudge)</source>
         <translation>Halten Sie [shift] gedrückt, um zu markieren</translation>
     </message>
     <message>
-        <location filename="../guipanel.cpp" line="481"/>
+        <location filename="../guipanel.cpp" line="483"/>
         <source>Mesh-set %1</source>
         <translation>Strukturgitter setze %1</translation>
     </message>
     <message>
-        <location filename="../guipanel.cpp" line="911"/>
-        <location filename="../guipanel.cpp" line="1126"/>
+        <location filename="../guipanel.cpp" line="913"/>
+        <location filename="../guipanel.cpp" line="1128"/>
         <source>&lt;not found&gt;</source>
         <translation type="unfinished"></translation>
     </message>

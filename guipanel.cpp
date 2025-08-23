@@ -172,10 +172,12 @@ void GuiPanel::setTextureData(DdsData d){
       }
 
       switch (d.ddxversion) {
-        case 1: ui->boxTextureFormat->setText(tr("DXT 1 (1bit alpha)")); break;
-        case 3: ui->boxTextureFormat->setText(tr("DXT 3 (sharp alpha)")); break;
-        case 5: ui->boxTextureFormat->setText(tr("DXT 5 (smooth alpha)")); break;
-        default: ui->boxTextureFormat->setText(tr("unknown")); break;
+        case 1:   ui->boxTextureFormat->setText(tr("DXT 1 (1bit alpha)")); break;
+        case 3:   ui->boxTextureFormat->setText(tr("DXT 3 (sharp alpha)")); break;
+        case 5:   ui->boxTextureFormat->setText(tr("DXT 5 (smooth alpha)")); break;
+        case -0:  ui->boxTextureFormat->setText(tr("RGBA8 (uncompr.)")); break;
+        case -1:  ui->boxTextureFormat->setText(tr("RGB8 (uncompr.)")); break;
+        default:  ui->boxTextureFormat->setText(tr("unknown")); break;
       }
     }
     /*
