@@ -100,7 +100,6 @@ bool loadDDSHeader(QFile &f, DdsData &data,  DDSFormat &ddsHeader){
     case FOURCC_DXT1:
         factor = 2;
         data.ddxversion=1;
-
         break;
     case FOURCC_DXT3:
         data.ddxversion=3;
@@ -109,7 +108,7 @@ bool loadDDSHeader(QFile &f, DdsData &data,  DDSFormat &ddsHeader){
         data.ddxversion=5;
         break;
     }
-  /* swy: otherwise we only support uncompressed RGBA textures that use a standard BRG/A swizzling mask, simpler */
+  /* swy: otherwise we only support uncompressed RGBA textures that use a standard BGR/A swizzling mask, simpler */
   } else if (ddsHeader.ddsPixelFormat.flags & (DDPF_RGB | DDPF_ALPHAPIXELS)) {
     bool has_alpha = (ddsHeader.ddsPixelFormat.flags & DDPF_ALPHAPIXELS) && ddsHeader.ddsPixelFormat.aBitMask != 0;
     data.ddxversion= has_alpha ? -0 : -1;
@@ -190,7 +189,7 @@ bool GLWidget::myBindTexture(const QString &fileName, DdsData &data)
     else
         bufferSize = ddsHeader.dwLinearSize;
 
-    /* swy: for RGBA or RGB8 textures just allocate a temp chunk of memory as big
+    /* swy: for RGBA8 or RGB8 textures just allocate a temp chunk of memory as big
             as the file itself, who cares, less code */
     if (data.ddxversion <= 0)
       bufferSize = data.filesize;
@@ -240,7 +239,7 @@ bool GLWidget::myBindTexture(const QString &fileName, DdsData &data)
         if (w == 0) w = 1;
         if (h == 0) h = 1;
 
-        if (data.ddxversion <= 0) { /* swy: upload the uncompressed RGBA0 or RGB8 texture into the GPU */
+        if (data.ddxversion <= 0) { /* swy: upload the uncompressed RGBA8 or RGB8 texture into the GPU */
           glTexImage2D(GL_TEXTURE_2D, i, intFormat, w, h, 0, format, type, pixels + offset);
           offset += w * h * pixelSize;
 
