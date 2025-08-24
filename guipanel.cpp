@@ -177,6 +177,7 @@ void GuiPanel::setTextureData(DdsData d){
         case  5:  ui->boxTextureFormat->setText(tr("DXT 5 (smooth alpha)")); break;
         case -1:  ui->boxTextureFormat->setText(tr("RGBA8 (uncompr.)")); break;
         case -2:  ui->boxTextureFormat->setText(tr("RGB8 (uncompr.)" )); break;
+        case -3:  ui->boxTextureFormat->setText(tr("R16 (uncompr.)" )); break;
         default:  ui->boxTextureFormat->setText(tr("unknown")); break;
       }
     }

@@ -833,7 +833,7 @@ maybe the problem is that a shader uses the sign (&lt;) or (&gt;) or (&amp;)?
     <name>GuiPanel</name>
     <message>
         <location filename="../guipanel.cpp" line="167"/>
-        <location filename="../guipanel.cpp" line="180"/>
+        <location filename="../guipanel.cpp" line="181"/>
         <source>unknown</source>
         <translation type="unfinished"></translation>
     </message>
@@ -883,18 +883,23 @@ maybe the problem is that a shader uses the sign (&lt;) or (&gt;) or (&amp;)?
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../guipanel.cpp" line="368"/>
+        <location filename="../guipanel.cpp" line="180"/>
+        <source>R16 (uncompr.)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../guipanel.cpp" line="369"/>
         <source> (keep [shift] pressed to nudge)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../guipanel.cpp" line="483"/>
+        <location filename="../guipanel.cpp" line="484"/>
         <source>Mesh-set %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../guipanel.cpp" line="913"/>
-        <location filename="../guipanel.cpp" line="1128"/>
+        <location filename="../guipanel.cpp" line="914"/>
+        <location filename="../guipanel.cpp" line="1129"/>
         <source>&lt;not found&gt;</source>
         <translation type="unfinished"></translation>
     </message>

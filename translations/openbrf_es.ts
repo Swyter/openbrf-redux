@@ -1100,12 +1100,12 @@ tal vez el problema sea que el sombreador usa los signos (&lt;) o (&gt;) o (&amp
     <name>GuiPanel</name>
     <message>
         <location filename="../guipanel.cpp" line="+167"/>
-        <location line="+13"/>
+        <location line="+14"/>
         <source>unknown</source>
         <translation>desconocido</translation>
     </message>
     <message>
-        <location line="-12"/>
+        <location line="-13"/>
         <source>not-found</source>
         <translation>no encontrado</translation>
     </message>
@@ -1148,6 +1148,11 @@ tal vez el problema sea que el sombreador usa los signos (&lt;) o (&gt;) o (&amp
         <location line="+1"/>
         <source>RGB8 (uncompr.)</source>
         <translation>RGB8 (descompr.)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>R16 (uncompr.)</source>
+        <translation>R16 (descompr.)</translation>
     </message>
     <message>
         <location line="+189"/>

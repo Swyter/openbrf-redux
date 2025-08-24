@@ -120,6 +120,17 @@ bool loadDDSHeader(QFile &f, DdsData &data,  DDSFormat &ddsHeader){
     bool has_alpha = (ddsHeader.ddsPixelFormat.flags & DDPF_ALPHAPIXELS) && ddsHeader.ddsPixelFormat.aBitMask != 0;
     data.ddxversion = has_alpha ? -1 : -2;
 
+  /* swy: or uncompressed R16 luminance ones like for the special Warband HDR skybox_*_exp.dds textures */
+  } else if (ddsHeader.ddsPixelFormat.flags & DDPF_LUMINANCE) {
+    if (ddsHeader.ddsPixelFormat.rgbBitCount != 16  &&
+        ddsHeader.ddsPixelFormat.rBitMask != 0xFFFF && /* swy: this only has one channel (red), which is 16-bit, twice the normal size */
+        ddsHeader.ddsPixelFormat.gBitMask != 0      &&
+        ddsHeader.ddsPixelFormat.bBitMask != 0      &&
+        ddsHeader.ddsPixelFormat.aBitMask != 0)
+      goto fail;
+
+    data.ddxversion = -3;
+
   } else {
     qWarning("QGLContext::bindTexture(): unsupported DDS image file, probably needs to be implemented.");
     goto fail;
@@ -184,8 +195,9 @@ bool GLWidget::myBindTexture(const QString &fileName, DdsData &data)
     case  1: intFormat = GL_COMPRESSED_RGBA_S3TC_DXT1_EXT; blockSize=8; factor = 2; break;
     case  3: intFormat = GL_COMPRESSED_RGBA_S3TC_DXT3_EXT; break;
     case  5: intFormat = GL_COMPRESSED_RGBA_S3TC_DXT5_EXT; break;
-    case -1: intFormat = GL_RGBA; format = GL_BGRA; type = GL_UNSIGNED_INT_8_8_8_8_REV; pixelSize = 4 /* swy: 32 bits, 4 bytes */; break;
-    case -2: intFormat = GL_RGB;  format = GL_BGR;  type = GL_UNSIGNED_BYTE;            pixelSize = 3 /* swy: 24 bits, 3 bytes */; break;
+    case -1: intFormat = GL_RGBA; format = GL_BGRA; type = GL_UNSIGNED_INT_8_8_8_8_REV; pixelSize = 4 /* swy: 32 bits, 4 bytes -   B8G8R8_UNORM */; break;
+    case -2: intFormat = GL_RGB;  format = GL_BGR;  type = GL_UNSIGNED_BYTE;            pixelSize = 3 /* swy: 24 bits, 3 bytes - B8G8R8A8_UNORM */; break;
+    case -3: intFormat = GL_RED;  format = GL_RED;  type = GL_UNSIGNED_SHORT;           pixelSize = 2 /* swy: 16 bits, 2 bytes -     R116_UNORM */; break;
     }
 
     if (!ddsHeader.dwLinearSize) {
