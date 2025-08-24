@@ -1138,7 +1138,7 @@ void GLWidget::setMaterialName(QString st){
 		}
 
 		lastUsedShader = SHADER_FIXEDFUNC;
-		if (useOpenGL2 && inferMaterial) {
+		if (/* swy: fix translucency when shaders are disabled: useOpenGL2 && */ inferMaterial) {
 			bool useN = useNormalmap && m->HasBump();
 			bool useS = useSpecularmap && m->HasSpec();
 			if (useN || useS) {
