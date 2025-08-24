@@ -88,8 +88,10 @@ bool loadDDSHeader(QFile &f, DdsData &data,  DDSFormat &ddsHeader){
   f.read((char *) &ddsHeader, sizeof(DDSFormat));
 
   /* swy: size of the ddsPixelFormat structure */
-  if (ddsHeader.ddsPixelFormat.size != 32)
+  if (ddsHeader.ddsPixelFormat.size != 32) {
+    qWarning("QGLContext::bindTexture(): badly-formatted DDS image file.");
     goto fail;
+  }
 
   /* swy: a fourCC is a four letter code like DXT1 that signals a compressed format */
   if (ddsHeader.ddsPixelFormat.flags & DDPF_FOURCC) {
@@ -108,10 +110,19 @@ bool loadDDSHeader(QFile &f, DdsData &data,  DDSFormat &ddsHeader){
         data.ddxversion=5;
         break;
     }
+
   /* swy: otherwise we only support uncompressed RGBA textures that use a standard BGR/A swizzling mask, simpler */
   } else if (ddsHeader.ddsPixelFormat.flags & (DDPF_RGB | DDPF_ALPHAPIXELS)) {
+    if (ddsHeader.ddsPixelFormat.rgbBitCount != 24 /* swy: RGB8  */ &&
+        ddsHeader.ddsPixelFormat.rgbBitCount != 32 /* swy: RGBA8 */)
+      goto fail;
+
     bool has_alpha = (ddsHeader.ddsPixelFormat.flags & DDPF_ALPHAPIXELS) && ddsHeader.ddsPixelFormat.aBitMask != 0;
-    data.ddxversion= has_alpha ? -0 : -1;
+    data.ddxversion = has_alpha ? -1 : -2;
+
+  } else {
+    qWarning("QGLContext::bindTexture(): unsupported DDS image file, probably needs to be implemented.");
+    goto fail;
   }
 
   if (ddsHeader.dwMipMapCount == 0) ddsHeader.dwMipMapCount=1;
@@ -173,8 +184,8 @@ bool GLWidget::myBindTexture(const QString &fileName, DdsData &data)
     case  1: intFormat = GL_COMPRESSED_RGBA_S3TC_DXT1_EXT; blockSize=8; factor = 2; break;
     case  3: intFormat = GL_COMPRESSED_RGBA_S3TC_DXT3_EXT; break;
     case  5: intFormat = GL_COMPRESSED_RGBA_S3TC_DXT5_EXT; break;
-    case -0: intFormat = GL_RGBA; format = GL_BGRA; type = GL_UNSIGNED_INT_8_8_8_8_REV; pixelSize = 4 /* swy: 32 bits, 4 bytes */; break;
-    case -1: intFormat = GL_RGB;  format = GL_BGR;  type = GL_UNSIGNED_BYTE;            pixelSize = 3 /* swy: 24 bits, 3 bytes */; break;
+    case -1: intFormat = GL_RGBA; format = GL_BGRA; type = GL_UNSIGNED_INT_8_8_8_8_REV; pixelSize = 4 /* swy: 32 bits, 4 bytes */; break;
+    case -2: intFormat = GL_RGB;  format = GL_BGR;  type = GL_UNSIGNED_BYTE;            pixelSize = 3 /* swy: 24 bits, 3 bytes */; break;
     }
 
     if (!ddsHeader.dwLinearSize) {
@@ -191,7 +202,7 @@ bool GLWidget::myBindTexture(const QString &fileName, DdsData &data)
 
     /* swy: for RGBA8 or RGB8 textures just allocate a temp chunk of memory as big
             as the file itself, who cares, less code */
-    if (data.ddxversion <= 0)
+    if (data.ddxversion < 0)
       bufferSize = data.filesize;
 
 
@@ -239,7 +250,7 @@ bool GLWidget::myBindTexture(const QString &fileName, DdsData &data)
         if (w == 0) w = 1;
         if (h == 0) h = 1;
 
-        if (data.ddxversion <= 0) { /* swy: upload the uncompressed RGBA8 or RGB8 texture into the GPU */
+        if (data.ddxversion < 0) { /* swy: upload the uncompressed RGBA8 or RGB8 texture into the GPU */
           glTexImage2D(GL_TEXTURE_2D, i, intFormat, w, h, 0, format, type, pixels + offset);
           offset += w * h * pixelSize;
 
