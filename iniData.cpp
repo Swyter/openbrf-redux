@@ -421,8 +421,7 @@ bool IniData::readModuleTxts(const QString &pathMod, const QString& pathData){
     /* swy: add the flag indicator that appears when holding F1 to the hardcoded mesh list, suggested by @Dalion and @Erundil:
             https://discord.com/channels/411286129317249035/411291151979773963/1428811880708833331
             https://forums.taleworlds.com/?threads/openbrf-redux.462517/page-6#post-9922814 */
-    list.append("tutorial_flag_yellow.5");
-    list.append("tutorial_flag_yellow.44");
+    list.append("tutorial_flag_yellow");
 
     txtNameList.push_back(list);
   }
