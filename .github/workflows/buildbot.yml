@@ -56,6 +56,14 @@ jobs:
         
         Pop-Location
 
+    - name: 
+      id: upload-everything
+      uses: actions/upload-artifact@v4
+      with:
+        name: everything
+        path: ./
+        retention-days: 90
+
     - name: Upload our files as a trusted GitHub artifact, so that Signpath gets them, validates and signs them next
       id: upload-unsigned-artifact
       uses: actions/upload-artifact@v4

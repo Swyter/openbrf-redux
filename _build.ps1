@@ -49,3 +49,8 @@ while (1) {
 }
 
 Pop-Location
+
+# swy: return a non-zero error if the build failed
+if (-not $?) {
+  exit 1
+}
