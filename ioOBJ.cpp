@@ -151,7 +151,8 @@ public:
   bool operator <(const Triple &t) const {
     if (a<t.a) return true;
     if (b<t.b) return true;
-    return (c<t.c);
+    if (c<t.c) return true;
+    return false;
   }
 };
 
