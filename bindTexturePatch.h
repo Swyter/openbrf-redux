@@ -197,7 +197,7 @@ bool GLWidget::myBindTexture(const QString &fileName, DdsData &data)
     case  5: intFormat = GL_COMPRESSED_RGBA_S3TC_DXT5_EXT; break;
     case -1: intFormat = GL_RGBA; format = GL_BGRA; type = GL_UNSIGNED_INT_8_8_8_8_REV; pixelSize = 4 /* swy: 32 bits, 4 bytes -   B8G8R8_UNORM */; break;
     case -2: intFormat = GL_RGB;  format = GL_BGR;  type = GL_UNSIGNED_BYTE;            pixelSize = 3 /* swy: 24 bits, 3 bytes - B8G8R8A8_UNORM */; break;
-    case -3: intFormat = GL_RED;  format = GL_RED;  type = GL_UNSIGNED_SHORT;           pixelSize = 2 /* swy: 16 bits, 2 bytes -     R116_UNORM */; break;
+    case -3: intFormat = GL_RED;  format = GL_RED;  type = GL_UNSIGNED_SHORT;           pixelSize = 2 /* swy: 16 bits, 2 bytes -      R16_UNORM */; break;
     }
 
     if (!ddsHeader.dwLinearSize) {
