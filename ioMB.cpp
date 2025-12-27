@@ -715,7 +715,7 @@ static bool ioMB_importMesh(BrfMesh &m ){
 static void ioMB_exportHeader(){
 
   fprintf(f,
-     "// created by OpenBrf, Marco Tarini\n"
+     "// created by OpenBRF, Marco Tarini\n"
      "// exporting from a BRF resource file\n"
     // "// skinned mesh: %s"
     // "// skeleton mesh: %s"

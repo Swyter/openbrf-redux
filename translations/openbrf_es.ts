@@ -453,7 +453,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location line="+15"/>
-        <source>OpenBrf -- Module %1</source>
+        <source>OpenBRF -- Module %1</source>
         <translation>OpenBRF | Módulo %1</translation>
     </message>
 </context>
@@ -3943,11 +3943,11 @@ al que añadir un fotograma o cuadro.</translation>
     </message>
     <message>
         <location line="+21"/>
-        <source>&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;OpenBrf&lt;/b&gt; | &lt;i&gt;Redux&lt;/i&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; by &lt;b&gt;%2&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;ver %6&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; (%1 %7)&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;i&gt;Testing, bug reporting, suggestions by:&lt;/i&gt; %3&lt;/p&gt;&lt;p&gt;&lt;i&gt;Additional art by:&lt;/i&gt; %4&lt;/p&gt;&lt;p&gt;&lt;i&gt;Translations by:&lt;/i&gt; %5&lt;/p&gt;</source>
-        <translation>&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;OpenBrf&lt;/b&gt; | &lt;i&gt;Redux&lt;/i&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; por  &lt;b&gt;%2&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;versión %6&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; (%1 %7)&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;i&gt;Pruebas, informes y sugerencias por:&lt;/i&gt; %3&lt;/p&gt;&lt;p&gt;&lt;i&gt;Iconos y logotipos por:&lt;/i&gt; %4&lt;/p&gt;&lt;p&gt;&lt;i&gt;Traductores:&lt;/i&gt; %5&lt;/p&gt;</translation>
+        <source>&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;OpenBRF&lt;/b&gt; | &lt;i&gt;Redux&lt;/i&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; by &lt;b&gt;%2&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;ver %6&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; (%1 %7)&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;i&gt;Testing, bug reporting, suggestions by:&lt;/i&gt; %3&lt;/p&gt;&lt;p&gt;&lt;i&gt;Additional art by:&lt;/i&gt; %4&lt;/p&gt;&lt;p&gt;&lt;i&gt;Translations by:&lt;/i&gt; %5&lt;/p&gt;</source>
+        <translation>&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;OpenBRF&lt;/b&gt; | &lt;i&gt;Redux&lt;/i&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; por  &lt;b&gt;%2&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;versión %6&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; (%1 %7)&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;i&gt;Pruebas, informes y sugerencias por:&lt;/i&gt; %3&lt;/p&gt;&lt;p&gt;&lt;i&gt;Iconos y logotipos por:&lt;/i&gt; %4&lt;/p&gt;&lt;p&gt;&lt;i&gt;Traductores:&lt;/i&gt; %5&lt;/p&gt;</translation>
     </message>
     <message>
-        <source>&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;OpenBrf&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; by &lt;b&gt;%2&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;ver %6&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; (%1)&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;i&gt;Testing, bug reporting, suggestions by:&lt;/i&gt; %3&lt;/p&gt;&lt;p&gt;&lt;i&gt;Additional art by:&lt;/i&gt; %4&lt;/p&gt;&lt;p&gt;&lt;i&gt;Translations by:&lt;/i&gt; %5&lt;/p&gt;</source>
+        <source>&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;OpenBRF&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; by &lt;b&gt;%2&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;ver %6&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; (%1)&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;i&gt;Testing, bug reporting, suggestions by:&lt;/i&gt; %3&lt;/p&gt;&lt;p&gt;&lt;i&gt;Additional art by:&lt;/i&gt; %4&lt;/p&gt;&lt;p&gt;&lt;i&gt;Translations by:&lt;/i&gt; %5&lt;/p&gt;</source>
         <translation type="vanished">&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;OpenBRF&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; por &lt;b&gt;%2&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;versión %6&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; (%1)&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;i&gt;Pruebas, informe de errores y sugerencias por:&lt;/i&gt; %3&lt;/p&gt;&lt;p&gt;&lt;i&gt;Arte adicional:&lt;/i&gt; %4&lt;/p&gt;&lt;p&gt;&lt;i&gt;Traducciones:&lt;/i&gt; %5&lt;/p&gt;</translation>
     </message>
     <message>
@@ -4035,8 +4035,8 @@ al que añadir un fotograma o cuadro.</translation>
     </message>
     <message>
         <location line="+5"/>
-        <source>OpenBrf - Preview Shader info</source>
-        <translation>OpenBrf - Información de sombreadores en vista previa</translation>
+        <source>OpenBRF - Preview Shader info</source>
+        <translation>OpenBRF - Información de sombreadores en vista previa</translation>
     </message>
     <message>
         <location line="+20"/>
@@ -4094,7 +4094,7 @@ al que añadir un fotograma o cuadro.</translation>
         <location line="+12"/>
         <location line="+642"/>
         <location line="+1813"/>
-        <source>OpenBrf</source>
+        <source>OpenBRF</source>
         <translation>OpenBRF</translation>
     </message>
     <message>
@@ -4160,7 +4160,7 @@ Save changes?</source>
     </message>
     <message>
         <location line="+1"/>
-        <source>Stop editing &quot;reference&quot; skeletons, animations &amp; meshes, that OpenBrf uses to display data.</source>
+        <source>Stop editing &quot;reference&quot; skeletons, animations &amp; meshes, that OpenBRF uses to display data.</source>
         <translation>Detener la edición de esqueletos, animaciones y modelos que OpenBRF utiliza para mostrar la vista previa.</translation>
     </message>
     <message>
@@ -4170,7 +4170,7 @@ Save changes?</source>
     </message>
     <message>
         <location line="+1"/>
-        <source>Edit &quot;reference&quot; skeletons, animations &amp; meshes, that OpenBrf uses to display data.</source>
+        <source>Edit &quot;reference&quot; skeletons, animations &amp; meshes, that OpenBRF uses to display data.</source>
         <translation>Editar esqueletos, animaciones y modelos que OpenBRF utiliza para mostrar la vista previa.</translation>
     </message>
     <message>

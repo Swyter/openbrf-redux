@@ -283,7 +283,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../askModErrorDialog.cpp" line="147"/>
-        <source>OpenBrf -- Module %1</source>
+        <source>OpenBRF -- Module %1</source>
         <translation></translation>
     </message>
 </context>
@@ -3437,7 +3437,7 @@ to add a frame to.</source>
     </message>
     <message>
         <location filename="../main_info.cpp" line="177"/>
-        <source>OpenBrf - Preview Shader info</source>
+        <source>OpenBRF - Preview Shader info</source>
         <translation>OpenBRF - プレビュー・シェーダ情報</translation>
     </message>
     <message>
@@ -3467,8 +3467,8 @@ to add a frame to.</source>
     </message>
     <message>
         <location filename="../main_info.cpp" line="56"/>
-        <source>&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;OpenBrf&lt;/b&gt; | &lt;i&gt;Redux&lt;/i&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; by &lt;b&gt;%2&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;ver %6&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; (%1 %7)&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;i&gt;Testing, bug reporting, suggestions by:&lt;/i&gt; %3&lt;/p&gt;&lt;p&gt;&lt;i&gt;Additional art by:&lt;/i&gt; %4&lt;/p&gt;&lt;p&gt;&lt;i&gt;Translations by:&lt;/i&gt; %5&lt;/p&gt;</source>
-        <translation>&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;OpenBrf&lt;/b&gt; | &lt;i&gt;Redux&lt;/i&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; by &lt;b&gt;%2&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;ver %6&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; (%1 %7)&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;i&gt;テスト、バグ報告、提案:&lt;/i&gt; %3&lt;/p&gt;&lt;p&gt;&lt;i&gt;追加アート:&lt;/i&gt; %4&lt;/p&gt;&lt;p&gt;&lt;i&gt;翻訳:&lt;/i&gt; %5&lt;/p&gt;</translation>
+        <source>&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;OpenBRF&lt;/b&gt; | &lt;i&gt;Redux&lt;/i&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; by &lt;b&gt;%2&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;ver %6&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; (%1 %7)&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;i&gt;Testing, bug reporting, suggestions by:&lt;/i&gt; %3&lt;/p&gt;&lt;p&gt;&lt;i&gt;Additional art by:&lt;/i&gt; %4&lt;/p&gt;&lt;p&gt;&lt;i&gt;Translations by:&lt;/i&gt; %5&lt;/p&gt;</source>
+        <translation>&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;OpenBRF&lt;/b&gt; | &lt;i&gt;Redux&lt;/i&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; by &lt;b&gt;%2&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;ver %6&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; (%1 %7)&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;i&gt;テスト、バグ報告、提案:&lt;/i&gt; %3&lt;/p&gt;&lt;p&gt;&lt;i&gt;追加アート:&lt;/i&gt; %4&lt;/p&gt;&lt;p&gt;&lt;i&gt;翻訳:&lt;/i&gt; %5&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../main_info.cpp" line="130"/>
@@ -3521,7 +3521,7 @@ to add a frame to.</source>
         <location filename="../mainwindow.cpp" line="2936"/>
         <location filename="../mainwindow.cpp" line="3578"/>
         <location filename="../mainwindow.cpp" line="5391"/>
-        <source>OpenBrf</source>
+        <source>OpenBRF</source>
         <translation></translation>
     </message>
     <message>
@@ -3587,7 +3587,7 @@ Save changes?</source>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="994"/>
-        <source>Stop editing &quot;reference&quot; skeletons, animations &amp; meshes, that OpenBrf uses to display data.</source>
+        <source>Stop editing &quot;reference&quot; skeletons, animations &amp; meshes, that OpenBRF uses to display data.</source>
         <translation>OpenBRF がデータ表示用に使う「参照」スケルトン、アニメーション、メッシュの編集を中止します。</translation>
     </message>
     <message>
@@ -3597,7 +3597,7 @@ Save changes?</source>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="997"/>
-        <source>Edit &quot;reference&quot; skeletons, animations &amp; meshes, that OpenBrf uses to display data.</source>
+        <source>Edit &quot;reference&quot; skeletons, animations &amp; meshes, that OpenBRF uses to display data.</source>
         <translation>OpenBRF がデータを表示すべき「参照先」スケルトンとアニメ付きメッシュを編集。</translation>
     </message>
     <message>
@@ -4272,7 +4272,7 @@ Tangent directions will not be saved...</source>
     <message>
         <location filename="../mainwindow.cpp" line="4755"/>
         <source>%1 - editing internal reference data %3 %2</source>
-        <translatorcomment>1=ウィンドウ・タイトル&quot;OpenBrf&quot;, 2=&quot;(*)(**)&quot;か&quot;(*)&quot;か&quot;(**), 3=&quot;(for [MOD名] mod)&quot;か空。</translatorcomment>
+        <translatorcomment>1=ウィンドウ・タイトル&quot;OpenBRF&quot;, 2=&quot;(*)(**)&quot;か&quot;(*)&quot;か&quot;(**), 3=&quot;(for [MOD名] mod)&quot;か空。</translatorcomment>
         <translation>%1 - %3 内部参照データを編集中 %2</translation>
     </message>
     <message>

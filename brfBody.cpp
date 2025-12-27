@@ -787,7 +787,7 @@ bool BrfBody::ExportOBJ(const char* fn) const {
   if (!f) return false;
   fprintf(f,
     "# export of a body (Mount and Blade collision object)\n"
-    "# by OpenBrf (Marco Tarini)\n");
+    "# by OpenBRF (Marco Tarini)\n");
   int vc=1; // vertex count
   for (unsigned int i=0; i<part.size(); i++)
     part[i].ExportOBJ(f,i,vc);

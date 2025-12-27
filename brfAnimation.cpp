@@ -451,7 +451,7 @@ bool BrfAnimationFrame::Reskeletonize(const BrfSkeleton& from, const BrfSkeleton
 
 
   float tmp[16]={-1,0,0,0, 0,0,1,0, 0,1,0,0, 0,0,0,1};
-  Matrix44f t(tmp); // t goes from BRFedit style to OpenBrf style!
+  Matrix44f t(tmp); // t goes from BRFedit style to OpenBRF style!
   /*
   Matrix44f t,tt,t0,t1;
   t0.SetIdentity();

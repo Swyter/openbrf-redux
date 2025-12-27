@@ -106,7 +106,7 @@ bool MainWindow::maybeSave()
 	if (isModified) {
 
 		QMessageBox::StandardButton ret;
-		ret = QMessageBox::warning(this, tr("OpenBrf"),
+		ret = QMessageBox::warning(this, tr("OpenBRF"),
 		                           tr("%1 been modified.\n"
 		                              "Save changes?").arg((editingRef)?tr("Internal reference objects have"):tr("The dataset has")),
 		                           QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
@@ -126,7 +126,7 @@ bool MainWindow::maybeSaveHitboxes()
 	if (isModifiedHitboxes) {
 
 		QMessageBox::StandardButton ret;
-		ret = QMessageBox::warning(this, "OpenBrf",
+		ret = QMessageBox::warning(this, "OpenBRF",
 		                           tr("Skeleton hitboxes have been modified.<br/>"
 		                              "Save changes in /Data/skeleton_bodies.xml?")+hitboxExplaination(),
 		                           QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
@@ -146,7 +146,7 @@ bool MainWindow::maybeSaveHitboxes()
 bool MainWindow::saveHitboxes(){
 	QString allnames;
 	int nb = (int)hitboxSet.body.size();
-	//if (nb==0) QMessageBox::war(this, "OpenBrf", tr("<br>  <br>  <b>There are no hitboxes to save?!?</b>"));
+	//if (nb==0) QMessageBox::war(this, "OpenBRF", tr("<br>  <br>  <b>There are no hitboxes to save?!?</b>"));
 	for (int i=0; i<nb; i++) {
 		BrfBody &b(hitboxSet.body[i]);
 		allnames= allnames +"<br> -  <b>"+b.name+"</b>";
@@ -158,7 +158,7 @@ bool MainWindow::saveHitboxes(){
 	if (!QFile(modPath()+"/Data").exists()) {
 		QDir q(modPath());
 		if (!q.mkdir("/Data")) {
-			QMessageBox::warning(this,"OpenBrf",tr("Error: could not make missing folder 'Data' in module folder:\n %1").arg(modPath()));
+			QMessageBox::warning(this,"OpenBRF",tr("Error: could not make missing folder 'Data' in module folder:\n %1").arg(modPath()));
 			return false;
 		}
 	}
@@ -171,7 +171,7 @@ bool MainWindow::saveHitboxes(){
 		backupFn = QString(modPath()+"/Data/backup%1_skeleton_bodies_.xml").arg(backupN);
 	} while (QFile(backupFn).exists());
 	QMessageBox::StandardButton ret;
-	ret = QMessageBox::question(this, "OpenBrf",
+	ret = QMessageBox::question(this, "OpenBRF",
 	                            tr("There are %1 sets of hitboxes, for skeletons:").arg(nb)
 	                            +allnames
 	                            +tr("<br /><br />Save them inside %2?").arg(fn)
@@ -188,7 +188,7 @@ bool MainWindow::saveHitboxes(){
 	int res = hitboxSet.SaveHitBoxesToXml(lastSkeletonBodiesXmlPath.toUtf8().data(), fn.toUtf8().data());
 
 	if (res!=1) {
-		QMessageBox::warning(this,"OpenBrf",
+		QMessageBox::warning(this,"OpenBRF",
 		                     tr("Error saving hitbox data:\n\n%1\n\n").arg(BrfData::LastHitBoxesLoadSaveError())
 		                     );
 		return false;
@@ -196,7 +196,7 @@ bool MainWindow::saveHitboxes(){
 	lastSkeletonBodiesXmlPath = fn;
 	setModifiedHitboxes(false);
 
-	QMessageBox::information(this,"OpenBrf",
+	QMessageBox::information(this,"OpenBRF",
 	                         tr("Saved hitboxes (with the other metadata) for %1 skeletons inside\nfile %2\n\n").arg(nb).arg(fn)
 	                         );
 
@@ -991,10 +991,10 @@ bool MainWindow::setEditingRef(bool mode){
 	editingRef = mode;
 	if (editingRef) {
 		editRefAct->setText(tr("Stop editing reference data"));
-		editRefAct->setStatusTip(tr("Stop editing \"reference\" skeletons, animations & meshes, that OpenBrf uses to display data."));
+		editRefAct->setStatusTip(tr("Stop editing \"reference\" skeletons, animations & meshes, that OpenBRF uses to display data."));
 	} else {
 		editRefAct->setText(tr("Edit reference data"));
-		editRefAct->setStatusTip(tr("Edit \"reference\" skeletons, animations & meshes, that OpenBrf uses to display data."));
+		editRefAct->setStatusTip(tr("Edit \"reference\" skeletons, animations & meshes, that OpenBRF uses to display data."));
 	}
 	glWidget->setEditingRef(mode);
 	return true;
@@ -1409,7 +1409,7 @@ void MainWindow::meshSubdivideIntoComponents(){
 		m.SubdivideIntoConnectedComponents(res);
 		if (res.size()>10) {
 			if (QMessageBox::warning(
-			      this, tr("OpenBrf"),
+			      this, tr("OpenBRF"),
 			      tr("Mesh %1 will be \nsplit in %2 sub-meshes!.\n\nProceed?").arg(m.name).arg(res.size()),
 			      QMessageBox::Yes | QMessageBox::No ) == QMessageBox::No )
 				break;
@@ -1466,7 +1466,7 @@ void MainWindow::objectMergeSelected(vector<BrfType> &v){
 		} else {
 			if (!res.Merge( v[j] )) {
 				QMessageBox::information(this,
-				                         "OpenBrf",
+				                         "OpenBRF",
 				                         tr("Cannot merge these meshes\n (different number of frames,\n or skinned VS not skinned).\n")
 				                         );
 				return;
@@ -1711,7 +1711,7 @@ void MainWindow::optionFeminizationUseCustom(){
 	if (!ok){
         qDebug("%s", (QString("PATH = ")+QCoreApplication::applicationDirPath()).toUtf8().data() );
 
-		QMessageBox::warning(this, tr("OpenBrf"),
+		QMessageBox::warning(this, tr("OpenBRF"),
 		                     QString(
 		                       "Failed to load a custom feminizer mesh-morpher!\n"
 		                       "using built-in feminizer morpher instead\n\n"
@@ -1735,7 +1735,7 @@ void MainWindow::optionFeminizationUseDefault(){
 		if (femininizer.Load(r.data())) ok = true;
 	}
 	if (!ok){
-		QMessageBox::warning(this, tr("OpenBrf"),
+		QMessageBox::warning(this, tr("OpenBRF"),
 		                     QString("Internal mysterious error on loading built-in femininizer morpher")
 		                     );
 	}
@@ -2202,7 +2202,7 @@ void MainWindow::aniMerge(){
 		else {
 			BrfAnimation tmp = res;
 			if (!res.Merge(tmp,brfdata.animation[j])) {
-				QMessageBox::information(this,"OpenBrf",
+				QMessageBox::information(this,"OpenBRF",
 
 
 										 tr("Cannot merge these animations\n (different number of bones).\n")
@@ -2231,7 +2231,7 @@ void MainWindow::meshAniMerge(){
 			res = brfdata.mesh[i]; first = 0;
 		} else {
 			if (!res.AddAllFrames(brfdata.mesh[i])) {
-				QMessageBox::information(this,"OpenBrf",
+				QMessageBox::information(this,"OpenBRF",
 				                         tr("Cannot merge these meshes\n (different number of vertices, faces, points...).\n")
 				                         );
 				return;
@@ -2921,7 +2921,7 @@ void MainWindow::renameSel(){
 		if (n==1) {
 			newPrefix = QInputDialog::getText(
 			      this,
-			      tr("OpenBrf"),
+			      tr("OpenBRF"),
 			      tr("Renaming %1...\nnew name:").arg(IniData::tokenFullName(t)),
 			      QLineEdit::Normal,
 			      QString(commonPrefix), &ok
@@ -2933,7 +2933,7 @@ void MainWindow::renameSel(){
 			int ps = commonPrefix.size();
 			newPrefix = QInputDialog::getText(
 			      this,
-			      tr("OpenBrf"),
+			      tr("OpenBRF"),
 			      tr("%3 common prefix for %1 %2...\nnew prefix:").arg(n).arg(IniData::tokenPlurName(t)).arg((ps)?tr("Changing the"):tr("Adding a")),
 			      QLineEdit::Normal,
 			      commonPrefix, &ok
@@ -3021,13 +3021,13 @@ QString MainWindow::senderText()const{
 void MainWindow::editCopyHitbox(){
 	BrfSkeleton &s(getUniqueSelected<BrfSkeleton>());
 	if (!&s) {
-		QMessageBox::information(this,"OpenBrf",tr("%1: Select one skeleton with a hitbox first").arg(senderText()));
+		QMessageBox::information(this,"OpenBRF",tr("%1: Select one skeleton with a hitbox first").arg(senderText()));
 		return;
 	}
 
 	BrfBody *b= hitboxSet.FindBody(s.name);
 	if (!b){
-		QMessageBox::information(this,"OpenBrf",tr("%1: skeleton %2 has no kwown hitbox to copy").arg(senderText()).arg(s.name));
+		QMessageBox::information(this,"OpenBRF",tr("%1: skeleton %2 has no kwown hitbox to copy").arg(senderText()).arg(s.name));
 		return;
 	}
 
@@ -3042,7 +3042,7 @@ void MainWindow::editCopyHitbox(){
 void MainWindow::editPasteHitbox(){
 	BrfSkeleton &s2(getUniqueSelected<BrfSkeleton>());
 	if (!&s2) {
-		QMessageBox::information(this,"OpenBrf",tr("%1: Select one skeleton with a hitbox first").arg(senderText()));
+		QMessageBox::information(this,"OpenBRF",tr("%1: Select one skeleton with a hitbox first").arg(senderText()));
 		return;
 	}
 
@@ -3074,7 +3074,7 @@ void MainWindow::editPasteHitbox(){
 
 
 	} else {
-		QMessageBox::information(this,"OpenBrf",
+		QMessageBox::information(this,"OpenBRF",
 		                         tr("Cannot paste hitboxes: I don't have a hitboxes plus skeleton in clipboard")
 		                         );
 		return;
@@ -3192,7 +3192,7 @@ bool MainWindow::createScenePropText(){
 		filename.remove(0,k+1);
 		QString res = QString("# from '%1': begin (OpenBRF)\n%2# from '%1': end (OpenBRF)\n").arg(filename).arg(txt);
 		QApplication::clipboard()->setText(res);
-		QMessageBox::information(this,"OpenBrf",tr("Copied prop code for %1 objects\n(%2 with matching collison mesh)\non the clipboard.\n\nPaste at will!").arg(n1).arg(n2) );
+		QMessageBox::information(this,"OpenBRF",tr("Copied prop code for %1 objects\n(%2 with matching collison mesh)\non the clipboard.\n\nPaste at will!").arg(n1).arg(n2) );
 		return true;
 	}
 	statusBar()->showMessage(tr("No prop mesh found"));
@@ -3575,7 +3575,7 @@ void MainWindow::editPasteMod(){
 
 	if (clipboard.mesh.size()!=1 || clipboard.mesh[0].frame.size()!=2
 	    || t!=MESH || max <1 ) {
-		QMessageBox::information(this,tr("OpenBrf"),tr("To use paste modification mesh: first"
+		QMessageBox::information(this,tr("OpenBRF"),tr("To use paste modification mesh: first"
 		                                               "copy a 2 frames mesh. Then, select one or more destination meshes, and \"paste modification\""
 		                                               "any vertex in any frame of the destination mesh that are in the same pos of frame 0,"
 		                                               "will be moved on the position of frame 1."));
@@ -3694,7 +3694,7 @@ bool MainWindow::maybeWarnIfVertexAniTooBig(const BrfMesh &m, const BrfAnimation
 	int totPos = posXframe*a.frame.size();
 	float totMB = (totPos*24)/(1024.0f*1024.0f);
 	if (totMB>5.0) {
-		int answ = QMessageBox::warning(this, "OpenBrf",tr("This will produce a vertex ani\nwith %1x%2 xyz positions+normals (%4 MB).\n\nProceed?")
+		int answ = QMessageBox::warning(this, "OpenBRF",tr("This will produce a vertex ani\nwith %1x%2 xyz positions+normals (%4 MB).\n\nProceed?")
 			.arg(posXframe).arg(a.frame.size()).arg(totMB,4),
 		   QMessageBox::Yes|QMessageBox::Cancel,QMessageBox::Yes
 		);
@@ -3888,7 +3888,7 @@ bool MainWindow::makeMeshSkinned(BrfMesh &m, bool sayNotSkinned,  bool askUserAg
 		CarryPosition &cp(carryPositionSet[carryPosIndex]);
 		if (cp.needExtraTrasl) {
 			if (!guiPanel->ui->rulerSpin->isVisible()) {
-				int answ = QMessageBox::warning(this, "OpenBrf",tr("To apply carry position '%1', I need to know the weapon length.\nUse the ruler tool to tell me the length of weapon '%2'.\n\nActivate ruler tool?")
+				int answ = QMessageBox::warning(this, "OpenBRF",tr("To apply carry position '%1', I need to know the weapon length.\nUse the ruler tool to tell me the length of weapon '%2'.\n\nActivate ruler tool?")
 				   .arg(cp.name).arg(m.name),
 				   QMessageBox::Yes|QMessageBox::Cancel,QMessageBox::Yes
 				);
@@ -4100,7 +4100,7 @@ void MainWindow::setLanguage(int k){
 		// quit and restart
 		qApp->exit(101);
 
-		//QMessageBox::information(this,"OpenBrf",tr("Language changed:\nRerun OpenBrf for changes to take place"));
+		//QMessageBox::information(this,"OpenBRF",tr("Language changed:\nRerun OpenBRF for changes to take place"));
 	}
 	for (int i=0; i<6; i++) optionLanguage[i]->setChecked(i==k);
 	curLanguage = k;
@@ -5388,7 +5388,7 @@ bool MainWindow::refreshSkeletonBodiesXml(){
 	if (res==-1) return false; // file not found: fail silently
 
 	// problem with file: give a warning
-	QMessageBox::warning(this, tr("OpenBrf"), QString("Error loading skeleton hitbox: ")
+	QMessageBox::warning(this, tr("OpenBRF"), QString("Error loading skeleton hitbox: ")
 	                     +BrfData::LastHitBoxesLoadSaveError() );
 
 	return false;

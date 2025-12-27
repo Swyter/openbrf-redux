@@ -144,7 +144,7 @@ AskModErrorDialog::AskModErrorDialog(QWidget *parent, IniData &i,bool search, QS
   searchToken = -1;
   maxErr = 10;
 
-  setWindowTitle(tr("OpenBrf -- Module %1").arg(i.name()));
+  setWindowTitle(tr("OpenBRF -- Module %1").arg(i.name()));
   if (search) {
 
     resize(510, 250);

@@ -26,7 +26,7 @@ IDI_ICON1               ICON    DISCARDABLE     "openBrf.ico"
             VALUE   "ProductVersion", STRINGIFY(QMAKE_BUILD_YEA) "." STRINGIFY(QMAKE_BUILD_MON) "." STRINGIFY(QMAKE_BUILD_DAY)
             VALUE     "InternalName", "OpenBRF Redux"
             VALUE   "LegalCopyright", "Given under the GNU General Public License"
-            VALUE "OriginalFilename", "OpenBrf.exe"
+            VALUE "OriginalFilename", "OpenBRF.exe"
             VALUE      "ProductName", "OpenBRF Redux"
         END
     END

@@ -43,7 +43,7 @@ void MainWindow::about()
   /*
   QDialog msg(this);
   QBoxLayout l(QBoxLayout::LeftToRight);
-  msg.setWindowTitle("OpenBrf");
+  msg.setWindowTitle("OpenBRF");
   msg.setLayout(&l);
   QPixmap p = QIcon(":/openBrf.ico").pixmap(256,256);
   QLabel logo;
@@ -51,11 +51,11 @@ void MainWindow::about()
   msg.layout()->addWidget(&logo);
   QLabel lab(*/
 
- QMessageBox msg(QMessageBox::Information,"OpenBrf",
+ QMessageBox msg(QMessageBox::Information,"OpenBRF",
   //QMessageBox::about(this, ("Open-Brf"),
               QString(tr(
                "<p>"
-               "&nbsp; &nbsp; <b>OpenBrf</b> | <i>Redux</i><br>"
+               "&nbsp; &nbsp; <b>OpenBRF</b> | <i>Redux</i><br>"
                "&nbsp; &nbsp; by <b>%2</b></p><p>"
                "&nbsp; &nbsp; <b>ver %6</b><br>"
                "&nbsp; &nbsp; (%1 %7)<br></p>"
@@ -127,10 +127,10 @@ void MainWindow::optionAutoFixTextureShowInfo(){
 }
 
 bool MainWindow::askIfUseOpenGL2(bool e){
-    if (e) QMessageBox::information(this,"OpenBrf",tr("Activating preview Shaders\n(can be disabled under Settings)"));
+    if (e) QMessageBox::information(this,"OpenBRF",tr("Activating preview Shaders\n(can be disabled under Settings)"));
 	return true;
 	/*
- return (QMessageBox::question(this,"OpenBrf",tr(
+ return (QMessageBox::question(this,"OpenBRF",tr(
     "<b>Activate OpenGL2.0?</b>"
     "<p>OpenGL2.0 is needed to preview<br>"
     "bumpmaps, \"iron\" shader, specular maps...<br>"
@@ -157,7 +157,7 @@ void MainWindow::aboutColorAssignment(){
 	  .arg(selector->meshRecolorAct->text())
 	 ); */
 
-	QMessageBox::information(this,"OpenBrf", info );
+	QMessageBox::information(this,"OpenBRF", info );
 }
 
 void MainWindow::aboutCurrentShader(){
@@ -174,7 +174,7 @@ void MainWindow::aboutCurrentShader(){
 		"<p><br /><i>Shader status:</i><br />%2</p>"
 	).arg(glWidget->getCurrentShaderDescriptor()).arg(log);
 
-	QMessageBox::about(this,tr("OpenBrf - Preview Shader info"),text+extraText);
+	QMessageBox::about(this,tr("OpenBRF - Preview Shader info"),text+extraText);
 	if (errors)
 	QApplication::clipboard()->setText(
 		text.replace("<br />","\n").replace("<p>","\n").replace("</p>","\n").replace("<i>","").replace("</i>","")
@@ -232,7 +232,7 @@ void MainWindow::aboutCheckboard(){
     ingame=false;
   }
   //if (t!=0)
-	QMessageBox::about(this, "OpenBrf",
+	QMessageBox::about(this, "OpenBRF",
      QString(tr("<i>I could not display the real texture because:</i><br><b>%1</b><br><br>%2<br><br><b>Cure: </b>%3")).arg(mot).arg(longmot).arg(cure));
 }
 
