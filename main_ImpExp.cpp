@@ -136,7 +136,7 @@ bool MainWindow::exportMeshGroup(){
   if (!IoOBJ::open(f,fn)) {
 
     QMessageBox::information(this,
-      tr("Open Brf"),
+      tr("OpenBRF"),
       tr("Cannot open file for writing;")
     );
     return false;
@@ -168,7 +168,7 @@ bool MainWindow::exportMeshGroupManyFiles(){
     QString fn = QString("%1/%2.obj").arg(dir,m.name);
     if (!IoOBJ::open(f,fn)) {
       QMessageBox::information(this,
-        tr("Open Brf"),
+        tr("OpenBRF"),
         tr("Cannot open file %1 for writing;").arg(fn)
       );
       return false;
@@ -188,7 +188,7 @@ bool MainWindow::exportSkinnedMesh(){
   const BrfSkeleton* s = currentDisplaySkeleton();
   if (!s) {
     QMessageBox::information(this,
-      tr("Open Brf"),
+      tr("OpenBRF"),
       tr("Cannot export animation without a proper skeleton!\n")
     );
     return false;
@@ -213,7 +213,7 @@ bool MainWindow::exportSkinnedMesh(){
 
   if (res) {
     QMessageBox::information(this,
-      tr("Open Brf"),
+      tr("OpenBRF"),
       tr("Cannot export skinned mesh:\n %1\n").arg( errorSt  )
     );
     return false;
@@ -235,7 +235,7 @@ bool MainWindow::exportSkeletonAndSkin(){
     s = currentDisplaySkeleton();
     if (!s) {
       QMessageBox::information(this,
-        tr("Open Brf"),
+        tr("OpenBRF"),
         tr("Cannot export animation without a proper skeleton!\n")
       );
       return false;
@@ -266,7 +266,7 @@ bool MainWindow::exportSkeletonAndSkin(){
   }
   if (res) {
     QMessageBox::information(this,
-      tr("Open Brf"),
+      tr("OpenBRF"),
       tr("Cannot export rest-pose:\n %1\n").arg( ioSMD::LastErrorString() )
     );
     return false;
@@ -283,7 +283,7 @@ bool MainWindow::exportAnimation(){
   BrfSkeleton const *s = currentDisplaySkeleton();
   if (!s) {
     QMessageBox::information(this,
-      tr("Open Brf"),
+      tr("OpenBRF"),
       tr("Cannot export animation without a proper skeleton!\n")
     );
     return false;
@@ -295,7 +295,7 @@ bool MainWindow::exportAnimation(){
   int res = ioSMD::Export(fn.toUtf8().data(), a, *s);
   if (res) {
     QMessageBox::information(this,
-      tr("Open Brf"),
+      tr("OpenBRF"),
       tr("Cannot export animation:\n %1\n").arg( ioSMD::LastErrorString() )
     );
     return false;
@@ -335,7 +335,7 @@ bool MainWindow::exportSkeleton(){
   }
   if (res) {
     QMessageBox::information(this,
-      tr("Open Brf"),
+      tr("OpenBRF"),
       tr("Cannot export skeleton:\n %1\n").arg( ioSMD::LastErrorString() )
     );
     return false;
@@ -355,7 +355,7 @@ bool MainWindow::exportSkeletonMod(){
   VcgMesh::add(brfdata.skeleton[ i ]);
   if (!VcgMesh::save(fn.toUtf8().data())){
     QMessageBox::information(this,
-      tr("Open Brf"),
+      tr("OpenBRF"),
       tr("Cannot export control mesh in file \n\"%1\"\n\n").arg(fn)
     );
     return false;
@@ -385,14 +385,14 @@ bool MainWindow::importSkeletonMod(){
   BrfSkeleton s = brfdata.skeleton[i];
   if (!VcgMesh::load(fn.toUtf8().data())) {
     QMessageBox::information(this,
-      tr("Open Brf"),
+      tr("OpenBRF"),
       tr("Cannot read mesh!")
     );
     return false;
   }
   if (!VcgMesh::modifyBrfSkeleton(s)) {
     QMessageBox::information(this,
-      tr("Open Brf"),
+      tr("OpenBRF"),
       tr("Modification of skeleton with mesh: fail!")
     );
     return false;
@@ -425,7 +425,7 @@ bool MainWindow::exportBodyGroupManyFiles(){
     QString fn = QString("%1/%2.obj").arg(dir,m.name);
     if (!brfdata.body[i].ExportOBJ(fn.toUtf8().data())){
       QMessageBox::information(this,
-        tr("Open Brf"),
+        tr("OpenBRF"),
         tr("Cannot open file %1 for writing;").arg(fn)
       );
       return false;
@@ -446,7 +446,7 @@ bool MainWindow::exportCollisionBody(){
   if (fn.isEmpty()) return false;
   if (!brfdata.body[i].ExportOBJ(fn.toUtf8().data())){
     QMessageBox::information(this,
-      tr("Open Brf"),
+      tr("OpenBRF"),
       tr("Cannot write file?")
     );
     return false;
@@ -468,7 +468,7 @@ bool MainWindow::exportMovingMesh(){
   } else {
 	if (!IoMD::Export(fn.toUtf8().data(),brfdata.mesh[i])){
 		QMessageBox::information(this,
-		tr("Open Brf"),
+		tr("OpenBRF"),
 		tr("Error exporting MD3 file\n: %1").arg(QString::fromUtf8(IoMD::LastErrorString()))
 		);
 		return false;
@@ -650,7 +650,7 @@ bool MainWindow::importBrf(){
 
     if (!tmp.Load(fn[i].toUtf8().data(),0)) {
       QMessageBox::information(this,
-        tr("Open Brf"),
+        tr("OpenBRF"),
         tr("Cannot import file %1\n\n")
       );
       return false;
@@ -676,7 +676,7 @@ bool MainWindow::_importCollisionBody(bool reimportExisting){
     BrfBody b;
 
     if (!b.ImportOBJ(fn[i].toUtf8().data())) {
-      QMessageBox::information(this, tr("Open Brf"),
+      QMessageBox::information(this, tr("OpenBRF"),
         tr("Cannot import file %1\n").arg(fn[i])
       );
       continue;
@@ -739,7 +739,7 @@ bool MainWindow::_importStaticMesh(QString s, std::vector<BrfMesh> &mV, std::vec
 			BrfSkeleton tmp;
 			if (ioSMD::Import(fn.toUtf8().data(), m, tmp)!=0) {
 				QMessageBox::information(this,
-          tr("Open Brf"),
+          tr("OpenBRF"),
 				  tr("Cannot import file %1:\n%2\n").arg(fn).arg(ioSMD::LastErrorString())
         );
 			}
@@ -747,7 +747,7 @@ bool MainWindow::_importStaticMesh(QString s, std::vector<BrfMesh> &mV, std::vec
     else if (QFileInfo(fn).suffix().toLower()== "obj") {
       if (!m.LoadOBJ( fn.toUtf8().data() )) {
         QMessageBox::information(this,
-          tr("Open Brf"),
+          tr("OpenBRF"),
 				  tr("Cannot import file %1\n").arg(fn)
         );
         continue;
@@ -757,7 +757,7 @@ bool MainWindow::_importStaticMesh(QString s, std::vector<BrfMesh> &mV, std::vec
       wasMultipleMatV[j] = false;
       if (!VcgMesh::load(fn.toUtf8().data())) {
         QMessageBox::information(this,
-          tr("Open Brf"),
+          tr("OpenBRF"),
           tr("Cannot import file %1\n\n"
              "(error: %2)").arg(fn).arg(VcgMesh::lastErrString()
           )
@@ -799,7 +799,7 @@ bool MainWindow::importMovingMesh(){
   bool ok=false;
   ok = IoMD::Import(fn.toUtf8().data(),tmp);
   if (!ok) {
-    QMessageBox::information(this, tr("Open Brf"),
+    QMessageBox::information(this, tr("OpenBRF"),
      tr("Cannot import file %1:\n%3\n").arg(fn)
      .arg(QString::fromUtf8(IoMD::LastErrorString()))
     );
@@ -892,7 +892,7 @@ bool MainWindow::importSkinnedMesh(){
       ok = ioSMD::Import(fnList[j].toUtf8().data(), m[0], s)==0;
 			if (!(m[0].face.size())) {
 				QMessageBox::information(this,
-					tr("Open Brf"),
+					tr("OpenBRF"),
 					tr("No mesh found in %1\n").arg(fnList[j])
 				);
 				continue;
@@ -909,7 +909,7 @@ bool MainWindow::importSkinnedMesh(){
 
     if (!ok) {
       QMessageBox::information(this,
-        tr("Open Brf"),
+        tr("OpenBRF"),
         tr("Cannot import mesh %2:\n%1\n").arg( resst ).arg(fnList[j])
       );
       continue;
@@ -928,7 +928,7 @@ bool MainWindow::importSkinnedMesh(){
     total+=m.size();
     if (warning) {
       QMessageBox::information(this,
-        tr("Open Brf"),
+        tr("OpenBRF"),
         tr("%1\n").arg( ioSMD::LastWarningString() )
       );
     }
@@ -1012,7 +1012,7 @@ bool MainWindow::_importAnimation(bool reimportExisting){
 		int res = ioSMD::Import(fn.toUtf8().data(), a, s);
 		if (res!=0) {
 			 QMessageBox::information(this,
-				tr("Open Brf"),
+				tr("OpenBRF"),
 				tr("Cannot import animation:\n %1\n").arg( ioSMD::LastErrorString() )
 			);
 			return false;
@@ -1072,7 +1072,7 @@ bool MainWindow::importSkeleton(){
 
   if (!ok) {
     QMessageBox::information(this,
-      tr("Open Brf"),
+      tr("OpenBRF"),
       tr("Cannot import skeleton:\n%1\n").arg( resst )
     );
     return false;

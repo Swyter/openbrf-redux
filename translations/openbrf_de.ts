@@ -2094,8 +2094,8 @@ p, li { white-space: pre-wrap; }
         <location filename="../main_ImpExp.cpp" line="931"/>
         <location filename="../main_ImpExp.cpp" line="1015"/>
         <location filename="../main_ImpExp.cpp" line="1075"/>
-        <source>Open Brf</source>
-        <translation>Öffne Brf</translation>
+        <source>OpenBRF</source>
+        <translation>OpenBRF</translation>
     </message>
     <message>
         <location filename="../main_ImpExp.cpp" line="140"/>
@@ -4773,7 +4773,7 @@ in Zeile %3:
 </translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="898"/>
+        <location filename="../iniData.cpp" line="903"/>
         <source>%6 &lt;a href=&quot;#%1.%2.%3&quot;&gt;%4&lt;/a&gt; (in %5)</source>
         <translation>%6 &lt;a href=&quot;#%1.%2.%3&quot;&gt;%4&lt;/a&gt; (in %5)</translation>
     </message>
@@ -4782,82 +4782,82 @@ in Zeile %3:
         <translation type="obsolete">&lt;b&gt;Datei nicht gefunden:&lt;/b&gt; Kann Texturdatei für %1 nicht finden.</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="913"/>
+        <location filename="../iniData.cpp" line="918"/>
         <source>&lt;b&gt;File-not-found:&lt;/b&gt; can&apos;t find image file for %1.</source>
         <translation>&lt;b&gt;Datei nicht gefunden:&lt;/b&gt; Kann kein Bild für %1 finden.</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="918"/>
+        <location filename="../iniData.cpp" line="923"/>
         <source>&lt;b&gt;File-not-found:&lt;/b&gt; can&apos;t find frame &quot;%2&quot; for %1.</source>
         <translation>&lt;b&gt;Datei nicht gefunden:&lt;/b&gt; Kann keinen Frame &quot;%2&quot; für %1 finden.</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="939"/>
+        <location filename="../iniData.cpp" line="944"/>
         <source>&lt;b&gt;Duplicate:&lt;/b&gt; %1 was already defined in file %2</source>
         <translation type="unfinished">&lt;b&gt;Duplikat:&lt;/b&gt; %1 wurde schon in Datei %2 definiert</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="966"/>
+        <location filename="../iniData.cpp" line="971"/>
         <source>&lt;b&gt;Missing:&lt;/b&gt; %1 uses unknown %2 &lt;u&gt;%3&lt;/u&gt;</source>
         <translation>&lt;b&gt;Fehlend:&lt;/b&gt; %1 Nutzt unbekanntes %2 &lt;u&gt;%3&lt;/u&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="972"/>
+        <location filename="../iniData.cpp" line="977"/>
         <source>&lt;b&gt;Ordering problem:&lt;/b&gt; %1 uses %2, which appears later in &lt;i&gt;module.ini&lt;/i&gt;</source>
         <translation>&lt;b&gt;Anordnungsproblem:&lt;/b&gt; %1 Verwendet %2, welches später hier auftaucht &lt;i&gt;module.ini&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1004"/>
+        <location filename="../iniData.cpp" line="1009"/>
         <source>&lt;h1&gt;Module &lt;b&gt;%1&lt;/b&gt;&lt;/h1&gt;</source>
         <translation>&lt;h1&gt;Modul &lt;b&gt;%1&lt;/b&gt;&lt;/h1&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1010"/>
+        <location filename="../iniData.cpp" line="1015"/>
         <source>&lt;h2&gt;Original BRF files: %1&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;Original BRF-Dateien: %1&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1012"/>
+        <location filename="../iniData.cpp" line="1017"/>
         <source>&lt;h2&gt;CommonRes BRF files: %1&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;CommonRes BRF-Dateien: %1&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1020"/>
+        <location filename="../iniData.cpp" line="1025"/>
         <source>&lt;i&gt;(used+unused)&lt;/i&gt;</source>
         <translation>&lt;i&gt;(benutzt+unbenutzt)&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1021"/>
+        <location filename="../iniData.cpp" line="1026"/>
         <source>&lt;br&gt;</source>
         <translation>&lt;br&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1027"/>
+        <location filename="../iniData.cpp" line="1032"/>
         <source>&lt;h2&gt;Txt data:&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;Txt Daten:&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1190"/>
+        <location filename="../iniData.cpp" line="1195"/>
         <source>&lt;i&gt;more errors to follow...&lt;/i&gt;</source>
         <translation type="unfinished">&lt;i&gt;Weitere Störungen folgen...&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1212"/>
+        <location filename="../iniData.cpp" line="1217"/>
         <source>&lt;i&gt;[0 results]&lt;/i&gt;</source>
         <translation type="unfinished">&lt;i&gt;[0 Ergebnisse]&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1546"/>
+        <location filename="../iniData.cpp" line="1551"/>
         <source>&lt;b&gt;Missing in txt:&lt;/b&gt; cannot find %1 &lt;u&gt;%2&lt;/u&gt;, referred in &apos;%3&apos;</source>
         <translation>&lt;b&gt;Fehlt in txt:&lt;/b&gt; Kann %1 nicht finden&lt;u&gt;%2&lt;/u&gt;, bezeichnet in &apos;%3&apos;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1646"/>
+        <location filename="../iniData.cpp" line="1651"/>
         <source>&lt;b&gt;File-Not-Found:&lt;/b&gt; could not read BRF file &lt;u&gt;%1&lt;/u&gt;, listed in module.ini file</source>
         <translation>&lt;b&gt;Datei-Nicht-Gefunden:&lt;/b&gt; Kann BRF-Datei nicht lesen &lt;u&gt;%1&lt;/u&gt;, aufgelistet in der module.ini Datei</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1649"/>
+        <location filename="../iniData.cpp" line="1654"/>
         <source>&lt;b&gt;File-Format Error:&lt;/b&gt; could not read BRF file &lt;u&gt;%1&lt;/u&gt;</source>
         <translation>&lt;b&gt;Datei-Formatfehler:&lt;/b&gt; Konnte die BRF-Datei nicht lesen &lt;u&gt;%1&lt;/u&gt;</translation>
     </message>

@@ -2372,7 +2372,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../main_ImpExp.cpp" line="931"/>
         <location filename="../main_ImpExp.cpp" line="1015"/>
         <location filename="../main_ImpExp.cpp" line="1075"/>
-        <source>Open Brf</source>
+        <source>OpenBRF</source>
         <translation></translation>
     </message>
     <message>
@@ -5436,17 +5436,17 @@ at line %3:
         <translation>&apos;%3&apos;中的%1 %2 &lt;font size=-1&gt;(&apos;%4&apos;, &apos;%5&apos;, &apos;%6&apos;...)&lt;/font&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="898"/>
+        <location filename="../iniData.cpp" line="903"/>
         <source>%6 &lt;a href=&quot;#%1.%2.%3&quot;&gt;%4&lt;/a&gt; (in %5)</source>
         <translation>%6 &lt;a href=&quot;#%1.%2.%3&quot;&gt;%4&lt;/a&gt; (在 %5 中)</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="913"/>
+        <location filename="../iniData.cpp" line="918"/>
         <source>&lt;b&gt;File-not-found:&lt;/b&gt; can&apos;t find image file for %1.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="918"/>
+        <location filename="../iniData.cpp" line="923"/>
         <source>&lt;b&gt;File-not-found:&lt;/b&gt; can&apos;t find frame &quot;%2&quot; for %1.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5455,57 +5455,57 @@ at line %3:
         <translation type="obsolete">&lt;b&gt;文件未找到:&lt;/b&gt; 无法打开%1的纹理文件。</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="966"/>
+        <location filename="../iniData.cpp" line="971"/>
         <source>&lt;b&gt;Missing:&lt;/b&gt; %1 uses unknown %2 &lt;u&gt;%3&lt;/u&gt;</source>
         <translation>&lt;b&gt;丢失:&lt;/b&gt; %1使用了无法识别的%2 &lt;u&gt;%3&lt;/u&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="972"/>
+        <location filename="../iniData.cpp" line="977"/>
         <source>&lt;b&gt;Ordering problem:&lt;/b&gt; %1 uses %2, which appears later in &lt;i&gt;module.ini&lt;/i&gt;</source>
         <translation>&lt;b&gt;顺序问题:&lt;/b&gt; %1引用了在&lt;i&gt;module.ini&lt;/i&gt;中后出现的%2</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1004"/>
+        <location filename="../iniData.cpp" line="1009"/>
         <source>&lt;h1&gt;Module &lt;b&gt;%1&lt;/b&gt;&lt;/h1&gt;</source>
         <translation>&lt;h1&gt;模组 &lt;b&gt;%1&lt;/b&gt;&lt;/h1&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1010"/>
+        <location filename="../iniData.cpp" line="1015"/>
         <source>&lt;h2&gt;Original BRF files: %1&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;独有BRF文件: %1&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1012"/>
+        <location filename="../iniData.cpp" line="1017"/>
         <source>&lt;h2&gt;CommonRes BRF files: %1&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;CommonRes BRF 文件: %1&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1020"/>
+        <location filename="../iniData.cpp" line="1025"/>
         <source>&lt;i&gt;(used+unused)&lt;/i&gt;</source>
         <translation>&lt;i&gt;(使用+未使用)&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1021"/>
+        <location filename="../iniData.cpp" line="1026"/>
         <source>&lt;br&gt;</source>
         <translation>&lt;br&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1027"/>
+        <location filename="../iniData.cpp" line="1032"/>
         <source>&lt;h2&gt;Txt data:&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;Txt 数据:&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1190"/>
+        <location filename="../iniData.cpp" line="1195"/>
         <source>&lt;i&gt;more errors to follow...&lt;/i&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1212"/>
+        <location filename="../iniData.cpp" line="1217"/>
         <source>&lt;i&gt;[0 results]&lt;/i&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1546"/>
+        <location filename="../iniData.cpp" line="1551"/>
         <source>&lt;b&gt;Missing in txt:&lt;/b&gt; cannot find %1 &lt;u&gt;%2&lt;/u&gt;, referred in &apos;%3&apos;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5514,17 +5514,17 @@ at line %3:
         <translation type="obsolete">&lt;b&gt;txt中有缺失文件:&lt;/b&gt;无法找到&apos;%3&apos;所声明的 %1 &lt;u&gt;%2&lt;/u&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="939"/>
+        <location filename="../iniData.cpp" line="944"/>
         <source>&lt;b&gt;Duplicate:&lt;/b&gt; %1 was already defined in file %2</source>
         <translation type="unfinished">&lt;b&gt;重复:&lt;/b&gt; %1已在%2文件中出现过</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1646"/>
+        <location filename="../iniData.cpp" line="1651"/>
         <source>&lt;b&gt;File-Not-Found:&lt;/b&gt; could not read BRF file &lt;u&gt;%1&lt;/u&gt;, listed in module.ini file</source>
         <translation>&lt;b&gt;文件未找到:&lt;/b&gt; 无法读取module.ini中列出的BRF文件 &lt;u&gt;%1&lt;/u&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1649"/>
+        <location filename="../iniData.cpp" line="1654"/>
         <source>&lt;b&gt;File-Format Error:&lt;/b&gt; could not read BRF file &lt;u&gt;%1&lt;/u&gt;</source>
         <translation>&lt;b&gt;文件格式错误:&lt;/b&gt; 无法读取BRF文件 &lt;u&gt;%1&lt;/u&gt;</translation>
     </message>

@@ -2310,7 +2310,7 @@ p, li { white-space: pre-wrap; }
         <location line="+19"/>
         <location line="+84"/>
         <location line="+60"/>
-        <source>Open Brf</source>
+        <source>OpenBRF</source>
         <translation>OpenBRF | Traducido al castellano por Swyter</translation>
     </message>
     <message>
@@ -4522,8 +4522,8 @@ Escribe el nuevo aquí:</translation>
         <translation>Navegar: no se puede encontrar &quot;%1&quot; en el módulo actual</translation>
     </message>
     <message>
-        <source>Open BRF</source>
-        <translation type="obsolete">Open BRF</translation>
+        <source>OpenBRF</source>
+        <translation type="obsolete">OpenBRF</translation>
     </message>
     <message>
         <location line="-878"/>
@@ -5535,7 +5535,7 @@ en la línea %3:
 </translation>
     </message>
     <message>
-        <location line="+629"/>
+        <location line="+634"/>
         <source>%6 &lt;a href=&quot;#%1.%2.%3&quot;&gt;%4&lt;/a&gt; (in %5)</source>
         <translation>%6 &lt;a href=&quot;#%1.%2.%3&quot;&gt;%4&lt;/a&gt; (en %5)</translation>
     </message>

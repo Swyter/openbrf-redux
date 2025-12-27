@@ -1953,7 +1953,7 @@ ze</source>
         <location filename="../main_ImpExp.cpp" line="931"/>
         <location filename="../main_ImpExp.cpp" line="1015"/>
         <location filename="../main_ImpExp.cpp" line="1075"/>
-        <source>Open Brf</source>
+        <source>OpenBRF</source>
         <translation></translation>
     </message>
     <message>
@@ -4459,89 +4459,89 @@ at line %3:
 </translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="898"/>
+        <location filename="../iniData.cpp" line="903"/>
         <source>%6 &lt;a href=&quot;#%1.%2.%3&quot;&gt;%4&lt;/a&gt; (in %5)</source>
         <translatorcomment>link() が作って返す。1=i, 2=j, 3=種類コード, 4=（リンク先 見出しの）何か, 5=ショート・ファイル名, 6=種類のトークン・フルネーム</translatorcomment>
         <translation>%6 &lt;a href=&quot;#%1.%2.%3&quot;&gt;%4&lt;/a&gt; (%5 内)</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="913"/>
+        <location filename="../iniData.cpp" line="918"/>
         <source>&lt;b&gt;File-not-found:&lt;/b&gt; can&apos;t find image file for %1.</source>
         <translation>&lt;b&gt;ファイル無し:&lt;/b&gt; %1 用の画像ファイルが見つかりません。</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="918"/>
+        <location filename="../iniData.cpp" line="923"/>
         <source>&lt;b&gt;File-not-found:&lt;/b&gt; can&apos;t find frame &quot;%2&quot; for %1.</source>
         <translation>&lt;b&gt;ファイル無し:&lt;/b&gt; %1 用のフレーム &quot;%2&quot; が見つかりません。</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="939"/>
+        <location filename="../iniData.cpp" line="944"/>
         <source>&lt;b&gt;Duplicate:&lt;/b&gt; %1 was already defined in file %2</source>
         <translation>&lt;b&gt;重複:&lt;/b&gt; %1 は既にファイル %2 で定義済み</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="966"/>
+        <location filename="../iniData.cpp" line="971"/>
         <source>&lt;b&gt;Missing:&lt;/b&gt; %1 uses unknown %2 &lt;u&gt;%3&lt;/u&gt;</source>
         <translatorcomment>1=link()で作ったリンク含む文字列, 2=種類のフルネーム, 3=何かの名前</translatorcomment>
         <translation>&lt;b&gt;見つからず:&lt;/b&gt; %1 が未知の %2 &lt;u&gt;%3&lt;/u&gt; を使用</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="972"/>
+        <location filename="../iniData.cpp" line="977"/>
         <source>&lt;b&gt;Ordering problem:&lt;/b&gt; %1 uses %2, which appears later in &lt;i&gt;module.ini&lt;/i&gt;</source>
         <translation>&lt;b&gt;順序が不正:&lt;/b&gt; %1 が使う %2 が、&lt;i&gt;module.ini&lt;/i&gt; 内で後ろにある</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1004"/>
+        <location filename="../iniData.cpp" line="1009"/>
         <source>&lt;h1&gt;Module &lt;b&gt;%1&lt;/b&gt;&lt;/h1&gt;</source>
         <translation>&lt;h1&gt;モジュール &lt;b&gt;%1&lt;/b&gt;&lt;/h1&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1010"/>
+        <location filename="../iniData.cpp" line="1015"/>
         <source>&lt;h2&gt;Original BRF files: %1&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;オリジナル BRF ファイル: %1&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1012"/>
+        <location filename="../iniData.cpp" line="1017"/>
         <source>&lt;h2&gt;CommonRes BRF files: %1&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;CommonRes BRF ファイル: %1&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1020"/>
+        <location filename="../iniData.cpp" line="1025"/>
         <source>&lt;i&gt;(used+unused)&lt;/i&gt;</source>
         <translation>&lt;i&gt;(使用+不用)&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1021"/>
+        <location filename="../iniData.cpp" line="1026"/>
         <source>&lt;br&gt;</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1027"/>
+        <location filename="../iniData.cpp" line="1032"/>
         <source>&lt;h2&gt;Txt data:&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;txt データ:&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1190"/>
+        <location filename="../iniData.cpp" line="1195"/>
         <source>&lt;i&gt;more errors to follow...&lt;/i&gt;</source>
         <translation>&lt;i&gt;後続のエラーあり...&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1212"/>
+        <location filename="../iniData.cpp" line="1217"/>
         <source>&lt;i&gt;[0 results]&lt;/i&gt;</source>
         <translation>&lt;i&gt;[結果 0 件]&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1546"/>
+        <location filename="../iniData.cpp" line="1551"/>
         <source>&lt;b&gt;Missing in txt:&lt;/b&gt; cannot find %1 &lt;u&gt;%2&lt;/u&gt;, referred in &apos;%3&apos;</source>
         <translation>&lt;b&gt;txt に無い:&lt;/b&gt; &apos;%3&apos; で参照する %1 &lt;u&gt;%2&lt;/u&gt; が見つかりません</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1646"/>
+        <location filename="../iniData.cpp" line="1651"/>
         <source>&lt;b&gt;File-Not-Found:&lt;/b&gt; could not read BRF file &lt;u&gt;%1&lt;/u&gt;, listed in module.ini file</source>
         <translation>&lt;b&gt;ファイル無し:&lt;/b&gt; module.ini に書かれた brf、&lt;u&gt;%1&lt;/u&gt; が見つかりません</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1649"/>
+        <location filename="../iniData.cpp" line="1654"/>
         <source>&lt;b&gt;File-Format Error:&lt;/b&gt; could not read BRF file &lt;u&gt;%1&lt;/u&gt;</source>
         <translation>&lt;b&gt;ファイル形式エラー:&lt;/b&gt; BRF ファイル &lt;u&gt;%1&lt;/u&gt; を読めませんでした</translation>
     </message>
