@@ -30,7 +30,6 @@ VCGLIB = dependencies/vcglib # v1.0.1
     QMAKE_CXXFLAGS += -Wno-format-truncation -Wno-address -Wimplicit-fallthrough=2
 }
 
-# RC_FILE = openBrf.rc
 TARGET = openBrf
 TEMPLATE = app
 SOURCES += main.cpp \
@@ -145,10 +144,14 @@ TRANSLATIONS += $$files(translations/openbrf_*.ts)
 
 RESOURCES += resource.qrc
 RC_FILE = openBrf.rc
+
+# swy: ignore the "deprecated" fdopen warnings (C4996) on the Microsoft Visual C compiler,
+#      they insist on a _fdopen-prefixed version because they are silly: https://stackoverflow.com/a/62724041/674685
 win32 { 
     DEFINES += NOMINMAX
-    DEFINES += _CRT_SECURE_NO_DEPRECATE
+    DEFINES += _CRT_SECURE_NO_WARNINGS _CRT_SECURE_NO_DEPRECATE _CRT_NONSTDC_NO_DEPRECATE
 }
+
 INCLUDEPATH += "C:\projects\libraries\include"
 # DEFINES += GLEW_STATIC
 
