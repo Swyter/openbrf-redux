@@ -972,6 +972,11 @@ MainWindow::MainWindow(QWidget *parent):QMainWindow(parent),inidata(brfdata)
 	connect(askUvTransformDialog, SIGNAL(changed()),  this, SLOT(meshUvTransformUpdate()));
 	connect(askUvTransformDialog, SIGNAL(accepted()), this, SLOT(meshUvTransformDoIt())); /* swy: same as with the transform dialog above */
 	connect(askUvTransformDialog, SIGNAL(rejected()), this, SLOT(meshUvTransformDoIt()));
+
+	askHueSatBriDialog = new AskHueSatBriDialog(this);
+	connect(askHueSatBriDialog, SIGNAL(anySliderMoved(int,int,int,int,bool)), this, SLOT(meshTuneColorUpdate(int,int,int,int,bool)));
+	connect(askHueSatBriDialog, SIGNAL(accepted()), this, SLOT(meshTuneColorDo())); /* swy: same as with the transform dialog above */
+	connect(askHueSatBriDialog, SIGNAL(rejected()), this, SLOT(meshTuneColorDo()));
 }
 
 
@@ -2558,9 +2563,32 @@ void MainWindow::meshTuneColorCancel(bool reallyCancel){
 
 }
 
-void MainWindow::meshTuneColorDo(int c,int h,int s,int b, bool applyToLastSel){
+
+void MainWindow::meshTuneColor(){
+	/* swy: important: do a first backup of the original vertex colors */
+	meshTuneColorCancel(true);
+
+	/* swy: enable the vertex color view */
+	guiPanel->ui->rbVertexcolor->click();
+
+	/* swy: changed the original d->exec() modal dialog so that we can still use the 3D view
+			and move the camera while rescaling/translating via the AskUvTransformDialog GUI */
+	disableWhileInToolMode(true);
+
+	updateGui();
+	updateGl();
+
+	askHueSatBriDialog->setWindowFlags(Qt::Tool);
+	//askHueSatBriDialog->reset();
+	askHueSatBriDialog->show();
+}
+
+void MainWindow::meshTuneColorUpdate(int c,int h,int s,int b, bool applyToLastSel){
+	/* swy: recover the original colors every time we move the bars, and transform
+	        them from scratch. otherwise the edits would accumulate */
 	meshTuneColorCancel(false);
-	QModelIndexList list= selector->selectedList();
+
+	QModelIndexList list = selector->selectedList();
 
 	/* swy: fastforward the start index to be the last element, if the AskHueSatBriDialog::onAnySliderMove() checkbox says so */
 	int j = (!applyToLastSel) ? 0 : max<int>(list.size() - 1, 0);
@@ -2572,19 +2600,26 @@ void MainWindow::meshTuneColorDo(int c,int h,int s,int b, bool applyToLastSel){
 	updateGl();
 }
 
-void MainWindow::meshTuneColor(){
-	meshTuneColorCancel(true);
-	AskHueSatBriDialog *d = new AskHueSatBriDialog(this);
-	connect(d, SIGNAL(anySliderMoved(int,int,int,int,bool)), this, SLOT(meshTuneColorDo(int,int,int,int,bool)));
+void MainWindow::meshTuneColorDo(){
+	disableWhileInToolMode(false);
 
-	int res = d->exec();
-	if (res!=QDialog::Accepted) meshTuneColorCancel(false); else {
-		setModified();
-		guiPanel->ui->rbVertexcolor->click();
+	bool ok = askHueSatBriDialog->result() /* d->exec() */ == QDialog::Accepted; /* swy: if the user clicked the X button it will also appear as QDialog::Rejected */
+
+	if (ok) {
+		setModified(); /* swy: this comes with the repeatable = true default parameter, that sets the setNextActionAsRepeatable = true */
+		if (!executingRepeatedCommand) /* swy: FIXME: look into this; because I'm getting a headache with the Ctrl+R repeat command and undo/redo step logic and splitting the action into two unrelated functions :) */
+			undoHistoryAddAction(selector->meshTuneColorAct); /* swy: this is a way of manually triggering a fake QAction that will save the changes at that point with the right name */
+
+		onActionTriggered(selector->meshTuneColorAct); /* swy: this works in conjunction with setNextActionAsRepeatable set to true to mark the current action as repeatable, enables the Ctrl + R and the menu entry under Tools > Repeat, go figure */
+	} else {
+		/* swy: recover the original, unchanged colors; the user has discarded the edits, reset them */
+		meshTuneColorCancel(false);
 	}
+
 	updateGui();
 	updateGl();
-	delete d;
+
+	executingRepeatedCommand = false;
 }
 
 void MainWindow::meshDiscardCol(){

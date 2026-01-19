@@ -20,6 +20,7 @@
 
 class AskTransformDialog;
 class AskUvTransformDialog;
+class AskHueSatBriDialog;
 //namespace Ui
 //{
 //    class MainWindow;
@@ -76,7 +77,7 @@ private:
 
 	AskTransformDialog* askTransformDialog;
 	AskUvTransformDialog* askUvTransformDialog;
-
+	AskHueSatBriDialog* askHueSatBriDialog;
 
 private slots:
 
@@ -239,7 +240,8 @@ private slots:
 	void meshTuneColor();
 	void meshComputeAo();
 	void meshColorWithTexture();
-	void meshTuneColorDo(int,int,int,int, bool applyToLastSel);
+	void meshTuneColorUpdate(int,int,int,int, bool applyToLastSel);
+	void meshTuneColorDo();
 	void meshFemininize();
 	void meshComputeLod();
 	void meshRecomputeTangents();
