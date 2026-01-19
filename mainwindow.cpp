@@ -4022,21 +4022,25 @@ void MainWindow::dropEvent(QDropEvent *event)
 				if (info.suffix().compare("brf", Qt::CaseInsensitive) == 0)
 				{
 					loadFile(filename); // if is file, setText
-					break; /* swy: open just the first BRF file we find, ignore the rest */
+
+					/* swy: open just the first BRF file we find, ignore the rest */
+					break;
 				}
+				
 				else if (info.suffix().compare("dds", Qt::CaseInsensitive) == 0)
 				{
 					QStringList list; list.push_back(info.completeBaseName());
 					addNewGeneral<BrfTexture>(list);
 				}
-				else if (info.suffix().compare("obj", Qt::CaseInsensitive) == 0)
+				else if ((info.suffix().compare("obj", Qt::CaseInsensitive) == 0) ||
+				         (info.suffix().compare("ply", Qt::CaseInsensitive) == 0))
 				{
 					QStringList list; list.push_back(filename);
 
-					/* swy: choose to import as a mesh or as a collision body depending on the selected tab, if any */
+					/* swy: choose to import as a mesh or as a collision body,
+					        depending on the selected tab, if any */
 					int currTab = selector->currentTabName();
-
-					if (currTab==BODY)
+					if (currTab==BODY && info.suffix().compare("obj", Qt::CaseInsensitive) == 0)
 						importCollisionBody(&list);
 					else
 						importStaticMesh(&list);
