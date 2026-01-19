@@ -249,6 +249,7 @@ private slots:
 	void meshAniReverse();
 	void meshTellBoundingBox();
 	void meshUvTransform();
+	void meshUvTransformUpdate();
 	void meshUvTransformDoIt();
 	void meshUnmount();
 	void meshToVertexAni();

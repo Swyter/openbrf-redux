@@ -960,7 +960,7 @@ MainWindow::MainWindow(QWidget *parent):QMainWindow(parent),inidata(brfdata)
 	connect(this->menuBar(), SIGNAL(triggered(QAction*)),this, SLOT(onActionTriggered(QAction *)));
 
 
-	// create askTransofrDialog windows
+	// create askTransformDialog windows
 	askTransformDialog = new AskTransformDialog(this );
 	askTransformDialog->matrix = glWidget->extraMatrix;
 	askTransformDialog->setApplyToAllLoc( &( glWidget->applyExtraMatrixToAll ) );
@@ -969,8 +969,9 @@ MainWindow::MainWindow(QWidget *parent):QMainWindow(parent),inidata(brfdata)
 	connect(askTransformDialog, SIGNAL(rejected()), this, SLOT(onTransformDone()));
 
 	askUvTransformDialog = new AskUvTransformDialog(this);
-	connect(askUvTransformDialog,SIGNAL(changed()),this,SLOT(meshUvTransformDoIt()));
-
+	connect(askUvTransformDialog, SIGNAL(changed()),  this, SLOT(meshUvTransformUpdate()));
+	connect(askUvTransformDialog, SIGNAL(accepted()), this, SLOT(meshUvTransformDoIt())); /* swy: same as with the transform dialog above */
+	connect(askUvTransformDialog, SIGNAL(rejected()), this, SLOT(meshUvTransformDoIt()));
 }
 
 
@@ -1894,20 +1895,19 @@ static double _crease = 0.5;
 static bool _keepSeams = true;
 
 void MainWindow::meshUvTransform(){
-
+	/* swy: save a backup of the existing, unmodified data in case we need to restore it back later, if we cancel */
 	brfdataTmp.mesh = brfdata.mesh;
-	int res = askUvTransformDialog->exec();
 
-	if (res==QDialog::Accepted) {
-		setModified();
-	} else {
-		brfdata.mesh = brfdataTmp.mesh;
-		updateGl();
-	}
+	/* swy: changed the original d->exec() modal dialog so that we can still use the 3D view
+			and move the camera while rescaling/translating via the AskUvTransformDialog GUI */
+	disableWhileInToolMode(true);
+
+	askUvTransformDialog->setWindowFlags(Qt::Tool);
+	askUvTransformDialog->show();
 }
 
-
-void MainWindow::meshUvTransformDoIt(){
+void MainWindow::meshUvTransformUpdate(){
+	/* swy: this gets called while the UV transform dialog is running and the GUI changes something, this updates the data */
 	float su,sv,tu,tv;
 	askUvTransformDialog->getData(su,sv,tu,tv);
 	for (int i=0; i<getNumSelected(); i++) {
@@ -1916,7 +1916,27 @@ void MainWindow::meshUvTransformDoIt(){
 		m = brfdataTmp.mesh[ getSelectedIndex(i)];
 		m.TransformUv(su,sv,tu,tv);
 	}
+
 	updateGl();
+}
+void MainWindow::meshUvTransformDoIt(){
+	disableWhileInToolMode(false);
+
+	bool ok = askUvTransformDialog->result() /* d->exec() */ == QDialog::Accepted; /* swy: if the user clicked the X button it will also appear as QDialog::Rejected */
+	if (ok) {
+		setModified(); /* swy: this comes with the repeatable = true default parameter, that sets the setNextActionAsRepeatable = true */
+		if (!executingRepeatedCommand) /* swy: FIXME: look into this; because I'm getting a headache with the Ctrl+R repeat command and undo/redo step logic and splitting the action into two unrelated functions :) */
+			undoHistoryAddAction(selector->meshUvTransformAct); /* swy: this is a way of manually triggering a fake QAction that will save the changes at that point with the right name */
+
+		onActionTriggered(selector->meshUvTransformAct); /* swy: this works in conjunction with setNextActionAsRepeatable set to true to mark the current action as repeatable, enables the Ctrl + R and the menu entry under Tools > Repeat, go figure */
+	} else {
+		/* swy: cancelled; restore the unmodified mesh data that we saved in MainWindow::meshUvTransform() */
+		brfdata.mesh = brfdataTmp.mesh;
+	}
+
+	updateGl();
+
+	executingRepeatedCommand = false;
 }
 
 void MainWindow::meshRecomputeNormalsAndUnify_onSlider(int i){
