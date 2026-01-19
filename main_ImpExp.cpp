@@ -884,12 +884,21 @@ bool MainWindow::reimportMesh(){
 
 }
 
-bool MainWindow::importSkinnedMesh(){
-  QStringList fnList = askImportFilenames(
+bool MainWindow::importSkinnedMesh(QStringList *fileList){
+  QStringList fnList;
+  
+  /* swy: if we were called with a list of files, use it. otherwise open the file dialog */
+  if (fileList)
+    fnList = *fileList;
+  else
+  {
+    fnList = askImportFilenames(
       "all known formats  (*.SMD; *.MA);;"
       "Studiomdl Data  (*.SMD);;"
 	    "Maya ascii file (*.MA)"
-  );
+    );
+  }
+
   if (fnList.isEmpty()) return false;
 
   int total = 0;
@@ -1070,7 +1079,6 @@ bool MainWindow::_importAnimation(bool reimportExisting, QStringList *fileList){
 
 
 bool MainWindow::importSkeleton(QString *fileName){
-
   QString fn;
   
   /* swy: if we were called with a list of files, use it. otherwise open the file dialog */

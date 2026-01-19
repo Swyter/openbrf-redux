@@ -4045,11 +4045,12 @@ void MainWindow::dropEvent(QDropEvent *event)
 				{
 					QStringList list; list.push_back(filename);
 
+					/* swy: choose to import as an animation/skeleton/skinned mesh,
+					        depending on the selected tab, if any */
 					int currTab = selector->currentTabName();
-					if (currTab==ANIMATION)
-						importAnimation(&list);
-					else if (currTab==SKELETON)
-						importSkeleton(&filename);
+					     if (currTab == ANIMATION) importAnimation(&list);
+					else if (currTab ==  SKELETON) importSkeleton(&filename);
+					else                           importSkinnedMesh(&list);
 				}
 			}
 		}

@@ -157,7 +157,7 @@ private slots:
 	bool exportStaticMesh();
 	bool importStaticMesh(QStringList *fileList = NULL);
 	bool exportSkinnedMesh();
-	bool importSkinnedMesh();
+	bool importSkinnedMesh(QStringList *fileList = NULL);
 	bool importMovingMeshFrame();
 	bool exportMovingMesh();
 	bool importMovingMesh();
