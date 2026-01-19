@@ -664,11 +664,19 @@ bool MainWindow::importBrf(){
 }
 
 
-bool MainWindow::_importCollisionBody(bool reimportExisting){
-	QStringList fn = askImportFilenames(
-		tr("mesh file (*.obj)"),
-		reimportExisting
-  );
+bool MainWindow::_importCollisionBody(bool reimportExisting, QStringList *fileList){
+  QStringList fn;
+
+  /* swy: if we were called with a list of files, use it. otherwise open the file dialog */
+  if (fileList)
+    fn = *fileList;
+  else
+  {
+    fn = askImportFilenames(
+      tr("mesh file (*.obj)"),
+      reimportExisting
+    );
+  }
 
   if (fn.isEmpty()) return false;
 
@@ -695,8 +703,8 @@ bool MainWindow::_importCollisionBody(bool reimportExisting){
 
 }
 
-bool MainWindow::importCollisionBody(){
-	return _importCollisionBody( false );
+bool MainWindow::importCollisionBody(QStringList *fileList){
+	return _importCollisionBody( false, fileList );
 }
 
 bool MainWindow::reimportCollisionBody(){

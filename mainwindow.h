@@ -168,7 +168,7 @@ private slots:
 	bool importSkeleton();
 	bool importAnimation();
 	bool exportAnimation();
-	bool importCollisionBody();
+	bool importCollisionBody(QStringList *fileList = NULL);
 	bool addNewMaterial();
 	bool addNewUiPicture();
 	bool addNewTexture();
@@ -630,7 +630,7 @@ private:
 	QString referenceFilename(bool modSpecific) const;
 
 	// generic importers
-	bool _importCollisionBody(bool reimportExisting);
+	bool _importCollisionBody(bool reimportExisting, QStringList *fileList = NULL);
 	bool _importAnimation(bool reimportExisting);
 	bool _importMesh(bool reimportExisting);
 

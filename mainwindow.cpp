@@ -4032,7 +4032,14 @@ void MainWindow::dropEvent(QDropEvent *event)
 				else if (info.suffix().compare("obj", Qt::CaseInsensitive) == 0)
 				{
 					QStringList list; list.push_back(filename);
-					importStaticMesh(&list);
+
+					/* swy: choose to import as a mesh or as a collision body depending on the selected tab, if any */
+					int currTab = selector->currentTabName();
+
+					if (currTab==BODY)
+						importCollisionBody(&list);
+					else
+						importStaticMesh(&list);
 				}
 			}
 		}
