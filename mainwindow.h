@@ -155,7 +155,7 @@ private slots:
 	bool exportMeshGroupManyFiles();
 	bool exportBodyGroupManyFiles();
 	bool exportStaticMesh();
-	bool importStaticMesh();
+	bool importStaticMesh(QStringList *fileList = NULL);
 	bool exportSkinnedMesh();
 	bool importSkinnedMesh();
 	bool importMovingMeshFrame();
@@ -621,7 +621,7 @@ private:
 	void meshTuneColorCancel(bool storeUndo);
 
 	bool easterTLD; // if true, use easteregg
-	bool _importStaticMesh(QString s, vector<BrfMesh> &m, vector<bool> &wasMultiple, bool onlyOneFile);
+	bool _importStaticMesh(QString s, vector<BrfMesh> &m, vector<bool> &wasMultiple, bool onlyOneFile, QStringList *fileList = NULL);
 
 	static QString hitboxExplaination();
 	QString senderText() const; // just a hack: returns the text of command being exectued:

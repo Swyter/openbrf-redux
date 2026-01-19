@@ -713,17 +713,25 @@ bool MainWindow::reimportAnimation(){
 
 
 
-bool MainWindow::_importStaticMesh(QString s, std::vector<BrfMesh> &mV, std::vector<bool> &wasMultipleMatV, bool onlyOneFile){
-  QStringList fnList = askImportFilenames(
-    tr("mesh file ("
-      "*.obj "
-      "*.ply "
-      "*.off "
-      "*.stl "
-	     "%1"
-      "*.dae)"
-	  ).arg(onlyOneFile?"*.smd ":""),onlyOneFile
-  );
+bool MainWindow::_importStaticMesh(QString s, std::vector<BrfMesh> &mV, std::vector<bool> &wasMultipleMatV, bool onlyOneFile, QStringList *fileList){
+  QStringList fnList;
+  
+  /* swy: if we were called with a list of files, use it. otherwise open the file dialog */
+  if (fileList)
+    fnList = *fileList;
+  else
+  {
+    fnList = askImportFilenames(
+      tr("mesh file ("
+        "*.obj "
+        "*.ply "
+        "*.off "
+        "*.stl "
+        "%1"
+        "*.dae)"
+      ).arg(onlyOneFile?"*.smd ":""),onlyOneFile
+    );
+  }
   if (fnList.isEmpty()) return false;
   mV.resize(fnList.size());
   wasMultipleMatV.resize(fnList.size());
@@ -815,10 +823,10 @@ bool MainWindow::importMovingMesh(){
   return true;
 }
 
-bool MainWindow::importStaticMesh(){
+bool MainWindow::importStaticMesh(QStringList *fileList){
   vector<BrfMesh> m;
   vector<bool> mult;
-  if (!_importStaticMesh("Import static mesh", m, mult,false)) return false;
+  if (!_importStaticMesh("Import static mesh", m, mult,false,fileList)) return false;
 
   for (int j=0; j<(int)m.size(); j++) {
 

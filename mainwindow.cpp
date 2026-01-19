@@ -4012,22 +4012,28 @@ void MainWindow::dropEvent(QDropEvent *event)
 
 		if ( urlList.size() > 0) // if at least one QUrl is present in list
 		{
-			QStringList list;
-			bool areTextures = true;
 			for (int i=0; i<urlList.size(); i++) {
-				QFileInfo info( urlList[i].toLocalFile() );
-				if (info.suffix().compare("dds",Qt::CaseInsensitive)!=0) areTextures = false;
+				QString filename = urlList[i].toLocalFile();
+				QFileInfo info(filename);
 
-				list.push_back( info.completeBaseName() );
-			}
+				if (!info.isFile())
+					continue;
 
-			if (areTextures) {
-				addNewGeneral<BrfTexture>( list );
-			} else {
-				QFileInfo info;
-				QString fn = urlList[0].toLocalFile();
-				info.setFile( fn ); // information about file
-				if ( info.isFile() ) loadFile( fn ); // if is file, setText
+				if (info.suffix().compare("brf", Qt::CaseInsensitive) == 0)
+				{
+					loadFile(filename); // if is file, setText
+					break; /* swy: open just the first BRF file we find, ignore the rest */
+				}
+				else if (info.suffix().compare("dds", Qt::CaseInsensitive) == 0)
+				{
+					QStringList list; list.push_back(info.completeBaseName());
+					addNewGeneral<BrfTexture>(list);
+				}
+				else if (info.suffix().compare("obj", Qt::CaseInsensitive) == 0)
+				{
+					QStringList list; list.push_back(filename);
+					importStaticMesh(&list);
+				}
 			}
 		}
 	}
