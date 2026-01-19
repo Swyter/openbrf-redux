@@ -14,7 +14,7 @@ class AskUvTransformDialog : public QDialog
 public:
     explicit AskUvTransformDialog(QWidget *parent = 0);
     ~AskUvTransformDialog();
-    void getData(float& su, float& sy, float& tu, float& tv);
+    void getData(float& su, float& sy, float& tu, float& tv, bool& applyToLastSel);
 public slots:
     void setInvertY();
     void setInvertX();

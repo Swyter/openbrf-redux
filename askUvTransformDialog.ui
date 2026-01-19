@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>138</width>
-    <height>267</height>
+    <width>150</width>
+    <height>292</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,17 +16,17 @@
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>230</y>
-     <width>111</width>
-     <height>32</height>
+     <x>13</x>
+     <y>251</y>
+     <width>121</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="orientation">
-    <enum>Qt::Horizontal</enum>
+    <enum>Qt::Orientation::Horizontal</enum>
    </property>
    <property name="standardButtons">
-    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+    <set>QDialogButtonBox::StandardButton::Cancel|QDialogButtonBox::StandardButton::Ok</set>
    </property>
   </widget>
   <widget class="QGroupBox" name="groupBox">
@@ -34,7 +34,7 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>111</width>
+     <width>131</width>
      <height>81</height>
     </rect>
    </property>
@@ -76,7 +76,7 @@
      <string>U:</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
@@ -92,7 +92,7 @@
      <string>V:</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
     </property>
    </widget>
    <widget class="MyDoubleSpinBox" name="scaleV">
@@ -123,7 +123,7 @@
     <rect>
      <x>10</x>
      <y>100</y>
-     <width>111</width>
+     <width>131</width>
      <height>80</height>
     </rect>
    </property>
@@ -187,7 +187,7 @@
      <string>U:</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="label_4">
@@ -203,16 +203,16 @@
      <string>V:</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
     </property>
    </widget>
   </widget>
   <widget class="QPushButton" name="Reset">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>200</y>
-     <width>51</width>
+     <x>4</x>
+     <y>190</y>
+     <width>62</width>
      <height>23</height>
     </rect>
    </property>
@@ -223,9 +223,9 @@
   <widget class="QPushButton" name="invertX">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>200</y>
-     <width>40</width>
+     <x>69</x>
+     <y>190</y>
+     <width>52</width>
      <height>23</height>
     </rect>
    </property>
@@ -236,14 +236,28 @@
   <widget class="QPushButton" name="invertY">
    <property name="geometry">
     <rect>
-     <x>110</x>
-     <y>200</y>
-     <width>20</width>
+     <x>120</x>
+     <y>190</y>
+     <width>25</width>
      <height>23</height>
     </rect>
    </property>
    <property name="text">
     <string>V</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="applyToLastSel">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>220</y>
+     <width>131</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Apply to last selected
+object only</string>
    </property>
   </widget>
  </widget>
@@ -255,14 +269,14 @@
   </customwidget>
  </customwidgets>
  <tabstops>
-  <tabstop>buttonBox</tabstop>
   <tabstop>scaleU</tabstop>
   <tabstop>scaleV</tabstop>
   <tabstop>traU</tabstop>
   <tabstop>traV</tabstop>
+  <tabstop>applyToLastSel</tabstop>
   <tabstop>Reset</tabstop>
-  <tabstop>invertY</tabstop>
   <tabstop>invertX</tabstop>
+  <tabstop>invertY</tabstop>
  </tabstops>
  <resources/>
  <connections>
@@ -273,11 +287,11 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>248</x>
-     <y>254</y>
+     <x>120</x>
+     <y>284</y>
     </hint>
     <hint type="destinationlabel">
-     <x>157</x>
+     <x>149</x>
      <y>274</y>
     </hint>
    </hints>
@@ -289,11 +303,11 @@
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>316</x>
-     <y>260</y>
+     <x>120</x>
+     <y>290</y>
     </hint>
     <hint type="destinationlabel">
-     <x>286</x>
+     <x>149</x>
      <y>274</y>
     </hint>
    </hints>

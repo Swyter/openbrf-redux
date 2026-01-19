@@ -14,14 +14,16 @@ AskUvTransformDialog::AskUvTransformDialog(QWidget *parent) :
     connect(ui->traV,SIGNAL(valueChanged(double)), this, SIGNAL(changed()));
     connect(ui->scaleU,SIGNAL(valueChanged(double)), this, SIGNAL(changed()));
     connect(ui->scaleV,SIGNAL(valueChanged(double)), this, SIGNAL(changed()));
+    connect(ui->applyToLastSel,SIGNAL(clicked(bool)),this, SIGNAL(changed())); /* swy: this checkbox should copy the behavior from the roto-rescale tool */
+
 }
 
-void AskUvTransformDialog::getData(float &su, float &sv, float &tu, float &tv){
+void AskUvTransformDialog::getData(float &su, float &sv, float &tu, float &tv, bool &applyToLastSel){
   su = ui->scaleU->value()*0.01;
   sv = ui->scaleV->value()*0.01;
   tu = ui->traU->value();
   tv = ui->traV->value();
-
+  applyToLastSel = ui->applyToLastSel->isChecked();
 }
 
 void AskUvTransformDialog::reset(){

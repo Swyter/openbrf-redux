@@ -947,11 +947,18 @@ Así que tampoco las carga el juego.</translation>
         <source>V</source>
         <translation>V</translation>
     </message>
+    <message>
+        <location line="+13"/>
+        <source>Apply to last selected
+object only</source>
+        <translation type="unfinished">Solo aplicar al último
+objeto seleccionado</translation>
+    </message>
 </context>
 <context>
     <name>BrfType</name>
     <message>
-        <location filename="../mainwindow.cpp" line="+1470"/>
+        <location filename="../mainwindow.cpp" line="+1476"/>
         <source>Cannot merge these meshes
  (different number of frames,
  or skinned VS not skinned).
@@ -2301,33 +2308,33 @@ p, li { white-space: pre-wrap; }
         <location line="+21"/>
         <location line="+22"/>
         <location line="+182"/>
-        <location line="+26"/>
-        <location line="+63"/>
+        <location line="+34"/>
+        <location line="+71"/>
         <location line="+8"/>
         <location line="+10"/>
         <location line="+42"/>
         <location line="+24"/>
-        <location line="+69"/>
+        <location line="+78"/>
         <location line="+17"/>
         <location line="+19"/>
-        <location line="+84"/>
-        <location line="+60"/>
-        <location filename="../mainwindow.cpp" line="-1361"/>
-        <location line="+1303"/>
+        <location line="+93"/>
+        <location line="+68"/>
+        <location filename="../mainwindow.cpp" line="-1367"/>
+        <location line="+1309"/>
         <location line="+302"/>
         <location line="+24"/>
         <location line="+27"/>
         <location line="+23"/>
         <location line="+3"/>
-        <location line="+1133"/>
+        <location line="+1189"/>
         <location line="+12"/>
         <location line="+642"/>
-        <location line="+1813"/>
+        <location line="+1841"/>
         <source>OpenBRF</source>
         <translation>OpenBRF | Traducido al castellano por Swyter</translation>
     </message>
     <message>
-        <location filename="../main_ImpExp.cpp" line="-935"/>
+        <location filename="../main_ImpExp.cpp" line="-977"/>
         <source>Cannot open file for writing;</source>
         <translation>No se puede abrir con permisos de escritura;</translation>
     </message>
@@ -2464,12 +2471,12 @@ p, li { white-space: pre-wrap; }
         <translation>Exportación cancelada.</translation>
     </message>
     <message>
-        <location line="+88"/>
+        <location line="+103"/>
         <source>mesh file (*.obj *.ply *.off *.stl %1*.dae)</source>
         <translation>Modelo 3D (*.obj *.ply *.off *.stl %1*.dae)</translation>
     </message>
     <message>
-        <location line="+25"/>
+        <location line="+26"/>
         <source>Cannot import file %1:
 %2
 </source>
@@ -2487,7 +2494,7 @@ p, li { white-space: pre-wrap; }
 </translation>
     </message>
     <message>
-        <location line="-160"/>
+        <location line="-176"/>
         <source>Warband or M&amp;B resource (*.brf)</source>
         <translation>Recurso de Warband o M&amp;B (*.brf)</translation>
     </message>
@@ -2501,13 +2508,13 @@ p, li { white-space: pre-wrap; }
 </translation>
     </message>
     <message>
-        <location line="+15"/>
+        <location line="+22"/>
         <source>mesh file (*.obj)</source>
         <translation>Modelo Tridimensional (*.obj)</translation>
     </message>
     <message>
-        <location line="+11"/>
-        <location line="+71"/>
+        <location line="+12"/>
+        <location line="+79"/>
         <source>Cannot import file %1
 </source>
         <translation>No se puede importar archivo %1
@@ -2536,7 +2543,7 @@ Import a separate mesh per material\object?</source>
         <translation>Modelo importado &quot;%1&quot;--- normales:%2 colores:%3 coordenadas de textura:%4</translation>
     </message>
     <message>
-        <location line="-554"/>
+        <location line="-570"/>
         <source>Cannot export skinned mesh:
  %1
 </source>
@@ -2550,7 +2557,7 @@ Import a separate mesh per material\object?</source>
         <translation>Animación de vértices de Quake 3 (*.MD3);;Secuencia de Obj (*.000.obj)</translation>
     </message>
     <message>
-        <location line="+433"/>
+        <location line="+458"/>
         <source>No mesh found in %1
 </source>
         <translation>No se ha encontrado ningún modelo en %1
@@ -2580,7 +2587,7 @@ al que añadir un fotograma o cuadro.</translation>
     </message>
     <message>
         <location line="+10"/>
-        <location filename="../mainwindow.cpp" line="-1979"/>
+        <location filename="../mainwindow.cpp" line="-2007"/>
         <source>Vertex number mismatch... using texture-coord matching instead of vertex-ordering</source>
         <translation>El número de vértices no concuerda... se usarán las coordenadas de textura para ordenarlos.</translation>
     </message>
@@ -2596,7 +2603,7 @@ al que añadir un fotograma o cuadro.</translation>
         <translation>Fotogramas añadidos: %1..%2</translation>
     </message>
     <message>
-        <location line="+23"/>
+        <location line="+32"/>
         <source>Cannot import animation:
  %1
 </source>
@@ -2609,7 +2616,7 @@ al que añadir un fotograma o cuadro.</translation>
         <translation>No se han encontrado valores de tiempo en el archivo SMD, así que se han añadido de forma automática.</translation>
     </message>
     <message>
-        <location line="+43"/>
+        <location line="+51"/>
         <source>Cannot import skeleton:
 %1
 </source>
@@ -2622,7 +2629,7 @@ al que añadir un fotograma o cuadro.</translation>
         <translation>Esqueleto &quot;%1&quot; Importado--- número de huesos:%2</translation>
     </message>
     <message>
-        <location line="-175"/>
+        <location line="-192"/>
         <source>Cannot import mesh %2:
 %1
 </source>
@@ -4090,7 +4097,7 @@ al que añadir un fotograma o cuadro.</translation>
         <translation>&lt;i&gt;No puedo mostrar la textura real porque:&lt;/i&gt;&lt;br&gt;&lt;b&gt;%1&lt;/b&gt;&lt;br&gt;&lt;br&gt;%2&lt;br&gt;&lt;br&gt;&lt;b&gt;Solución: &lt;/b&gt;%3</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="-3309"/>
+        <location filename="../mainwindow.cpp" line="-3371"/>
         <source>%1 been modified.
 Save changes?</source>
         <translation>%1 ha sido modificado.
@@ -4146,7 +4153,7 @@ Save changes?</source>
         <translation>Asignar indicador(es) a &quot;%1&quot;</translation>
     </message>
     <message>
-        <location line="+177"/>
+        <location line="+183"/>
         <source>Stop editing reference data</source>
         <translation>Detener la edición de datos de referencia</translation>
     </message>
@@ -4265,7 +4272,7 @@ o discordancia en la vinculación esqueletal).
 </translation>
     </message>
     <message>
-        <location line="+1031"/>
+        <location line="+1058"/>
         <source>Computed AO%1</source>
         <translation>AO calculado %1</translation>
     </message>
@@ -4362,7 +4369,7 @@ selecciona un modelo vinculado a un esqueleto,
 después selecciona los modelos a vincular.</translation>
     </message>
     <message>
-        <location line="+541"/>
+        <location line="+570"/>
         <source>Same skeleton:
 reskeletonization canceled.
 </source>
@@ -4504,7 +4511,7 @@ Escribe el nuevo aquí:</translation>
         <translation>La animación %2 se ha dividido en %1 trozos -- ¡Nuevo actions.txt guardado en &quot;%3&quot;!</translation>
     </message>
     <message>
-        <location line="+981"/>
+        <location line="+1009"/>
         <source>&amp;Repeat %1</source>
         <translation>&amp;Repetir %1</translation>
     </message>
@@ -4808,7 +4815,7 @@ Las direcciones tangentes no se guardarán...</translation>
         <translation>Indicadores de textura</translation>
     </message>
     <message>
-        <location line="-5802"/>
+        <location line="-5892"/>
         <source>Skeleton hitboxes have been modified.&lt;br/&gt;Save changes in /Data/skeleton_bodies.xml?</source>
         <translation>Los cuerpos de colisión han sido modificados. &lt;br/&gt;¿Guardar cambios en /Data/skeleton_bodies.xml?</translation>
     </message>
@@ -4857,7 +4864,7 @@ archivo %2
 </translation>
     </message>
     <message>
-        <location line="+1050"/>
+        <location line="+1056"/>
         <source>Select a skeleton
 in the view panel first</source>
         <translation>Primero tienes que seleccionar
@@ -4959,7 +4966,7 @@ Overwrite it?</source>
         <translation>La colisión se ha separado en %1 piezas.</translation>
     </message>
     <message>
-        <location line="+148"/>
+        <location line="+175"/>
         <source>Softened %1 skinned meshes!</source>
         <translation>¡Suavizados %1 modelos esqueletales!</translation>
     </message>
@@ -4995,7 +5002,7 @@ Overwrite it?</source>
         <translation>Color uniforme para modelo</translation>
     </message>
     <message>
-        <location line="+324"/>
+        <location line="+353"/>
         <source>Transfer Skinning</source>
         <translation>Transferir unión esqueletal</translation>
     </message>
@@ -5093,7 +5100,7 @@ en el portapapeles.
         <translation>Transferir vinculación a %1 modelo(s) desde %2 esqueletos.</translation>
     </message>
     <message>
-        <location line="+2268"/>
+        <location line="+2296"/>
         <source>This OpenBRF version is now assigned as the default program to open your .brf files on this user account. At least I hope so!</source>
         <translation>Esta versión de OpenBRF debería estar asignada como el programa con el que abrir los archivos .brf en tu cuenta. Al menos eso espero.</translation>
     </message>
@@ -5123,7 +5130,7 @@ en el portapapeles.
         <translation type="vanished">Transferir vinculación a %1 modelo(s) desde %2 esqueletos.</translation>
     </message>
     <message>
-        <location line="-1924"/>
+        <location line="-1952"/>
         <source>This will produce a vertex ani
 with %1x%2 xyz positions+normals (%4 MB).
 
@@ -5165,7 +5172,7 @@ Utiliza la regla incluida con OpenBRF para introducir el tamaño de «%2».
 ¿Quieres activar la regla ahora?</translation>
     </message>
     <message>
-        <location line="+496"/>
+        <location line="+524"/>
         <source>&lt;p&gt;You are saving into the generic OpenBRF reference file &lt;br&gt;&quot;%1&quot;&lt;/p&gt;&lt;p&gt;Would you rather save in the reference file &lt;i&gt;specific&lt;/i&gt; for Module %3&lt;br&gt;&quot;%2&quot;&lt;br&gt;?&lt;/p&gt;</source>
         <translation>&lt;p&gt;Estás guardando en el archivo de referencia genérico de OpenBRF &lt;br&gt;&quot;%1&quot;&lt;/p&gt;&lt;p&gt;¿Querrías guardarlo en un archivo de referencia para utilizarlo &lt;i&gt;exclusivamente&lt;/i&gt; en el &lt;/i&gt; módulo %3&lt;br&gt;&quot;%2&quot;&lt;br&gt;?&lt;/p&gt;</translation>
     </message>
@@ -6722,7 +6729,7 @@ en la línea %3:
 <context>
     <name>TT</name>
     <message>
-        <location filename="../mainwindow.cpp" line="-4981"/>
+        <location filename="../mainwindow.cpp" line="-5065"/>
         <source>new_%1</source>
         <translation>nuevo_%1</translation>
     </message>

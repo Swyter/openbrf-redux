@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>191</width>
-    <height>389</height>
+    <width>190</width>
+    <height>382</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,10 +23,10 @@
     </rect>
    </property>
    <property name="orientation">
-    <enum>Qt::Horizontal</enum>
+    <enum>Qt::Orientation::Horizontal</enum>
    </property>
    <property name="standardButtons">
-    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok|QDialogButtonBox::Reset</set>
+    <set>QDialogButtonBox::StandardButton::Cancel|QDialogButtonBox::StandardButton::Ok|QDialogButtonBox::StandardButton::Reset</set>
    </property>
   </widget>
   <widget class="QGroupBox" name="groupBox">
@@ -107,7 +107,7 @@
      <double>5.000000000000000</double>
     </property>
    </widget>
-   <widget class="QCheckBox"  name="localRot">
+   <widget class="QCheckBox" name="localRot">
     <property name="geometry">
      <rect>
       <x>100</x>
@@ -122,7 +122,7 @@
     <property name="checked">
      <bool>true</bool>
     </property>
-  </widget>
+   </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
@@ -136,7 +136,7 @@
      <string>X:</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
@@ -152,7 +152,7 @@
      <string>Y:</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
@@ -168,7 +168,7 @@
      <string>Z:</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
     </property>
    </widget>
   </widget>
@@ -272,7 +272,7 @@
      <string>X:</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="label_5">
@@ -288,7 +288,7 @@
      <string>Y:</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="label_6">
@@ -304,7 +304,7 @@
      <string>Z:</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
     </property>
    </widget>
    <widget class="QWidget" name="widget" native="true">
@@ -696,7 +696,7 @@
      <string>X:</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="label_8">
@@ -712,7 +712,7 @@
      <string>Y:</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="label_9">
@@ -728,10 +728,10 @@
      <string>Z:</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
     </property>
    </widget>
-   <widget class="QCheckBox"  name="localScl">
+   <widget class="QCheckBox" name="localScl">
     <property name="geometry">
      <rect>
       <x>100</x>
@@ -746,7 +746,7 @@
     <property name="checked">
      <bool>true</bool>
     </property>
-  </widget>
+   </widget>
    <widget class="QCheckBox" name="checkBox">
     <property name="geometry">
      <rect>
@@ -770,7 +770,7 @@
      <x>20</x>
      <y>310</y>
      <width>151</width>
-     <height>41</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="text">
@@ -787,7 +787,6 @@ object only</string>
   </customwidget>
  </customwidgets>
  <tabstops>
-  <tabstop>buttonBox</tabstop>
   <tabstop>trax</tabstop>
   <tabstop>leftX</tabstop>
   <tabstop>midX</tabstop>
@@ -803,10 +802,12 @@ object only</string>
   <tabstop>rotx</tabstop>
   <tabstop>roty</tabstop>
   <tabstop>rotz</tabstop>
+  <tabstop>localRot</tabstop>
   <tabstop>scx</tabstop>
-  <tabstop>checkBox</tabstop>
   <tabstop>scy</tabstop>
   <tabstop>scz</tabstop>
+  <tabstop>localScl</tabstop>
+  <tabstop>checkBox</tabstop>
   <tabstop>applyToLastSel</tabstop>
  </tabstops>
  <resources>
@@ -820,8 +821,8 @@ object only</string>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>248</x>
-     <y>254</y>
+     <x>180</x>
+     <y>350</y>
     </hint>
     <hint type="destinationlabel">
      <x>157</x>
@@ -836,11 +837,11 @@ object only</string>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>316</x>
-     <y>260</y>
+     <x>180</x>
+     <y>350</y>
     </hint>
     <hint type="destinationlabel">
-     <x>286</x>
+     <x>189</x>
      <y>274</y>
     </hint>
    </hints>

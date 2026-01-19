@@ -1913,12 +1913,20 @@ void MainWindow::meshUvTransform(){
 
 void MainWindow::meshUvTransformUpdate(){
 	/* swy: this gets called while the UV transform dialog is running and the GUI changes something, this updates the data */
-	float su,sv,tu,tv;
-	askUvTransformDialog->getData(su,sv,tu,tv);
-	for (int i=0; i<getNumSelected(); i++) {
-		BrfMesh &m( getSelected<BrfMesh>(i));
+	float su,sv,tu,tv; bool applyToLastSel;
+	askUvTransformDialog->getData(su,sv,tu,tv, applyToLastSel);
+
+	QModelIndexList list = selector->selectedList();
+
+	brfdata.mesh = brfdataTmp.mesh;
+
+	/* swy: fastforward the start index to be the last element, if the AskHueSatBriDialog::onAnySliderMove() checkbox says so */
+	int j = (!applyToLastSel) ? 0 : max<int>(list.size() - 1, 0);
+
+	for (; j<list.size(); j++) {
+		BrfMesh &m( getSelected<BrfMesh>(j));
 		if (!&m) continue;
-		m = brfdataTmp.mesh[ getSelectedIndex(i)];
+		m = brfdataTmp.mesh[ getSelectedIndex(j)];
 		m.TransformUv(su,sv,tu,tv);
 	}
 
@@ -2541,7 +2549,7 @@ unsigned int tuneColor(unsigned int col, int contr, int dh, int ds, int db){
 
 void MainWindow::meshTuneColorCancel(bool reallyCancel){
 	static std::vector<unsigned int> stored;
-	QModelIndexList list= selector->selectedList();
+	QModelIndexList list = selector->selectedList();
 	if (reallyCancel) {
 		// store original colors
 		stored.clear();
@@ -2579,7 +2587,6 @@ void MainWindow::meshTuneColor(){
 	updateGl();
 
 	askHueSatBriDialog->setWindowFlags(Qt::Tool);
-	//askHueSatBriDialog->reset();
 	askHueSatBriDialog->show();
 }
 
