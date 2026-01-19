@@ -166,7 +166,7 @@ private slots:
 	bool exportSkeletonAndSkin();
 	bool exportSkeleton();
 	bool importSkeleton();
-	bool importAnimation();
+	bool importAnimation(QStringList *fileList = NULL);
 	bool exportAnimation();
 	bool importCollisionBody(QStringList *fileList = NULL);
 	bool addNewMaterial();
@@ -631,7 +631,7 @@ private:
 
 	// generic importers
 	bool _importCollisionBody(bool reimportExisting, QStringList *fileList = NULL);
-	bool _importAnimation(bool reimportExisting);
+	bool _importAnimation(bool reimportExisting, QStringList *fileList = NULL);
 	bool _importMesh(bool reimportExisting);
 
 	bool maybeWarnIfVertexAniTooBig(const BrfMesh &m, const BrfAnimation &a);

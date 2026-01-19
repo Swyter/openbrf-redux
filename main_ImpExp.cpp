@@ -711,8 +711,8 @@ bool MainWindow::reimportCollisionBody(){
 	return _importCollisionBody( true );
 }
 
-bool MainWindow::importAnimation(){
-	return _importAnimation(false);
+bool MainWindow::importAnimation(QStringList *fileList){
+	return _importAnimation(false, fileList);
 }
 
 bool MainWindow::reimportAnimation(){
@@ -1011,12 +1011,21 @@ bool MainWindow::importMovingMeshFrame(){
 }
 
 
-bool MainWindow::_importAnimation(bool reimportExisting){
+bool MainWindow::_importAnimation(bool reimportExisting, QStringList *fileList){
 	QString brfFormat("Old BrfEdit style SMD (*.SMD)");
-	QStringList list = askImportFilenames(
-		QString("Studiomdl Data (*.SMD);;")+brfFormat,
-		reimportExisting
-	);
+	QStringList list;
+  
+  /* swy: if we were called with a list of files, use it. otherwise open the file dialog */
+  if (fileList)
+    list = *fileList;
+  else
+  {
+    list = askImportFilenames(
+      QString("Studiomdl Data (*.SMD);;")+brfFormat,
+      reimportExisting
+    );
+  }
+
 	if (list.isEmpty()) return false;
 
 	for (int i=0; i<list.size(); i++) {

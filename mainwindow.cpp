@@ -4041,6 +4041,11 @@ void MainWindow::dropEvent(QDropEvent *event)
 					else
 						importStaticMesh(&list);
 				}
+				else if (info.suffix().compare("smd", Qt::CaseInsensitive) == 0)
+				{
+					QStringList list; list.push_back(filename);
+					importAnimation(&list);
+				}
 			}
 		}
 	}
