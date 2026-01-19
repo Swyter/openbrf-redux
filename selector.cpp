@@ -1079,11 +1079,17 @@ void Selector::selectMany(std::vector<int> v){
 void Selector::selectOne(int kind, int i){
 	if (!this->isEnabled()) /* swy: make it so that a double-click on one of the multiple objects in the 3D view doesn't deselect the rest */
 		return;
+
 	assert(kind>=0 && kind<N_TOKEN);
 	QListView* c=tab[kind];
 	if (c) {
         this->setCurrentWidget(c);
         c->setFocus();
+
+		/* swy: in debug Qt builds we sometimes overflow the available selection when importing .obj meshes on empty lists or doing Ctrl+Z, catch it early */
+		int max_possible_index = max(tableModel[kind]->size() - 1, 0);
+		assert(i <= max_possible_index);
+
         QModelIndex li = tableModel[kind]->pleaseCreateIndex(i,0);
         c->scrollTo(li,QAbstractItemView::EnsureVisible);
 
