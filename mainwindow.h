@@ -165,7 +165,7 @@ private slots:
 	bool importSkeletonMod();
 	bool exportSkeletonAndSkin();
 	bool exportSkeleton();
-	bool importSkeleton();
+	bool importSkeleton(QString *fileName = NULL);
 	bool importAnimation(QStringList *fileList = NULL);
 	bool exportAnimation();
 	bool importCollisionBody(QStringList *fileList = NULL);

@@ -1069,13 +1069,22 @@ bool MainWindow::_importAnimation(bool reimportExisting, QStringList *fileList){
 
 
 
-bool MainWindow::importSkeleton(){
+bool MainWindow::importSkeleton(QString *fileName){
 
-  QString fn = askImportFilename(
+  QString fn;
+  
+  /* swy: if we were called with a list of files, use it. otherwise open the file dialog */
+  if (fileName)
+    fn = *fileName;
+  else
+  {
+    fn = askImportFilename(
       "all known formats  (*.SMD; *.MA);;"
       "Studiomdl Data  (*.SMD);;"
       "Maya ascii file (*.MA)"
-  );
+    );
+  }
+  
   if (fn.isEmpty()) return false;
   BrfSkeleton s;
 

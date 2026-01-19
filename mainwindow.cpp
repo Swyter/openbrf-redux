@@ -4044,7 +4044,12 @@ void MainWindow::dropEvent(QDropEvent *event)
 				else if (info.suffix().compare("smd", Qt::CaseInsensitive) == 0)
 				{
 					QStringList list; list.push_back(filename);
-					importAnimation(&list);
+
+					int currTab = selector->currentTabName();
+					if (currTab==ANIMATION)
+						importAnimation(&list);
+					else if (currTab==SKELETON)
+						importSkeleton(&filename);
 				}
 			}
 		}
