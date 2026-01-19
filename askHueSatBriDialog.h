@@ -24,6 +24,7 @@ private slots:
     
 private:
     Ui::Dialog *ui;
+    void showEvent(QShowEvent *event);
 };
 
 #endif // ASKHUESATBRIDIALOG_H

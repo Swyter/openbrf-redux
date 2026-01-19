@@ -35,3 +35,14 @@ void AskHueSatBriDialog::onAnySliderMove(int){
 }
 
 AskHueSatBriDialog::~AskHueSatBriDialog(){}
+
+void AskHueSatBriDialog::showEvent(QShowEvent *event){
+    QDialog::showEvent(event);
+
+    /* swy: reset the sliders to put them in the middle every time
+            we show the dialog, don't reset the checkbox */
+    ui->sliderContrast->setValue(0),
+    ui->sliderHue->setValue(0),
+    ui->sliderSat->setValue(0),
+    ui->sliderBrightness->setValue(0);
+}
