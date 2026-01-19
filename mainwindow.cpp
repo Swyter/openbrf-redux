@@ -365,8 +365,8 @@ template< class T >
 bool _compareName(const T &ta, const T &tb){
 	/* swy: make it so that we can move the LODs at the end of the list by holding Shift while clicking on Tools > Sort entries */
 	if (T::tokenIndex() == MESH && (QApplication::keyboardModifiers() & Qt::ShiftModifier)) {
-		bool ta_has_lod = strstr(ta.name, ".lod") != NULL;
-		bool tb_has_lod = strstr(tb.name, ".lod") != NULL;
+		bool ta_has_lod = strstr(ta.name, ".lod") != NULL && strstr(ta.name, ".lod0") == NULL; /* swy: .lod0 is the same as the unprefixed base mesh, so */
+		bool tb_has_lod = strstr(tb.name, ".lod") != NULL && strstr(tb.name, ".lod0") == NULL; /*      don't count it as a LOD, only from .lod1 onwards. */
 
 		if (!ta_has_lod &&  tb_has_lod) return true;  /* swy: if A doesn't have LOD it will always go first */
 		if ( ta_has_lod && !tb_has_lod) return false; /* swy: if B has          LOD it will always go last  */
