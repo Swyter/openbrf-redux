@@ -954,7 +954,7 @@ bool MainWindow::importMovingMeshFrame(){
   )
   { QMessageBox::information(this,
       tr("Import vertex animation frame"),
-      tr("Frist select a mesh\nto add a frame to.")
+      tr("First select a mesh\nto add a frame to.")
     );
     return false;
   }

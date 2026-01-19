@@ -2284,7 +2284,8 @@ p, li { white-space: pre-wrap; }
         <translation>No parece que contenga un módulo de Mount&amp;Blade</translation>
     </message>
     <message>
-        <location line="+112"/>
+        <location filename="../mainwindow.ui" line="+14"/>
+        <location filename="../main_ImpExp.cpp" line="+112"/>
         <location line="+32"/>
         <location line="+20"/>
         <location line="+25"/>
@@ -2305,16 +2306,28 @@ p, li { white-space: pre-wrap; }
         <location line="+8"/>
         <location line="+10"/>
         <location line="+42"/>
-        <location line="+93"/>
+        <location line="+24"/>
+        <location line="+69"/>
         <location line="+17"/>
         <location line="+19"/>
         <location line="+84"/>
         <location line="+60"/>
+        <location filename="../mainwindow.cpp" line="-1361"/>
+        <location line="+1303"/>
+        <location line="+302"/>
+        <location line="+24"/>
+        <location line="+27"/>
+        <location line="+23"/>
+        <location line="+3"/>
+        <location line="+1133"/>
+        <location line="+12"/>
+        <location line="+642"/>
+        <location line="+1813"/>
         <source>OpenBRF</source>
         <translation>OpenBRF | Traducido al castellano por Swyter</translation>
     </message>
     <message>
-        <location line="-935"/>
+        <location filename="../main_ImpExp.cpp" line="-935"/>
         <source>Cannot open file for writing;</source>
         <translation>No se puede abrir con permisos de escritura;</translation>
     </message>
@@ -2511,16 +2524,7 @@ p, li { white-space: pre-wrap; }
 (error:%2)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="+14"/>
-        <location filename="../main_ImpExp.cpp" line="+65"/>
-        <location filename="../mainwindow.cpp" line="+295"/>
-        <location line="+23"/>
-        <location line="+3"/>
-        <source>OpenBRF</source>
-        <translation>OpenBRF</translation>
-    </message>
-    <message>
-        <location filename="../main_ImpExp.cpp" line="+1"/>
+        <location line="+66"/>
         <source>Mesh &quot;%1&quot; has multiple materials\objects.
 Import a separate mesh per material\object?</source>
         <translation>El modelo &quot;%1&quot; tiene multiple materiales/objetos.
@@ -2564,7 +2568,7 @@ Import a separate mesh per material\object?</source>
     </message>
     <message>
         <location line="+1"/>
-        <source>Frist select a mesh
+        <source>First select a mesh
 to add a frame to.</source>
         <translation>Selecciona primero un modelo
 al que añadir un fotograma o cuadro.</translation>
@@ -2576,7 +2580,7 @@ al que añadir un fotograma o cuadro.</translation>
     </message>
     <message>
         <location line="+10"/>
-        <location filename="../mainwindow.cpp" line="+1621"/>
+        <location filename="../mainwindow.cpp" line="-1979"/>
         <source>Vertex number mismatch... using texture-coord matching instead of vertex-ordering</source>
         <translation>El número de vértices no concuerda... se usarán las coordenadas de textura para ordenarlos.</translation>
     </message>
@@ -4086,19 +4090,7 @@ al que añadir un fotograma o cuadro.</translation>
         <translation>&lt;i&gt;No puedo mostrar la textura real porque:&lt;/i&gt;&lt;br&gt;&lt;b&gt;%1&lt;/b&gt;&lt;br&gt;&lt;br&gt;%2&lt;br&gt;&lt;br&gt;&lt;b&gt;Solución: &lt;/b&gt;%3</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="-3310"/>
-        <location line="+1303"/>
-        <location line="+302"/>
-        <location line="+24"/>
-        <location line="+1186"/>
-        <location line="+12"/>
-        <location line="+642"/>
-        <location line="+1813"/>
-        <source>OpenBRF</source>
-        <translation>OpenBRF</translation>
-    </message>
-    <message>
-        <location line="-5281"/>
+        <location filename="../mainwindow.cpp" line="-3309"/>
         <source>%1 been modified.
 Save changes?</source>
         <translation>%1 ha sido modificado.
@@ -4520,10 +4512,6 @@ Escribe el nuevo aquí:</translation>
         <location line="+312"/>
         <source>Navigate: cannot find &quot;%1&quot; in current module</source>
         <translation>Navegar: no se puede encontrar &quot;%1&quot; en el módulo actual</translation>
-    </message>
-    <message>
-        <source>OpenBRF</source>
-        <translation type="obsolete">OpenBRF</translation>
     </message>
     <message>
         <location line="-878"/>

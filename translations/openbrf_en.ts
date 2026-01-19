@@ -1872,6 +1872,7 @@ ze</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="14"/>
         <location filename="../main_ImpExp.cpp" line="139"/>
         <location filename="../main_ImpExp.cpp" line="171"/>
         <location filename="../main_ImpExp.cpp" line="191"/>
@@ -1893,11 +1894,23 @@ ze</source>
         <location filename="../main_ImpExp.cpp" line="750"/>
         <location filename="../main_ImpExp.cpp" line="760"/>
         <location filename="../main_ImpExp.cpp" line="802"/>
+        <location filename="../main_ImpExp.cpp" line="826"/>
         <location filename="../main_ImpExp.cpp" line="895"/>
         <location filename="../main_ImpExp.cpp" line="912"/>
         <location filename="../main_ImpExp.cpp" line="931"/>
         <location filename="../main_ImpExp.cpp" line="1015"/>
         <location filename="../main_ImpExp.cpp" line="1075"/>
+        <location filename="../mainwindow.cpp" line="109"/>
+        <location filename="../mainwindow.cpp" line="1412"/>
+        <location filename="../mainwindow.cpp" line="1714"/>
+        <location filename="../mainwindow.cpp" line="1738"/>
+        <location filename="../mainwindow.cpp" line="1765"/>
+        <location filename="../mainwindow.cpp" line="1788"/>
+        <location filename="../mainwindow.cpp" line="1791"/>
+        <location filename="../mainwindow.cpp" line="2924"/>
+        <location filename="../mainwindow.cpp" line="2936"/>
+        <location filename="../mainwindow.cpp" line="3578"/>
+        <location filename="../mainwindow.cpp" line="5391"/>
         <source>OpenBRF</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2044,6 +2057,12 @@ ze</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../main_ImpExp.cpp" line="957"/>
+        <source>First select a mesh
+to add a frame to.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../main_ImpExp.cpp" line="643"/>
         <source>Warband or M&amp;B resource (*.brf)</source>
         <translation type="unfinished"></translation>
@@ -2075,15 +2094,6 @@ ze</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="14"/>
-        <location filename="../main_ImpExp.cpp" line="826"/>
-        <location filename="../mainwindow.cpp" line="1765"/>
-        <location filename="../mainwindow.cpp" line="1788"/>
-        <location filename="../mainwindow.cpp" line="1791"/>
-        <source>OpenBRF</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../main_ImpExp.cpp" line="827"/>
         <source>Mesh &quot;%1&quot; has multiple materials\objects.
 Import a separate mesh per material\object?</source>
@@ -2108,12 +2118,6 @@ Import a separate mesh per material\object?</source>
     <message>
         <location filename="../main_ImpExp.cpp" line="956"/>
         <source>Import vertex animation frame</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../main_ImpExp.cpp" line="957"/>
-        <source>Frist select a mesh
-to add a frame to.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3421,18 +3425,6 @@ to add a frame to.</source>
     <message>
         <location filename="../main_info.cpp" line="236"/>
         <source>&lt;i&gt;I could not display the real texture because:&lt;/i&gt;&lt;br&gt;&lt;b&gt;%1&lt;/b&gt;&lt;br&gt;&lt;br&gt;%2&lt;br&gt;&lt;br&gt;&lt;b&gt;Cure: &lt;/b&gt;%3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="109"/>
-        <location filename="../mainwindow.cpp" line="1412"/>
-        <location filename="../mainwindow.cpp" line="1714"/>
-        <location filename="../mainwindow.cpp" line="1738"/>
-        <location filename="../mainwindow.cpp" line="2924"/>
-        <location filename="../mainwindow.cpp" line="2936"/>
-        <location filename="../mainwindow.cpp" line="3578"/>
-        <location filename="../mainwindow.cpp" line="5391"/>
-        <source>OpenBRF</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

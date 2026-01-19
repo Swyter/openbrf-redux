@@ -2346,6 +2346,7 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>MainWindow</name>
     <message>
+        <location filename="../mainwindow.ui" line="14"/>
         <location filename="../main_ImpExp.cpp" line="139"/>
         <location filename="../main_ImpExp.cpp" line="171"/>
         <location filename="../main_ImpExp.cpp" line="191"/>
@@ -2367,11 +2368,23 @@ p, li { white-space: pre-wrap; }
         <location filename="../main_ImpExp.cpp" line="750"/>
         <location filename="../main_ImpExp.cpp" line="760"/>
         <location filename="../main_ImpExp.cpp" line="802"/>
+        <location filename="../main_ImpExp.cpp" line="826"/>
         <location filename="../main_ImpExp.cpp" line="895"/>
         <location filename="../main_ImpExp.cpp" line="912"/>
         <location filename="../main_ImpExp.cpp" line="931"/>
         <location filename="../main_ImpExp.cpp" line="1015"/>
         <location filename="../main_ImpExp.cpp" line="1075"/>
+        <location filename="../mainwindow.cpp" line="109"/>
+        <location filename="../mainwindow.cpp" line="1412"/>
+        <location filename="../mainwindow.cpp" line="1714"/>
+        <location filename="../mainwindow.cpp" line="1738"/>
+        <location filename="../mainwindow.cpp" line="1765"/>
+        <location filename="../mainwindow.cpp" line="1788"/>
+        <location filename="../mainwindow.cpp" line="1791"/>
+        <location filename="../mainwindow.cpp" line="2924"/>
+        <location filename="../mainwindow.cpp" line="2936"/>
+        <location filename="../mainwindow.cpp" line="3578"/>
+        <location filename="../mainwindow.cpp" line="5391"/>
         <source>OpenBRF</source>
         <translation></translation>
     </message>
@@ -2583,15 +2596,6 @@ p, li { white-space: pre-wrap; }
 (错误: %2)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="14"/>
-        <location filename="../main_ImpExp.cpp" line="826"/>
-        <location filename="../mainwindow.cpp" line="1765"/>
-        <location filename="../mainwindow.cpp" line="1788"/>
-        <location filename="../mainwindow.cpp" line="1791"/>
-        <source>OpenBRF</source>
-        <translation></translation>
-    </message>
-    <message>
         <location filename="../main_ImpExp.cpp" line="827"/>
         <source>Mesh &quot;%1&quot; has multiple materials\objects.
 Import a separate mesh per material\object?</source>
@@ -2621,7 +2625,7 @@ Import a separate mesh per material\object?</source>
     </message>
     <message>
         <location filename="../main_ImpExp.cpp" line="957"/>
-        <source>Frist select a mesh
+        <source>First select a mesh
 to add a frame to.</source>
         <translation>先选定要添加帧的模型。</translation>
     </message>
@@ -3907,18 +3911,6 @@ to add a frame to.</source>
         <location filename="../main_create.cpp" line="793"/>
         <source>view-mode:</source>
         <translation>视图模式:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="109"/>
-        <location filename="../mainwindow.cpp" line="1412"/>
-        <location filename="../mainwindow.cpp" line="1714"/>
-        <location filename="../mainwindow.cpp" line="1738"/>
-        <location filename="../mainwindow.cpp" line="2924"/>
-        <location filename="../mainwindow.cpp" line="2936"/>
-        <location filename="../mainwindow.cpp" line="3578"/>
-        <location filename="../mainwindow.cpp" line="5391"/>
-        <source>OpenBRF</source>
-        <translation></translation>
     </message>
     <message>
         <source>&lt;p&gt;&amp;nbsp; &amp;nbsp; &lt;b&gt;ver %6&lt;/b&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; (%1)&lt;br&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; by [mtarini] --- Marco Tarini&lt;br&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; Testing, bug reporting, suggestions by: &lt;br&gt;[amade], &amp;nbsp; [André de Cuyne],[Barf], [Brutus], [captain lust], [cdvader], [Chel], [DaBlade], [Dain Ironfoot], [Darwin], [dreamterror], [ealabor], [eierkopf], [EvolutiveBrain], [Fei Dao], [Freddex], [FrisianDude], [Geroj], [GetAssista], [giles], [Gothic Knight], [havarez], [Highelf], [HokieBT], [killkhergit], [Konar], [Llew], [LordRaglan], [Lumos], [MadVader],[Merlkir], [mysstick], [octoburn], [pagan], [Percus], [RATMdude92], [Red River], [Septa Scarabae], [Shik], [Silver Wolf], [Swyter], [Triglav], [Tul], [Ursca], [yellowmosquito], [xenoargh]&lt;/p&gt;&lt;p&gt;Additional art by: [amade], [Swyter]!&lt;/p&gt;</source>
