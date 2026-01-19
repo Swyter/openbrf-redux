@@ -45,3 +45,11 @@ AskUvTransformDialog::~AskUvTransformDialog()
 {
     delete ui;
 }
+
+void AskUvTransformDialog::showEvent(QShowEvent *event){
+    QDialog::showEvent(event);
+
+    /* swy: reset the sliders to put them in the middle every time
+            we show the dialog, don't reset the checkbox */
+    reset();
+}

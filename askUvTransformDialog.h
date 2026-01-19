@@ -23,6 +23,7 @@ signals:
     void changed();
 private:
     Ui::AskUvTransformDialog *ui;
+    void showEvent(QShowEvent *event);
 
 };
 
