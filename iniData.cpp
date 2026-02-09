@@ -1439,6 +1439,17 @@ bool IniData::loadAll(int howFast){
 			if (p.size()==2){
 				com1 = p[0].trimmed();
 				com2 = p[1].trimmed();
+
+#if 1 /* swy: seems like the game instead of trimming out things starting with '#' (see above) actually strips out anything beyond "val<space/tab>", as in "key = val wHaTEveR" -> "key = val". Viking Conquest DLC is full of side comments like this, reported by @scotty */
+				int idx = 0, last_idx = com2.size() - 1;
+				for (; idx <= last_idx; idx++) {
+					if (com2.at(idx).isSpace()) {
+						com2.truncate(idx);
+						break;
+					}
+				}
+#endif
+
 				bool loadRes = QString(com1)=="load_resource";
 				bool loadMod = ((QString(com1)=="load_mod_resource") || (QString(com1)=="load_module_resource"));
 				if (loadRes || loadMod) {
