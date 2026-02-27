@@ -746,87 +746,87 @@ object only</source>
 <context>
     <name>GLWidget</name>
     <message>
-        <location filename="../glwidgets.cpp" line="681"/>
+        <location filename="../glwidgets.cpp" line="683"/>
         <source>&lt;br /&gt;Vertex compilation: &lt;br /&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="689"/>
+        <location filename="../glwidgets.cpp" line="691"/>
         <source>&lt;br /&gt;Fragment compilation: &lt;br /&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="694"/>
+        <location filename="../glwidgets.cpp" line="696"/>
         <source>&lt;br /&gt;Linking: &lt;br /&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="700"/>
+        <location filename="../glwidgets.cpp" line="702"/>
         <source>&lt;br /&gt;Binding: &lt;br /&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1474"/>
+        <location filename="../glwidgets.cpp" line="1476"/>
         <source>&quot;green&quot; NM</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1474"/>
+        <location filename="../glwidgets.cpp" line="1476"/>
         <source>&quot;blue&quot; NM</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1477"/>
+        <location filename="../glwidgets.cpp" line="1479"/>
         <source>Custom User Shader</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1480"/>
+        <location filename="../glwidgets.cpp" line="1482"/>
         <source>Default (fixed functionality)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1481"/>
+        <location filename="../glwidgets.cpp" line="1483"/>
         <source>Alpha to Shininess</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1482"/>
+        <location filename="../glwidgets.cpp" line="1484"/>
         <source>Plain NormalMap (%1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1483"/>
+        <location filename="../glwidgets.cpp" line="1485"/>
         <source>NormalMap + Alpha to Transparency (%1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1484"/>
+        <location filename="../glwidgets.cpp" line="1486"/>
         <source>NormalMap + Alpha to Shininess (%1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1485"/>
+        <location filename="../glwidgets.cpp" line="1487"/>
         <source>NormalMap + ShininessMap (%1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1526"/>
+        <location filename="../glwidgets.cpp" line="1528"/>
         <source>Scene mode: navigate with mouse and WASD (levitate with wheel, zoom in with shift)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1531"/>
+        <location filename="../glwidgets.cpp" line="1533"/>
         <source>Helmet mode: for objects with vertical Z axis, like M&amp;B helmets or weapons.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1533"/>
+        <location filename="../glwidgets.cpp" line="1535"/>
         <source>Default mode: rotate objects with mouse, zoom in/out with wheel.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1644"/>
+        <location filename="../glwidgets.cpp" line="1646"/>
         <source>Error parsing %1:
 
 maybe the problem is that a shader uses the sign (&lt;) or (&gt;) or (&amp;)?
@@ -4349,17 +4349,17 @@ at line %3:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1551"/>
+        <location filename="../iniData.cpp" line="1562"/>
         <source>&lt;b&gt;Missing in txt:&lt;/b&gt; cannot find %1 &lt;u&gt;%2&lt;/u&gt;, referred in &apos;%3&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1651"/>
+        <location filename="../iniData.cpp" line="1662"/>
         <source>&lt;b&gt;File-Not-Found:&lt;/b&gt; could not read BRF file &lt;u&gt;%1&lt;/u&gt;, listed in module.ini file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1654"/>
+        <location filename="../iniData.cpp" line="1665"/>
         <source>&lt;b&gt;File-Format Error:&lt;/b&gt; could not read BRF file &lt;u&gt;%1&lt;/u&gt;</source>
         <translation type="unfinished"></translation>
     </message>

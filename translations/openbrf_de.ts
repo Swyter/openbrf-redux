@@ -871,87 +871,87 @@ object only</source>
 <context>
     <name>GLWidget</name>
     <message>
-        <location filename="../glwidgets.cpp" line="681"/>
+        <location filename="../glwidgets.cpp" line="683"/>
         <source>&lt;br /&gt;Vertex compilation: &lt;br /&gt;</source>
         <translation>&lt;br /&gt;Vertex Kompilierung: &lt;br /&gt;</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="689"/>
+        <location filename="../glwidgets.cpp" line="691"/>
         <source>&lt;br /&gt;Fragment compilation: &lt;br /&gt;</source>
         <translation>&lt;br /&gt;Fragment zusammenstellen: &lt;br /&gt;</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="694"/>
+        <location filename="../glwidgets.cpp" line="696"/>
         <source>&lt;br /&gt;Linking: &lt;br /&gt;</source>
         <translation>&lt;br /&gt;verknüpfen: &lt;br /&gt;</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="700"/>
+        <location filename="../glwidgets.cpp" line="702"/>
         <source>&lt;br /&gt;Binding: &lt;br /&gt;</source>
         <translation>&lt;br /&gt;Bindung: &lt;br /&gt;</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1474"/>
+        <location filename="../glwidgets.cpp" line="1476"/>
         <source>&quot;green&quot; NM</source>
         <translation>&quot;grün&quot; NM</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1474"/>
+        <location filename="../glwidgets.cpp" line="1476"/>
         <source>&quot;blue&quot; NM</source>
         <translation>&quot;blau&quot; NM</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1477"/>
+        <location filename="../glwidgets.cpp" line="1479"/>
         <source>Custom User Shader</source>
         <translation>Benutzerdefinierter Shader</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1480"/>
+        <location filename="../glwidgets.cpp" line="1482"/>
         <source>Default (fixed functionality)</source>
         <translation>Serverstandard verwenden(feste Funktionalität)</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1481"/>
+        <location filename="../glwidgets.cpp" line="1483"/>
         <source>Alpha to Shininess</source>
         <translation>Alpha zum Glanz</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1482"/>
+        <location filename="../glwidgets.cpp" line="1484"/>
         <source>Plain NormalMap (%1)</source>
         <translation>Nur NormalMap (%1)</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1483"/>
+        <location filename="../glwidgets.cpp" line="1485"/>
         <source>NormalMap + Alpha to Transparency (%1)</source>
         <translation>NormalMap + Alpha zur Transparenz (%1)</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1484"/>
+        <location filename="../glwidgets.cpp" line="1486"/>
         <source>NormalMap + Alpha to Shininess (%1)</source>
         <translation>NormalMap + Alpha zum Glanz (%1)</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1485"/>
+        <location filename="../glwidgets.cpp" line="1487"/>
         <source>NormalMap + ShininessMap (%1)</source>
         <translation>NormalMap + GlanzMap (%1)</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1526"/>
+        <location filename="../glwidgets.cpp" line="1528"/>
         <source>Scene mode: navigate with mouse and WASD (levitate with wheel, zoom in with shift)</source>
         <translation>Szenenmodus: Navigiere mit Maus und WASD (bewege dich mit Mausrad, zoome mit Shift)</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1531"/>
+        <location filename="../glwidgets.cpp" line="1533"/>
         <source>Helmet mode: for objects with vertical Z axis, like M&amp;B helmets or weapons.</source>
         <translation>Helmmodus: Für Objekte mit vertikaler Z-Axe, z.B. M&amp;B Helme und Waffen.</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1533"/>
+        <location filename="../glwidgets.cpp" line="1535"/>
         <source>Default mode: rotate objects with mouse, zoom in/out with wheel.</source>
         <translation>Standard Modus: Drehe Objekte mit Maus, zoome ein/aus mit dem Mausrad.</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1644"/>
+        <location filename="../glwidgets.cpp" line="1646"/>
         <source>Error parsing %1:
 
 maybe the problem is that a shader uses the sign (&lt;) or (&gt;) or (&amp;)?
@@ -4845,17 +4845,17 @@ in Zeile %3:
         <translation type="unfinished">&lt;i&gt;[0 Ergebnisse]&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1551"/>
+        <location filename="../iniData.cpp" line="1562"/>
         <source>&lt;b&gt;Missing in txt:&lt;/b&gt; cannot find %1 &lt;u&gt;%2&lt;/u&gt;, referred in &apos;%3&apos;</source>
         <translation>&lt;b&gt;Fehlt in txt:&lt;/b&gt; Kann %1 nicht finden&lt;u&gt;%2&lt;/u&gt;, bezeichnet in &apos;%3&apos;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1651"/>
+        <location filename="../iniData.cpp" line="1662"/>
         <source>&lt;b&gt;File-Not-Found:&lt;/b&gt; could not read BRF file &lt;u&gt;%1&lt;/u&gt;, listed in module.ini file</source>
         <translation>&lt;b&gt;Datei-Nicht-Gefunden:&lt;/b&gt; Kann BRF-Datei nicht lesen &lt;u&gt;%1&lt;/u&gt;, aufgelistet in der module.ini Datei</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1654"/>
+        <location filename="../iniData.cpp" line="1665"/>
         <source>&lt;b&gt;File-Format Error:&lt;/b&gt; could not read BRF file &lt;u&gt;%1&lt;/u&gt;</source>
         <translation>&lt;b&gt;Datei-Formatfehler:&lt;/b&gt; Konnte die BRF-Datei nicht lesen &lt;u&gt;%1&lt;/u&gt;</translation>
     </message>

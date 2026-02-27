@@ -1009,7 +1009,7 @@ o discordancia en la vinculación esqueletal).
 <context>
     <name>GLWidget</name>
     <message>
-        <location filename="../glwidgets.cpp" line="+681"/>
+        <location filename="../glwidgets.cpp" line="+683"/>
         <source>&lt;br /&gt;Vertex compilation: &lt;br /&gt;</source>
         <translation>&lt;br /&gt;Compilación de vértice: &lt;br /&gt;</translation>
     </message>
@@ -5599,7 +5599,7 @@ en la línea %3:
         <translation>&lt;i&gt;[sin resultados]&lt;/i&gt;</translation>
     </message>
     <message>
-        <location line="+334"/>
+        <location line="+345"/>
         <source>&lt;b&gt;Missing in txt:&lt;/b&gt; cannot find %1 &lt;u&gt;%2&lt;/u&gt;, referred in &apos;%3&apos;</source>
         <translation>&lt;b&gt;Ausente en txt:&lt;/b&gt; no se encuentra %1 &lt;u&gt;%2&lt;/u&gt;, definido en &apos;%3&apos;</translation>
     </message>
@@ -5608,12 +5608,12 @@ en la línea %3:
         <translation type="obsolete">&lt;b&gt;Faltante en txt:&lt;/b&gt; no se encuentra %1 &lt;u&gt;%2&lt;/u&gt;, definido en &apos;%3&apos;</translation>
     </message>
     <message>
-        <location line="-607"/>
+        <location line="-618"/>
         <source>&lt;b&gt;Duplicate:&lt;/b&gt; %1 was already defined in file %2</source>
         <translation>&lt;b&gt;Duplicado:&lt;/b&gt; %1 ya se definió anteriormente en %2</translation>
     </message>
     <message>
-        <location line="+707"/>
+        <location line="+718"/>
         <source>&lt;b&gt;File-Not-Found:&lt;/b&gt; could not read BRF file &lt;u&gt;%1&lt;/u&gt;, listed in module.ini file</source>
         <translation>&lt;b&gt;Archivo no encontrado:&lt;/b&gt; no se puede leer el archivo BRF &lt;u&gt;%1&lt;/u&gt;, listado en module.ini</translation>
     </message>

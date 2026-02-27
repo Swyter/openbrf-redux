@@ -782,90 +782,90 @@ object only</source>
 <context>
     <name>GLWidget</name>
     <message>
-        <location filename="../glwidgets.cpp" line="681"/>
+        <location filename="../glwidgets.cpp" line="683"/>
         <source>&lt;br /&gt;Vertex compilation: &lt;br /&gt;</source>
         <translation>&lt;br /&gt;頂点の統合: &lt;br /&gt;</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="689"/>
+        <location filename="../glwidgets.cpp" line="691"/>
         <source>&lt;br /&gt;Fragment compilation: &lt;br /&gt;</source>
         <translation>&lt;br /&gt;断片の統合: &lt;br /&gt;</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="694"/>
+        <location filename="../glwidgets.cpp" line="696"/>
         <source>&lt;br /&gt;Linking: &lt;br /&gt;</source>
         <translation>&lt;br /&gt;リンク: &lt;br /&gt;</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="700"/>
+        <location filename="../glwidgets.cpp" line="702"/>
         <source>&lt;br /&gt;Binding: &lt;br /&gt;</source>
         <translation>&lt;br /&gt;バインド: &lt;br /&gt;</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1474"/>
+        <location filename="../glwidgets.cpp" line="1476"/>
         <source>&quot;green&quot; NM</source>
         <translatorcomment>NM=NormalMap 「法線マップ」らしい。</translatorcomment>
         <translation>&quot;緑&quot; NM</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1474"/>
+        <location filename="../glwidgets.cpp" line="1476"/>
         <source>&quot;blue&quot; NM</source>
         <translatorcomment>NM=NormalMap 「法線マップ」らしい。</translatorcomment>
         <translation>&quot;青&quot; NM</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1477"/>
+        <location filename="../glwidgets.cpp" line="1479"/>
         <source>Custom User Shader</source>
         <translation>カスタム・ユーザ・シェーダ</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1480"/>
+        <location filename="../glwidgets.cpp" line="1482"/>
         <source>Default (fixed functionality)</source>
         <translation>デフォルト (固定機能)</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1481"/>
+        <location filename="../glwidgets.cpp" line="1483"/>
         <source>Alpha to Shininess</source>
         <translation>アルファから輝度</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1482"/>
+        <location filename="../glwidgets.cpp" line="1484"/>
         <source>Plain NormalMap (%1)</source>
         <translatorcomment>平面??</translatorcomment>
         <translation>プレーン 法線マップ (%1)</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1483"/>
+        <location filename="../glwidgets.cpp" line="1485"/>
         <source>NormalMap + Alpha to Transparency (%1)</source>
         <translation>法線マップ+透明度アルファ (%1)</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1484"/>
+        <location filename="../glwidgets.cpp" line="1486"/>
         <source>NormalMap + Alpha to Shininess (%1)</source>
         <translation>法線マップ+輝度アルファ (%1)</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1485"/>
+        <location filename="../glwidgets.cpp" line="1487"/>
         <source>NormalMap + ShininessMap (%1)</source>
         <translation>法線マップ+輝度マップ (%1)</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1526"/>
+        <location filename="../glwidgets.cpp" line="1528"/>
         <source>Scene mode: navigate with mouse and WASD (levitate with wheel, zoom in with shift)</source>
         <translation>シーン モード: マウスと W,A,S,D キーで移動 (ホイールで上下、Shift でズーム)</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1531"/>
+        <location filename="../glwidgets.cpp" line="1533"/>
         <source>Helmet mode: for objects with vertical Z axis, like M&amp;B helmets or weapons.</source>
         <translation>ヘルメット・モード: M&amp;B のヘルメットや武器のような、鉛直 Z 軸を持つオブジェクト用。</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1533"/>
+        <location filename="../glwidgets.cpp" line="1535"/>
         <source>Default mode: rotate objects with mouse, zoom in/out with wheel.</source>
         <translation>デフォルト・モード: マウスで回転、ホイールでズーム・イン/アウト。</translation>
     </message>
     <message>
-        <location filename="../glwidgets.cpp" line="1644"/>
+        <location filename="../glwidgets.cpp" line="1646"/>
         <source>Error parsing %1:
 
 maybe the problem is that a shader uses the sign (&lt;) or (&gt;) or (&amp;)?
@@ -4529,17 +4529,17 @@ at line %3:
         <translation>&lt;i&gt;[結果 0 件]&lt;/i&gt;</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1551"/>
+        <location filename="../iniData.cpp" line="1562"/>
         <source>&lt;b&gt;Missing in txt:&lt;/b&gt; cannot find %1 &lt;u&gt;%2&lt;/u&gt;, referred in &apos;%3&apos;</source>
         <translation>&lt;b&gt;txt に無い:&lt;/b&gt; &apos;%3&apos; で参照する %1 &lt;u&gt;%2&lt;/u&gt; が見つかりません</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1651"/>
+        <location filename="../iniData.cpp" line="1662"/>
         <source>&lt;b&gt;File-Not-Found:&lt;/b&gt; could not read BRF file &lt;u&gt;%1&lt;/u&gt;, listed in module.ini file</source>
         <translation>&lt;b&gt;ファイル無し:&lt;/b&gt; module.ini に書かれた brf、&lt;u&gt;%1&lt;/u&gt; が見つかりません</translation>
     </message>
     <message>
-        <location filename="../iniData.cpp" line="1654"/>
+        <location filename="../iniData.cpp" line="1665"/>
         <source>&lt;b&gt;File-Format Error:&lt;/b&gt; could not read BRF file &lt;u&gt;%1&lt;/u&gt;</source>
         <translation>&lt;b&gt;ファイル形式エラー:&lt;/b&gt; BRF ファイル &lt;u&gt;%1&lt;/u&gt; を読めませんでした</translation>
     </message>
