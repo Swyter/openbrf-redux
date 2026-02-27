@@ -28,6 +28,8 @@
 
 #include "mainwindow.h"
 
+/* swy: make the wireframe lines thicker on HiDPI/retina screens so that they are visible */
+#define glLineWidth(_VAL) glLineWidth(_VAL * max(devicePixelRatioF(), 1.0))
 
 GLWidget::GLWidget(QWidget *parent, IniData &_inidata)
   : QOpenGLWidget(parent), inidata(_inidata)
@@ -2844,6 +2846,9 @@ void GLWidget::paintGL()
 
 	glClearColor(currBgColor.redF(),currBgColor.greenF(),currBgColor.blueF(),1);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	/* swy: on x2 HiDPI 4K+ screens the macro-wrapped glLineWidth() gets twice as thick */
+	glLineWidth(1);
 
 	if (viewIs2D()) {
 		if (showAlpha==TRANSALPHA) glClearCheckBoard();
