@@ -22,7 +22,7 @@ VCGLIB = dependencies/vcglib # v1.0.1
 
     # swy: shut up the eigen library causing thousands of warnings slowing down gcc/MinGW:
     #      https://github.com/openscad/openscad/issues/2771
-    QMAKE_CXXFLAGS += -Wno-attributes -Wno-misleading-indentation -Wno-int-in-bool-context
+    QMAKE_CXXFLAGS += -Wno-attributes -Wno-misleading-indentation -Wno-int-in-bool-context -Wno-class-memaccess -Wno-maybe-uninitialized
     QMAKE_CXXFLAGS += -Wno-deprecated-declarations
 
     # swy: silence some noisy, but mostly harmless, warnings that obscure the real bugs
