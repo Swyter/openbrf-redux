@@ -35,10 +35,11 @@ GLWidget::GLWidget(QWidget *parent, IniData &_inidata)
   : QOpenGLWidget(parent), inidata(_inidata)
 {
 #if 1 /* swy: enable multisample antialiasing (MSAA) for less jaggies/softer triangle edges */
-    QSurfaceFormat sf = format();
+    QSurfaceFormat sf; sf.defaultFormat();
 	sf.setSamples(4); /* swy: maybe MSAA x8 is asking for trouble? */
 	sf.setSwapBehavior(QSurfaceFormat::TripleBuffer);
 	sf.setSwapInterval(-1);
+	sf.setRenderableType(QSurfaceFormat::OpenGL); /* swy: don't ever use OpenGL ES */
 //	sf.setProfile(QSurfaceFormat::CompatibilityProfile); /* swy: some drivers like @kraggrim's Radeon (TM) RX 470 don't work with a compatibility profile, at least in GL 3.0/3.1 */
 //	sf.setMajorVersion(3);
 //	sf.setMinorVersion(0);
