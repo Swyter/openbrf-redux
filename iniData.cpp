@@ -562,6 +562,10 @@ bool IniData::readModuleTxts(const QString &pathMod, const QString& pathData){
       tf.nextLine();
       int n = tf.intT(1);
       for  (int i=0; i<n; i++) {
+#if 1 /* swy: skip any empty separator lines from previous races coming before us, as long as we're not the first (nothing before us) */
+        if (i > 0)
+          tf.skipLines(1);
+#endif
         tf.nextLine();
         tf.nextLine();
         listMe.append( tf.stringT(1) ); // body
@@ -612,8 +616,14 @@ bool IniData::readModuleTxts(const QString &pathMod, const QString& pathData){
         tf.nextLine(); // two numbers?
         tf.nextLine();
         tmp = tf.intT(1,0,1024);
+#if 1
+        /* swy: the skin.txt exporter is a bit weird in that the face key constraints add their own prefixing \n carriage returns after the count line,
+                not their trailing \n, so there's always a double \n\n after the face contraint count, but none after the constraint lines, they appear
+                next to the following skin entry without any extra spacing. handle that in the parser at the beginning of each race */
+        tf.skipLines(tmp);
+#else
         tf.skipLines(tmp+1);
-
+#endif
       }
 
       //listSk.append("skel_horse"); // bonus!
